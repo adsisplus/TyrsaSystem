@@ -17,7 +17,7 @@ namespace Adsisplus.Cotyrsa.BusinessEntities
         [DataMember]
         public String vchTipoMarcoTyrsa { get; set; }
         [DataMember]
-        public Int16? intCalibreAceroID { get; set; }
+        public Int16? intCalibreAceroID { get; set; } 
         [DataMember]
         public String vchCalibreAcero { get; set; }
         [DataMember]
