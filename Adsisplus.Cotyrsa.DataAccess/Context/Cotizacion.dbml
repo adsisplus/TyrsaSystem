@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="dbTyrsa" Class="CotizacionDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=local;Initial Catalog=dbTyrsa;Persist Security Info=True;User ID=usrCotyrsa" SettingsObjectName="Adsisplus.Cotyrsa.DataAccess.Properties.Settings" SettingsPropertyName="dbTyrsaConnectionString" Provider="System.Data.SqlClient" />
+  <Function Name="dbo.stp_ListarDatosCotizacion" Method="stp_ListarDatosCotizacion">
+    <Parameter Name="intCotizacionID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intEstatusID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="sintPrioridadID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intEmpresaID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="stp_ListarDatosCotizacionResult">
+      <Column Name="intCotizacionID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="vchEstatus" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
+      <Column Name="vchPrioridad" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="vchNombreCliente" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="vchFolio" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="datFechaCotizacion" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="datFechaAceptacion" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="datFechaRechazo" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </ElementType>
+  </Function>
+</Database>

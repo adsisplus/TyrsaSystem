@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="dbTyrsa" Class="ProtectoresDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=local;Initial Catalog=dbTyrsa;Persist Security Info=True;User ID=usrCotyrsa" SettingsObjectName="Adsisplus.Cotyrsa.DataAccess.Properties.Settings" SettingsPropertyName="dbTyrsaConnectionString" Provider="System.Data.SqlClient" />
+  <Function Name="dbo.stp_ListarDatosProtectorPoste" Method="stp_ListarDatosProtectorPoste">
+    <Parameter Name="intProtectorPosteID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intElementoID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intCotizacionID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="sintPinturaID" Type="System.Int16" DbType="SmallInt" />
+    <ElementType Name="stp_ListarDatosProtectorPosteResult">
+      <Column Name="intProtectorPosteID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="vchElemento" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
+      <Column Name="intCotizacionID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="vchFolio" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="vchPintura" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
+      <Column Name="intCantidadProtectorPoste" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="bitActivo" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.stp_ListarDatosProtectorBateria" Method="stp_ListarDatosProtectorBateria">
+    <Parameter Name="intProtectorBateriaID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intElementoID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intCotizacionID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="stp_ListarDatosProtectorBateriaResult">
+      <Column Name="intProtectorBateriaID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="vchElemento" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
+      <Column Name="intCotizacionID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="vchFolio" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="intCantidadSencilla" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="intCantidadDoble" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="intCantidadCuadruple" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="bitActivo" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </ElementType>
+  </Function>
+</Database>

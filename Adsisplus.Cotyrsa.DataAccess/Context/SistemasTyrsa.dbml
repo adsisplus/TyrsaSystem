@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="dbTyrsa" Class="SistemasTyrsaDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=local;Initial Catalog=dbTyrsa;Persist Security Info=True;User ID=usrCotyrsa" SettingsObjectName="Adsisplus.Cotyrsa.DataAccess.Properties.Settings" SettingsPropertyName="dbTyrsaConnectionString" Provider="System.Data.SqlClient" />
+  <Function Name="dbo.stp_ListarRelSistemaSelectivo" Method="stp_ListarRelSistemaSelectivo">
+    <Parameter Name="intCotizacionID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intTipoElementoCoti_Producto" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intTipoElementoID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intTipoElementoAlmacenID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intConfiguraMarcoID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intConfiguraVigaID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intDatoMarcoID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intDatosVigaID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intDatosPanelID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intDatosCrossBarID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intDistanciadorID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intParrillaID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intVigaTopeID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intProtectorPosteID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intProtectorBateriaID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="sintSistemaCargaMarcoID" Type="System.Int16" DbType="SmallInt" />
+    <Parameter Name="datFechaAlta" Type="System.DateTime" DbType="Date" />
+    <ElementType Name="stp_ListarRelSistemaSelectivoResult">
+      <Column Name="intTipoElementoCoti_Producto" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="intCotizacionID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="vchDescElementoCotizar" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
+      <Column Name="vchProductoAcero" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
+      <Column Name="decPrecioTyrsa" Type="System.Decimal" DbType="Decimal(8,3)" CanBeNull="true" />
+      <Column Name="vchConfiguraViga" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="intCantidadMarco" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="intCantidadViga" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="intCantidadPanel" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="intCantidadNivelCrossbar" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="intCantidadDistanciador" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="decCostoParrilla" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
+      <Column Name="intCantidadVigaTope" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="intCantidadProctorPoste" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="intCantidadSencillaProtectorBateria" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="intCantidadDobleProtectorBateria" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="intCantidadCuadrupleProtectorBateria" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="datFechaAlta" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="bitActivo" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </ElementType>
+  </Function>
+</Database>

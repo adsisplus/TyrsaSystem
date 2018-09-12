@@ -1,0 +1,117 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{91BD2310-35A3-4007-883F-575BDA4EE84B}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Adsisplus.Cotyrsa.BusinessEntities</RootNamespace>
+    <AssemblyName>Adsisplus.Cotyrsa.BusinessEntities</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CapacidadViga.cs" />
+    <Compile Include="CargaMarco.cs" />
+    <Compile Include="CargaPoste.cs" />
+    <Compile Include="Catalogo.cs" />
+    <Compile Include="CatalogoDecimal.cs" />
+    <Compile Include="CatalogoEntero.cs" />
+    <Compile Include="ComplementoObligatorio.cs" />
+    <Compile Include="Configuracion_Marco.cs" />
+    <Compile Include="Cotizacion.cs" />
+    <Compile Include="CotizaProducto.cs" />
+    <Compile Include="DatosAnguloRanurado.cs" />
+    <Compile Include="DatosAtirantado.cs" />
+    <Compile Include="DatosBrazo.cs" />
+    <Compile Include="DatosCarril.cs" />
+    <Compile Include="DatosCarro.cs" />
+    <Compile Include="DatosCrossBar.cs" />
+    <Compile Include="DatosDistanciador.cs" />
+    <Compile Include="DatosEntrepanio.cs" />
+    <Compile Include="DatosFreno.cs" />
+    <Compile Include="DatosGuiaEntrada.cs" />
+    <Compile Include="DatosMarco.cs" />
+    <Compile Include="DatosPanel.cs" />
+    <Compile Include="DatosParrilla.cs" />
+    <Compile Include="DatosPerfil.cs" />
+    <Compile Include="DatosPiso.cs" />
+    <Compile Include="DatosProtectorBase.cs" />
+    <Compile Include="DatosProtectorBateria.cs" />
+    <Compile Include="DatosRielDinamico.cs" />
+    <Compile Include="DatosRielImportado.cs" />
+    <Compile Include="DatosRielPortaRueda.cs" />
+    <Compile Include="DatosRielTarima.cs" />
+    <Compile Include="DatosViga.cs" />
+    <Compile Include="DatosVigaAtirantado.cs" />
+    <Compile Include="DatosVigaEntrada.cs" />
+    <Compile Include="DatosVigaItermedia.cs" />
+    <Compile Include="DatosVigaTope.cs" />
+    <Compile Include="DatosTopeDeEneopreno.cs" />
+    <Compile Include="Direccion.cs" />
+    <Compile Include="DiversosElementoCotizar.cs" />
+    <Compile Include="Elemento.cs" />
+    <Compile Include="Empresa.cs" />
+    <Compile Include="FactorCotizacion.cs" />
+    <Compile Include="FactorMarco.cs" />
+    <Compile Include="FactorViga.cs" />
+    <Compile Include="FondoMarco.cs" />
+    <Compile Include="Localidad.cs" />
+    <Compile Include="Modelo.cs" />
+    <Compile Include="Municipio.cs" />
+    <Compile Include="Persona.cs" />
+    <Compile Include="PersonaCotizacion.cs" />
+    <Compile Include="Pintura.cs" />
+    <Compile Include="ProductoAcero.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Protector.cs" />
+    <Compile Include="RelSistemaCargaMarcoPoste.cs" />
+    <Compile Include="RelSistemaSelectivo.cs" />
+    <Compile Include="SubFamiliaMarco.cs" />
+    <Compile Include="Subproducto.cs" />
+    <Compile Include="TipoElementoAlmacen_FactorCotizacion.cs" />
+    <Compile Include="TipoElementoCotizar_CatalogoProducto.cs" />
+    <Compile Include="TipoMarco.cs" />
+    <Compile Include="TipoProtector.cs" />
+    <Compile Include="TotalViga.cs" />
+    <Compile Include="Viga.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

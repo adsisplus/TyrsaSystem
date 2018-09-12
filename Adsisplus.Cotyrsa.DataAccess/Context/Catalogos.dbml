@@ -1,0 +1,389 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="dbTyrsa" Class="CatalogosDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=local;Initial Catalog=dbTyrsa;Persist Security Info=True;User ID=usrCotyrsa" SettingsObjectName="Adsisplus.Cotyrsa.DataAccess.Properties.Settings" SettingsPropertyName="dbTyrsaConnectionString" Provider="System.Data.SqlClient" />
+  <Function Name="dbo.stp_ListarCatAlturaMarco" Method="stp_ListarCatAlturaMarco">
+    <ElementType Name="stp_ListarCatAlturaMarcoResult">
+      <Column Name="intAlturaMarcoID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="decAlturaMarco" Type="System.Decimal" DbType="Decimal(8,2)" CanBeNull="true" />
+      <Column Name="bitActivo" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.stp_ListarCatCalibreAcero" Method="stp_ListarCatCalibreAcero">
+    <ElementType Name="stp_ListarCatCalibreAceroResult">
+      <Column Name="intCalibreAceroID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="vchCalibreAcero" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="bitActivo" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.stp_ListarCatCalibreViga" Method="stp_ListarCatCalibreViga">
+    <ElementType Name="stp_ListarCatCalibreVigaResult">
+      <Column Name="intCalibreID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="vchCalibre" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="bitActivo" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.stp_ListarCatEstado" Method="stp_ListarCatEstado">
+    <ElementType Name="stp_ListarCatEstadoResult">
+      <Column Name="intEstadoID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="vchNombre" Type="System.String" DbType="VarChar(80) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.stp_ListarCatEstatus" Method="stp_ListarCatEstatus">
+    <ElementType Name="stp_ListarCatEstatusResult">
+      <Column Name="intEstatusID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="vchDescripcion" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
+      <Column Name="bitActivo" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.stp_ListarCatFactorMarco" Method="stp_ListarCatFactorMarco">
+    <ElementType Name="stp_ListarCatFactorMarcoResult">
+      <Column Name="sintFactorMarcoID" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Column Name="vchDescCorta" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
+      <Column Name="vchContanteMarco" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
+      <Column Name="decCosto" Type="System.Decimal" DbType="Decimal(8,3)" CanBeNull="true" />
+      <Column Name="datFechaAlta" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="bitActivo" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.stp_ListarCatInsumoViga" Method="stp_ListarCatInsumoViga">
+    <ElementType Name="stp_ListarCatInsumoVigaResult">
+      <Column Name="sintInsumoViga" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Column Name="vchInsumoViga" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
+      <Column Name="bitActivo" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.stp_ListarCatLargoViga" Method="stp_ListarCatLargoViga">
+    <ElementType Name="stp_ListarCatLargoVigaResult">
+      <Column Name="sintLargoID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="intLargo" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="bitActivo" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.stp_ListarCatLocalidad" Method="stp_ListarCatLocalidad">
+    <Parameter Name="int_MunicipioID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="stp_ListarCatLocalidadResult">
+      <Column Name="intLocalidadID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="int_MunicipioID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="vchNombre" Type="System.String" DbType="VarChar(120) NOT NULL" CanBeNull="false" />
+      <Column Name="intCP" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="vchZona" Type="System.String" DbType="VarChar(32) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.stp_ListarCatNumeroCarro" Method="stp_ListarCatNumeroCarro">
+    <ElementType Name="stp_ListarCatNumeroCarroResult">
+      <Column Name="sintNumeroCarroID" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Column Name="vchNumeroCarro" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
+      <Column Name="bitActivo" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.stp_ListarCatPeralte" Method="stp_ListarCatPeralte">
+    <ElementType Name="stp_ListarCatPeralteResult">
+      <Column Name="sintLongitudID" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Column Name="vchLongitud" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="bitActivo" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.stp_ListarCatPersonalidad" Method="stp_ListarCatPersonalidad">
+    <ElementType Name="stp_ListarCatPersonalidadResult">
+      <Column Name="intPersonalidadID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="vchPersonalidad" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
+      <Column Name="bitActivo" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.stp_ListarCatPintura" Method="stp_ListarCatPintura">
+    <ElementType Name="stp_ListarCatPinturaResult">
+      <Column Name="sintPinturaID" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Column Name="vchPintura" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
+      <Column Name="decCosto" Type="System.Decimal" DbType="Decimal(8,2)" CanBeNull="true" />
+      <Column Name="datFechaActual" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="datFechaActualizacion" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="intVigencia" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="bitActivo" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.stp_ListarCatPrioridad" Method="stp_ListarCatPrioridad">
+    <ElementType Name="stp_ListarCatPrioridadResult">
+      <Column Name="sintPrioridadID" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Column Name="vchPrioridad" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="bitActivo" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.stp_ListarCatProductoGeneral" Method="stp_ListarCatProductoGeneral">
+    <ElementType Name="stp_ListarCatProductoGeneralResult">
+      <Column Name="intProductoGralID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="vchDescripcion" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
+      <Column Name="bitActivo" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.stp_ListarCatRielTarima" Method="stp_ListarCatRielTarima">
+    <ElementType Name="stp_ListarCatRielTarimaResult">
+      <Column Name="sintRielTarimaID" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Column Name="vchRielTarima" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
+      <Column Name="bitActivo" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.stp_ListarCatSKU" Method="stp_ListarCatSKU">
+    <ElementType Name="stp_ListarCatSKUResult">
+      <Column Name="intSKUID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="sintSKU" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="bitActivo" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.stp_ListarCatTipoEmpresa" Method="stp_ListarCatTipoEmpresa">
+    <ElementType Name="stp_ListarCatTipoEmpresaResult">
+      <Column Name="sintTipoEmpresaID" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Column Name="vchTipoEmpresa" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="bitActivo" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.stp_ListarCatTipoEntrepanio" Method="stp_ListarCatTipoEntrepanio">
+    <ElementType Name="stp_ListarCatTipoEntrepanioResult">
+      <Column Name="sintTipoEntrepanioID" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Column Name="vchTipoEntrepanio" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
+      <Column Name="bitActivo" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.stp_ListarCatTipoGalvanizado" Method="stp_ListarCatTipoGalvanizado">
+    <ElementType Name="stp_ListarCatTipoGalvanizadoResult">
+      <Column Name="sintTipoGalvanizadoID" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Column Name="vchTipoGalvanizado" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
+      <Column Name="bitActivo" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.stp_ListarCatTipoMaterialMarco" Method="stp_ListarCatTipoMaterialMarco">
+    <ElementType Name="stp_ListarCatTipoMaterialMarcoResult">
+      <Column Name="sintTipoMaterialID" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Column Name="vchTipoMaterial" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
+      <Column Name="bitActivo" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.stp_ListarCatTipoPerfil" Method="stp_ListarCatTipoPerfil">
+    <ElementType Name="stp_ListarCatTipoPerfilResult">
+      <Column Name="sintTipoPerfilID" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Column Name="vchTipoPerfil" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
+      <Column Name="bitActivo" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.stp_ListarCatTipoPersona" Method="stp_ListarCatTipoPersona">
+    <ElementType Name="stp_ListarCatTipoPersonaResult">
+      <Column Name="intTipoPersonaID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="vchDescripcion" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
+      <Column Name="bitActivo" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.stp_ListarCatTipoViga" Method="stp_ListarCatTipoViga">
+    <ElementType Name="stp_ListarCatTipoVigaResult">
+      <Column Name="sintTipoVigaID" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Column Name="vchTipoViga" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="bitActivo" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.stp_ListarCatUnidadMedicion" Method="stp_ListarCatUnidadMedicion">
+    <ElementType Name="stp_ListarCatUnidadMedicionResult">
+      <Column Name="intUnidadMedicionID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="vchUnidadMedicion" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
+      <Column Name="bitActivo" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.stp_ListarCatCapacidadViga" Method="stp_ListarCatCapacidadViga">
+    <Parameter Name="sintTipoVigaID" Type="System.Int16" DbType="SmallInt" />
+    <Parameter Name="sintLongitudID" Type="System.Int16" DbType="SmallInt" />
+    <Parameter Name="intCalibreID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="sintLargoID" Type="System.Int16" DbType="SmallInt" />
+    <ElementType Name="stp_ListarCatCapacidadVigaResult">
+      <Column Name="intCapacidadVigaID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="vchTipoViga" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="vchLongitud" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="vchCalibre" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="intLargo" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="decCargaKg" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
+      <Column Name="decCargaLbs" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
+      <Column Name="decCoeficienteSeguridad" Type="System.Decimal" DbType="Decimal(8,2)" CanBeNull="true" />
+      <Column Name="datFechaAlta" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="bitActivo" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.stp_ListarCatComplementoObligatorio" Method="stp_ListarCatComplementoObligatorio">
+    <Parameter Name="intElementoID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="stp_ListarCatComplementoObligatorioResult">
+      <Column Name="intComplementObligatorioID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="vchElemento" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
+      <Column Name="datFechaAlta" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="datFechaActualizacion" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="intVigencia" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="vchDescripcionComplemento" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="intCantidad" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="decPrecioUnitario" Type="System.Decimal" DbType="Decimal(8,2)" CanBeNull="true" />
+      <Column Name="bitActivo" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.stp_ListarCatElemento" Method="stp_ListarCatElemento">
+    <Parameter Name="intSubProductoID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="stp_ListarCatElementoResult">
+      <Column Name="intElementoID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="vchDescripcionSub" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
+      <Column Name="vchElemento" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
+      <Column Name="bitActivo" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.stp_ListarCatModelo" Method="stp_ListarCatModelo">
+    <Parameter Name="intElementoID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="stp_ListarCatModeloResult">
+      <Column Name="intModeloID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="vchElemento" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
+      <Column Name="vchModelo" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="bitActivo" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.stp_ListarCatMontaje" Method="stp_ListarCatMontaje">
+    <ElementType Name="stp_ListarCatMontajeResult">
+      <Column Name="sintMontajeID" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Column Name="vchMontaje" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="bitActivo" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.stp_ListarCatMunicipio" Method="stp_ListarCatMunicipio">
+    <Parameter Name="intEstadoID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="stp_ListarCatMunicipioResult">
+      <Column Name="intMunicipioID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="intNumero_Mpio" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="vchEstado" Type="System.String" DbType="VarChar(80)" CanBeNull="true" />
+      <Column Name="vchNombre" Type="System.String" DbType="VarChar(120) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.stp_ListarCatSubfamiliaMarco" Method="stp_ListarCatSubfamiliaMarco">
+    <Parameter Name="sintFondoMarcoID" Type="System.Int16" DbType="SmallInt" />
+    <Parameter Name="sintTipoMarcoID" Type="System.Int16" DbType="SmallInt" />
+    <ElementType Name="stp_ListarCatSubfamiliaMarcoResult">
+      <Column Name="intSubfamiliaMarcoID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="decFondoMarco" Type="System.Decimal" DbType="Decimal(8,2)" CanBeNull="true" />
+      <Column Name="vchTipoMarcoTyrsa" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
+      <Column Name="vchParte" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="vchDescripcion" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="decConDesperdicio" Type="System.Decimal" DbType="Decimal(8,2)" CanBeNull="true" />
+      <Column Name="bitActivo" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.stp_ListarCatSubproducto" Method="stp_ListarCatSubproducto">
+    <Parameter Name="intProductoGralID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="stp_ListarCatSubproductoResult">
+      <Column Name="intSubProductoID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="vchProductoGral" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
+      <Column Name="vchDescripcionSub" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
+      <Column Name="bitActivo" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.stp_ListarCatTipoAnguloRanurado" Method="stp_ListarCatTipoAnguloRanurado">
+    <ElementType Name="stp_ListarCatTipoAnguloRanuradoResult">
+      <Column Name="sintTipoAnguloRanuradoID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="vchTipoAnguloRanurado" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
+      <Column Name="bitActivo" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.stp_ListarCatTipoDomicilio" Method="stp_ListarCatTipoDomicilio">
+    <ElementType Name="stp_ListarCatTipoDomicilioResult">
+      <Column Name="intTipoDomicilioID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="vchDescripcion" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
+      <Column Name="bitActivo" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.stp_ListarCatTipoMarco" Method="stp_ListarCatTipoMarco">
+    <Parameter Name="sintSeccionPosteID" Type="System.Int16" DbType="SmallInt" />
+    <ElementType Name="stp_ListarCatTipoMarcoResult">
+      <Column Name="sintTipoMarcoID" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Column Name="vchSeccionPoste" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="vchTipoMarcoTyrsa" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
+      <Column Name="vchTipoMarcoMercadoA" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
+      <Column Name="vchTipoMarcoMercadoB" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
+      <Column Name="decPosteDesarrollo" Type="System.Decimal" DbType="Decimal(8,2)" CanBeNull="true" />
+      <Column Name="bitActivo" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.stp_ListarCatTipoProtector" Method="stp_ListarCatTipoProtector">
+    <Parameter Name="intTipoElementoAlmacenID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="stp_ListarCatTipoProtectorResult">
+      <Column Name="intTipoProtector" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="vchDescripcionTipoElemento" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
+      <Column Name="vchProtector" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
+      <Column Name="intCantidad" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="bitActivo" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.stp_ListarCatSeccionPosteMarco" Method="stp_ListarCatSeccionPosteMarco">
+    <ElementType Name="stp_ListarCatSeccionPosteMarcoResult">
+      <Column Name="sintSeccionPosteID" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Column Name="vchSeccionPoste" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="bitActivo" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.stp_ListarCatCargaMarco" Method="stp_ListarCatCargaMarco">
+    <Parameter Name="intCargaMarcoID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="sintTipoMarcoID" Type="System.Int16" DbType="SmallInt" />
+    <Parameter Name="intCalibreAceroID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="stp_ListarCatCargaMarcoResult">
+      <Column Name="intCargaMarcoID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="vchTipoMarcoTyrsa" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
+      <Column Name="vchCalibreAcero" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="vchFrenteTyrsa" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
+      <Column Name="vchFrenteMercadoA" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
+      <Column Name="vchFrenteMercadoB" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
+      <Column Name="vchFondoTyrsa" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
+      <Column Name="vchFondoMercadoA" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
+      <Column Name="vchFondoMercadoB" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
+      <Column Name="decAlturaPandeoM" Type="System.Decimal" DbType="Decimal(8,2)" CanBeNull="true" />
+      <Column Name="intAlturaPandeoIN" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="intCapacidadPeso" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="bitActivo" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.stp_ListarCatCargaPoste" Method="stp_ListarCatCargaPoste">
+    <Parameter Name="intCargaPosteID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="sintTipoMarcoID" Type="System.Int16" DbType="SmallInt" />
+    <Parameter Name="intCalibreAceroID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="stp_ListarCatCargaPosteResult">
+      <Column Name="intCargaPosteID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="vchTipoMarcoTyrsa" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
+      <Column Name="vchCalibreAcero" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="vchFrenteTyrsa" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
+      <Column Name="vchFrenteMercadoA" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
+      <Column Name="vchFrenteMercadoB" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
+      <Column Name="vchFondoTyrsa" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
+      <Column Name="vchFondoMercadoA" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
+      <Column Name="vchFondoMercadoB" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
+      <Column Name="decAlturaPandeoM" Type="System.Decimal" DbType="Decimal(8,2)" CanBeNull="true" />
+      <Column Name="intAlturaPandeoIN" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="intCapacidadPeso" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="bitActivo" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.stp_ListarCatProductoAcero" Method="stp_ListarCatProductoAcero">
+    <Parameter Name="intTipoElementoAlmacenID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intUnidadMedicionID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intModeloID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intCalibreAceroID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="stp_ListarCatProductoAceroResult">
+      <Column Name="intTipoElementoAlmacenID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="vchUnidadMedicion" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
+      <Column Name="vchModelo" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="vchCalibreAcero" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="vchDescripcionTipoElemento" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
+      <Column Name="decCostoNegra" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
+      <Column Name="decCostoGalvanizada" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
+      <Column Name="decCapacidadAcero" Type="System.Decimal" DbType="Decimal(8,2)" CanBeNull="true" />
+      <Column Name="decFactorNegra" Type="System.Decimal" DbType="Decimal(8,2)" CanBeNull="true" />
+      <Column Name="decFactorGalvanizado" Type="System.Decimal" DbType="Decimal(8,2)" CanBeNull="true" />
+      <Column Name="datFechaAlta" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="datFechaActualizacion" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="intVigencia" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="bitActivo" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.stp_ListarCatFactorViga" Method="stp_ListarCatFactorViga">
+    <ElementType Name="stp_ListarCatFactorVigaResult">
+      <Column Name="intFactorVigaID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="vchFactorViga" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="decFactorViga" Type="System.Decimal" DbType="Decimal(8,2)" CanBeNull="true" />
+      <Column Name="datFechaAlta" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="bitActivo" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </ElementType>
+  </Function>
+</Database>

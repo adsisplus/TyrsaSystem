@@ -1,0 +1,285 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{61B454D8-C303-408C-987C-B1227D8BD8BC}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Adsisplus.Cotyrsa.DataAccess</RootNamespace>
+    <AssemblyName>Adsisplus.Cotyrsa.DataAccess</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CatalogosDataAccess.cs" />
+    <Compile Include="Context\Catalogos.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Catalogos.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="Context\Cotizacion.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Cotizacion.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="Context\CrossBar.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrossBar.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="Context\Direccion.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Direccion.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="Context\Distanciador.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Distanciador.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="Context\Empresa.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Empresa.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="Context\Marcos.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Marcos.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="Context\Paneles.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Paneles.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="Context\Parrilla.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Parrilla.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="Context\Persona.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Persona.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="Context\Protectores.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Protectores.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="Context\SistemasTyrsa.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SistemasTyrsa.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="Context\Vigas.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Vigas.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="CotizacionDataAccess.cs" />
+    <Compile Include="CrossBarDataAccess.cs" />
+    <Compile Include="DireccionDataAccess.cs" />
+    <Compile Include="DistanciadorDataAccess.cs" />
+    <Compile Include="EmpresaDataAccess.cs" />
+    <Compile Include="Helper.cs" />
+    <Compile Include="MarcosDataAccess.cs" />
+    <Compile Include="PanelDataAccess.cs" />
+    <Compile Include="ParrillaDataAccess.cs" />
+    <Compile Include="PersonaDataAccess.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="ProtectoresDataAccess.cs" />
+    <Compile Include="SistemasTyrsaDataAccess.cs" />
+    <Compile Include="VigaDataAccess.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Adsisplus.Cotyrsa.BusinessEntities\Adsisplus.Cotyrsa.BusinessEntities.csproj">
+      <Project>{91bd2310-35a3-4007-883f-575bda4ee84b}</Project>
+      <Name>Adsisplus.Cotyrsa.BusinessEntities</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="Context\Catalogos.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>Catalogos.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Context\Cotizacion.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>Cotizacion.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Context\CrossBar.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>CrossBar.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Context\Direccion.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>Direccion.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Context\Distanciador.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>Distanciador.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Context\Empresa.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>Empresa.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Context\Marcos.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>Marcos.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Context\Paneles.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>Paneles.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Context\Parrilla.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>Parrilla.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Context\Persona.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>Persona.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Context\Protectores.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>Protectores.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Context\SistemasTyrsa.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>SistemasTyrsa.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Context\Vigas.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>Vigas.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Context\Catalogos.dbml.layout">
+      <DependentUpon>Catalogos.dbml</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Context\Marcos.dbml.layout">
+      <DependentUpon>Marcos.dbml</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Context\SistemasTyrsa.dbml.layout">
+      <DependentUpon>SistemasTyrsa.dbml</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Context\Vigas.dbml.layout">
+      <DependentUpon>Vigas.dbml</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Context\Paneles.dbml.layout">
+      <DependentUpon>Paneles.dbml</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Context\CrossBar.dbml.layout">
+      <DependentUpon>CrossBar.dbml</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Context\Distanciador.dbml.layout">
+      <DependentUpon>Distanciador.dbml</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Context\Parrilla.dbml.layout">
+      <DependentUpon>Parrilla.dbml</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Context\Protectores.dbml.layout">
+      <DependentUpon>Protectores.dbml</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Context\Cotizacion.dbml.layout">
+      <DependentUpon>Cotizacion.dbml</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Context\Persona.dbml.layout">
+      <DependentUpon>Persona.dbml</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Context\Empresa.dbml.layout">
+      <DependentUpon>Empresa.dbml</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Context\Direccion.dbml.layout">
+      <DependentUpon>Direccion.dbml</DependentUpon>
+    </None>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,70 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Adsisplus.Cotyrsa.BusinessEntities", "Adsisplus.Cotyrsa.BusinessEntities\Adsisplus.Cotyrsa.BusinessEntities.csproj", "{91BD2310-35A3-4007-883F-575BDA4EE84B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Adsisplus.Cotyrsa.DataAccess", "Adsisplus.Cotyrsa.DataAccess\Adsisplus.Cotyrsa.DataAccess.csproj", "{61B454D8-C303-408C-987C-B1227D8BD8BC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Adsisplus.Cotyrsa.BusinessLogic", "Adsisplus.Cotyrsa.BusinessLogic\Adsisplus.Cotyrsa.BusinessLogic.csproj", "{9B3AAE40-9E30-4FED-BEAD-1A7B1CE83295}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1. Business Entities", "1. Business Entities", "{81626D90-1224-44F0-9059-16121A55C189}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2. Data Access", "2. Data Access", "{B6CC84C4-EE0A-4F10-95DC-70195160F5D8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3. Business Logic", "3. Business Logic", "{C2D8D905-2F9D-4398-B621-9B21E1DF782F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4. Services", "4. Services", "{39D71020-0D7E-410A-8A17-D5A91DF733BB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Adsisplus.Cotyrsa.Services", "Adsisplus.Cotyrsa.Services\Adsisplus.Cotyrsa.Services.csproj", "{0150D614-DFC9-4584-A94B-EB8148BA4684}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Adsisplus.Cotyrsa.TestHostInstall", "Adsisplus.Cotyrsa.TestHostInstall\Adsisplus.Cotyrsa.TestHostInstall.csproj", "{0DF5C4BA-6963-4907-B32C-92E89518915B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "5. User Interface", "5. User Interface", "{CC699FE0-437F-49A5-A53D-D5618C88C575}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Adsisplus.Cotyrsa.WebSite", "Adsisplus.Cotyrsa.WebSite\Adsisplus.Cotyrsa.WebSite.csproj", "{ADAC1D9B-2536-4318-B618-F208CF3E3E89}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{91BD2310-35A3-4007-883F-575BDA4EE84B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{91BD2310-35A3-4007-883F-575BDA4EE84B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{91BD2310-35A3-4007-883F-575BDA4EE84B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{91BD2310-35A3-4007-883F-575BDA4EE84B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{61B454D8-C303-408C-987C-B1227D8BD8BC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{61B454D8-C303-408C-987C-B1227D8BD8BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{61B454D8-C303-408C-987C-B1227D8BD8BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{61B454D8-C303-408C-987C-B1227D8BD8BC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9B3AAE40-9E30-4FED-BEAD-1A7B1CE83295}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9B3AAE40-9E30-4FED-BEAD-1A7B1CE83295}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9B3AAE40-9E30-4FED-BEAD-1A7B1CE83295}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9B3AAE40-9E30-4FED-BEAD-1A7B1CE83295}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0150D614-DFC9-4584-A94B-EB8148BA4684}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0150D614-DFC9-4584-A94B-EB8148BA4684}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0150D614-DFC9-4584-A94B-EB8148BA4684}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0150D614-DFC9-4584-A94B-EB8148BA4684}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0DF5C4BA-6963-4907-B32C-92E89518915B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0DF5C4BA-6963-4907-B32C-92E89518915B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0DF5C4BA-6963-4907-B32C-92E89518915B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0DF5C4BA-6963-4907-B32C-92E89518915B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ADAC1D9B-2536-4318-B618-F208CF3E3E89}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ADAC1D9B-2536-4318-B618-F208CF3E3E89}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ADAC1D9B-2536-4318-B618-F208CF3E3E89}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ADAC1D9B-2536-4318-B618-F208CF3E3E89}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{91BD2310-35A3-4007-883F-575BDA4EE84B} = {81626D90-1224-44F0-9059-16121A55C189}
+		{61B454D8-C303-408C-987C-B1227D8BD8BC} = {B6CC84C4-EE0A-4F10-95DC-70195160F5D8}
+		{9B3AAE40-9E30-4FED-BEAD-1A7B1CE83295} = {C2D8D905-2F9D-4398-B621-9B21E1DF782F}
+		{0150D614-DFC9-4584-A94B-EB8148BA4684} = {39D71020-0D7E-410A-8A17-D5A91DF733BB}
+		{0DF5C4BA-6963-4907-B32C-92E89518915B} = {39D71020-0D7E-410A-8A17-D5A91DF733BB}
+		{ADAC1D9B-2536-4318-B618-F208CF3E3E89} = {CC699FE0-437F-49A5-A53D-D5618C88C575}
+	EndGlobalSection
+EndGlobal
