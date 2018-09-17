@@ -35,5 +35,24 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
             }
             return results;
         }
+        /// <summary>
+        /// Permite realizar el alta, modificación y baja de la empresa
+        /// </summary>
+        /// <param name="empresa"></param>
+        /// <param name="tinOpcion"></param>
+        /// <returns></returns>
+        public Resultado setEmpresa(Empresa empresa, short tinOpcion)
+        {
+            Resultado result = new Resultado();
+            try
+            {
+                result = CatalogosDA.setEmpresa(empresa, tinOpcion);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
     }
 }

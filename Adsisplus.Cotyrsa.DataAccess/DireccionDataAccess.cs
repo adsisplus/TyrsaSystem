@@ -42,5 +42,34 @@ namespace Adsisplus.Cotyrsa.DataAccess
             }
             return results;
         }
+        /// <summary>
+        /// Permite realizar el alta, modificación o baja de los datos de domicilio
+        /// </summary>
+        /// <param name="direccion"></param>
+        /// <returns></returns>
+        public Resultado setDomicilio(Direccion direccion, short tinOpcion)
+        {
+            Resultado result = new Resultado();
+            try
+            {
+                using (DireccionDataContext dc = new DireccionDataContext(Helper.ConnectionString()))
+                {
+                    var query = from item in dc.stp_setDomicilio(direccion.intDireccionID, direccion.intMunicipioID, direccion.intEstadoID, direccion.intLocalidadID,
+                        direccion.intTipoDomicilioID, direccion.vchCalle, direccion.vchNumExterior, direccion.vchNumInterior, direccion.vchColonia, direccion.vchCP,
+                        direccion.bitActivo, (byte)tinOpcion)
+                                select new Resultado()
+                                {
+                                    vchResultado = item.vchResultado,
+                                    vchDescripcion = item.vchDescripcion
+                                };
+                    result = query.First();
+                }
+            }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
     }
 }

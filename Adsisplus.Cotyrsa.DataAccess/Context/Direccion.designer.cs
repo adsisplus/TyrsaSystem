@@ -33,7 +33,7 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
     #endregion
 		
 		public DireccionDataContext() : 
-				base(global::Adsisplus.Cotyrsa.DataAccess.Properties.Settings.Default.dbTyrsaConnectionString, mappingSource)
+				base(global::Adsisplus.Cotyrsa.DataAccess.Properties.Settings.Default.dbTyrsaConnectionString1, mappingSource)
 		{
 			OnCreated();
 		}
@@ -67,6 +67,13 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), intDireccionID, intMunicipioID, intEstadoID, intLocalidadID, intTipoDomicilioID);
 			return ((ISingleResult<stp_ListarDireccionResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.stp_setDomicilio")]
+		public ISingleResult<stp_setDomicilioResult> stp_setDomicilio([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intDireccionID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intMunicipioID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intEstadoID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intLocalidadID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intTipoDomicilioID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(100)")] string vchCalle, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(10)")] string vchNumExterior, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(10)")] string vchNumInterior, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(100)")] string vchColonia, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(5)")] string vchCP, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Bit")] System.Nullable<bool> bitActivo, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="TinyInt")] System.Nullable<byte> tinOpcion)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), intDireccionID, intMunicipioID, intEstadoID, intLocalidadID, intTipoDomicilioID, vchCalle, vchNumExterior, vchNumInterior, vchColonia, vchCP, bitActivo, tinOpcion);
+			return ((ISingleResult<stp_setDomicilioResult>)(result.ReturnValue));
 		}
 	}
 	
@@ -271,6 +278,50 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 				if ((this._bitActivo != value))
 				{
 					this._bitActivo = value;
+				}
+			}
+		}
+	}
+	
+	public partial class stp_setDomicilioResult
+	{
+		
+		private string _vchResultado;
+		
+		private string _vchDescripcion;
+		
+		public stp_setDomicilioResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchResultado", DbType="VarChar(2) NOT NULL", CanBeNull=false)]
+		public string vchResultado
+		{
+			get
+			{
+				return this._vchResultado;
+			}
+			set
+			{
+				if ((this._vchResultado != value))
+				{
+					this._vchResultado = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchDescripcion", DbType="VarChar(44) NOT NULL", CanBeNull=false)]
+		public string vchDescripcion
+		{
+			get
+			{
+				return this._vchDescripcion;
+			}
+			set
+			{
+				if ((this._vchDescripcion != value))
+				{
+					this._vchDescripcion = value;
 				}
 			}
 		}

@@ -32,6 +32,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -40,8 +41,35 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="CatalogoService\CatalogoGeneralServices.cs" />
+    <Compile Include="CatalogoService\CatalogoServices.cs" />
+    <Compile Include="CatalogoService\Contract\ICatalogoGeneralServices.cs" />
+    <Compile Include="CatalogoService\Contract\ICatalogoServices.cs" />
+    <Compile Include="Cotizacion\Contract\ICotizacionServices.cs" />
+    <Compile Include="Cotizacion\CotizacionServices.cs" />
+    <Compile Include="CrossBarServices\Contract\ICrossBarServices.cs" />
+    <Compile Include="CrossBarServices\CrossBarServices.cs" />
+    <Compile Include="DireccionService\Contract\IDireccionServicescs.cs" />
+    <Compile Include="DireccionService\DireccionServices.cs" />
+    <Compile Include="Distanciador\Contract\IDistanciadorServices.cs" />
+    <Compile Include="Distanciador\DistanciadorServices.cs" />
+    <Compile Include="EmpresaService\Contract\IEmpresaServicescs.cs" />
+    <Compile Include="EmpresaService\EmpresaServices.cs" />
+    <Compile Include="MarcosService\Contract\IMarcosServices.cs" />
+    <Compile Include="MarcosService\MarcosServices.cs" />
+    <Compile Include="PanelServices\Contrac\IPanelServices.cs" />
+    <Compile Include="PanelServices\PanelServices.cs" />
+    <Compile Include="ParrillaServices\Contract\IParrillaServices.cs" />
+    <Compile Include="ParrillaServices\ParrillaServices.cs" />
+    <Compile Include="PersonaService\Contract\IPersonaServices.cs" />
+    <Compile Include="PersonaService\PersonaServices.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ProtectoresServices\Contract\IProtectoresServices.cs" />
+    <Compile Include="ProtectoresServices\ProtectoresServices.cs" />
+    <Compile Include="SistemasTyrsaServices\Contract\ISistemaTyrsaServices.cs" />
+    <Compile Include="SistemasTyrsaServices\SistemaTyrsaServices.cs" />
+    <Compile Include="VigaServices\Contract\IVigaServices.cs" />
+    <Compile Include="VigaServices\VigaServices.cs" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
@@ -56,9 +84,7 @@
       <Name>Adsisplus.Cotyrsa.BusinessLogic</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="CatalogoService\Contract\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

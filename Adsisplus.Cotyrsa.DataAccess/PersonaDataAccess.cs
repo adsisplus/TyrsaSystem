@@ -75,5 +75,64 @@ namespace Adsisplus.Cotyrsa.DataAccess
             }
             return results;
         }
+        /// <summary>
+        /// Permite el alta, modificación o baja de la persona
+        /// </summary>
+        /// <param name="persona"></param>
+        /// <param name="tinOpcion"></param>
+        /// <returns></returns>
+        public Resultado setPersona(Persona persona, short tinOpcion)
+        {
+            Resultado result = new Resultado();
+            try
+            {
+                using (PersonaDataContext dc = new PersonaDataContext(Helper.ConnectionString()))
+                {
+                    var query = from item in dc.stp_setPersona(persona.intPersonaID, persona.intTipoPersonaID, persona.intEmpresaID, persona.vchNombreCompleto, persona.vchNombre,
+                        persona.vchApPaterno, persona.vchApMaterno, persona.datFechaNacimiento, persona.vchLugarNacimiento, persona.vchRFC, persona.vchCURP, persona.sintEdad,
+                        persona.vchTelefono, persona.vchTelefonoMovil, persona.vchMail, persona.bitActivo, persona.bitCausaRetencion, (byte)tinOpcion)
+                                select new Resultado
+                                {
+                                    vchResultado = item.vchResultado,
+                                    vchDescripcion = item.vchDescripcion
+                                };
+                    result = query.First();
+                }
+            }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
+        /// <summary>
+        /// Realiza alta, modificación y baja de la relación Persona, Domicilio y Empresa
+        /// </summary>
+        /// <param name="relPersonaDomicilioEmpresa"></param>
+        /// <param name="tinOpcion"></param>
+        /// <returns></returns>
+        public Resultado setRelaciónPersonaDomicilioEmpresa(RelPersonaDomicilioEmpresa relPersonaDomicilioEmpresa, short tinOpcion)
+        {
+            Resultado result = new Resultado();
+            try
+            {
+                using (PersonaDataContext dc = new PersonaDataContext(Helper.ConnectionString()))
+                {
+                    var query = from item in dc.stp_setRelaciónPersonaDomicilioEmpresa(relPersonaDomicilioEmpresa.intPersonaDomEmpreID, relPersonaDomicilioEmpresa.intDireccionID,
+                        relPersonaDomicilioEmpresa.intDireccionID, relPersonaDomicilioEmpresa.intEmpresaID, relPersonaDomicilioEmpresa.bitActivo, (byte)tinOpcion)
+                                select new Resultado
+                                {
+                                    vchResultado = item.vchResultado,
+                                    vchDescripcion = item.vchDescripcion
+                                };
+                    result = query.First();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
     }
 }

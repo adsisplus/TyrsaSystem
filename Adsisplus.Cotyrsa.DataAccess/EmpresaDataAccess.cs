@@ -40,5 +40,34 @@ namespace Adsisplus.Cotyrsa.DataAccess
             }
             return results;
         }
+        /// <summary>
+        /// Permite realizar el alta, modificación y baja de la empresa
+        /// </summary>
+        /// <param name="empresa"></param>
+        /// <param name="tinOpcion"></param>
+        /// <returns></returns>
+        public Resultado setEmpresa(Empresa empresa, short tinOpcion)
+        {
+            Resultado result = new Resultado();
+            try
+            {
+                using (EmpresaDataContext dc = new EmpresaDataContext(Helper.ConnectionString()))
+                {
+                    var query = from item in dc.stp_setEmpresa(empresa.intEmpresaID, empresa.sintTipoEmpresaID, empresa.vchNombre, empresa.vchCorreo, empresa.vchCorreoFacturacion,
+                        empresa.vchCondisionesGenerales, empresa.bitEsCliente, empresa.bitActivo, empresa.bitEsProveedor, (byte)tinOpcion)
+                                select new Resultado()
+                                {
+                                    vchResultado = item.vchResultado,
+                                    vchDescripcion = item.vchDescripcion
+                                };
+                    result = query.First();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
     }
 }

@@ -14,7 +14,7 @@ namespace Adsisplus.Cotyrsa.BusinessEntities
         [DataMember]
         public int? intEmpresaID { get; set; }
         [DataMember]
-        public int? sintTipoEmpresaID { get; set; }
+        public short? sintTipoEmpresaID { get; set; }
         [DataMember]
         public String vchTipoEmpresa { get; set; }
         [DataMember]

@@ -35,5 +35,23 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
             }
             return results;
         }
+        /// <summary>
+        /// Permite realizar el alta, modificación o baja de los datos de domicilio
+        /// </summary>
+        /// <param name="direccion"></param>
+        /// <returns></returns>
+        public Resultado setDomicilio(Direccion direccion, short tinOpcion)
+        {
+            Resultado result = new Resultado();
+            try
+            {
+                result = CatalogosDA.setDomicilio(direccion, tinOpcion);
+            }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
     }
 }

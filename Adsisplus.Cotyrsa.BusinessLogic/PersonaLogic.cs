@@ -50,6 +50,43 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
             return results;
         }
 
-
+        /// <summary>
+        /// Permite el alta, modificación o baja de la persona
+        /// </summary>
+        /// <param name="persona"></param>
+        /// <param name="tinOpcion"></param>
+        /// <returns></returns>
+        public Resultado setPersona(Persona persona, short tinOpcion)
+        {
+            Resultado result = new Resultado();
+            try
+            {
+                result = CatalogosDA.setPersona(persona, tinOpcion);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
+        /// <summary>
+        /// Realiza alta, modificación y baja de la relación Persona, Domicilio y Empresa
+        /// </summary>
+        /// <param name="relPersonaDomicilioEmpresa"></param>
+        /// <param name="tinOpcion"></param>
+        /// <returns></returns>
+        public Resultado setRelaciónPersonaDomicilioEmpresa(RelPersonaDomicilioEmpresa relPersonaDomicilioEmpresa, short tinOpcion)
+        {
+            Resultado result = new Resultado();
+            try
+            {
+                result = CatalogosDA.setRelaciónPersonaDomicilioEmpresa(relPersonaDomicilioEmpresa, tinOpcion);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
     }
 }
