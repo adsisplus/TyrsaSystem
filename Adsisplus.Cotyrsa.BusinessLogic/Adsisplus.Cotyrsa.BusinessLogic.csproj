@@ -46,6 +46,7 @@
     <Compile Include="DireccionLogic.cs" />
     <Compile Include="DistanciadorLogic.cs" />
     <Compile Include="EmpresaLogic.cs" />
+    <Compile Include="EventLogManager.cs" />
     <Compile Include="MarcosLogic.cs" />
     <Compile Include="PanelLogic.cs" />
     <Compile Include="ParrillaLogic.cs" />

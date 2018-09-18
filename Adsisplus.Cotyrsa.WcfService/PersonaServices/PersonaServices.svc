@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="Adsisplus.Cotyrsa.WcfService.PersonaServices.PersonaServices" CodeBehind="PersonaServices.svc.cs" %>
