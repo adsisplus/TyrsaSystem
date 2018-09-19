@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
+using System.ServiceModel.Web;
 using System.Text;
 
 namespace Adsisplus.Cotyrsa.WcfService.VigaServices
@@ -32,6 +33,7 @@ namespace Adsisplus.Cotyrsa.WcfService.VigaServices
         /// <param name="sintInsumoViga"></param>
         /// <returns></returns>
         [OperationContract]
+        [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ListarConfiguracionViga")]
         List<Viga> ListarConfiguracionViga(Int32 @intConfiguraVigaID, Int32 @sintTipoVigaID, Int32 @intElementoID, Int32 @intCalibreID, Int32 @intCapacidadVigaID, Int32 @intFactorVigaID, Int16 @sintInsumoViga);
         /// <summary>
         /// Obtiene la lista de los datos por viga
@@ -42,6 +44,7 @@ namespace Adsisplus.Cotyrsa.WcfService.VigaServices
         /// <param name="intDatoMarcoID"></param>
         /// <returns></returns>
         [OperationContract]
+        [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ListarDatosViga")]
         List<DatosViga> ListarDatosViga(Int32 @intDatosVigaID, Int16 @sintPinturaID, Int32 @intElementoID, Int32 @intDatoMarcoID);
         /// <summary>
         /// Obtiene la lista de las viga por tope
@@ -54,6 +57,7 @@ namespace Adsisplus.Cotyrsa.WcfService.VigaServices
         /// <param name="sintPinturaID"></param>
         /// <returns></returns>
         [OperationContract]
+        [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ListarDatosVigaTope")]
         List<DatosVigaTope> ListarDatosVigaTope(Int32 @intCantidadVigaTope, Int32 @intVigaTopeID, Int32 @intElementoID, Int32 @intDatosVigaID, Int32 @intCotizacionID, Int16 @sintPinturaID);
     }
 }

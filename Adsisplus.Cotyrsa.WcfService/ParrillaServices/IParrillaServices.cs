@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
+using System.ServiceModel.Web;
 using System.Text;
 
 namespace Adsisplus.Cotyrsa.WcfService.ParrillaServices
@@ -21,6 +22,7 @@ namespace Adsisplus.Cotyrsa.WcfService.ParrillaServices
         /// <param name="intCotizacionID"></param>
         /// <returns></returns>
         [OperationContract]
+        [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ListarDatosPanel")]
         List<DatosParrilla> ListarDatosPanel(Int32 @intParrillaID, Int32 @intElementoID, Int16 @sintPinturaID, Int32 @intCotizacionID);
     }
 }

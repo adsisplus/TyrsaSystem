@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
+using System.ServiceModel.Web;
 using System.Text;
 
 namespace Adsisplus.Cotyrsa.WcfService.DistanciadorServices
@@ -20,6 +21,7 @@ namespace Adsisplus.Cotyrsa.WcfService.DistanciadorServices
         /// <param name="intElementoID"></param>
         /// <returns></returns>
         [OperationContract]
+        [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ListarDatosPanel")]
         List<DatosDistanciador> ListarDatosPanel(Int32 @intDistanciadorID, Int32 @intCotizacionID, Int32 @intElementoID);
     }
 }

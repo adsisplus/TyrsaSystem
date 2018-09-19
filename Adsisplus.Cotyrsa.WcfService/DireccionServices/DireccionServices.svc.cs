@@ -31,12 +31,7 @@ namespace Adsisplus.Cotyrsa.WcfService.DireccionServices
             }
             catch (Exception ex)
             {
-#if (DEBUG)
-                Console.WriteLine("Error en DireccionServices.ListarDatosPersona: " + ex.Message);
-#else
-                    EventLogManager.LogErrorEntry("Error en DireccionServices.ListarDatosPersona: " + ex.Message);
-                    //TODO: Codificar envío de notificación de error al EventLog
-#endif
+                Adsisplus.Cotyrsa.BusinessLogic.EventLogManager.LogErrorEntry(ex.Message);
             }
             return result;
         }
@@ -56,12 +51,7 @@ namespace Adsisplus.Cotyrsa.WcfService.DireccionServices
             }
             catch (Exception ex)
             {
-#if (DEBUG)
-                Console.WriteLine("Error en DireccionServices.setDomicilio: " + ex.Message);
-#else
-                    EventLogManager.LogErrorEntry("Error en DireccionServices.setDomicilio: " + ex.Message);
-                    //TODO: Codificar envío de notificación de error al EventLog
-#endif
+                Adsisplus.Cotyrsa.BusinessLogic.EventLogManager.LogErrorEntry(ex.Message);
             }
             return result;
         }

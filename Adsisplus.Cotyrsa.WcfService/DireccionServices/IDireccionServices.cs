@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
+using System.ServiceModel.Web;
 using System.Text;
 
 namespace Adsisplus.Cotyrsa.WcfService.DireccionServices
@@ -22,6 +23,7 @@ namespace Adsisplus.Cotyrsa.WcfService.DireccionServices
         /// <param name="intTipoDomicilioID"></param>
         /// <returns></returns>
         [OperationContract]
+        [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ListarDatosPersona")]
         List<Direccion> ListarDatosPersona(Int32 @intDireccionID, Int32 @intMunicipioID, Int32 @intEstadoID, Int32 @intLocalidadID, Int32 @intTipoDomicilioID);
 
         /// <summary>
@@ -30,6 +32,7 @@ namespace Adsisplus.Cotyrsa.WcfService.DireccionServices
         /// <param name="direccion"></param>
         /// <returns></returns>
         [OperationContract]
+        [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "setDomicilio")]
         Resultado setDomicilio(Direccion direccion, short tinOpcion);
     }
 }

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
+using System.ServiceModel.Web;
 using System.Text;
 
 namespace Adsisplus.Cotyrsa.WcfService.CotizacionServices
@@ -21,6 +22,7 @@ namespace Adsisplus.Cotyrsa.WcfService.CotizacionServices
         /// <param name="intEmpresaID"></param>
         /// <returns></returns>
         [OperationContract]
+        [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ListarCatAlturaMarco")]
         List<Cotizacion> ListarCatAlturaMarco(Int32 @intCotizacionID, Int32 @intEstatusID, Int32 @sintPrioridadID, Int32 @intEmpresaID);
     }
 }

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
+using System.ServiceModel.Web;
 using System.Text;
 
 namespace Adsisplus.Cotyrsa.WcfService.ProteccionServices
@@ -21,6 +22,7 @@ namespace Adsisplus.Cotyrsa.WcfService.ProteccionServices
         /// <param name="sintPinturaID"></param>
         /// <returns></returns>
         [OperationContract]
+        [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ListarDatosProtectorPoste")]
         List<DatosProtectorBase> ListarDatosProtectorPoste(Int32 @intProtectorPosteID, Int32 @intElementoID, Int32 @intCotizacionID, Int16 @sintPinturaID);
         /// <summary>
         /// Obtiene la lista de los datos de proctector por batería.
@@ -30,6 +32,7 @@ namespace Adsisplus.Cotyrsa.WcfService.ProteccionServices
         /// <param name="intCotizacionID"></param>
         /// <returns></returns>
         [OperationContract]
+        [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ListarDatosProtectorBateria")]
         List<DatosProtectorBateria> ListarDatosProtectorBateria(Int32 @intProtectorBateriaID, Int32 @intElementoID, Int32 @intCotizacionID);
     }
 }

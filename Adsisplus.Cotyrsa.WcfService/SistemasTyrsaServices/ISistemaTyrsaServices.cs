@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
+using System.ServiceModel.Web;
 using System.Text;
 
 namespace Adsisplus.Cotyrsa.WcfService.SistemasTyrsaServices
@@ -34,6 +35,7 @@ namespace Adsisplus.Cotyrsa.WcfService.SistemasTyrsaServices
         /// <param name="datFechaAlta"></param>
         /// <returns></returns>
         [OperationContract]
+        [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ListarRelSistemaSelectivo")]
         List<RelSistemaSelectivo> ListarRelSistemaSelectivo(Int32 @intCotizacionID, Int32 @intTipoElementoCoti_Producto, Int32 @intTipoElementoID,
                                                             Int32 @intTipoElementoAlmacenID, Int32 @intConfiguraMarcoID, Int32 @intConfiguraVigaID,
                                                             Int32 @intDatoMarcoID, Int32 @intDatosVigaID, Int32 @intDatosPanelID, Int32 @intDatosCrossBarID,

@@ -28,12 +28,7 @@ namespace Adsisplus.Cotyrsa.WcfService.EmpresaServices
             }
             catch (Exception ex)
             {
-#if (DEBUG)
-                Console.WriteLine("Error en EmpresaServices.ListarDatosPersona: " + ex.Message);
-#else
-                    EventLogManager.LogErrorEntry("Error en EmpresaServices.ListarDatosPersona: " + ex.Message);
-                    //TODO: Codificar envío de notificación de error al EventLog
-#endif
+                Adsisplus.Cotyrsa.BusinessLogic.EventLogManager.LogErrorEntry(ex.Message);
             }
             return result;
         }
@@ -52,12 +47,7 @@ namespace Adsisplus.Cotyrsa.WcfService.EmpresaServices
             }
             catch (Exception ex)
             {
-#if (DEBUG)
-                Console.WriteLine("Error en EmpresaServices.setEmpresa: " + ex.Message);
-#else
-                    EventLogManager.LogErrorEntry("Error en EmpresaServices.setEmpresa: " + ex.Message);
-                    //TODO: Codificar envío de notificación de error al EventLog
-#endif
+                Adsisplus.Cotyrsa.BusinessLogic.EventLogManager.LogErrorEntry(ex.Message);
             }
             return result;
         }

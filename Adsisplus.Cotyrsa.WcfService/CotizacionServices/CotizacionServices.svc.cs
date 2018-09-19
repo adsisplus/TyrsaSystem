@@ -30,7 +30,7 @@ namespace Adsisplus.Cotyrsa.WcfService.CotizacionServices
             }
             catch (Exception ex)
             {
-
+                Adsisplus.Cotyrsa.BusinessLogic.EventLogManager.LogErrorEntry(ex.Message);
             }
             return result;
         }

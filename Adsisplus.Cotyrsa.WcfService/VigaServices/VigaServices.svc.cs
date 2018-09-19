@@ -33,7 +33,7 @@ namespace Adsisplus.Cotyrsa.WcfService.VigaServices
             }
             catch (Exception ex)
             {
-
+                Adsisplus.Cotyrsa.BusinessLogic.EventLogManager.LogErrorEntry(ex.Message);
             }
             return result;
         }
@@ -54,7 +54,7 @@ namespace Adsisplus.Cotyrsa.WcfService.VigaServices
             }
             catch (Exception ex)
             {
-
+                Adsisplus.Cotyrsa.BusinessLogic.EventLogManager.LogErrorEntry(ex.Message);
             }
             return result;
         }
@@ -77,7 +77,7 @@ namespace Adsisplus.Cotyrsa.WcfService.VigaServices
             }
             catch (Exception ex)
             {
-
+                Adsisplus.Cotyrsa.BusinessLogic.EventLogManager.LogErrorEntry(ex.Message);
             }
             return result;
         }
@@ -96,7 +96,7 @@ namespace Adsisplus.Cotyrsa.WcfService.VigaServices
             }
             catch (Exception ex)
             {
-
+                Adsisplus.Cotyrsa.BusinessLogic.EventLogManager.LogErrorEntry(ex.Message);
             }
             return result;
         }

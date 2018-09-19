@@ -9,7 +9,7 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
 {
     public class EventLogManager
     {
-        private void LogErrorEntry(string errMensaje)
+        public static void LogErrorEntry(string errMensaje)
         {
             // Validamos si existe el repositorio
             if (!Directory.Exists("C:\\Log\\"))
