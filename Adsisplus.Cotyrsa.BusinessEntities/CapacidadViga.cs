@@ -21,7 +21,6 @@ namespace Adsisplus.Cotyrsa.BusinessEntities
         
         [DataMember]
         public Int16? sintLongitudID { get; set; }
-
         [DataMember]
         public String vchLongitud { get; set; }
 
