@@ -78,5 +78,19 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
             }
             return results;
         }
+
+        public Resultado ActualizaFactorMarco(Int16 @sintFondoMarcoID, Decimal @decCostoLamina, Decimal @decCostoSolera, Decimal @decFactorAcero, byte @tinOpcion)
+        {
+            Resultado results = new Resultado();
+            try
+            {
+                results = CatalogosDA.ActualizaFactorMarco(@sintFondoMarcoID, @decCostoLamina, @decCostoSolera, @decFactorAcero, @tinOpcion);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return results;
+        }
     }
 }

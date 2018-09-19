@@ -89,6 +89,13 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), intConfiguraMarcoID, intElementoID, sintTipoMarcoID, intAlturaMarcoID, sintFondoMarcoID, intSKUID, sintFactorMarcoID);
 			return ((ISingleResult<stp_ConfiguraMarcoResult>)(result.ReturnValue));
 		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.stp_ActualizaFactorMarco")]
+		public ISingleResult<stp_ActualizaFactorMarcoResult> stp_ActualizaFactorMarco([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="SmallInt")] System.Nullable<short> sintFondoMarcoID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Decimal(18,4)")] System.Nullable<decimal> decCostoLamina, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Decimal(18,4)")] System.Nullable<decimal> decCostoSolera, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Decimal(18,4)")] System.Nullable<decimal> decFactorAcero, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="TinyInt")] System.Nullable<byte> tinOpcion)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), sintFondoMarcoID, decCostoLamina, decCostoSolera, decFactorAcero, tinOpcion);
+			return ((ISingleResult<stp_ActualizaFactorMarcoResult>)(result.ReturnValue));
+		}
 	}
 	
 	public partial class stp_RelSistemaCargaMarcoPosteResult
@@ -2224,6 +2231,50 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 				if ((this._bitActivo != value))
 				{
 					this._bitActivo = value;
+				}
+			}
+		}
+	}
+	
+	public partial class stp_ActualizaFactorMarcoResult
+	{
+		
+		private string _vchResultado;
+		
+		private string _vchDescripcion;
+		
+		public stp_ActualizaFactorMarcoResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchResultado", DbType="VarChar(3) NOT NULL", CanBeNull=false)]
+		public string vchResultado
+		{
+			get
+			{
+				return this._vchResultado;
+			}
+			set
+			{
+				if ((this._vchResultado != value))
+				{
+					this._vchResultado = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchDescripcion", DbType="NVarChar(4000)")]
+		public string vchDescripcion
+		{
+			get
+			{
+				return this._vchDescripcion;
+			}
+			set
+			{
+				if ((this._vchDescripcion != value))
+				{
+					this._vchDescripcion = value;
 				}
 			}
 		}
