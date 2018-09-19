@@ -53,7 +53,7 @@ namespace Adsisplus.Cotyrsa.WcfService.VigaServices
         /// <param name="intCotizacionID"></param>
         /// <param name="sintPinturaID"></param>
         /// <returns></returns>
-        [OperationContract]
+       [OperationContract]
         List<DatosVigaTope> ListarDatosVigaTope(Int32 @intCantidadVigaTope, Int32 @intVigaTopeID, Int32 @intElementoID, Int32 @intDatosVigaID, Int32 @intCotizacionID, Int16 @sintPinturaID);
     }
 }
