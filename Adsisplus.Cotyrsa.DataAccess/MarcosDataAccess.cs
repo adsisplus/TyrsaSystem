@@ -211,5 +211,29 @@ namespace Adsisplus.Cotyrsa.DataAccess
             }
             return results;
         }
+
+        public Resultado ActualizaFactorMarco(Int16 @sintFondoMarcoID, Decimal @decCostoLamina, Decimal @decCostoSolera, Decimal @decFactorAcero, byte @tinOpcion)
+        {
+            Resultado results = new Resultado();
+            try
+            {
+                using (MarcosDataContext dc = new MarcosDataContext(Helper.ConnectionString()))
+                {
+                    var query = from item in dc.stp_ActualizaFactorMarco(@sintFondoMarcoID, @decCostoLamina, @decCostoSolera, @decFactorAcero, @tinOpcion)
+                                select new Resultado()
+                                {
+                                    vchResultado = item.vchResultado,
+                                    vchDescripcion = item.vchDescripcion,
+                                    
+                                };
+                    results = query.First();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return results;
+        }
     }
 }

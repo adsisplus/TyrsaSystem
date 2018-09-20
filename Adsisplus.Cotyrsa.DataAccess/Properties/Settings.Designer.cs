@@ -12,7 +12,7 @@ namespace Adsisplus.Cotyrsa.DataAccess.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "15.7.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "14.0.0.0")]
     internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
         
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
@@ -38,7 +38,7 @@ namespace Adsisplus.Cotyrsa.DataAccess.Properties {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
         [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(local);Initial Catalog=dbTyrsa;Persist Security Info=True;User ID=us" +
-            "rCotyrsa;Password=Enared01")]
+            "rCotyrsa")]
         public string dbTyrsaConnectionString1 {
             get {
                 return ((string)(this["dbTyrsaConnectionString1"]));

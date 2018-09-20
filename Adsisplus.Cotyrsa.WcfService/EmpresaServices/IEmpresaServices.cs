@@ -20,8 +20,8 @@ namespace Adsisplus.Cotyrsa.WcfService.EmpresaServices
         /// <param name="sintTipoEmpresaID"></param>
         /// <returns></returns>
         [OperationContract]
-        [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ListarDatosPersona")]
-        List<Empresa> ListarDatosPersona(Int32 @intEmpresaID, Int16 @sintTipoEmpresaID);
+        [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ListarEmpresa")]
+        List<Empresa> ListarEmpresa(Int32 intEmpresaID, Int16 sintTipoEmpresaID);
 
         /// <summary>
         /// Permite realizar el alta, modificación y baja de la empresa

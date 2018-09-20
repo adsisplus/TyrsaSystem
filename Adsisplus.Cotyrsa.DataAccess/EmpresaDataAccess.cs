@@ -10,7 +10,7 @@ namespace Adsisplus.Cotyrsa.DataAccess
 {
    public class EmpresaDataAccess
     {
-        public List<Empresa> ListarDatosPersona(Int32 @intEmpresaID, Int16 @sintTipoEmpresaID)
+        public List<Empresa> ListarEmpresa(Int32 @intEmpresaID, Int16 @sintTipoEmpresaID)
         {
             List<Empresa> results = new List<Empresa>();
             try

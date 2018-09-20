@@ -1,25 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="dbTyrsa" Class="DireccionDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=(local);Initial Catalog=dbTyrsa;Persist Security Info=True;User ID=usrCotyrsa" SettingsObjectName="Adsisplus.Cotyrsa.DataAccess.Properties.Settings" SettingsPropertyName="dbTyrsaConnectionString1" Provider="System.Data.SqlClient" />
-  <Function Name="dbo.stp_ListarDireccion" Method="stp_ListarDireccion">
-    <Parameter Name="intDireccionID" Type="System.Int32" DbType="Int" />
-    <Parameter Name="intMunicipioID" Type="System.Int32" DbType="Int" />
-    <Parameter Name="intEstadoID" Type="System.Int32" DbType="Int" />
-    <Parameter Name="intLocalidadID" Type="System.Int32" DbType="Int" />
-    <Parameter Name="intTipoDomicilioID" Type="System.Int32" DbType="Int" />
-    <ElementType Name="stp_ListarDireccionResult">
-      <Column Name="intDireccionID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="vchMunicipio" Type="System.String" DbType="VarChar(120)" CanBeNull="true" />
-      <Column Name="vchEstado" Type="System.String" DbType="VarChar(80)" CanBeNull="true" />
-      <Column Name="vchLocalidad" Type="System.String" DbType="VarChar(120)" CanBeNull="true" />
-      <Column Name="vchTipoDomicilio" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
-      <Column Name="vchCalle" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
-      <Column Name="vchNumExterior" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
-      <Column Name="vchNumInterior" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
-      <Column Name="vchColonia" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
-      <Column Name="vchCP" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
-      <Column Name="bitActivo" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-    </ElementType>
-  </Function>
+  <Connection Mode="AppSettings" ConnectionString="Data Source=local;Initial Catalog=dbTyrsa;Persist Security Info=True;User ID=usrCotyrsa" SettingsObjectName="Adsisplus.Cotyrsa.DataAccess.Properties.Settings" SettingsPropertyName="dbTyrsaConnectionString" Provider="System.Data.SqlClient" />
   <Function Name="dbo.stp_setDomicilio" Method="stp_setDomicilio">
     <Parameter Name="intDireccionID" Type="System.Int32" DbType="Int" />
     <Parameter Name="intMunicipioID" Type="System.Int32" DbType="Int" />
@@ -36,6 +16,29 @@
     <ElementType Name="stp_setDomicilioResult">
       <Column Name="vchResultado" Type="System.String" DbType="VarChar(2) NOT NULL" CanBeNull="false" />
       <Column Name="vchDescripcion" Type="System.String" DbType="VarChar(44) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.stp_ListarDireccion" Method="stp_ListarDireccion">
+    <Parameter Name="intDireccionID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intPersonaID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intEmpresaID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intTipoDomicilioID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="stp_ListarDireccionResult">
+      <Column Name="intDireccionID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="intEstadoID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="intLocalidadID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="intMunicipioID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="intTipoDomicilioID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="vchMunicipio" Type="System.String" DbType="VarChar(120)" CanBeNull="true" />
+      <Column Name="vchEstado" Type="System.String" DbType="VarChar(80)" CanBeNull="true" />
+      <Column Name="vchLocalidad" Type="System.String" DbType="VarChar(120)" CanBeNull="true" />
+      <Column Name="vchTipoDomicilio" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
+      <Column Name="vchCalle" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="vchNumExterior" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="vchNumInterior" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="vchColonia" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="vchCP" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="bitActivo" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
     </ElementType>
   </Function>
 </Database>

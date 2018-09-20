@@ -17,17 +17,16 @@ namespace Adsisplus.Cotyrsa.WcfService.DireccionServices
         /// Devuelve la lista de datos de personas
         /// </summary>
         /// <param name="intDireccionID"></param>
-        /// <param name="intMunicipioID"></param>
-        /// <param name="intEstadoID"></param>
-        /// <param name="intLocalidadID"></param>
+        /// <param name="intPersonaID"></param>
+        /// <param name="intEmpresaID"></param>
         /// <param name="intTipoDomicilioID"></param>
         /// <returns></returns>
-        public List<Direccion> ListarDatosPersona(Int32 @intDireccionID, Int32 @intMunicipioID, Int32 @intEstadoID, Int32 @intLocalidadID, Int32 @intTipoDomicilioID)
+        public List<Direccion> ListarDireccion(Int32 @intDireccionID, Int32 @intPersonaID, Int32 @intEmpresaID, Int32 @intTipoDomicilioID)
         {
             List<Direccion> result = new List<Direccion>();
             try
             {
-                result = (new DireccionLogic()).ListarDatosPersona(@intDireccionID, @intMunicipioID, @intEstadoID, @intLocalidadID, @intTipoDomicilioID);
+                result = (new DireccionLogic()).ListarDireccion(@intDireccionID, @intPersonaID, @intEmpresaID, @intTipoDomicilioID);
             }
             catch (Exception ex)
             {

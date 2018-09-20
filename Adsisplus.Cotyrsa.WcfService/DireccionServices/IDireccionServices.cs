@@ -17,9 +17,8 @@ namespace Adsisplus.Cotyrsa.WcfService.DireccionServices
         /// Nos devuelve los datos de las personas
         /// </summary>
         /// <param name="intDireccionID"></param>
-        /// <param name="intMunicipioID"></param>
-        /// <param name="intEstadoID"></param>
-        /// <param name="intLocalidadID"></param>
+        /// <param name="intPersonaID"></param>
+        /// <param name="intEmpresaID"></param>
         /// <param name="intTipoDomicilioID"></param>
         /// <returns></returns>
         [OperationContract]

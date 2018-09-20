@@ -20,12 +20,12 @@ namespace Adsisplus.Cotyrsa.WcfService.PersonaServices
         /// <param name="intTipoPersonaID"></param>
         /// <param name="intEmpresaID"></param>
         /// <returns></returns>
-        public List<Persona> ListarDatosPersona(Int32 @intPersonaID, Int32 @intTipoPersonaID, Int32 @intEmpresaID)
+        public List<Persona> ListarDatosPersona(Int32 intPersonaID, Int32 intTipoPersonaID, Int32 intEmpresaID)
         {
             List<Persona> result = new List<Persona>();
             try
             {
-                result = (new PersonaLogic()).ListarDatosPersona(@intPersonaID, @intTipoPersonaID, @intEmpresaID);
+                result = (new PersonaLogic()).ListarDatosPersona(intPersonaID, intTipoPersonaID, intEmpresaID);
             }
             catch (Exception ex)
             {
@@ -41,12 +41,12 @@ namespace Adsisplus.Cotyrsa.WcfService.PersonaServices
         /// <param name="intDireccionID"></param>
         /// <param name="intEmpresaID"></param>
         /// <returns></returns>
-        public List<Persona> ListarRelPersonaDireccionEmpresa(Int32 @intPersonaDomEmpreID, Int32 @intPersonaID, Int32 @intDireccionID, Int32 @intEmpresaID)
+        public List<Persona> ListarRelPersonaDireccionEmpresa(Int32 intPersonaDomEmpreID, Int32 intPersonaID, Int32 intDireccionID, Int32 intEmpresaID)
         {
             List<Persona> result = new List<Persona>();
             try
             {
-                result = (new PersonaLogic()).ListarRelPersonaDireccionEmpresa(@intPersonaDomEmpreID, @intPersonaID, @intDireccionID, @intEmpresaID);
+                result = (new PersonaLogic()).ListarRelPersonaDireccionEmpresa(intPersonaDomEmpreID, intPersonaID, intDireccionID, intEmpresaID);
             }
             catch (Exception ex)
             {

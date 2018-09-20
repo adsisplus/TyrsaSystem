@@ -10,20 +10,24 @@ namespace Adsisplus.Cotyrsa.DataAccess
 {
    public class DireccionDataAccess
     {
-        public List<Direccion> ListarDatosPersona(Int32 @intDireccionID, Int32 @intMunicipioID, Int32 @intEstadoID, Int32 @intLocalidadID, Int32 @intTipoDomicilioID)
+        public List<Direccion> ListarDireccion(Int32 @intDireccionID, Int32 @intPersonaID, Int32 @intEmpresaID, Int32 @intTipoDomicilioID)
         {
             List<Direccion> results = new List<Direccion>();
             try
             {
                 using (DireccionDataContext dc = new DireccionDataContext(Helper.ConnectionString()))
                 {
-                    var query = from item in dc.stp_ListarDireccion(@intDireccionID, @intMunicipioID, @intEstadoID, @intLocalidadID, @intTipoDomicilioID)
+                    var query = from item in dc.stp_ListarDireccion(@intDireccionID, @intPersonaID, @intEmpresaID, @intTipoDomicilioID)
                                 select new Direccion()
                                 {
                                     intDireccionID = item.intDireccionID,
+                                    intMunicipioID = item.intMunicipioID,
                                     vchMunicipio = item.vchMunicipio,
+                                    intEstadoID = item.intEstadoID,
                                     vchEstado = item.vchEstado,
+                                    intLocalidadID = item.intLocalidadID,
                                     vchLocalidad = item.vchLocalidad,
+                                    intTipoDomicilioID = item.intTipoDomicilioID,
                                     vchTipoDomicilio = item.vchTipoDomicilio,
                                     vchCalle = item.vchCalle,
                                     vchNumExterior = item.vchNumExterior,

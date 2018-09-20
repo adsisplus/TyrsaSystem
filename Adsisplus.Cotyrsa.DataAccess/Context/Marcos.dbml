@@ -150,4 +150,15 @@
       <Column Name="bitActivo" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
     </ElementType>
   </Function>
+  <Function Name="dbo.stp_ActualizaFactorMarco" Method="stp_ActualizaFactorMarco">
+    <Parameter Name="sintFondoMarcoID" Type="System.Int16" DbType="SmallInt" />
+    <Parameter Name="decCostoLamina" Type="System.Decimal" DbType="Decimal(18,4)" />
+    <Parameter Name="decCostoSolera" Type="System.Decimal" DbType="Decimal(18,4)" />
+    <Parameter Name="decFactorAcero" Type="System.Decimal" DbType="Decimal(18,4)" />
+    <Parameter Name="tinOpcion" Type="System.Byte" DbType="TinyInt" />
+    <ElementType Name="stp_ActualizaFactorMarcoResult">
+      <Column Name="vchResultado" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" />
+      <Column Name="vchDescripcion" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+    </ElementType>
+  </Function>
 </Database>

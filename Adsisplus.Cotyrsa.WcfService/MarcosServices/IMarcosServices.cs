@@ -58,5 +58,18 @@ namespace Adsisplus.Cotyrsa.WcfService.MarcosServices
         [OperationContract]
         [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ListarFondoMarco")]
         List<FondoMarco> ListarFondoMarco(Int32 @sintFondoMarcoID, Int32 @sintTipoMarcoID);
+
+        /// <summary>
+        /// Cambia los factores de configuración para los marcos
+        /// </summary>
+        /// <param name="sintFondoMarcoID"></param>
+        /// <param name="decCostoLamina"></param>
+        /// <param name="decCostoSolera"></param>
+        /// <param name="decFactorAcero"></param>
+        /// <param name="tinOpcion"></param>
+        /// <returns></returns>
+        [OperationContract]
+        [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ActualizaFactorMarco")]
+        Resultado ActualizaFactorMarco(Int16 @sintFondoMarcoID, Decimal @decCostoLamina, Decimal @decCostoSolera, Decimal @decFactorAcero, byte @tinOpcion);
     }
 }

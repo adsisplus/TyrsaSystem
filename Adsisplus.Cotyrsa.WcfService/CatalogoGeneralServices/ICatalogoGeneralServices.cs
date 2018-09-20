@@ -20,7 +20,7 @@ namespace Adsisplus.Cotyrsa.WcfService.CatalogoGeneralServices
         /// <returns></returns>
         [OperationContract]
         [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ListarCatLocalidad")]
-        List<Localidad> ListarCatLocalidad(Int32 @int_MunicipioID);
+        List<Localidad> ListarCatLocalidad(Int32 int_MunicipioID);
         /// <summary>
         /// Obtiene la lista de estados de la república mexicana
         /// </summary>
@@ -35,7 +35,7 @@ namespace Adsisplus.Cotyrsa.WcfService.CatalogoGeneralServices
         /// <returns></returns>
         [OperationContract]
         [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ListarCatMunicipio")]
-        List<Municipio> ListarCatMunicipio(Int32 @intEstadoID);
+        List<Municipio> ListarCatMunicipio(Int32 intEstadoID);
         /// <summary>
         /// Obtiene la lista de personalidades
         /// </summary>
