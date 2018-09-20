@@ -22,7 +22,7 @@ namespace Adsisplus.Cotyrsa.WcfService.PersonaServices
         /// <returns></returns>
         [OperationContract]
         [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ListarDatosPersona")]
-        List<Persona> ListarDatosPersona(Int32 @intPersonaID, Int32 @intTipoPersonaID, Int32 @intEmpresaID);
+        List<Persona> ListarDatosPersona(Int32 intPersonaID, Int32 intTipoPersonaID, Int32 intEmpresaID);
         /// <summary>
         /// Obtiene la relación de persona, dirección y empresa
         /// </summary>
@@ -33,7 +33,7 @@ namespace Adsisplus.Cotyrsa.WcfService.PersonaServices
         /// <returns></returns>
         [OperationContract]
         [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ListarRelPersonaDireccionEmpresa")]
-        List<Persona> ListarRelPersonaDireccionEmpresa(Int32 @intPersonaDomEmpreID, Int32 @intPersonaID, Int32 @intDireccionID, Int32 @intEmpresaID);
+        List<Persona> ListarRelPersonaDireccionEmpresa(Int32 intPersonaDomEmpreID, Int32 intPersonaID, Int32 intDireccionID, Int32 intEmpresaID);
         /// <summary>
         /// Permite el alta, modificación o baja de la persona
         /// </summary>

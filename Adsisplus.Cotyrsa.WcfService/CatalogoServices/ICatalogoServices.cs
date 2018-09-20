@@ -44,7 +44,7 @@ namespace Adsisplus.Cotyrsa.WcfService.CatalogoServices
         /// <returns></returns>
         [OperationContract]
         [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ListarCatCapacidadViga")]
-        List<CapacidadViga> ListarCatCapacidadViga(Int16 @sintTipoVigaID, Int16 @sintLongitudID, Int32 @intCalibreID, Int16 @sintLargoID);
+        List<CapacidadViga> ListarCatCapacidadViga(Int16 sintTipoVigaID, Int16 sintLongitudID, Int32 intCalibreID, Int16 sintLargoID);
         /// <summary>
         /// Obtiene la lista de complementos obligatorios
         /// </summary>
@@ -52,7 +52,7 @@ namespace Adsisplus.Cotyrsa.WcfService.CatalogoServices
         /// <returns></returns>
         [OperationContract]
         [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ListarCatComplementoObligatorio")]
-        List<ComplementoObligatorio> ListarCatComplementoObligatorio(Int32 @intElementoID);
+        List<ComplementoObligatorio> ListarCatComplementoObligatorio(Int32 intElementoID);
         /// <summary>
         /// Obtiene la lista de elementos
         /// </summary>
@@ -60,7 +60,7 @@ namespace Adsisplus.Cotyrsa.WcfService.CatalogoServices
         /// <returns></returns>
         [OperationContract]
         [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ListarCatElemento")]
-        List<Elemento> ListarCatElemento(Int32 @intSubProductoID);
+        List<Elemento> ListarCatElemento(Int32 intSubProductoID);
         /// <summary>
         /// Obtiene la lista de estatus
         /// </summary>
@@ -103,7 +103,7 @@ namespace Adsisplus.Cotyrsa.WcfService.CatalogoServices
         /// <returns></returns>
         [OperationContract]
         [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ListarCatModelo")]
-        List<Modelo> ListarCatModelo(Int32 @intElementoID);
+        List<Modelo> ListarCatModelo(Int32 intElementoID);
         /// <summary>
         /// Obtiene la lista de montaje
         /// </summary>
@@ -161,7 +161,7 @@ namespace Adsisplus.Cotyrsa.WcfService.CatalogoServices
         /// <returns></returns>
         [OperationContract]
         [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ListarCatSubfamiliaMarco")]
-        List<SubFamiliaMarco> ListarCatSubfamiliaMarco(Int16 @sintFondoMarcoID, Int16 @sintTipoMarcoID);
+        List<SubFamiliaMarco> ListarCatSubfamiliaMarco(Int16 sintFondoMarcoID, Int16 sintTipoMarcoID);
         /// <summary>
         /// Obtiene la lista de subproducti por producto general
         /// </summary>
@@ -169,7 +169,7 @@ namespace Adsisplus.Cotyrsa.WcfService.CatalogoServices
         /// <returns></returns>
         [OperationContract]
         [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ListarCatSubproducto")]
-        List<Subproducto> ListarCatSubproducto(Int32 @intProductoGralID);
+        List<Subproducto> ListarCatSubproducto(Int32 intProductoGralID);
         /// <summary>
         /// Obtiene la lista de tipo angulo ranurado
         /// </summary>
@@ -198,7 +198,7 @@ namespace Adsisplus.Cotyrsa.WcfService.CatalogoServices
         /// <returns></returns>
         [OperationContract]
         [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ListarCatTipoMarco")]
-        List<TipoMarco> ListarCatTipoMarco(Int16 @sintSeccionPosteID);
+        List<TipoMarco> ListarCatTipoMarco(Int16 sintSeccionPosteID);
         /// <summary>
         /// Obtiene la lista de tipo de material por marco
         /// </summary>
@@ -220,7 +220,7 @@ namespace Adsisplus.Cotyrsa.WcfService.CatalogoServices
         /// <returns></returns>
         [OperationContract]
         [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ListarCatTipoProtector")]
-        List<TipoProtector> ListarCatTipoProtector(Int32 @intTipoElementoAlmacenID);
+        List<TipoProtector> ListarCatTipoProtector(Int32 intTipoElementoAlmacenID);
         /// <summary>
         /// Obtiene la lista de tipo de viga
         /// </summary>
@@ -251,7 +251,7 @@ namespace Adsisplus.Cotyrsa.WcfService.CatalogoServices
         /// <returns></returns>
         [OperationContract]
         [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ListarCatCargaMarco")]
-        List<CargaMarco> ListarCatCargaMarco(Int32 @intCargaMarcoID, Int16 @sintTipoMarcoID, Int32 @intCalibreAceroID);
+        List<CargaMarco> ListarCatCargaMarco(Int32 intCargaMarcoID, Int16 sintTipoMarcoID, Int32 intCalibreAceroID);
         /// <summary>
         /// Obtiene la lista de cargar por poste
         /// </summary>
@@ -261,7 +261,7 @@ namespace Adsisplus.Cotyrsa.WcfService.CatalogoServices
         /// <returns></returns>
         [OperationContract]
         [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ListarCatCargaPoste")]
-        List<CargaPoste> ListarCatCargaPoste(Int32 @intCargaPosteID, Int16 @sintTipoMarcoID, Int32 @intCalibreAceroID);
+        List<CargaPoste> ListarCatCargaPoste(Int32 intCargaPosteID, Int16 sintTipoMarcoID, Int32 intCalibreAceroID);
         /// <summary>
         /// Obtiene la lista de producto por acero
         /// </summary>
@@ -272,6 +272,6 @@ namespace Adsisplus.Cotyrsa.WcfService.CatalogoServices
         /// <returns></returns>
         [OperationContract]
         [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ListarCatProductoAcero")]
-        List<ProductoAcero> ListarCatProductoAcero(Int32 @intTipoElementoAlmacenID, Int32 @intUnidadMedicionID, Int32 @intModeloID, Int32 @intCalibreAceroID);
+        List<ProductoAcero> ListarCatProductoAcero(Int32 intTipoElementoAlmacenID, Int32 intUnidadMedicionID, Int32 intModeloID, Int32 intCalibreAceroID);
     }
 }
