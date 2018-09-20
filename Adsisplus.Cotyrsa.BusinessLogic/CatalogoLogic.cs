@@ -24,12 +24,12 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
 
         #region Obtiene los datos de Catalogos de personas, direcciones y cotizaciones generales
 
-        public List<Localidad> ListarCatLocalidad(Int32 @int_MunicipioID)
+        public List<Localidad> ListarCatLocalidad(Int32 int_MunicipioID)
         {
             List<Localidad> results = null;
             try
             {
-                results = CatalogosDA.ListarCatLocalidad(@int_MunicipioID);
+                results = CatalogosDA.ListarCatLocalidad(int_MunicipioID);
             }
             catch (Exception ex)
             {
@@ -53,12 +53,12 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
         }
 
 
-        public List<Municipio> ListarCatMunicipio(Int32 @intEstadoID)
+        public List<Municipio> ListarCatMunicipio(Int32 intEstadoID)
         {
             List<Municipio> results = null;
             try
             {
-                results = CatalogosDA.ListarCatMunicipio(@intEstadoID);
+                results = CatalogosDA.ListarCatMunicipio(intEstadoID);
             }
             catch (Exception ex)
             {
@@ -184,12 +184,12 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
             return results;
         }
 
-        public List<CapacidadViga> ListarCatCapacidadViga(Int16 @sintTipoVigaID, Int16 @sintLongitudID, Int32 @intCalibreID, Int16 @sintLargoID)
+        public List<CapacidadViga> ListarCatCapacidadViga(Int16 sintTipoVigaID, Int16 sintLongitudID, Int32 intCalibreID, Int16 sintLargoID)
         {
             List<CapacidadViga> results = null;
             try
             {
-                results = CatalogosDA.ListarCatCapacidadViga(@sintTipoVigaID, @sintLongitudID, @intCalibreID, @sintLargoID);
+                results = CatalogosDA.ListarCatCapacidadViga(sintTipoVigaID, sintLongitudID, intCalibreID, sintLargoID);
             }
             catch (Exception ex)
             {
@@ -198,12 +198,12 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
             return results;
         }
 
-        public List<ComplementoObligatorio> ListarCatComplementoObligatorio(Int32 @intElementoID)
+        public List<ComplementoObligatorio> ListarCatComplementoObligatorio(Int32 intElementoID)
         {
             List<ComplementoObligatorio> results = null;
             try
             {
-                results = CatalogosDA.ListarCatComplementoObligatorio(@intElementoID);
+                results = CatalogosDA.ListarCatComplementoObligatorio(intElementoID);
             }
             catch (Exception ex)
             {
@@ -212,12 +212,12 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
             return results;
         }
 
-        public List<Elemento> ListarCatElemento(Int32 @intSubProductoID)
+        public List<Elemento> ListarCatElemento(Int32 intSubProductoID)
         {
             List<Elemento> results = null;
             try
             {
-                results = CatalogosDA.ListarCatElemento(@intSubProductoID);
+                results = CatalogosDA.ListarCatElemento(intSubProductoID);
             }
             catch (Exception ex)
             {
@@ -296,12 +296,12 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
             return results;
         }
 
-        public List<Modelo> ListarCatModelo(Int32 @intElementoID)
+        public List<Modelo> ListarCatModelo(Int32 intElementoID)
         {
             List<Modelo> results = null;
             try
             {
-                results = CatalogosDA.ListarCatModelo(@intElementoID);
+                results = CatalogosDA.ListarCatModelo(intElementoID);
             }
             catch (Exception ex)
             {
@@ -408,12 +408,12 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
             return results;
         }
 
-        public List<SubFamiliaMarco> ListarCatSubfamiliaMarco(Int16 @sintFondoMarcoID, Int16 @sintTipoMarcoID)
+        public List<SubFamiliaMarco> ListarCatSubfamiliaMarco(Int16 sintFondoMarcoID, Int16 sintTipoMarcoID)
         {
             List<SubFamiliaMarco> results = null;
             try
             {
-                results = CatalogosDA.ListarCatSubfamiliaMarco(@sintFondoMarcoID, @sintTipoMarcoID);
+                results = CatalogosDA.ListarCatSubfamiliaMarco(sintFondoMarcoID, sintTipoMarcoID);
             }
             catch (Exception ex)
             {
@@ -422,12 +422,12 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
             return results;
         }
 
-        public List<Subproducto> ListarCatSubproducto(Int32 @intProductoGralID)
+        public List<Subproducto> ListarCatSubproducto(Int32 intProductoGralID)
         {
             List<Subproducto> results = null;
             try
             {
-                results = CatalogosDA.ListarCatSubproducto(@intProductoGralID);
+                results = CatalogosDA.ListarCatSubproducto(intProductoGralID);
             }
             catch (Exception ex)
             {
@@ -478,12 +478,12 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
             return results;
         }
 
-        public List<TipoMarco> ListarCatTipoMarco(Int16 @sintSeccionPosteID)
+        public List<TipoMarco> ListarCatTipoMarco(Int16 sintSeccionPosteID)
         {
             List<TipoMarco> results = null;
             try
             {
-                results = CatalogosDA.ListarCatTipoMarco(@sintSeccionPosteID);
+                results = CatalogosDA.ListarCatTipoMarco(sintSeccionPosteID);
             }
             catch (Exception ex)
             {
@@ -520,12 +520,12 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
             return results;
         }
 
-        public List<TipoProtector> ListarCatTipoProtector(Int32 @intTipoElementoAlmacenID)
+        public List<TipoProtector> ListarCatTipoProtector(Int32 intTipoElementoAlmacenID)
         {
             List<TipoProtector> results = null;
             try
             {
-                results = CatalogosDA.ListarCatTipoProtector(@intTipoElementoAlmacenID);
+                results = CatalogosDA.ListarCatTipoProtector(intTipoElementoAlmacenID);
             }
             catch (Exception ex)
             {
@@ -576,12 +576,12 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
             return results;
         }
 
-        public List<CargaMarco> ListarCatCargaMarco(Int32 @intCargaMarcoID, Int16 @sintTipoMarcoID, Int32 @intCalibreAceroID)
+        public List<CargaMarco> ListarCatCargaMarco(Int32 intCargaMarcoID, Int16 sintTipoMarcoID, Int32 intCalibreAceroID)
         {
             List<CargaMarco> results = null;
             try
             {
-                results = CatalogosDA.ListarCatCargaMarco(@intCargaMarcoID, @sintTipoMarcoID, @intCalibreAceroID);
+                results = CatalogosDA.ListarCatCargaMarco(intCargaMarcoID, sintTipoMarcoID, intCalibreAceroID);
             }
             catch (Exception ex)
             {
@@ -590,12 +590,12 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
             return results;
         }
 
-        public List<CargaPoste> ListarCatCargaPoste(Int32 @intCargaPosteID, Int16 @sintTipoMarcoID, Int32 @intCalibreAceroID)
+        public List<CargaPoste> ListarCatCargaPoste(Int32 intCargaPosteID, Int16 sintTipoMarcoID, Int32 intCalibreAceroID)
         {
             List<CargaPoste> results = null;
             try
             {
-                results = CatalogosDA.ListarCatCargaPoste(@intCargaPosteID, @sintTipoMarcoID, @intCalibreAceroID);
+                results = CatalogosDA.ListarCatCargaPoste(intCargaPosteID, sintTipoMarcoID, intCalibreAceroID);
             }
             catch (Exception ex)
             {
@@ -604,12 +604,12 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
             return results;
         }
 
-        public List<ProductoAcero> ListarCatProductoAcero(Int32 @intTipoElementoAlmacenID, Int32 @intUnidadMedicionID, Int32 @intModeloID, Int32 @intCalibreAceroID)
+        public List<ProductoAcero> ListarCatProductoAcero(Int32 intTipoElementoAlmacenID, Int32 intUnidadMedicionID, Int32 intModeloID, Int32 intCalibreAceroID)
         {
             List<ProductoAcero> results = null;
             try
             {
-                results = CatalogosDA.ListarCatProductoAcero(@intTipoElementoAlmacenID, @intUnidadMedicionID, @intModeloID, @intCalibreAceroID);
+                results = CatalogosDA.ListarCatProductoAcero(intTipoElementoAlmacenID, intUnidadMedicionID, intModeloID, intCalibreAceroID);
             }
             catch (Exception ex)
             {

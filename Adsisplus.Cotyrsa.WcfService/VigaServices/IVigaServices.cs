@@ -20,7 +20,7 @@ namespace Adsisplus.Cotyrsa.WcfService.VigaServices
         /// <param name="intConfiguraVigaID"></param>
         /// <returns></returns>
         [OperationContract]
-        List<TotalViga> ListarTotalViga(Int32 @intTotalViga, Int32 @intConfiguraVigaID);
+        List<TotalViga> ListarTotalViga(Int32 intTotalViga, Int32 intConfiguraVigaID);
         /// <summary>
         /// Obtiene la lista de configuración por viga
         /// </summary>
@@ -34,7 +34,7 @@ namespace Adsisplus.Cotyrsa.WcfService.VigaServices
         /// <returns></returns>
         [OperationContract]
         [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ListarConfiguracionViga")]
-        List<Viga> ListarConfiguracionViga(Int32 @intConfiguraVigaID, Int32 @sintTipoVigaID, Int32 @intElementoID, Int32 @intCalibreID, Int32 @intCapacidadVigaID, Int32 @intFactorVigaID, Int16 @sintInsumoViga);
+        List<Viga> ListarConfiguracionViga(Int32 intConfiguraVigaID, Int32 sintTipoVigaID, Int32 intElementoID, Int32 intCalibreID, Int32 intCapacidadVigaID, Int32 intFactorVigaID, Int16 sintInsumoViga);
         /// <summary>
         /// Obtiene la lista de los datos por viga
         /// </summary>
@@ -45,7 +45,7 @@ namespace Adsisplus.Cotyrsa.WcfService.VigaServices
         /// <returns></returns>
         [OperationContract]
         [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ListarDatosViga")]
-        List<DatosViga> ListarDatosViga(Int32 @intDatosVigaID, Int16 @sintPinturaID, Int32 @intElementoID, Int32 @intDatoMarcoID);
+        List<DatosViga> ListarDatosViga(Int32 intDatosVigaID, Int16 sintPinturaID, Int32 intElementoID, Int32 intDatoMarcoID);
         /// <summary>
         /// Obtiene la lista de las viga por tope
         /// </summary>
@@ -58,6 +58,6 @@ namespace Adsisplus.Cotyrsa.WcfService.VigaServices
         /// <returns></returns>
         [OperationContract]
         [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ListarDatosVigaTope")]
-        List<DatosVigaTope> ListarDatosVigaTope(Int32 @intCantidadVigaTope, Int32 @intVigaTopeID, Int32 @intElementoID, Int32 @intDatosVigaID, Int32 @intCotizacionID, Int16 @sintPinturaID);
+        List<DatosVigaTope> ListarDatosVigaTope(Int32 intCantidadVigaTope, Int32 intVigaTopeID, Int32 intElementoID, Int32 intDatosVigaID, Int32 intCotizacionID, Int16 sintPinturaID);
     }
 }

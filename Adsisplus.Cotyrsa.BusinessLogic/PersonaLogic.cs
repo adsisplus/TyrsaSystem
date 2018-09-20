@@ -22,12 +22,12 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
 
         #endregion
 
-        public List<Persona> ListarDatosPersona(Int32 @intPersonaID, Int32 @intTipoPersonaID, Int32 @intEmpresaID)
+        public List<Persona> ListarDatosPersona(Int32 intPersonaID, Int32 intTipoPersonaID, Int32 intEmpresaID)
         {
             List<Persona> results = null;
             try
             {
-                results = CatalogosDA.ListarDatosPersona(@intPersonaID, @intTipoPersonaID, @intEmpresaID);
+                results = CatalogosDA.ListarDatosPersona(intPersonaID, intTipoPersonaID, intEmpresaID);
             }
             catch (Exception ex)
             {
@@ -36,12 +36,12 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
             return results;
         }
 
-        public List<Persona> ListarRelPersonaDireccionEmpresa(Int32 @intPersonaDomEmpreID, Int32 @intPersonaID, Int32 @intDireccionID, Int32 @intEmpresaID)
+        public List<Persona> ListarRelPersonaDireccionEmpresa(Int32 intPersonaDomEmpreID, Int32 intPersonaID, Int32 intDireccionID, Int32 intEmpresaID)
         {
             List<Persona> results = null;
             try
             {
-                results = CatalogosDA.ListarRelPersonaDireccionEmpresa(@intPersonaDomEmpreID, @intPersonaID, @intDireccionID, @intEmpresaID);
+                results = CatalogosDA.ListarRelPersonaDireccionEmpresa(intPersonaDomEmpreID, intPersonaID, intDireccionID, intEmpresaID);
             }
             catch (Exception ex)
             {

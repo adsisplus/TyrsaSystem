@@ -22,12 +22,12 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
 
         #endregion
 
-        public List<Direccion> ListarDireccion(Int32 @intDireccionID, Int32 @intPersonaID, Int32 @intEmpresaID, Int32 @intTipoDomicilioID)
+        public List<Direccion> ListarDireccion(Int32 intDireccionID, Int32 intPersonaID, Int32 intEmpresaID, Int32 intTipoDomicilioID)
         {
             List<Direccion> results = null;
             try
             {
-                results = CatalogosDA.ListarDireccion(@intDireccionID, @intPersonaID, @intEmpresaID, @intTipoDomicilioID);
+                results = CatalogosDA.ListarDireccion(intDireccionID, intPersonaID, intEmpresaID, intTipoDomicilioID);
             }
             catch (Exception ex)
             {

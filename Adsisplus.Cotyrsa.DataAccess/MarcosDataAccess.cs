@@ -10,14 +10,14 @@ namespace Adsisplus.Cotyrsa.DataAccess
 {
    public class MarcosDataAccess
     {
-        public List<Configuracion_Marco> ConfiguraMarco(Int32 @intConfiguraMarcoID, Int32 @intElementoID, Int16 @sintTipoMarcoID, Int32 @intAlturaMarcoID, Int16 @sintFondoMarcoID, Int32 @intSKUID, Int16 @sintFactorMarcoID)
+        public List<Configuracion_Marco> ConfiguraMarco(Int32 intConfiguraMarcoID, Int32 intElementoID, Int16 sintTipoMarcoID, Int32 intAlturaMarcoID, Int16 sintFondoMarcoID, Int32 intSKUID, Int16 sintFactorMarcoID)
         {
             List<Configuracion_Marco> results = new List<Configuracion_Marco>();
             try
             {
                 using (MarcosDataContext dc = new MarcosDataContext(Helper.ConnectionString()))
                 {
-                    var query = from item in dc.stp_ConfiguraMarco(@intConfiguraMarcoID, @intElementoID, @sintTipoMarcoID, @intAlturaMarcoID, @sintFondoMarcoID, @intSKUID, @sintFactorMarcoID)
+                    var query = from item in dc.stp_ConfiguraMarco(intConfiguraMarcoID, intElementoID, sintTipoMarcoID, intAlturaMarcoID, sintFondoMarcoID, intSKUID, sintFactorMarcoID)
                                 select new Configuracion_Marco()
                                 {
                                     intConfiguraMarcoID = item.intConfiguraMarcoID,
@@ -59,14 +59,14 @@ namespace Adsisplus.Cotyrsa.DataAccess
             return results;
         }
 
-        public List<RelSistemaCargaMarcoPoste> RelSistemaCargaMarcoPoste(Int16 @sintSistemaCargaMarcoID, Int32 @intSubProductoID, Int32 @intCargaPosteID, Int32 @intCargaMarcoID)
+        public List<RelSistemaCargaMarcoPoste> RelSistemaCargaMarcoPoste(Int16 sintSistemaCargaMarcoID, Int32 intSubProductoID, Int32 intCargaPosteID, Int32 intCargaMarcoID)
         {
             List<RelSistemaCargaMarcoPoste> results = new List<RelSistemaCargaMarcoPoste>();
             try
             {
                 using (MarcosDataContext dc = new MarcosDataContext(Helper.ConnectionString()))
                 {
-                    var query = from item in dc.stp_RelSistemaCargaMarcoPoste(@sintSistemaCargaMarcoID, @intSubProductoID, @intCargaPosteID, @intCargaMarcoID)
+                    var query = from item in dc.stp_RelSistemaCargaMarcoPoste(sintSistemaCargaMarcoID, intSubProductoID, intCargaPosteID, intCargaMarcoID)
                                 select new RelSistemaCargaMarcoPoste()
                                 {
                                     sintSistemaCargaMarcoID = item.sintSistemaCargaMarcoID,
@@ -85,14 +85,14 @@ namespace Adsisplus.Cotyrsa.DataAccess
             return results;
         }
 
-        public List<DatosMarco> ListarDatosMarco(Int32 @intDatoMarcoID, Int32 @intCotizacionID, Int32 @intElementoID, Int16 @sintPinturaID)
+        public List<DatosMarco> ListarDatosMarco(Int32 intDatoMarcoID, Int32 intCotizacionID, Int32 intElementoID, Int16 sintPinturaID)
         {
             List<DatosMarco> results = new List<DatosMarco>();
             try
             {
                 using (MarcosDataContext dc = new MarcosDataContext(Helper.ConnectionString()))
                 {
-                    var query = from item in dc.stp_ListarDatosMarco(@intDatoMarcoID, @intCotizacionID, @intElementoID, @sintPinturaID)
+                    var query = from item in dc.stp_ListarDatosMarco(intDatoMarcoID, intCotizacionID, intElementoID, sintPinturaID)
                                 select new DatosMarco()
                                 {
                                     intDatoMarcoID = item.intDatoMarcoID,
@@ -119,14 +119,14 @@ namespace Adsisplus.Cotyrsa.DataAccess
             return results;
         }
 
-        public List<FondoMarco> ListarFondoMarco(Int32 @sintFondoMarcoID, Int32 @sintTipoMarcoID)
+        public List<FondoMarco> ListarFondoMarco(Int32 sintFondoMarcoID, Int32 sintTipoMarcoID)
         {
             List<FondoMarco> results = new List<FondoMarco>();
             try
             {
                 using (MarcosDataContext dc = new MarcosDataContext(Helper.ConnectionString()))
                 {
-                    var query = from item in dc.stp_ListarFondoMarco(@sintFondoMarcoID, @sintTipoMarcoID)
+                    var query = from item in dc.stp_ListarFondoMarco(sintFondoMarcoID, sintTipoMarcoID)
                                 select new FondoMarco()
                                 {
                                     sintFondoMarcoID = item.sintFondoMarcoID,
@@ -212,14 +212,14 @@ namespace Adsisplus.Cotyrsa.DataAccess
             return results;
         }
 
-        public Resultado ActualizaFactorMarco(Int16 @sintFondoMarcoID, Decimal @decCostoLamina, Decimal @decCostoSolera, Decimal @decFactorAcero, byte @tinOpcion)
+        public Resultado ActualizaFactorMarco(Int16 sintFondoMarcoID, Decimal decCostoLamina, Decimal decCostoSolera, Decimal decFactorAcero, byte tinOpcion)
         {
             Resultado results = new Resultado();
             try
             {
                 using (MarcosDataContext dc = new MarcosDataContext(Helper.ConnectionString()))
                 {
-                    var query = from item in dc.stp_ActualizaFactorMarco(@sintFondoMarcoID, @decCostoLamina, @decCostoSolera, @decFactorAcero, @tinOpcion)
+                    var query = from item in dc.stp_ActualizaFactorMarco(sintFondoMarcoID, decCostoLamina, decCostoSolera, decFactorAcero, tinOpcion)
                                 select new Resultado()
                                 {
                                     vchResultado = item.vchResultado,

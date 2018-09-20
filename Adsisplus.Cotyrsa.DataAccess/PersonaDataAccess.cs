@@ -10,14 +10,14 @@ namespace Adsisplus.Cotyrsa.DataAccess
 {
    public class PersonaDataAccess
     {
-        public List<Persona> ListarDatosPersona(Int32 @intPersonaID, Int32 @intTipoPersonaID, Int32 @intEmpresaID)
+        public List<Persona> ListarDatosPersona(Int32 intPersonaID, Int32 intTipoPersonaID, Int32 intEmpresaID)
         {
             List<Persona> results = new List<Persona>();
             try
             {
                 using (PersonaDataContext dc = new PersonaDataContext(Helper.ConnectionString()))
                 {
-                    var query = from item in dc.stp_ListarDatosPersona(@intPersonaID, @intTipoPersonaID, @intEmpresaID)
+                    var query = from item in dc.stp_ListarDatosPersona(intPersonaID, intTipoPersonaID, intEmpresaID)
                                 select new Persona()
                                 {
                                     intPersonaID = item.intPersonaID,
@@ -51,14 +51,14 @@ namespace Adsisplus.Cotyrsa.DataAccess
             return results;
         }
 
-        public List<Persona> ListarRelPersonaDireccionEmpresa(Int32 @intPersonaDomEmpreID, Int32 @intPersonaID, Int32 @intDireccionID, Int32 @intEmpresaID)
+        public List<Persona> ListarRelPersonaDireccionEmpresa(Int32 intPersonaDomEmpreID, Int32 intPersonaID, Int32 intDireccionID, Int32 intEmpresaID)
         {
             List<Persona> results = new List<Persona>();
             try
             {
                 using (PersonaDataContext dc = new PersonaDataContext(Helper.ConnectionString()))
                 {
-                    var query = from item in dc.stp_ListarRelPersonaDireccionEmpresa(@intPersonaDomEmpreID, @intPersonaID, @intDireccionID, @intEmpresaID)
+                    var query = from item in dc.stp_ListarRelPersonaDireccionEmpresa(intPersonaDomEmpreID, intPersonaID, intDireccionID, intEmpresaID)
                                 select new Persona()
                                 {
                                     intPersonaDomEmpreID = item.intPersonaDomEmpreID,

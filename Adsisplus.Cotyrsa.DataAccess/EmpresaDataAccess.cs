@@ -10,14 +10,14 @@ namespace Adsisplus.Cotyrsa.DataAccess
 {
    public class EmpresaDataAccess
     {
-        public List<Empresa> ListarEmpresa(Int32 @intEmpresaID, Int16 @sintTipoEmpresaID)
+        public List<Empresa> ListarEmpresa(Int32 intEmpresaID, Int16 sintTipoEmpresaID)
         {
             List<Empresa> results = new List<Empresa>();
             try
             {
                 using (EmpresaDataContext dc = new EmpresaDataContext(Helper.ConnectionString()))
                 {
-                    var query = from item in dc.stp_ListarEmpresa(@intEmpresaID, @sintTipoEmpresaID)
+                    var query = from item in dc.stp_ListarEmpresa(intEmpresaID, sintTipoEmpresaID)
                                 select new Empresa()
                                 {
                                     intEmpresaID = item.intEmpresaID,

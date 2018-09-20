@@ -12,14 +12,14 @@ namespace Adsisplus.Cotyrsa.DataAccess
     
     public class PanelDataAccess
     {
-        public List<DatosPanel> ListarDatosPanel(Int32 @intDatosPanelID, Int32 @intElementoID, Int32 @intDatoMarcoID, Int16 @sintPinturaID)
+        public List<DatosPanel> ListarDatosPanel(Int32 intDatosPanelID, Int32 intElementoID, Int32 intDatoMarcoID, Int16 sintPinturaID)
         {
             List<DatosPanel> results = new List<DatosPanel>();
             try
             {
                 using (PanelesDataContext dc = new PanelesDataContext(Helper.ConnectionString()))
                 {
-                    var query = from item in dc.stp_ListarDatosPanel(@intDatosPanelID, @intElementoID, @intDatoMarcoID, @sintPinturaID)
+                    var query = from item in dc.stp_ListarDatosPanel(intDatosPanelID, intElementoID, intDatoMarcoID, sintPinturaID)
                                 select new DatosPanel()
                                 {
                                     intDatosPanelID = item.intDatosPanelID,

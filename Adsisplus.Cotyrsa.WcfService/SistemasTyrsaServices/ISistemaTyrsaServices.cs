@@ -36,10 +36,10 @@ namespace Adsisplus.Cotyrsa.WcfService.SistemasTyrsaServices
         /// <returns></returns>
         [OperationContract]
         [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ListarRelSistemaSelectivo")]
-        List<RelSistemaSelectivo> ListarRelSistemaSelectivo(Int32 @intCotizacionID, Int32 @intTipoElementoCoti_Producto, Int32 @intTipoElementoID,
-                                                            Int32 @intTipoElementoAlmacenID, Int32 @intConfiguraMarcoID, Int32 @intConfiguraVigaID,
-                                                            Int32 @intDatoMarcoID, Int32 @intDatosVigaID, Int32 @intDatosPanelID, Int32 @intDatosCrossBarID,
-                                                            Int32 @intDistanciadorID, Int32 @intParrillaID, Int32 @intVigaTopeID, Int32 @intProtectorPosteID,
-                                                            Int32 @intProtectorBateriaID, Int16 @sintSistemaCargaMarcoID, DateTime @datFechaAlta);
+        List<RelSistemaSelectivo> ListarRelSistemaSelectivo(Int32 intCotizacionID, Int32 intTipoElementoCoti_Producto, Int32 intTipoElementoID,
+                                                            Int32 intTipoElementoAlmacenID, Int32 intConfiguraMarcoID, Int32 intConfiguraVigaID,
+                                                            Int32 intDatoMarcoID, Int32 intDatosVigaID, Int32 intDatosPanelID, Int32 intDatosCrossBarID,
+                                                            Int32 intDistanciadorID, Int32 intParrillaID, Int32 intVigaTopeID, Int32 intProtectorPosteID,
+                                                            Int32 intProtectorBateriaID, Int16 sintSistemaCargaMarcoID, DateTime datFechaAlta);
     }
 }

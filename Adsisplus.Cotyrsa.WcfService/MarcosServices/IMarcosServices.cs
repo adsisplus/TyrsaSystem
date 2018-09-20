@@ -26,7 +26,7 @@ namespace Adsisplus.Cotyrsa.WcfService.MarcosServices
         /// <returns></returns>
         [OperationContract]
         [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ConfiguraMarco")]
-        List<Configuracion_Marco> ConfiguraMarco(Int32 @intConfiguraMarcoID, Int32 @intElementoID, Int16 @sintTipoMarcoID, Int32 @intAlturaMarcoID, Int16 @sintFondoMarcoID, Int32 @intSKUID, Int16 @sintFactorMarcoID);
+        List<Configuracion_Marco> ConfiguraMarco(Int32 intConfiguraMarcoID, Int32 intElementoID, Int16 sintTipoMarcoID, Int32 intAlturaMarcoID, Int16 sintFondoMarcoID, Int32 intSKUID, Int16 sintFactorMarcoID);
         /// <summary>
         /// Obtiene la lista de relaciones de sistema de carga de Marcos contra postes
         /// </summary>
@@ -37,7 +37,7 @@ namespace Adsisplus.Cotyrsa.WcfService.MarcosServices
         /// <returns></returns>
         [OperationContract]
         [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "RelSistemaCargaMarcoPoste")]
-        List<RelSistemaCargaMarcoPoste> RelSistemaCargaMarcoPoste(Int16 @sintSistemaCargaMarcoID, Int32 @intSubProductoID, Int32 @intCargaPosteID, Int32 @intCargaMarcoID);
+        List<RelSistemaCargaMarcoPoste> RelSistemaCargaMarcoPoste(Int16 sintSistemaCargaMarcoID, Int32 intSubProductoID, Int32 intCargaPosteID, Int32 intCargaMarcoID);
         /// <summary>
         /// Obtiene la lista de datos de un marco en particular
         /// </summary>
@@ -48,7 +48,7 @@ namespace Adsisplus.Cotyrsa.WcfService.MarcosServices
         /// <returns></returns>
         [OperationContract]
         [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ListarDatosMarco")]
-        List<DatosMarco> ListarDatosMarco(Int32 @intDatoMarcoID, Int32 @intCotizacionID, Int32 @intElementoID, Int16 @sintPinturaID);
+        List<DatosMarco> ListarDatosMarco(Int32 intDatoMarcoID, Int32 intCotizacionID, Int32 intElementoID, Int16 sintPinturaID);
         /// <summary>
         /// Obtiene la lista de fonto por un marco en particular
         /// </summary>
@@ -57,7 +57,7 @@ namespace Adsisplus.Cotyrsa.WcfService.MarcosServices
         /// <returns></returns>
         [OperationContract]
         [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ListarFondoMarco")]
-        List<FondoMarco> ListarFondoMarco(Int32 @sintFondoMarcoID, Int32 @sintTipoMarcoID);
+        List<FondoMarco> ListarFondoMarco(Int32 sintFondoMarcoID, Int32 sintTipoMarcoID);
 
         /// <summary>
         /// Cambia los factores de configuración para los marcos
@@ -70,6 +70,6 @@ namespace Adsisplus.Cotyrsa.WcfService.MarcosServices
         /// <returns></returns>
         [OperationContract]
         [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ActualizaFactorMarco")]
-        Resultado ActualizaFactorMarco(Int16 @sintFondoMarcoID, Decimal @decCostoLamina, Decimal @decCostoSolera, Decimal @decFactorAcero, byte @tinOpcion);
+        Resultado ActualizaFactorMarco(Int16 sintFondoMarcoID, Decimal decCostoLamina, Decimal decCostoSolera, Decimal decFactorAcero, byte tinOpcion);
     }
 }

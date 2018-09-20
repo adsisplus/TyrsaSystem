@@ -22,12 +22,12 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
 
         #endregion
 
-        public List<DatosProtectorBase> ListarDatosProtectorPoste(Int32 @intProtectorPosteID, Int32 @intElementoID, Int32 @intCotizacionID, Int16 @sintPinturaID)
+        public List<DatosProtectorBase> ListarDatosProtectorPoste(Int32 intProtectorPosteID, Int32 intElementoID, Int32 intCotizacionID, Int16 sintPinturaID)
         {
             List<DatosProtectorBase> results = null;
             try
             {
-                results = CatalogosDA.ListarDatosProtectorPoste(@intProtectorPosteID, @intElementoID, @intCotizacionID, @sintPinturaID);
+                results = CatalogosDA.ListarDatosProtectorPoste(intProtectorPosteID, intElementoID, intCotizacionID, sintPinturaID);
             }
             catch (Exception ex)
             {
@@ -36,12 +36,12 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
             return results;
         }
 
-        public List<DatosProtectorBateria> ListarDatosProtectorBateria(Int32 @intProtectorBateriaID, Int32 @intElementoID, Int32 @intCotizacionID)
+        public List<DatosProtectorBateria> ListarDatosProtectorBateria(Int32 intProtectorBateriaID, Int32 intElementoID, Int32 intCotizacionID)
         {
             List<DatosProtectorBateria> results = null;
             try
             {
-                results = CatalogosDA.ListarDatosProtectorBateria(@intProtectorBateriaID, @intElementoID, @intCotizacionID);
+                results = CatalogosDA.ListarDatosProtectorBateria(intProtectorBateriaID, intElementoID, intCotizacionID);
             }
             catch (Exception ex)
             {

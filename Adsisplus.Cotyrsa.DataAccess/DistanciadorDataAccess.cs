@@ -10,14 +10,14 @@ namespace Adsisplus.Cotyrsa.DataAccess
 {
    public class DistanciadorDataAccess
     {
-        public List<DatosDistanciador> ListarDatosPanel(Int32 @intDistanciadorID, Int32 @intCotizacionID, Int32 @intElementoID)
+        public List<DatosDistanciador> ListarDatosPanel(Int32 intDistanciadorID, Int32 intCotizacionID, Int32 intElementoID)
         {
             List<DatosDistanciador> results = new List<DatosDistanciador>();
             try
             {
                 using (DistanciadorDataContext dc = new DistanciadorDataContext(Helper.ConnectionString()))
                 {
-                    var query = from item in dc.stp_ListarDatosDistanciador(@intDistanciadorID, @intCotizacionID, @intElementoID)
+                    var query = from item in dc.stp_ListarDatosDistanciador(intDistanciadorID, intCotizacionID, intElementoID)
                                 select new DatosDistanciador()
                                 {
                                     intDistanciadorID = item.intDistanciadorID,

@@ -10,14 +10,14 @@ namespace Adsisplus.Cotyrsa.DataAccess
 {
    public class DireccionDataAccess
     {
-        public List<Direccion> ListarDireccion(Int32 @intDireccionID, Int32 @intPersonaID, Int32 @intEmpresaID, Int32 @intTipoDomicilioID)
+        public List<Direccion> ListarDireccion(Int32 intDireccionID, Int32 intPersonaID, Int32 intEmpresaID, Int32 intTipoDomicilioID)
         {
             List<Direccion> results = new List<Direccion>();
             try
             {
                 using (DireccionDataContext dc = new DireccionDataContext(Helper.ConnectionString()))
                 {
-                    var query = from item in dc.stp_ListarDireccion(@intDireccionID, @intPersonaID, @intEmpresaID, @intTipoDomicilioID)
+                    var query = from item in dc.stp_ListarDireccion(intDireccionID, intPersonaID, intEmpresaID, intTipoDomicilioID)
                                 select new Direccion()
                                 {
                                     intDireccionID = item.intDireccionID,

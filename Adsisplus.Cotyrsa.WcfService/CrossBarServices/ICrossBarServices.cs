@@ -22,6 +22,6 @@ namespace Adsisplus.Cotyrsa.WcfService.CrossBarServices
         /// <returns></returns>
         [OperationContract]
         [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ListarDatosPanel")]
-        List<DatosCrossBar> ListarDatosPanel(Int32 @intDatosCrossBarID, Int32 @intElementoID, Int32 @intDatoMarcoID);
+        List<DatosCrossBar> ListarDatosPanel(Int32 intDatosCrossBarID, Int32 intElementoID, Int32 intDatoMarcoID);
     }
 }

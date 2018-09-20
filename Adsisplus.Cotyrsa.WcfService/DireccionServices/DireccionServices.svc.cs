@@ -21,12 +21,12 @@ namespace Adsisplus.Cotyrsa.WcfService.DireccionServices
         /// <param name="intEmpresaID"></param>
         /// <param name="intTipoDomicilioID"></param>
         /// <returns></returns>
-        public List<Direccion> ListarDireccion(Int32 @intDireccionID, Int32 @intPersonaID, Int32 @intEmpresaID, Int32 @intTipoDomicilioID)
+        public List<Direccion> ListarDireccion(Int32 intDireccionID, Int32 intPersonaID, Int32 intEmpresaID, Int32 intTipoDomicilioID)
         {
             List<Direccion> result = new List<Direccion>();
             try
             {
-                result = (new DireccionLogic()).ListarDireccion(@intDireccionID, @intPersonaID, @intEmpresaID, @intTipoDomicilioID);
+                result = (new DireccionLogic()).ListarDireccion(intDireccionID, intPersonaID, intEmpresaID, intTipoDomicilioID);
             }
             catch (Exception ex)
             {

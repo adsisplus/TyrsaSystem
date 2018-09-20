@@ -10,14 +10,14 @@ namespace Adsisplus.Cotyrsa.DataAccess
 {
    public class VigaDataAccess
     {
-        public List<TotalViga> ListarTotalViga(Int32 @intTotalViga, Int32 @intConfiguraVigaID)
+        public List<TotalViga> ListarTotalViga(Int32 intTotalViga, Int32 intConfiguraVigaID)
         {
             List<TotalViga> results = new List<TotalViga>();
             try
             {
                 using (VigasDataContext dc = new VigasDataContext(Helper.ConnectionString()))
                 {
-                    var query = from item in dc.stp_ListarTotalViga(@intTotalViga, @intConfiguraVigaID)
+                    var query = from item in dc.stp_ListarTotalViga(intTotalViga, intConfiguraVigaID)
                                 select new TotalViga()
                                 {
                                     intTotalViga = item.intTotalViga,
@@ -37,14 +37,14 @@ namespace Adsisplus.Cotyrsa.DataAccess
             return results;
         }
 
-        public List<Viga> ListarConfiguracionViga(Int32 @intConfiguraVigaID, Int32 @sintTipoVigaID, Int32 @intElementoID, Int32 @intCalibreID, Int32 @intCapacidadVigaID, Int32 @intFactorVigaID, Int16 @sintInsumoViga)
+        public List<Viga> ListarConfiguracionViga(Int32 intConfiguraVigaID, Int32 sintTipoVigaID, Int32 intElementoID, Int32 intCalibreID, Int32 intCapacidadVigaID, Int32 intFactorVigaID, Int16 sintInsumoViga)
         {
             List<Viga> results = new List<Viga>();
             try
             {
                 using (VigasDataContext dc = new VigasDataContext(Helper.ConnectionString()))
                 {
-                    var query = from item in dc.stp_ListarConfiguracionViga(@intConfiguraVigaID, @sintTipoVigaID, @intElementoID, @intCalibreID, @intCapacidadVigaID, @intFactorVigaID, @sintInsumoViga)
+                    var query = from item in dc.stp_ListarConfiguracionViga(intConfiguraVigaID, sintTipoVigaID, intElementoID, intCalibreID, intCapacidadVigaID, intFactorVigaID, sintInsumoViga)
                                 select new Viga()
                                 {
                                     intConfiguraVigaID = item.intConfiguraVigaID,
@@ -77,14 +77,14 @@ namespace Adsisplus.Cotyrsa.DataAccess
             return results;
         }
 
-        public List<DatosViga> ListarDatosViga(Int32 @intDatosVigaID, Int16 @sintPinturaID, Int32 @intElementoID, Int32 @intDatoMarcoID)
+        public List<DatosViga> ListarDatosViga(Int32 intDatosVigaID, Int16 sintPinturaID, Int32 intElementoID, Int32 intDatoMarcoID)
         {
             List<DatosViga> results = new List<DatosViga>();
             try
             {
                 using (VigasDataContext dc = new VigasDataContext(Helper.ConnectionString()))
                 {
-                    var query = from item in dc.stp_ListarDatosViga(@intDatosVigaID, @sintPinturaID, @intElementoID, @intDatoMarcoID)
+                    var query = from item in dc.stp_ListarDatosViga(intDatosVigaID, sintPinturaID, intElementoID, intDatoMarcoID)
                                 select new DatosViga()
                                 {
                                     intDatosVigaID = item.intDatosVigaID,
@@ -105,14 +105,14 @@ namespace Adsisplus.Cotyrsa.DataAccess
             return results;
         }
 
-        public List<DatosVigaTope> ListarDatosVigaTope(Int32 @intCantidadVigaTope, Int32 @intVigaTopeID, Int32 @intElementoID, Int32 @intDatosVigaID, Int32 @intCotizacionID, Int16 @sintPinturaID)
+        public List<DatosVigaTope> ListarDatosVigaTope(Int32 intCantidadVigaTope, Int32 intVigaTopeID, Int32 intElementoID, Int32 intDatosVigaID, Int32 intCotizacionID, Int16 sintPinturaID)
         {
             List<DatosVigaTope> results = new List<DatosVigaTope>();
             try
             {
                 using (VigasDataContext dc = new VigasDataContext(Helper.ConnectionString()))
                 {
-                    var query = from item in dc.stp_ListarDatosVigaTope(@intCantidadVigaTope, @intVigaTopeID, @intElementoID, @intDatosVigaID, @intCotizacionID, @sintPinturaID)
+                    var query = from item in dc.stp_ListarDatosVigaTope(intCantidadVigaTope, intVigaTopeID, intElementoID, intDatosVigaID, intCotizacionID, sintPinturaID)
                                 select new DatosVigaTope()
                                 {
                                     intVigaTopeID = item.intVigaTopeID,

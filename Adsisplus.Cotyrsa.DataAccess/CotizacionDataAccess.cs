@@ -10,14 +10,14 @@ namespace Adsisplus.Cotyrsa.DataAccess
 {
    public class CotizacionDataAccess
     {
-        public List<Cotizacion> ListarCatAlturaMarco(Int32 @intCotizacionID, Int32 @intEstatusID, Int32 @sintPrioridadID, Int32 @intEmpresaID)
+        public List<Cotizacion> ListarCatAlturaMarco(Int32 intCotizacionID, Int32 intEstatusID, Int32 sintPrioridadID, Int32 intEmpresaID)
         {
             List<Cotizacion> results = new List<Cotizacion>();
             try
             {
                 using (CotizacionDataContext dc = new CotizacionDataContext(Helper.ConnectionString()))
                 {
-                    var query = from item in dc.stp_ListarDatosCotizacion(@intCotizacionID, @intEstatusID, @sintPrioridadID, @intEmpresaID)
+                    var query = from item in dc.stp_ListarDatosCotizacion(intCotizacionID, intEstatusID, sintPrioridadID, intEmpresaID)
                                 select new Cotizacion()
                                 {
                                     intCotizacionID = item.intCotizacionID,

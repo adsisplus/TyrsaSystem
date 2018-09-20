@@ -22,12 +22,12 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
 
         #endregion
 
-        public List<DatosParrilla> ListarDatosPanel(Int32 @intParrillaID, Int32 @intElementoID, Int16 @sintPinturaID, Int32 @intCotizacionID)
+        public List<DatosParrilla> ListarDatosPanel(Int32 intParrillaID, Int32 intElementoID, Int16 sintPinturaID, Int32 intCotizacionID)
         {
             List<DatosParrilla> results = null;
             try
             {
-                results = CatalogosDA.ListarDatosPanel(@intParrillaID, @intElementoID, @sintPinturaID, @intCotizacionID);
+                results = CatalogosDA.ListarDatosPanel(intParrillaID, intElementoID, sintPinturaID, intCotizacionID);
             }
             catch (Exception ex)
             {

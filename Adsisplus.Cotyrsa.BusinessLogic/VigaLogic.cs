@@ -22,12 +22,12 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
 
         #endregion
 
-        public List<TotalViga> ListarTotalViga(Int32 @intTotalViga, Int32 @intConfiguraVigaID)
+        public List<TotalViga> ListarTotalViga(Int32 intTotalViga, Int32 intConfiguraVigaID)
         {
             List<TotalViga> results = null;
             try
             {
-                results = CatalogosDA.ListarTotalViga(@intTotalViga, @intConfiguraVigaID);
+                results = CatalogosDA.ListarTotalViga(intTotalViga, intConfiguraVigaID);
             }
             catch (Exception ex)
             {
@@ -36,12 +36,12 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
             return results;
         }
 
-        public List<Viga> ListarConfiguracionViga(Int32 @intConfiguraVigaID, Int32 @sintTipoVigaID, Int32 @intElementoID, Int32 @intCalibreID, Int32 @intCapacidadVigaID, Int32 @intFactorVigaID, Int16 @sintInsumoViga)
+        public List<Viga> ListarConfiguracionViga(Int32 intConfiguraVigaID, Int32 sintTipoVigaID, Int32 intElementoID, Int32 intCalibreID, Int32 intCapacidadVigaID, Int32 intFactorVigaID, Int16 sintInsumoViga)
         {
             List<Viga> results = null;
             try
             {
-                results = CatalogosDA.ListarConfiguracionViga(@intConfiguraVigaID, @sintTipoVigaID, @intElementoID, @intCalibreID, @intCapacidadVigaID, @intFactorVigaID, @sintInsumoViga);
+                results = CatalogosDA.ListarConfiguracionViga(intConfiguraVigaID, sintTipoVigaID, intElementoID, intCalibreID, intCapacidadVigaID, intFactorVigaID, sintInsumoViga);
             }
             catch (Exception ex)
             {
@@ -50,12 +50,12 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
             return results;
         }
 
-        public List<DatosViga> ListarDatosViga(Int32 @intDatosVigaID, Int16 @sintPinturaID, Int32 @intElementoID, Int32 @intDatoMarcoID)
+        public List<DatosViga> ListarDatosViga(Int32 intDatosVigaID, Int16 sintPinturaID, Int32 intElementoID, Int32 intDatoMarcoID)
         {
             List<DatosViga> results = null;
             try
             {
-                results = CatalogosDA.ListarDatosViga(@intDatosVigaID, @sintPinturaID, @intElementoID, @intDatoMarcoID);
+                results = CatalogosDA.ListarDatosViga(intDatosVigaID, sintPinturaID, intElementoID, intDatoMarcoID);
             }
             catch (Exception ex)
             {
@@ -64,12 +64,12 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
             return results;
         }
 
-        public List<DatosVigaTope> ListarDatosVigaTope(Int32 @intCantidadVigaTope, Int32 @intVigaTopeID, Int32 @intElementoID, Int32 @intDatosVigaID, Int32 @intCotizacionID, Int16 @sintPinturaID)
+        public List<DatosVigaTope> ListarDatosVigaTope(Int32 intCantidadVigaTope, Int32 intVigaTopeID, Int32 intElementoID, Int32 intDatosVigaID, Int32 intCotizacionID, Int16 sintPinturaID)
         {
             List<DatosVigaTope> results = null;
             try
             {
-                results = CatalogosDA.ListarDatosVigaTope(@intCantidadVigaTope, @intVigaTopeID, @intElementoID, @intDatosVigaID, @intCotizacionID, @sintPinturaID);
+                results = CatalogosDA.ListarDatosVigaTope(intCantidadVigaTope, intVigaTopeID, intElementoID, intDatosVigaID, intCotizacionID, sintPinturaID);
             }
             catch (Exception ex)
             {

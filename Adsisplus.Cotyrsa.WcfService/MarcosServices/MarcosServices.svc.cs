@@ -108,12 +108,12 @@ namespace Adsisplus.Cotyrsa.WcfService.MarcosServices
         /// <param name="decFactorAcero"></param>
         /// <param name="tinOpcion"></param>
         /// <returns></returns>
-        public Resultado ActualizaFactorMarco(Int16 @sintFondoMarcoID, Decimal @decCostoLamina, Decimal @decCostoSolera, Decimal @decFactorAcero, byte @tinOpcion)
+        public Resultado ActualizaFactorMarco(Int16 sintFondoMarcoID, Decimal decCostoLamina, Decimal decCostoSolera, Decimal decFactorAcero, byte tinOpcion)
         {
             Resultado result = new Resultado();
             try
             {
-                result = (new MarcosLogic()).ActualizaFactorMarco(@sintFondoMarcoID, @decCostoLamina, @decCostoSolera, @decFactorAcero, @tinOpcion);
+                result = (new MarcosLogic()).ActualizaFactorMarco(sintFondoMarcoID, decCostoLamina, decCostoSolera, decFactorAcero, tinOpcion);
             }
             catch (Exception ex)
             {

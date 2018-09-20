@@ -10,14 +10,14 @@ namespace Adsisplus.Cotyrsa.DataAccess
    public class CrossBarDataAccess
     {
        
-            public List<DatosCrossBar> ListarDatosPanel(Int32 @intDatosCrossBarID, Int32 @intElementoID, Int32 @intDatoMarcoID)
+            public List<DatosCrossBar> ListarDatosPanel(Int32 intDatosCrossBarID, Int32 intElementoID, Int32 intDatoMarcoID)
             {
                 List<DatosCrossBar> results = new List<DatosCrossBar>();
                 try
                 {
                     using (CrossBarDataContext dc = new CrossBarDataContext(Helper.ConnectionString()))
                     {
-                        var query = from item in dc.stp_ListarDatosCrossBar(@intDatosCrossBarID, @intElementoID, @intDatoMarcoID)
+                        var query = from item in dc.stp_ListarDatosCrossBar(intDatosCrossBarID, intElementoID, intDatoMarcoID)
                                     select new DatosCrossBar()
                                     {
                                         intDatosCrossBarID = item.intDatosCrossBarID,

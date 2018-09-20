@@ -11,14 +11,14 @@ namespace Adsisplus.Cotyrsa.DataAccess
 {
   public  class ProtectoresDataAccess
     {
-        public List<DatosProtectorBase> ListarDatosProtectorPoste(Int32 @intProtectorPosteID, Int32 @intElementoID, Int32 @intCotizacionID, Int16 @sintPinturaID)
+        public List<DatosProtectorBase> ListarDatosProtectorPoste(Int32 intProtectorPosteID, Int32 intElementoID, Int32 intCotizacionID, Int16 sintPinturaID)
         {
             List<DatosProtectorBase> results = new List<DatosProtectorBase>();
             try
             {
                 using (ProtectoresDataContext dc = new ProtectoresDataContext(Helper.ConnectionString()))
                 {
-                    var query = from item in dc.stp_ListarDatosProtectorPoste(@intProtectorPosteID, @intElementoID, @intCotizacionID, @sintPinturaID)
+                    var query = from item in dc.stp_ListarDatosProtectorPoste(intProtectorPosteID, intElementoID, intCotizacionID, sintPinturaID)
                                 select new DatosProtectorBase()
                                 {
                                     intProtectorPosteID = item.intProtectorPosteID,
@@ -39,14 +39,14 @@ namespace Adsisplus.Cotyrsa.DataAccess
             return results;
         }
 
-        public List<DatosProtectorBateria> ListarDatosProtectorBateria(Int32 @intProtectorBateriaID, Int32 @intElementoID, Int32 @intCotizacionID)
+        public List<DatosProtectorBateria> ListarDatosProtectorBateria(Int32 intProtectorBateriaID, Int32 intElementoID, Int32 intCotizacionID)
         {
             List<DatosProtectorBateria> results = new List<DatosProtectorBateria>();
             try
             {
                 using (ProtectoresDataContext dc = new ProtectoresDataContext(Helper.ConnectionString()))
                 {
-                    var query = from item in dc.stp_ListarDatosProtectorBateria(@intProtectorBateriaID, @intElementoID, @intCotizacionID)
+                    var query = from item in dc.stp_ListarDatosProtectorBateria(intProtectorBateriaID, intElementoID, intCotizacionID)
                                 select new DatosProtectorBateria()
                                 {
                                     intProtectorBateriaID = item.intProtectorBateriaID,

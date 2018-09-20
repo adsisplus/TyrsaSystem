@@ -23,12 +23,12 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
 
         #endregion
 
-        public List<Configuracion_Marco> ConfiguraMarco(Int32 @intConfiguraMarcoID, Int32 @intElementoID, Int16 @sintTipoMarcoID, Int32 @intAlturaMarcoID, Int16 @sintFondoMarcoID, Int32 @intSKUID, Int16 @sintFactorMarcoID)
+        public List<Configuracion_Marco> ConfiguraMarco(Int32 intConfiguraMarcoID, Int32 intElementoID, Int16 sintTipoMarcoID, Int32 intAlturaMarcoID, Int16 sintFondoMarcoID, Int32 intSKUID, Int16 sintFactorMarcoID)
         {
             List<Configuracion_Marco> results = null;
             try
             {
-                results = CatalogosDA.ConfiguraMarco(@intConfiguraMarcoID, @intElementoID, @sintTipoMarcoID, @intAlturaMarcoID, @sintFondoMarcoID, @intSKUID, @sintFactorMarcoID);
+                results = CatalogosDA.ConfiguraMarco(intConfiguraMarcoID, intElementoID, sintTipoMarcoID, intAlturaMarcoID, sintFondoMarcoID, intSKUID, sintFactorMarcoID);
             }
             catch (Exception ex)
             {
@@ -37,12 +37,12 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
             return results;
         }
 
-        public List<RelSistemaCargaMarcoPoste> RelSistemaCargaMarcoPoste(Int16 @sintSistemaCargaMarcoID, Int32 @intSubProductoID, Int32 @intCargaPosteID, Int32 @intCargaMarcoID)
+        public List<RelSistemaCargaMarcoPoste> RelSistemaCargaMarcoPoste(Int16 sintSistemaCargaMarcoID, Int32 intSubProductoID, Int32 intCargaPosteID, Int32 intCargaMarcoID)
         {
             List<RelSistemaCargaMarcoPoste> results = null;
             try
             {
-                results = CatalogosDA.RelSistemaCargaMarcoPoste(@sintSistemaCargaMarcoID, @intSubProductoID, @intCargaPosteID, @intCargaPosteID);
+                results = CatalogosDA.RelSistemaCargaMarcoPoste(sintSistemaCargaMarcoID, intSubProductoID, intCargaPosteID, intCargaPosteID);
             }
             catch (Exception ex)
             {
@@ -51,12 +51,12 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
             return results;
         }
 
-        public List<DatosMarco> ListarDatosMarco(Int32 @intDatoMarcoID, Int32 @intCotizacionID, Int32 @intElementoID, Int16 @sintPinturaID)
+        public List<DatosMarco> ListarDatosMarco(Int32 intDatoMarcoID, Int32 intCotizacionID, Int32 intElementoID, Int16 sintPinturaID)
         {
             List<DatosMarco> results = null;
             try
             {
-                results = CatalogosDA.ListarDatosMarco(@intDatoMarcoID, @intCotizacionID, @intElementoID, @sintPinturaID);
+                results = CatalogosDA.ListarDatosMarco(intDatoMarcoID, intCotizacionID, intElementoID, sintPinturaID);
             }
             catch (Exception ex)
             {
@@ -65,12 +65,12 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
             return results;
         }
 
-        public List<FondoMarco> ListarFondoMarco(Int32 @sintFondoMarcoID, Int32 @sintTipoMarcoID)
+        public List<FondoMarco> ListarFondoMarco(Int32 sintFondoMarcoID, Int32 sintTipoMarcoID)
         {
             List<FondoMarco> results = null;
             try
             {
-                results = CatalogosDA.ListarFondoMarco(@sintFondoMarcoID, @sintTipoMarcoID);
+                results = CatalogosDA.ListarFondoMarco(sintFondoMarcoID, sintTipoMarcoID);
             }
             catch (Exception ex)
             {
@@ -79,12 +79,12 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
             return results;
         }
 
-        public Resultado ActualizaFactorMarco(Int16 @sintFondoMarcoID, Decimal @decCostoLamina, Decimal @decCostoSolera, Decimal @decFactorAcero, byte @tinOpcion)
+        public Resultado ActualizaFactorMarco(Int16 sintFondoMarcoID, Decimal decCostoLamina, Decimal decCostoSolera, Decimal decFactorAcero, byte tinOpcion)
         {
             Resultado results = new Resultado();
             try
             {
-                results = CatalogosDA.ActualizaFactorMarco(@sintFondoMarcoID, @decCostoLamina, @decCostoSolera, @decFactorAcero, @tinOpcion);
+                results = CatalogosDA.ActualizaFactorMarco(sintFondoMarcoID, decCostoLamina, decCostoSolera, decFactorAcero, tinOpcion);
             }
             catch (Exception ex)
             {

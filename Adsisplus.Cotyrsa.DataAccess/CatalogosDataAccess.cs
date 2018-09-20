@@ -82,14 +82,14 @@ namespace Adsisplus.Cotyrsa.DataAccess
             return results;
         }
 
-        public List<CapacidadViga> ListarCatCapacidadViga(Int16 @sintTipoVigaID, Int16 @sintLongitudID, Int32 @intCalibreID, Int16 @sintLargoID)
+        public List<CapacidadViga> ListarCatCapacidadViga(Int16 sintTipoVigaID, Int16 sintLongitudID, Int32 intCalibreID, Int16 sintLargoID)
         {
             List<CapacidadViga> results = new List<CapacidadViga>();
             try
             {
                 using (CatalogosDataContext dc = new CatalogosDataContext(Helper.ConnectionString()))
                 {
-                    var query = from item in dc.stp_ListarCatCapacidadViga(@sintTipoVigaID, @sintLongitudID, @intCalibreID, @sintLargoID)
+                    var query = from item in dc.stp_ListarCatCapacidadViga(sintTipoVigaID, sintLongitudID, intCalibreID, sintLargoID)
                                 select new CapacidadViga()
                                 {
                                     intCapacidadVigaID = item.intCapacidadVigaID,
@@ -113,14 +113,14 @@ namespace Adsisplus.Cotyrsa.DataAccess
             return results;
         }
 
-        public List<ComplementoObligatorio> ListarCatComplementoObligatorio(Int32 @intElementoID)
+        public List<ComplementoObligatorio> ListarCatComplementoObligatorio(Int32 intElementoID)
         {
             List<ComplementoObligatorio> results = new List<ComplementoObligatorio>();
             try
             {
                 using (CatalogosDataContext dc = new CatalogosDataContext(Helper.ConnectionString()))
                 {
-                    var query = from item in dc.stp_ListarCatComplementoObligatorio(@intElementoID)
+                    var query = from item in dc.stp_ListarCatComplementoObligatorio(intElementoID)
                                 select new ComplementoObligatorio()
                                 {
                                     intComplementObligatorioID = item.intComplementObligatorioID,
@@ -143,14 +143,14 @@ namespace Adsisplus.Cotyrsa.DataAccess
             return results;
         }
 
-        public List<Elemento> ListarCatElemento(Int32 @intSubProductoID)
+        public List<Elemento> ListarCatElemento(Int32 intSubProductoID)
         {
             List<Elemento> results = new List<Elemento>();
             try
             {
                 using (CatalogosDataContext dc = new CatalogosDataContext(Helper.ConnectionString()))
                 {
-                    var query = from item in dc.stp_ListarCatElemento(@intSubProductoID)
+                    var query = from item in dc.stp_ListarCatElemento(intSubProductoID)
                                 select new Elemento()
                                 {
                                     intElementoID = item.intElementoID,
@@ -322,14 +322,14 @@ namespace Adsisplus.Cotyrsa.DataAccess
             return results;
         }
 
-        public List<Localidad> ListarCatLocalidad(Int32 @int_MunicipioID)
+        public List<Localidad> ListarCatLocalidad(Int32 int_MunicipioID)
         {
             List<Localidad> results = new List<Localidad>();
             try
             {
                 using (CatalogosDataContext dc = new CatalogosDataContext(Helper.ConnectionString()))
                 {
-                    var query = from item in dc.stp_ListarCatLocalidad(@int_MunicipioID)
+                    var query = from item in dc.stp_ListarCatLocalidad(int_MunicipioID)
                                 select new Localidad()
                                 {
                                     intLocalidadID = item.intLocalidadID,
@@ -350,14 +350,14 @@ namespace Adsisplus.Cotyrsa.DataAccess
             return results;
         }
 
-        public List<Modelo> ListarCatModelo(Int32 @intElementoID)
+        public List<Modelo> ListarCatModelo(Int32 intElementoID)
         {
             List<Modelo> results = new List<Modelo>();
             try
             {
                 using (CatalogosDataContext dc = new CatalogosDataContext(Helper.ConnectionString()))
                 {
-                    var query = from item in dc.stp_ListarCatModelo(@intElementoID)
+                    var query = from item in dc.stp_ListarCatModelo(intElementoID)
                                 select new Modelo()
                                 {
                                     intModeloID = item.intModeloID,
@@ -401,14 +401,14 @@ namespace Adsisplus.Cotyrsa.DataAccess
             return results;
         }
 
-        public List<Municipio> ListarCatMunicipio(Int32 @intEstadoID)
+        public List<Municipio> ListarCatMunicipio(Int32 intEstadoID)
         {
             List<Municipio> results = new List<Municipio>();
             try
             {
                 using (CatalogosDataContext dc = new CatalogosDataContext(Helper.ConnectionString()))
                 {
-                    var query = from item in dc.stp_ListarCatMunicipio(@intEstadoID)
+                    var query = from item in dc.stp_ListarCatMunicipio(intEstadoID)
                                 select new Municipio()
                                 {
                                     intMunicipioID = item.intMunicipioID,
@@ -631,14 +631,14 @@ namespace Adsisplus.Cotyrsa.DataAccess
             return results;
         }
 
-        public List<SubFamiliaMarco> ListarCatSubfamiliaMarco(Int16 @sintFondoMarcoID, Int16 @sintTipoMarcoID)
+        public List<SubFamiliaMarco> ListarCatSubfamiliaMarco(Int16 sintFondoMarcoID, Int16 sintTipoMarcoID)
         {
             List<SubFamiliaMarco> results = new List<SubFamiliaMarco>();
             try
             {
                 using (CatalogosDataContext dc = new CatalogosDataContext(Helper.ConnectionString()))
                 {
-                    var query = from item in dc.stp_ListarCatSubfamiliaMarco(@sintFondoMarcoID, @sintTipoMarcoID)
+                    var query = from item in dc.stp_ListarCatSubfamiliaMarco(sintFondoMarcoID, sintTipoMarcoID)
                                 select new SubFamiliaMarco()
                                 {
                                     intSubfamiliaMarcoID = item.intSubfamiliaMarcoID,
@@ -660,14 +660,14 @@ namespace Adsisplus.Cotyrsa.DataAccess
             return results;
         }
 
-        public List<Subproducto> ListarCatSubproducto(Int32 @intProductoGralID)
+        public List<Subproducto> ListarCatSubproducto(Int32 intProductoGralID)
         {
             List<Subproducto> results = new List<Subproducto>();
             try
             {
                 using (CatalogosDataContext dc = new CatalogosDataContext(Helper.ConnectionString()))
                 {
-                    var query = from item in dc.stp_ListarCatSubproducto(@intProductoGralID)
+                    var query = from item in dc.stp_ListarCatSubproducto(intProductoGralID)
                                 select new Subproducto()
                                 {
                                     intSubProductoID = item.intSubProductoID,
@@ -811,14 +811,14 @@ namespace Adsisplus.Cotyrsa.DataAccess
             return results;
         }
 
-        public List<TipoMarco> ListarCatTipoMarco(Int16 @sintSeccionPosteID)
+        public List<TipoMarco> ListarCatTipoMarco(Int16 sintSeccionPosteID)
         {
             List<TipoMarco> results = new List<TipoMarco>();
             try
             {
                 using (CatalogosDataContext dc = new CatalogosDataContext(Helper.ConnectionString()))
                 {
-                    var query = from item in dc.stp_ListarCatTipoMarco(@sintSeccionPosteID)
+                    var query = from item in dc.stp_ListarCatTipoMarco(sintSeccionPosteID)
                                 select new TipoMarco()
                                 {
                                     sintTipoMarcoID = item.sintTipoMarcoID,
@@ -914,14 +914,14 @@ namespace Adsisplus.Cotyrsa.DataAccess
             return results;
         }
 
-        public List<TipoProtector> ListarCatTipoProtector(Int32 @intTipoElementoAlmacenID)
+        public List<TipoProtector> ListarCatTipoProtector(Int32 intTipoElementoAlmacenID)
         {
             List<TipoProtector> results = new List<TipoProtector>();
             try
             {
                 using (CatalogosDataContext dc = new CatalogosDataContext(Helper.ConnectionString()))
                 {
-                    var query = from item in dc.stp_ListarCatTipoProtector(@intTipoElementoAlmacenID)
+                    var query = from item in dc.stp_ListarCatTipoProtector(intTipoElementoAlmacenID)
                                 select new TipoProtector()
                                 {
                                     intTipoProtector = item.intTipoProtector,
@@ -1015,14 +1015,14 @@ namespace Adsisplus.Cotyrsa.DataAccess
             return results;
         }
 
-        public List<CargaMarco> ListarCatCargaMarco(Int32 @intCargaMarcoID, Int16 @sintTipoMarcoID, Int32 @intCalibreAceroID)
+        public List<CargaMarco> ListarCatCargaMarco(Int32 intCargaMarcoID, Int16 sintTipoMarcoID, Int32 intCalibreAceroID)
         {
             List<CargaMarco> results = new List<CargaMarco>();
             try
             {
                 using (CatalogosDataContext dc = new CatalogosDataContext(Helper.ConnectionString()))
                 {
-                    var query = from item in dc.stp_ListarCatCargaMarco(@intCargaMarcoID, @sintTipoMarcoID, @intCalibreAceroID)
+                    var query = from item in dc.stp_ListarCatCargaMarco(intCargaMarcoID, sintTipoMarcoID, intCalibreAceroID)
                                 select new CargaMarco()
                                 {
                                     intCargaMarcoID = item.intCargaMarcoID,
@@ -1049,14 +1049,14 @@ namespace Adsisplus.Cotyrsa.DataAccess
             return results;
         }
 
-        public List<CargaPoste> ListarCatCargaPoste(Int32 @intCargaPosteID, Int16 @sintTipoMarcoID, Int32 @intCalibreAceroID)
+        public List<CargaPoste> ListarCatCargaPoste(Int32 intCargaPosteID, Int16 sintTipoMarcoID, Int32 intCalibreAceroID)
         {
             List<CargaPoste> results = new List<CargaPoste>();
             try
             {
                 using (CatalogosDataContext dc = new CatalogosDataContext(Helper.ConnectionString()))
                 {
-                    var query = from item in dc.stp_ListarCatCargaPoste(@intCargaPosteID, @sintTipoMarcoID, @intCalibreAceroID)
+                    var query = from item in dc.stp_ListarCatCargaPoste(intCargaPosteID, sintTipoMarcoID, intCalibreAceroID)
                                 select new CargaPoste()
                                 {
                                     intCargaPosteID = item.intCargaPosteID,
@@ -1083,14 +1083,14 @@ namespace Adsisplus.Cotyrsa.DataAccess
             return results;
         }
 
-        public List<ProductoAcero> ListarCatProductoAcero(Int32 @intTipoElementoAlmacenID, Int32 @intUnidadMedicionID, Int32 @intModeloID, Int32 @intCalibreAceroID)
+        public List<ProductoAcero> ListarCatProductoAcero(Int32 intTipoElementoAlmacenID, Int32 intUnidadMedicionID, Int32 intModeloID, Int32 intCalibreAceroID)
         {
             List<ProductoAcero> results = new List<ProductoAcero>();
             try
             {
                 using (CatalogosDataContext dc = new CatalogosDataContext(Helper.ConnectionString()))
                 {
-                    var query = from item in dc.stp_ListarCatProductoAcero(@intTipoElementoAlmacenID, @intUnidadMedicionID, @intModeloID, @intCalibreAceroID)
+                    var query = from item in dc.stp_ListarCatProductoAcero(intTipoElementoAlmacenID, intUnidadMedicionID, intModeloID, intCalibreAceroID)
                                 select new ProductoAcero()
                                 {
                                     intTipoElementoAlmacenID = item.intTipoElementoAlmacenID,
