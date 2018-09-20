@@ -14,7 +14,7 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
             // Validamos si existe el repositorio
             if (!Directory.Exists("C:\\Log\\"))
                 // Creamos el directorio
-                Directory.CreateDirectory("C:\\Log\\Log.txt");
+                Directory.CreateDirectory("C:\\Log\\");
             File.AppendAllText("C:\\Log\\Log.txt", Environment.NewLine + DateTime.Now.ToShortDateString() + ' ' + errMensaje + "\r\n");
         }
     }
