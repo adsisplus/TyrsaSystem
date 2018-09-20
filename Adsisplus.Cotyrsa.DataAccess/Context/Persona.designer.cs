@@ -33,7 +33,7 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
     #endregion
 		
 		public PersonaDataContext() : 
-				base(global::Adsisplus.Cotyrsa.DataAccess.Properties.Settings.Default.dbTyrsaConnectionString1, mappingSource)
+				base(global::Adsisplus.Cotyrsa.DataAccess.Properties.Settings.Default.dbTyrsaConnectionString, mappingSource)
 		{
 			OnCreated();
 		}
@@ -60,13 +60,6 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 				base(connection, mappingSource)
 		{
 			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.stp_ListarDatosPersona")]
-		public ISingleResult<stp_ListarDatosPersonaResult> stp_ListarDatosPersona([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intPersonaID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intTipoPersonaID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intEmpresaID)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), intPersonaID, intTipoPersonaID, intEmpresaID);
-			return ((ISingleResult<stp_ListarDatosPersonaResult>)(result.ReturnValue));
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.stp_ListarRelPersonaDireccionEmpresa")]
@@ -107,6 +100,199 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), intPersonaDomEmpreID, intPersonaID, intDireccionID, intEmpresaID, bitActivo, tinOpcion);
 			return ((ISingleResult<stp_setRelaciónPersonaDomicilioEmpresaResult>)(result.ReturnValue));
 		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.stp_ListarDatosPersona")]
+		public ISingleResult<stp_ListarDatosPersonaResult> stp_ListarDatosPersona([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intPersonaID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intTipoPersonaID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intEmpresaID)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), intPersonaID, intTipoPersonaID, intEmpresaID);
+			return ((ISingleResult<stp_ListarDatosPersonaResult>)(result.ReturnValue));
+		}
+	}
+	
+	public partial class stp_ListarRelPersonaDireccionEmpresaResult
+	{
+		
+		private int _intPersonaDomEmpreID;
+		
+		private string _vchPersona;
+		
+		private string _vchDomicilio;
+		
+		private string _vchEmpresa;
+		
+		private System.Nullable<bool> _bitActivo;
+		
+		public stp_ListarRelPersonaDireccionEmpresaResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intPersonaDomEmpreID", DbType="Int NOT NULL")]
+		public int intPersonaDomEmpreID
+		{
+			get
+			{
+				return this._intPersonaDomEmpreID;
+			}
+			set
+			{
+				if ((this._intPersonaDomEmpreID != value))
+				{
+					this._intPersonaDomEmpreID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchPersona", DbType="VarChar(250)")]
+		public string vchPersona
+		{
+			get
+			{
+				return this._vchPersona;
+			}
+			set
+			{
+				if ((this._vchPersona != value))
+				{
+					this._vchPersona = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchDomicilio", DbType="VarChar(275)")]
+		public string vchDomicilio
+		{
+			get
+			{
+				return this._vchDomicilio;
+			}
+			set
+			{
+				if ((this._vchDomicilio != value))
+				{
+					this._vchDomicilio = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchEmpresa", DbType="VarChar(250)")]
+		public string vchEmpresa
+		{
+			get
+			{
+				return this._vchEmpresa;
+			}
+			set
+			{
+				if ((this._vchEmpresa != value))
+				{
+					this._vchEmpresa = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_bitActivo", DbType="Bit")]
+		public System.Nullable<bool> bitActivo
+		{
+			get
+			{
+				return this._bitActivo;
+			}
+			set
+			{
+				if ((this._bitActivo != value))
+				{
+					this._bitActivo = value;
+				}
+			}
+		}
+	}
+	
+	public partial class stp_setPersonaResult
+	{
+		
+		private string _vchResultado;
+		
+		private string _vchDescripcion;
+		
+		public stp_setPersonaResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchResultado", DbType="VarChar(2) NOT NULL", CanBeNull=false)]
+		public string vchResultado
+		{
+			get
+			{
+				return this._vchResultado;
+			}
+			set
+			{
+				if ((this._vchResultado != value))
+				{
+					this._vchResultado = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchDescripcion", DbType="VarChar(46) NOT NULL", CanBeNull=false)]
+		public string vchDescripcion
+		{
+			get
+			{
+				return this._vchDescripcion;
+			}
+			set
+			{
+				if ((this._vchDescripcion != value))
+				{
+					this._vchDescripcion = value;
+				}
+			}
+		}
+	}
+	
+	public partial class stp_setRelaciónPersonaDomicilioEmpresaResult
+	{
+		
+		private string _vchResultado;
+		
+		private string _vchDescripcion;
+		
+		public stp_setRelaciónPersonaDomicilioEmpresaResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchResultado", DbType="VarChar(2) NOT NULL", CanBeNull=false)]
+		public string vchResultado
+		{
+			get
+			{
+				return this._vchResultado;
+			}
+			set
+			{
+				if ((this._vchResultado != value))
+				{
+					this._vchResultado = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchDescripcion", DbType="VarChar(61) NOT NULL", CanBeNull=false)]
+		public string vchDescripcion
+		{
+			get
+			{
+				return this._vchDescripcion;
+			}
+			set
+			{
+				if ((this._vchDescripcion != value))
+				{
+					this._vchDescripcion = value;
+				}
+			}
+		}
 	}
 	
 	public partial class stp_ListarDatosPersonaResult
@@ -114,7 +300,11 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 		
 		private int _intPersonaID;
 		
+		private System.Nullable<int> _intTipoPersonaID;
+		
 		private string _vchTipoPersona;
+		
+		private System.Nullable<int> _intEmpresaID;
 		
 		private string _vchNombreEmpresa;
 		
@@ -166,7 +356,23 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchTipoPersona", DbType="VarChar(25)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intTipoPersonaID", DbType="Int")]
+		public System.Nullable<int> intTipoPersonaID
+		{
+			get
+			{
+				return this._intTipoPersonaID;
+			}
+			set
+			{
+				if ((this._intTipoPersonaID != value))
+				{
+					this._intTipoPersonaID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchTipoPersona", DbType="VarChar(50)")]
 		public string vchTipoPersona
 		{
 			get
@@ -178,6 +384,22 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 				if ((this._vchTipoPersona != value))
 				{
 					this._vchTipoPersona = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intEmpresaID", DbType="Int")]
+		public System.Nullable<int> intEmpresaID
+		{
+			get
+			{
+				return this._intEmpresaID;
+			}
+			set
+			{
+				if ((this._intEmpresaID != value))
+				{
+					this._intEmpresaID = value;
 				}
 			}
 		}
@@ -418,192 +640,6 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 				if ((this._bitCausaRetencion != value))
 				{
 					this._bitCausaRetencion = value;
-				}
-			}
-		}
-	}
-	
-	public partial class stp_ListarRelPersonaDireccionEmpresaResult
-	{
-		
-		private int _intPersonaDomEmpreID;
-		
-		private string _vchPersona;
-		
-		private string _vchDomicilio;
-		
-		private string _vchEmpresa;
-		
-		private System.Nullable<bool> _bitActivo;
-		
-		public stp_ListarRelPersonaDireccionEmpresaResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intPersonaDomEmpreID", DbType="Int NOT NULL")]
-		public int intPersonaDomEmpreID
-		{
-			get
-			{
-				return this._intPersonaDomEmpreID;
-			}
-			set
-			{
-				if ((this._intPersonaDomEmpreID != value))
-				{
-					this._intPersonaDomEmpreID = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchPersona", DbType="VarChar(250)")]
-		public string vchPersona
-		{
-			get
-			{
-				return this._vchPersona;
-			}
-			set
-			{
-				if ((this._vchPersona != value))
-				{
-					this._vchPersona = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchDomicilio", DbType="VarChar(275)")]
-		public string vchDomicilio
-		{
-			get
-			{
-				return this._vchDomicilio;
-			}
-			set
-			{
-				if ((this._vchDomicilio != value))
-				{
-					this._vchDomicilio = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchEmpresa", DbType="VarChar(250)")]
-		public string vchEmpresa
-		{
-			get
-			{
-				return this._vchEmpresa;
-			}
-			set
-			{
-				if ((this._vchEmpresa != value))
-				{
-					this._vchEmpresa = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_bitActivo", DbType="Bit")]
-		public System.Nullable<bool> bitActivo
-		{
-			get
-			{
-				return this._bitActivo;
-			}
-			set
-			{
-				if ((this._bitActivo != value))
-				{
-					this._bitActivo = value;
-				}
-			}
-		}
-	}
-	
-	public partial class stp_setPersonaResult
-	{
-		
-		private string _vchResultado;
-		
-		private string _vchDescripcion;
-		
-		public stp_setPersonaResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchResultado", DbType="VarChar(2) NOT NULL", CanBeNull=false)]
-		public string vchResultado
-		{
-			get
-			{
-				return this._vchResultado;
-			}
-			set
-			{
-				if ((this._vchResultado != value))
-				{
-					this._vchResultado = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchDescripcion", DbType="VarChar(46) NOT NULL", CanBeNull=false)]
-		public string vchDescripcion
-		{
-			get
-			{
-				return this._vchDescripcion;
-			}
-			set
-			{
-				if ((this._vchDescripcion != value))
-				{
-					this._vchDescripcion = value;
-				}
-			}
-		}
-	}
-	
-	public partial class stp_setRelaciónPersonaDomicilioEmpresaResult
-	{
-		
-		private string _vchResultado;
-		
-		private string _vchDescripcion;
-		
-		public stp_setRelaciónPersonaDomicilioEmpresaResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchResultado", DbType="VarChar(2) NOT NULL", CanBeNull=false)]
-		public string vchResultado
-		{
-			get
-			{
-				return this._vchResultado;
-			}
-			set
-			{
-				if ((this._vchResultado != value))
-				{
-					this._vchResultado = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchDescripcion", DbType="VarChar(61) NOT NULL", CanBeNull=false)]
-		public string vchDescripcion
-		{
-			get
-			{
-				return this._vchDescripcion;
-			}
-			set
-			{
-				if ((this._vchDescripcion != value))
-				{
-					this._vchDescripcion = value;
 				}
 			}
 		}

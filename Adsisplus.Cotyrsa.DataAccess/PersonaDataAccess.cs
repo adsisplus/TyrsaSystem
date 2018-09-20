@@ -21,7 +21,9 @@ namespace Adsisplus.Cotyrsa.DataAccess
                                 select new Persona()
                                 {
                                     intPersonaID = item.intPersonaID,
+                                    intTipoPersonaID = item.intTipoPersonaID,
                                     vchTipoPersona = item.vchTipoPersona,
+                                    intEmpresaID = item.intEmpresaID,
                                     vchNombreEmpresa = item.vchNombreEmpresa,
                                     vchNombreCompleto = item.vchNombreCompleto,
                                     vchNombre = item.vchNombre,

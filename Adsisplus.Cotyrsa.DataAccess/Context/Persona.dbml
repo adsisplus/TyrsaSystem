@@ -1,29 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="dbTyrsa" Class="PersonaDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=(local);Initial Catalog=dbTyrsa;Persist Security Info=True;User ID=usrCotyrsa" SettingsObjectName="Adsisplus.Cotyrsa.DataAccess.Properties.Settings" SettingsPropertyName="dbTyrsaConnectionString1" Provider="System.Data.SqlClient" />
-  <Function Name="dbo.stp_ListarDatosPersona" Method="stp_ListarDatosPersona">
-    <Parameter Name="intPersonaID" Type="System.Int32" DbType="Int" />
-    <Parameter Name="intTipoPersonaID" Type="System.Int32" DbType="Int" />
-    <Parameter Name="intEmpresaID" Type="System.Int32" DbType="Int" />
-    <ElementType Name="stp_ListarDatosPersonaResult">
-      <Column Name="intPersonaID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="vchTipoPersona" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
-      <Column Name="vchNombreEmpresa" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
-      <Column Name="vchNombreCompleto" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
-      <Column Name="vchNombre" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
-      <Column Name="vchApPaterno" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
-      <Column Name="vchApMaterno" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
-      <Column Name="datFechaNacimiento" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="vchLugarNacimiento" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
-      <Column Name="vchRFC" Type="System.String" DbType="VarChar(13)" CanBeNull="true" />
-      <Column Name="vchCURP" Type="System.String" DbType="VarChar(18)" CanBeNull="true" />
-      <Column Name="sintEdad" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
-      <Column Name="vchTelefono" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
-      <Column Name="vchTelefonoMovil" Type="System.String" DbType="VarChar(12)" CanBeNull="true" />
-      <Column Name="vchMail" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
-      <Column Name="bitActivo" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="bitCausaRetencion" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-    </ElementType>
-  </Function>
+  <Connection Mode="AppSettings" ConnectionString="Data Source=local;Initial Catalog=dbTyrsa;Persist Security Info=True;User ID=usrCotyrsa" SettingsObjectName="Adsisplus.Cotyrsa.DataAccess.Properties.Settings" SettingsPropertyName="dbTyrsaConnectionString" Provider="System.Data.SqlClient" />
   <Function Name="dbo.stp_ListarRelPersonaDireccionEmpresa" Method="stp_ListarRelPersonaDireccionEmpresa">
     <Parameter Name="intPersonaDomEmpreID" Type="System.Int32" DbType="Int" />
     <Parameter Name="intPersonaID" Type="System.Int32" DbType="Int" />
@@ -71,6 +47,32 @@
     <ElementType Name="stp_setRelaciónPersonaDomicilioEmpresaResult">
       <Column Name="vchResultado" Type="System.String" DbType="VarChar(2) NOT NULL" CanBeNull="false" />
       <Column Name="vchDescripcion" Type="System.String" DbType="VarChar(61) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.stp_ListarDatosPersona" Method="stp_ListarDatosPersona">
+    <Parameter Name="intPersonaID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intTipoPersonaID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intEmpresaID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="stp_ListarDatosPersonaResult">
+      <Column Name="intPersonaID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="intTipoPersonaID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="vchTipoPersona" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="intEmpresaID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="vchNombreEmpresa" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="vchNombreCompleto" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="vchNombre" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="vchApPaterno" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="vchApMaterno" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="datFechaNacimiento" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="vchLugarNacimiento" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="vchRFC" Type="System.String" DbType="VarChar(13)" CanBeNull="true" />
+      <Column Name="vchCURP" Type="System.String" DbType="VarChar(18)" CanBeNull="true" />
+      <Column Name="sintEdad" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="vchTelefono" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="vchTelefonoMovil" Type="System.String" DbType="VarChar(12)" CanBeNull="true" />
+      <Column Name="vchMail" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="bitActivo" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="bitCausaRetencion" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
     </ElementType>
   </Function>
 </Database>

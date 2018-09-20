@@ -16,13 +16,12 @@ namespace Adsisplus.Cotyrsa.WcfService.DireccionServices
         /// Nos devuelve los datos de las personas
         /// </summary>
         /// <param name="intDireccionID"></param>
-        /// <param name="intMunicipioID"></param>
-        /// <param name="intEstadoID"></param>
-        /// <param name="intLocalidadID"></param>
+        /// <param name="intPersonaID"></param>
+        /// <param name="intEmpresaID"></param>
         /// <param name="intTipoDomicilioID"></param>
         /// <returns></returns>
         [OperationContract]
-        List<Direccion> ListarDatosPersona(Int32 @intDireccionID, Int32 @intMunicipioID, Int32 @intEstadoID, Int32 @intLocalidadID, Int32 @intTipoDomicilioID);
+        List<Direccion> ListarDireccion(Int32 @intDireccionID, Int32 @intPersonaID, Int32 @intEmpresaID, Int32 @intTipoDomicilioID);
 
         /// <summary>
         /// Permite realizar el alta, modificación o baja de los datos de domicilio

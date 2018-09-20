@@ -98,5 +98,28 @@ namespace Adsisplus.Cotyrsa.WcfService.MarcosServices
             }
             return result;
         }
+
+        /// <summary>
+        /// Cambia los factores de configuración para los marcos
+        /// </summary>
+        /// <param name="sintFondoMarcoID"></param>
+        /// <param name="decCostoLamina"></param>
+        /// <param name="decCostoSolera"></param>
+        /// <param name="decFactorAcero"></param>
+        /// <param name="tinOpcion"></param>
+        /// <returns></returns>
+        public Resultado ActualizaFactorMarco(Int16 @sintFondoMarcoID, Decimal @decCostoLamina, Decimal @decCostoSolera, Decimal @decFactorAcero, byte @tinOpcion)
+        {
+            Resultado result = new Resultado();
+            try
+            {
+                result = (new MarcosLogic()).ActualizaFactorMarco(@sintFondoMarcoID, @decCostoLamina, @decCostoSolera, @decFactorAcero, @tinOpcion);
+            }
+            catch (Exception ex)
+            {
+
+            }
+            return result;
+        }
     }
 }

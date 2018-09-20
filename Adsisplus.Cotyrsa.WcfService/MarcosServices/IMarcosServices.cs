@@ -70,6 +70,6 @@ namespace Adsisplus.Cotyrsa.WcfService.MarcosServices
         /// <returns></returns>
         [OperationContract]
         [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ActualizaFactorMarco")]
-        List<FondoMarco> ActualizaFactorMarco(Int16 @sintFondoMarcoID, Decimal @decCostoLamina, Decimal @decCostoSolera, Decimal @decFactorAcero, byte @tinOpcion);
+        Resultado ActualizaFactorMarco(Int16 @sintFondoMarcoID, Decimal @decCostoLamina, Decimal @decCostoSolera, Decimal @decFactorAcero, byte @tinOpcion);
     }
 }

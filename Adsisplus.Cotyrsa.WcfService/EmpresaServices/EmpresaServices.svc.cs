@@ -24,7 +24,7 @@ namespace Adsisplus.Cotyrsa.WcfService.EmpresaServices
             List<Empresa> result = new List<Empresa>();
             try
             {
-                result = (new EmpresaLogic()).ListarDatosPersona(@intEmpresaID, @sintTipoEmpresaID);
+                result = (new EmpresaLogic()).ListarEmpresa(@intEmpresaID, @sintTipoEmpresaID);
             }
             catch (Exception ex)
             {
