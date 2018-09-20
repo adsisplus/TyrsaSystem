@@ -75,12 +75,12 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
         /// <param name="relPersonaDomicilioEmpresa"></param>
         /// <param name="tinOpcion"></param>
         /// <returns></returns>
-        public Resultado setRelaciónPersonaDomicilioEmpresa(RelPersonaDomicilioEmpresa relPersonaDomicilioEmpresa, short tinOpcion)
+        public Resultado setRelacionPersonaDomicilioEmpresa(RelPersonaDomicilioEmpresa relPersonaDomicilioEmpresa, short tinOpcion)
         {
             Resultado result = new Resultado();
             try
             {
-                result = CatalogosDA.setRelaciónPersonaDomicilioEmpresa(relPersonaDomicilioEmpresa, tinOpcion);
+                result = CatalogosDA.setRelacionPersonaDomicilioEmpresa(relPersonaDomicilioEmpresa, tinOpcion);
             }
             catch (Exception ex)
             {

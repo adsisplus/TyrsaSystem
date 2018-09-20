@@ -113,14 +113,14 @@ namespace Adsisplus.Cotyrsa.DataAccess
         /// <param name="relPersonaDomicilioEmpresa"></param>
         /// <param name="tinOpcion"></param>
         /// <returns></returns>
-        public Resultado setRelaciónPersonaDomicilioEmpresa(RelPersonaDomicilioEmpresa relPersonaDomicilioEmpresa, short tinOpcion)
+        public Resultado setRelacionPersonaDomicilioEmpresa(RelPersonaDomicilioEmpresa relPersonaDomicilioEmpresa, short tinOpcion)
         {
             Resultado result = new Resultado();
             try
             {
                 using (PersonaDataContext dc = new PersonaDataContext(Helper.ConnectionString()))
                 {
-                    var query = from item in dc.stp_setRelaciónPersonaDomicilioEmpresa(relPersonaDomicilioEmpresa.intPersonaDomEmpreID, relPersonaDomicilioEmpresa.intDireccionID,
+                    var query = from item in dc.stp_RelacionPersonaDomicilioEmpresa(relPersonaDomicilioEmpresa.intPersonaDomEmpreID, relPersonaDomicilioEmpresa.intDireccionID,
                         relPersonaDomicilioEmpresa.intDireccionID, relPersonaDomicilioEmpresa.intEmpresaID, relPersonaDomicilioEmpresa.bitActivo, (byte)tinOpcion)
                                 select new Resultado
                                 {

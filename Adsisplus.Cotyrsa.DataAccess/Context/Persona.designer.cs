@@ -94,18 +94,18 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 			return ((ISingleResult<stp_setPersonaResult>)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.stp_setRelaciónPersonaDomicilioEmpresa")]
-		public ISingleResult<stp_setRelaciónPersonaDomicilioEmpresaResult> stp_setRelaciónPersonaDomicilioEmpresa([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intPersonaDomEmpreID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intPersonaID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intDireccionID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intEmpresaID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Bit")] System.Nullable<bool> bitActivo, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="TinyInt")] System.Nullable<byte> tinOpcion)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), intPersonaDomEmpreID, intPersonaID, intDireccionID, intEmpresaID, bitActivo, tinOpcion);
-			return ((ISingleResult<stp_setRelaciónPersonaDomicilioEmpresaResult>)(result.ReturnValue));
-		}
-		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.stp_ListarDatosPersona")]
 		public ISingleResult<stp_ListarDatosPersonaResult> stp_ListarDatosPersona([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intPersonaID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intTipoPersonaID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intEmpresaID)
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), intPersonaID, intTipoPersonaID, intEmpresaID);
 			return ((ISingleResult<stp_ListarDatosPersonaResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.stp_RelacionPersonaDomicilioEmpresa")]
+		public ISingleResult<stp_RelacionPersonaDomicilioEmpresaResult> stp_RelacionPersonaDomicilioEmpresa([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intPersonaDomEmpreID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intPersonaID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intDireccionID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intEmpresaID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Bit")] System.Nullable<bool> bitActivo, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="TinyInt")] System.Nullable<byte> tinOpcion)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), intPersonaDomEmpreID, intPersonaID, intDireccionID, intEmpresaID, bitActivo, tinOpcion);
+			return ((ISingleResult<stp_RelacionPersonaDomicilioEmpresaResult>)(result.ReturnValue));
 		}
 	}
 	
@@ -235,50 +235,6 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchDescripcion", DbType="VarChar(46) NOT NULL", CanBeNull=false)]
-		public string vchDescripcion
-		{
-			get
-			{
-				return this._vchDescripcion;
-			}
-			set
-			{
-				if ((this._vchDescripcion != value))
-				{
-					this._vchDescripcion = value;
-				}
-			}
-		}
-	}
-	
-	public partial class stp_setRelaciónPersonaDomicilioEmpresaResult
-	{
-		
-		private string _vchResultado;
-		
-		private string _vchDescripcion;
-		
-		public stp_setRelaciónPersonaDomicilioEmpresaResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchResultado", DbType="VarChar(2) NOT NULL", CanBeNull=false)]
-		public string vchResultado
-		{
-			get
-			{
-				return this._vchResultado;
-			}
-			set
-			{
-				if ((this._vchResultado != value))
-				{
-					this._vchResultado = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchDescripcion", DbType="VarChar(61) NOT NULL", CanBeNull=false)]
 		public string vchDescripcion
 		{
 			get
@@ -640,6 +596,50 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 				if ((this._bitCausaRetencion != value))
 				{
 					this._bitCausaRetencion = value;
+				}
+			}
+		}
+	}
+	
+	public partial class stp_RelacionPersonaDomicilioEmpresaResult
+	{
+		
+		private string _vchResultado;
+		
+		private string _vchDescripcion;
+		
+		public stp_RelacionPersonaDomicilioEmpresaResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchResultado", DbType="VarChar(12)")]
+		public string vchResultado
+		{
+			get
+			{
+				return this._vchResultado;
+			}
+			set
+			{
+				if ((this._vchResultado != value))
+				{
+					this._vchResultado = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchDescripcion", DbType="VarChar(61) NOT NULL", CanBeNull=false)]
+		public string vchDescripcion
+		{
+			get
+			{
+				return this._vchDescripcion;
+			}
+			set
+			{
+				if ((this._vchDescripcion != value))
+				{
+					this._vchDescripcion = value;
 				}
 			}
 		}
