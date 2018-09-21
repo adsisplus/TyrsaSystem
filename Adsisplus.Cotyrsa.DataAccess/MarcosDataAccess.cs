@@ -235,5 +235,32 @@ namespace Adsisplus.Cotyrsa.DataAccess
             }
             return results;
         }
+
+        public List<FactorMarco> ListarCatFactorMarco()
+        {
+            List<FactorMarco> results = new List<FactorMarco>();
+            try
+            {
+                using (MarcosDataContext dc = new MarcosDataContext(Helper.ConnectionString()))
+                {
+                    var query = from item in dc.stp_ListarCatFactorMarco()
+                                select new FactorMarco()
+                                {
+                                    sintFactorMarcoID = item.sintFactorMarcoID,
+                                    vchDescCorta = item.vchDescCorta,
+                                    vchContanteMarco = item.vchContanteMarco,
+                                    decCosto = item.decCosto,
+                                    datFechaAlta = item.datFechaAlta,
+                                    bitActivo = item.bitActivo
+                                };
+                    results.AddRange(query);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return results;
+        }
     }
 }

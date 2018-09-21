@@ -62,6 +62,14 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 			OnCreated();
 		}
 		
+		public System.Data.Linq.Table<FactorMarcoSP> FactorMarcoSP
+		{
+			get
+			{
+				return this.GetTable<FactorMarcoSP>();
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.stp_RelSistemaCargaMarcoPoste")]
 		public ISingleResult<stp_RelSistemaCargaMarcoPosteResult> stp_RelSistemaCargaMarcoPoste([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="SmallInt")] System.Nullable<short> sintSistemaCargaMarcoID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intSubProductoID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intCargaPosteID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intCargaMarcoID)
 		{
@@ -95,6 +103,130 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), sintFondoMarcoID, decCostoLamina, decCostoSolera, decFactorAcero, tinOpcion);
 			return ((ISingleResult<stp_ActualizaFactorMarcoResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.stp_ListarCatFactorMarco")]
+		public ISingleResult<FactorMarcoSP> stp_ListarCatFactorMarco()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<FactorMarcoSP>)(result.ReturnValue));
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="")]
+	public partial class FactorMarcoSP
+	{
+		
+		private short _sintFactorMarcoID;
+		
+		private string _vchDescCorta;
+		
+		private string _vchContanteMarco;
+		
+		private decimal _decCosto;
+		
+		private System.DateTime _datFechaAlta;
+		
+		private bool _bitActivo;
+		
+		public FactorMarcoSP()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sintFactorMarcoID")]
+		public short sintFactorMarcoID
+		{
+			get
+			{
+				return this._sintFactorMarcoID;
+			}
+			set
+			{
+				if ((this._sintFactorMarcoID != value))
+				{
+					this._sintFactorMarcoID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchDescCorta", CanBeNull=false)]
+		public string vchDescCorta
+		{
+			get
+			{
+				return this._vchDescCorta;
+			}
+			set
+			{
+				if ((this._vchDescCorta != value))
+				{
+					this._vchDescCorta = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchContanteMarco", CanBeNull=false)]
+		public string vchContanteMarco
+		{
+			get
+			{
+				return this._vchContanteMarco;
+			}
+			set
+			{
+				if ((this._vchContanteMarco != value))
+				{
+					this._vchContanteMarco = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decCosto")]
+		public decimal decCosto
+		{
+			get
+			{
+				return this._decCosto;
+			}
+			set
+			{
+				if ((this._decCosto != value))
+				{
+					this._decCosto = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_datFechaAlta")]
+		public System.DateTime datFechaAlta
+		{
+			get
+			{
+				return this._datFechaAlta;
+			}
+			set
+			{
+				if ((this._datFechaAlta != value))
+				{
+					this._datFechaAlta = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_bitActivo")]
+		public bool bitActivo
+		{
+			get
+			{
+				return this._bitActivo;
+			}
+			set
+			{
+				if ((this._bitActivo != value))
+				{
+					this._bitActivo = value;
+				}
+			}
 		}
 	}
 	

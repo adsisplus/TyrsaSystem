@@ -27,21 +27,10 @@ namespace Adsisplus.Cotyrsa.DataAccess.Properties {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
         [global::System.Configuration.DefaultSettingValueAttribute("Data Source=local;Initial Catalog=dbTyrsa;Persist Security Info=True;User ID=usrC" +
-            "otyrsa")]
+            "otyrsa;Password=Enared01")]
         public string dbTyrsaConnectionString {
             get {
                 return ((string)(this["dbTyrsaConnectionString"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(local);Initial Catalog=dbTyrsa;Persist Security Info=True;User ID=us" +
-            "rCotyrsa")]
-        public string dbTyrsaConnectionString1 {
-            get {
-                return ((string)(this["dbTyrsaConnectionString1"]));
             }
         }
     }
