@@ -117,7 +117,24 @@ namespace Adsisplus.Cotyrsa.WcfService.MarcosServices
             }
             catch (Exception ex)
             {
-
+                Adsisplus.Cotyrsa.BusinessLogic.EventLogManager.LogErrorEntry(ex.Message);
+            }
+            return result;
+        }
+        /// <summary>
+        /// Obtiene la lista el catálogo de factores para los marcos
+        /// </summary>
+        /// <returns></returns>
+        public List<FactorMarco> ListarCatFactorMarco()
+        {
+            List<FactorMarco> result = new List<FactorMarco>();
+            try
+            {
+                result = (new MarcosLogic()).ListarCatFactorMarco();
+            }
+            catch (Exception ex)
+            {
+                Adsisplus.Cotyrsa.BusinessLogic.EventLogManager.LogErrorEntry(ex.Message);
             }
             return result;
         }

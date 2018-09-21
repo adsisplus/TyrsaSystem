@@ -92,5 +92,22 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
             }
             return results;
         }
+        /// <summary>
+        /// Obtiene la lista el catálogo de factores para los marcos
+        /// </summary>
+        /// <returns></returns>
+        public List<FactorMarco> ListarCatFactorMarco()
+        {
+            List<FactorMarco> result = new List<FactorMarco>();
+            try
+            {
+                result = CatalogosDA.ListarCatFactorMarco();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
     }
 }
