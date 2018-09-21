@@ -119,14 +119,14 @@ namespace Adsisplus.Cotyrsa.DataAccess
             return results;
         }
 
-        public List<FondoMarco> ListarFondoMarco(Int32 sintFondoMarcoID, Int32 sintTipoMarcoID)
+        public List<FondoMarco> ListarFondoMarco(Int32 sintFondoMarcoID, Int32 sintTipoMarcoID, decimal decFondoMarco)
         {
             List<FondoMarco> results = new List<FondoMarco>();
             try
             {
                 using (MarcosDataContext dc = new MarcosDataContext(Helper.ConnectionString()))
                 {
-                    var query = from item in dc.stp_ListarFondoMarco(sintFondoMarcoID, sintTipoMarcoID)
+                    var query = from item in dc.stp_ListarFondoMarco(sintFondoMarcoID, sintTipoMarcoID, decFondoMarco)
                                 select new FondoMarco()
                                 {
                                     sintFondoMarcoID = item.sintFondoMarcoID,

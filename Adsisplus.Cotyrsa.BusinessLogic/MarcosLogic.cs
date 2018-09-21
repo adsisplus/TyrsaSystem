@@ -65,12 +65,12 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
             return results;
         }
 
-        public List<FondoMarco> ListarFondoMarco(Int32 sintFondoMarcoID, Int32 sintTipoMarcoID)
+        public List<FondoMarco> ListarFondoMarco(Int32 sintFondoMarcoID, Int32 sintTipoMarcoID, decimal decFondoMarco)
         {
             List<FondoMarco> results = null;
             try
             {
-                results = CatalogosDA.ListarFondoMarco(sintFondoMarcoID, sintTipoMarcoID);
+                results = CatalogosDA.ListarFondoMarco(sintFondoMarcoID, sintTipoMarcoID, decFondoMarco);
             }
             catch (Exception ex)
             {
