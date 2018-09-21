@@ -66,6 +66,12 @@ namespace Adsisplus.Cotyrsa.WcfService.PersonaServices
             try
             {
                 result = (new PersonaLogic()).setPersona(persona, tinOpcion);
+                // Validamos si el resultado fué erroneo
+                if (result.vchResultado == "NOK")
+                {
+                    Adsisplus.Cotyrsa.BusinessLogic.EventLogManager.LogErrorEntry(result.vchDescripcion);
+                    result.vchDescripcion = "SE HA PRODUCIDO UN ERROR. FAVOR DE REVISAR EL ARCHIVO LOG";
+                }
             }
             catch (Exception ex)
             {
@@ -85,6 +91,12 @@ namespace Adsisplus.Cotyrsa.WcfService.PersonaServices
             try
             {
                 result = (new PersonaLogic()).setRelacionPersonaDomicilioEmpresa(relPersonaDomicilioEmpresa, tinOpcion);
+                // Validamos si el resultado fué erroneo
+                if (result.vchResultado == "NOK")
+                {
+                    Adsisplus.Cotyrsa.BusinessLogic.EventLogManager.LogErrorEntry(result.vchDescripcion);
+                    result.vchDescripcion = "SE HA PRODUCIDO UN ERROR. FAVOR DE REVISAR EL ARCHIVO LOG";
+                }
             }
             catch (Exception ex)
             {

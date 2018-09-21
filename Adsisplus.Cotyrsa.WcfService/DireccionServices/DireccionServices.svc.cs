@@ -47,6 +47,12 @@ namespace Adsisplus.Cotyrsa.WcfService.DireccionServices
             try
             {
                 result = (new DireccionLogic()).setDomicilio(direccion, tinOpcion);
+                // Validamos si el resultado fué erroneo
+                if (result.vchResultado == "NOK")
+                {
+                    Adsisplus.Cotyrsa.BusinessLogic.EventLogManager.LogErrorEntry(result.vchDescripcion);
+                    result.vchDescripcion = "SE HA PRODUCIDO UN ERROR. FAVOR DE REVISAR EL ARCHIVO LOG";
+                }
             }
             catch (Exception ex)
             {

@@ -120,7 +120,7 @@ namespace Adsisplus.Cotyrsa.DataAccess
             {
                 using (PersonaDataContext dc = new PersonaDataContext(Helper.ConnectionString()))
                 {
-                    var query = from item in dc.stp_RelacionPersonaDomicilioEmpresa(relPersonaDomicilioEmpresa.intPersonaDomEmpreID, relPersonaDomicilioEmpresa.intDireccionID,
+                    var query = from item in dc.stp_RelacionPersonaDomicilioEmpresa(relPersonaDomicilioEmpresa.intPersonaDomEmpreID, relPersonaDomicilioEmpresa.intPersonaID,
                         relPersonaDomicilioEmpresa.intDireccionID, relPersonaDomicilioEmpresa.intEmpresaID, relPersonaDomicilioEmpresa.bitActivo, (byte)tinOpcion)
                                 select new Resultado
                                 {
