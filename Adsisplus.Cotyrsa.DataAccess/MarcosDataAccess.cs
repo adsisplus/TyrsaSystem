@@ -262,5 +262,42 @@ namespace Adsisplus.Cotyrsa.DataAccess
             }
             return results;
         }
+        /// <summary>
+        /// Devuelve el catálogo de la capacidad de carga para un marco
+        /// </summary>
+        /// <returns></returns>
+        public List<CargaMarco> ListarCatCargaMarco(int intCargaMarcoID, short sintTipoMarcoID, int intCalibreAceroID)
+        {
+            List<CargaMarco> result = new List<CargaMarco>();
+            try
+            {
+                using (MarcosDataContext dc = new MarcosDataContext(Helper.ConnectionString()))
+                {
+                    var query = from item in dc.stp_ListarCatCargaMarco(intCargaMarcoID, sintTipoMarcoID, intCalibreAceroID)
+                                select new CargaMarco()
+                                {
+                                    bitActivo = item.bitActivo,
+                                    decAlturaPandeoM = item.decAlturaPandeoM,
+                                    intAlturaPandeoIN = item.intAlturaPandeoIN,
+                                    intCapacidadPeso = item.intCapacidadPeso,
+                                    intCargaMarcoID = item.intCargaMarcoID,
+                                    vchCalibreAcero = item.vchCalibreAcero,
+                                    vchFondoMercadoA = item.vchFondoMercadoA,
+                                    vchFondoMercadoB = item.vchFondoMercadoB,
+                                    vchFondoTyrsa = item.vchFondoTyrsa,
+                                    vchFrenteMercadoA = item.vchFrenteMercadoA,
+                                    vchFrenteMercadoB = item.vchFrenteMercadoB,
+                                    vchFrenteTyrsa = item.vchFrenteTyrsa,
+                                    vchTipoMarcoTyrsa = item.vchTipoMarcoTyrsa
+                                };
+                    result.AddRange(query);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
     }
 }

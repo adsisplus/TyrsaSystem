@@ -109,5 +109,22 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
             }
             return result;
         }
+        /// <summary>
+        /// Devuelve el catálogo de la capacidad de carga para un marco
+        /// </summary>
+        /// <returns></returns>
+        public List<CargaMarco> ListarCatCargaMarco(int intCargaMarcoID, short sintTipoMarcoID, int intCalibreAceroID)
+        {
+            List<CargaMarco> result = new List<CargaMarco>();
+            try
+            {
+                result = CatalogosDA.ListarCatCargaMarco(intCargaMarcoID, sintTipoMarcoID, intCalibreAceroID);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
     }
 }

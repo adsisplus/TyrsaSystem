@@ -138,5 +138,25 @@ namespace Adsisplus.Cotyrsa.WcfService.MarcosServices
             }
             return result;
         }
+        /// <summary>
+        /// Devuelve el catálogo de la capacidad de carga para un marco
+        /// </summary>
+        /// <param name="intCargaMarcoID"></param>
+        /// <param name="sintTipoMarcoID"></param>
+        /// <param name="intCalibreAceroID"></param>
+        /// <returns></returns>
+        public List<CargaMarco> ListarCatCargaMarco(int intCargaMarcoID, short sintTipoMarcoID, int intCalibreAceroID)
+        {
+            List<CargaMarco> result = new List<CargaMarco>();
+            try
+            {
+                result = (new MarcosLogic()).ListarCatCargaMarco(intCargaMarcoID, sintTipoMarcoID, intCalibreAceroID);
+            }
+            catch (Exception ex)
+            {
+                Adsisplus.Cotyrsa.BusinessLogic.EventLogManager.LogErrorEntry(ex.Message);
+            }
+            return result;
+        }
     }
 }

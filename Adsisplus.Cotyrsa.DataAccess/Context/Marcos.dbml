@@ -10,6 +10,23 @@
       <Column Name="bitActivo" Type="System.Boolean" CanBeNull="false" />
     </Type>
   </Table>
+  <Table Name="" Member="CargaMarcoSP">
+    <Type Name="CargaMarcoSP" Id="ID2">
+      <Column Member="bitActivo" Type="System.Boolean" CanBeNull="false" />
+      <Column Member="decAlturaPandeoM" Type="System.Decimal" CanBeNull="false" />
+      <Column Member="intAlturaPandeoIN" Type="System.Int32" CanBeNull="false" />
+      <Column Member="intCapacidadPeso" Type="System.Int32" CanBeNull="false" />
+      <Column Member="intCargaMarcoID" Type="System.Int32" CanBeNull="false" />
+      <Column Member="vchCalibreAcero" Type="System.String" CanBeNull="false" />
+      <Column Member="vchFondoMercadoA" Type="System.String" CanBeNull="false" />
+      <Column Member="vchFondoMercadoB" Type="System.String" CanBeNull="false" />
+      <Column Member="vchFondoTyrsa" Type="System.String" CanBeNull="false" />
+      <Column Member="vchFrenteMercadoA" Type="System.String" CanBeNull="false" />
+      <Column Member="vchFrenteMercadoB" Type="System.String" CanBeNull="false" />
+      <Column Member="vchFrenteTyrsa" Type="System.String" CanBeNull="false" />
+      <Column Member="vchTipoMarcoTyrsa" Type="System.String" CanBeNull="false" />
+    </Type>
+  </Table>
   <Function Name="dbo.stp_RelSistemaCargaMarcoPoste" Method="stp_RelSistemaCargaMarcoPoste">
     <Parameter Name="sintSistemaCargaMarcoID" Type="System.Int16" DbType="SmallInt" />
     <Parameter Name="intSubProductoID" Type="System.Int32" DbType="Int" />
@@ -174,5 +191,11 @@
       <Column Name="decFactorAcero" Type="System.Decimal" DbType="Decimal(18,4)" CanBeNull="true" />
       <Column Name="bitActivo" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
     </ElementType>
+  </Function>
+  <Function Name="dbo.stp_ListarCatCargaMarco" Method="stp_ListarCatCargaMarco">
+    <Parameter Name="intCargaMarcoID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="sintTipoMarcoID" Type="System.Int16" DbType="SmallInt" />
+    <Parameter Name="intCalibreAceroID" Type="System.Int32" DbType="Int" />
+    <ElementType IdRef="ID2" />
   </Function>
 </Database>

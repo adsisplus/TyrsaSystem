@@ -8,5 +8,11 @@
         <elementListCompartment Id="7eab1de5-18a7-45d4-9fac-49cdf8b6dfa7" absoluteBounds="4.015, 2.335, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
+    <classShape Id="4dee2960-3293-4111-8d37-e95f25321b3f" absoluteBounds="7.5, 2.125, 2, 3.3093082682291666">
+      <DataClassMoniker Name="/MarcosDataContext/CargaMarcoSP" />
+      <nestedChildShapes>
+        <elementListCompartment Id="66c0b4d7-d9a8-45d1-9c2f-958f88149f95" absoluteBounds="7.515, 2.585, 1.9700000000000002, 2.7493082682291665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
   </nestedChildShapes>
 </ordesignerObjectsDiagram>
