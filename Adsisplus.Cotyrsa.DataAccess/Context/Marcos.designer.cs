@@ -78,6 +78,14 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 			}
 		}
 		
+		public System.Data.Linq.Table<CargaPosteSP> CargaPosteSP
+		{
+			get
+			{
+				return this.GetTable<CargaPosteSP>();
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.stp_RelSistemaCargaMarcoPoste")]
 		public ISingleResult<stp_RelSistemaCargaMarcoPosteResult> stp_RelSistemaCargaMarcoPoste([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="SmallInt")] System.Nullable<short> sintSistemaCargaMarcoID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intSubProductoID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intCargaPosteID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intCargaMarcoID)
 		{
@@ -125,6 +133,13 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), intCargaMarcoID, sintTipoMarcoID, intCalibreAceroID);
 			return ((ISingleResult<CargaMarcoSP>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.stp_ListarCatCargaPoste")]
+		public ISingleResult<CargaPosteSP> stp_ListarCatCargaPoste([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intCargaPosteID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="SmallInt")] System.Nullable<short> sintTipoMarcoID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intCalibreAceroID)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), intCargaPosteID, sintTipoMarcoID, intCalibreAceroID);
+			return ((ISingleResult<CargaPosteSP>)(result.ReturnValue));
 		}
 	}
 	
@@ -483,6 +498,285 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 				if ((this._vchTipoMarcoTyrsa != value))
 				{
 					this._vchTipoMarcoTyrsa = value;
+				}
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="")]
+	public partial class CargaPosteSP
+	{
+		
+		private bool _bitActivo;
+		
+		private int _intCargaPosteID;
+		
+		private short _sintTipoMarcoID;
+		
+		private string _vchTipoMarcoTyrsa;
+		
+		private int _intCalibreAceroID;
+		
+		private string _vchCalibreAcero;
+		
+		private string _vchFrenteTyrsa;
+		
+		private string _vchFrenteMercadoA;
+		
+		private string _vchFrenteMercadoB;
+		
+		private string _vchFondoTyrsa;
+		
+		private string _vchFondoMercadoA;
+		
+		private string _vchFondoMercadoB;
+		
+		private decimal _decAlturaPandeoM;
+		
+		private int _intAlturaPandeoIN;
+		
+		private int _intCapacidadPeso;
+		
+		public CargaPosteSP()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_bitActivo")]
+		public bool bitActivo
+		{
+			get
+			{
+				return this._bitActivo;
+			}
+			set
+			{
+				if ((this._bitActivo != value))
+				{
+					this._bitActivo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intCargaPosteID")]
+		public int intCargaPosteID
+		{
+			get
+			{
+				return this._intCargaPosteID;
+			}
+			set
+			{
+				if ((this._intCargaPosteID != value))
+				{
+					this._intCargaPosteID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sintTipoMarcoID")]
+		public short sintTipoMarcoID
+		{
+			get
+			{
+				return this._sintTipoMarcoID;
+			}
+			set
+			{
+				if ((this._sintTipoMarcoID != value))
+				{
+					this._sintTipoMarcoID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchTipoMarcoTyrsa", CanBeNull=false)]
+		public string vchTipoMarcoTyrsa
+		{
+			get
+			{
+				return this._vchTipoMarcoTyrsa;
+			}
+			set
+			{
+				if ((this._vchTipoMarcoTyrsa != value))
+				{
+					this._vchTipoMarcoTyrsa = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intCalibreAceroID")]
+		public int intCalibreAceroID
+		{
+			get
+			{
+				return this._intCalibreAceroID;
+			}
+			set
+			{
+				if ((this._intCalibreAceroID != value))
+				{
+					this._intCalibreAceroID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchCalibreAcero", CanBeNull=false)]
+		public string vchCalibreAcero
+		{
+			get
+			{
+				return this._vchCalibreAcero;
+			}
+			set
+			{
+				if ((this._vchCalibreAcero != value))
+				{
+					this._vchCalibreAcero = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchFrenteTyrsa", CanBeNull=false)]
+		public string vchFrenteTyrsa
+		{
+			get
+			{
+				return this._vchFrenteTyrsa;
+			}
+			set
+			{
+				if ((this._vchFrenteTyrsa != value))
+				{
+					this._vchFrenteTyrsa = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchFrenteMercadoA", CanBeNull=false)]
+		public string vchFrenteMercadoA
+		{
+			get
+			{
+				return this._vchFrenteMercadoA;
+			}
+			set
+			{
+				if ((this._vchFrenteMercadoA != value))
+				{
+					this._vchFrenteMercadoA = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchFrenteMercadoB", CanBeNull=false)]
+		public string vchFrenteMercadoB
+		{
+			get
+			{
+				return this._vchFrenteMercadoB;
+			}
+			set
+			{
+				if ((this._vchFrenteMercadoB != value))
+				{
+					this._vchFrenteMercadoB = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchFondoTyrsa", CanBeNull=false)]
+		public string vchFondoTyrsa
+		{
+			get
+			{
+				return this._vchFondoTyrsa;
+			}
+			set
+			{
+				if ((this._vchFondoTyrsa != value))
+				{
+					this._vchFondoTyrsa = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchFondoMercadoA", CanBeNull=false)]
+		public string vchFondoMercadoA
+		{
+			get
+			{
+				return this._vchFondoMercadoA;
+			}
+			set
+			{
+				if ((this._vchFondoMercadoA != value))
+				{
+					this._vchFondoMercadoA = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchFondoMercadoB", CanBeNull=false)]
+		public string vchFondoMercadoB
+		{
+			get
+			{
+				return this._vchFondoMercadoB;
+			}
+			set
+			{
+				if ((this._vchFondoMercadoB != value))
+				{
+					this._vchFondoMercadoB = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decAlturaPandeoM")]
+		public decimal decAlturaPandeoM
+		{
+			get
+			{
+				return this._decAlturaPandeoM;
+			}
+			set
+			{
+				if ((this._decAlturaPandeoM != value))
+				{
+					this._decAlturaPandeoM = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intAlturaPandeoIN")]
+		public int intAlturaPandeoIN
+		{
+			get
+			{
+				return this._intAlturaPandeoIN;
+			}
+			set
+			{
+				if ((this._intAlturaPandeoIN != value))
+				{
+					this._intAlturaPandeoIN = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intCapacidadPeso")]
+		public int intCapacidadPeso
+		{
+			get
+			{
+				return this._intCapacidadPeso;
+			}
+			set
+			{
+				if ((this._intCapacidadPeso != value))
+				{
+					this._intCapacidadPeso = value;
 				}
 			}
 		}

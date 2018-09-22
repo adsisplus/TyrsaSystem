@@ -126,5 +126,25 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
             }
             return result;
         }
+        /// <summary>
+        /// Obtiene la capacidad de carga de los postes
+        /// </summary>
+        /// <param name="intCargaPosteID"></param>
+        /// <param name="sintTipoMarcoID"></param>
+        /// <param name="intCalibreAceroID"></param>
+        /// <returns></returns>
+        public List<CargaPoste> ListarCatCargaPoste(int intCargaPosteID, short sintTipoMarcoID, int intCalibreAceroID)
+        {
+            List<CargaPoste> result = new List<CargaPoste>();
+            try
+            {
+                result = CatalogosDA.ListarCatCargaPoste(intCargaPosteID, sintTipoMarcoID, intCalibreAceroID);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
     }
 }

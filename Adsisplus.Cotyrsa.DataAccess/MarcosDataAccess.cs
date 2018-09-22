@@ -299,5 +299,45 @@ namespace Adsisplus.Cotyrsa.DataAccess
             }
             return result;
         }
+        /// <summary>
+        /// Obtiene la capacidad de carga de los postes
+        /// </summary>
+        /// <param name="intCargaPosteID"></param>
+        /// <param name="sintTipoMarcoID"></param>
+        /// <param name="intCalibreAceroID"></param>
+        /// <returns></returns>
+        public List<CargaPoste> ListarCatCargaPoste(int intCargaPosteID, short sintTipoMarcoID, int intCalibreAceroID)
+        {
+            List<CargaPoste> result = new List<CargaPoste>();
+            try
+            {
+                using (MarcosDataContext dc = new MarcosDataContext(Helper.ConnectionString()))
+                {
+                    var query = from item in dc.stp_ListarCatCargaPoste(intCargaPosteID, sintTipoMarcoID, intCalibreAceroID)
+                                select new CargaPoste()
+                                {
+                                    bitActivo = item.bitActivo,
+                                    decAlturaPandeoM = item.decAlturaPandeoM,
+                                    intAlturaPandeoIN = item.intAlturaPandeoIN,
+                                    intCapacidadPeso = item.intCapacidadPeso,
+                                    intCargaPosteID = item.intCargaPosteID,
+                                    vchCalibreAcero = item.vchCalibreAcero,
+                                    vchFondoMercadoA = item.vchFondoMercadoA,
+                                    vchFondoMercadoB = item.vchFondoMercadoB,
+                                    vchFondoTyrsa = item.vchFondoTyrsa,
+                                    vchFrenteMercadoA = item.vchFrenteMercadoA,
+                                    vchFrenteMercadoB = item.vchFrenteMercadoB,
+                                    vchFrenteTyrsa = item.vchFrenteTyrsa,
+                                    vchTipoMarcoTyrsa = item.vchTipoMarcoTyrsa
+                                };
+                    result.AddRange(query);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
     }
 }

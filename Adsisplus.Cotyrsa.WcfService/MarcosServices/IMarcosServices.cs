@@ -85,5 +85,15 @@ namespace Adsisplus.Cotyrsa.WcfService.MarcosServices
         [OperationContract]
         [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ListarCatCargaMarco")]
         List<CargaMarco> ListarCatCargaMarco(int intCargaMarcoID, short sintTipoMarcoID, int intCalibreAceroID);
+        /// <summary>
+        /// Obtiene la capacidad de carga de los postes
+        /// </summary>
+        /// <param name="intCargaPosteID"></param>
+        /// <param name="sintTipoMarcoID"></param>
+        /// <param name="intCalibreAceroID"></param>
+        /// <returns></returns>
+        [OperationContract]
+        [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ListarCatCargaPoste")]
+        List<CargaPoste> ListarCatCargaPoste(int intCargaPosteID, short sintTipoMarcoID, int intCalibreAceroID);
     }
 }

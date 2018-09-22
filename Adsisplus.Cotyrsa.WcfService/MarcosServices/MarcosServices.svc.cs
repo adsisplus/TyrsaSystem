@@ -158,5 +158,25 @@ namespace Adsisplus.Cotyrsa.WcfService.MarcosServices
             }
             return result;
         }
+        /// <summary>
+        /// Obtiene la capacidad de carga de los postes
+        /// </summary>
+        /// <param name="intCargaPosteID"></param>
+        /// <param name="sintTipoMarcoID"></param>
+        /// <param name="intCalibreAceroID"></param>
+        /// <returns></returns>
+        public List<CargaPoste> ListarCatCargaPoste(int intCargaPosteID, short sintTipoMarcoID, int intCalibreAceroID)
+        {
+            List<CargaPoste> result = new List<CargaPoste>();
+            try
+            {
+                result = (new MarcosLogic()).ListarCatCargaPoste(intCargaPosteID, sintTipoMarcoID, intCalibreAceroID);
+            }
+            catch (Exception ex)
+            {
+
+            }
+            return result;
+        }
     }
 }
