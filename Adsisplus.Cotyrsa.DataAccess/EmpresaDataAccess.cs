@@ -28,8 +28,9 @@ namespace Adsisplus.Cotyrsa.DataAccess
                                     vchCondisionesGenerales = item.vchCondisionesGenerales,
                                     bitEsCliente = item.bitEsCliente,
                                     bitActivo = item.bitActivo,
-                                    bitEsProveedor = item.bitEsProveedor
-
+                                    bitEsProveedor = item.bitEsProveedor,
+                                    sintTipoEmpresaID = item.sintTipoEmpresaID
+                                    
                                 };
                     results.AddRange(query);
                 }
