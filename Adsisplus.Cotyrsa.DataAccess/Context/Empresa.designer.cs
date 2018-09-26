@@ -33,7 +33,7 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
     #endregion
 		
 		public EmpresaDataContext() : 
-				base(global::Adsisplus.Cotyrsa.DataAccess.Properties.Settings.Default.dbTyrsaConnectionString2, mappingSource)
+				base(global::Adsisplus.Cotyrsa.DataAccess.Properties.Settings.Default.dbTyrsaConnectionString, mappingSource)
 		{
 			OnCreated();
 		}
@@ -62,62 +62,18 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.stp_setEmpresa")]
-		public ISingleResult<stp_setEmpresaResult> stp_setEmpresa([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intEmpresaID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="SmallInt")] System.Nullable<short> sintTipoEmpresaID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(250)")] string vchNombre, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(250)")] string vchCorreo, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(250)")] string vchCorreoFacturacion, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(4000)")] string vchCondisionesGenerales, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Bit")] System.Nullable<bool> bitEsCliente, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Bit")] System.Nullable<bool> bitActivo, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Bit")] System.Nullable<bool> bitEsProveedor, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="TinyInt")] System.Nullable<byte> tinOpcion)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), intEmpresaID, sintTipoEmpresaID, vchNombre, vchCorreo, vchCorreoFacturacion, vchCondisionesGenerales, bitEsCliente, bitActivo, bitEsProveedor, tinOpcion);
-			return ((ISingleResult<stp_setEmpresaResult>)(result.ReturnValue));
-		}
-		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.stp_ListarEmpresa")]
 		public ISingleResult<stp_ListarEmpresaResult> stp_ListarEmpresa([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intEmpresaID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="SmallInt")] System.Nullable<short> sintTipoEmpresaID)
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), intEmpresaID, sintTipoEmpresaID);
 			return ((ISingleResult<stp_ListarEmpresaResult>)(result.ReturnValue));
 		}
-	}
-	
-	public partial class stp_setEmpresaResult
-	{
 		
-		private string _vchResultado;
-		
-		private string _vchDescripcion;
-		
-		public stp_setEmpresaResult()
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.stp_setEmpresa")]
+		public ISingleResult<stp_setEmpresaResult> stp_setEmpresa([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intEmpresaID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="SmallInt")] System.Nullable<short> sintTipoEmpresaID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(250)")] string vchNombre, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(250)")] string vchCorreo, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(250)")] string vchCorreoFacturacion, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(4000)")] string vchCondisionesGenerales, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(12)")] string vchTelefono, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(15)")] string vchRFC, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Bit")] System.Nullable<bool> bitEsCliente, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Bit")] System.Nullable<bool> bitActivo, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Bit")] System.Nullable<bool> bitEsProveedor, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="TinyInt")] System.Nullable<byte> tinOpcion)
 		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchResultado", DbType="VarChar(2) NOT NULL", CanBeNull=false)]
-		public string vchResultado
-		{
-			get
-			{
-				return this._vchResultado;
-			}
-			set
-			{
-				if ((this._vchResultado != value))
-				{
-					this._vchResultado = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchDescripcion", DbType="VarChar(42) NOT NULL", CanBeNull=false)]
-		public string vchDescripcion
-		{
-			get
-			{
-				return this._vchDescripcion;
-			}
-			set
-			{
-				if ((this._vchDescripcion != value))
-				{
-					this._vchDescripcion = value;
-				}
-			}
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), intEmpresaID, sintTipoEmpresaID, vchNombre, vchCorreo, vchCorreoFacturacion, vchCondisionesGenerales, vchTelefono, vchRFC, bitEsCliente, bitActivo, bitEsProveedor, tinOpcion);
+			return ((ISingleResult<stp_setEmpresaResult>)(result.ReturnValue));
 		}
 	}
 	
@@ -137,6 +93,10 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 		private string _vchCorreoFacturacion;
 		
 		private string _vchCondisionesGenerales;
+		
+		private string _vchTelefono;
+		
+		private string _vchRFC;
 		
 		private System.Nullable<bool> _bitEsCliente;
 		
@@ -260,6 +220,38 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchTelefono", DbType="VarChar(12)")]
+		public string vchTelefono
+		{
+			get
+			{
+				return this._vchTelefono;
+			}
+			set
+			{
+				if ((this._vchTelefono != value))
+				{
+					this._vchTelefono = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchRFC", DbType="VarChar(15)")]
+		public string vchRFC
+		{
+			get
+			{
+				return this._vchRFC;
+			}
+			set
+			{
+				if ((this._vchRFC != value))
+				{
+					this._vchRFC = value;
+				}
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_bitEsCliente", DbType="Bit")]
 		public System.Nullable<bool> bitEsCliente
 		{
@@ -304,6 +296,50 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 				if ((this._bitEsProveedor != value))
 				{
 					this._bitEsProveedor = value;
+				}
+			}
+		}
+	}
+	
+	public partial class stp_setEmpresaResult
+	{
+		
+		private string _vchResultado;
+		
+		private string _vchDescripcion;
+		
+		public stp_setEmpresaResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchResultado", DbType="VarChar(12)")]
+		public string vchResultado
+		{
+			get
+			{
+				return this._vchResultado;
+			}
+			set
+			{
+				if ((this._vchResultado != value))
+				{
+					this._vchResultado = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchDescripcion", DbType="VarChar(42) NOT NULL", CanBeNull=false)]
+		public string vchDescripcion
+		{
+			get
+			{
+				return this._vchDescripcion;
+			}
+			set
+			{
+				if ((this._vchDescripcion != value))
+				{
+					this._vchDescripcion = value;
 				}
 			}
 		}

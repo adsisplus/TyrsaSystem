@@ -31,5 +31,15 @@ namespace Adsisplus.Cotyrsa.BusinessEntities
         public bool? bitActivo { get; set; }
         [DataMember]
         public bool? bitEsProveedor { get; set; }
+        /// <summary>
+        /// Parametro de telefono de la empresa
+        /// </summary>
+        [DataMember]
+        public string vchTelefono { get; set; }
+        /// <summary>
+        /// Parametro de RFC de la empresa
+        /// </summary>
+        [DataMember]
+        public string vchRFC { get; set; }
     }
 }
