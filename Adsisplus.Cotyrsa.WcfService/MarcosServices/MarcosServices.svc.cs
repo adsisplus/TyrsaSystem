@@ -178,5 +178,23 @@ namespace Adsisplus.Cotyrsa.WcfService.MarcosServices
             }
             return result;
         }
+        /// <summary>
+        /// Permite actualizar los factores del marco
+        /// </summary>
+        /// <param name="factor"></param>
+        /// <returns></returns>
+        public Resultado setFondoMarco(FondoMarco factor)
+        {
+            Resultado result = new Resultado();
+            try
+            {
+                result = (new MarcosLogic()).setFondoMarco(factor);
+            }
+            catch(Exception ex)
+            {
+                Adsisplus.Cotyrsa.BusinessLogic.EventLogManager.LogErrorEntry(ex.Message);
+            }
+            return result;
+        }
     }
 }

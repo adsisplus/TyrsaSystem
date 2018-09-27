@@ -29,21 +29,21 @@
   </Table>
   <Table Name="" Member="CargaPosteSP">
     <Type Name="CargaPosteSP" Id="ID3">
-      <Column Member="bitActivo" Type="System.Boolean" CanBeNull="false" />
-      <Column Member="intCargaPosteID" Type="System.Int32" CanBeNull="false" />
-      <Column Member="sintTipoMarcoID" Type="System.Int16" CanBeNull="false" />
-      <Column Member="vchTipoMarcoTyrsa" Type="System.String" CanBeNull="false" />
-      <Column Member="intCalibreAceroID" Type="System.Int32" CanBeNull="false" />
-      <Column Member="vchCalibreAcero" Type="System.String" CanBeNull="false" />
-      <Column Member="vchFrenteTyrsa" Type="System.String" CanBeNull="false" />
-      <Column Member="vchFrenteMercadoA" Type="System.String" CanBeNull="false" />
-      <Column Member="vchFrenteMercadoB" Type="System.String" CanBeNull="false" />
-      <Column Member="vchFondoTyrsa" Type="System.String" CanBeNull="false" />
-      <Column Member="vchFondoMercadoA" Type="System.String" CanBeNull="false" />
-      <Column Member="vchFondoMercadoB" Type="System.String" CanBeNull="false" />
-      <Column Member="decAlturaPandeoM" Type="System.Decimal" CanBeNull="false" />
-      <Column Member="intAlturaPandeoIN" Type="System.Int32" CanBeNull="false" />
-      <Column Member="intCapacidadPeso" Type="System.Int32" CanBeNull="false" />
+      <Column Name="bitActivo" Type="System.Boolean" CanBeNull="false" />
+      <Column Name="intCargaPosteID" Type="System.Int32" CanBeNull="false" />
+      <Column Name="sintTipoMarcoID" Type="System.Int16" CanBeNull="false" />
+      <Column Name="vchTipoMarcoTyrsa" Type="System.String" CanBeNull="false" />
+      <Column Name="intCalibreAceroID" Type="System.Int32" CanBeNull="false" />
+      <Column Name="vchCalibreAcero" Type="System.String" CanBeNull="false" />
+      <Column Name="vchFrenteTyrsa" Type="System.String" CanBeNull="false" />
+      <Column Name="vchFrenteMercadoA" Type="System.String" CanBeNull="false" />
+      <Column Name="vchFrenteMercadoB" Type="System.String" CanBeNull="false" />
+      <Column Name="vchFondoTyrsa" Type="System.String" CanBeNull="false" />
+      <Column Name="vchFondoMercadoA" Type="System.String" CanBeNull="false" />
+      <Column Name="vchFondoMercadoB" Type="System.String" CanBeNull="false" />
+      <Column Name="decAlturaPandeoM" Type="System.Decimal" CanBeNull="false" />
+      <Column Name="intAlturaPandeoIN" Type="System.Int32" CanBeNull="false" />
+      <Column Name="intCapacidadPeso" Type="System.Int32" CanBeNull="false" />
     </Type>
   </Table>
   <Function Name="dbo.stp_RelSistemaCargaMarcoPoste" Method="stp_RelSistemaCargaMarcoPoste">
@@ -222,5 +222,26 @@
     <Parameter Name="sintTipoMarcoID" Type="System.Int16" DbType="SmallInt" />
     <Parameter Name="intCalibreAceroID" Type="System.Int32" DbType="Int" />
     <ElementType IdRef="ID3" />
+  </Function>
+  <Function Name="dbo.stp_setFondoMarco" Method="stp_setFondoMarco">
+    <Parameter Name="sintFondoMarcoID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="decFactor1" Type="System.Decimal" DbType="Decimal(18,4)" />
+    <Parameter Name="decFactor2" Type="System.Decimal" DbType="Decimal(18,4)" />
+    <Parameter Name="decFactor3" Type="System.Decimal" DbType="Decimal(18,4)" />
+    <Parameter Name="decFactor5" Type="System.Decimal" DbType="Decimal(18,4)" />
+    <Parameter Name="decFactor6" Type="System.Decimal" DbType="Decimal(18,4)" />
+    <Parameter Name="decFactor7" Type="System.Decimal" DbType="Decimal(18,4)" />
+    <Parameter Name="decFactor9" Type="System.Decimal" DbType="Decimal(18,4)" />
+    <Parameter Name="decFactor10" Type="System.Decimal" DbType="Decimal(18,4)" />
+    <Parameter Name="decFactor11" Type="System.Decimal" DbType="Decimal(18,4)" />
+    <Parameter Name="decFactor13" Type="System.Decimal" DbType="Decimal(18,4)" />
+    <Parameter Name="decFactor14" Type="System.Decimal" DbType="Decimal(18,4)" />
+    <Parameter Name="decFactor15" Type="System.Decimal" DbType="Decimal(18,4)" />
+    <Parameter Name="decFactor17" Type="System.Decimal" DbType="Decimal(18,4)" />
+    <Parameter Name="decFactor18" Type="System.Decimal" DbType="Decimal(18,4)" />
+    <ElementType Name="stp_setFondoMarcoResult">
+      <Column Name="vchResultado" Type="System.String" DbType="VarChar(2) NOT NULL" CanBeNull="false" />
+      <Column Name="vchDescripcion" Type="System.String" DbType="VarChar(64) NOT NULL" CanBeNull="false" />
+    </ElementType>
   </Function>
 </Database>

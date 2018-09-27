@@ -146,5 +146,23 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
             }
             return result;
         }
+        /// <summary>
+        /// Permite actualizar los factores del marco
+        /// </summary>
+        /// <param name="factor"></param>
+        /// <returns></returns>
+        public Resultado setFondoMarco(FondoMarco factor)
+        {
+            Resultado result = new Resultado();
+            try
+            {
+                result = CatalogosDA.setFondoMarco(factor);
+            }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
     }
 }
