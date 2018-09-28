@@ -25,7 +25,7 @@ namespace Adsisplus.Cotyrsa.WcfService.MarcosServices
         /// <param name="sintFactorMarcoID"></param>
         /// <returns></returns>
         public List<Configuracion_Marco> ConfiguraMarco(int intConfiguraMarcoID, int intElementoID, short sintTipoMarcoID, int intAlturaMarcoID, short sintFondoMarcoID, int intSKUID, 
-            short sintFactorMarcoID, short decFondoMarco)
+            short sintFactorMarcoID, decimal decFondoMarco)
         {
             List<Configuracion_Marco> result = new List<Configuracion_Marco>();
             try

@@ -24,7 +24,7 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
         #endregion
 
         public List<Configuracion_Marco> ConfiguraMarco(Int32 intConfiguraMarcoID, Int32 intElementoID, Int16 sintTipoMarcoID, Int32 intAlturaMarcoID, Int16 sintFondoMarcoID, 
-            Int32 intSKUID, Int16 sintFactorMarcoID, short decFondoMarco)
+            Int32 intSKUID, Int16 sintFactorMarcoID, decimal decFondoMarco)
         {
             List<Configuracion_Marco> results = null;
             try
