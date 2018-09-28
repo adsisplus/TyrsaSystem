@@ -26,7 +26,7 @@ namespace Adsisplus.Cotyrsa.WcfService.MarcosServices
         /// <returns></returns>
         [OperationContract]
         [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ConfiguraMarco")]
-        List<Configuracion_Marco> ConfiguraMarco(Int32 intConfiguraMarcoID, Int32 intElementoID, Int16 sintTipoMarcoID, Int32 intAlturaMarcoID, Int16 sintFondoMarcoID, Int32 intSKUID, Int16 sintFactorMarcoID);
+        List<Configuracion_Marco> ConfiguraMarco(Int32 intConfiguraMarcoID, Int32 intElementoID, Int16 sintTipoMarcoID, Int32 intAlturaMarcoID, Int16 sintFondoMarcoID, Int32 intSKUID, Int16 sintFactorMarcoID, short decFondoMarco);
         /// <summary>
         /// Obtiene la lista de relaciones de sistema de carga de Marcos contra postes
         /// </summary>

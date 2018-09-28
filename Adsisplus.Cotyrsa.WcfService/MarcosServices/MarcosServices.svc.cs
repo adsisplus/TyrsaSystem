@@ -24,12 +24,14 @@ namespace Adsisplus.Cotyrsa.WcfService.MarcosServices
         /// <param name="intSKUID"></param>
         /// <param name="sintFactorMarcoID"></param>
         /// <returns></returns>
-        public List<Configuracion_Marco> ConfiguraMarco(int intConfiguraMarcoID, int intElementoID, short sintTipoMarcoID, int intAlturaMarcoID, short sintFondoMarcoID, int intSKUID, short sintFactorMarcoID)
+        public List<Configuracion_Marco> ConfiguraMarco(int intConfiguraMarcoID, int intElementoID, short sintTipoMarcoID, int intAlturaMarcoID, short sintFondoMarcoID, int intSKUID, 
+            short sintFactorMarcoID, short decFondoMarco)
         {
             List<Configuracion_Marco> result = new List<Configuracion_Marco>();
             try
             {
-                result = (new MarcosLogic()).ConfiguraMarco(intConfiguraMarcoID, intElementoID, sintTipoMarcoID, intAlturaMarcoID, sintFondoMarcoID, intSKUID, sintFactorMarcoID);
+                result = (new MarcosLogic()).ConfiguraMarco(intConfiguraMarcoID, intElementoID, sintTipoMarcoID, intAlturaMarcoID, sintFondoMarcoID, intSKUID, 
+                    sintFactorMarcoID, decFondoMarco);
             }
             catch (Exception ex)
             {

@@ -100,13 +100,6 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 			return ((ISingleResult<stp_ListarDatosMarcoResult>)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.stp_ConfiguraMarco")]
-		public ISingleResult<stp_ConfiguraMarcoResult> stp_ConfiguraMarco([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intConfiguraMarcoID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intElementoID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="SmallInt")] System.Nullable<short> sintTipoMarcoID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intAlturaMarcoID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="SmallInt")] System.Nullable<short> sintFondoMarcoID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intSKUID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="SmallInt")] System.Nullable<short> sintFactorMarcoID)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), intConfiguraMarcoID, intElementoID, sintTipoMarcoID, intAlturaMarcoID, sintFondoMarcoID, intSKUID, sintFactorMarcoID);
-			return ((ISingleResult<stp_ConfiguraMarcoResult>)(result.ReturnValue));
-		}
-		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.stp_ActualizaFactorMarco")]
 		public ISingleResult<stp_ActualizaFactorMarcoResult> stp_ActualizaFactorMarco([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="SmallInt")] System.Nullable<short> sintFondoMarcoID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Decimal(18,4)")] System.Nullable<decimal> decCostoLamina, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Decimal(18,4)")] System.Nullable<decimal> decCostoSolera, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Decimal(18,4)")] System.Nullable<decimal> decFactorAcero, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="TinyInt")] System.Nullable<byte> tinOpcion)
 		{
@@ -147,6 +140,13 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), sintFondoMarcoID, decFactor1, decFactor2, decFactor3, decFactor5, decFactor6, decFactor7, decFactor9, decFactor10, decFactor11, decFactor13, decFactor14, decFactor15, decFactor17, decFactor18);
 			return ((ISingleResult<stp_setFondoMarcoResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.stp_ConfiguraMarco")]
+		public ISingleResult<stp_ConfiguraMarcoResult> stp_ConfiguraMarco([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intConfiguraMarcoID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intElementoID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="SmallInt")] System.Nullable<short> sintTipoMarcoID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intAlturaMarcoID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="SmallInt")] System.Nullable<short> sintFondoMarcoID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intSKUID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="SmallInt")] System.Nullable<short> sintFactorMarcoID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Decimal(8,4)")] System.Nullable<decimal> decFondoMarco)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), intConfiguraMarcoID, intElementoID, sintTipoMarcoID, intAlturaMarcoID, sintFondoMarcoID, intSKUID, sintFactorMarcoID, decFondoMarco);
+			return ((ISingleResult<stp_ConfiguraMarcoResult>)(result.ReturnValue));
 		}
 	}
 	
@@ -1108,518 +1108,6 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 				if ((this._sintCantidad != value))
 				{
 					this._sintCantidad = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_bitActivo", DbType="Bit")]
-		public System.Nullable<bool> bitActivo
-		{
-			get
-			{
-				return this._bitActivo;
-			}
-			set
-			{
-				if ((this._bitActivo != value))
-				{
-					this._bitActivo = value;
-				}
-			}
-		}
-	}
-	
-	public partial class stp_ConfiguraMarcoResult
-	{
-		
-		private int _intConfiguraMarcoID;
-		
-		private string _vchElemento;
-		
-		private string _vchTipoMarcoTyrsa;
-		
-		private System.Nullable<short> _sintSKU;
-		
-		private System.Nullable<decimal> _decAlturaMarco;
-		
-		private System.Nullable<decimal> _decFondoMarco;
-		
-		private string _vchContanteMarco;
-		
-		private System.Nullable<decimal> _decCalibre;
-		
-		private System.Nullable<decimal> _decSolera;
-		
-		private System.Nullable<decimal> _decTotalKilo;
-		
-		private System.Nullable<decimal> _decPrecioTyrsa;
-		
-		private System.Nullable<decimal> _decRelacionPrecios;
-		
-		private System.Nullable<decimal> _decPrecioTyrsaMetro;
-		
-		private System.Nullable<decimal> _decPrecioTyrsaKg;
-		
-		private System.Nullable<short> _sintNumPosteReq;
-		
-		private System.Nullable<short> _sintNumTravesanio;
-		
-		private System.Nullable<short> _sintDiagonalLarga;
-		
-		private System.Nullable<short> _sintDiagonalCorta;
-		
-		private System.Nullable<decimal> _decPesoCobroLam14;
-		
-		private System.Nullable<decimal> _decPesoTotal;
-		
-		private System.Nullable<decimal> _decPintaPoste;
-		
-		private System.Nullable<decimal> _decPintaTravesanio;
-		
-		private System.Nullable<decimal> _decPintaDiagonalLarga;
-		
-		private System.Nullable<decimal> _decPintaDiagonalCorta;
-		
-		private System.Nullable<decimal> _decPintaPlacaBase;
-		
-		private System.Nullable<decimal> _decTotalMarcoCompleto;
-		
-		private System.Nullable<decimal> _decCalibreDosCaras;
-		
-		private System.Nullable<bool> _bitActivo;
-		
-		public stp_ConfiguraMarcoResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intConfiguraMarcoID", DbType="Int NOT NULL")]
-		public int intConfiguraMarcoID
-		{
-			get
-			{
-				return this._intConfiguraMarcoID;
-			}
-			set
-			{
-				if ((this._intConfiguraMarcoID != value))
-				{
-					this._intConfiguraMarcoID = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchElemento", DbType="VarChar(25)")]
-		public string vchElemento
-		{
-			get
-			{
-				return this._vchElemento;
-			}
-			set
-			{
-				if ((this._vchElemento != value))
-				{
-					this._vchElemento = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchTipoMarcoTyrsa", DbType="VarChar(25)")]
-		public string vchTipoMarcoTyrsa
-		{
-			get
-			{
-				return this._vchTipoMarcoTyrsa;
-			}
-			set
-			{
-				if ((this._vchTipoMarcoTyrsa != value))
-				{
-					this._vchTipoMarcoTyrsa = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sintSKU", DbType="SmallInt")]
-		public System.Nullable<short> sintSKU
-		{
-			get
-			{
-				return this._sintSKU;
-			}
-			set
-			{
-				if ((this._sintSKU != value))
-				{
-					this._sintSKU = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decAlturaMarco", DbType="Decimal(8,2)")]
-		public System.Nullable<decimal> decAlturaMarco
-		{
-			get
-			{
-				return this._decAlturaMarco;
-			}
-			set
-			{
-				if ((this._decAlturaMarco != value))
-				{
-					this._decAlturaMarco = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decFondoMarco", DbType="Decimal(18,4)")]
-		public System.Nullable<decimal> decFondoMarco
-		{
-			get
-			{
-				return this._decFondoMarco;
-			}
-			set
-			{
-				if ((this._decFondoMarco != value))
-				{
-					this._decFondoMarco = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchContanteMarco", DbType="VarChar(50)")]
-		public string vchContanteMarco
-		{
-			get
-			{
-				return this._vchContanteMarco;
-			}
-			set
-			{
-				if ((this._vchContanteMarco != value))
-				{
-					this._vchContanteMarco = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decCalibre", DbType="Decimal(8,3)")]
-		public System.Nullable<decimal> decCalibre
-		{
-			get
-			{
-				return this._decCalibre;
-			}
-			set
-			{
-				if ((this._decCalibre != value))
-				{
-					this._decCalibre = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decSolera", DbType="Decimal(8,3)")]
-		public System.Nullable<decimal> decSolera
-		{
-			get
-			{
-				return this._decSolera;
-			}
-			set
-			{
-				if ((this._decSolera != value))
-				{
-					this._decSolera = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decTotalKilo", DbType="Decimal(8,3)")]
-		public System.Nullable<decimal> decTotalKilo
-		{
-			get
-			{
-				return this._decTotalKilo;
-			}
-			set
-			{
-				if ((this._decTotalKilo != value))
-				{
-					this._decTotalKilo = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decPrecioTyrsa", DbType="Decimal(8,3)")]
-		public System.Nullable<decimal> decPrecioTyrsa
-		{
-			get
-			{
-				return this._decPrecioTyrsa;
-			}
-			set
-			{
-				if ((this._decPrecioTyrsa != value))
-				{
-					this._decPrecioTyrsa = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decRelacionPrecios", DbType="Decimal(8,2)")]
-		public System.Nullable<decimal> decRelacionPrecios
-		{
-			get
-			{
-				return this._decRelacionPrecios;
-			}
-			set
-			{
-				if ((this._decRelacionPrecios != value))
-				{
-					this._decRelacionPrecios = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decPrecioTyrsaMetro", DbType="Decimal(8,2)")]
-		public System.Nullable<decimal> decPrecioTyrsaMetro
-		{
-			get
-			{
-				return this._decPrecioTyrsaMetro;
-			}
-			set
-			{
-				if ((this._decPrecioTyrsaMetro != value))
-				{
-					this._decPrecioTyrsaMetro = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decPrecioTyrsaKg", DbType="Decimal(8,2)")]
-		public System.Nullable<decimal> decPrecioTyrsaKg
-		{
-			get
-			{
-				return this._decPrecioTyrsaKg;
-			}
-			set
-			{
-				if ((this._decPrecioTyrsaKg != value))
-				{
-					this._decPrecioTyrsaKg = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sintNumPosteReq", DbType="SmallInt")]
-		public System.Nullable<short> sintNumPosteReq
-		{
-			get
-			{
-				return this._sintNumPosteReq;
-			}
-			set
-			{
-				if ((this._sintNumPosteReq != value))
-				{
-					this._sintNumPosteReq = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sintNumTravesanio", DbType="SmallInt")]
-		public System.Nullable<short> sintNumTravesanio
-		{
-			get
-			{
-				return this._sintNumTravesanio;
-			}
-			set
-			{
-				if ((this._sintNumTravesanio != value))
-				{
-					this._sintNumTravesanio = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sintDiagonalLarga", DbType="SmallInt")]
-		public System.Nullable<short> sintDiagonalLarga
-		{
-			get
-			{
-				return this._sintDiagonalLarga;
-			}
-			set
-			{
-				if ((this._sintDiagonalLarga != value))
-				{
-					this._sintDiagonalLarga = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sintDiagonalCorta", DbType="SmallInt")]
-		public System.Nullable<short> sintDiagonalCorta
-		{
-			get
-			{
-				return this._sintDiagonalCorta;
-			}
-			set
-			{
-				if ((this._sintDiagonalCorta != value))
-				{
-					this._sintDiagonalCorta = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decPesoCobroLam14", DbType="Decimal(12,3)")]
-		public System.Nullable<decimal> decPesoCobroLam14
-		{
-			get
-			{
-				return this._decPesoCobroLam14;
-			}
-			set
-			{
-				if ((this._decPesoCobroLam14 != value))
-				{
-					this._decPesoCobroLam14 = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decPesoTotal", DbType="Decimal(12,3)")]
-		public System.Nullable<decimal> decPesoTotal
-		{
-			get
-			{
-				return this._decPesoTotal;
-			}
-			set
-			{
-				if ((this._decPesoTotal != value))
-				{
-					this._decPesoTotal = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decPintaPoste", DbType="Decimal(12,3)")]
-		public System.Nullable<decimal> decPintaPoste
-		{
-			get
-			{
-				return this._decPintaPoste;
-			}
-			set
-			{
-				if ((this._decPintaPoste != value))
-				{
-					this._decPintaPoste = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decPintaTravesanio", DbType="Decimal(12,3)")]
-		public System.Nullable<decimal> decPintaTravesanio
-		{
-			get
-			{
-				return this._decPintaTravesanio;
-			}
-			set
-			{
-				if ((this._decPintaTravesanio != value))
-				{
-					this._decPintaTravesanio = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decPintaDiagonalLarga", DbType="Decimal(12,3)")]
-		public System.Nullable<decimal> decPintaDiagonalLarga
-		{
-			get
-			{
-				return this._decPintaDiagonalLarga;
-			}
-			set
-			{
-				if ((this._decPintaDiagonalLarga != value))
-				{
-					this._decPintaDiagonalLarga = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decPintaDiagonalCorta", DbType="Decimal(12,3)")]
-		public System.Nullable<decimal> decPintaDiagonalCorta
-		{
-			get
-			{
-				return this._decPintaDiagonalCorta;
-			}
-			set
-			{
-				if ((this._decPintaDiagonalCorta != value))
-				{
-					this._decPintaDiagonalCorta = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decPintaPlacaBase", DbType="Decimal(12,3)")]
-		public System.Nullable<decimal> decPintaPlacaBase
-		{
-			get
-			{
-				return this._decPintaPlacaBase;
-			}
-			set
-			{
-				if ((this._decPintaPlacaBase != value))
-				{
-					this._decPintaPlacaBase = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decTotalMarcoCompleto", DbType="Decimal(12,3)")]
-		public System.Nullable<decimal> decTotalMarcoCompleto
-		{
-			get
-			{
-				return this._decTotalMarcoCompleto;
-			}
-			set
-			{
-				if ((this._decTotalMarcoCompleto != value))
-				{
-					this._decTotalMarcoCompleto = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decCalibreDosCaras", DbType="Decimal(12,3)")]
-		public System.Nullable<decimal> decCalibreDosCaras
-		{
-			get
-			{
-				return this._decCalibreDosCaras;
-			}
-			set
-			{
-				if ((this._decCalibreDosCaras != value))
-				{
-					this._decCalibreDosCaras = value;
 				}
 			}
 		}
@@ -3010,6 +2498,518 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 				if ((this._vchDescripcion != value))
 				{
 					this._vchDescripcion = value;
+				}
+			}
+		}
+	}
+	
+	public partial class stp_ConfiguraMarcoResult
+	{
+		
+		private int _intConfiguraMarcoID;
+		
+		private string _vchElemento;
+		
+		private string _vchTipoMarcoTyrsa;
+		
+		private System.Nullable<short> _sintSKU;
+		
+		private System.Nullable<decimal> _decAlturaMarco;
+		
+		private System.Nullable<decimal> _decFondoMarco;
+		
+		private string _vchContanteMarco;
+		
+		private System.Nullable<decimal> _decCalibre;
+		
+		private System.Nullable<decimal> _decSolera;
+		
+		private System.Nullable<decimal> _decTotalKilo;
+		
+		private System.Nullable<decimal> _decPrecioTyrsa;
+		
+		private System.Nullable<decimal> _decRelacionPrecios;
+		
+		private System.Nullable<decimal> _decPrecioTyrsaMetro;
+		
+		private System.Nullable<decimal> _decPrecioTyrsaKg;
+		
+		private System.Nullable<short> _sintNumPosteReq;
+		
+		private System.Nullable<short> _sintNumTravesanio;
+		
+		private System.Nullable<short> _sintDiagonalLarga;
+		
+		private System.Nullable<short> _sintDiagonalCorta;
+		
+		private System.Nullable<decimal> _decPesoCobroLam14;
+		
+		private System.Nullable<decimal> _decPesoTotal;
+		
+		private System.Nullable<decimal> _decPintaPoste;
+		
+		private System.Nullable<decimal> _decPintaTravesanio;
+		
+		private System.Nullable<decimal> _decPintaDiagonalLarga;
+		
+		private System.Nullable<decimal> _decPintaDiagonalCorta;
+		
+		private System.Nullable<decimal> _decPintaPlacaBase;
+		
+		private System.Nullable<decimal> _decTotalMarcoCompleto;
+		
+		private System.Nullable<decimal> _decCalibreDosCaras;
+		
+		private System.Nullable<bool> _bitActivo;
+		
+		public stp_ConfiguraMarcoResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intConfiguraMarcoID", DbType="Int NOT NULL")]
+		public int intConfiguraMarcoID
+		{
+			get
+			{
+				return this._intConfiguraMarcoID;
+			}
+			set
+			{
+				if ((this._intConfiguraMarcoID != value))
+				{
+					this._intConfiguraMarcoID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchElemento", DbType="VarChar(25)")]
+		public string vchElemento
+		{
+			get
+			{
+				return this._vchElemento;
+			}
+			set
+			{
+				if ((this._vchElemento != value))
+				{
+					this._vchElemento = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchTipoMarcoTyrsa", DbType="VarChar(25)")]
+		public string vchTipoMarcoTyrsa
+		{
+			get
+			{
+				return this._vchTipoMarcoTyrsa;
+			}
+			set
+			{
+				if ((this._vchTipoMarcoTyrsa != value))
+				{
+					this._vchTipoMarcoTyrsa = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sintSKU", DbType="SmallInt")]
+		public System.Nullable<short> sintSKU
+		{
+			get
+			{
+				return this._sintSKU;
+			}
+			set
+			{
+				if ((this._sintSKU != value))
+				{
+					this._sintSKU = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decAlturaMarco", DbType="Decimal(8,2)")]
+		public System.Nullable<decimal> decAlturaMarco
+		{
+			get
+			{
+				return this._decAlturaMarco;
+			}
+			set
+			{
+				if ((this._decAlturaMarco != value))
+				{
+					this._decAlturaMarco = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decFondoMarco", DbType="Decimal(18,4)")]
+		public System.Nullable<decimal> decFondoMarco
+		{
+			get
+			{
+				return this._decFondoMarco;
+			}
+			set
+			{
+				if ((this._decFondoMarco != value))
+				{
+					this._decFondoMarco = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchContanteMarco", DbType="VarChar(50)")]
+		public string vchContanteMarco
+		{
+			get
+			{
+				return this._vchContanteMarco;
+			}
+			set
+			{
+				if ((this._vchContanteMarco != value))
+				{
+					this._vchContanteMarco = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decCalibre", DbType="Decimal(8,3)")]
+		public System.Nullable<decimal> decCalibre
+		{
+			get
+			{
+				return this._decCalibre;
+			}
+			set
+			{
+				if ((this._decCalibre != value))
+				{
+					this._decCalibre = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decSolera", DbType="Decimal(8,3)")]
+		public System.Nullable<decimal> decSolera
+		{
+			get
+			{
+				return this._decSolera;
+			}
+			set
+			{
+				if ((this._decSolera != value))
+				{
+					this._decSolera = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decTotalKilo", DbType="Decimal(8,3)")]
+		public System.Nullable<decimal> decTotalKilo
+		{
+			get
+			{
+				return this._decTotalKilo;
+			}
+			set
+			{
+				if ((this._decTotalKilo != value))
+				{
+					this._decTotalKilo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decPrecioTyrsa", DbType="Decimal(8,3)")]
+		public System.Nullable<decimal> decPrecioTyrsa
+		{
+			get
+			{
+				return this._decPrecioTyrsa;
+			}
+			set
+			{
+				if ((this._decPrecioTyrsa != value))
+				{
+					this._decPrecioTyrsa = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decRelacionPrecios", DbType="Decimal(8,2)")]
+		public System.Nullable<decimal> decRelacionPrecios
+		{
+			get
+			{
+				return this._decRelacionPrecios;
+			}
+			set
+			{
+				if ((this._decRelacionPrecios != value))
+				{
+					this._decRelacionPrecios = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decPrecioTyrsaMetro", DbType="Decimal(8,2)")]
+		public System.Nullable<decimal> decPrecioTyrsaMetro
+		{
+			get
+			{
+				return this._decPrecioTyrsaMetro;
+			}
+			set
+			{
+				if ((this._decPrecioTyrsaMetro != value))
+				{
+					this._decPrecioTyrsaMetro = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decPrecioTyrsaKg", DbType="Decimal(8,2)")]
+		public System.Nullable<decimal> decPrecioTyrsaKg
+		{
+			get
+			{
+				return this._decPrecioTyrsaKg;
+			}
+			set
+			{
+				if ((this._decPrecioTyrsaKg != value))
+				{
+					this._decPrecioTyrsaKg = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sintNumPosteReq", DbType="SmallInt")]
+		public System.Nullable<short> sintNumPosteReq
+		{
+			get
+			{
+				return this._sintNumPosteReq;
+			}
+			set
+			{
+				if ((this._sintNumPosteReq != value))
+				{
+					this._sintNumPosteReq = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sintNumTravesanio", DbType="SmallInt")]
+		public System.Nullable<short> sintNumTravesanio
+		{
+			get
+			{
+				return this._sintNumTravesanio;
+			}
+			set
+			{
+				if ((this._sintNumTravesanio != value))
+				{
+					this._sintNumTravesanio = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sintDiagonalLarga", DbType="SmallInt")]
+		public System.Nullable<short> sintDiagonalLarga
+		{
+			get
+			{
+				return this._sintDiagonalLarga;
+			}
+			set
+			{
+				if ((this._sintDiagonalLarga != value))
+				{
+					this._sintDiagonalLarga = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sintDiagonalCorta", DbType="SmallInt")]
+		public System.Nullable<short> sintDiagonalCorta
+		{
+			get
+			{
+				return this._sintDiagonalCorta;
+			}
+			set
+			{
+				if ((this._sintDiagonalCorta != value))
+				{
+					this._sintDiagonalCorta = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decPesoCobroLam14", DbType="Decimal(12,3)")]
+		public System.Nullable<decimal> decPesoCobroLam14
+		{
+			get
+			{
+				return this._decPesoCobroLam14;
+			}
+			set
+			{
+				if ((this._decPesoCobroLam14 != value))
+				{
+					this._decPesoCobroLam14 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decPesoTotal", DbType="Decimal(12,3)")]
+		public System.Nullable<decimal> decPesoTotal
+		{
+			get
+			{
+				return this._decPesoTotal;
+			}
+			set
+			{
+				if ((this._decPesoTotal != value))
+				{
+					this._decPesoTotal = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decPintaPoste", DbType="Decimal(12,3)")]
+		public System.Nullable<decimal> decPintaPoste
+		{
+			get
+			{
+				return this._decPintaPoste;
+			}
+			set
+			{
+				if ((this._decPintaPoste != value))
+				{
+					this._decPintaPoste = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decPintaTravesanio", DbType="Decimal(12,3)")]
+		public System.Nullable<decimal> decPintaTravesanio
+		{
+			get
+			{
+				return this._decPintaTravesanio;
+			}
+			set
+			{
+				if ((this._decPintaTravesanio != value))
+				{
+					this._decPintaTravesanio = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decPintaDiagonalLarga", DbType="Decimal(12,3)")]
+		public System.Nullable<decimal> decPintaDiagonalLarga
+		{
+			get
+			{
+				return this._decPintaDiagonalLarga;
+			}
+			set
+			{
+				if ((this._decPintaDiagonalLarga != value))
+				{
+					this._decPintaDiagonalLarga = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decPintaDiagonalCorta", DbType="Decimal(12,3)")]
+		public System.Nullable<decimal> decPintaDiagonalCorta
+		{
+			get
+			{
+				return this._decPintaDiagonalCorta;
+			}
+			set
+			{
+				if ((this._decPintaDiagonalCorta != value))
+				{
+					this._decPintaDiagonalCorta = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decPintaPlacaBase", DbType="Decimal(12,3)")]
+		public System.Nullable<decimal> decPintaPlacaBase
+		{
+			get
+			{
+				return this._decPintaPlacaBase;
+			}
+			set
+			{
+				if ((this._decPintaPlacaBase != value))
+				{
+					this._decPintaPlacaBase = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decTotalMarcoCompleto", DbType="Decimal(12,3)")]
+		public System.Nullable<decimal> decTotalMarcoCompleto
+		{
+			get
+			{
+				return this._decTotalMarcoCompleto;
+			}
+			set
+			{
+				if ((this._decTotalMarcoCompleto != value))
+				{
+					this._decTotalMarcoCompleto = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decCalibreDosCaras", DbType="Decimal(12,3)")]
+		public System.Nullable<decimal> decCalibreDosCaras
+		{
+			get
+			{
+				return this._decCalibreDosCaras;
+			}
+			set
+			{
+				if ((this._decCalibreDosCaras != value))
+				{
+					this._decCalibreDosCaras = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_bitActivo", DbType="Bit")]
+		public System.Nullable<bool> bitActivo
+		{
+			get
+			{
+				return this._bitActivo;
+			}
+			set
+			{
+				if ((this._bitActivo != value))
+				{
+					this._bitActivo = value;
 				}
 			}
 		}

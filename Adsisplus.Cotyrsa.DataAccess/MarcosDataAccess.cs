@@ -10,14 +10,16 @@ namespace Adsisplus.Cotyrsa.DataAccess
 {
    public class MarcosDataAccess
     {
-        public List<Configuracion_Marco> ConfiguraMarco(Int32 intConfiguraMarcoID, Int32 intElementoID, Int16 sintTipoMarcoID, Int32 intAlturaMarcoID, Int16 sintFondoMarcoID, Int32 intSKUID, Int16 sintFactorMarcoID)
+        public List<Configuracion_Marco> ConfiguraMarco(Int32 intConfiguraMarcoID, Int32 intElementoID, Int16 sintTipoMarcoID, Int32 intAlturaMarcoID, 
+            Int16 sintFondoMarcoID, Int32 intSKUID, Int16 sintFactorMarcoID, decimal decFondoMarco)
         {
             List<Configuracion_Marco> results = new List<Configuracion_Marco>();
             try
             {
                 using (MarcosDataContext dc = new MarcosDataContext(Helper.ConnectionString()))
                 {
-                    var query = from item in dc.stp_ConfiguraMarco(intConfiguraMarcoID, intElementoID, sintTipoMarcoID, intAlturaMarcoID, sintFondoMarcoID, intSKUID, sintFactorMarcoID)
+                    var query = from item in dc.stp_ConfiguraMarco(intConfiguraMarcoID, intElementoID, sintTipoMarcoID, intAlturaMarcoID, 
+                        sintFondoMarcoID, intSKUID, sintFactorMarcoID, decFondoMarco)
                                 select new Configuracion_Marco()
                                 {
                                     intConfiguraMarcoID = item.intConfiguraMarcoID,
