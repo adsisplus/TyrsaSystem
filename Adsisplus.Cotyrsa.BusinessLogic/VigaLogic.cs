@@ -77,6 +77,27 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
             }
             return results;
         }
-
+        /// <summary>
+        /// Permite realizar la actualización de las vigas en factores y número de viga y piezas
+        /// </summary>
+        /// <param name="decFactorAcero"></param>
+        /// <param name="decFactorRemache"></param>
+        /// <param name="decFactorKgMt"></param>
+        /// <param name="intNumeroViga"></param>
+        /// <param name="intNumeroPza"></param>
+        /// <returns></returns>
+        public Resultado setConfiguracionViga(decimal decFactorAcero, decimal decFactorRemache, decimal decFactorKgMt, int intNumeroViga, int intNumeroPza)
+        {
+            Resultado result = new Resultado();
+            try
+            {
+                result = CatalogosDA.setConfiguracionViga(decFactorAcero, decFactorRemache, decFactorKgMt, intNumeroViga, intNumeroPza);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
     }
 }

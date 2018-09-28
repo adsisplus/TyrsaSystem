@@ -59,5 +59,17 @@ namespace Adsisplus.Cotyrsa.WcfService.VigaServices
         [OperationContract]
         [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ListarDatosVigaTope")]
         List<DatosVigaTope> ListarDatosVigaTope(Int32 intCantidadVigaTope, Int32 intVigaTopeID, Int32 intElementoID, Int32 intDatosVigaID, Int32 intCotizacionID, Int16 sintPinturaID);
+        /// <summary>
+        /// Permite realizar la actualización de las vigas en factores y número de viga y piezas
+        /// </summary>
+        /// <param name="decFactorAcero"></param>
+        /// <param name="decFactorRemache"></param>
+        /// <param name="decFactorKgMt"></param>
+        /// <param name="intNumeroViga"></param>
+        /// <param name="intNumeroPza"></param>
+        /// <returns></returns>
+        [OperationContract]
+        [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "setConfiguracionViga")]
+        Resultado setConfiguracionViga(decimal decFactorAcero, decimal decFactorRemache, decimal decFactorKgMt, int intNumeroViga, int intNumeroPza);
     }
 }

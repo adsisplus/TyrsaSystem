@@ -49,6 +49,7 @@
     <Compile Include="CatalogoEntero.cs" />
     <Compile Include="ComplementoObligatorio.cs" />
     <Compile Include="Configuracion_Marco.cs" />
+    <Compile Include="Configuracion_Viga.cs" />
     <Compile Include="Cotizacion.cs" />
     <Compile Include="CotizaProducto.cs" />
     <Compile Include="DatosAnguloRanurado.cs" />

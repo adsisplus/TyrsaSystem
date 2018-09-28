@@ -76,4 +76,15 @@
       <Column Name="bitActivo" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
     </ElementType>
   </Function>
+  <Function Name="dbo.stp_setConfiguracionViga" Method="stp_setConfiguracionViga">
+    <Parameter Name="decFactorAcero" Type="System.Decimal" DbType="Decimal(8,2)" />
+    <Parameter Name="decFactorRemache" Type="System.Decimal" DbType="Decimal(8,2)" />
+    <Parameter Name="decFactorKgMt" Type="System.Decimal" DbType="Decimal(8,2)" />
+    <Parameter Name="intNumeroViga" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intNumeroPza" Type="System.Int32" DbType="Int" />
+    <ElementType Name="stp_setConfiguracionVigaResult">
+      <Column Name="vchResultado" Type="System.String" DbType="VarChar(2) NOT NULL" CanBeNull="false" />
+      <Column Name="vchDescripcion" Type="System.String" DbType="VarChar(55) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
 </Database>

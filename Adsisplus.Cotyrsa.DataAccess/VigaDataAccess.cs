@@ -134,6 +134,36 @@ namespace Adsisplus.Cotyrsa.DataAccess
             }
             return results;
         }
-
+        /// <summary>
+        /// Permite realizar la actualización de las vigas en factores y número de viga y piezas
+        /// </summary>
+        /// <param name="decFactorAcero"></param>
+        /// <param name="decFactorRemache"></param>
+        /// <param name="decFactorKgMt"></param>
+        /// <param name="intNumeroViga"></param>
+        /// <param name="intNumeroPza"></param>
+        /// <returns></returns>
+        public Resultado setConfiguracionViga(decimal decFactorAcero, decimal decFactorRemache, decimal decFactorKgMt, int intNumeroViga, int intNumeroPza)
+        {
+            Resultado result = new Resultado();
+            try
+            {
+                using (VigasDataContext dc = new VigasDataContext(Helper.ConnectionString()))
+                {
+                    var query = from item in dc.stp_setConfiguracionViga(decFactorAcero, decFactorRemache, decFactorKgMt, intNumeroViga, intNumeroPza)
+                                select new Resultado
+                                {
+                                    vchDescripcion = item.vchDescripcion,
+                                    vchResultado = item.vchResultado
+                                };
+                    result = query.First();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
     }
 }
