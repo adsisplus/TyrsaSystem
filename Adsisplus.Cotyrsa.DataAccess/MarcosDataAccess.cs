@@ -354,8 +354,7 @@ namespace Adsisplus.Cotyrsa.DataAccess
                 using (MarcosDataContext dc = new MarcosDataContext(Helper.ConnectionString()))
                 {
                     var query = from item in dc.stp_setFondoMarco(factor.sintFondoMarcoID, factor.decFactor1, factor.decFactor2, factor.decFactor3, factor.decFactor5,
-                        factor.decFactor6, factor.decFactor7, factor.decFactor9, factor.decFactor10, factor.decFactor11, factor.decFactor13, factor.decFactor14,
-                        factor.decFactor15, factor.decFactor17, factor.decFactor18)
+                        factor.decFactor7, factor.decFactor9, factor.decFactor11, factor.decFactor13, factor.decFactor15, factor.decFactor17, factor.decFactor18)
                                 select new Resultado
                                 {
                                     vchDescripcion = item.vchDescripcion,

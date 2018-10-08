@@ -39,6 +39,8 @@ namespace Adsisplus.Cotyrsa.BusinessEntities
         [DataMember]
         public DateTime? datFechaNacimiento { get; set; }
         [DataMember]
+        public long? longFechaNacimiento { get; set; }
+        [DataMember]
         public string vchLugarNacimiento { get; set; }
         [DataMember]
         public string vchRFC { get; set; }

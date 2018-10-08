@@ -61,6 +61,7 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
             Resultado result = new Resultado();
             try
             {
+                persona.datFechaNacimiento =  new DateTime((long)persona.longFechaNacimiento, DateTimeKind.Utc);
                 result = CatalogosDA.setPersona(persona, tinOpcion);
             }
             catch (Exception ex)
