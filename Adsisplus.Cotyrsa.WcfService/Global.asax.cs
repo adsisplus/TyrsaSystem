@@ -22,7 +22,7 @@ namespace Adsisplus.Cotyrsa.WcfService
 
         protected void Application_BeginRequest(object sender, EventArgs e)
         {
-            HttpContext.Current.Response.AddHeader("Access-Control-Allow-Origin", "http://localhost:4200");
+            HttpContext.Current.Response.AddHeader("Access-Control-Allow-Origin", "*");
 
             if (HttpContext.Current.Request.HttpMethod == "OPTIONS")
 
