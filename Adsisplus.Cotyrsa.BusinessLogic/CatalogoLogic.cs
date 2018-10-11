@@ -267,13 +267,16 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
             }
             return results;
         }
-
-        public List<Viga> ListarCatFactorViga()
+        /// <summary>
+        /// Lista los factores de la viga en base al calibre y a la familia de la viga
+        /// </summary>
+        /// <returns></returns>
+        public List<FactorViga> ListarCatFactorViga(int intCalibreID, short sintFamiliaVigaID)
         {
-            List<Viga> results = null;
+            List<FactorViga> results = null;
             try
             {
-                results = CatalogosDA.ListarCatFactorViga();
+                results = CatalogosDA.ListarCatFactorViga(intCalibreID, sintFamiliaVigaID);
             }
             catch (Exception ex)
             {
@@ -618,7 +621,24 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
             return results;
         }
 
-        
+        /// <summary>
+        /// Obtiene la lista de familias de vigas activas
+        /// </summary>
+        /// <returns></returns>
+        public List<Catalogo> ListarCatFamiliaViga()
+        {
+            List<Catalogo> result = new List<Catalogo>();
+            try
+            {
+                result = CatalogosDA.ListarCatFamiliaViga();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
+
         #endregion
     }
 }

@@ -350,10 +350,17 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.stp_ListarCatFactorViga")]
-		public ISingleResult<stp_ListarCatFactorVigaResult> stp_ListarCatFactorViga()
+		public ISingleResult<stp_ListarCatFactorVigaResult> stp_ListarCatFactorViga([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intCalibreID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="SmallInt")] System.Nullable<short> sintFamiliaVigaID)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), intCalibreID, sintFamiliaVigaID);
+			return ((ISingleResult<stp_ListarCatFactorVigaResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.stp_ListarCatFamiliaViga")]
+		public ISingleResult<stp_ListarCatFamiliaVigaResult> stp_ListarCatFamiliaViga()
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
-			return ((ISingleResult<stp_ListarCatFactorVigaResult>)(result.ReturnValue));
+			return ((ISingleResult<stp_ListarCatFamiliaVigaResult>)(result.ReturnValue));
 		}
 	}
 	
@@ -4090,13 +4097,39 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 	public partial class stp_ListarCatFactorVigaResult
 	{
 		
-		private int _intFactorVigaID;
+		private short _sintFactorVigaID;
 		
-		private string _vchFactorViga;
+		private System.Nullable<int> _intCalibreID;
 		
-		private System.Nullable<decimal> _decFactorViga;
+		private string _vchCalibre;
 		
-		private System.Nullable<System.DateTime> _datFechaAlta;
+		private System.Nullable<short> _sintFamiliaVigaID;
+		
+		private string _vchFamiliaViga;
+		
+		private string _vchAcero;
+		
+		private System.Nullable<decimal> _decAcero;
+		
+		private string _vchRemache;
+		
+		private System.Nullable<decimal> _decRemache;
+		
+		private string _vchKgMetroCuadrado;
+		
+		private System.Nullable<decimal> _decKgMetroCuadrado;
+		
+		private string _vchFactorVenta;
+		
+		private System.Nullable<decimal> _decFactorVenta;
+		
+		private string _vchFactorDespiste;
+		
+		private System.Nullable<decimal> _decFactorDespiste;
+		
+		private string _vchFactorDescuento;
+		
+		private System.Nullable<decimal> _decFactorDescuento;
 		
 		private System.Nullable<bool> _bitActivo;
 		
@@ -4104,66 +4137,336 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 		{
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intFactorVigaID", DbType="Int NOT NULL")]
-		public int intFactorVigaID
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sintFactorVigaID", DbType="SmallInt NOT NULL")]
+		public short sintFactorVigaID
 		{
 			get
 			{
-				return this._intFactorVigaID;
+				return this._sintFactorVigaID;
 			}
 			set
 			{
-				if ((this._intFactorVigaID != value))
+				if ((this._sintFactorVigaID != value))
 				{
-					this._intFactorVigaID = value;
+					this._sintFactorVigaID = value;
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchFactorViga", DbType="VarChar(100)")]
-		public string vchFactorViga
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intCalibreID", DbType="Int")]
+		public System.Nullable<int> intCalibreID
 		{
 			get
 			{
-				return this._vchFactorViga;
+				return this._intCalibreID;
 			}
 			set
 			{
-				if ((this._vchFactorViga != value))
+				if ((this._intCalibreID != value))
 				{
-					this._vchFactorViga = value;
+					this._intCalibreID = value;
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decFactorViga", DbType="Decimal(8,2)")]
-		public System.Nullable<decimal> decFactorViga
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchCalibre", DbType="VarChar(50)")]
+		public string vchCalibre
 		{
 			get
 			{
-				return this._decFactorViga;
+				return this._vchCalibre;
 			}
 			set
 			{
-				if ((this._decFactorViga != value))
+				if ((this._vchCalibre != value))
 				{
-					this._decFactorViga = value;
+					this._vchCalibre = value;
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_datFechaAlta", DbType="Date")]
-		public System.Nullable<System.DateTime> datFechaAlta
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sintFamiliaVigaID", DbType="SmallInt")]
+		public System.Nullable<short> sintFamiliaVigaID
 		{
 			get
 			{
-				return this._datFechaAlta;
+				return this._sintFamiliaVigaID;
 			}
 			set
 			{
-				if ((this._datFechaAlta != value))
+				if ((this._sintFamiliaVigaID != value))
 				{
-					this._datFechaAlta = value;
+					this._sintFamiliaVigaID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchFamiliaViga", DbType="VarChar(250)")]
+		public string vchFamiliaViga
+		{
+			get
+			{
+				return this._vchFamiliaViga;
+			}
+			set
+			{
+				if ((this._vchFamiliaViga != value))
+				{
+					this._vchFamiliaViga = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchAcero", DbType="VarChar(100)")]
+		public string vchAcero
+		{
+			get
+			{
+				return this._vchAcero;
+			}
+			set
+			{
+				if ((this._vchAcero != value))
+				{
+					this._vchAcero = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decAcero", DbType="Decimal(12,2)")]
+		public System.Nullable<decimal> decAcero
+		{
+			get
+			{
+				return this._decAcero;
+			}
+			set
+			{
+				if ((this._decAcero != value))
+				{
+					this._decAcero = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchRemache", DbType="VarChar(100)")]
+		public string vchRemache
+		{
+			get
+			{
+				return this._vchRemache;
+			}
+			set
+			{
+				if ((this._vchRemache != value))
+				{
+					this._vchRemache = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decRemache", DbType="Decimal(12,2)")]
+		public System.Nullable<decimal> decRemache
+		{
+			get
+			{
+				return this._decRemache;
+			}
+			set
+			{
+				if ((this._decRemache != value))
+				{
+					this._decRemache = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchKgMetroCuadrado", DbType="VarChar(100)")]
+		public string vchKgMetroCuadrado
+		{
+			get
+			{
+				return this._vchKgMetroCuadrado;
+			}
+			set
+			{
+				if ((this._vchKgMetroCuadrado != value))
+				{
+					this._vchKgMetroCuadrado = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decKgMetroCuadrado", DbType="Decimal(12,2)")]
+		public System.Nullable<decimal> decKgMetroCuadrado
+		{
+			get
+			{
+				return this._decKgMetroCuadrado;
+			}
+			set
+			{
+				if ((this._decKgMetroCuadrado != value))
+				{
+					this._decKgMetroCuadrado = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchFactorVenta", DbType="VarChar(100)")]
+		public string vchFactorVenta
+		{
+			get
+			{
+				return this._vchFactorVenta;
+			}
+			set
+			{
+				if ((this._vchFactorVenta != value))
+				{
+					this._vchFactorVenta = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decFactorVenta", DbType="Decimal(12,2)")]
+		public System.Nullable<decimal> decFactorVenta
+		{
+			get
+			{
+				return this._decFactorVenta;
+			}
+			set
+			{
+				if ((this._decFactorVenta != value))
+				{
+					this._decFactorVenta = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchFactorDespiste", DbType="VarChar(100)")]
+		public string vchFactorDespiste
+		{
+			get
+			{
+				return this._vchFactorDespiste;
+			}
+			set
+			{
+				if ((this._vchFactorDespiste != value))
+				{
+					this._vchFactorDespiste = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decFactorDespiste", DbType="Decimal(12,2)")]
+		public System.Nullable<decimal> decFactorDespiste
+		{
+			get
+			{
+				return this._decFactorDespiste;
+			}
+			set
+			{
+				if ((this._decFactorDespiste != value))
+				{
+					this._decFactorDespiste = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchFactorDescuento", DbType="VarChar(100)")]
+		public string vchFactorDescuento
+		{
+			get
+			{
+				return this._vchFactorDescuento;
+			}
+			set
+			{
+				if ((this._vchFactorDescuento != value))
+				{
+					this._vchFactorDescuento = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decFactorDescuento", DbType="Decimal(12,2)")]
+		public System.Nullable<decimal> decFactorDescuento
+		{
+			get
+			{
+				return this._decFactorDescuento;
+			}
+			set
+			{
+				if ((this._decFactorDescuento != value))
+				{
+					this._decFactorDescuento = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_bitActivo", DbType="Bit")]
+		public System.Nullable<bool> bitActivo
+		{
+			get
+			{
+				return this._bitActivo;
+			}
+			set
+			{
+				if ((this._bitActivo != value))
+				{
+					this._bitActivo = value;
+				}
+			}
+		}
+	}
+	
+	public partial class stp_ListarCatFamiliaVigaResult
+	{
+		
+		private short _sintFamiliaVigaID;
+		
+		private string _vchFamiliaViga;
+		
+		private System.Nullable<bool> _bitActivo;
+		
+		public stp_ListarCatFamiliaVigaResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sintFamiliaVigaID", DbType="SmallInt NOT NULL")]
+		public short sintFamiliaVigaID
+		{
+			get
+			{
+				return this._sintFamiliaVigaID;
+			}
+			set
+			{
+				if ((this._sintFamiliaVigaID != value))
+				{
+					this._sintFamiliaVigaID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchFamiliaViga", DbType="VarChar(250)")]
+		public string vchFamiliaViga
+		{
+			get
+			{
+				return this._vchFamiliaViga;
+			}
+			set
+			{
+				if ((this._vchFamiliaViga != value))
+				{
+					this._vchFamiliaViga = value;
 				}
 			}
 		}

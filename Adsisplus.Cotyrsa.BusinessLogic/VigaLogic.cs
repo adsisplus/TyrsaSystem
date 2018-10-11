@@ -49,7 +49,27 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
             }
             return results;
         }
-
+        /// <summary>
+        /// Configuración de vigas
+        /// </summary>
+        /// <param name="sintTipoVigaID"></param>
+        /// <param name="intElementoID"></param>
+        /// <param name="intCalibreID"></param>
+        /// <param name="sintFactorVigaID"></param>
+        /// <returns></returns>
+        public List<Configuracion_Viga> ListarConfiguracion_Viga(short sintTipoVigaID, int intElementoID, int intCalibreID, short sintFactorVigaID)
+        {
+            List<Configuracion_Viga> result = new List<Configuracion_Viga>();
+            try
+            {
+                result = CatalogosDA.ListarConfiguracion_Viga(sintTipoVigaID, intElementoID, intCalibreID, sintFactorVigaID);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
         public List<DatosViga> ListarDatosViga(Int32 intDatosVigaID, Int16 sintPinturaID, Int32 intElementoID, Int32 intDatoMarcoID)
         {
             List<DatosViga> results = null;
@@ -92,6 +112,52 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
             try
             {
                 result = CatalogosDA.setConfiguracionViga(decFactorAcero, decFactorRemache, decFactorKgMt, intNumeroViga, intNumeroPza);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
+        /// <summary>
+        /// Obtiene la lista de conector por viga
+        /// </summary>
+        /// <param name="intCalibreID"></param>
+        /// <param name="sintInsumoViga"></param>
+        /// <param name="sintTipoConectorID"></param>
+        /// <param name="sintFamiliaVigaID"></param>
+        /// <returns></returns>
+        public List<ConectorViga> ListarConectorViga(int intCalibreID, short sintInsumoViga, short sintTipoConectorID, short sintFamiliaVigaID)
+        {
+            List<ConectorViga> result = new List<ConectorViga>();
+            try
+            {
+                result = CatalogosDA.ListarConectorViga(intCalibreID, sintInsumoViga, sintTipoConectorID, sintFamiliaVigaID);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
+        /// <summary>
+        /// Alta de factor de viga
+        /// </summary>
+        /// <param name="intCalibreID"></param>
+        /// <param name="decAcero"></param>
+        /// <param name="decRemache"></param>
+        /// <param name="decKgMetroCuadrado"></param>
+        /// <param name="decFactorVenta"></param>
+        /// <param name="decFactorDespiste"></param>
+        /// <param name="decFactorDescuento"></param>
+        /// <returns></returns>
+        public Resultado setFactorViga(int intCalibreID, decimal decAcero, decimal decRemache, decimal decKgMetroCuadrado,
+            decimal decFactorVenta, decimal decFactorDespiste, decimal decFactorDescuento)
+        {
+            Resultado result = new Resultado();
+            try
+            {
+                result = CatalogosDA.setFactorViga(intCalibreID, decAcero, decRemache, decKgMetroCuadrado, decFactorVenta, decFactorDespiste, decFactorDescuento);
             }
             catch (Exception ex)
             {

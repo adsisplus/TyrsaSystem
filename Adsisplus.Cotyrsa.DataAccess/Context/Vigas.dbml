@@ -87,4 +87,92 @@
       <Column Name="vchDescripcion" Type="System.String" DbType="VarChar(55) NOT NULL" CanBeNull="false" />
     </ElementType>
   </Function>
+  <Function Name="dbo.stp_ListarConector_Viga" Method="stp_ListarConector_Viga">
+    <Parameter Name="intCalibreID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="sintInsumoViga" Type="System.Int16" DbType="SmallInt" />
+    <Parameter Name="sintTipoConectorID" Type="System.Int16" DbType="SmallInt" />
+    <Parameter Name="sintFamiliaVigaID" Type="System.Int16" DbType="SmallInt" />
+    <ElementType Name="stp_ListarConector_VigaResult">
+      <Column Name="intConectorVigaID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="intCalibreID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="vchCalibre" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="sintInsumoViga" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="vchInsumoViga" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
+      <Column Name="sintTipoConectorID" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="vchTipoConector" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="sintFamiliaVigaID" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="vchFamiliaViga" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="decFactorAcero" Type="System.Decimal" DbType="Decimal(8,2)" CanBeNull="true" />
+      <Column Name="decFactorRemache" Type="System.Decimal" DbType="Decimal(8,2)" CanBeNull="true" />
+      <Column Name="intNumeroConector" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="intNumeroPza" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="decDesarrollo" Type="System.Decimal" DbType="Decimal(8,3)" CanBeNull="true" />
+      <Column Name="intLongitud" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="vchDescripcion" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="decAncho" Type="System.Decimal" DbType="Decimal(8,3)" CanBeNull="true" />
+      <Column Name="decLargo" Type="System.Decimal" DbType="Decimal(8,3)" CanBeNull="true" />
+      <Column Name="intPiezaxLamina" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="intNumPiezaProm" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="decPesoPieza" Type="System.Decimal" DbType="Decimal(12,6)" CanBeNull="true" />
+      <Column Name="decPesoPartida" Type="System.Decimal" DbType="Decimal(8,3)" CanBeNull="true" />
+      <Column Name="decTotal" Type="System.Decimal" DbType="Decimal(8,3)" CanBeNull="true" />
+      <Column Name="decAreaPintura" Type="System.Decimal" DbType="Decimal(8,3)" CanBeNull="true" />
+      <Column Name="intCara" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="bitActivo" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.stp_setFactorViga" Method="stp_setFactorViga">
+    <Parameter Name="intCalibreID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="decAcero" Type="System.Decimal" DbType="Decimal(12,2)" />
+    <Parameter Name="decRemache" Type="System.Decimal" DbType="Decimal(12,2)" />
+    <Parameter Name="decKgMetroCuadrado" Type="System.Decimal" DbType="Decimal(12,2)" />
+    <Parameter Name="decFactorVenta" Type="System.Decimal" DbType="Decimal(12,2)" />
+    <Parameter Name="decFactorDespiste" Type="System.Decimal" DbType="Decimal(12,2)" />
+    <Parameter Name="decFactorDescuento" Type="System.Decimal" DbType="Decimal(12,2)" />
+    <ElementType Name="stp_setFactorVigaResult">
+      <Column Name="vchResultado" Type="System.String" DbType="VarChar(2) NOT NULL" CanBeNull="false" />
+      <Column Name="vchDescripcion" Type="System.String" DbType="VarChar(55) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.stp_ListarConfiguracion_Viga" Method="stp_ListarConfiguracion_Viga">
+    <Parameter Name="sintTipoVigaID" Type="System.Int16" DbType="SmallInt" />
+    <Parameter Name="intElementoID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intCalibreID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="sintFactorVigaID" Type="System.Int16" DbType="SmallInt" />
+    <ElementType Name="stp_ListarConfiguracion_VigaResult">
+      <Column Name="intConfiguraVigaID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="sintTipoVigaID" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="vchTipoViga" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="intElementoID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="vchElemento" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
+      <Column Name="intCalibreID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="vchCalibre" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="sintFactorVigaID" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="vchAcero" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="decAcero" Type="System.Decimal" DbType="Decimal(12,2)" CanBeNull="true" />
+      <Column Name="vchRemache" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="decRemache" Type="System.Decimal" DbType="Decimal(12,2)" CanBeNull="true" />
+      <Column Name="vchKgMetroCuadrado" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="decKgMetroCuadrado" Type="System.Decimal" DbType="Decimal(12,2)" CanBeNull="true" />
+      <Column Name="decFactorAcero" Type="System.Decimal" DbType="Decimal(8,2)" CanBeNull="true" />
+      <Column Name="decFactorRemache" Type="System.Decimal" DbType="Decimal(8,2)" CanBeNull="true" />
+      <Column Name="decFactorKgMt" Type="System.Decimal" DbType="Decimal(8,2)" CanBeNull="true" />
+      <Column Name="sintInsumoViga" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="intNumeroViga" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="intNumeroPza" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="decDesarrollo" Type="System.Decimal" DbType="Decimal(8,3)" CanBeNull="true" />
+      <Column Name="intLongitud" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="vchDescripcion" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="decAncho" Type="System.Decimal" DbType="Decimal(8,3)" CanBeNull="true" />
+      <Column Name="decLargo" Type="System.Decimal" DbType="Decimal(8,3)" CanBeNull="true" />
+      <Column Name="intPiezaxLamina" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="intNumPiezaProm" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="decPesoPieza" Type="System.Decimal" DbType="Decimal(12,6)" CanBeNull="true" />
+      <Column Name="decPesoPartida" Type="System.Decimal" DbType="Decimal(8,3)" CanBeNull="true" />
+      <Column Name="decTotal" Type="System.Decimal" DbType="Decimal(8,3)" CanBeNull="true" />
+      <Column Name="decAreaPintura" Type="System.Decimal" DbType="Decimal(8,3)" CanBeNull="true" />
+      <Column Name="intCara" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="bitActivo" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </ElementType>
+  </Function>
 </Database>

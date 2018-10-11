@@ -48,6 +48,7 @@
     <Compile Include="CatalogoDecimal.cs" />
     <Compile Include="CatalogoEntero.cs" />
     <Compile Include="ComplementoObligatorio.cs" />
+    <Compile Include="ConectorViga.cs" />
     <Compile Include="Configuracion_Marco.cs" />
     <Compile Include="Configuracion_Viga.cs" />
     <Compile Include="Cotizacion.cs" />

@@ -96,6 +96,27 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), decFactorAcero, decFactorRemache, decFactorKgMt, intNumeroViga, intNumeroPza);
 			return ((ISingleResult<stp_setConfiguracionVigaResult>)(result.ReturnValue));
 		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.stp_ListarConector_Viga")]
+		public ISingleResult<stp_ListarConector_VigaResult> stp_ListarConector_Viga([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intCalibreID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="SmallInt")] System.Nullable<short> sintInsumoViga, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="SmallInt")] System.Nullable<short> sintTipoConectorID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="SmallInt")] System.Nullable<short> sintFamiliaVigaID)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), intCalibreID, sintInsumoViga, sintTipoConectorID, sintFamiliaVigaID);
+			return ((ISingleResult<stp_ListarConector_VigaResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.stp_setFactorViga")]
+		public ISingleResult<stp_setFactorVigaResult> stp_setFactorViga([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intCalibreID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Decimal(12,2)")] System.Nullable<decimal> decAcero, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Decimal(12,2)")] System.Nullable<decimal> decRemache, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Decimal(12,2)")] System.Nullable<decimal> decKgMetroCuadrado, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Decimal(12,2)")] System.Nullable<decimal> decFactorVenta, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Decimal(12,2)")] System.Nullable<decimal> decFactorDespiste, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Decimal(12,2)")] System.Nullable<decimal> decFactorDescuento)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), intCalibreID, decAcero, decRemache, decKgMetroCuadrado, decFactorVenta, decFactorDespiste, decFactorDescuento);
+			return ((ISingleResult<stp_setFactorVigaResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.stp_ListarConfiguracion_Viga")]
+		public ISingleResult<stp_ListarConfiguracion_VigaResult> stp_ListarConfiguracion_Viga([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="SmallInt")] System.Nullable<short> sintTipoVigaID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intElementoID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intCalibreID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="SmallInt")] System.Nullable<short> sintFactorVigaID)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), sintTipoVigaID, intElementoID, intCalibreID, sintFactorVigaID);
+			return ((ISingleResult<stp_ListarConfiguracion_VigaResult>)(result.ReturnValue));
+		}
 	}
 	
 	public partial class stp_ListarTotalVigaResult
@@ -907,6 +928,1128 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 				if ((this._vchDescripcion != value))
 				{
 					this._vchDescripcion = value;
+				}
+			}
+		}
+	}
+	
+	public partial class stp_ListarConector_VigaResult
+	{
+		
+		private int _intConectorVigaID;
+		
+		private System.Nullable<int> _intCalibreID;
+		
+		private string _vchCalibre;
+		
+		private System.Nullable<short> _sintInsumoViga;
+		
+		private string _vchInsumoViga;
+		
+		private System.Nullable<short> _sintTipoConectorID;
+		
+		private string _vchTipoConector;
+		
+		private System.Nullable<short> _sintFamiliaVigaID;
+		
+		private string _vchFamiliaViga;
+		
+		private System.Nullable<decimal> _decFactorAcero;
+		
+		private System.Nullable<decimal> _decFactorRemache;
+		
+		private System.Nullable<int> _intNumeroConector;
+		
+		private System.Nullable<int> _intNumeroPza;
+		
+		private System.Nullable<decimal> _decDesarrollo;
+		
+		private System.Nullable<int> _intLongitud;
+		
+		private string _vchDescripcion;
+		
+		private System.Nullable<decimal> _decAncho;
+		
+		private System.Nullable<decimal> _decLargo;
+		
+		private System.Nullable<int> _intPiezaxLamina;
+		
+		private System.Nullable<int> _intNumPiezaProm;
+		
+		private System.Nullable<decimal> _decPesoPieza;
+		
+		private System.Nullable<decimal> _decPesoPartida;
+		
+		private System.Nullable<decimal> _decTotal;
+		
+		private System.Nullable<decimal> _decAreaPintura;
+		
+		private System.Nullable<int> _intCara;
+		
+		private System.Nullable<bool> _bitActivo;
+		
+		public stp_ListarConector_VigaResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intConectorVigaID", DbType="Int NOT NULL")]
+		public int intConectorVigaID
+		{
+			get
+			{
+				return this._intConectorVigaID;
+			}
+			set
+			{
+				if ((this._intConectorVigaID != value))
+				{
+					this._intConectorVigaID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intCalibreID", DbType="Int")]
+		public System.Nullable<int> intCalibreID
+		{
+			get
+			{
+				return this._intCalibreID;
+			}
+			set
+			{
+				if ((this._intCalibreID != value))
+				{
+					this._intCalibreID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchCalibre", DbType="VarChar(50)")]
+		public string vchCalibre
+		{
+			get
+			{
+				return this._vchCalibre;
+			}
+			set
+			{
+				if ((this._vchCalibre != value))
+				{
+					this._vchCalibre = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sintInsumoViga", DbType="SmallInt")]
+		public System.Nullable<short> sintInsumoViga
+		{
+			get
+			{
+				return this._sintInsumoViga;
+			}
+			set
+			{
+				if ((this._sintInsumoViga != value))
+				{
+					this._sintInsumoViga = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchInsumoViga", DbType="VarChar(25)")]
+		public string vchInsumoViga
+		{
+			get
+			{
+				return this._vchInsumoViga;
+			}
+			set
+			{
+				if ((this._vchInsumoViga != value))
+				{
+					this._vchInsumoViga = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sintTipoConectorID", DbType="SmallInt")]
+		public System.Nullable<short> sintTipoConectorID
+		{
+			get
+			{
+				return this._sintTipoConectorID;
+			}
+			set
+			{
+				if ((this._sintTipoConectorID != value))
+				{
+					this._sintTipoConectorID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchTipoConector", DbType="VarChar(250)")]
+		public string vchTipoConector
+		{
+			get
+			{
+				return this._vchTipoConector;
+			}
+			set
+			{
+				if ((this._vchTipoConector != value))
+				{
+					this._vchTipoConector = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sintFamiliaVigaID", DbType="SmallInt")]
+		public System.Nullable<short> sintFamiliaVigaID
+		{
+			get
+			{
+				return this._sintFamiliaVigaID;
+			}
+			set
+			{
+				if ((this._sintFamiliaVigaID != value))
+				{
+					this._sintFamiliaVigaID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchFamiliaViga", DbType="VarChar(250)")]
+		public string vchFamiliaViga
+		{
+			get
+			{
+				return this._vchFamiliaViga;
+			}
+			set
+			{
+				if ((this._vchFamiliaViga != value))
+				{
+					this._vchFamiliaViga = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decFactorAcero", DbType="Decimal(8,2)")]
+		public System.Nullable<decimal> decFactorAcero
+		{
+			get
+			{
+				return this._decFactorAcero;
+			}
+			set
+			{
+				if ((this._decFactorAcero != value))
+				{
+					this._decFactorAcero = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decFactorRemache", DbType="Decimal(8,2)")]
+		public System.Nullable<decimal> decFactorRemache
+		{
+			get
+			{
+				return this._decFactorRemache;
+			}
+			set
+			{
+				if ((this._decFactorRemache != value))
+				{
+					this._decFactorRemache = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intNumeroConector", DbType="Int")]
+		public System.Nullable<int> intNumeroConector
+		{
+			get
+			{
+				return this._intNumeroConector;
+			}
+			set
+			{
+				if ((this._intNumeroConector != value))
+				{
+					this._intNumeroConector = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intNumeroPza", DbType="Int")]
+		public System.Nullable<int> intNumeroPza
+		{
+			get
+			{
+				return this._intNumeroPza;
+			}
+			set
+			{
+				if ((this._intNumeroPza != value))
+				{
+					this._intNumeroPza = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decDesarrollo", DbType="Decimal(8,3)")]
+		public System.Nullable<decimal> decDesarrollo
+		{
+			get
+			{
+				return this._decDesarrollo;
+			}
+			set
+			{
+				if ((this._decDesarrollo != value))
+				{
+					this._decDesarrollo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intLongitud", DbType="Int")]
+		public System.Nullable<int> intLongitud
+		{
+			get
+			{
+				return this._intLongitud;
+			}
+			set
+			{
+				if ((this._intLongitud != value))
+				{
+					this._intLongitud = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchDescripcion", DbType="VarChar(250)")]
+		public string vchDescripcion
+		{
+			get
+			{
+				return this._vchDescripcion;
+			}
+			set
+			{
+				if ((this._vchDescripcion != value))
+				{
+					this._vchDescripcion = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decAncho", DbType="Decimal(8,3)")]
+		public System.Nullable<decimal> decAncho
+		{
+			get
+			{
+				return this._decAncho;
+			}
+			set
+			{
+				if ((this._decAncho != value))
+				{
+					this._decAncho = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decLargo", DbType="Decimal(8,3)")]
+		public System.Nullable<decimal> decLargo
+		{
+			get
+			{
+				return this._decLargo;
+			}
+			set
+			{
+				if ((this._decLargo != value))
+				{
+					this._decLargo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intPiezaxLamina", DbType="Int")]
+		public System.Nullable<int> intPiezaxLamina
+		{
+			get
+			{
+				return this._intPiezaxLamina;
+			}
+			set
+			{
+				if ((this._intPiezaxLamina != value))
+				{
+					this._intPiezaxLamina = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intNumPiezaProm", DbType="Int")]
+		public System.Nullable<int> intNumPiezaProm
+		{
+			get
+			{
+				return this._intNumPiezaProm;
+			}
+			set
+			{
+				if ((this._intNumPiezaProm != value))
+				{
+					this._intNumPiezaProm = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decPesoPieza", DbType="Decimal(12,6)")]
+		public System.Nullable<decimal> decPesoPieza
+		{
+			get
+			{
+				return this._decPesoPieza;
+			}
+			set
+			{
+				if ((this._decPesoPieza != value))
+				{
+					this._decPesoPieza = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decPesoPartida", DbType="Decimal(8,3)")]
+		public System.Nullable<decimal> decPesoPartida
+		{
+			get
+			{
+				return this._decPesoPartida;
+			}
+			set
+			{
+				if ((this._decPesoPartida != value))
+				{
+					this._decPesoPartida = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decTotal", DbType="Decimal(8,3)")]
+		public System.Nullable<decimal> decTotal
+		{
+			get
+			{
+				return this._decTotal;
+			}
+			set
+			{
+				if ((this._decTotal != value))
+				{
+					this._decTotal = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decAreaPintura", DbType="Decimal(8,3)")]
+		public System.Nullable<decimal> decAreaPintura
+		{
+			get
+			{
+				return this._decAreaPintura;
+			}
+			set
+			{
+				if ((this._decAreaPintura != value))
+				{
+					this._decAreaPintura = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intCara", DbType="Int")]
+		public System.Nullable<int> intCara
+		{
+			get
+			{
+				return this._intCara;
+			}
+			set
+			{
+				if ((this._intCara != value))
+				{
+					this._intCara = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_bitActivo", DbType="Bit")]
+		public System.Nullable<bool> bitActivo
+		{
+			get
+			{
+				return this._bitActivo;
+			}
+			set
+			{
+				if ((this._bitActivo != value))
+				{
+					this._bitActivo = value;
+				}
+			}
+		}
+	}
+	
+	public partial class stp_setFactorVigaResult
+	{
+		
+		private string _vchResultado;
+		
+		private string _vchDescripcion;
+		
+		public stp_setFactorVigaResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchResultado", DbType="VarChar(2) NOT NULL", CanBeNull=false)]
+		public string vchResultado
+		{
+			get
+			{
+				return this._vchResultado;
+			}
+			set
+			{
+				if ((this._vchResultado != value))
+				{
+					this._vchResultado = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchDescripcion", DbType="VarChar(55) NOT NULL", CanBeNull=false)]
+		public string vchDescripcion
+		{
+			get
+			{
+				return this._vchDescripcion;
+			}
+			set
+			{
+				if ((this._vchDescripcion != value))
+				{
+					this._vchDescripcion = value;
+				}
+			}
+		}
+	}
+	
+	public partial class stp_ListarConfiguracion_VigaResult
+	{
+		
+		private int _intConfiguraVigaID;
+		
+		private System.Nullable<short> _sintTipoVigaID;
+		
+		private string _vchTipoViga;
+		
+		private System.Nullable<int> _intElementoID;
+		
+		private string _vchElemento;
+		
+		private System.Nullable<int> _intCalibreID;
+		
+		private string _vchCalibre;
+		
+		private System.Nullable<short> _sintFactorVigaID;
+		
+		private string _vchAcero;
+		
+		private System.Nullable<decimal> _decAcero;
+		
+		private string _vchRemache;
+		
+		private System.Nullable<decimal> _decRemache;
+		
+		private string _vchKgMetroCuadrado;
+		
+		private System.Nullable<decimal> _decKgMetroCuadrado;
+		
+		private System.Nullable<decimal> _decFactorAcero;
+		
+		private System.Nullable<decimal> _decFactorRemache;
+		
+		private System.Nullable<decimal> _decFactorKgMt;
+		
+		private System.Nullable<short> _sintInsumoViga;
+		
+		private System.Nullable<int> _intNumeroViga;
+		
+		private System.Nullable<int> _intNumeroPza;
+		
+		private System.Nullable<decimal> _decDesarrollo;
+		
+		private System.Nullable<int> _intLongitud;
+		
+		private string _vchDescripcion;
+		
+		private System.Nullable<decimal> _decAncho;
+		
+		private System.Nullable<decimal> _decLargo;
+		
+		private System.Nullable<int> _intPiezaxLamina;
+		
+		private System.Nullable<int> _intNumPiezaProm;
+		
+		private System.Nullable<decimal> _decPesoPieza;
+		
+		private System.Nullable<decimal> _decPesoPartida;
+		
+		private System.Nullable<decimal> _decTotal;
+		
+		private System.Nullable<decimal> _decAreaPintura;
+		
+		private System.Nullable<int> _intCara;
+		
+		private System.Nullable<bool> _bitActivo;
+		
+		public stp_ListarConfiguracion_VigaResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intConfiguraVigaID", DbType="Int NOT NULL")]
+		public int intConfiguraVigaID
+		{
+			get
+			{
+				return this._intConfiguraVigaID;
+			}
+			set
+			{
+				if ((this._intConfiguraVigaID != value))
+				{
+					this._intConfiguraVigaID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sintTipoVigaID", DbType="SmallInt")]
+		public System.Nullable<short> sintTipoVigaID
+		{
+			get
+			{
+				return this._sintTipoVigaID;
+			}
+			set
+			{
+				if ((this._sintTipoVigaID != value))
+				{
+					this._sintTipoVigaID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchTipoViga", DbType="VarChar(250)")]
+		public string vchTipoViga
+		{
+			get
+			{
+				return this._vchTipoViga;
+			}
+			set
+			{
+				if ((this._vchTipoViga != value))
+				{
+					this._vchTipoViga = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intElementoID", DbType="Int")]
+		public System.Nullable<int> intElementoID
+		{
+			get
+			{
+				return this._intElementoID;
+			}
+			set
+			{
+				if ((this._intElementoID != value))
+				{
+					this._intElementoID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchElemento", DbType="VarChar(25)")]
+		public string vchElemento
+		{
+			get
+			{
+				return this._vchElemento;
+			}
+			set
+			{
+				if ((this._vchElemento != value))
+				{
+					this._vchElemento = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intCalibreID", DbType="Int")]
+		public System.Nullable<int> intCalibreID
+		{
+			get
+			{
+				return this._intCalibreID;
+			}
+			set
+			{
+				if ((this._intCalibreID != value))
+				{
+					this._intCalibreID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchCalibre", DbType="VarChar(50)")]
+		public string vchCalibre
+		{
+			get
+			{
+				return this._vchCalibre;
+			}
+			set
+			{
+				if ((this._vchCalibre != value))
+				{
+					this._vchCalibre = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sintFactorVigaID", DbType="SmallInt")]
+		public System.Nullable<short> sintFactorVigaID
+		{
+			get
+			{
+				return this._sintFactorVigaID;
+			}
+			set
+			{
+				if ((this._sintFactorVigaID != value))
+				{
+					this._sintFactorVigaID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchAcero", DbType="VarChar(100)")]
+		public string vchAcero
+		{
+			get
+			{
+				return this._vchAcero;
+			}
+			set
+			{
+				if ((this._vchAcero != value))
+				{
+					this._vchAcero = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decAcero", DbType="Decimal(12,2)")]
+		public System.Nullable<decimal> decAcero
+		{
+			get
+			{
+				return this._decAcero;
+			}
+			set
+			{
+				if ((this._decAcero != value))
+				{
+					this._decAcero = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchRemache", DbType="VarChar(100)")]
+		public string vchRemache
+		{
+			get
+			{
+				return this._vchRemache;
+			}
+			set
+			{
+				if ((this._vchRemache != value))
+				{
+					this._vchRemache = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decRemache", DbType="Decimal(12,2)")]
+		public System.Nullable<decimal> decRemache
+		{
+			get
+			{
+				return this._decRemache;
+			}
+			set
+			{
+				if ((this._decRemache != value))
+				{
+					this._decRemache = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchKgMetroCuadrado", DbType="VarChar(100)")]
+		public string vchKgMetroCuadrado
+		{
+			get
+			{
+				return this._vchKgMetroCuadrado;
+			}
+			set
+			{
+				if ((this._vchKgMetroCuadrado != value))
+				{
+					this._vchKgMetroCuadrado = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decKgMetroCuadrado", DbType="Decimal(12,2)")]
+		public System.Nullable<decimal> decKgMetroCuadrado
+		{
+			get
+			{
+				return this._decKgMetroCuadrado;
+			}
+			set
+			{
+				if ((this._decKgMetroCuadrado != value))
+				{
+					this._decKgMetroCuadrado = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decFactorAcero", DbType="Decimal(8,2)")]
+		public System.Nullable<decimal> decFactorAcero
+		{
+			get
+			{
+				return this._decFactorAcero;
+			}
+			set
+			{
+				if ((this._decFactorAcero != value))
+				{
+					this._decFactorAcero = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decFactorRemache", DbType="Decimal(8,2)")]
+		public System.Nullable<decimal> decFactorRemache
+		{
+			get
+			{
+				return this._decFactorRemache;
+			}
+			set
+			{
+				if ((this._decFactorRemache != value))
+				{
+					this._decFactorRemache = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decFactorKgMt", DbType="Decimal(8,2)")]
+		public System.Nullable<decimal> decFactorKgMt
+		{
+			get
+			{
+				return this._decFactorKgMt;
+			}
+			set
+			{
+				if ((this._decFactorKgMt != value))
+				{
+					this._decFactorKgMt = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sintInsumoViga", DbType="SmallInt")]
+		public System.Nullable<short> sintInsumoViga
+		{
+			get
+			{
+				return this._sintInsumoViga;
+			}
+			set
+			{
+				if ((this._sintInsumoViga != value))
+				{
+					this._sintInsumoViga = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intNumeroViga", DbType="Int")]
+		public System.Nullable<int> intNumeroViga
+		{
+			get
+			{
+				return this._intNumeroViga;
+			}
+			set
+			{
+				if ((this._intNumeroViga != value))
+				{
+					this._intNumeroViga = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intNumeroPza", DbType="Int")]
+		public System.Nullable<int> intNumeroPza
+		{
+			get
+			{
+				return this._intNumeroPza;
+			}
+			set
+			{
+				if ((this._intNumeroPza != value))
+				{
+					this._intNumeroPza = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decDesarrollo", DbType="Decimal(8,3)")]
+		public System.Nullable<decimal> decDesarrollo
+		{
+			get
+			{
+				return this._decDesarrollo;
+			}
+			set
+			{
+				if ((this._decDesarrollo != value))
+				{
+					this._decDesarrollo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intLongitud", DbType="Int")]
+		public System.Nullable<int> intLongitud
+		{
+			get
+			{
+				return this._intLongitud;
+			}
+			set
+			{
+				if ((this._intLongitud != value))
+				{
+					this._intLongitud = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchDescripcion", DbType="VarChar(250)")]
+		public string vchDescripcion
+		{
+			get
+			{
+				return this._vchDescripcion;
+			}
+			set
+			{
+				if ((this._vchDescripcion != value))
+				{
+					this._vchDescripcion = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decAncho", DbType="Decimal(8,3)")]
+		public System.Nullable<decimal> decAncho
+		{
+			get
+			{
+				return this._decAncho;
+			}
+			set
+			{
+				if ((this._decAncho != value))
+				{
+					this._decAncho = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decLargo", DbType="Decimal(8,3)")]
+		public System.Nullable<decimal> decLargo
+		{
+			get
+			{
+				return this._decLargo;
+			}
+			set
+			{
+				if ((this._decLargo != value))
+				{
+					this._decLargo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intPiezaxLamina", DbType="Int")]
+		public System.Nullable<int> intPiezaxLamina
+		{
+			get
+			{
+				return this._intPiezaxLamina;
+			}
+			set
+			{
+				if ((this._intPiezaxLamina != value))
+				{
+					this._intPiezaxLamina = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intNumPiezaProm", DbType="Int")]
+		public System.Nullable<int> intNumPiezaProm
+		{
+			get
+			{
+				return this._intNumPiezaProm;
+			}
+			set
+			{
+				if ((this._intNumPiezaProm != value))
+				{
+					this._intNumPiezaProm = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decPesoPieza", DbType="Decimal(12,6)")]
+		public System.Nullable<decimal> decPesoPieza
+		{
+			get
+			{
+				return this._decPesoPieza;
+			}
+			set
+			{
+				if ((this._decPesoPieza != value))
+				{
+					this._decPesoPieza = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decPesoPartida", DbType="Decimal(8,3)")]
+		public System.Nullable<decimal> decPesoPartida
+		{
+			get
+			{
+				return this._decPesoPartida;
+			}
+			set
+			{
+				if ((this._decPesoPartida != value))
+				{
+					this._decPesoPartida = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decTotal", DbType="Decimal(8,3)")]
+		public System.Nullable<decimal> decTotal
+		{
+			get
+			{
+				return this._decTotal;
+			}
+			set
+			{
+				if ((this._decTotal != value))
+				{
+					this._decTotal = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decAreaPintura", DbType="Decimal(8,3)")]
+		public System.Nullable<decimal> decAreaPintura
+		{
+			get
+			{
+				return this._decAreaPintura;
+			}
+			set
+			{
+				if ((this._decAreaPintura != value))
+				{
+					this._decAreaPintura = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intCara", DbType="Int")]
+		public System.Nullable<int> intCara
+		{
+			get
+			{
+				return this._intCara;
+			}
+			set
+			{
+				if ((this._intCara != value))
+				{
+					this._intCara = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_bitActivo", DbType="Bit")]
+		public System.Nullable<bool> bitActivo
+		{
+			get
+			{
+				return this._bitActivo;
+			}
+			set
+			{
+				if ((this._bitActivo != value))
+				{
+					this._bitActivo = value;
 				}
 			}
 		}

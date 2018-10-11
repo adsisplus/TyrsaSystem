@@ -269,23 +269,40 @@ namespace Adsisplus.Cotyrsa.DataAccess
             }
             return results;
         }
-
-        public List<Viga> ListarCatFactorViga()
+        /// <summary>
+        /// Lista los factores de la viga en base al calibre y la familia
+        /// </summary>
+        /// <param name="intCalibreID"></param>
+        /// <param name="sintFamiliaVigaID"></param>
+        /// <returns></returns>
+        public List<FactorViga> ListarCatFactorViga(int intCalibreID, short sintFamiliaVigaID)
         {
-            List<Viga> results = new List<Viga>();
+            List<FactorViga> results = new List<FactorViga>();
             try
             {
                 using (CatalogosDataContext dc = new CatalogosDataContext(Helper.ConnectionString()))
                 {
-                    var query = from item in dc.stp_ListarCatFactorViga()
-                                select new Viga()
+                    var query = from item in dc.stp_ListarCatFactorViga(intCalibreID, sintFamiliaVigaID)
+                                select new FactorViga()
                                 {
-                                    intFactorVigaID = item.intFactorVigaID,
-                                    vchFactorViga = item.vchFactorViga,
-                                    decFactorViga = item.decFactorViga,
-                                    datFechaAlta = item.datFechaAlta,
-                                    bitActivo = item.bitActivo
-
+                                    bitActivo = (bool)item.bitActivo,
+                                    decAcero = (decimal)item.decAcero,
+                                    decFactorDescuento = (decimal)item.decFactorDescuento,
+                                    decFactorDespiste = (decimal)item.decFactorDespiste,
+                                    decFactorVenta = (decimal)item.decFactorVenta,
+                                    decKgMetroCuadrado = (decimal)item.decKgMetroCuadrado,
+                                    decRemache = (decimal)item.decRemache,
+                                    intCalibreID = (int)item.intCalibreID,
+                                    sintFactorVigaID = (short)item.sintFactorVigaID,
+                                    sintFamiliaVigaID = (short)item.sintFamiliaVigaID,
+                                    vchAcero = item.vchAcero,
+                                    vchCalibre = item.vchCalibre,
+                                    vchFactorDescuento = item.vchFactorDescuento,
+                                    vchFactorDespiste = item.vchFactorDespiste,
+                                    vchFactorVenta = item.vchFactorVenta,
+                                    vchFamiliaViga = item.vchFamiliaViga,
+                                    vchKgMetroCuadrado = item.vchKgMetroCuadrado,
+                                    vchRemache = item.vchRemache
                                 };
                     results.AddRange(query);
                 }
@@ -1116,6 +1133,33 @@ namespace Adsisplus.Cotyrsa.DataAccess
                 throw ex;
             }
             return results;
+        }
+        /// <summary>
+        /// Obtiene la lista de familias de vigas activas
+        /// </summary>
+        /// <returns></returns>
+        public List<Catalogo> ListarCatFamiliaViga()
+        {
+            List<Catalogo> result = new List<Catalogo>();
+            try
+            {
+                using (CatalogosDataContext dc = new CatalogosDataContext(Helper.ConnectionString()))
+                {
+                    var query = from item in dc.stp_ListarCatFamiliaViga()
+                                select new Catalogo
+                                {
+                                    bitActivo = item.bitActivo,
+                                    intCatalogoID = item.sintFamiliaVigaID,
+                                    vchDescripcion = item.vchFamiliaViga
+                                };
+                    result.AddRange(query);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
         }
     }
 

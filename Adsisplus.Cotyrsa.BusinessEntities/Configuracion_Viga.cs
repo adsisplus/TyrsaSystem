@@ -54,5 +54,60 @@ namespace Adsisplus.Cotyrsa.BusinessEntities
         public int intCara { get; set; }
         [DataMember]
         public bool bitActivo { get; set; }
+
+        /// <summary>
+        /// Id de la confirguración de la viga
+        /// </summary>
+        [DataMember]
+        public int intConfiguraVigaID { get; set; }
+        /// <summary>
+        /// Tipo de Viga
+        /// </summary>
+        [DataMember]
+        public string vchTipoViga { get; set; }
+        /// <summary>
+        /// Elemento
+        /// </summary>
+        [DataMember]
+        public string vchElemento { get; set; }
+        /// <summary>
+        /// Calibre
+        /// </summary>
+        [DataMember]
+        public string vchCalibre { get; set; }
+        /// <summary>
+        /// Id del factor de la viga
+        /// </summary>
+        [DataMember]
+        public short sintFactorVigaID { get; set; }
+        /// <summary>
+        /// Acero
+        /// </summary>
+        [DataMember]
+        public string vchAcero { get; set; }
+        /// <summary>
+        /// Tamaño del acero
+        /// </summary>
+        [DataMember]
+        public decimal decAcero { get; set; }
+        /// <summary>
+        /// Remache
+        /// </summary>
+        [DataMember]
+        public string vchRemache { get; set; }
+        /// <summary>
+        /// Tamaño del remache
+        /// </summary>
+        [DataMember]
+        public decimal decRemache { get; set; }
+        /// <summary>
+        /// Metro cuadrado de la viga
+        /// </summary>
+        [DataMember]
+        public string vchKgMetroCuadrado { get; set; }
+        /// <summary>
+        /// Metro cuadrado de la viga
+        /// </summary>
+        public decimal decKgMetroCuadrado { get; set; }
     }
 }
