@@ -68,6 +68,13 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), intCotizacionID, intEstatusID, sintPrioridadID, intEmpresaID);
 			return ((ISingleResult<stp_ListarDatosCotizacionResult>)(result.ReturnValue));
 		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.stp_ListarRel_TipoElementoAlmacen_FactorCotizacion")]
+		public ISingleResult<stp_ListarRel_TipoElementoAlmacen_FactorCotizacionResult> stp_ListarRel_TipoElementoAlmacen_FactorCotizacion([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intTipoElementoAlmacen_FactorID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intTipoElementoAlmacenID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="SmallInt")] System.Nullable<short> sintFactorID)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), intTipoElementoAlmacen_FactorID, intTipoElementoAlmacenID, sintFactorID);
+			return ((ISingleResult<stp_ListarRel_TipoElementoAlmacen_FactorCotizacionResult>)(result.ReturnValue));
+		}
 	}
 	
 	public partial class stp_ListarDatosCotizacionResult
@@ -217,6 +224,140 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 				if ((this._datFechaRechazo != value))
 				{
 					this._datFechaRechazo = value;
+				}
+			}
+		}
+	}
+	
+	public partial class stp_ListarRel_TipoElementoAlmacen_FactorCotizacionResult
+	{
+		
+		private int _intTipoElementoAlmacen_FactorID;
+		
+		private System.Nullable<int> _intTipoElementoAlmacenID;
+		
+		private System.Nullable<int> _sintFactorID;
+		
+		private string _vchFactor;
+		
+		private System.Nullable<decimal> _decFactor;
+		
+		private System.Nullable<System.DateTime> _datFechaAlta;
+		
+		private System.Nullable<bool> _bitActivo;
+		
+		public stp_ListarRel_TipoElementoAlmacen_FactorCotizacionResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intTipoElementoAlmacen_FactorID", DbType="Int NOT NULL")]
+		public int intTipoElementoAlmacen_FactorID
+		{
+			get
+			{
+				return this._intTipoElementoAlmacen_FactorID;
+			}
+			set
+			{
+				if ((this._intTipoElementoAlmacen_FactorID != value))
+				{
+					this._intTipoElementoAlmacen_FactorID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intTipoElementoAlmacenID", DbType="Int")]
+		public System.Nullable<int> intTipoElementoAlmacenID
+		{
+			get
+			{
+				return this._intTipoElementoAlmacenID;
+			}
+			set
+			{
+				if ((this._intTipoElementoAlmacenID != value))
+				{
+					this._intTipoElementoAlmacenID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sintFactorID", DbType="Int")]
+		public System.Nullable<int> sintFactorID
+		{
+			get
+			{
+				return this._sintFactorID;
+			}
+			set
+			{
+				if ((this._sintFactorID != value))
+				{
+					this._sintFactorID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchFactor", DbType="VarChar(25)")]
+		public string vchFactor
+		{
+			get
+			{
+				return this._vchFactor;
+			}
+			set
+			{
+				if ((this._vchFactor != value))
+				{
+					this._vchFactor = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decFactor", DbType="Decimal(8,2)")]
+		public System.Nullable<decimal> decFactor
+		{
+			get
+			{
+				return this._decFactor;
+			}
+			set
+			{
+				if ((this._decFactor != value))
+				{
+					this._decFactor = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_datFechaAlta", DbType="Date")]
+		public System.Nullable<System.DateTime> datFechaAlta
+		{
+			get
+			{
+				return this._datFechaAlta;
+			}
+			set
+			{
+				if ((this._datFechaAlta != value))
+				{
+					this._datFechaAlta = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_bitActivo", DbType="Bit")]
+		public System.Nullable<bool> bitActivo
+		{
+			get
+			{
+				return this._bitActivo;
+			}
+			set
+			{
+				if ((this._bitActivo != value))
+				{
+					this._bitActivo = value;
 				}
 			}
 		}

@@ -35,6 +35,27 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
             }
             return results;
         }
+        /// <summary>
+        /// Obtiene la lista de la relación de tipo elemento almacen vs Factor de cotización
+        /// </summary>
+        /// <param name="intTipoElementoAlmacen_FactorID"></param>
+        /// <param name="intTipoElementoAlmacenID"></param>
+        /// <param name="sintFactorID"></param>
+        /// <returns></returns>
+        public List<RelTipoElementoAlmacenFactorCotizacion> ListarRel_TipoElementoAlmacen_FactorCotizacion(int intTipoElementoAlmacen_FactorID,
+            int intTipoElementoAlmacenID, short sintFactorID)
+        {
+            List<RelTipoElementoAlmacenFactorCotizacion> result = new List<RelTipoElementoAlmacenFactorCotizacion>();
+            try
+            {
+                result = CatalogosDA.ListarRel_TipoElementoAlmacen_FactorCotizacion(intTipoElementoAlmacen_FactorID, intTipoElementoAlmacenID, sintFactorID);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
 
     }
 }

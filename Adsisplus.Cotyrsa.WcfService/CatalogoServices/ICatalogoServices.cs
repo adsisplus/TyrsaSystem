@@ -280,5 +280,14 @@ namespace Adsisplus.Cotyrsa.WcfService.CatalogoServices
         [OperationContract]
         [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ListarCatFamiliaViga")]
         List<Catalogo> ListarCatFamiliaViga();
+
+        /// <summary>
+        /// Obtenemos el catálogo de factores de cotización en base a la clave del factor
+        /// </summary>
+        /// <param name="sintFactorID"></param>
+        /// <returns></returns>
+        [OperationContract]
+        [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ListarCatFactorCotizacion")]
+        List<FactorCotizacion> ListarCatFactorCotizacion(short sintFactorID);
     }
 }

@@ -100,6 +100,7 @@
     <Compile Include="RelPersonaDomicilioEmpresa.cs" />
     <Compile Include="RelSistemaCargaMarcoPoste.cs" />
     <Compile Include="RelSistemaSelectivo.cs" />
+    <Compile Include="RelTipoElementoAlmacenFactorCotizacion.cs" />
     <Compile Include="Resultado.cs" />
     <Compile Include="SubFamiliaMarco.cs" />
     <Compile Include="Subproducto.cs" />

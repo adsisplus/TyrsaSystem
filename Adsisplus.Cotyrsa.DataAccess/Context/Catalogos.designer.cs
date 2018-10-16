@@ -362,6 +362,13 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
 			return ((ISingleResult<stp_ListarCatFamiliaVigaResult>)(result.ReturnValue));
 		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.stp_ListarCatFactorCotizacion")]
+		public ISingleResult<stp_ListarCatFactorCotizacionResult> stp_ListarCatFactorCotizacion([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="SmallInt")] System.Nullable<short> sintFactorID)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), sintFactorID);
+			return ((ISingleResult<stp_ListarCatFactorCotizacionResult>)(result.ReturnValue));
+		}
 	}
 	
 	public partial class stp_ListarCatAlturaMarcoResult
@@ -4467,6 +4474,104 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 				if ((this._vchFamiliaViga != value))
 				{
 					this._vchFamiliaViga = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_bitActivo", DbType="Bit")]
+		public System.Nullable<bool> bitActivo
+		{
+			get
+			{
+				return this._bitActivo;
+			}
+			set
+			{
+				if ((this._bitActivo != value))
+				{
+					this._bitActivo = value;
+				}
+			}
+		}
+	}
+	
+	public partial class stp_ListarCatFactorCotizacionResult
+	{
+		
+		private int _sintFactorID;
+		
+		private string _vchFactor;
+		
+		private System.Nullable<decimal> _decFactor;
+		
+		private System.Nullable<System.DateTime> _datFechaAlta;
+		
+		private System.Nullable<bool> _bitActivo;
+		
+		public stp_ListarCatFactorCotizacionResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sintFactorID", DbType="Int NOT NULL")]
+		public int sintFactorID
+		{
+			get
+			{
+				return this._sintFactorID;
+			}
+			set
+			{
+				if ((this._sintFactorID != value))
+				{
+					this._sintFactorID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchFactor", DbType="VarChar(25)")]
+		public string vchFactor
+		{
+			get
+			{
+				return this._vchFactor;
+			}
+			set
+			{
+				if ((this._vchFactor != value))
+				{
+					this._vchFactor = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decFactor", DbType="Decimal(8,2)")]
+		public System.Nullable<decimal> decFactor
+		{
+			get
+			{
+				return this._decFactor;
+			}
+			set
+			{
+				if ((this._decFactor != value))
+				{
+					this._decFactor = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_datFechaAlta", DbType="Date")]
+		public System.Nullable<System.DateTime> datFechaAlta
+		{
+			get
+			{
+				return this._datFechaAlta;
+			}
+			set
+			{
+				if ((this._datFechaAlta != value))
+				{
+					this._datFechaAlta = value;
 				}
 			}
 		}

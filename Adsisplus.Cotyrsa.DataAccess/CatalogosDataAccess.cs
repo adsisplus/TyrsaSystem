@@ -1161,6 +1161,36 @@ namespace Adsisplus.Cotyrsa.DataAccess
             }
             return result;
         }
+        /// <summary>
+        /// Obtenemos el catálogo de factores de cotización en base a la clave del factor
+        /// </summary>
+        /// <param name="sintFactorID"></param>
+        /// <returns></returns>
+        public List<FactorCotizacion> ListarCatFactorCotizacion(short sintFactorID)
+        {
+            List<FactorCotizacion> result = new List<FactorCotizacion>();
+            try
+            {
+                using (CatalogosDataContext dc = new CatalogosDataContext(Helper.ConnectionString()))
+                {
+                    var query = from item in dc.stp_ListarCatFactorCotizacion(sintFactorID)
+                                select new FactorCotizacion
+                                {
+                                    bitActivo = item.bitActivo,
+                                    datFechaAlta = item.datFechaAlta,
+                                    decFactor = item.decFactor,
+                                    sintFactorID = (short)item.sintFactorID,
+                                    vchFactor = item.vchFactor
+                                };
+                    result.AddRange(query);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
     }
 
 

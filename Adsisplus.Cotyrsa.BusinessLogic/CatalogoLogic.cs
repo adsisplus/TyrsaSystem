@@ -638,6 +638,24 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
             }
             return result;
         }
+        /// <summary>
+        /// Obtenemos el catálogo de factores de cotización en base a la clave del factor
+        /// </summary>
+        /// <param name="sintFactorID"></param>
+        /// <returns></returns>
+        public List<FactorCotizacion> ListarCatFactorCotizacion(short sintFactorID)
+        {
+            List<FactorCotizacion> result = new List<FactorCotizacion>();
+            try
+            {
+                result = CatalogosDA.ListarCatFactorCotizacion(sintFactorID);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
 
         #endregion
     }

@@ -24,5 +24,16 @@ namespace Adsisplus.Cotyrsa.WcfService.CotizacionServices
         [OperationContract]
         [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ListarCatAlturaMarco")]
         List<Cotizacion> ListarCatAlturaMarco(Int32 intCotizacionID, Int32 intEstatusID, Int32 sintPrioridadID, Int32 intEmpresaID);
+        /// <summary>
+        /// Obtiene la lista de la relación de tipo elemento almacen vs Factor de cotización
+        /// </summary>
+        /// <param name="intTipoElementoAlmacen_FactorID"></param>
+        /// <param name="intTipoElementoAlmacenID"></param>
+        /// <param name="sintFactorID"></param>
+        /// <returns></returns>
+        [OperationContract]
+        [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ListarRel_TipoElementoAlmacen_FactorCotizacion")]
+        List<RelTipoElementoAlmacenFactorCotizacion> ListarRel_TipoElementoAlmacen_FactorCotizacion(int intTipoElementoAlmacen_FactorID,
+            int intTipoElementoAlmacenID, short sintFactorID);
     }
 }
