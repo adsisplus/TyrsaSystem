@@ -20,6 +20,8 @@ namespace Adsisplus.Cotyrsa.WcfService.VigaServices
         /// <param name="intConfiguraVigaID"></param>
         /// <returns></returns>
         [OperationContract]
+        [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ListarTotalViga")]
+
         List<TotalViga> ListarTotalViga(Int32 intTotalViga, Int32 intConfiguraVigaID);
         /// <summary>
         /// Obtiene la lista de configuración por viga

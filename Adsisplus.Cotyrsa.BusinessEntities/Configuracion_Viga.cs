@@ -11,55 +11,55 @@ namespace Adsisplus.Cotyrsa.BusinessEntities
     public class Configuracion_Viga
     {
         [DataMember]
-        public short sintTipoVigaID { get; set; }
+        public short? sintTipoVigaID { get; set; }
         [DataMember]
-        public int intElementoID { get; set; }
+        public int? intElementoID { get; set; }
         [DataMember]
-        public int intCalibreID { get; set; }
+        public int? intCalibreID { get; set; }
         [DataMember]
-        public decimal decFactorAcero { get; set; }
+        public decimal? decFactorAcero { get; set; }
         [DataMember]
-        public decimal decFactorRemache { get; set; }
+        public decimal? decFactorRemache { get; set; }
         [DataMember]
-        public decimal decFactorKgMt { get; set; }
+        public decimal? decFactorKgMt { get; set; }
         [DataMember]
-        public short sintInsumoViga { get; set; }
+        public short? sintInsumoViga { get; set; }
         [DataMember]
-        public int intNumeroViga { get; set; }
+        public int? intNumeroViga { get; set; }
         [DataMember]
-        public int intNumeroPza { get; set; }
+        public int? intNumeroPza { get; set; }
         [DataMember]
-        public decimal decDesarrollo { get; set; }
+        public decimal? decDesarrollo { get; set; }
         [DataMember]
-        public int intLongitud { get; set; }
+        public int? intLongitud { get; set; }
         [DataMember]
         public string vchDescripcion { get; set; }
         [DataMember]
-        public decimal decAncho { get; set; }
+        public decimal? decAncho { get; set; }
         [DataMember]
-        public decimal decLargo { get; set; }
+        public decimal? decLargo { get; set; }
         [DataMember]
-        public int intPiezaxLamina { get; set; }
+        public int? intPiezaxLamina { get; set; }
         [DataMember]
-        public int intNumPiezaProm { get; set; }
+        public int? intNumPiezaProm { get; set; }
         [DataMember]
-        public decimal decPesoPieza { get; set; }
+        public decimal? decPesoPieza { get; set; }
         [DataMember]
-        public decimal decPesoPartida { get; set; }
+        public decimal? decPesoPartida { get; set; }
         [DataMember]
-        public decimal decTotal { get; set; }
+        public decimal? decTotal { get; set; }
         [DataMember]
-        public decimal decAreaPintura { get; set; }
+        public decimal? decAreaPintura { get; set; }
         [DataMember]
-        public int intCara { get; set; }
+        public int? intCara { get; set; }
         [DataMember]
-        public bool bitActivo { get; set; }
+        public bool? bitActivo { get; set; }
 
         /// <summary>
         /// Id de la confirguración de la viga
         /// </summary>
         [DataMember]
-        public int intConfiguraVigaID { get; set; }
+        public int? intConfiguraVigaID { get; set; }
         /// <summary>
         /// Tipo de Viga
         /// </summary>
@@ -79,7 +79,7 @@ namespace Adsisplus.Cotyrsa.BusinessEntities
         /// Id del factor de la viga
         /// </summary>
         [DataMember]
-        public short sintFactorVigaID { get; set; }
+        public short? sintFactorVigaID { get; set; }
         /// <summary>
         /// Acero
         /// </summary>
@@ -89,7 +89,7 @@ namespace Adsisplus.Cotyrsa.BusinessEntities
         /// Tamaño del acero
         /// </summary>
         [DataMember]
-        public decimal decAcero { get; set; }
+        public decimal? decAcero { get; set; }
         /// <summary>
         /// Remache
         /// </summary>
@@ -99,7 +99,7 @@ namespace Adsisplus.Cotyrsa.BusinessEntities
         /// Tamaño del remache
         /// </summary>
         [DataMember]
-        public decimal decRemache { get; set; }
+        public decimal? decRemache { get; set; }
         /// <summary>
         /// Metro cuadrado de la viga
         /// </summary>
@@ -108,6 +108,6 @@ namespace Adsisplus.Cotyrsa.BusinessEntities
         /// <summary>
         /// Metro cuadrado de la viga
         /// </summary>
-        public decimal decKgMetroCuadrado { get; set; }
+        public decimal? decKgMetroCuadrado { get; set; }
     }
 }

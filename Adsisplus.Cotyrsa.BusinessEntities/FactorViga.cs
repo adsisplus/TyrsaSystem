@@ -15,12 +15,12 @@ namespace Adsisplus.Cotyrsa.BusinessEntities
         /// ID del factor de la viga
         /// </summary>
         [DataMember]
-        public short sintFactorVigaID { get; set; }
+        public short? sintFactorVigaID { get; set; }
         /// <summary>
         /// Id del calibre
         /// </summary>
         [DataMember]
-        public int intCalibreID { get; set; }
+        public int? intCalibreID { get; set; }
         /// <summary>
         /// Calibre
         /// </summary>
@@ -30,7 +30,7 @@ namespace Adsisplus.Cotyrsa.BusinessEntities
         /// ID de la familia de la viga
         /// </summary>
         [DataMember]
-        public short sintFamiliaVigaID { get; set; }
+        public short? sintFamiliaVigaID { get; set; }
         /// <summary>
         /// Nombre de la familia de la viga
         /// </summary>
@@ -45,7 +45,7 @@ namespace Adsisplus.Cotyrsa.BusinessEntities
         /// Medidas del acero
         /// </summary>
         [DataMember]
-        public decimal decAcero { get; set; }
+        public decimal? decAcero { get; set; }
         /// <summary>
         /// Nombre del remache
         /// </summary>
@@ -55,7 +55,7 @@ namespace Adsisplus.Cotyrsa.BusinessEntities
         /// Tamaño del remache
         /// </summary>
         [DataMember]
-        public decimal decRemache { get; set; }
+        public decimal? decRemache { get; set; }
         /// <summary>
         /// Peso por metro cuadrado
         /// </summary>
@@ -65,7 +65,7 @@ namespace Adsisplus.Cotyrsa.BusinessEntities
         /// peso por metro cuadrado
         /// </summary>
         [DataMember]
-        public decimal decKgMetroCuadrado { get; set; }
+        public decimal? decKgMetroCuadrado { get; set; }
         /// <summary>
         /// Factor de venta
         /// </summary>
@@ -75,7 +75,7 @@ namespace Adsisplus.Cotyrsa.BusinessEntities
         /// Factor de venta
         /// </summary>
         [DataMember]
-        public decimal decFactorVenta { get; set; }
+        public decimal? decFactorVenta { get; set; }
         /// <summary>
         /// Factor de despiste
         /// </summary>
@@ -85,7 +85,7 @@ namespace Adsisplus.Cotyrsa.BusinessEntities
         /// Factor de despiste
         /// </summary>
         [DataMember]
-        public decimal decFactorDespiste { get; set; }
+        public decimal? decFactorDespiste { get; set; }
         /// <summary>
         /// Factor de descuento
         /// </summary>
@@ -95,7 +95,7 @@ namespace Adsisplus.Cotyrsa.BusinessEntities
         /// Factor de descuento
         /// </summary>
         [DataMember]
-        public decimal decFactorDescuento { get; set; }
+        public decimal? decFactorDescuento { get; set; }
         /// <summary>
         /// Estatus del factor
         /// </summary>
