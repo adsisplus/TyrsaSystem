@@ -1100,19 +1100,18 @@ namespace Adsisplus.Cotyrsa.DataAccess
             return results;
         }
 
-        public List<ProductoAcero> ListarCatProductoAcero(Int32 intTipoElementoAlmacenID, Int32 intUnidadMedicionID, Int32 intModeloID, Int32 intCalibreAceroID)
+        public List<ProductoAcero> ListarCatProductoAcero(Int32 intTipoElementoAlmacenID, Int32 intUnidadMedicionID, Int32 intCalibreAceroID)
         {
             List<ProductoAcero> results = new List<ProductoAcero>();
             try
             {
                 using (CatalogosDataContext dc = new CatalogosDataContext(Helper.ConnectionString()))
                 {
-                    var query = from item in dc.stp_ListarCatProductoAcero(intTipoElementoAlmacenID, intUnidadMedicionID, intModeloID, intCalibreAceroID)
+                    var query = from item in dc.stp_ListarCatProductoAcero(intTipoElementoAlmacenID, intUnidadMedicionID, intCalibreAceroID)
                                 select new ProductoAcero()
                                 {
                                     intTipoElementoAlmacenID = item.intTipoElementoAlmacenID,
                                     vchUnidadMedicion = item.vchUnidadMedicion,
-                                    vchModelo = item.vchModelo,
                                     vchCalibreAcero = item.vchCalibreAcero,
                                     vchDescripcionTipoElemento = item.vchDescripcionTipoElemento,
                                     decCostoNegra = item.decCostoNegra,

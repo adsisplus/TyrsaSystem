@@ -342,13 +342,6 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 			return ((ISingleResult<stp_ListarCatCargaPosteResult>)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.stp_ListarCatProductoAcero")]
-		public ISingleResult<stp_ListarCatProductoAceroResult> stp_ListarCatProductoAcero([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intTipoElementoAlmacenID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intUnidadMedicionID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intModeloID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intCalibreAceroID)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), intTipoElementoAlmacenID, intUnidadMedicionID, intModeloID, intCalibreAceroID);
-			return ((ISingleResult<stp_ListarCatProductoAceroResult>)(result.ReturnValue));
-		}
-		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.stp_ListarCatFactorViga")]
 		public ISingleResult<stp_ListarCatFactorVigaResult> stp_ListarCatFactorViga([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intCalibreID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="SmallInt")] System.Nullable<short> sintFamiliaVigaID)
 		{
@@ -368,6 +361,13 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), sintFactorID);
 			return ((ISingleResult<stp_ListarCatFactorCotizacionResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.stp_ListarCatProductoAcero")]
+		public ISingleResult<stp_ListarCatProductoAceroResult> stp_ListarCatProductoAcero([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intTipoElementoAlmacenID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intUnidadMedicionID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intCalibreAceroID)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), intTipoElementoAlmacenID, intUnidadMedicionID, intCalibreAceroID);
+			return ((ISingleResult<stp_ListarCatProductoAceroResult>)(result.ReturnValue));
 		}
 	}
 	
@@ -3841,266 +3841,6 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 		}
 	}
 	
-	public partial class stp_ListarCatProductoAceroResult
-	{
-		
-		private int _intTipoElementoAlmacenID;
-		
-		private string _vchUnidadMedicion;
-		
-		private string _vchModelo;
-		
-		private string _vchCalibreAcero;
-		
-		private string _vchDescripcionTipoElemento;
-		
-		private System.Nullable<decimal> _decCostoNegra;
-		
-		private System.Nullable<decimal> _decCostoGalvanizada;
-		
-		private System.Nullable<decimal> _decCapacidadAcero;
-		
-		private System.Nullable<decimal> _decFactorNegra;
-		
-		private System.Nullable<decimal> _decFactorGalvanizado;
-		
-		private System.Nullable<System.DateTime> _datFechaAlta;
-		
-		private System.Nullable<System.DateTime> _datFechaActualizacion;
-		
-		private System.Nullable<int> _intVigencia;
-		
-		private System.Nullable<bool> _bitActivo;
-		
-		public stp_ListarCatProductoAceroResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intTipoElementoAlmacenID", DbType="Int NOT NULL")]
-		public int intTipoElementoAlmacenID
-		{
-			get
-			{
-				return this._intTipoElementoAlmacenID;
-			}
-			set
-			{
-				if ((this._intTipoElementoAlmacenID != value))
-				{
-					this._intTipoElementoAlmacenID = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchUnidadMedicion", DbType="VarChar(25)")]
-		public string vchUnidadMedicion
-		{
-			get
-			{
-				return this._vchUnidadMedicion;
-			}
-			set
-			{
-				if ((this._vchUnidadMedicion != value))
-				{
-					this._vchUnidadMedicion = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchModelo", DbType="VarChar(250)")]
-		public string vchModelo
-		{
-			get
-			{
-				return this._vchModelo;
-			}
-			set
-			{
-				if ((this._vchModelo != value))
-				{
-					this._vchModelo = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchCalibreAcero", DbType="VarChar(50)")]
-		public string vchCalibreAcero
-		{
-			get
-			{
-				return this._vchCalibreAcero;
-			}
-			set
-			{
-				if ((this._vchCalibreAcero != value))
-				{
-					this._vchCalibreAcero = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchDescripcionTipoElemento", DbType="VarChar(25)")]
-		public string vchDescripcionTipoElemento
-		{
-			get
-			{
-				return this._vchDescripcionTipoElemento;
-			}
-			set
-			{
-				if ((this._vchDescripcionTipoElemento != value))
-				{
-					this._vchDescripcionTipoElemento = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decCostoNegra", DbType="Decimal(20,2)")]
-		public System.Nullable<decimal> decCostoNegra
-		{
-			get
-			{
-				return this._decCostoNegra;
-			}
-			set
-			{
-				if ((this._decCostoNegra != value))
-				{
-					this._decCostoNegra = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decCostoGalvanizada", DbType="Decimal(20,2)")]
-		public System.Nullable<decimal> decCostoGalvanizada
-		{
-			get
-			{
-				return this._decCostoGalvanizada;
-			}
-			set
-			{
-				if ((this._decCostoGalvanizada != value))
-				{
-					this._decCostoGalvanizada = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decCapacidadAcero", DbType="Decimal(8,2)")]
-		public System.Nullable<decimal> decCapacidadAcero
-		{
-			get
-			{
-				return this._decCapacidadAcero;
-			}
-			set
-			{
-				if ((this._decCapacidadAcero != value))
-				{
-					this._decCapacidadAcero = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decFactorNegra", DbType="Decimal(8,2)")]
-		public System.Nullable<decimal> decFactorNegra
-		{
-			get
-			{
-				return this._decFactorNegra;
-			}
-			set
-			{
-				if ((this._decFactorNegra != value))
-				{
-					this._decFactorNegra = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decFactorGalvanizado", DbType="Decimal(8,2)")]
-		public System.Nullable<decimal> decFactorGalvanizado
-		{
-			get
-			{
-				return this._decFactorGalvanizado;
-			}
-			set
-			{
-				if ((this._decFactorGalvanizado != value))
-				{
-					this._decFactorGalvanizado = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_datFechaAlta", DbType="DateTime")]
-		public System.Nullable<System.DateTime> datFechaAlta
-		{
-			get
-			{
-				return this._datFechaAlta;
-			}
-			set
-			{
-				if ((this._datFechaAlta != value))
-				{
-					this._datFechaAlta = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_datFechaActualizacion", DbType="DateTime")]
-		public System.Nullable<System.DateTime> datFechaActualizacion
-		{
-			get
-			{
-				return this._datFechaActualizacion;
-			}
-			set
-			{
-				if ((this._datFechaActualizacion != value))
-				{
-					this._datFechaActualizacion = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intVigencia", DbType="Int")]
-		public System.Nullable<int> intVigencia
-		{
-			get
-			{
-				return this._intVigencia;
-			}
-			set
-			{
-				if ((this._intVigencia != value))
-				{
-					this._intVigencia = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_bitActivo", DbType="Bit")]
-		public System.Nullable<bool> bitActivo
-		{
-			get
-			{
-				return this._bitActivo;
-			}
-			set
-			{
-				if ((this._bitActivo != value))
-				{
-					this._bitActivo = value;
-				}
-			}
-		}
-	}
-	
 	public partial class stp_ListarCatFactorVigaResult
 	{
 		
@@ -4572,6 +4312,248 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 				if ((this._datFechaAlta != value))
 				{
 					this._datFechaAlta = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_bitActivo", DbType="Bit")]
+		public System.Nullable<bool> bitActivo
+		{
+			get
+			{
+				return this._bitActivo;
+			}
+			set
+			{
+				if ((this._bitActivo != value))
+				{
+					this._bitActivo = value;
+				}
+			}
+		}
+	}
+	
+	public partial class stp_ListarCatProductoAceroResult
+	{
+		
+		private int _intTipoElementoAlmacenID;
+		
+		private string _vchUnidadMedicion;
+		
+		private string _vchCalibreAcero;
+		
+		private string _vchDescripcionTipoElemento;
+		
+		private System.Nullable<decimal> _decCostoNegra;
+		
+		private System.Nullable<decimal> _decCostoGalvanizada;
+		
+		private System.Nullable<decimal> _decCapacidadAcero;
+		
+		private System.Nullable<decimal> _decFactorNegra;
+		
+		private System.Nullable<decimal> _decFactorGalvanizado;
+		
+		private System.Nullable<System.DateTime> _datFechaAlta;
+		
+		private System.Nullable<System.DateTime> _datFechaActualizacion;
+		
+		private System.Nullable<int> _intVigencia;
+		
+		private System.Nullable<bool> _bitActivo;
+		
+		public stp_ListarCatProductoAceroResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intTipoElementoAlmacenID", DbType="Int NOT NULL")]
+		public int intTipoElementoAlmacenID
+		{
+			get
+			{
+				return this._intTipoElementoAlmacenID;
+			}
+			set
+			{
+				if ((this._intTipoElementoAlmacenID != value))
+				{
+					this._intTipoElementoAlmacenID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchUnidadMedicion", DbType="VarChar(25)")]
+		public string vchUnidadMedicion
+		{
+			get
+			{
+				return this._vchUnidadMedicion;
+			}
+			set
+			{
+				if ((this._vchUnidadMedicion != value))
+				{
+					this._vchUnidadMedicion = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchCalibreAcero", DbType="VarChar(50)")]
+		public string vchCalibreAcero
+		{
+			get
+			{
+				return this._vchCalibreAcero;
+			}
+			set
+			{
+				if ((this._vchCalibreAcero != value))
+				{
+					this._vchCalibreAcero = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchDescripcionTipoElemento", DbType="VarChar(250)")]
+		public string vchDescripcionTipoElemento
+		{
+			get
+			{
+				return this._vchDescripcionTipoElemento;
+			}
+			set
+			{
+				if ((this._vchDescripcionTipoElemento != value))
+				{
+					this._vchDescripcionTipoElemento = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decCostoNegra", DbType="Decimal(20,2)")]
+		public System.Nullable<decimal> decCostoNegra
+		{
+			get
+			{
+				return this._decCostoNegra;
+			}
+			set
+			{
+				if ((this._decCostoNegra != value))
+				{
+					this._decCostoNegra = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decCostoGalvanizada", DbType="Decimal(20,2)")]
+		public System.Nullable<decimal> decCostoGalvanizada
+		{
+			get
+			{
+				return this._decCostoGalvanizada;
+			}
+			set
+			{
+				if ((this._decCostoGalvanizada != value))
+				{
+					this._decCostoGalvanizada = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decCapacidadAcero", DbType="Decimal(8,2)")]
+		public System.Nullable<decimal> decCapacidadAcero
+		{
+			get
+			{
+				return this._decCapacidadAcero;
+			}
+			set
+			{
+				if ((this._decCapacidadAcero != value))
+				{
+					this._decCapacidadAcero = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decFactorNegra", DbType="Decimal(8,2)")]
+		public System.Nullable<decimal> decFactorNegra
+		{
+			get
+			{
+				return this._decFactorNegra;
+			}
+			set
+			{
+				if ((this._decFactorNegra != value))
+				{
+					this._decFactorNegra = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decFactorGalvanizado", DbType="Decimal(8,2)")]
+		public System.Nullable<decimal> decFactorGalvanizado
+		{
+			get
+			{
+				return this._decFactorGalvanizado;
+			}
+			set
+			{
+				if ((this._decFactorGalvanizado != value))
+				{
+					this._decFactorGalvanizado = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_datFechaAlta", DbType="DateTime")]
+		public System.Nullable<System.DateTime> datFechaAlta
+		{
+			get
+			{
+				return this._datFechaAlta;
+			}
+			set
+			{
+				if ((this._datFechaAlta != value))
+				{
+					this._datFechaAlta = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_datFechaActualizacion", DbType="DateTime")]
+		public System.Nullable<System.DateTime> datFechaActualizacion
+		{
+			get
+			{
+				return this._datFechaActualizacion;
+			}
+			set
+			{
+				if ((this._datFechaActualizacion != value))
+				{
+					this._datFechaActualizacion = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intVigencia", DbType="Int")]
+		public System.Nullable<int> intVigencia
+		{
+			get
+			{
+				return this._intVigencia;
+			}
+			set
+			{
+				if ((this._intVigencia != value))
+				{
+					this._intVigencia = value;
 				}
 			}
 		}

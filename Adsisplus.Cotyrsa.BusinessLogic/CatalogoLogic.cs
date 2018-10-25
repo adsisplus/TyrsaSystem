@@ -607,12 +607,12 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
             return results;
         }
 
-        public List<ProductoAcero> ListarCatProductoAcero(Int32 intTipoElementoAlmacenID, Int32 intUnidadMedicionID, Int32 intModeloID, Int32 intCalibreAceroID)
+        public List<ProductoAcero> ListarCatProductoAcero(Int32 intTipoElementoAlmacenID, Int32 intUnidadMedicionID, Int32 intCalibreAceroID)
         {
             List<ProductoAcero> results = null;
             try
             {
-                results = CatalogosDA.ListarCatProductoAcero(intTipoElementoAlmacenID, intUnidadMedicionID, intModeloID, intCalibreAceroID);
+                results = CatalogosDA.ListarCatProductoAcero(intTipoElementoAlmacenID, intUnidadMedicionID, intCalibreAceroID);
             }
             catch (Exception ex)
             {

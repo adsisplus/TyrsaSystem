@@ -355,28 +355,6 @@
       <Column Name="bitActivo" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
     </ElementType>
   </Function>
-  <Function Name="dbo.stp_ListarCatProductoAcero" Method="stp_ListarCatProductoAcero">
-    <Parameter Name="intTipoElementoAlmacenID" Type="System.Int32" DbType="Int" />
-    <Parameter Name="intUnidadMedicionID" Type="System.Int32" DbType="Int" />
-    <Parameter Name="intModeloID" Type="System.Int32" DbType="Int" />
-    <Parameter Name="intCalibreAceroID" Type="System.Int32" DbType="Int" />
-    <ElementType Name="stp_ListarCatProductoAceroResult">
-      <Column Name="intTipoElementoAlmacenID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="vchUnidadMedicion" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
-      <Column Name="vchModelo" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
-      <Column Name="vchCalibreAcero" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="vchDescripcionTipoElemento" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
-      <Column Name="decCostoNegra" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
-      <Column Name="decCostoGalvanizada" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
-      <Column Name="decCapacidadAcero" Type="System.Decimal" DbType="Decimal(8,2)" CanBeNull="true" />
-      <Column Name="decFactorNegra" Type="System.Decimal" DbType="Decimal(8,2)" CanBeNull="true" />
-      <Column Name="decFactorGalvanizado" Type="System.Decimal" DbType="Decimal(8,2)" CanBeNull="true" />
-      <Column Name="datFechaAlta" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="datFechaActualizacion" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="intVigencia" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="bitActivo" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-    </ElementType>
-  </Function>
   <Function Name="dbo.stp_ListarCatFactorViga" Method="stp_ListarCatFactorViga">
     <Parameter Name="intCalibreID" Type="System.Int32" DbType="Int" />
     <Parameter Name="sintFamiliaVigaID" Type="System.Int16" DbType="SmallInt" />
@@ -415,6 +393,26 @@
       <Column Name="vchFactor" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
       <Column Name="decFactor" Type="System.Decimal" DbType="Decimal(8,2)" CanBeNull="true" />
       <Column Name="datFechaAlta" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="bitActivo" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.stp_ListarCatProductoAcero" Method="stp_ListarCatProductoAcero">
+    <Parameter Name="intTipoElementoAlmacenID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intUnidadMedicionID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intCalibreAceroID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="stp_ListarCatProductoAceroResult">
+      <Column Name="intTipoElementoAlmacenID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="vchUnidadMedicion" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
+      <Column Name="vchCalibreAcero" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="vchDescripcionTipoElemento" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="decCostoNegra" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
+      <Column Name="decCostoGalvanizada" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
+      <Column Name="decCapacidadAcero" Type="System.Decimal" DbType="Decimal(8,2)" CanBeNull="true" />
+      <Column Name="decFactorNegra" Type="System.Decimal" DbType="Decimal(8,2)" CanBeNull="true" />
+      <Column Name="decFactorGalvanizado" Type="System.Decimal" DbType="Decimal(8,2)" CanBeNull="true" />
+      <Column Name="datFechaAlta" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="datFechaActualizacion" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="intVigencia" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="bitActivo" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
     </ElementType>
   </Function>

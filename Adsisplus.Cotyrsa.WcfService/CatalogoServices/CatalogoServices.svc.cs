@@ -342,12 +342,12 @@ namespace Adsisplus.Cotyrsa.WcfService.CatalogoServices
         /// <param name="intModeloID"></param>
         /// <param name="intCalibreAceroID"></param>
         /// <returns></returns>
-        public List<ProductoAcero> ListarCatProductoAcero(int intTipoElementoAlmacenID, int intUnidadMedicionID, int intModeloID, int intCalibreAceroID)
+        public List<ProductoAcero> ListarCatProductoAcero(int intTipoElementoAlmacenID, int intUnidadMedicionID, int intCalibreAceroID)
         {
             List<ProductoAcero> result = new List<ProductoAcero>();
             try
             {
-                result = (new CatalogoLogic()).ListarCatProductoAcero(intTipoElementoAlmacenID, intUnidadMedicionID, intModeloID, intCalibreAceroID);
+                result = (new CatalogoLogic()).ListarCatProductoAcero(intTipoElementoAlmacenID, intUnidadMedicionID, intCalibreAceroID);
             }
             catch (Exception ex)
             {
