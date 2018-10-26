@@ -1111,6 +1111,7 @@ namespace Adsisplus.Cotyrsa.DataAccess
                                 select new ProductoAcero()
                                 {
                                     intTipoElementoAlmacenID = item.intTipoElementoAlmacenID,
+                                    intCalibreAceroID = item.intCalibreAceroID,
                                     vchUnidadMedicion = item.vchUnidadMedicion,
                                     vchCalibreAcero = item.vchCalibreAcero,
                                     vchDescripcionTipoElemento = item.vchDescripcionTipoElemento,

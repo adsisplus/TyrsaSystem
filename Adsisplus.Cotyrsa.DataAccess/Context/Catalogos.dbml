@@ -403,6 +403,7 @@
     <ElementType Name="stp_ListarCatProductoAceroResult">
       <Column Name="intTipoElementoAlmacenID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="vchUnidadMedicion" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
+      <Column Name="intCalibreAceroID" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="vchCalibreAcero" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Column Name="vchDescripcionTipoElemento" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
       <Column Name="decCostoNegra" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />

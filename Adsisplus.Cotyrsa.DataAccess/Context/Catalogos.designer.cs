@@ -4340,6 +4340,8 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 		
 		private string _vchUnidadMedicion;
 		
+		private System.Nullable<int> _intCalibreAceroID;
+		
 		private string _vchCalibreAcero;
 		
 		private string _vchDescripcionTipoElemento;
@@ -4394,6 +4396,22 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 				if ((this._vchUnidadMedicion != value))
 				{
 					this._vchUnidadMedicion = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intCalibreAceroID", DbType="Int")]
+		public System.Nullable<int> intCalibreAceroID
+		{
+			get
+			{
+				return this._intCalibreAceroID;
+			}
+			set
+			{
+				if ((this._intCalibreAceroID != value))
+				{
+					this._intCalibreAceroID = value;
 				}
 			}
 		}
