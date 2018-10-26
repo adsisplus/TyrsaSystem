@@ -70,6 +70,7 @@
     <Content Include="EmpresaServices\EmpresaServices.svc" />
     <Content Include="Global.asax" />
     <Content Include="MarcosServices\MarcosServices.svc" />
+    <Content Include="MateriaPrimaServices\MateriaPrimaServices.svc" />
     <Content Include="PanelServices\PanelServices.svc" />
     <Content Include="ParrillaServices\ParrillaServices.svc" />
     <Content Include="PersonaServices\PersonaServices.svc" />
@@ -115,6 +116,10 @@
     <Compile Include="MarcosServices\IMarcosServices.cs" />
     <Compile Include="MarcosServices\MarcosServices.svc.cs">
       <DependentUpon>MarcosServices.svc</DependentUpon>
+    </Compile>
+    <Compile Include="MateriaPrimaServices\IMateriaPrimaServices.cs" />
+    <Compile Include="MateriaPrimaServices\MateriaPrimaServices.svc.cs">
+      <DependentUpon>MateriaPrimaServices.svc</DependentUpon>
     </Compile>
     <Compile Include="PanelServices\IPanelServices.cs" />
     <Compile Include="PanelServices\PanelServices.svc.cs">

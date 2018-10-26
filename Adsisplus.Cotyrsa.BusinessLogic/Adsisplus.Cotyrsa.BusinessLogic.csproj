@@ -48,6 +48,7 @@
     <Compile Include="EmpresaLogic.cs" />
     <Compile Include="EventLogManager.cs" />
     <Compile Include="MarcosLogic.cs" />
+    <Compile Include="MateriaPrimaLogic.cs" />
     <Compile Include="PanelLogic.cs" />
     <Compile Include="ParrillaLogic.cs" />
     <Compile Include="PersonaLogic.cs" />

@@ -57,5 +57,8 @@ namespace Adsisplus.Cotyrsa.BusinessEntities
 
         [DataMember]
         public Boolean? bitActivo { get; set; }
+
+        [DataMember]
+        public string vchUsuario { get; set; }
     }
 }

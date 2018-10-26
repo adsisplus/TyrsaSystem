@@ -78,6 +78,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Marcos.dbml</DependentUpon>
     </Compile>
+    <Compile Include="Context\MateriaPrima.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MateriaPrima.dbml</DependentUpon>
+    </Compile>
     <Compile Include="Context\Paneles.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -115,6 +120,7 @@
     <Compile Include="EmpresaDataAccess.cs" />
     <Compile Include="Helper.cs" />
     <Compile Include="MarcosDataAccess.cs" />
+    <Compile Include="MateriaPrimaDataAccess.cs" />
     <Compile Include="PanelDataAccess.cs" />
     <Compile Include="ParrillaDataAccess.cs" />
     <Compile Include="PersonaDataAccess.cs" />
@@ -135,7 +141,9 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Context\Catalogos.dbml">
       <Generator>MSLinqToSQLGenerator</Generator>
       <LastGenOutput>Catalogos.designer.cs</LastGenOutput>
@@ -170,6 +178,14 @@
       <Generator>MSLinqToSQLGenerator</Generator>
       <LastGenOutput>Marcos.designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+    </None>
+    <None Include="Context\MateriaPrima.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>MateriaPrima.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Context\MateriaPrima.dbml.layout">
+      <DependentUpon>MateriaPrima.dbml</DependentUpon>
     </None>
     <None Include="Context\Paneles.dbml">
       <Generator>MSLinqToSQLGenerator</Generator>
