@@ -23,8 +23,8 @@ namespace Adsisplus.Cotyrsa.DataAccess
             {
                 using (MateriaPrimaDataContext dc = new MateriaPrimaDataContext(Helper.ConnectionString()))
                 {
-                    var query = from item in dc.stp_setProductoAcero(producto.intTipoElementoAlmacenID, producto.decCostoNegra, producto.decCostoGalvanizada, producto.decCapacidadAcero,
-                        producto.decFactorNegra, producto.decFactorGalvanizado, producto.intVigencia, producto.vchUsuario, (byte)sintOpcion)
+                    var query = from item in dc.stp_setProductoAcero(producto.intTipoElementoAlmacenID, producto.intCalibreAceroID, producto.decCostoNegra, producto.decCostoGalvanizada, 
+                        producto.decCapacidadAcero, producto.decFactorNegra, producto.decFactorGalvanizado, producto.intVigencia, producto.vchUsuario, (byte)sintOpcion)
                                 select new Resultado
                                 {
                                     vchDescripcion = item.vchDescripcion,
