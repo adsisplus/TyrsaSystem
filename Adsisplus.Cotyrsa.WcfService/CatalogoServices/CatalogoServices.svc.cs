@@ -650,5 +650,22 @@ namespace Adsisplus.Cotyrsa.WcfService.CatalogoServices
             }
             return result;
         }
+        /// <summary>
+        /// Obtiene la lista de categorias
+        /// </summary>
+        /// <returns></returns>
+        public List<Catalogo> ListarCatCategoria()
+        {
+            List<Catalogo> result = new List<Catalogo>();
+            try
+            {
+                result = (new CatalogoLogic()).ListarCatCategoria();
+            }
+            catch (Exception ex)
+            {
+                Adsisplus.Cotyrsa.BusinessLogic.EventLogManager.LogErrorEntry(ex.Message);
+            }
+            return result;
+        }
     }
 }

@@ -121,14 +121,14 @@ namespace Adsisplus.Cotyrsa.DataAccess
             return results;
         }
 
-        public List<FondoMarco> ListarFondoMarco(Int32 sintFondoMarcoID, Int32 sintTipoMarcoID, decimal decFondoMarco)
+        public List<FondoMarco> ListarFondoMarco(Int32 sintFondoMarcoID, Int32 sintTipoMarcoID, decimal decFondoMarco, int intCalibreAceroID)
         {
             List<FondoMarco> results = new List<FondoMarco>();
             try
             {
                 using (MarcosDataContext dc = new MarcosDataContext(Helper.ConnectionString()))
                 {
-                    var query = from item in dc.stp_ListarFondoMarco(sintFondoMarcoID, sintTipoMarcoID, decFondoMarco)
+                    var query = from item in dc.stp_ListarFondoMarco(sintFondoMarcoID, sintTipoMarcoID, intCalibreAceroID, decFondoMarco)
                                 select new FondoMarco()
                                 {
                                     sintFondoMarcoID = item.sintFondoMarcoID,
@@ -201,6 +201,9 @@ namespace Adsisplus.Cotyrsa.DataAccess
                                     vchParaFactorAcero = item.vchParaFactorAcero,
                                     vchFactorAcero = item.vchFactorAcero,
                                     decFactorAcero = item.decFactorAcero,
+                                    
+                                    intCalibreAceroID = item.intCalibreAceroID,
+                                    vchCalibreAcero = item.vchCalibreAcero,
 
                                     bitActivo = item.bitActivo
                                 };

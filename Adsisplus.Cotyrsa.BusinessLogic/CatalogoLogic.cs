@@ -656,6 +656,23 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
             }
             return result;
         }
+        /// <summary>
+        /// Obtiene la lista de categorias
+        /// </summary>
+        /// <returns></returns>
+        public List<Catalogo> ListarCatCategoria()
+        {
+            List<Catalogo> result = new List<Catalogo>();
+            try
+            {
+                result = CatalogosDA.ListarCatCategoria();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
 
         #endregion
     }

@@ -289,5 +289,12 @@ namespace Adsisplus.Cotyrsa.WcfService.CatalogoServices
         [OperationContract]
         [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ListarCatFactorCotizacion")]
         List<FactorCotizacion> ListarCatFactorCotizacion(short sintFactorID);
+        /// <summary>
+        /// Obtiene la lista de categorias
+        /// </summary>
+        /// <returns></returns>
+        [OperationContract]
+        [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ListarCatCategoria")]
+        List<Catalogo> ListarCatCategoria();
     }
 }

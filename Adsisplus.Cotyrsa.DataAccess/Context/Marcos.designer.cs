@@ -114,13 +114,6 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 			return ((ISingleResult<FactorMarcoSP>)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.stp_ListarFondoMarco")]
-		public ISingleResult<stp_ListarFondoMarcoResult> stp_ListarFondoMarco([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> sintFondoMarcoID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> sintTipoMarcoID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Decimal(8,3)")] System.Nullable<decimal> decFondoMarco)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), sintFondoMarcoID, sintTipoMarcoID, decFondoMarco);
-			return ((ISingleResult<stp_ListarFondoMarcoResult>)(result.ReturnValue));
-		}
-		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.stp_ListarCatCargaMarco")]
 		public ISingleResult<CargaMarcoSP> stp_ListarCatCargaMarco([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intCargaMarcoID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="SmallInt")] System.Nullable<short> sintTipoMarcoID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intCalibreAceroID)
 		{
@@ -147,6 +140,13 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), sintFondoMarcoID, decFactor1, decFactor2, decFactor3, decFactor5, decFactor7, decFactor9, decFactor11, decFactor13, decFactor15, decFactor17, decFactor18);
 			return ((ISingleResult<stp_setFondoMarcoResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.stp_ListarFondoMarco")]
+		public ISingleResult<stp_ListarFondoMarcoResult> stp_ListarFondoMarco([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> sintFondoMarcoID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> sintTipoMarcoID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intCalibreAceroID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Decimal(8,3)")] System.Nullable<decimal> decFondoMarco)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), sintFondoMarcoID, sintTipoMarcoID, intCalibreAceroID, decFondoMarco);
+			return ((ISingleResult<stp_ListarFondoMarcoResult>)(result.ReturnValue));
 		}
 	}
 	
@@ -1173,1292 +1173,6 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 		}
 	}
 	
-	public partial class stp_ListarFondoMarcoResult
-	{
-		
-		private short _sintFondoMarcoID;
-		
-		private string _vchTipoMarcoTyrsa;
-		
-		private string _vchFondoMarco;
-		
-		private System.Nullable<decimal> _decFondoMarco;
-		
-		private string _vchParte1;
-		
-		private string _vchDescripcion1;
-		
-		private System.Nullable<decimal> _decFactor1;
-		
-		private string _vchParte2;
-		
-		private string _vchDescripcion2;
-		
-		private System.Nullable<decimal> _decFactor2;
-		
-		private string _vchParte3;
-		
-		private string _vchDescripcion3;
-		
-		private System.Nullable<decimal> _decFactor3;
-		
-		private string _vchParte4;
-		
-		private string _vchDescripcion4;
-		
-		private System.Nullable<decimal> _decFactor4;
-		
-		private string _vchParte5;
-		
-		private string _vchDescripcion5;
-		
-		private System.Nullable<decimal> _decFactor5;
-		
-		private string _vchParte6;
-		
-		private string _vchDescripcion6;
-		
-		private System.Nullable<decimal> _decFactor6;
-		
-		private string _vchParte7;
-		
-		private string _vchDescripcion7;
-		
-		private System.Nullable<decimal> _decFactor7;
-		
-		private string _vchParte8;
-		
-		private string _vchDescripcion8;
-		
-		private System.Nullable<decimal> _decFactor8;
-		
-		private string _vchParte9;
-		
-		private string _vchDescripcion9;
-		
-		private System.Nullable<decimal> _decFactor9;
-		
-		private string _vchParte10;
-		
-		private string _vchDescripcion10;
-		
-		private System.Nullable<decimal> _decFactor10;
-		
-		private string _vchParte11;
-		
-		private string _vchDescripcion11;
-		
-		private System.Nullable<decimal> _decFactor11;
-		
-		private string _vchParte12;
-		
-		private string _vchDescripcion12;
-		
-		private System.Nullable<decimal> _decFactor12;
-		
-		private string _vchParte13;
-		
-		private string _vchDescripcion13;
-		
-		private System.Nullable<decimal> _decFactor13;
-		
-		private string _vchParte14;
-		
-		private string _vchDescripcion14;
-		
-		private System.Nullable<decimal> _decFactor14;
-		
-		private string _vchParte15;
-		
-		private string _vchDescripcion15;
-		
-		private System.Nullable<decimal> _decFactor15;
-		
-		private string _vchParte16;
-		
-		private string _vchDescripcion16;
-		
-		private System.Nullable<decimal> _decFactor16;
-		
-		private string _vchParte17;
-		
-		private string _vchDescripcion17;
-		
-		private System.Nullable<decimal> _decFactor17;
-		
-		private string _vchParte18;
-		
-		private string _vchDescripcion18;
-		
-		private System.Nullable<decimal> _decFactor18;
-		
-		private string _vchParte19;
-		
-		private string _vchDescripcion19;
-		
-		private System.Nullable<decimal> _decFactor19;
-		
-		private string _vchParaCostoLamina;
-		
-		private string _vchCostoLamina;
-		
-		private System.Nullable<decimal> _decCostoLamina;
-		
-		private string _vchParaCostoSolera;
-		
-		private string _vchCostoSolera;
-		
-		private System.Nullable<decimal> _decCostoSolera;
-		
-		private string _vchParaFactorAcero;
-		
-		private string _vchFactorAcero;
-		
-		private System.Nullable<decimal> _decFactorAcero;
-		
-		private System.Nullable<bool> _bitActivo;
-		
-		public stp_ListarFondoMarcoResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sintFondoMarcoID", DbType="SmallInt NOT NULL")]
-		public short sintFondoMarcoID
-		{
-			get
-			{
-				return this._sintFondoMarcoID;
-			}
-			set
-			{
-				if ((this._sintFondoMarcoID != value))
-				{
-					this._sintFondoMarcoID = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchTipoMarcoTyrsa", DbType="VarChar(25)")]
-		public string vchTipoMarcoTyrsa
-		{
-			get
-			{
-				return this._vchTipoMarcoTyrsa;
-			}
-			set
-			{
-				if ((this._vchTipoMarcoTyrsa != value))
-				{
-					this._vchTipoMarcoTyrsa = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchFondoMarco", DbType="VarChar(250)")]
-		public string vchFondoMarco
-		{
-			get
-			{
-				return this._vchFondoMarco;
-			}
-			set
-			{
-				if ((this._vchFondoMarco != value))
-				{
-					this._vchFondoMarco = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decFondoMarco", DbType="Decimal(18,4)")]
-		public System.Nullable<decimal> decFondoMarco
-		{
-			get
-			{
-				return this._decFondoMarco;
-			}
-			set
-			{
-				if ((this._decFondoMarco != value))
-				{
-					this._decFondoMarco = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchParte1", DbType="VarChar(100)")]
-		public string vchParte1
-		{
-			get
-			{
-				return this._vchParte1;
-			}
-			set
-			{
-				if ((this._vchParte1 != value))
-				{
-					this._vchParte1 = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchDescripcion1", DbType="VarChar(250)")]
-		public string vchDescripcion1
-		{
-			get
-			{
-				return this._vchDescripcion1;
-			}
-			set
-			{
-				if ((this._vchDescripcion1 != value))
-				{
-					this._vchDescripcion1 = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decFactor1", DbType="Decimal(18,4)")]
-		public System.Nullable<decimal> decFactor1
-		{
-			get
-			{
-				return this._decFactor1;
-			}
-			set
-			{
-				if ((this._decFactor1 != value))
-				{
-					this._decFactor1 = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchParte2", DbType="VarChar(100)")]
-		public string vchParte2
-		{
-			get
-			{
-				return this._vchParte2;
-			}
-			set
-			{
-				if ((this._vchParte2 != value))
-				{
-					this._vchParte2 = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchDescripcion2", DbType="VarChar(250)")]
-		public string vchDescripcion2
-		{
-			get
-			{
-				return this._vchDescripcion2;
-			}
-			set
-			{
-				if ((this._vchDescripcion2 != value))
-				{
-					this._vchDescripcion2 = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decFactor2", DbType="Decimal(18,4)")]
-		public System.Nullable<decimal> decFactor2
-		{
-			get
-			{
-				return this._decFactor2;
-			}
-			set
-			{
-				if ((this._decFactor2 != value))
-				{
-					this._decFactor2 = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchParte3", DbType="VarChar(100)")]
-		public string vchParte3
-		{
-			get
-			{
-				return this._vchParte3;
-			}
-			set
-			{
-				if ((this._vchParte3 != value))
-				{
-					this._vchParte3 = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchDescripcion3", DbType="VarChar(250)")]
-		public string vchDescripcion3
-		{
-			get
-			{
-				return this._vchDescripcion3;
-			}
-			set
-			{
-				if ((this._vchDescripcion3 != value))
-				{
-					this._vchDescripcion3 = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decFactor3", DbType="Decimal(18,4)")]
-		public System.Nullable<decimal> decFactor3
-		{
-			get
-			{
-				return this._decFactor3;
-			}
-			set
-			{
-				if ((this._decFactor3 != value))
-				{
-					this._decFactor3 = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchParte4", DbType="VarChar(100)")]
-		public string vchParte4
-		{
-			get
-			{
-				return this._vchParte4;
-			}
-			set
-			{
-				if ((this._vchParte4 != value))
-				{
-					this._vchParte4 = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchDescripcion4", DbType="VarChar(250)")]
-		public string vchDescripcion4
-		{
-			get
-			{
-				return this._vchDescripcion4;
-			}
-			set
-			{
-				if ((this._vchDescripcion4 != value))
-				{
-					this._vchDescripcion4 = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decFactor4", DbType="Decimal(18,4)")]
-		public System.Nullable<decimal> decFactor4
-		{
-			get
-			{
-				return this._decFactor4;
-			}
-			set
-			{
-				if ((this._decFactor4 != value))
-				{
-					this._decFactor4 = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchParte5", DbType="VarChar(100)")]
-		public string vchParte5
-		{
-			get
-			{
-				return this._vchParte5;
-			}
-			set
-			{
-				if ((this._vchParte5 != value))
-				{
-					this._vchParte5 = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchDescripcion5", DbType="VarChar(250)")]
-		public string vchDescripcion5
-		{
-			get
-			{
-				return this._vchDescripcion5;
-			}
-			set
-			{
-				if ((this._vchDescripcion5 != value))
-				{
-					this._vchDescripcion5 = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decFactor5", DbType="Decimal(18,4)")]
-		public System.Nullable<decimal> decFactor5
-		{
-			get
-			{
-				return this._decFactor5;
-			}
-			set
-			{
-				if ((this._decFactor5 != value))
-				{
-					this._decFactor5 = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchParte6", DbType="VarChar(100)")]
-		public string vchParte6
-		{
-			get
-			{
-				return this._vchParte6;
-			}
-			set
-			{
-				if ((this._vchParte6 != value))
-				{
-					this._vchParte6 = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchDescripcion6", DbType="VarChar(250)")]
-		public string vchDescripcion6
-		{
-			get
-			{
-				return this._vchDescripcion6;
-			}
-			set
-			{
-				if ((this._vchDescripcion6 != value))
-				{
-					this._vchDescripcion6 = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decFactor6", DbType="Decimal(18,4)")]
-		public System.Nullable<decimal> decFactor6
-		{
-			get
-			{
-				return this._decFactor6;
-			}
-			set
-			{
-				if ((this._decFactor6 != value))
-				{
-					this._decFactor6 = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchParte7", DbType="VarChar(100)")]
-		public string vchParte7
-		{
-			get
-			{
-				return this._vchParte7;
-			}
-			set
-			{
-				if ((this._vchParte7 != value))
-				{
-					this._vchParte7 = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchDescripcion7", DbType="VarChar(250)")]
-		public string vchDescripcion7
-		{
-			get
-			{
-				return this._vchDescripcion7;
-			}
-			set
-			{
-				if ((this._vchDescripcion7 != value))
-				{
-					this._vchDescripcion7 = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decFactor7", DbType="Decimal(18,4)")]
-		public System.Nullable<decimal> decFactor7
-		{
-			get
-			{
-				return this._decFactor7;
-			}
-			set
-			{
-				if ((this._decFactor7 != value))
-				{
-					this._decFactor7 = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchParte8", DbType="VarChar(100)")]
-		public string vchParte8
-		{
-			get
-			{
-				return this._vchParte8;
-			}
-			set
-			{
-				if ((this._vchParte8 != value))
-				{
-					this._vchParte8 = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchDescripcion8", DbType="VarChar(250)")]
-		public string vchDescripcion8
-		{
-			get
-			{
-				return this._vchDescripcion8;
-			}
-			set
-			{
-				if ((this._vchDescripcion8 != value))
-				{
-					this._vchDescripcion8 = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decFactor8", DbType="Decimal(18,4)")]
-		public System.Nullable<decimal> decFactor8
-		{
-			get
-			{
-				return this._decFactor8;
-			}
-			set
-			{
-				if ((this._decFactor8 != value))
-				{
-					this._decFactor8 = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchParte9", DbType="VarChar(100)")]
-		public string vchParte9
-		{
-			get
-			{
-				return this._vchParte9;
-			}
-			set
-			{
-				if ((this._vchParte9 != value))
-				{
-					this._vchParte9 = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchDescripcion9", DbType="VarChar(250)")]
-		public string vchDescripcion9
-		{
-			get
-			{
-				return this._vchDescripcion9;
-			}
-			set
-			{
-				if ((this._vchDescripcion9 != value))
-				{
-					this._vchDescripcion9 = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decFactor9", DbType="Decimal(18,4)")]
-		public System.Nullable<decimal> decFactor9
-		{
-			get
-			{
-				return this._decFactor9;
-			}
-			set
-			{
-				if ((this._decFactor9 != value))
-				{
-					this._decFactor9 = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchParte10", DbType="VarChar(100)")]
-		public string vchParte10
-		{
-			get
-			{
-				return this._vchParte10;
-			}
-			set
-			{
-				if ((this._vchParte10 != value))
-				{
-					this._vchParte10 = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchDescripcion10", DbType="VarChar(100)")]
-		public string vchDescripcion10
-		{
-			get
-			{
-				return this._vchDescripcion10;
-			}
-			set
-			{
-				if ((this._vchDescripcion10 != value))
-				{
-					this._vchDescripcion10 = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decFactor10", DbType="Decimal(18,4)")]
-		public System.Nullable<decimal> decFactor10
-		{
-			get
-			{
-				return this._decFactor10;
-			}
-			set
-			{
-				if ((this._decFactor10 != value))
-				{
-					this._decFactor10 = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchParte11", DbType="VarChar(100)")]
-		public string vchParte11
-		{
-			get
-			{
-				return this._vchParte11;
-			}
-			set
-			{
-				if ((this._vchParte11 != value))
-				{
-					this._vchParte11 = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchDescripcion11", DbType="VarChar(250)")]
-		public string vchDescripcion11
-		{
-			get
-			{
-				return this._vchDescripcion11;
-			}
-			set
-			{
-				if ((this._vchDescripcion11 != value))
-				{
-					this._vchDescripcion11 = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decFactor11", DbType="Decimal(18,4)")]
-		public System.Nullable<decimal> decFactor11
-		{
-			get
-			{
-				return this._decFactor11;
-			}
-			set
-			{
-				if ((this._decFactor11 != value))
-				{
-					this._decFactor11 = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchParte12", DbType="VarChar(100)")]
-		public string vchParte12
-		{
-			get
-			{
-				return this._vchParte12;
-			}
-			set
-			{
-				if ((this._vchParte12 != value))
-				{
-					this._vchParte12 = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchDescripcion12", DbType="VarChar(250)")]
-		public string vchDescripcion12
-		{
-			get
-			{
-				return this._vchDescripcion12;
-			}
-			set
-			{
-				if ((this._vchDescripcion12 != value))
-				{
-					this._vchDescripcion12 = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decFactor12", DbType="Decimal(18,4)")]
-		public System.Nullable<decimal> decFactor12
-		{
-			get
-			{
-				return this._decFactor12;
-			}
-			set
-			{
-				if ((this._decFactor12 != value))
-				{
-					this._decFactor12 = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchParte13", DbType="VarChar(100)")]
-		public string vchParte13
-		{
-			get
-			{
-				return this._vchParte13;
-			}
-			set
-			{
-				if ((this._vchParte13 != value))
-				{
-					this._vchParte13 = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchDescripcion13", DbType="VarChar(250)")]
-		public string vchDescripcion13
-		{
-			get
-			{
-				return this._vchDescripcion13;
-			}
-			set
-			{
-				if ((this._vchDescripcion13 != value))
-				{
-					this._vchDescripcion13 = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decFactor13", DbType="Decimal(18,4)")]
-		public System.Nullable<decimal> decFactor13
-		{
-			get
-			{
-				return this._decFactor13;
-			}
-			set
-			{
-				if ((this._decFactor13 != value))
-				{
-					this._decFactor13 = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchParte14", DbType="VarChar(100)")]
-		public string vchParte14
-		{
-			get
-			{
-				return this._vchParte14;
-			}
-			set
-			{
-				if ((this._vchParte14 != value))
-				{
-					this._vchParte14 = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchDescripcion14", DbType="VarChar(250)")]
-		public string vchDescripcion14
-		{
-			get
-			{
-				return this._vchDescripcion14;
-			}
-			set
-			{
-				if ((this._vchDescripcion14 != value))
-				{
-					this._vchDescripcion14 = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decFactor14", DbType="Decimal(18,4)")]
-		public System.Nullable<decimal> decFactor14
-		{
-			get
-			{
-				return this._decFactor14;
-			}
-			set
-			{
-				if ((this._decFactor14 != value))
-				{
-					this._decFactor14 = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchParte15", DbType="VarChar(100)")]
-		public string vchParte15
-		{
-			get
-			{
-				return this._vchParte15;
-			}
-			set
-			{
-				if ((this._vchParte15 != value))
-				{
-					this._vchParte15 = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchDescripcion15", DbType="VarChar(250)")]
-		public string vchDescripcion15
-		{
-			get
-			{
-				return this._vchDescripcion15;
-			}
-			set
-			{
-				if ((this._vchDescripcion15 != value))
-				{
-					this._vchDescripcion15 = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decFactor15", DbType="Decimal(18,4)")]
-		public System.Nullable<decimal> decFactor15
-		{
-			get
-			{
-				return this._decFactor15;
-			}
-			set
-			{
-				if ((this._decFactor15 != value))
-				{
-					this._decFactor15 = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchParte16", DbType="VarChar(100)")]
-		public string vchParte16
-		{
-			get
-			{
-				return this._vchParte16;
-			}
-			set
-			{
-				if ((this._vchParte16 != value))
-				{
-					this._vchParte16 = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchDescripcion16", DbType="VarChar(250)")]
-		public string vchDescripcion16
-		{
-			get
-			{
-				return this._vchDescripcion16;
-			}
-			set
-			{
-				if ((this._vchDescripcion16 != value))
-				{
-					this._vchDescripcion16 = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decFactor16", DbType="Decimal(18,4)")]
-		public System.Nullable<decimal> decFactor16
-		{
-			get
-			{
-				return this._decFactor16;
-			}
-			set
-			{
-				if ((this._decFactor16 != value))
-				{
-					this._decFactor16 = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchParte17", DbType="VarChar(100)")]
-		public string vchParte17
-		{
-			get
-			{
-				return this._vchParte17;
-			}
-			set
-			{
-				if ((this._vchParte17 != value))
-				{
-					this._vchParte17 = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchDescripcion17", DbType="VarChar(250)")]
-		public string vchDescripcion17
-		{
-			get
-			{
-				return this._vchDescripcion17;
-			}
-			set
-			{
-				if ((this._vchDescripcion17 != value))
-				{
-					this._vchDescripcion17 = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decFactor17", DbType="Decimal(18,4)")]
-		public System.Nullable<decimal> decFactor17
-		{
-			get
-			{
-				return this._decFactor17;
-			}
-			set
-			{
-				if ((this._decFactor17 != value))
-				{
-					this._decFactor17 = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchParte18", DbType="VarChar(100)")]
-		public string vchParte18
-		{
-			get
-			{
-				return this._vchParte18;
-			}
-			set
-			{
-				if ((this._vchParte18 != value))
-				{
-					this._vchParte18 = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchDescripcion18", DbType="VarChar(250)")]
-		public string vchDescripcion18
-		{
-			get
-			{
-				return this._vchDescripcion18;
-			}
-			set
-			{
-				if ((this._vchDescripcion18 != value))
-				{
-					this._vchDescripcion18 = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decFactor18", DbType="Decimal(18,4)")]
-		public System.Nullable<decimal> decFactor18
-		{
-			get
-			{
-				return this._decFactor18;
-			}
-			set
-			{
-				if ((this._decFactor18 != value))
-				{
-					this._decFactor18 = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchParte19", DbType="VarChar(100)")]
-		public string vchParte19
-		{
-			get
-			{
-				return this._vchParte19;
-			}
-			set
-			{
-				if ((this._vchParte19 != value))
-				{
-					this._vchParte19 = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchDescripcion19", DbType="VarChar(250)")]
-		public string vchDescripcion19
-		{
-			get
-			{
-				return this._vchDescripcion19;
-			}
-			set
-			{
-				if ((this._vchDescripcion19 != value))
-				{
-					this._vchDescripcion19 = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decFactor19", DbType="Decimal(18,4)")]
-		public System.Nullable<decimal> decFactor19
-		{
-			get
-			{
-				return this._decFactor19;
-			}
-			set
-			{
-				if ((this._decFactor19 != value))
-				{
-					this._decFactor19 = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchParaCostoLamina", DbType="VarChar(100)")]
-		public string vchParaCostoLamina
-		{
-			get
-			{
-				return this._vchParaCostoLamina;
-			}
-			set
-			{
-				if ((this._vchParaCostoLamina != value))
-				{
-					this._vchParaCostoLamina = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchCostoLamina", DbType="VarChar(250)")]
-		public string vchCostoLamina
-		{
-			get
-			{
-				return this._vchCostoLamina;
-			}
-			set
-			{
-				if ((this._vchCostoLamina != value))
-				{
-					this._vchCostoLamina = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decCostoLamina", DbType="Decimal(18,4)")]
-		public System.Nullable<decimal> decCostoLamina
-		{
-			get
-			{
-				return this._decCostoLamina;
-			}
-			set
-			{
-				if ((this._decCostoLamina != value))
-				{
-					this._decCostoLamina = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchParaCostoSolera", DbType="VarChar(100)")]
-		public string vchParaCostoSolera
-		{
-			get
-			{
-				return this._vchParaCostoSolera;
-			}
-			set
-			{
-				if ((this._vchParaCostoSolera != value))
-				{
-					this._vchParaCostoSolera = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchCostoSolera", DbType="VarChar(250)")]
-		public string vchCostoSolera
-		{
-			get
-			{
-				return this._vchCostoSolera;
-			}
-			set
-			{
-				if ((this._vchCostoSolera != value))
-				{
-					this._vchCostoSolera = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decCostoSolera", DbType="Decimal(18,4)")]
-		public System.Nullable<decimal> decCostoSolera
-		{
-			get
-			{
-				return this._decCostoSolera;
-			}
-			set
-			{
-				if ((this._decCostoSolera != value))
-				{
-					this._decCostoSolera = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchParaFactorAcero", DbType="VarChar(100)")]
-		public string vchParaFactorAcero
-		{
-			get
-			{
-				return this._vchParaFactorAcero;
-			}
-			set
-			{
-				if ((this._vchParaFactorAcero != value))
-				{
-					this._vchParaFactorAcero = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchFactorAcero", DbType="VarChar(250)")]
-		public string vchFactorAcero
-		{
-			get
-			{
-				return this._vchFactorAcero;
-			}
-			set
-			{
-				if ((this._vchFactorAcero != value))
-				{
-					this._vchFactorAcero = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decFactorAcero", DbType="Decimal(18,4)")]
-		public System.Nullable<decimal> decFactorAcero
-		{
-			get
-			{
-				return this._decFactorAcero;
-			}
-			set
-			{
-				if ((this._decFactorAcero != value))
-				{
-					this._decFactorAcero = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_bitActivo", DbType="Bit")]
-		public System.Nullable<bool> bitActivo
-		{
-			get
-			{
-				return this._bitActivo;
-			}
-			set
-			{
-				if ((this._bitActivo != value))
-				{
-					this._bitActivo = value;
-				}
-			}
-		}
-	}
-	
 	public partial class stp_ConfiguraMarcoResult
 	{
 		
@@ -3010,6 +1724,1328 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 				if ((this._vchDescripcion != value))
 				{
 					this._vchDescripcion = value;
+				}
+			}
+		}
+	}
+	
+	public partial class stp_ListarFondoMarcoResult
+	{
+		
+		private short _sintFondoMarcoID;
+		
+		private string _vchTipoMarcoTyrsa;
+		
+		private System.Nullable<int> _intCalibreAceroID;
+		
+		private string _vchCalibreAcero;
+		
+		private string _vchFondoMarco;
+		
+		private System.Nullable<decimal> _decFondoMarco;
+		
+		private string _vchParte1;
+		
+		private string _vchDescripcion1;
+		
+		private System.Nullable<decimal> _decFactor1;
+		
+		private string _vchParte2;
+		
+		private string _vchDescripcion2;
+		
+		private System.Nullable<decimal> _decFactor2;
+		
+		private string _vchParte3;
+		
+		private string _vchDescripcion3;
+		
+		private System.Nullable<decimal> _decFactor3;
+		
+		private string _vchParte4;
+		
+		private string _vchDescripcion4;
+		
+		private System.Nullable<decimal> _decFactor4;
+		
+		private string _vchParte5;
+		
+		private string _vchDescripcion5;
+		
+		private System.Nullable<decimal> _decFactor5;
+		
+		private string _vchParte6;
+		
+		private string _vchDescripcion6;
+		
+		private System.Nullable<decimal> _decFactor6;
+		
+		private string _vchParte7;
+		
+		private string _vchDescripcion7;
+		
+		private System.Nullable<decimal> _decFactor7;
+		
+		private string _vchParte8;
+		
+		private string _vchDescripcion8;
+		
+		private System.Nullable<decimal> _decFactor8;
+		
+		private string _vchParte9;
+		
+		private string _vchDescripcion9;
+		
+		private System.Nullable<decimal> _decFactor9;
+		
+		private string _vchParte10;
+		
+		private string _vchDescripcion10;
+		
+		private System.Nullable<decimal> _decFactor10;
+		
+		private string _vchParte11;
+		
+		private string _vchDescripcion11;
+		
+		private System.Nullable<decimal> _decFactor11;
+		
+		private string _vchParte12;
+		
+		private string _vchDescripcion12;
+		
+		private System.Nullable<decimal> _decFactor12;
+		
+		private string _vchParte13;
+		
+		private string _vchDescripcion13;
+		
+		private System.Nullable<decimal> _decFactor13;
+		
+		private string _vchParte14;
+		
+		private string _vchDescripcion14;
+		
+		private System.Nullable<decimal> _decFactor14;
+		
+		private string _vchParte15;
+		
+		private string _vchDescripcion15;
+		
+		private System.Nullable<decimal> _decFactor15;
+		
+		private string _vchParte16;
+		
+		private string _vchDescripcion16;
+		
+		private System.Nullable<decimal> _decFactor16;
+		
+		private string _vchParte17;
+		
+		private string _vchDescripcion17;
+		
+		private System.Nullable<decimal> _decFactor17;
+		
+		private string _vchParte18;
+		
+		private string _vchDescripcion18;
+		
+		private System.Nullable<decimal> _decFactor18;
+		
+		private string _vchParte19;
+		
+		private string _vchDescripcion19;
+		
+		private System.Nullable<decimal> _decFactor19;
+		
+		private string _vchParaCostoLamina;
+		
+		private string _vchCostoLamina;
+		
+		private System.Nullable<decimal> _decCostoLamina;
+		
+		private string _vchParaCostoSolera;
+		
+		private string _vchCostoSolera;
+		
+		private System.Nullable<decimal> _decCostoSolera;
+		
+		private string _vchParaFactorAcero;
+		
+		private string _vchFactorAcero;
+		
+		private System.Nullable<decimal> _decFactorAcero;
+		
+		private System.Nullable<bool> _bitActivo;
+		
+		public stp_ListarFondoMarcoResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sintFondoMarcoID", DbType="SmallInt NOT NULL")]
+		public short sintFondoMarcoID
+		{
+			get
+			{
+				return this._sintFondoMarcoID;
+			}
+			set
+			{
+				if ((this._sintFondoMarcoID != value))
+				{
+					this._sintFondoMarcoID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchTipoMarcoTyrsa", DbType="VarChar(25)")]
+		public string vchTipoMarcoTyrsa
+		{
+			get
+			{
+				return this._vchTipoMarcoTyrsa;
+			}
+			set
+			{
+				if ((this._vchTipoMarcoTyrsa != value))
+				{
+					this._vchTipoMarcoTyrsa = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intCalibreAceroID", DbType="Int")]
+		public System.Nullable<int> intCalibreAceroID
+		{
+			get
+			{
+				return this._intCalibreAceroID;
+			}
+			set
+			{
+				if ((this._intCalibreAceroID != value))
+				{
+					this._intCalibreAceroID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchCalibreAcero", DbType="VarChar(50)")]
+		public string vchCalibreAcero
+		{
+			get
+			{
+				return this._vchCalibreAcero;
+			}
+			set
+			{
+				if ((this._vchCalibreAcero != value))
+				{
+					this._vchCalibreAcero = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchFondoMarco", DbType="VarChar(250)")]
+		public string vchFondoMarco
+		{
+			get
+			{
+				return this._vchFondoMarco;
+			}
+			set
+			{
+				if ((this._vchFondoMarco != value))
+				{
+					this._vchFondoMarco = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decFondoMarco", DbType="Decimal(18,4)")]
+		public System.Nullable<decimal> decFondoMarco
+		{
+			get
+			{
+				return this._decFondoMarco;
+			}
+			set
+			{
+				if ((this._decFondoMarco != value))
+				{
+					this._decFondoMarco = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchParte1", DbType="VarChar(100)")]
+		public string vchParte1
+		{
+			get
+			{
+				return this._vchParte1;
+			}
+			set
+			{
+				if ((this._vchParte1 != value))
+				{
+					this._vchParte1 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchDescripcion1", DbType="VarChar(250)")]
+		public string vchDescripcion1
+		{
+			get
+			{
+				return this._vchDescripcion1;
+			}
+			set
+			{
+				if ((this._vchDescripcion1 != value))
+				{
+					this._vchDescripcion1 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decFactor1", DbType="Decimal(18,4)")]
+		public System.Nullable<decimal> decFactor1
+		{
+			get
+			{
+				return this._decFactor1;
+			}
+			set
+			{
+				if ((this._decFactor1 != value))
+				{
+					this._decFactor1 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchParte2", DbType="VarChar(100)")]
+		public string vchParte2
+		{
+			get
+			{
+				return this._vchParte2;
+			}
+			set
+			{
+				if ((this._vchParte2 != value))
+				{
+					this._vchParte2 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchDescripcion2", DbType="VarChar(250)")]
+		public string vchDescripcion2
+		{
+			get
+			{
+				return this._vchDescripcion2;
+			}
+			set
+			{
+				if ((this._vchDescripcion2 != value))
+				{
+					this._vchDescripcion2 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decFactor2", DbType="Decimal(18,4)")]
+		public System.Nullable<decimal> decFactor2
+		{
+			get
+			{
+				return this._decFactor2;
+			}
+			set
+			{
+				if ((this._decFactor2 != value))
+				{
+					this._decFactor2 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchParte3", DbType="VarChar(100)")]
+		public string vchParte3
+		{
+			get
+			{
+				return this._vchParte3;
+			}
+			set
+			{
+				if ((this._vchParte3 != value))
+				{
+					this._vchParte3 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchDescripcion3", DbType="VarChar(250)")]
+		public string vchDescripcion3
+		{
+			get
+			{
+				return this._vchDescripcion3;
+			}
+			set
+			{
+				if ((this._vchDescripcion3 != value))
+				{
+					this._vchDescripcion3 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decFactor3", DbType="Decimal(18,4)")]
+		public System.Nullable<decimal> decFactor3
+		{
+			get
+			{
+				return this._decFactor3;
+			}
+			set
+			{
+				if ((this._decFactor3 != value))
+				{
+					this._decFactor3 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchParte4", DbType="VarChar(100)")]
+		public string vchParte4
+		{
+			get
+			{
+				return this._vchParte4;
+			}
+			set
+			{
+				if ((this._vchParte4 != value))
+				{
+					this._vchParte4 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchDescripcion4", DbType="VarChar(250)")]
+		public string vchDescripcion4
+		{
+			get
+			{
+				return this._vchDescripcion4;
+			}
+			set
+			{
+				if ((this._vchDescripcion4 != value))
+				{
+					this._vchDescripcion4 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decFactor4", DbType="Decimal(18,8)")]
+		public System.Nullable<decimal> decFactor4
+		{
+			get
+			{
+				return this._decFactor4;
+			}
+			set
+			{
+				if ((this._decFactor4 != value))
+				{
+					this._decFactor4 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchParte5", DbType="VarChar(100)")]
+		public string vchParte5
+		{
+			get
+			{
+				return this._vchParte5;
+			}
+			set
+			{
+				if ((this._vchParte5 != value))
+				{
+					this._vchParte5 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchDescripcion5", DbType="VarChar(250)")]
+		public string vchDescripcion5
+		{
+			get
+			{
+				return this._vchDescripcion5;
+			}
+			set
+			{
+				if ((this._vchDescripcion5 != value))
+				{
+					this._vchDescripcion5 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decFactor5", DbType="Decimal(18,4)")]
+		public System.Nullable<decimal> decFactor5
+		{
+			get
+			{
+				return this._decFactor5;
+			}
+			set
+			{
+				if ((this._decFactor5 != value))
+				{
+					this._decFactor5 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchParte6", DbType="VarChar(100)")]
+		public string vchParte6
+		{
+			get
+			{
+				return this._vchParte6;
+			}
+			set
+			{
+				if ((this._vchParte6 != value))
+				{
+					this._vchParte6 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchDescripcion6", DbType="VarChar(250)")]
+		public string vchDescripcion6
+		{
+			get
+			{
+				return this._vchDescripcion6;
+			}
+			set
+			{
+				if ((this._vchDescripcion6 != value))
+				{
+					this._vchDescripcion6 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decFactor6", DbType="Decimal(18,4)")]
+		public System.Nullable<decimal> decFactor6
+		{
+			get
+			{
+				return this._decFactor6;
+			}
+			set
+			{
+				if ((this._decFactor6 != value))
+				{
+					this._decFactor6 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchParte7", DbType="VarChar(100)")]
+		public string vchParte7
+		{
+			get
+			{
+				return this._vchParte7;
+			}
+			set
+			{
+				if ((this._vchParte7 != value))
+				{
+					this._vchParte7 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchDescripcion7", DbType="VarChar(250)")]
+		public string vchDescripcion7
+		{
+			get
+			{
+				return this._vchDescripcion7;
+			}
+			set
+			{
+				if ((this._vchDescripcion7 != value))
+				{
+					this._vchDescripcion7 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decFactor7", DbType="Decimal(18,4)")]
+		public System.Nullable<decimal> decFactor7
+		{
+			get
+			{
+				return this._decFactor7;
+			}
+			set
+			{
+				if ((this._decFactor7 != value))
+				{
+					this._decFactor7 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchParte8", DbType="VarChar(100)")]
+		public string vchParte8
+		{
+			get
+			{
+				return this._vchParte8;
+			}
+			set
+			{
+				if ((this._vchParte8 != value))
+				{
+					this._vchParte8 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchDescripcion8", DbType="VarChar(250)")]
+		public string vchDescripcion8
+		{
+			get
+			{
+				return this._vchDescripcion8;
+			}
+			set
+			{
+				if ((this._vchDescripcion8 != value))
+				{
+					this._vchDescripcion8 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decFactor8", DbType="Decimal(18,8)")]
+		public System.Nullable<decimal> decFactor8
+		{
+			get
+			{
+				return this._decFactor8;
+			}
+			set
+			{
+				if ((this._decFactor8 != value))
+				{
+					this._decFactor8 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchParte9", DbType="VarChar(100)")]
+		public string vchParte9
+		{
+			get
+			{
+				return this._vchParte9;
+			}
+			set
+			{
+				if ((this._vchParte9 != value))
+				{
+					this._vchParte9 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchDescripcion9", DbType="VarChar(250)")]
+		public string vchDescripcion9
+		{
+			get
+			{
+				return this._vchDescripcion9;
+			}
+			set
+			{
+				if ((this._vchDescripcion9 != value))
+				{
+					this._vchDescripcion9 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decFactor9", DbType="Decimal(18,4)")]
+		public System.Nullable<decimal> decFactor9
+		{
+			get
+			{
+				return this._decFactor9;
+			}
+			set
+			{
+				if ((this._decFactor9 != value))
+				{
+					this._decFactor9 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchParte10", DbType="VarChar(100)")]
+		public string vchParte10
+		{
+			get
+			{
+				return this._vchParte10;
+			}
+			set
+			{
+				if ((this._vchParte10 != value))
+				{
+					this._vchParte10 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchDescripcion10", DbType="VarChar(100)")]
+		public string vchDescripcion10
+		{
+			get
+			{
+				return this._vchDescripcion10;
+			}
+			set
+			{
+				if ((this._vchDescripcion10 != value))
+				{
+					this._vchDescripcion10 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decFactor10", DbType="Decimal(18,4)")]
+		public System.Nullable<decimal> decFactor10
+		{
+			get
+			{
+				return this._decFactor10;
+			}
+			set
+			{
+				if ((this._decFactor10 != value))
+				{
+					this._decFactor10 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchParte11", DbType="VarChar(100)")]
+		public string vchParte11
+		{
+			get
+			{
+				return this._vchParte11;
+			}
+			set
+			{
+				if ((this._vchParte11 != value))
+				{
+					this._vchParte11 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchDescripcion11", DbType="VarChar(250)")]
+		public string vchDescripcion11
+		{
+			get
+			{
+				return this._vchDescripcion11;
+			}
+			set
+			{
+				if ((this._vchDescripcion11 != value))
+				{
+					this._vchDescripcion11 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decFactor11", DbType="Decimal(18,4)")]
+		public System.Nullable<decimal> decFactor11
+		{
+			get
+			{
+				return this._decFactor11;
+			}
+			set
+			{
+				if ((this._decFactor11 != value))
+				{
+					this._decFactor11 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchParte12", DbType="VarChar(100)")]
+		public string vchParte12
+		{
+			get
+			{
+				return this._vchParte12;
+			}
+			set
+			{
+				if ((this._vchParte12 != value))
+				{
+					this._vchParte12 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchDescripcion12", DbType="VarChar(250)")]
+		public string vchDescripcion12
+		{
+			get
+			{
+				return this._vchDescripcion12;
+			}
+			set
+			{
+				if ((this._vchDescripcion12 != value))
+				{
+					this._vchDescripcion12 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decFactor12", DbType="Decimal(18,4)")]
+		public System.Nullable<decimal> decFactor12
+		{
+			get
+			{
+				return this._decFactor12;
+			}
+			set
+			{
+				if ((this._decFactor12 != value))
+				{
+					this._decFactor12 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchParte13", DbType="VarChar(100)")]
+		public string vchParte13
+		{
+			get
+			{
+				return this._vchParte13;
+			}
+			set
+			{
+				if ((this._vchParte13 != value))
+				{
+					this._vchParte13 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchDescripcion13", DbType="VarChar(250)")]
+		public string vchDescripcion13
+		{
+			get
+			{
+				return this._vchDescripcion13;
+			}
+			set
+			{
+				if ((this._vchDescripcion13 != value))
+				{
+					this._vchDescripcion13 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decFactor13", DbType="Decimal(18,4)")]
+		public System.Nullable<decimal> decFactor13
+		{
+			get
+			{
+				return this._decFactor13;
+			}
+			set
+			{
+				if ((this._decFactor13 != value))
+				{
+					this._decFactor13 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchParte14", DbType="VarChar(100)")]
+		public string vchParte14
+		{
+			get
+			{
+				return this._vchParte14;
+			}
+			set
+			{
+				if ((this._vchParte14 != value))
+				{
+					this._vchParte14 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchDescripcion14", DbType="VarChar(250)")]
+		public string vchDescripcion14
+		{
+			get
+			{
+				return this._vchDescripcion14;
+			}
+			set
+			{
+				if ((this._vchDescripcion14 != value))
+				{
+					this._vchDescripcion14 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decFactor14", DbType="Decimal(18,4)")]
+		public System.Nullable<decimal> decFactor14
+		{
+			get
+			{
+				return this._decFactor14;
+			}
+			set
+			{
+				if ((this._decFactor14 != value))
+				{
+					this._decFactor14 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchParte15", DbType="VarChar(100)")]
+		public string vchParte15
+		{
+			get
+			{
+				return this._vchParte15;
+			}
+			set
+			{
+				if ((this._vchParte15 != value))
+				{
+					this._vchParte15 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchDescripcion15", DbType="VarChar(250)")]
+		public string vchDescripcion15
+		{
+			get
+			{
+				return this._vchDescripcion15;
+			}
+			set
+			{
+				if ((this._vchDescripcion15 != value))
+				{
+					this._vchDescripcion15 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decFactor15", DbType="Decimal(18,4)")]
+		public System.Nullable<decimal> decFactor15
+		{
+			get
+			{
+				return this._decFactor15;
+			}
+			set
+			{
+				if ((this._decFactor15 != value))
+				{
+					this._decFactor15 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchParte16", DbType="VarChar(100)")]
+		public string vchParte16
+		{
+			get
+			{
+				return this._vchParte16;
+			}
+			set
+			{
+				if ((this._vchParte16 != value))
+				{
+					this._vchParte16 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchDescripcion16", DbType="VarChar(250)")]
+		public string vchDescripcion16
+		{
+			get
+			{
+				return this._vchDescripcion16;
+			}
+			set
+			{
+				if ((this._vchDescripcion16 != value))
+				{
+					this._vchDescripcion16 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decFactor16", DbType="Decimal(18,4)")]
+		public System.Nullable<decimal> decFactor16
+		{
+			get
+			{
+				return this._decFactor16;
+			}
+			set
+			{
+				if ((this._decFactor16 != value))
+				{
+					this._decFactor16 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchParte17", DbType="VarChar(100)")]
+		public string vchParte17
+		{
+			get
+			{
+				return this._vchParte17;
+			}
+			set
+			{
+				if ((this._vchParte17 != value))
+				{
+					this._vchParte17 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchDescripcion17", DbType="VarChar(250)")]
+		public string vchDescripcion17
+		{
+			get
+			{
+				return this._vchDescripcion17;
+			}
+			set
+			{
+				if ((this._vchDescripcion17 != value))
+				{
+					this._vchDescripcion17 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decFactor17", DbType="Decimal(18,4)")]
+		public System.Nullable<decimal> decFactor17
+		{
+			get
+			{
+				return this._decFactor17;
+			}
+			set
+			{
+				if ((this._decFactor17 != value))
+				{
+					this._decFactor17 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchParte18", DbType="VarChar(100)")]
+		public string vchParte18
+		{
+			get
+			{
+				return this._vchParte18;
+			}
+			set
+			{
+				if ((this._vchParte18 != value))
+				{
+					this._vchParte18 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchDescripcion18", DbType="VarChar(250)")]
+		public string vchDescripcion18
+		{
+			get
+			{
+				return this._vchDescripcion18;
+			}
+			set
+			{
+				if ((this._vchDescripcion18 != value))
+				{
+					this._vchDescripcion18 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decFactor18", DbType="Decimal(18,4)")]
+		public System.Nullable<decimal> decFactor18
+		{
+			get
+			{
+				return this._decFactor18;
+			}
+			set
+			{
+				if ((this._decFactor18 != value))
+				{
+					this._decFactor18 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchParte19", DbType="VarChar(100)")]
+		public string vchParte19
+		{
+			get
+			{
+				return this._vchParte19;
+			}
+			set
+			{
+				if ((this._vchParte19 != value))
+				{
+					this._vchParte19 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchDescripcion19", DbType="VarChar(250)")]
+		public string vchDescripcion19
+		{
+			get
+			{
+				return this._vchDescripcion19;
+			}
+			set
+			{
+				if ((this._vchDescripcion19 != value))
+				{
+					this._vchDescripcion19 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decFactor19", DbType="Decimal(18,8)")]
+		public System.Nullable<decimal> decFactor19
+		{
+			get
+			{
+				return this._decFactor19;
+			}
+			set
+			{
+				if ((this._decFactor19 != value))
+				{
+					this._decFactor19 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchParaCostoLamina", DbType="VarChar(100)")]
+		public string vchParaCostoLamina
+		{
+			get
+			{
+				return this._vchParaCostoLamina;
+			}
+			set
+			{
+				if ((this._vchParaCostoLamina != value))
+				{
+					this._vchParaCostoLamina = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchCostoLamina", DbType="VarChar(250)")]
+		public string vchCostoLamina
+		{
+			get
+			{
+				return this._vchCostoLamina;
+			}
+			set
+			{
+				if ((this._vchCostoLamina != value))
+				{
+					this._vchCostoLamina = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decCostoLamina", DbType="Decimal(18,4)")]
+		public System.Nullable<decimal> decCostoLamina
+		{
+			get
+			{
+				return this._decCostoLamina;
+			}
+			set
+			{
+				if ((this._decCostoLamina != value))
+				{
+					this._decCostoLamina = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchParaCostoSolera", DbType="VarChar(100)")]
+		public string vchParaCostoSolera
+		{
+			get
+			{
+				return this._vchParaCostoSolera;
+			}
+			set
+			{
+				if ((this._vchParaCostoSolera != value))
+				{
+					this._vchParaCostoSolera = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchCostoSolera", DbType="VarChar(250)")]
+		public string vchCostoSolera
+		{
+			get
+			{
+				return this._vchCostoSolera;
+			}
+			set
+			{
+				if ((this._vchCostoSolera != value))
+				{
+					this._vchCostoSolera = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decCostoSolera", DbType="Decimal(18,4)")]
+		public System.Nullable<decimal> decCostoSolera
+		{
+			get
+			{
+				return this._decCostoSolera;
+			}
+			set
+			{
+				if ((this._decCostoSolera != value))
+				{
+					this._decCostoSolera = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchParaFactorAcero", DbType="VarChar(100)")]
+		public string vchParaFactorAcero
+		{
+			get
+			{
+				return this._vchParaFactorAcero;
+			}
+			set
+			{
+				if ((this._vchParaFactorAcero != value))
+				{
+					this._vchParaFactorAcero = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchFactorAcero", DbType="VarChar(250)")]
+		public string vchFactorAcero
+		{
+			get
+			{
+				return this._vchFactorAcero;
+			}
+			set
+			{
+				if ((this._vchFactorAcero != value))
+				{
+					this._vchFactorAcero = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decFactorAcero", DbType="Decimal(18,4)")]
+		public System.Nullable<decimal> decFactorAcero
+		{
+			get
+			{
+				return this._decFactorAcero;
+			}
+			set
+			{
+				if ((this._decFactorAcero != value))
+				{
+					this._decFactorAcero = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_bitActivo", DbType="Bit")]
+		public System.Nullable<bool> bitActivo
+		{
+			get
+			{
+				return this._bitActivo;
+			}
+			set
+			{
+				if ((this._bitActivo != value))
+				{
+					this._bitActivo = value;
 				}
 			}
 		}

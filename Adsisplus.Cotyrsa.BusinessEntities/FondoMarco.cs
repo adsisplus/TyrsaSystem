@@ -162,5 +162,11 @@ namespace Adsisplus.Cotyrsa.BusinessEntities
 
         [DataMember]
         public Boolean? bitActivo { get; set; }
+
+        [DataMember]
+        public int? intCalibreAceroID { get; set; }
+
+        [DataMember]
+        public string vchCalibreAcero { get; set; }
     }
 }

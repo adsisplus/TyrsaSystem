@@ -1191,6 +1191,33 @@ namespace Adsisplus.Cotyrsa.DataAccess
             }
             return result;
         }
+        /// <summary>
+        /// Obtiene la lista de categorias
+        /// </summary>
+        /// <returns></returns>
+        public List<Catalogo> ListarCatCategoria()
+        {
+            List<Catalogo> result = new List<Catalogo>();
+            try
+            {
+                using (CatalogosDataContext dc = new CatalogosDataContext(Helper.ConnectionString()))
+                {
+                    var query = from item in dc.stp_ListarCatCategoria()
+                                select new Catalogo
+                                {
+                                    intCatalogoID = item.sintCategoriaID,
+                                    vchDescripcion = item.vchCategoria,
+                                    bitActivo = item.bitActivo
+                                };
+                    result.AddRange(query);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
     }
 
 

@@ -417,4 +417,11 @@
       <Column Name="bitActivo" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
     </ElementType>
   </Function>
+  <Function Name="dbo.stp_ListarCatCategoria" Method="stp_ListarCatCategoria">
+    <ElementType Name="stp_ListarCatCategoriaResult">
+      <Column Name="sintCategoriaID" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Column Name="vchCategoria" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="bitActivo" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </ElementType>
+  </Function>
 </Database>

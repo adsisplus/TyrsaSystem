@@ -65,13 +65,14 @@ namespace Adsisplus.Cotyrsa.WcfService.MarcosServices
         /// </summary>
         /// <param name="sintFondoMarcoID"></param>
         /// <param name="sintTipoMarcoID"></param>
+        /// <param name="decFondoMarco"></param>
         /// <returns></returns>
-        public List<FondoMarco> ListarFondoMarco(int sintFondoMarcoID, int sintTipoMarcoID, decimal decFondoMarco)
+        public List<FondoMarco> ListarFondoMarco(int sintFondoMarcoID, int sintTipoMarcoID, decimal decFondoMarco, int intCalibreAceroID)
         {
             List<FondoMarco> result = new List<FondoMarco>();
             try
             {
-                result = (new MarcosLogic()).ListarFondoMarco(sintFondoMarcoID, sintTipoMarcoID, decFondoMarco);
+                result = (new MarcosLogic()).ListarFondoMarco(sintFondoMarcoID, sintTipoMarcoID, decFondoMarco, intCalibreAceroID);
             }
             catch (Exception ex)
             {

@@ -369,6 +369,13 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), intTipoElementoAlmacenID, intUnidadMedicionID, intCalibreAceroID);
 			return ((ISingleResult<stp_ListarCatProductoAceroResult>)(result.ReturnValue));
 		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.stp_ListarCatCategoria")]
+		public ISingleResult<stp_ListarCatCategoriaResult> stp_ListarCatCategoria()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<stp_ListarCatCategoriaResult>)(result.ReturnValue));
+		}
 	}
 	
 	public partial class stp_ListarCatAlturaMarcoResult
@@ -4572,6 +4579,68 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 				if ((this._intVigencia != value))
 				{
 					this._intVigencia = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_bitActivo", DbType="Bit")]
+		public System.Nullable<bool> bitActivo
+		{
+			get
+			{
+				return this._bitActivo;
+			}
+			set
+			{
+				if ((this._bitActivo != value))
+				{
+					this._bitActivo = value;
+				}
+			}
+		}
+	}
+	
+	public partial class stp_ListarCatCategoriaResult
+	{
+		
+		private short _sintCategoriaID;
+		
+		private string _vchCategoria;
+		
+		private System.Nullable<bool> _bitActivo;
+		
+		public stp_ListarCatCategoriaResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sintCategoriaID", DbType="SmallInt NOT NULL")]
+		public short sintCategoriaID
+		{
+			get
+			{
+				return this._sintCategoriaID;
+			}
+			set
+			{
+				if ((this._sintCategoriaID != value))
+				{
+					this._sintCategoriaID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchCategoria", DbType="VarChar(100)")]
+		public string vchCategoria
+		{
+			get
+			{
+				return this._vchCategoria;
+			}
+			set
+			{
+				if ((this._vchCategoria != value))
+				{
+					this._vchCategoria = value;
 				}
 			}
 		}
