@@ -376,6 +376,13 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
 			return ((ISingleResult<stp_ListarCatCategoriaResult>)(result.ReturnValue));
 		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.stp_ListarCatSistema")]
+		public ISingleResult<stp_ListarCatSistemaResult> stp_ListarCatSistema([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intProductoGralID)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), intProductoGralID);
+			return ((ISingleResult<stp_ListarCatSistemaResult>)(result.ReturnValue));
+		}
 	}
 	
 	public partial class stp_ListarCatAlturaMarcoResult
@@ -4641,6 +4648,68 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 				if ((this._vchCategoria != value))
 				{
 					this._vchCategoria = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_bitActivo", DbType="Bit")]
+		public System.Nullable<bool> bitActivo
+		{
+			get
+			{
+				return this._bitActivo;
+			}
+			set
+			{
+				if ((this._bitActivo != value))
+				{
+					this._bitActivo = value;
+				}
+			}
+		}
+	}
+	
+	public partial class stp_ListarCatSistemaResult
+	{
+		
+		private int _intSubProductoID;
+		
+		private string _vchDescripcion;
+		
+		private System.Nullable<bool> _bitActivo;
+		
+		public stp_ListarCatSistemaResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intSubProductoID", DbType="Int NOT NULL")]
+		public int intSubProductoID
+		{
+			get
+			{
+				return this._intSubProductoID;
+			}
+			set
+			{
+				if ((this._intSubProductoID != value))
+				{
+					this._intSubProductoID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchDescripcion", DbType="VarChar(126) NOT NULL", CanBeNull=false)]
+		public string vchDescripcion
+		{
+			get
+			{
+				return this._vchDescripcion;
+			}
+			set
+			{
+				if ((this._vchDescripcion != value))
+				{
+					this._vchDescripcion = value;
 				}
 			}
 		}

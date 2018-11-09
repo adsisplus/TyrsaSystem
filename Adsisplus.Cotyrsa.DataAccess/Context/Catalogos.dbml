@@ -424,4 +424,12 @@
       <Column Name="bitActivo" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
     </ElementType>
   </Function>
+  <Function Name="dbo.stp_ListarCatSistema" Method="stp_ListarCatSistema">
+    <Parameter Name="intProductoGralID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="stp_ListarCatSistemaResult">
+      <Column Name="intSubProductoID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="vchDescripcion" Type="System.String" DbType="VarChar(126) NOT NULL" CanBeNull="false" />
+      <Column Name="bitActivo" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </ElementType>
+  </Function>
 </Database>

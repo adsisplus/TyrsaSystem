@@ -673,7 +673,24 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
             }
             return result;
         }
-
+        /// <summary>
+        /// Devuelve la lista de sistemas en base al producto general
+        /// </summary>
+        /// <param name="intProductoGralID"></param>
+        /// <returns></returns>
+        public List<Catalogo> ListarCatSistema(int intProductoGralID)
+        {
+            List<Catalogo> result = new List<Catalogo>();
+            try
+            {
+                result = CatalogosDA.ListarCatSistema(intProductoGralID);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
         #endregion
     }
 }

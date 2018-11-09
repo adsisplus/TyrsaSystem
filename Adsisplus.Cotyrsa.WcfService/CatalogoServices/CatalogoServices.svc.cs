@@ -667,5 +667,23 @@ namespace Adsisplus.Cotyrsa.WcfService.CatalogoServices
             }
             return result;
         }
+        /// <summary>
+        /// Devuelve la lista de sistemas en base al producto general
+        /// </summary>
+        /// <param name="intProductoGralID"></param>
+        /// <returns></returns>
+        public List<Catalogo> ListarCatSistema(int intProductoGralID)
+        {
+            List<Catalogo> result = new List<Catalogo>();
+            try
+            {
+                result = (new CatalogoLogic()).ListarCatSistema(intProductoGralID);
+            }
+            catch (Exception ex)
+            {
+                Adsisplus.Cotyrsa.BusinessLogic.EventLogManager.LogErrorEntry(ex.Message);
+            }
+            return result;
+        }
     }
 }

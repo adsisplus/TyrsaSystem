@@ -296,5 +296,13 @@ namespace Adsisplus.Cotyrsa.WcfService.CatalogoServices
         [OperationContract]
         [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ListarCatCategoria")]
         List<Catalogo> ListarCatCategoria();
+        /// <summary>
+        /// Devuelve la lista de sistemas en base al producto general
+        /// </summary>
+        /// <param name="intProductoGralID"></param>
+        /// <returns></returns>
+        [OperationContract]
+        [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ListarCatSistema")]
+        List<Catalogo> ListarCatSistema(int intProductoGralID);
     }
 }

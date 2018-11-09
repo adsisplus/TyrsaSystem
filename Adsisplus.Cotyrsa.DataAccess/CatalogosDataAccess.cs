@@ -1218,6 +1218,34 @@ namespace Adsisplus.Cotyrsa.DataAccess
             }
             return result;
         }
+        /// <summary>
+        /// Devuelve la lista de sistemas en base al producto general
+        /// </summary>
+        /// <param name="intProductoGralID"></param>
+        /// <returns></returns>
+        public List<Catalogo> ListarCatSistema(int intProductoGralID)
+        {
+            List<Catalogo> result = new List<Catalogo>();
+            try
+            {
+                using (CatalogosDataContext dc = new CatalogosDataContext(Helper.ConnectionString()))
+                {
+                    var query = from item in dc.stp_ListarCatSistema(intProductoGralID)
+                                select new Catalogo
+                                {
+                                    bitActivo = item.bitActivo,
+                                    intCatalogoID = item.intSubProductoID,
+                                    vchDescripcion = item.vchDescripcion
+                                };
+                    result.AddRange(query);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
     }
 
 
