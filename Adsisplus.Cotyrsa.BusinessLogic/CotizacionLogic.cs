@@ -56,6 +56,44 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
             }
             return result;
         }
+        /// <summary>
+        /// Procedimiento que realiza el alta, modificación o baja de los datos de la tabla mst_Cotizacion
+        /// </summary>
+        /// <param name="cotizacion"></param>
+        /// <param name="tinOpcion"></param>
+        /// <returns></returns>
+        public Resultado setMstCotizacion(Cotizacion cotizacion, short tinOpcion)
+        {
+            Resultado result = new Resultado();
+            try
+            {
+                result = CatalogosDA.setMstCotizacion(cotizacion, tinOpcion);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
+        /// <summary>
+        /// Procedimiento que realiza el alta, modificación o baja de los datos de la tabla det_Cotizacion
+        /// </summary>
+        /// <param name="cotizacion"></param>
+        /// <param name="tinOpcion"></param>
+        /// <returns></returns>
+        public Resultado setDetCotizacion(Cotizacion cotizacion, short tinOpcion)
+        {
+            Resultado result = new Resultado();
+            try
+            {
+                result = CatalogosDA.setDetCotizacion(cotizacion, tinOpcion);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
 
     }
 }

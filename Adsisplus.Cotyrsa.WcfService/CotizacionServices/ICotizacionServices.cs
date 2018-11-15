@@ -35,5 +35,24 @@ namespace Adsisplus.Cotyrsa.WcfService.CotizacionServices
         [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ListarRel_TipoElementoAlmacen_FactorCotizacion")]
         List<RelTipoElementoAlmacenFactorCotizacion> ListarRel_TipoElementoAlmacen_FactorCotizacion(int intTipoElementoAlmacen_FactorID,
             int intTipoElementoAlmacenID, short sintFactorID);
+
+        /// <summary>
+        /// Procedimiento que realiza el alta, modificación o baja de los datos de la tabla mst_Cotizacion
+        /// </summary>
+        /// <param name="cotizacion"></param>
+        /// <param name="tinOpcion"></param>
+        /// <returns></returns>
+        [OperationContract]
+        [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "setMstCotizacion")]
+        Resultado setMstCotizacion(Cotizacion cotizacion, short tinOpcion);
+        /// <summary>
+        /// Procedimiento que realiza el alta, modificación o baja de los datos de la tabla det_Cotizacion
+        /// </summary>
+        /// <param name="cotizacion"></param>
+        /// <param name="tinOpcion"></param>
+        /// <returns></returns>
+        [OperationContract]
+        [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "setDetCotizacion")]
+        Resultado setDetCotizacion(Cotizacion cotizacion, short tinOpcion);
     }
 }

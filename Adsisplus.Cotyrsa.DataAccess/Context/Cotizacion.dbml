@@ -30,4 +30,53 @@
       <Column Name="bitActivo" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
     </ElementType>
   </Function>
+  <Function Name="dbo.stp_setDetCotizacion" Method="stp_setDetCotizacion">
+    <Parameter Name="intDetCotizaID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intCotizacionID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="sintMontajeID" Type="System.Int16" DbType="SmallInt" />
+    <Parameter Name="intPartida" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intCantidad" Type="System.Int32" DbType="Int" />
+    <Parameter Name="decMedidaFrente" Type="System.Decimal" DbType="Decimal(20,2)" />
+    <Parameter Name="decMedidaFondo" Type="System.Decimal" DbType="Decimal(20,2)" />
+    <Parameter Name="decAlto" Type="System.Decimal" DbType="Decimal(20,2)" />
+    <Parameter Name="decPesoKg" Type="System.Decimal" DbType="Decimal(20,2)" />
+    <Parameter Name="bitMontacarga" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="intNumeroTarimaPorNivel" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intNumeroNivelSobreViga" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intPosicion" Type="System.Int32" DbType="Int" />
+    <Parameter Name="sintVisitas" Type="System.Int16" DbType="SmallInt" />
+    <Parameter Name="vchDimensionMontacarga" Type="System.String" DbType="VarChar(250)" />
+    <Parameter Name="decDolar" Type="System.Decimal" DbType="Decimal(8,2)" />
+    <Parameter Name="decMonto" Type="System.Decimal" DbType="Decimal(20,2)" />
+    <Parameter Name="decSubtotal" Type="System.Decimal" DbType="Decimal(20,2)" />
+    <Parameter Name="decDescuento" Type="System.Decimal" DbType="Decimal(20,2)" />
+    <Parameter Name="decDescuentoFin" Type="System.Decimal" DbType="Decimal(20,2)" />
+    <Parameter Name="decIEMPS" Type="System.Decimal" DbType="Decimal(20,2)" />
+    <Parameter Name="decRetISR" Type="System.Decimal" DbType="Decimal(20,2)" />
+    <Parameter Name="decRetIVA" Type="System.Decimal" DbType="Decimal(20,2)" />
+    <Parameter Name="decIVA" Type="System.Decimal" DbType="Decimal(20,2)" />
+    <Parameter Name="decTotal" Type="System.Decimal" DbType="Decimal(20,2)" />
+    <Parameter Name="bitActivo" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="tinOpcion" Type="System.Byte" DbType="TinyInt" />
+    <ElementType Name="stp_setDetCotizacionResult">
+      <Column Name="vchResultado" Type="System.String" DbType="VarChar(12)" CanBeNull="true" />
+      <Column Name="vchDescripcion" Type="System.String" DbType="VarChar(58) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.stp_setMstCotizacion" Method="stp_setMstCotizacion">
+    <Parameter Name="intCotizacionID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intEstatusID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="sintPrioridadID" Type="System.Int16" DbType="SmallInt" />
+    <Parameter Name="intEmpresaID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="vchFolio" Type="System.String" DbType="VarChar(250)" />
+    <Parameter Name="datFechaCotizacion" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="datFechaAceptacion" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="datFechaRechazo" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="bitActivo" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="tinOpcion" Type="System.Byte" DbType="TinyInt" />
+    <ElementType Name="stp_setMstCotizacionResult">
+      <Column Name="vchResultado" Type="System.String" DbType="VarChar(263)" CanBeNull="true" />
+      <Column Name="vchDescripcion" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
 </Database>

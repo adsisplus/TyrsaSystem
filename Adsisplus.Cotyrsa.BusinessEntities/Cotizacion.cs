@@ -18,7 +18,7 @@ namespace Adsisplus.Cotyrsa.BusinessEntities
         [DataMember]
         public String vchEstatus { get; set; }
         [DataMember]
-        public int? sintPrioridadID { get; set; }
+        public short? sintPrioridadID { get; set; }
         [DataMember]
         public String vchPrioridad { get; set; }
         [DataMember]
@@ -34,13 +34,13 @@ namespace Adsisplus.Cotyrsa.BusinessEntities
         [DataMember]
         public int? intDetCotizaID { get; set; }
         [DataMember]
-        public int? sintMontajeID { get; set; }
+        public short? sintMontajeID { get; set; }
         [DataMember]
         public int? intPartida { get; set; }
         [DataMember]
         public int? intCantidad { get; set; }
         [DataMember]
-        public int? sintVisitas { get; set; }
+        public short? sintVisitas { get; set; }
         [DataMember]
         public String vchDimensionMontacarga { get; set; }
         [DataMember]
@@ -65,6 +65,28 @@ namespace Adsisplus.Cotyrsa.BusinessEntities
         public Decimal? decTotal { get; set; }
         [DataMember]
         public bool? bitActivo { get; set; }
+
+        [DataMember]
+        public decimal? decMedidaFrente { get; set; }
+        [DataMember]
+        public decimal? decMedidaFondo { get; set; }
+        [DataMember]
+        public decimal? decAlto { get; set; }
+        [DataMember]
+        public decimal? decPesoKg { get; set; }
+        [DataMember]
+        public bool? bitMontaCarga { get; set; }
+        [DataMember]
+        public int? intNumeroTarimaPorNivel { get; set; }
+        [DataMember]
+        public int? intNumeroNivelSobreViga { get; set; }
+        [DataMember]
+        public int? intPosicion { get; set; }
+        [DataMember]
+        public int? intEmpresaID { get; set; }
+
+
+
 
     }
 }

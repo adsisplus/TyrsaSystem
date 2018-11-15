@@ -55,5 +55,43 @@ namespace Adsisplus.Cotyrsa.WcfService.CotizacionServices
             }
             return result;
         }
+        /// <summary>
+        /// Procedimiento que realiza el alta, modificación o baja de los datos de la tabla mst_Cotizacion
+        /// </summary>
+        /// <param name="cotizacion"></param>
+        /// <param name="tinOpcion"></param>
+        /// <returns></returns>
+        public Resultado setMstCotizacion(Cotizacion cotizacion, short tinOpcion)
+        {
+            Resultado result = new Resultado();
+            try
+            {
+                result = (new CotizacionLogic()).setMstCotizacion(cotizacion, tinOpcion);
+            }
+            catch (Exception ex)
+            {
+                Adsisplus.Cotyrsa.BusinessLogic.EventLogManager.LogErrorEntry(ex.Message);
+            }
+            return result;
+        }
+        /// <summary>
+        /// Procedimiento que realiza el alta, modificación o baja de los datos de la tabla det_Cotizacion
+        /// </summary>
+        /// <param name="cotizacion"></param>
+        /// <param name="tinOpcion"></param>
+        /// <returns></returns>
+        public Resultado setDetCotizacion(Cotizacion cotizacion, short tinOpcion)
+        {
+            Resultado result = new Resultado();
+            try
+            {
+                result = (new CotizacionLogic()).setDetCotizacion(cotizacion, tinOpcion);
+            }
+            catch (Exception ex)
+            {
+                Adsisplus.Cotyrsa.BusinessLogic.EventLogManager.LogErrorEntry(ex.Message);
+            }
+            return result;
+        }
     }
 }

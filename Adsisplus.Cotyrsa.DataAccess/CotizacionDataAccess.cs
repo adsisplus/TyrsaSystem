@@ -75,5 +75,68 @@ namespace Adsisplus.Cotyrsa.DataAccess
             }
             return result;
         }
+        /// <summary>
+        /// Procedimiento que realiza el alta, modificación o baja de los datos de la tabla mst_Cotizacion
+        /// </summary>
+        /// <param name="cotizacion"></param>
+        /// <param name="tinOpcion"></param>
+        /// <returns></returns>
+        public Resultado setMstCotizacion(Cotizacion cotizacion, short tinOpcion)
+        {
+            Resultado result = new Resultado();
+            try
+            {
+                using (CotizacionDataContext dc = new CotizacionDataContext(Helper.ConnectionString()))
+                {
+                    var query = from item in dc.stp_setMstCotizacion(cotizacion.intCotizacionID, cotizacion.intEstatusID, cotizacion.sintPrioridadID, cotizacion.intEmpresaID,
+                        cotizacion.vchFolio, cotizacion.datFechaCotizacion, cotizacion.datFechaAceptacion, cotizacion.datFechaRechazo,
+                        cotizacion.bitActivo, (byte)tinOpcion)
+                                select new Resultado
+                                {
+                                    vchDescripcion = item.vchDescripcion,
+                                    vchResultado = item.vchResultado
+                                };
+                    result = query.First();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
+        /// <summary>
+        /// Procedimiento que realiza el alta, modificación o baja de los datos de la tabla det_Cotizacion
+        /// </summary>
+        /// <param name="cotizacion"></param>
+        /// <param name="tinOpcion"></param>
+        /// <returns></returns>
+        public Resultado setDetCotizacion(Cotizacion cotizacion, short tinOpcion)
+        {
+            Resultado result = new Resultado();
+            try
+            {
+                using (CotizacionDataContext dc = new CotizacionDataContext(Helper.ConnectionString()))
+                {
+                    var query = from item in dc.stp_setDetCotizacion(cotizacion.intDetCotizaID, cotizacion.intCotizacionID, cotizacion.sintMontajeID, cotizacion.intPartida, cotizacion.intCantidad,
+                        cotizacion.decMedidaFrente, cotizacion.decMedidaFondo, cotizacion.decAlto, cotizacion.decPesoKg, cotizacion.bitMontaCarga,
+                        cotizacion.intNumeroTarimaPorNivel, cotizacion.intNumeroNivelSobreViga, cotizacion.intPosicion, cotizacion.sintVisitas, cotizacion.vchDimensionMontacarga,
+                        cotizacion.decDolar, cotizacion.decMonto, cotizacion.decSubtotal, cotizacion.decDescuento, cotizacion.decDescuentoFin,
+                        cotizacion.decIEMPS, cotizacion.decRetISR, cotizacion.decRetIVA, cotizacion.decIVA, cotizacion.decTotal, cotizacion.bitActivo,
+                        (byte)tinOpcion)
+                                select new Resultado
+                                {
+                                    vchDescripcion = item.vchDescripcion,
+                                    vchResultado = item.vchResultado
+                                };
+                    result = query.First();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
     }
 }
