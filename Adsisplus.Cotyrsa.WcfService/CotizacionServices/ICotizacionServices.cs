@@ -14,7 +14,7 @@ namespace Adsisplus.Cotyrsa.WcfService.CotizacionServices
     public interface ICotizacionServices
     {
         /// <summary>
-        /// Obtiene la lista de calculo de altura por marco
+        /// Procedimiento que lista los datos de cotización
         /// </summary>
         /// <param name="intCotizacionID"></param>
         /// <param name="intEstatusID"></param>
@@ -22,8 +22,8 @@ namespace Adsisplus.Cotyrsa.WcfService.CotizacionServices
         /// <param name="intEmpresaID"></param>
         /// <returns></returns>
         [OperationContract]
-        [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ListarCatAlturaMarco")]
-        List<Cotizacion> ListarCatAlturaMarco(Int32 intCotizacionID, Int32 intEstatusID, Int32 sintPrioridadID, Int32 intEmpresaID);
+        [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ListarDatosCotizacion")]
+        List<Cotizacion> ListarDatosCotizacion(Int32 intCotizacionID, Int32 intEstatusID, Int32 sintPrioridadID, Int32 intEmpresaID);
         /// <summary>
         /// Obtiene la lista de la relación de tipo elemento almacen vs Factor de cotización
         /// </summary>

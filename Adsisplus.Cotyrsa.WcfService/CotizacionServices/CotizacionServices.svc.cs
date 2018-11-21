@@ -14,19 +14,19 @@ namespace Adsisplus.Cotyrsa.WcfService.CotizacionServices
     public class CotizacionServices : ICotizacionServices
     {
         /// <summary>
-        /// 
+        /// Procedimiento que lista los datos de cotización
         /// </summary>
         /// <param name="intCotizacionID"></param>
         /// <param name="intEstatusID"></param>
         /// <param name="sintPrioridadID"></param>
         /// <param name="intEmpresaID"></param>
         /// <returns></returns>
-        public List<Cotizacion> ListarCatAlturaMarco(int intCotizacionID, int intEstatusID, int sintPrioridadID, int intEmpresaID)
+        public List<Cotizacion> ListarDatosCotizacion(Int32 intCotizacionID, Int32 intEstatusID, Int32 sintPrioridadID, Int32 intEmpresaID)
         {
-            List<Cotizacion> result = new List<BusinessEntities.Cotizacion>();
+            List<Cotizacion> result = new List<Cotizacion>();
             try
             {
-                result = (new CotizacionLogic()).ListarCatAlturaMarco(intCotizacionID, intEstatusID, sintPrioridadID, intEmpresaID);
+                result = (new CotizacionLogic()).ListarDatosCotizacion(intCotizacionID, intEstatusID, sintPrioridadID, intEmpresaID);
             }
             catch (Exception ex)
             {

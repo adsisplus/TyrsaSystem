@@ -10,9 +10,17 @@ namespace Adsisplus.Cotyrsa.DataAccess
 {
    public class CotizacionDataAccess
     {
-        public List<Cotizacion> ListarCatAlturaMarco(Int32 intCotizacionID, Int32 intEstatusID, Int32 sintPrioridadID, Int32 intEmpresaID)
+        /// <summary>
+        /// Procedimiento que lista los datos de cotización
+        /// </summary>
+        /// <param name="intCotizacionID"></param>
+        /// <param name="intEstatusID"></param>
+        /// <param name="sintPrioridadID"></param>
+        /// <param name="intEmpresaID"></param>
+        /// <returns></returns>
+        public List<Cotizacion> ListarDatosCotizacion(Int32 intCotizacionID, Int32 intEstatusID, Int32 sintPrioridadID, Int32 intEmpresaID)
         {
-            List<Cotizacion> results = new List<Cotizacion>();
+            List<Cotizacion> result = new List<Cotizacion>();
             try
             {
                 using (CotizacionDataContext dc = new CotizacionDataContext(Helper.ConnectionString()))
@@ -28,16 +36,16 @@ namespace Adsisplus.Cotyrsa.DataAccess
                                     datFechaCotizacion = item.datFechaCotizacion,
                                     datFechaAceptacion = item.datFechaAceptacion,
                                     datFechaRechazo = item.datFechaRechazo
-                                    
+
                                 };
-                    results.AddRange(query);
+                    result.AddRange(query);
                 }
             }
             catch (Exception ex)
             {
                 throw ex;
             }
-            return results;
+            return result;
         }
         /// <summary>
         /// Obtiene la lista de la relación de tipo elemento almacen vs Factor de cotización
