@@ -35,7 +35,11 @@ namespace Adsisplus.Cotyrsa.DataAccess
                                     vchFolio = item.vchFolio,
                                     datFechaCotizacion = item.datFechaCotizacion,
                                     datFechaAceptacion = item.datFechaAceptacion,
-                                    datFechaRechazo = item.datFechaRechazo
+                                    datFechaRechazo = item.datFechaRechazo,
+                                    intEmpresaID = item.intEmpresaID,
+                                    decMonto = item.decMonto,
+                                    decIVA = item.decIVA,
+                                    decTotal = item.decTotal
 
                                 };
                     result.AddRange(query);
