@@ -101,7 +101,7 @@ namespace Adsisplus.Cotyrsa.DataAccess
                 using (CotizacionDataContext dc = new CotizacionDataContext(Helper.ConnectionString()))
                 {
                     var query = from item in dc.stp_setMstCotizacion(cotizacion.intCotizacionID, cotizacion.intEstatusID, cotizacion.sintPrioridadID, cotizacion.intEmpresaID,
-                        cotizacion.vchFolio, cotizacion.datFechaCotizacion, cotizacion.datFechaAceptacion, cotizacion.datFechaRechazo,
+                        cotizacion.vchFolio, cotizacion.datFechaAceptacion, cotizacion.datFechaRechazo,
                         cotizacion.bitActivo, (byte)tinOpcion)
                                 select new Resultado
                                 {
@@ -142,6 +142,92 @@ namespace Adsisplus.Cotyrsa.DataAccess
                                     vchResultado = item.vchResultado
                                 };
                     result = query.First();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
+        /// <summary>
+        /// Procedimeinto que lista los datos de la cotización
+        /// </summary>
+        /// <param name="intEmpresaID"></param>
+        /// <param name="intCotizacionID"></param>
+        /// <returns></returns>
+        public List<Cotizacion> ListarCotizacion(int intEmpresaID, int intCotizacionID)
+        {
+            List<Cotizacion> result = new List<Cotizacion>();
+            try
+            {
+                using (CotizacionDataContext dc = new CotizacionDataContext(Helper.ConnectionString()))
+                {
+                    var query = from item in dc.stp_ListarCotizacion(intEmpresaID, intCotizacionID)
+                                select new Cotizacion
+                                {
+                                    intCotizacionID = item.intCotizacionID,
+                                    intEstatusID = item.intEstatusID,
+                                    sintPrioridadID = item.sintPrioridadID,
+                                    intEmpresaID = item.intEmpresaID,
+                                    vchNombreCliente = item.vchNombre,
+                                    vchFolio = item.vchFolio,
+                                    datFechaCotizacion = item.datFechaCotizacion,
+                                    datFechaAceptacion = item.datFechaAceptacion,
+                                    datFechaRechazo = item.datFechaRechazo
+                                };
+                    result.AddRange(query);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
+        /// <summary>
+        /// Procedimiento que lista el detalle de cotización
+        /// </summary>
+        /// <param name="intCotizacionID"></param>
+        /// <returns></returns>
+        public List<Cotizacion> ListarDetalleCotizacion(int intCotizacionID)
+        {
+            List<Cotizacion> result = new List<Cotizacion>();
+            try
+            {
+                using (CotizacionDataContext dc = new CotizacionDataContext(Helper.ConnectionString()))
+                {
+                    var query = from item in dc.stp_ListarDetalleCotizacion(intCotizacionID)
+                                select new Cotizacion
+                                {
+                                    intDetCotizaID = item.intDetCotizaID,
+                                    intCotizacionID = item.intCotizacionID,
+                                    sintMontajeID = item.sintMontajeID,
+                                    intPartida = item.intPartida,
+                                    intCantidad = item.intCantidad,
+                                    decMedidaFrente = item.decMedidaFrente,
+                                    decMedidaFondo = item.decMedidaFondo,
+                                    decAlto = item.decAlto,
+                                    decPesoKg = item.decPesoKg,
+                                    bitMontaCarga = item.bitMontacarga,
+                                    intNumeroTarimaPorNivel = item.intNumeroTarimaPorNivel,
+                                    intNumeroNivelSobreViga = item.intNumeroNivelSobreViga,
+                                    intPosicion = item.intPosicion,
+                                    sintVisitas = item.sintVisitas,
+                                    vchDimensionMontacarga = item.vchDimensionMontacarga,
+                                    decDolar = item.decDolar,
+                                    decMonto = item.decMonto,
+                                    decSubtotal = item.decSubtotal,
+                                    decDescuento = item.decDescuento,
+                                    decDescuentoFin = item.decDescuentoFin,
+                                    decIEMPS = item.decIEMPS,
+                                    decRetISR = item.decRetISR,
+                                    decRetIVA = item.decRetIVA,
+                                    decIVA = item.decIVA,
+                                    decTotal = item.decTotal,
+                                    bitActivo = item.bitActivo
+                                };
+                    result.AddRange(query);
                 }
             }
             catch (Exception ex)

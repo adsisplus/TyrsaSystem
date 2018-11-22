@@ -102,6 +102,42 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
             }
             return result;
         }
-
+        /// <summary>
+        /// Procedimeinto que lista los datos de la cotización
+        /// </summary>
+        /// <param name="intEmpresaID"></param>
+        /// <param name="intCotizacionID"></param>
+        /// <returns></returns>
+        public List<Cotizacion> ListarCotizacion(int intEmpresaID, int intCotizacionID)
+        {
+            List<Cotizacion> result = new List<Cotizacion>();
+            try
+            {
+                result = CatalogosDA.ListarCotizacion(intEmpresaID, intCotizacionID);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
+        /// <summary>
+        /// Procedimiento que lista el detalle de cotización
+        /// </summary>
+        /// <param name="intCotizacionID"></param>
+        /// <returns></returns>
+        public List<Cotizacion> ListarDetalleCotizacion(int intCotizacionID)
+        {
+            List<Cotizacion> result = new List<Cotizacion>();
+            try
+            {
+                result = CatalogosDA.ListarDetalleCotizacion(intCotizacionID);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
     }
 }

@@ -103,18 +103,32 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 			return ((ISingleResult<stp_setDetCotizacionResult>)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.stp_setMstCotizacion")]
-		public ISingleResult<stp_setMstCotizacionResult> stp_setMstCotizacion([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intCotizacionID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intEstatusID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="SmallInt")] System.Nullable<short> sintPrioridadID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intEmpresaID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(250)")] string vchFolio, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="DateTime")] System.Nullable<System.DateTime> datFechaCotizacion, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="DateTime")] System.Nullable<System.DateTime> datFechaAceptacion, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="DateTime")] System.Nullable<System.DateTime> datFechaRechazo, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Bit")] System.Nullable<bool> bitActivo, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="TinyInt")] System.Nullable<byte> tinOpcion)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), intCotizacionID, intEstatusID, sintPrioridadID, intEmpresaID, vchFolio, datFechaCotizacion, datFechaAceptacion, datFechaRechazo, bitActivo, tinOpcion);
-			return ((ISingleResult<stp_setMstCotizacionResult>)(result.ReturnValue));
-		}
-		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.stp_ListarDatosCotizacion")]
 		public ISingleResult<stp_ListarDatosCotizacionResult> stp_ListarDatosCotizacion([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intCotizacionID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intEstatusID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> sintPrioridadID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intEmpresaID)
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), intCotizacionID, intEstatusID, sintPrioridadID, intEmpresaID);
 			return ((ISingleResult<stp_ListarDatosCotizacionResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.stp_setMstCotizacion")]
+		public ISingleResult<stp_setMstCotizacionResult> stp_setMstCotizacion([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intCotizacionID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intEstatusID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="SmallInt")] System.Nullable<short> sintPrioridadID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intEmpresaID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(250)")] string vchFolio, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="DateTime")] System.Nullable<System.DateTime> datFechaAceptacion, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="DateTime")] System.Nullable<System.DateTime> datFechaRechazo, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Bit")] System.Nullable<bool> bitActivo, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="TinyInt")] System.Nullable<byte> tinOpcion)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), intCotizacionID, intEstatusID, sintPrioridadID, intEmpresaID, vchFolio, datFechaAceptacion, datFechaRechazo, bitActivo, tinOpcion);
+			return ((ISingleResult<stp_setMstCotizacionResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.stp_ListarCotizacion")]
+		public ISingleResult<stp_ListarCotizacionResult> stp_ListarCotizacion([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intEmpresaID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intCotizacionID)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), intEmpresaID, intCotizacionID);
+			return ((ISingleResult<stp_ListarCotizacionResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.stp_ListarDetalleCotizacion")]
+		public ISingleResult<stp_ListarDetalleCotizacionResult> stp_ListarDetalleCotizacion([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intCotizacionID)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), intCotizacionID);
+			return ((ISingleResult<stp_ListarDetalleCotizacionResult>)(result.ReturnValue));
 		}
 	}
 	
@@ -280,50 +294,6 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchDescripcion", DbType="VarChar(58) NOT NULL", CanBeNull=false)]
-		public string vchDescripcion
-		{
-			get
-			{
-				return this._vchDescripcion;
-			}
-			set
-			{
-				if ((this._vchDescripcion != value))
-				{
-					this._vchDescripcion = value;
-				}
-			}
-		}
-	}
-	
-	public partial class stp_setMstCotizacionResult
-	{
-		
-		private string _vchResultado;
-		
-		private string _vchDescripcion;
-		
-		public stp_setMstCotizacionResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchResultado", DbType="VarChar(263)")]
-		public string vchResultado
-		{
-			get
-			{
-				return this._vchResultado;
-			}
-			set
-			{
-				if ((this._vchResultado != value))
-				{
-					this._vchResultado = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchDescripcion", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
 		public string vchDescripcion
 		{
 			get
@@ -559,6 +529,696 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 				if ((this._decTotal != value))
 				{
 					this._decTotal = value;
+				}
+			}
+		}
+	}
+	
+	public partial class stp_setMstCotizacionResult
+	{
+		
+		private string _vchResultado;
+		
+		private string _vchDescripcion;
+		
+		public stp_setMstCotizacionResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchResultado", DbType="VarChar(263)")]
+		public string vchResultado
+		{
+			get
+			{
+				return this._vchResultado;
+			}
+			set
+			{
+				if ((this._vchResultado != value))
+				{
+					this._vchResultado = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchDescripcion", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string vchDescripcion
+		{
+			get
+			{
+				return this._vchDescripcion;
+			}
+			set
+			{
+				if ((this._vchDescripcion != value))
+				{
+					this._vchDescripcion = value;
+				}
+			}
+		}
+	}
+	
+	public partial class stp_ListarCotizacionResult
+	{
+		
+		private int _intCotizacionID;
+		
+		private System.Nullable<int> _intEstatusID;
+		
+		private System.Nullable<short> _sintPrioridadID;
+		
+		private System.Nullable<int> _intEmpresaID;
+		
+		private string _vchNombre;
+		
+		private string _vchFolio;
+		
+		private System.Nullable<System.DateTime> _datFechaCotizacion;
+		
+		private System.Nullable<System.DateTime> _datFechaAceptacion;
+		
+		private System.Nullable<System.DateTime> _datFechaRechazo;
+		
+		public stp_ListarCotizacionResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intCotizacionID", DbType="Int NOT NULL")]
+		public int intCotizacionID
+		{
+			get
+			{
+				return this._intCotizacionID;
+			}
+			set
+			{
+				if ((this._intCotizacionID != value))
+				{
+					this._intCotizacionID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intEstatusID", DbType="Int")]
+		public System.Nullable<int> intEstatusID
+		{
+			get
+			{
+				return this._intEstatusID;
+			}
+			set
+			{
+				if ((this._intEstatusID != value))
+				{
+					this._intEstatusID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sintPrioridadID", DbType="SmallInt")]
+		public System.Nullable<short> sintPrioridadID
+		{
+			get
+			{
+				return this._sintPrioridadID;
+			}
+			set
+			{
+				if ((this._sintPrioridadID != value))
+				{
+					this._sintPrioridadID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intEmpresaID", DbType="Int")]
+		public System.Nullable<int> intEmpresaID
+		{
+			get
+			{
+				return this._intEmpresaID;
+			}
+			set
+			{
+				if ((this._intEmpresaID != value))
+				{
+					this._intEmpresaID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchNombre", DbType="VarChar(250)")]
+		public string vchNombre
+		{
+			get
+			{
+				return this._vchNombre;
+			}
+			set
+			{
+				if ((this._vchNombre != value))
+				{
+					this._vchNombre = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchFolio", DbType="VarChar(250)")]
+		public string vchFolio
+		{
+			get
+			{
+				return this._vchFolio;
+			}
+			set
+			{
+				if ((this._vchFolio != value))
+				{
+					this._vchFolio = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_datFechaCotizacion", DbType="DateTime")]
+		public System.Nullable<System.DateTime> datFechaCotizacion
+		{
+			get
+			{
+				return this._datFechaCotizacion;
+			}
+			set
+			{
+				if ((this._datFechaCotizacion != value))
+				{
+					this._datFechaCotizacion = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_datFechaAceptacion", DbType="DateTime")]
+		public System.Nullable<System.DateTime> datFechaAceptacion
+		{
+			get
+			{
+				return this._datFechaAceptacion;
+			}
+			set
+			{
+				if ((this._datFechaAceptacion != value))
+				{
+					this._datFechaAceptacion = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_datFechaRechazo", DbType="DateTime")]
+		public System.Nullable<System.DateTime> datFechaRechazo
+		{
+			get
+			{
+				return this._datFechaRechazo;
+			}
+			set
+			{
+				if ((this._datFechaRechazo != value))
+				{
+					this._datFechaRechazo = value;
+				}
+			}
+		}
+	}
+	
+	public partial class stp_ListarDetalleCotizacionResult
+	{
+		
+		private int _intDetCotizaID;
+		
+		private System.Nullable<int> _intCotizacionID;
+		
+		private System.Nullable<short> _sintMontajeID;
+		
+		private System.Nullable<int> _intPartida;
+		
+		private System.Nullable<int> _intCantidad;
+		
+		private System.Nullable<decimal> _decMedidaFrente;
+		
+		private System.Nullable<decimal> _decMedidaFondo;
+		
+		private System.Nullable<decimal> _decAlto;
+		
+		private System.Nullable<decimal> _decPesoKg;
+		
+		private System.Nullable<bool> _bitMontacarga;
+		
+		private System.Nullable<int> _intNumeroTarimaPorNivel;
+		
+		private System.Nullable<int> _intNumeroNivelSobreViga;
+		
+		private System.Nullable<int> _intPosicion;
+		
+		private System.Nullable<short> _sintVisitas;
+		
+		private string _vchDimensionMontacarga;
+		
+		private System.Nullable<decimal> _decDolar;
+		
+		private System.Nullable<decimal> _decMonto;
+		
+		private System.Nullable<decimal> _decSubtotal;
+		
+		private System.Nullable<decimal> _decDescuento;
+		
+		private System.Nullable<decimal> _decDescuentoFin;
+		
+		private System.Nullable<decimal> _decIEMPS;
+		
+		private System.Nullable<decimal> _decRetISR;
+		
+		private System.Nullable<decimal> _decRetIVA;
+		
+		private System.Nullable<decimal> _decIVA;
+		
+		private System.Nullable<decimal> _decTotal;
+		
+		private System.Nullable<bool> _bitActivo;
+		
+		public stp_ListarDetalleCotizacionResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intDetCotizaID", DbType="Int NOT NULL")]
+		public int intDetCotizaID
+		{
+			get
+			{
+				return this._intDetCotizaID;
+			}
+			set
+			{
+				if ((this._intDetCotizaID != value))
+				{
+					this._intDetCotizaID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intCotizacionID", DbType="Int")]
+		public System.Nullable<int> intCotizacionID
+		{
+			get
+			{
+				return this._intCotizacionID;
+			}
+			set
+			{
+				if ((this._intCotizacionID != value))
+				{
+					this._intCotizacionID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sintMontajeID", DbType="SmallInt")]
+		public System.Nullable<short> sintMontajeID
+		{
+			get
+			{
+				return this._sintMontajeID;
+			}
+			set
+			{
+				if ((this._sintMontajeID != value))
+				{
+					this._sintMontajeID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intPartida", DbType="Int")]
+		public System.Nullable<int> intPartida
+		{
+			get
+			{
+				return this._intPartida;
+			}
+			set
+			{
+				if ((this._intPartida != value))
+				{
+					this._intPartida = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intCantidad", DbType="Int")]
+		public System.Nullable<int> intCantidad
+		{
+			get
+			{
+				return this._intCantidad;
+			}
+			set
+			{
+				if ((this._intCantidad != value))
+				{
+					this._intCantidad = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decMedidaFrente", DbType="Decimal(20,2)")]
+		public System.Nullable<decimal> decMedidaFrente
+		{
+			get
+			{
+				return this._decMedidaFrente;
+			}
+			set
+			{
+				if ((this._decMedidaFrente != value))
+				{
+					this._decMedidaFrente = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decMedidaFondo", DbType="Decimal(20,2)")]
+		public System.Nullable<decimal> decMedidaFondo
+		{
+			get
+			{
+				return this._decMedidaFondo;
+			}
+			set
+			{
+				if ((this._decMedidaFondo != value))
+				{
+					this._decMedidaFondo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decAlto", DbType="Decimal(20,2)")]
+		public System.Nullable<decimal> decAlto
+		{
+			get
+			{
+				return this._decAlto;
+			}
+			set
+			{
+				if ((this._decAlto != value))
+				{
+					this._decAlto = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decPesoKg", DbType="Decimal(20,2)")]
+		public System.Nullable<decimal> decPesoKg
+		{
+			get
+			{
+				return this._decPesoKg;
+			}
+			set
+			{
+				if ((this._decPesoKg != value))
+				{
+					this._decPesoKg = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_bitMontacarga", DbType="Bit")]
+		public System.Nullable<bool> bitMontacarga
+		{
+			get
+			{
+				return this._bitMontacarga;
+			}
+			set
+			{
+				if ((this._bitMontacarga != value))
+				{
+					this._bitMontacarga = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intNumeroTarimaPorNivel", DbType="Int")]
+		public System.Nullable<int> intNumeroTarimaPorNivel
+		{
+			get
+			{
+				return this._intNumeroTarimaPorNivel;
+			}
+			set
+			{
+				if ((this._intNumeroTarimaPorNivel != value))
+				{
+					this._intNumeroTarimaPorNivel = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intNumeroNivelSobreViga", DbType="Int")]
+		public System.Nullable<int> intNumeroNivelSobreViga
+		{
+			get
+			{
+				return this._intNumeroNivelSobreViga;
+			}
+			set
+			{
+				if ((this._intNumeroNivelSobreViga != value))
+				{
+					this._intNumeroNivelSobreViga = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intPosicion", DbType="Int")]
+		public System.Nullable<int> intPosicion
+		{
+			get
+			{
+				return this._intPosicion;
+			}
+			set
+			{
+				if ((this._intPosicion != value))
+				{
+					this._intPosicion = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sintVisitas", DbType="SmallInt")]
+		public System.Nullable<short> sintVisitas
+		{
+			get
+			{
+				return this._sintVisitas;
+			}
+			set
+			{
+				if ((this._sintVisitas != value))
+				{
+					this._sintVisitas = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchDimensionMontacarga", DbType="VarChar(250)")]
+		public string vchDimensionMontacarga
+		{
+			get
+			{
+				return this._vchDimensionMontacarga;
+			}
+			set
+			{
+				if ((this._vchDimensionMontacarga != value))
+				{
+					this._vchDimensionMontacarga = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decDolar", DbType="Decimal(8,2)")]
+		public System.Nullable<decimal> decDolar
+		{
+			get
+			{
+				return this._decDolar;
+			}
+			set
+			{
+				if ((this._decDolar != value))
+				{
+					this._decDolar = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decMonto", DbType="Decimal(20,2)")]
+		public System.Nullable<decimal> decMonto
+		{
+			get
+			{
+				return this._decMonto;
+			}
+			set
+			{
+				if ((this._decMonto != value))
+				{
+					this._decMonto = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decSubtotal", DbType="Decimal(20,2)")]
+		public System.Nullable<decimal> decSubtotal
+		{
+			get
+			{
+				return this._decSubtotal;
+			}
+			set
+			{
+				if ((this._decSubtotal != value))
+				{
+					this._decSubtotal = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decDescuento", DbType="Decimal(20,2)")]
+		public System.Nullable<decimal> decDescuento
+		{
+			get
+			{
+				return this._decDescuento;
+			}
+			set
+			{
+				if ((this._decDescuento != value))
+				{
+					this._decDescuento = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decDescuentoFin", DbType="Decimal(20,2)")]
+		public System.Nullable<decimal> decDescuentoFin
+		{
+			get
+			{
+				return this._decDescuentoFin;
+			}
+			set
+			{
+				if ((this._decDescuentoFin != value))
+				{
+					this._decDescuentoFin = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decIEMPS", DbType="Decimal(20,2)")]
+		public System.Nullable<decimal> decIEMPS
+		{
+			get
+			{
+				return this._decIEMPS;
+			}
+			set
+			{
+				if ((this._decIEMPS != value))
+				{
+					this._decIEMPS = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decRetISR", DbType="Decimal(20,2)")]
+		public System.Nullable<decimal> decRetISR
+		{
+			get
+			{
+				return this._decRetISR;
+			}
+			set
+			{
+				if ((this._decRetISR != value))
+				{
+					this._decRetISR = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decRetIVA", DbType="Decimal(20,2)")]
+		public System.Nullable<decimal> decRetIVA
+		{
+			get
+			{
+				return this._decRetIVA;
+			}
+			set
+			{
+				if ((this._decRetIVA != value))
+				{
+					this._decRetIVA = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decIVA", DbType="Decimal(20,2)")]
+		public System.Nullable<decimal> decIVA
+		{
+			get
+			{
+				return this._decIVA;
+			}
+			set
+			{
+				if ((this._decIVA != value))
+				{
+					this._decIVA = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decTotal", DbType="Decimal(20,2)")]
+		public System.Nullable<decimal> decTotal
+		{
+			get
+			{
+				return this._decTotal;
+			}
+			set
+			{
+				if ((this._decTotal != value))
+				{
+					this._decTotal = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_bitActivo", DbType="Bit")]
+		public System.Nullable<bool> bitActivo
+		{
+			get
+			{
+				return this._bitActivo;
+			}
+			set
+			{
+				if ((this._bitActivo != value))
+				{
+					this._bitActivo = value;
 				}
 			}
 		}
