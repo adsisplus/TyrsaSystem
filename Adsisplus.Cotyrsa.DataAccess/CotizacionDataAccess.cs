@@ -40,7 +40,6 @@ namespace Adsisplus.Cotyrsa.DataAccess
                                     decMonto = item.decMonto,
                                     decIVA = item.decIVA,
                                     decTotal = item.decTotal
-
                                 };
                     result.AddRange(query);
                 }
@@ -134,7 +133,8 @@ namespace Adsisplus.Cotyrsa.DataAccess
                         cotizacion.decMedidaFrente, cotizacion.decMedidaFondo, cotizacion.decAlto, cotizacion.decPesoKg, cotizacion.bitMontaCarga,
                         cotizacion.intNumeroTarimaPorNivel, cotizacion.intNumeroNivelSobreViga, cotizacion.intPosicion, cotizacion.sintVisitas, cotizacion.vchDimensionMontacarga,
                         cotizacion.decDolar, cotizacion.decMonto, cotizacion.decSubtotal, cotizacion.decDescuento, cotizacion.decDescuentoFin,
-                        cotizacion.decIEMPS, cotizacion.decRetISR, cotizacion.decRetIVA, cotizacion.decIVA, cotizacion.decTotal, cotizacion.bitActivo,
+                        cotizacion.decIEMPS, cotizacion.decRetISR, cotizacion.decRetIVA, cotizacion.decIVA, cotizacion.decTotal, cotizacion.datFechaArmado, cotizacion.intProductoGralID,
+                        cotizacion.intRelCotizaProductoID, cotizacion.bitActivo,
                         (byte)tinOpcion)
                                 select new Resultado
                                 {
@@ -174,7 +174,12 @@ namespace Adsisplus.Cotyrsa.DataAccess
                                     vchFolio = item.vchFolio,
                                     datFechaCotizacion = item.datFechaCotizacion,
                                     datFechaAceptacion = item.datFechaAceptacion,
-                                    datFechaRechazo = item.datFechaRechazo
+                                    datFechaRechazo = item.datFechaRechazo,
+
+                                    intRelCotizaProductoID = item.intRelCotizaProductoID,
+                                    intProductoGralID = item.intProductoGralID,
+                                    intDetCotizaID = item.intDetCotizaID,
+                                    datFechaArmado = item.datFechaArmado
                                 };
                     result.AddRange(query);
                 }
