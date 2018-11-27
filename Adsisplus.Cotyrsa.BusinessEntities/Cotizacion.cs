@@ -91,5 +91,8 @@ namespace Adsisplus.Cotyrsa.BusinessEntities
         public int? intProductoGralID { get; set; }
         [DataMember]
         public int? intRelCotizaProductoID { get; set; }
+
+        [DataMember]
+        public int? intSubProductoID { get; set; }
     }
 }

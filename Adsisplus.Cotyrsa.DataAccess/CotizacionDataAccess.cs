@@ -134,7 +134,7 @@ namespace Adsisplus.Cotyrsa.DataAccess
                         cotizacion.intNumeroTarimaPorNivel, cotizacion.intNumeroNivelSobreViga, cotizacion.intPosicion, cotizacion.sintVisitas, cotizacion.vchDimensionMontacarga,
                         cotizacion.decDolar, cotizacion.decMonto, cotizacion.decSubtotal, cotizacion.decDescuento, cotizacion.decDescuentoFin,
                         cotizacion.decIEMPS, cotizacion.decRetISR, cotizacion.decRetIVA, cotizacion.decIVA, cotizacion.decTotal, cotizacion.datFechaArmado, cotizacion.intProductoGralID,
-                        cotizacion.intRelCotizaProductoID, cotizacion.bitActivo,
+                        cotizacion.intRelCotizaProductoID, cotizacion.intSubProductoID, cotizacion.bitActivo,
                         (byte)tinOpcion)
                                 select new Resultado
                                 {
@@ -179,7 +179,8 @@ namespace Adsisplus.Cotyrsa.DataAccess
                                     intRelCotizaProductoID = item.intRelCotizaProductoID,
                                     intProductoGralID = item.intProductoGralID,
                                     intDetCotizaID = item.intDetCotizaID,
-                                    datFechaArmado = item.datFechaArmado
+                                    datFechaArmado = item.datFechaArmado,
+                                    intSubProductoID = item.intSubProductoID
                                 };
                     result.AddRange(query);
                 }
