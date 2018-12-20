@@ -242,5 +242,42 @@ namespace Adsisplus.Cotyrsa.DataAccess
             }
             return result;
         }
+        /// <summary>
+        /// Procedimiento que nos devuelve la lista de vigas en base a la longitud de la viga (LV),
+        /// Capacidad de carga requerida por par de vigas (CPPV)
+        /// </summary>
+        /// <param name="decLongitudViga"></param>
+        /// <param name="decCapacidadCarga"></param>
+        /// <returns></returns>
+        public List<SeleccionViga> seleccionVigas(decimal decLongitudViga, decimal decCapacidadCarga)
+        {
+            List<SeleccionViga> result = new List<SeleccionViga>();
+            try
+            {
+                using (CotizacionDataContext dc = new CotizacionDataContext(Helper.ConnectionString()))
+                {
+                    var query = from item in dc.stp_ListarSeleccionViga(decCapacidadCarga, decLongitudViga)
+                                select new SeleccionViga
+                                {
+                                    decCapacidadParVigasMaxima = item.decPesoPartida,
+                                    decCapacidadParVigasRequerida = item.decPesoPieza,
+                                    decLongitud = Convert.ToDecimal(item.vchLongitud),
+                                    decPatin = item.intPatin,
+                                    decPeralte = item.intPeralte,
+                                    decPesoViga = item.decPesoViga,
+                                    decPrecioUnitarioSinIVA = item.decPrecioUnitario,
+                                    vchMaterial = item.vchMaterial,
+                                    vchSKU = item.SKU,
+                                    vchTipo = item.vchTipo
+                                };
+                    result.AddRange(query);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
     }
 }

@@ -71,5 +71,25 @@ namespace Adsisplus.Cotyrsa.WcfService.CotizacionServices
         [OperationContract]
         [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ListarDetalleCotizacion")]
         List<Cotizacion> ListarDetalleCotizacion(int intCotizacionID);
+        /// <summary>
+        /// Obtiene la lista de longitud de Viga
+        /// </summary>
+        /// <param name="intNumeroTarimasPorNivel">NTPN</param>
+        /// <param name="tarima">Valor capturado de la tarima</param>
+        /// <returns></returns>
+        [OperationContract]
+        [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ListarLongitudViga")]
+        List<CatalogoDecimal> ListarLongitudViga(int intNumeroTarimasPorNivel, Tarima tarima);
+        /// <summary>
+        /// Procedimiento que nos devuelve la lista de vigas en base a la longitud de la viga (LV),
+        /// Capacidad de carga requerida por par de vigas (CPPV)
+        /// </summary>
+        /// <param name="decLongitudViga"></param>
+        /// <param name="intNumeroTarimasPorNivel"></param>
+        /// <param name="decTarimaProductoPeso"></param>
+        /// <returns></returns>
+        [OperationContract]
+        [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "seleccionVigas")]
+        List<SeleccionViga> seleccionVigas(decimal decLongitudViga, int intNumeroTarimasPorNivel, decimal decTarimaProductoPeso);
     }
 }

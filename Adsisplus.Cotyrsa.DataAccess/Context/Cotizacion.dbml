@@ -137,4 +137,20 @@
       <Column Name="vchDescripcion" Type="System.String" DbType="VarChar(58) NOT NULL" CanBeNull="false" />
     </ElementType>
   </Function>
+  <Function Name="dbo.stp_ListarSeleccionViga" Method="stp_ListarSeleccionViga">
+    <Parameter Name="CPPV" Parameter="cPPV" Type="System.Decimal" DbType="Decimal(8,2)" />
+    <Parameter Name="LV" Parameter="lV" Type="System.Decimal" DbType="Decimal(8,2)" />
+    <ElementType Name="stp_ListarSeleccionVigaResult">
+      <Column Name="SKU" Type="System.String" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
+      <Column Name="decPesoViga" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
+      <Column Name="decPrecioUnitario" Type="System.Decimal" DbType="Decimal(8,3)" CanBeNull="true" />
+      <Column Name="vchTipo" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="vchMaterial" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="intPatin" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="intPeralte" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="vchLongitud" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="decPesoPieza" Type="System.Decimal" DbType="Decimal(12,6)" CanBeNull="true" />
+      <Column Name="decPesoPartida" Type="System.Decimal" DbType="Decimal(8,3)" CanBeNull="true" />
+    </ElementType>
+  </Function>
 </Database>

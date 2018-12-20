@@ -130,5 +130,49 @@ namespace Adsisplus.Cotyrsa.WcfService.CotizacionServices
             }
             return result;
         }
+
+        #region SELECCIÓN DE VIGAS
+        /// <summary>
+        /// Obtiene la lista de longitud de Viga
+        /// </summary>
+        /// <param name="intNumeroTarimasPorNivel">NTPN</param>
+        /// <param name="tarima">Valor capturado de la tarima</param>
+        /// <returns></returns>
+        public List<CatalogoDecimal> ListarLongitudViga(int intNumeroTarimasPorNivel, Tarima tarima)
+        {
+            List<CatalogoDecimal> result = new List<CatalogoDecimal>();
+            try
+            {
+                result = (new CotizacionLogic()).ListarLongitudViga(intNumeroTarimasPorNivel, tarima);
+            }
+            catch(Exception ex)
+            {
+                Adsisplus.Cotyrsa.BusinessLogic.EventLogManager.LogErrorEntry(ex.Message);
+            }
+            return result;
+        }
+        /// <summary>
+        /// Procedimiento que nos devuelve la lista de vigas en base a la longitud de la viga (LV),
+        /// Capacidad de carga requerida por par de vigas (CPPV)
+        /// </summary>
+        /// <param name="decLongitudViga"></param>
+        /// <param name="intNumeroTarimasPorNivel"></param>
+        /// <param name="decTarimaProductoPeso"></param>
+        /// <returns></returns>
+        public List<SeleccionViga> seleccionVigas(decimal decLongitudViga, int intNumeroTarimasPorNivel, decimal decTarimaProductoPeso)
+        {
+            List<SeleccionViga> result = new List<SeleccionViga>();
+            try
+            {
+                result = (new CotizacionLogic()).seleccionVigas(decLongitudViga, intNumeroTarimasPorNivel, decTarimaProductoPeso);
+            }
+            catch (Exception ex)
+            {
+                Adsisplus.Cotyrsa.BusinessLogic.EventLogManager.LogErrorEntry(ex.Message);
+            }
+            return result;
+
+        }
+        #endregion
     }
 }
