@@ -153,4 +153,19 @@
       <Column Name="decPesoPartida" Type="System.Decimal" DbType="Decimal(8,3)" CanBeNull="true" />
     </ElementType>
   </Function>
+  <Function Name="dbo.stp_ListarSeleccionMarco" Method="stp_ListarSeleccionMarco">
+    <Parameter Name="decCapacidadCarga" Type="System.Decimal" DbType="Decimal(8,3)" />
+    <Parameter Name="decAlturaPandeo" Type="System.Decimal" DbType="Decimal(8,3)" />
+    <ElementType Name="stp_ListarSeleccionMarcoResult">
+      <Column Name="vchSKU" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="decPesoMarco" Type="System.Decimal" DbType="Decimal(12,3)" CanBeNull="true" />
+      <Column Name="decPrecioUnitario" Type="System.Decimal" DbType="Decimal(8,3)" CanBeNull="true" />
+      <Column Name="vchTipo" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
+      <Column Name="vchMaterial" Type="System.String" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
+      <Column Name="decFondo" Type="System.Decimal" DbType="Decimal(18,4)" CanBeNull="true" />
+      <Column Name="decAltura" Type="System.Decimal" DbType="Decimal(8,2)" CanBeNull="true" />
+      <Column Name="decAlturaPandeo" Type="System.Decimal" DbType="Decimal(1,1) NOT NULL" CanBeNull="false" />
+      <Column Name="decCapacidadMarco" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
 </Database>

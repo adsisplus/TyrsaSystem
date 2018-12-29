@@ -279,5 +279,41 @@ namespace Adsisplus.Cotyrsa.DataAccess
             }
             return result;
         }
+        /// <summary>
+        /// Procedimiento que permite listar los marcos en base a la capacidad
+        /// de carga y la altura de pandeo
+        /// </summary>
+        /// <param name="decCapacidadCarga"></param>
+        /// <param name="decAlturaPandeo"></param>
+        /// <returns></returns>
+        public List<SeleccionMarco> seleccionMarco(decimal decCapacidadCarga, decimal decAlturaPandeo)
+        {
+            List<SeleccionMarco> result = new List<SeleccionMarco>();
+            try
+            {
+                using (CotizacionDataContext dc = new CotizacionDataContext(Helper.ConnectionString()))
+                {
+                    var query = from item in dc.stp_ListarSeleccionMarco(decCapacidadCarga, decAlturaPandeo)
+                                select new SeleccionMarco
+                                {
+                                    decAltura = item.decAltura,
+                                    decAlturaPandeo = item.decAlturaPandeo,
+                                    decCapacidadMarco = item.decCapacidadMarco,
+                                    decFondo = item.decFondo,
+                                    decPesoMarco = item.decPesoMarco,
+                                    decPrecioUnitario = item.decPrecioUnitario,
+                                    vchMaterial = item.vchMaterial,
+                                    vchSKU = item.vchSKU,
+                                    vchTipo = item.vchTipo
+                                };
+                    result.AddRange(query);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
     }
 }

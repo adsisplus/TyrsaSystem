@@ -163,7 +163,7 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
                 // Optenemos la segunda opción
                 decLongitudViga = Convert.ToDecimal((intNumeroTarimasPorNivel + 1) * 0.0762) + Convert.ToDecimal((intNumeroTarimasPorNivel * tarima.decTarimaProductoFrente));
                 // Agregamos la segunda opción
-                opcion.intCatalogoID = 3;
+                opcion.intCatalogoID = 4;
                 opcion.decValor = decLongitudViga;
                 result.Add(opcion);
             }
@@ -219,37 +219,7 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
         }
         #endregion
 
-        #region EN CONSTRUCCIÓN SELECCIÓN DE MARCO
-        /// <summary>
-        /// Método que nos permite determinar la altura del Marco
-        /// </summary>
-        /// <param name="decDimensionClaro"></param>
-        /// <param name="intNumNivelesSobreVigaClaro"></param>
-        /// <param name="decAlturaPiso"></param>
-        /// <param name="intNumNivelesSobreVigaPeralte"></param>
-        /// <param name="sintOpcion"></param>
-        /// <returns></returns>
-        public decimal getAlturaMarco(decimal decDimensionClaro, int intNumNivelesSobreVigaClaro, decimal decAlturaPiso, int intNumNivelesSobreVigaPeralte, short sintOpcion)
-        {
-            decimal result = new decimal();
-            try
-            {
-                switch (sintOpcion)
-                {
-                    case 1: // Primer nivel a piso
-                        result = decDimensionClaro + Convert.ToDecimal(intNumNivelesSobreVigaPeralte) + Convert.ToDecimal(0.30);
-                        break;
-                    case 2: // Todos los niveles sobre la viga
-                        result = decAlturaPiso + Convert.ToDecimal(intNumNivelesSobreVigaClaro) + Convert.ToDecimal(intNumNivelesSobreVigaPeralte) + Convert.ToDecimal(0.30);
-                        break;
-                }
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-            return result;
-        }
+        #region Metodo para la selección de Marco
         /// <summary>
         /// Obtiene el valor del fonde del marco
         /// </summary>
@@ -260,7 +230,7 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
             decimal result = new decimal();
             try
             {
-                result = decFondoTarimaVacia - Convert.ToDecimal( 0.1524);
+                result = decFondoTarimaVacia - Convert.ToDecimal(0.1524);
             }
             catch (Exception ex)
             {
@@ -268,13 +238,56 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
             }
             return result;
         }
+        /// <summary>
+        /// Método que nos permite determinar la altura del Marco
+        /// </summary>
+        /// <param name="decDimensionClaro"></param>
+        /// <param name="intNumNivelesSobreVigaClaro"></param>
+        /// <param name="decAlturaPiso"></param>
+        /// <param name="intNumNivelesSobreVigaPeralte"></param>
+        /// <param name="sintOpcion"></param>
+        /// <returns></returns>
+        public List<CatalogoDecimal> getAlturaMarco(decimal decDimensionClaro, int intNumNivelesSobreVigaClaro, decimal decAlturaPiso, int intNumNivelesSobreVigaPeralte)
+        {
+            List<CatalogoDecimal> result = new List<CatalogoDecimal>();
+            try
+            {
+                CatalogoDecimal opcion = new CatalogoDecimal();
+                decimal decLongitudViga = 0;
+                // Obtenemos la primera opción
+                decLongitudViga = Math.Round((decDimensionClaro + Convert.ToDecimal(intNumNivelesSobreVigaPeralte) + Convert.ToDecimal(0.30)), 0, MidpointRounding.AwayFromZero);
+                // Agregamos la primera opción
+                opcion.intCatalogoID = 1;
+                opcion.decValor = decLongitudViga;
+                result.Add(opcion);
 
-        public List<SeleccionMarco> seleccionMarco()
+
+                // Optenemos la segunda opción
+                decLongitudViga = Math.Round((decAlturaPiso + Convert.ToDecimal(intNumNivelesSobreVigaClaro) + Convert.ToDecimal(intNumNivelesSobreVigaPeralte) + Convert.ToDecimal(0.30)), 0, MidpointRounding.AwayFromZero);
+                // Agregamos la segunda opción
+                opcion.intCatalogoID = 2;
+                opcion.decValor = decLongitudViga;
+                result.Add(opcion);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
+        /// <summary>
+        /// Procedimiento que permite listar los marcos en base a la capacidad
+        /// de carga y la altura de pandeo
+        /// </summary>
+        /// <param name="decCapacidadCarga"></param>
+        /// <param name="decAlturaPandeo"></param>
+        /// <returns></returns>
+        public List<SeleccionMarco> seleccionMarco(decimal decCapacidadCarga, decimal decAlturaPandeo)
         {
             List<SeleccionMarco> result = new List<SeleccionMarco>();
             try
             {
-
+                result = CatalogosDA.seleccionMarco(decCapacidadCarga, decAlturaPandeo);
             }
             catch(Exception ex)
             {
