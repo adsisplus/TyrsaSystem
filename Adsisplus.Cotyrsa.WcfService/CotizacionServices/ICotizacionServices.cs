@@ -91,5 +91,35 @@ namespace Adsisplus.Cotyrsa.WcfService.CotizacionServices
         [OperationContract]
         [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "seleccionVigas")]
         List<SeleccionViga> seleccionVigas(decimal decLongitudViga, int intNumeroTarimasPorNivel, decimal decTarimaProductoPeso);
+        /// <summary>
+        /// Obtiene el valor del fonde del marco
+        /// </summary>
+        /// <param name="decFondoTarimaVacia"></param>
+        /// <returns></returns>
+        [OperationContract]
+        [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "getFondoMarco")]
+        decimal getFondoMarco(decimal decFondoTarimaVacia);
+        /// <summary>
+        /// Método que nos permite determinar la altura del Marco
+        /// </summary>
+        /// <param name="decDimensionClaro"></param>
+        /// <param name="intNumNivelesSobreVigaClaro"></param>
+        /// <param name="decAlturaPiso"></param>
+        /// <param name="intNumNivelesSobreVigaPeralte"></param>
+        /// <param name="sintOpcion"></param>
+        /// <returns></returns>
+        [OperationContract]
+        [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "getAlturaMarco")]
+        List<CatalogoDecimal> getAlturaMarco(decimal decDimensionClaro, int intNumNivelesSobreVigaClaro, decimal decAlturaPiso, int intNumNivelesSobreVigaPeralte);
+        /// <summary>
+        /// Procedimiento que permite listar los marcos en base a la capacidad
+        /// de carga y la altura de pandeo
+        /// </summary>
+        /// <param name="decCapacidadCarga"></param>
+        /// <param name="decAlturaPandeo"></param>
+        /// <returns></returns>
+        [OperationContract]
+        [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "seleccionMarco")]
+        List<SeleccionMarco> seleccionMarco(decimal decCapacidadCarga, decimal decAlturaPandeo);
     }
 }

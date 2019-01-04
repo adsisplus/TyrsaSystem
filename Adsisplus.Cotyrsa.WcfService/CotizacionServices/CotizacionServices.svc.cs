@@ -174,5 +174,68 @@ namespace Adsisplus.Cotyrsa.WcfService.CotizacionServices
 
         }
         #endregion
+
+        #region SELECCION DE MARCO
+        /// <summary>
+        /// Obtiene el valor del fonde del marco
+        /// </summary>
+        /// <param name="decFondoTarimaVacia"></param>
+        /// <returns></returns>
+        public decimal getFondoMarco(decimal decFondoTarimaVacia)
+        {
+            decimal result = new decimal();
+            try
+            {
+                result = (new CotizacionLogic()).getFondoMarco(decFondoTarimaVacia);
+            }
+            catch (Exception ex)
+            {
+                Adsisplus.Cotyrsa.BusinessLogic.EventLogManager.LogErrorEntry(ex.Message);
+            }
+            return result;
+        }
+        /// <summary>
+        /// Método que nos permite determinar la altura del Marco
+        /// </summary>
+        /// <param name="decDimensionClaro"></param>
+        /// <param name="intNumNivelesSobreVigaClaro"></param>
+        /// <param name="decAlturaPiso"></param>
+        /// <param name="intNumNivelesSobreVigaPeralte"></param>
+        /// <param name="sintOpcion"></param>
+        /// <returns></returns>
+        public List<CatalogoDecimal> getAlturaMarco(decimal decDimensionClaro, int intNumNivelesSobreVigaClaro, decimal decAlturaPiso, int intNumNivelesSobreVigaPeralte)
+        {
+            List<CatalogoDecimal> result = new List<CatalogoDecimal>();
+            try
+            {
+                result = (new CotizacionLogic()).getAlturaMarco(decDimensionClaro, intNumNivelesSobreVigaClaro, decAlturaPiso, intNumNivelesSobreVigaPeralte);
+            }
+            catch (Exception ex)
+            {
+                Adsisplus.Cotyrsa.BusinessLogic.EventLogManager.LogErrorEntry(ex.Message);
+            }
+            return result;
+        }
+        /// <summary>
+        /// Procedimiento que permite listar los marcos en base a la capacidad
+        /// de carga y la altura de pandeo
+        /// </summary>
+        /// <param name="decCapacidadCarga"></param>
+        /// <param name="decAlturaPandeo"></param>
+        /// <returns></returns>
+        public List<SeleccionMarco> seleccionMarco(decimal decCapacidadCarga, decimal decAlturaPandeo)
+        {
+            List<SeleccionMarco> result = new List<SeleccionMarco>();
+            try
+            {
+                result = (new CotizacionLogic()).seleccionMarco(decCapacidadCarga, decAlturaPandeo);
+            }
+            catch (Exception ex)
+            {
+                Adsisplus.Cotyrsa.BusinessLogic.EventLogManager.LogErrorEntry(ex.Message);
+            }
+            return result;
+        }
+        #endregion
     }
 }
