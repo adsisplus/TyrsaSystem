@@ -173,6 +173,25 @@ namespace Adsisplus.Cotyrsa.WcfService.CotizacionServices
             return result;
 
         }
+        /// <summary>
+        /// Procedimiento que muestra los datos de la viga seleccionada
+        /// </summary>
+        /// <param name="intSeleccionVigaID"></param>
+        /// <param name="intDatosVigaID"></param>
+        /// <returns></returns>
+        public List<SeleccionViga> ListarDatosSelecionViga(int intSeleccionVigaID, int intDatosVigaID)
+        {
+            List<SeleccionViga> result = new List<SeleccionViga>();
+            try
+            {
+                result = (new CotizacionLogic()).ListarDatosSelecionViga(intSeleccionVigaID, intDatosVigaID);
+            }
+            catch (Exception ex)
+            {
+                Adsisplus.Cotyrsa.BusinessLogic.EventLogManager.LogErrorEntry(ex.Message);
+            }
+            return result;
+        }
         #endregion
 
         #region SELECCION DE MARCO

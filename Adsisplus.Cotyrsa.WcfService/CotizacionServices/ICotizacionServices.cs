@@ -92,6 +92,15 @@ namespace Adsisplus.Cotyrsa.WcfService.CotizacionServices
         [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "seleccionVigas")]
         List<SeleccionViga> seleccionVigas(decimal decLongitudViga, int intNumeroTarimasPorNivel, decimal decTarimaProductoPeso);
         /// <summary>
+        /// Procedimiento que muestra los datos de la viga seleccionada
+        /// </summary>
+        /// <param name="intSeleccionVigaID"></param>
+        /// <param name="intDatosVigaID"></param>
+        /// <returns></returns>
+        [OperationContract]
+        [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ListarDatosSelecionViga")]
+        List<SeleccionViga> ListarDatosSelecionViga(int intSeleccionVigaID, int intDatosVigaID);
+        /// <summary>
         /// Obtiene el valor del fonde del marco
         /// </summary>
         /// <param name="decFondoTarimaVacia"></param>

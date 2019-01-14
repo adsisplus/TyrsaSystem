@@ -315,5 +315,43 @@ namespace Adsisplus.Cotyrsa.DataAccess
             }
             return result;
         }
+        /// <summary>
+        /// Procedimiento que muestra los datos de la viga seleccionada
+        /// </summary>
+        /// <param name="intSeleccionVigaID"></param>
+        /// <param name="intDatosVigaID"></param>
+        /// <returns></returns>
+        public List<SeleccionViga> ListarDatosSelecionViga(int intSeleccionVigaID, int intDatosVigaID)
+        {
+            List<SeleccionViga> result = new List<SeleccionViga>();
+            try
+            {
+                using (CotizacionDataContext dc = new CotizacionDataContext(Helper.ConnectionString()))
+                {
+                    var query = from item in dc.stp_ListarDatosSeleccionViga(intSeleccionVigaID, intDatosVigaID)
+                                select new SeleccionViga
+                                {
+                                    decCapacidadParVigasMaxima = item.decCapVigaMax,
+                                    decCapacidadParVigasRequerida = item.decCapViga,
+                                    decLongitud = item.decLongitud,
+                                    decPatin = item.decPatin,
+                                    decPeralte = item.decPeralte,
+                                    decPesoViga = item.decPesoViga,
+                                    decPrecioUnitarioSinIVA = item.decPrecioUnitario,
+                                    intDatosVigaID = item.intDatosVigaID,
+                                    intSeleccionVigaID = item.intSeleccionVigaID,
+                                    vchMaterial = item.vchMaterial,
+                                    vchSKU = item.vchSKU,
+                                    vchTipo = item.vchTipo
+                                };
+                    result.AddRange(query);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
     }
 }

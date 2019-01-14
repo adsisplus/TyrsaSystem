@@ -217,6 +217,25 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
             }
             return result;
         }
+        /// <summary>
+        /// Procedimiento que muestra los datos de la viga seleccionada
+        /// </summary>
+        /// <param name="intSeleccionVigaID"></param>
+        /// <param name="intDatosVigaID"></param>
+        /// <returns></returns>
+        public List<SeleccionViga> ListarDatosSelecionViga(int intSeleccionVigaID, int intDatosVigaID)
+        {
+            List<SeleccionViga> result = new List<SeleccionViga>();
+            try
+            {
+                result = CatalogosDA.ListarDatosSelecionViga(intSeleccionVigaID, intDatosVigaID);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
         #endregion
 
         #region Metodo para la selección de Marco

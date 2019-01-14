@@ -11,6 +11,14 @@ namespace Adsisplus.Cotyrsa.BusinessEntities
     public class SeleccionViga
     {
         /// <summary>
+        /// Id de la viga seleccionada
+        /// </summary>
+        public int? intSeleccionVigaID { get; set; }
+        /// <summary>
+        /// Id de datos Viga donde se alamcena la información
+        /// </summary>
+        public int? intDatosVigaID { get; set; }
+        /// <summary>
         /// Valor de SKU
         /// </summary>
         [DataMember]
