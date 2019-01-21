@@ -15,9 +15,9 @@ namespace Adsisplus.Cotyrsa.BusinessEntities
         /// </summary>
         public int? intSeleccionVigaID { get; set; }
         /// <summary>
-        /// Id de datos Viga donde se alamcena la información
+        /// Id del tipo de Viga
         /// </summary>
-        public int? intDatosVigaID { get; set; }
+        public short? sintTipoVigaID { get; set; }
         /// <summary>
         /// Valor de SKU
         /// </summary>
@@ -73,5 +73,20 @@ namespace Adsisplus.Cotyrsa.BusinessEntities
         /// </summary>
         [DataMember]
         public string vchResultado { get; set; }
+        /// <summary>
+        /// Total
+        /// </summary>
+        [DataMember]
+        public decimal? decTotal { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        [DataMember]
+        public int? intLargo { get; set; }
+        /// <summary>
+        /// ID de la longitud
+        /// </summary>
+        [DataMember]
+        public short? sintLongitudID { get; set; }
     }
 }

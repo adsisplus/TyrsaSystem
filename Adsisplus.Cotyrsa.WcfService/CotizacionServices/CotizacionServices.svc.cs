@@ -159,12 +159,13 @@ namespace Adsisplus.Cotyrsa.WcfService.CotizacionServices
         /// <param name="intNumeroTarimasPorNivel"></param>
         /// <param name="decTarimaProductoPeso"></param>
         /// <returns></returns>
-        public List<SeleccionViga> seleccionVigas(decimal decLongitudViga, int intNumeroTarimasPorNivel, decimal decTarimaProductoPeso)
+        public List<SeleccionViga> seleccionVigas(decimal decLongitudViga, int intNumeroTarimasPorNivel, decimal decTarimaProductoPeso, 
+            short sintSistemaID, bool bitEstructural)
         {
             List<SeleccionViga> result = new List<SeleccionViga>();
             try
             {
-                result = (new CotizacionLogic()).seleccionVigas(decLongitudViga, intNumeroTarimasPorNivel, decTarimaProductoPeso);
+                result = (new CotizacionLogic()).seleccionVigas(decLongitudViga, intNumeroTarimasPorNivel, decTarimaProductoPeso, sintSistemaID, bitEstructural);
             }
             catch (Exception ex)
             {
@@ -173,18 +174,36 @@ namespace Adsisplus.Cotyrsa.WcfService.CotizacionServices
             return result;
 
         }
+        ///// <summary>
+        ///// Procedimiento que muestra los datos de la viga seleccionada
+        ///// </summary>
+        ///// <param name="intSeleccionVigaID"></param>
+        ///// <param name="intDatosVigaID"></param>
+        ///// <returns></returns>
+        //public List<SeleccionViga> ListarDatosSelecionViga(int intSeleccionVigaID, int intDatosVigaID)
+        //{
+        //    List<SeleccionViga> result = new List<SeleccionViga>();
+        //    try
+        //    {
+        //        result = (new CotizacionLogic()).ListarDatosSelecionViga(intSeleccionVigaID, intDatosVigaID);
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        Adsisplus.Cotyrsa.BusinessLogic.EventLogManager.LogErrorEntry(ex.Message);
+        //    }
+        //    return result;
+        //}
         /// <summary>
-        /// Procedimiento que muestra los datos de la viga seleccionada
+        /// Procedimiento que devuelve la información del Rack Selectivo
         /// </summary>
-        /// <param name="intSeleccionVigaID"></param>
-        /// <param name="intDatosVigaID"></param>
+        /// <param name="intRackID"></param>
         /// <returns></returns>
-        public List<SeleccionViga> ListarDatosSelecionViga(int intSeleccionVigaID, int intDatosVigaID)
+        public DatosRackSelectivo datosRackSelectivo(int intRackID)
         {
-            List<SeleccionViga> result = new List<SeleccionViga>();
+            DatosRackSelectivo result = new DatosRackSelectivo();
             try
             {
-                result = (new CotizacionLogic()).ListarDatosSelecionViga(intSeleccionVigaID, intDatosVigaID);
+                result = (new CotizacionLogic()).datosRackSelectivo(intRackID);
             }
             catch (Exception ex)
             {
@@ -192,6 +211,7 @@ namespace Adsisplus.Cotyrsa.WcfService.CotizacionServices
             }
             return result;
         }
+
         #endregion
 
         #region SELECCION DE MARCO

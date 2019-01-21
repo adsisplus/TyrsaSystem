@@ -90,16 +90,24 @@ namespace Adsisplus.Cotyrsa.WcfService.CotizacionServices
         /// <returns></returns>
         [OperationContract]
         [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "seleccionVigas")]
-        List<SeleccionViga> seleccionVigas(decimal decLongitudViga, int intNumeroTarimasPorNivel, decimal decTarimaProductoPeso);
+        List<SeleccionViga> seleccionVigas(decimal decLongitudViga, int intNumeroTarimasPorNivel, decimal decTarimaProductoPeso, short sintSistemaID, bool bitEstructural);
+        ///// <summary>
+        ///// Procedimiento que muestra los datos de la viga seleccionada
+        ///// </summary>
+        ///// <param name="intSeleccionVigaID"></param>
+        ///// <param name="intDatosVigaID"></param>
+        ///// <returns></returns>
+        //[OperationContract]
+        //[WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ListarDatosSelecionViga")]
+        //List<SeleccionViga> ListarDatosSelecionViga(int intSeleccionVigaID, int intDatosVigaID);
         /// <summary>
-        /// Procedimiento que muestra los datos de la viga seleccionada
+        /// Procedimiento que devuelve la información del Rack Selectivo
         /// </summary>
-        /// <param name="intSeleccionVigaID"></param>
-        /// <param name="intDatosVigaID"></param>
+        /// <param name="intRackID"></param>
         /// <returns></returns>
         [OperationContract]
-        [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ListarDatosSelecionViga")]
-        List<SeleccionViga> ListarDatosSelecionViga(int intSeleccionVigaID, int intDatosVigaID);
+        [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "datosRackSelectivo")]
+        DatosRackSelectivo datosRackSelectivo(int intRackID);
         /// <summary>
         /// Obtiene el valor del fonde del marco
         /// </summary>

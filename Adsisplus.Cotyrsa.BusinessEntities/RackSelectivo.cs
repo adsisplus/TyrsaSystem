@@ -8,32 +8,38 @@ using System.Threading.Tasks;
 namespace Adsisplus.Cotyrsa.BusinessEntities
 {
     [DataContract]
-    public class Tarima
+    public class RackSelectivo
     {
         /// <summary>
-        /// ID del registro de la tabla
+        /// ID de la tabla tbl_Rack_Selectivo
+        /// </summary>
+        [DataMember]
+        public int? intRackID { get; set; }
+        /// <summary>
+        /// ID de la tabla tbl_Tarima
         /// </summary>
         [DataMember]
         public int? intTarimaID { get; set; }
         /// <summary>
-        /// Dimensión del frente de la tarima vacia en metros
+        /// ID de la tabla tbl_SeleccionViga
         /// </summary>
         [DataMember]
-        public decimal? decFrente { get; set; }
+        public int? intSeleccionVigaID { get; set; }
         /// <summary>
-        /// Dimensión del fondo de la tarima vacía en metros
+        /// Número de tarimas por nivel
         /// </summary>
         [DataMember]
-        public decimal? decFondo { get; set; }
+        public int? intNumTarimaNivel { get; set; }
         /// <summary>
-        /// Dimensión de la altura de la tarima  vacía en metros
+        /// Longitud de la viga
         /// </summary>
         [DataMember]
-        public decimal? decAltura { get; set; }
+        public decimal? decLongitudViga { get; set; }
         /// <summary>
-        /// Peso de la tarima vacía en Kg
+        /// Capacidad de carga requerida por viga
         /// </summary>
         [DataMember]
-        public decimal? decPeso { get; set; }
+        public decimal? decCapCargaReqViga { get; set; }
+
     }
 }

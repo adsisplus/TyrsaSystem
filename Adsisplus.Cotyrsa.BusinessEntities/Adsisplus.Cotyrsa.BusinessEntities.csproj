@@ -70,6 +70,7 @@
     <Compile Include="DatosPiso.cs" />
     <Compile Include="DatosProtectorBase.cs" />
     <Compile Include="DatosProtectorBateria.cs" />
+    <Compile Include="DatosRackSelectivo.cs" />
     <Compile Include="DatosRielDinamico.cs" />
     <Compile Include="DatosRielImportado.cs" />
     <Compile Include="DatosRielPortaRueda.cs" />
@@ -97,6 +98,7 @@
     <Compile Include="ProductoAcero.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Protector.cs" />
+    <Compile Include="RackSelectivo.cs" />
     <Compile Include="RelPersonaDomicilioEmpresa.cs" />
     <Compile Include="RelSistemaCargaMarcoPoste.cs" />
     <Compile Include="RelSistemaSelectivo.cs" />
