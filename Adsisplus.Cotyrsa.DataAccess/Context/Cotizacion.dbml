@@ -1,11 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="dbTyrsa" Class="CotizacionDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=(local);Initial Catalog=dbTyrsa;Persist Security Info=True;User ID=usrCotyrsa" SettingsObjectName="Adsisplus.Cotyrsa.DataAccess.Properties.Settings" SettingsPropertyName="dbTyrsaConnectionString" Provider="System.Data.SqlClient" />
+  <Connection Mode="AppSettings" ConnectionString="Data Source=local;Initial Catalog=dbTyrsa;Persist Security Info=True;User ID=usrCotyrsa" SettingsObjectName="Adsisplus.Cotyrsa.DataAccess.Properties.Settings" SettingsPropertyName="dbTyrsaConnectionString" Provider="System.Data.SqlClient" />
   <Table Name="" Member="entSeleccionViga">
     <Type Name="entSeleccionViga" Id="ID1">
-      <Column Name="vchSKU" Type="System.String" CanBeNull="false" />
+      <Column Name="SKU" Storage="_vchSKU" Type="System.Int32" CanBeNull="false" />
       <Column Name="sintTipoVigaID" Type="System.Int16" CanBeNull="false" />
       <Column Name="decPesoViga" Type="System.Decimal" CanBeNull="false" />
-      <Column Name="decTotal" Type="System.Decimal" CanBeNull="false" />
+      <Column Name="decTotal" Member="TOTAL" Storage="_decTotal" Type="System.Decimal" CanBeNull="false" />
       <Column Name="decPrecioUnitario" Type="System.Decimal" CanBeNull="false" />
       <Column Name="vchFamiliaViga" Storage="_cvhFamiliaViga" Type="System.String" CanBeNull="false" />
       <Column Name="vchTipo" Type="System.String" CanBeNull="false" />
@@ -13,7 +13,7 @@
       <Column Name="vchLongitud" Type="System.String" CanBeNull="false" />
       <Column Name="intLargo" Type="System.Int32" CanBeNull="false" />
       <Column Name="intPatin" Type="System.Int32" CanBeNull="false" />
-      <Column Name="intPeralte" Type="System.Int32" CanBeNull="false" />
+      <Column Name="intPeralte" Type="System.String" CanBeNull="false" />
       <Column Name="decPesoPieza" Type="System.Decimal" CanBeNull="false" />
       <Column Name="decPesoPartida" Type="System.Decimal" CanBeNull="false" />
       <Column Name="sintLongitudId" Type="System.Int16" CanBeNull="false" />

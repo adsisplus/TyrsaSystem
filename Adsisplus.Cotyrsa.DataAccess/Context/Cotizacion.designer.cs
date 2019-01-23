@@ -208,7 +208,7 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 	public partial class entSeleccionViga
 	{
 		
-		private string _vchSKU;
+		private int _vchSKU;
 		
 		private short _sintTipoVigaID;
 		
@@ -230,7 +230,7 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 		
 		private int _intPatin;
 		
-		private int _intPeralte;
+		private string _intPeralte;
 		
 		private decimal _decPesoPieza;
 		
@@ -242,8 +242,8 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 		{
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchSKU", CanBeNull=false)]
-		public string vchSKU
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchSKU")]
+		public int SKU
 		{
 			get
 			{
@@ -290,8 +290,8 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decTotal")]
-		public decimal decTotal
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="decTotal", Storage="_decTotal")]
+		public decimal TOTAL
 		{
 			get
 			{
@@ -418,8 +418,8 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intPeralte")]
-		public int intPeralte
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intPeralte", CanBeNull=false)]
+		public string intPeralte
 		{
 			get
 			{
