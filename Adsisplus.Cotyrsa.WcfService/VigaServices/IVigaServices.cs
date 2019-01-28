@@ -110,5 +110,48 @@ namespace Adsisplus.Cotyrsa.WcfService.VigaServices
         [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "setFactorViga")]
         Resultado setFactorViga(int intCalibreID, decimal decAcero, decimal decRemache, decimal decKgMetroCuadrado,
             decimal decFactorVenta, decimal decFactorDespiste, decimal decFactorDescuento);
+        /// <summary>
+        /// Obtiene la lista de longitud de Viga
+        /// </summary>
+        /// <param name="intNumeroTarimasPorNivel">NTPN</param>
+        /// <param name="tarima">Valor capturado de la tarima</param>
+        /// <returns></returns>
+        [OperationContract]
+        [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ListarLongitudViga")]
+        List<CatalogoDecimal> ListarLongitudViga(int intNumeroTarimasPorNivel, decimal decFrente);
+        /// <summary>
+        /// Procedimiento que nos devuelve la lista de vigas en base a la longitud de la viga (LV),
+        /// Capacidad de carga requerida por par de vigas (CPPV)
+        /// </summary>
+        /// <param name="decLongitudViga"></param>
+        /// <param name="intNumeroTarimasPorNivel"></param>
+        /// <param name="decTarimaProductoPeso"></param>
+        /// <returns></returns>
+        [OperationContract]
+        [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "seleccionVigas")]
+        List<SeleccionViga> seleccionVigas(decimal decLongitudViga, int intNumeroTarimasPorNivel, decimal decTarimaProductoPeso,
+            short sintSistemaID, bool bitEstructural);
+
+        /// <summary>
+        /// Procedimiento que realiza el almacenado de la información de la viga seleccionada
+        /// </summary>
+        /// <param name="viga"></param>
+        /// <param name="tinOpcion"></param>
+        /// <returns></returns>
+        [OperationContract]
+        [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "setSeleccionViga")]
+        Resultado setSeleccionViga(SeleccionViga viga, short tinOpcion);
+
+        #region Procedimientos por revisar
+        /// <summary>
+        /// Procedimiento que devuelve la información del Rack Selectivo
+        /// </summary>
+        /// <param name="intRackID"></param>
+        /// <param name="intDetCotizaID"></param>
+        /// <returns></returns>
+        [OperationContract]
+        [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ListarDatosRackSelectivo")]
+        DatosRackSelectivo ListarDatosRackSelectivo(int intRackID, int intDetCotizaID);
+        #endregion
     }
 }

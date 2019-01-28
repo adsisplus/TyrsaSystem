@@ -1,12 +1,4 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="Cotizacion">
   <DataContextMoniker Name="/CotizacionDataContext" />
-  <nestedChildShapes>
-    <classShape Id="762b19a5-3052-48c8-b2ef-d88bf1f5972e" absoluteBounds="4.25, 2.125, 2, 3.6939111328124996">
-      <DataClassMoniker Name="/CotizacionDataContext/entSeleccionViga" />
-      <nestedChildShapes>
-        <elementListCompartment Id="aaa481e7-3d41-46b0-b8a4-14c21e71f0da" absoluteBounds="4.265, 2.585, 1.9700000000000002, 3.1339111328125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
-  </nestedChildShapes>
 </ordesignerObjectsDiagram>

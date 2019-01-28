@@ -165,5 +165,124 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
             }
             return result;
         }
+        /// <summary>
+        /// Obtiene la capacidad de carga requerrida por par de Vigas CPPV
+        /// </summary>
+        /// <param name="intNumeroTarimasPorNivel">NTPN</param>
+        /// <param name="decTarimaProductoPeso"></param>
+        /// <returns></returns>
+        public decimal getCapacidadCargaRequerridaViga(int intNumeroTarimasPorNivel, decimal decTarimaProductoPeso)
+        {
+            decimal decResult = 0;
+            try
+            {
+                decResult = Convert.ToDecimal(intNumeroTarimasPorNivel) * decTarimaProductoPeso * Convert.ToDecimal(1.10);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return decResult;
+        }
+        /// <summary>
+        /// Obtiene la lista de longitud de Viga
+        /// </summary>
+        /// <param name="intNumeroTarimasPorNivel">NTPN</param>
+        /// <param name="tarima">Valor capturado de la tarima</param>
+        /// <returns></returns>
+        public List<CatalogoDecimal> ListarLongitudViga(int intNumeroTarimasPorNivel, decimal decFrente)
+        {
+            List<CatalogoDecimal> result = new List<CatalogoDecimal>();
+            try
+            {
+                CatalogoDecimal opcion = new CatalogoDecimal();
+                decimal decLongitudViga = 0;
+                // Obtenemos la primera opción
+                decLongitudViga = Convert.ToDecimal((intNumeroTarimasPorNivel + 1) * 0.1016) + Convert.ToDecimal((intNumeroTarimasPorNivel * decFrente));
+                // Agregamos la primera opción
+                opcion.intCatalogoID = 3;
+                opcion.decValor = decLongitudViga;
+                result.Add(opcion);
+
+                // Optenemos la segunda opción
+                decLongitudViga = Convert.ToDecimal((intNumeroTarimasPorNivel + 1) * 0.0762) + Convert.ToDecimal((intNumeroTarimasPorNivel * decFrente));
+                // Agregamos la segunda opción
+                opcion.intCatalogoID = 4;
+                opcion.decValor = decLongitudViga;
+                result.Add(opcion);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
+        /// <summary>
+        /// Procedimiento que nos devuelve la lista de vigas en base a la longitud de la viga (LV),
+        /// Capacidad de carga requerida por par de vigas (CPPV)
+        /// </summary>
+        /// <param name="decLongitudViga"></param>
+        /// <param name="intNumeroTarimasPorNivel"></param>
+        /// <param name="decTarimaProductoPeso"></param>
+        /// <returns></returns>
+        public List<SeleccionViga> seleccionVigas(decimal decLongitudViga, int intNumeroTarimasPorNivel, decimal decTarimaProductoPeso,
+            short sintSistemaID, bool bitEstructural)
+        {
+            List<SeleccionViga> result = new List<SeleccionViga>();
+            decimal decCapacidadCarga = 0;
+            try
+            {
+                // Obtenemos la capacidad de carga requerida para la viga
+                decCapacidadCarga = getCapacidadCargaRequerridaViga(intNumeroTarimasPorNivel, decTarimaProductoPeso);
+                // obtenemos la lista de vigas que cumplen las longitudes de viga y la capacidad de carga
+                result = CatalogosDA.ListarSeleccionVigas(decLongitudViga, decCapacidadCarga, sintSistemaID, bitEstructural);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
+        /// <summary>
+        /// Procedimiento que realiza el almacenado de la información de la viga seleccionada
+        /// </summary>
+        /// <param name="viga"></param>
+        /// <param name="tinOpcion"></param>
+        /// <returns></returns>
+        public Resultado setSeleccionViga(SeleccionViga viga, short tinOpcion)
+        {
+            Resultado result = new Resultado();
+            try
+            {
+                result = CatalogosDA.setSeleccionViga(viga, tinOpcion);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
+
+        #region Procedimientos por revisar
+
+        /// <summary>
+        /// Procedimiento que devuelve la información del Rack Selectivo
+        /// </summary>
+        /// <param name="intRackID"></param>
+        /// <returns></returns>
+        public DatosRackSelectivo ListarDatosRackSelectivo(int intRackID, int intDetCotizaID)
+        {
+            DatosRackSelectivo result = new DatosRackSelectivo();
+            try
+            {
+                result = CatalogosDA.ListarDatosRackSelectivo(intRackID, intDetCotizaID);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
+        #endregion
     }
 }

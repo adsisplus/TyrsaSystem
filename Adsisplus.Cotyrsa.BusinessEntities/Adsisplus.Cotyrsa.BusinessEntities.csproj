@@ -108,7 +108,6 @@
     <Compile Include="SeleccionViga.cs" />
     <Compile Include="SubFamiliaMarco.cs" />
     <Compile Include="Subproducto.cs" />
-    <Compile Include="Tarima.cs" />
     <Compile Include="TipoElementoAlmacen_FactorCotizacion.cs" />
     <Compile Include="TipoElementoCotizar_CatalogoProducto.cs" />
     <Compile Include="TipoMarco.cs" />

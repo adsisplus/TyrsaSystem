@@ -11,10 +11,20 @@ namespace Adsisplus.Cotyrsa.BusinessEntities
     public class SeleccionMarco
     {
         /// <summary>
+        /// ID de la tabla tbl_SeleccionMarco
+        /// </summary>
+        [DataMember]
+        public int? intSeleccionMarcoID { get; set; }
+        /// <summary>
         /// Valor del SKU
         /// </summary>
         [DataMember]
-        public string vchSKU { get; set; }
+        public int? SKU { get; set; }
+        /// <summary>
+        /// ID de la configuración del Marco
+        /// </summary>
+        [DataMember]
+        public int? intConfiguraMarcoID { get; set; }
         /// <summary>
         /// Peso del MArco en Kg
         /// </summary>
@@ -26,10 +36,20 @@ namespace Adsisplus.Cotyrsa.BusinessEntities
         [DataMember]
         public decimal? decPrecioUnitario { get; set; }
         /// <summary>
+        /// ID del tipo de Marco
+        /// </summary>
+        [DataMember]
+        public int? intTipoID { get; set; }
+        /// <summary>
         /// Tipo del marco
         /// </summary>
         [DataMember]
         public string vchTipo { get; set; }
+        /// <summary>
+        /// ID del Calibre
+        /// </summary>
+        [DataMember]
+        public int? intMaterialID { get; set; }
         /// <summary>
         /// Material del marco
         /// </summary>
@@ -55,5 +75,10 @@ namespace Adsisplus.Cotyrsa.BusinessEntities
         /// </summary>
         [DataMember]
         public decimal? decCapacidadMarco { get; set; }
+        /// <summary>
+        /// Estatus de la selección de Marco
+        /// </summary>
+        [DataMember]
+        public bool? bitActivo { get; set; }
     }
 }

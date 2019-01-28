@@ -372,5 +372,73 @@ namespace Adsisplus.Cotyrsa.DataAccess
             }
             return result;
         }
+        /// <summary>
+        /// Procedimiento que permite listar los marcos en base a la capacidad
+        /// de carga y la altura de pandeo
+        /// </summary>
+        /// <param name="decCapacidadCarga"></param>
+        /// <param name="decAlturaPandeo"></param>
+        /// <returns></returns>
+        public List<SeleccionMarco> ListarSeleccionMarco(decimal decCapacidadCarga, decimal decAlturaPandeo, decimal decFondo, 
+            decimal decAlturaMarco, short sintSistemaID, bool bitEstructural)
+        {
+            List<SeleccionMarco> result = new List<SeleccionMarco>();
+            try
+            {
+                using (MarcosDataContext dc = new MarcosDataContext(Helper.ConnectionString()))
+                {
+                    var query = from item in dc.stp_ListarSeleccionMarco(decCapacidadCarga, decAlturaPandeo, decFondo, decAlturaMarco, sintSistemaID, bitEstructural)
+                                select new SeleccionMarco
+                                {
+                                    intConfiguraMarcoID = item.intConfiguraMarcoID,
+                                    decAltura = item.decAltura,
+                                    decAlturaPandeo = item.decAlturaPandeo,
+                                    decCapacidadMarco = item.decCapacidadMarco,
+                                    decFondo = item.decFondo,
+                                    decPesoMarco = item.decPesoMarco,
+                                    decPrecioUnitario = item.decPrecioUnitario,
+                                    vchMaterial = item.vchMaterial,
+                                    SKU = item.SKU,
+                                    vchTipo = item.vchTipo
+                                };
+                    result.AddRange(query);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
+        /// <summary>
+        /// Procedimiento que realiza el alta, modificación y baja de los datos de la tabla tbl_SeleccionMarco
+        /// </summary>
+        /// <param name="marco"></param>
+        /// <param name="tinOpcion"></param>
+        /// <returns></returns>
+        public Resultado setSeleccionMarco(SeleccionMarco marco, short tinOpcion)
+        {
+            Resultado result = new Resultado();
+            try
+            {
+                using (MarcosDataContext dc = new MarcosDataContext(Helper.ConnectionString()))
+                {
+                    var query = from item in dc.stp_setSeleccionMarco(marco.intSeleccionMarcoID, marco.SKU, marco.decPesoMarco, marco.decPrecioUnitario,
+                        marco.intTipoID, marco.intMaterialID, marco.decFondo, marco.decAltura, marco.decAlturaPandeo,
+                        marco.decCapacidadMarco, marco.bitActivo, (byte)tinOpcion)
+                                select new Resultado
+                                {
+                                    vchDescripcion = item.vchDescripcion,
+                                    vchResultado = item.vchResultado
+                                };
+                    result = query.First();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
     }
 }

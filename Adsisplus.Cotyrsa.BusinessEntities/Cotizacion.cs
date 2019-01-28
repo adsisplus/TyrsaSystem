@@ -66,6 +66,7 @@ namespace Adsisplus.Cotyrsa.BusinessEntities
         [DataMember]
         public bool? bitActivo { get; set; }
 
+        // Datos que seran almacenados en la tabla tbl_RackSelectivo
         [DataMember]
         public decimal? decMedidaFrente { get; set; }
         [DataMember]
@@ -78,6 +79,7 @@ namespace Adsisplus.Cotyrsa.BusinessEntities
         public bool? bitMontaCarga { get; set; }
         [DataMember]
         public int? intNumeroTarimaPorNivel { get; set; }
+
         [DataMember]
         public int? intNumeroNivelSobreViga { get; set; }
         [DataMember]

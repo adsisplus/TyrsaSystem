@@ -34,10 +34,19 @@ namespace Adsisplus.Cotyrsa.BusinessEntities
         [DataMember]
         public decimal? decPrecioUnitarioSinIVA { get; set; }
         /// <summary>
+        /// ID del tipo de Viga
+        /// </summary>
+        public int? intTipoID { get; set; }
+        /// <summary>
         /// Tipo de VIga
         /// </summary>
         [DataMember]
         public string vchTipo { get; set; }
+        /// <summary>
+        /// ID de la Viga
+        /// </summary>
+        [DataMember]
+        public int? intMaterialID { get; set; }
         /// <summary>
         /// Material de la viga
         /// </summary>
@@ -88,5 +97,8 @@ namespace Adsisplus.Cotyrsa.BusinessEntities
         /// </summary>
         [DataMember]
         public short? sintLongitudID { get; set; }
+
+        [DataMember]
+        public bool? bitActivo { get; set; }
     }
 }

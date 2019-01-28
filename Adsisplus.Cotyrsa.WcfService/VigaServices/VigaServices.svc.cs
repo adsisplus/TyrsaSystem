@@ -189,5 +189,86 @@ namespace Adsisplus.Cotyrsa.WcfService.VigaServices
             }
             return result;
         }
+        /// <summary>
+        /// Obtiene la lista de longitud de Viga
+        /// </summary>
+        /// <param name="intNumeroTarimasPorNivel">NTPN</param>
+        /// <param name="tarima">Valor capturado de la tarima</param>
+        /// <returns></returns>
+        public List<CatalogoDecimal> ListarLongitudViga(int intNumeroTarimasPorNivel, decimal decFrente)
+        {
+            List<CatalogoDecimal> result = new List<CatalogoDecimal>();
+            try
+            {
+                result = (new VigaLogic()).ListarLongitudViga(intNumeroTarimasPorNivel, decFrente);
+            }
+            catch (Exception ex)
+            {
+                Adsisplus.Cotyrsa.BusinessLogic.EventLogManager.LogErrorEntry(ex.Message);
+            }
+            return result;
+        }
+        /// <summary>
+        /// Procedimiento que nos devuelve la lista de vigas en base a la longitud de la viga (LV),
+        /// Capacidad de carga requerida por par de vigas (CPPV)
+        /// </summary>
+        /// <param name="decLongitudViga"></param>
+        /// <param name="intNumeroTarimasPorNivel"></param>
+        /// <param name="decTarimaProductoPeso"></param>
+        /// <returns></returns>
+        public List<SeleccionViga> seleccionVigas(decimal decLongitudViga, int intNumeroTarimasPorNivel, decimal decTarimaProductoPeso,
+            short sintSistemaID, bool bitEstructural)
+        {
+            List<SeleccionViga> result = new List<SeleccionViga>();
+            try
+            {
+                result = (new VigaLogic()).seleccionVigas(decLongitudViga, intNumeroTarimasPorNivel, decTarimaProductoPeso, sintSistemaID, bitEstructural);
+            }
+            catch (Exception ex)
+            {
+                Adsisplus.Cotyrsa.BusinessLogic.EventLogManager.LogErrorEntry(ex.Message);
+            }
+            return result;
+        }
+        /// <summary>
+        /// Procedimiento que realiza el almacenado de la información de la viga seleccionada
+        /// </summary>
+        /// <param name="viga"></param>
+        /// <param name="tinOpcion"></param>
+        /// <returns></returns>
+        public Resultado setSeleccionViga(SeleccionViga viga, short tinOpcion)
+        {
+            Resultado result = new Resultado();
+            try
+            {
+                result = (new VigaLogic()).setSeleccionViga(viga, tinOpcion);
+            }
+            catch (Exception ex)
+            {
+                Adsisplus.Cotyrsa.BusinessLogic.EventLogManager.LogErrorEntry(ex.Message);
+            }
+            return result;
+        }
+
+        #region Procedimientos por revisar
+        /// <summary>
+        /// Procedimiento que devuelve la información del Rack Selectivo
+        /// </summary>
+        /// <param name="intRackID"></param>
+        /// <returns></returns>
+        public DatosRackSelectivo ListarDatosRackSelectivo(int intRackID, int intDetCotizaID)
+        {
+            DatosRackSelectivo result = new DatosRackSelectivo();
+            try
+            {
+                result = (new VigaLogic()).ListarDatosRackSelectivo(intRackID, intDetCotizaID);
+            }
+            catch (Exception ex)
+            {
+                Adsisplus.Cotyrsa.BusinessLogic.EventLogManager.LogErrorEntry(ex.Message);
+            }
+            return result;
+        }
+        #endregion
     }
 }

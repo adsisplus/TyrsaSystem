@@ -17,10 +17,10 @@ namespace Adsisplus.Cotyrsa.BusinessEntities
         [DataMember]
         public int? intRackID { get; set; }
         /// <summary>
-        /// ID de la tabla tbl_Tarima
+        /// ID de la tabla tbl_DET_Cotizacion
         /// </summary>
         [DataMember]
-        public int? intTarimaID { get; set; }
+        public int? intDetCotizaID { get; set; }
         /// <summary>
         /// ID de la tabla tbl_SeleccionViga
         /// </summary>
@@ -84,7 +84,7 @@ namespace Adsisplus.Cotyrsa.BusinessEntities
         /// Valor de SKU
         /// </summary>
         [DataMember]
-        public string vchSKU { get; set; }
+        public int? SKU { get; set; }
         /// <summary>
         /// Valor del peso de la viga en Kg
         /// </summary>
@@ -145,7 +145,9 @@ namespace Adsisplus.Cotyrsa.BusinessEntities
         /// </summary>
         [DataMember]
         public string vchResultado { get; set; }
-
+        /// <summary>
+        /// Estatus
+        /// </summary>
         [DataMember]
         public bool? bitActivo { get; set; }
     }

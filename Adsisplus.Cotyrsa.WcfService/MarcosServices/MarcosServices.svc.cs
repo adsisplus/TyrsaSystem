@@ -199,5 +199,88 @@ namespace Adsisplus.Cotyrsa.WcfService.MarcosServices
             }
             return result;
         }
+
+        #region SELECCION DE MARCO
+        /// <summary>
+        /// Obtiene el valor del fonde del marco
+        /// </summary>
+        /// <param name="decFondoTarimaVacia"></param>
+        /// <returns></returns>
+        public decimal getFondoMarco(decimal decFondoTarimaVacia)
+        {
+            decimal result = new decimal();
+            try
+            {
+                result = (new MarcosLogic()).getFondoMarco(decFondoTarimaVacia);
+            }
+            catch (Exception ex)
+            {
+                Adsisplus.Cotyrsa.BusinessLogic.EventLogManager.LogErrorEntry(ex.Message);
+            }
+            return result;
+        }
+        /// <summary>
+        /// Método que nos permite determinar la altura del Marco
+        /// </summary>
+        /// <param name="decDimensionClaro"></param>
+        /// <param name="intNumNivelesSobreVigaClaro"></param>
+        /// <param name="decAlturaPiso"></param>
+        /// <param name="intNumNivelesSobreVigaPeralte"></param>
+        /// <param name="sintOpcion"></param>
+        /// <returns></returns>
+        public List<CatalogoDecimal> getAlturaMarco(decimal decDimensionClaro, int intNumNivelesSobreVigaClaro, decimal decAlturaPiso, int intNumNivelesSobreVigaPeralte)
+        {
+            List<CatalogoDecimal> result = new List<CatalogoDecimal>();
+            try
+            {
+                result = (new MarcosLogic()).getAlturaMarco(decDimensionClaro, intNumNivelesSobreVigaClaro, decAlturaPiso, intNumNivelesSobreVigaPeralte);
+            }
+            catch (Exception ex)
+            {
+                Adsisplus.Cotyrsa.BusinessLogic.EventLogManager.LogErrorEntry(ex.Message);
+            }
+            return result;
+        }
+        /// <summary>
+        /// Procedimiento que permite listar los marcos en base a la capacidad
+        /// de carga y la altura de pandeo
+        /// </summary>
+        /// <param name="decCapacidadCarga"></param>
+        /// <param name="decAlturaPandeo"></param>
+        /// <returns></returns>
+        public List<SeleccionMarco> seleccionMarco(decimal decCapacidadCarga, decimal decAlturaPandeo, decimal decFondo,
+            decimal decAlturaMarco, short sintSistemaID, bool bitEstructural)
+        {
+            List<SeleccionMarco> result = new List<SeleccionMarco>();
+            try
+            {
+                result = (new MarcosLogic()).seleccionMarco(decCapacidadCarga, decAlturaPandeo, decFondo, decAlturaMarco, sintSistemaID, bitEstructural);
+            }
+            catch (Exception ex)
+            {
+                Adsisplus.Cotyrsa.BusinessLogic.EventLogManager.LogErrorEntry(ex.Message);
+            }
+            return result;
+        }
+        /// <summary>
+        /// Procedimiento que realiza el alta, modificación y baja de los datos de la tabla tbl_SeleccionMarco
+        /// </summary>
+        /// <param name="marco"></param>
+        /// <param name="tinOpcion"></param>
+        /// <returns></returns>
+        public Resultado setSeleccionMarco(SeleccionMarco marco, short tinOpcion)
+        {
+            Resultado result = new Resultado();
+            try
+            {
+                result = (new MarcosLogic()).setSeleccionMarco(marco, tinOpcion);
+            }
+            catch (Exception ex)
+            {
+                Adsisplus.Cotyrsa.BusinessLogic.EventLogManager.LogErrorEntry(ex.Message);
+            }
+            return result;
+        }
+        #endregion
     }
 }

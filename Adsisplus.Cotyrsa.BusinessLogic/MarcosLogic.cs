@@ -165,5 +165,103 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
             }
             return result;
         }
+
+        #region Metodo para la selección de Marco
+        /// <summary>
+        /// Obtiene el valor del fonde del marco
+        /// </summary>
+        /// <param name="decFondoTarimaVacia"></param>
+        /// <returns></returns>
+        public decimal getFondoMarco(decimal decFondoTarimaVacia)
+        {
+            decimal result = new decimal();
+            try
+            {
+                result = decFondoTarimaVacia - Convert.ToDecimal(0.1524);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
+        /// <summary>
+        /// Método que nos permite determinar la altura del Marco
+        /// </summary>
+        /// <param name="decDimensionClaro"></param>
+        /// <param name="intNumNivelesSobreVigaClaro"></param>
+        /// <param name="decAlturaPiso"></param>
+        /// <param name="intNumNivelesSobreVigaPeralte"></param>
+        /// <param name="sintOpcion"></param>
+        /// <returns></returns>
+        public List<CatalogoDecimal> getAlturaMarco(decimal decDimensionClaro, int intNumNivelesSobreVigaClaro, decimal decAlturaPiso, int intNumNivelesSobreVigaPeralte)
+        {
+            List<CatalogoDecimal> result = new List<CatalogoDecimal>();
+            try
+            {
+                CatalogoDecimal opcion = new CatalogoDecimal();
+                decimal decLongitudViga = 0;
+                // Obtenemos la primera opción
+                decLongitudViga = Math.Round((decDimensionClaro + Convert.ToDecimal(intNumNivelesSobreVigaPeralte) + Convert.ToDecimal(0.30)), 0, MidpointRounding.AwayFromZero);
+                // Agregamos la primera opción
+                opcion.intCatalogoID = 1;
+                opcion.decValor = decLongitudViga;
+                result.Add(opcion);
+
+
+                // Optenemos la segunda opción
+                decLongitudViga = Math.Round((decAlturaPiso + Convert.ToDecimal(intNumNivelesSobreVigaClaro) + Convert.ToDecimal(intNumNivelesSobreVigaPeralte) + Convert.ToDecimal(0.30)), 0, MidpointRounding.AwayFromZero);
+                // Agregamos la segunda opción
+                opcion.intCatalogoID = 2;
+                opcion.decValor = decLongitudViga;
+                result.Add(opcion);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
+        /// <summary>
+        /// Procedimiento que permite listar los marcos en base a la capacidad
+        /// de carga y la altura de pandeo
+        /// </summary>
+        /// <param name="decCapacidadCarga"></param>
+        /// <param name="decAlturaPandeo"></param>
+        /// <returns></returns>
+        public List<SeleccionMarco> seleccionMarco(decimal decCapacidadCarga, decimal decAlturaPandeo, decimal decFondo, 
+            decimal decAlturaMarco, short sintSistemaID, bool bitEstructural)
+        {
+            List<SeleccionMarco> result = new List<SeleccionMarco>();
+            try
+            {
+                result = CatalogosDA.ListarSeleccionMarco(decCapacidadCarga, decAlturaPandeo, decFondo, decAlturaMarco, sintSistemaID, bitEstructural);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
+        /// <summary>
+        /// Procedimiento que realiza el alta, modificación y baja de los datos de la tabla tbl_SeleccionMarco
+        /// </summary>
+        /// <param name="marco"></param>
+        /// <param name="tinOpcion"></param>
+        /// <returns></returns>
+        public Resultado setSeleccionMarco(SeleccionMarco marco, short tinOpcion)
+        {
+            Resultado result = new Resultado();
+            try
+            {
+                result = CatalogosDA.setSeleccionMarco(marco, tinOpcion);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
+        #endregion
     }
 }

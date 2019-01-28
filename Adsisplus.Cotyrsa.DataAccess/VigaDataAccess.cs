@@ -312,5 +312,233 @@ namespace Adsisplus.Cotyrsa.DataAccess
             }
             return result;
         }
+        /// <summary>
+        /// Procedimiento que nos devuelve la lista de vigas en base a la longitud de la viga (LV),
+        /// Capacidad de carga requerida por par de vigas (CPPV)
+        /// </summary>
+        /// <param name="decLongitudViga"></param>
+        /// <param name="decCapacidadCarga"></param>
+        /// <param name="bitEstructural"></param>
+        /// <param name="sintSistemaID"></param>
+        /// <returns></returns>
+        public List<SeleccionViga> ListarSeleccionVigas(decimal decLongitudViga, decimal decCapacidadCarga, short sintSistemaID, bool bitEstructural)
+        {
+            List<SeleccionViga> result = new List<SeleccionViga>();
+            try
+            {
+                using (VigasDataContext dc = new VigasDataContext(Helper.ConnectionString()))
+                {
+                    var query = from item in dc.stp_ListarSeleccionViga(decCapacidadCarga, decLongitudViga, sintSistemaID, bitEstructural)
+                                select new SeleccionViga
+                                {
+                                    decCapacidadParVigasMaxima = item.decPesoPartida,
+                                    decCapacidadParVigasRequerida = item.decPesoPieza,
+                                    decLongitud = Convert.ToDecimal(item.vchLongitud),
+                                    decPatin = Convert.ToDecimal(item.intPatin),
+                                    decPeralte = Convert.ToDecimal(item.intPeralte),
+                                    decPesoViga = item.decPesoViga,
+                                    decPrecioUnitarioSinIVA = item.decPrecioUnitario,
+                                    vchMaterial = item.vchMaterial,
+                                    SKU = item.SKU,
+                                    vchTipo = item.vchTipo,
+                                    decTotal = item.TOTAL,
+                                    intLargo = item.intLargo,
+                                    sintLongitudID = item.sintLongitudId,
+                                    sintTipoVigaID = item.sintTipoVigaID
+                                };
+                    result.AddRange(query);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
+        /// <summary>
+        /// Procedimiento que muestra los datos de la seleccion de Viga
+        /// </summary>
+        /// <param name="intSeleccionVigaID"></param>
+        /// <returns></returns>
+        public SeleccionViga ListaDatosSeleccionViga(int intSeleccionVigaID)
+        {
+            SeleccionViga result = new SeleccionViga();
+            try
+            {
+                using (VigasDataContext dc = new VigasDataContext(Helper.ConnectionString()))
+                {
+                    var query = from item in dc.stp_ListarDatosSeleccionViga(intSeleccionVigaID)
+                                select new SeleccionViga
+                                {
+                                    intSeleccionVigaID = item.intSeleccionVigaID,
+                                    SKU = item.SKU,
+                                    decPesoViga = item.decPesoViga,
+                                    decPrecioUnitarioSinIVA = item.decPrecioUnitario,
+                                    intTipoID = item.intTipoID,
+                                    vchTipo = item.vchTipo,
+                                    intMaterialID = item.intMaterialID,
+                                    vchMaterial = item.vchMaterial,
+                                    decPatin = item.decPatin,
+                                    decPeralte = item.decPeralte,
+                                    decLongitud = item.decLongitud,
+                                    decCapacidadParVigasRequerida = item.decCapViga,
+                                    decCapacidadParVigasMaxima = item.decCapVigaMax,
+                                    bitActivo = item.bitActivo
+                                };
+                    result = query.First();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
+        /// <summary>
+        /// Procedimiento que realiza el almacenado de la información de la viga seleccionada
+        /// </summary>
+        /// <param name="viga"></param>
+        /// <param name="tinOpcion"></param>
+        /// <returns></returns>
+        public Resultado setSeleccionViga(SeleccionViga viga, short tinOpcion)
+        {
+            Resultado result = new Resultado();
+            try
+            {
+                using (VigasDataContext dc = new VigasDataContext(Helper.ConnectionString()))
+                {
+                    var query = from item in dc.stp_setSeleccionViga(viga.intSeleccionVigaID, viga.SKU, viga.decPesoViga, viga.decPrecioUnitarioSinIVA,
+                        viga.intTipoID, viga.intMaterialID, viga.decPatin, viga.decPeralte, viga.decLongitud,
+                        viga.decCapacidadParVigasRequerida, viga.decCapacidadParVigasMaxima, viga.bitActivo, (byte)tinOpcion)
+                                select new Resultado
+                                {
+                                    vchDescripcion = item.vchDescripcion,
+                                    vchResultado = item.vchResultado
+                                };
+                    result = query.First();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
+
+        #region Procedimientos por revisar
+
+        /// <summary>
+        /// Procedimiento que devuelve la información del Rack Selectivo
+        /// </summary>
+        /// <param name="intRackID"></param>
+        /// <param name="intDetCotizaID"></param>
+        /// <returns></returns>
+        public DatosRackSelectivo ListarDatosRackSelectivo(int intRackID, int intDetCotizaID)
+        {
+            DatosRackSelectivo result = new DatosRackSelectivo();
+            try
+            {
+                using (VigasDataContext dc = new VigasDataContext(Helper.ConnectionString()))
+                {
+                    var query = from item in dc.stp_ListarDatosRack(intRackID, intDetCotizaID)
+                                select new DatosRackSelectivo
+                                {
+                                    intRackID = item.intRackID,
+
+                                    intSeleccionVigaID = item.intSeleccionVigaID,
+                                    intNumTarimaNivel = item.intNumTarimaNivel,
+                                    decLongitudViga = item.decLongitudViga,
+                                    decCapCargaReqViga = item.decCapCargaReqViga,
+                                    bitActivo = item.bitActivo,
+                                    bitEstructural = item.bitEstructural,
+                                    bitSobresale = item.bitSobresale,
+                                    decDistanciaLargoProducto = item.decDistanciaLargoProducto,
+                                    decAltura = item.decAltura,
+                                    decFondo = item.decFondo,
+                                    decFrente = item.decFrente,
+                                    decPeso = item.decPeso,
+                                    decCapacidadParVigasRequerida = item.decCapViga,
+                                    decCapacidadParVigasMaxima = item.decCapVigaMax,
+                                    decLongitud = item.decLongitud,
+                                    decPatin = item.decPatin,
+                                    decPeralte = item.decPeralte,
+                                    decPesoViga = item.decPesoViga,
+                                    decPrecioUnitarioSinIVA = item.decPrecioUnitario,
+                                    vchMaterial = item.vchMaterial,
+                                    SKU = item.SKU,
+                                    vchTipo = item.vchTipo,
+                                };
+                    result = query.First();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
+        /// <summary>
+        /// Procedimient que permite realizar el alta, modificación y baja de los datos de
+        /// rack selectivo (tbl_RackSelectivo y tbl_SeleccionViga)
+        /// </summary>
+        /// <param name="rack"></param>
+        /// <param name="tintOpcion"></param>
+        /// <returns></returns>
+        public Resultado setDatosRackSelectivo(DatosRackSelectivo rack, short tintOpcion)
+        {
+            Resultado result = new Resultado();
+            string vchResultado = string.Empty;
+            try
+            {
+                using (VigasDataContext dc = new VigasDataContext(Helper.ConnectionString()))
+                {
+                    var query = from item in dc.stp_setDatosRackSelectivo(rack.intRackID, rack.intDetCotizaID, rack.intSeleccionVigaID, rack.intNumTarimaNivel,
+                        rack.decLongitudViga, rack.decCapCargaReqViga, rack.bitEstructural, rack.decAltura, rack.decFondo,
+                        rack.decFrente, rack.decPeso, rack.decCapacidadParVigasRequerida, rack.decCapacidadParVigasMaxima, rack.decLongitud,
+                        rack.decPatin, rack.decPeralte, rack.decPesoViga, rack.decPrecioUnitarioSinIVA, rack.intMaterialID,
+                        rack.SKU, rack.intTipoID, rack.bitSobresale, rack.decDistanciaLargoProducto, rack.bitActivo, (byte)tintOpcion)
+                                select new Resultado
+                                {
+                                    vchDescripcion = item.vchDescripcion,
+                                    vchResultado = item.vchResultado
+                                };
+                            result = query.First();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
+        /// <summary>
+        /// Procedimiento que realiza el almacenado de la información en la tabla tbl_Rack_selectivo
+        /// </summary>
+        /// <param name="rack"></param>
+        /// <param name="tintOpocion"></param>
+        /// <returns></returns>
+        public string setRackSelectivo(RackSelectivo rack, short tintOpocion)
+        {
+            string vchResultado = string.Empty;
+            try
+            {
+                using (VigasDataContext dc = new VigasDataContext(Helper.ConnectionString()))
+                {
+                    dc.stp_setRackSelectivo(rack.intRackID, rack.intSeleccionVigaID, rack.intDetCotizaID, rack.intNumTarimaNivel,
+                     rack.decFrente, rack.decFondo, rack.decAltura, rack.decPeso, rack.decLongitudViga,
+                     rack.decCapCargaReqViga, rack.bitEstructural, rack.bitSobresale, rack.decDistanciaLargoProducto, rack.bitActivo,
+                     (byte)tintOpocion, ref vchResultado);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return vchResultado;
+        }
+
+        #endregion
+
+
     }
 }
