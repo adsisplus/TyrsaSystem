@@ -105,6 +105,7 @@
     <Compile Include="RelTipoElementoAlmacenFactorCotizacion.cs" />
     <Compile Include="Resultado.cs" />
     <Compile Include="SeleccionMarco.cs" />
+    <Compile Include="SeleccionPanel.cs" />
     <Compile Include="SeleccionViga.cs" />
     <Compile Include="SubFamiliaMarco.cs" />
     <Compile Include="Subproducto.cs" />

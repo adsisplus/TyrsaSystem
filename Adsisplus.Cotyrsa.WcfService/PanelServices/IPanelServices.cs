@@ -24,5 +24,24 @@ namespace Adsisplus.Cotyrsa.WcfService.PanelServices
         [OperationContract]
         [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ListarDatosPanel")]
         List<DatosPanel> ListarDatosPanel(Int32 intDatosPanelID, Int32 intElementoID, Int32 intDatoMarcoID, Int16 sintPinturaID);
+        /// <summary>
+        /// Procedimiento que obtiene la lista de anchos del panel
+        /// </summary>
+        /// <returns></returns>
+        [OperationContract]
+        [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ListarAnchoPanel")]
+        List<decimal> ListarAnchoPanel();
+
+        /// <summary>
+        /// Procedimiento que nos muestra la lista de páneles para cotizaciones
+        /// </summary>
+        /// <param name="decCapacidadCarga"></param>
+        /// <param name="decAncho"></param>
+        /// <param name="sintSistemaID"></param>
+        /// <param name="bitGalvanizado"></param>
+        /// <returns></returns>
+        [OperationContract]
+        [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ListarSeleccionPanel")]
+        List<SeleccionPanel> ListarSeleccionPanel(decimal decCapacidadCarga, decimal decAncho, short sintSistemaID, bool bitGalvanizado);
     }
 }

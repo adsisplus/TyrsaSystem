@@ -136,7 +136,6 @@ namespace Adsisplus.Cotyrsa.WcfService.MarcosServices
         [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "seleccionMarco")]
         List<SeleccionMarco> seleccionMarco(decimal decCapacidadCarga, decimal decAlturaPandeo, decimal decFondo,
             decimal decAlturaMarco, short sintSistemaID, bool bitEstructural);
-
         /// <summary>
         /// Procedimiento que realiza el alta, modificación y baja de los datos de la tabla tbl_SeleccionMarco
         /// </summary>
@@ -146,5 +145,12 @@ namespace Adsisplus.Cotyrsa.WcfService.MarcosServices
         [OperationContract]
         [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "setSeleccionMarco")]
         Resultado setSeleccionMarco(SeleccionMarco marco, short tinOpcion);
+        /// <summary>
+        /// Procedimiento para listar los fondos de marco
+        /// </summary>
+        /// <returns></returns>
+        [OperationContract]
+        [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ListarFondoMarco")]
+        List<decimal> ListarFondoMarco();
     }
 }

@@ -263,5 +263,23 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
             return result;
         }
         #endregion
+
+        /// <summary>
+        /// Procedimiento para listar los fondos de marco
+        /// </summary>
+        /// <returns></returns>
+        public List<decimal> ListarFondoMarco()
+        {
+            List<decimal> result = new List<decimal>();
+            try
+            {
+                result = CatalogosDA.ListarFondoMarco();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
     }
 }

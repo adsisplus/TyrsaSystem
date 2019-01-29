@@ -34,5 +34,45 @@ namespace Adsisplus.Cotyrsa.WcfService.PanelServices
             }
             return result;
         }
+
+        /// <summary>
+        /// Procedimiento que obtiene la lista de anchos del panel
+        /// </summary>
+        /// <returns></returns>
+        public List<decimal> ListarAnchoPanel()
+        {
+            List<decimal> result = new List<decimal>();
+            try
+            {
+                result = (new PanelLogic()).ListarAnchoPanel();
+            }
+            catch (Exception ex)
+            {
+                Adsisplus.Cotyrsa.BusinessLogic.EventLogManager.LogErrorEntry(ex.Message);
+            }
+            return result;
+        }
+
+        /// <summary>
+        /// Procedimiento que nos muestra la lista de páneles para cotizaciones
+        /// </summary>
+        /// <param name="decCapacidadCarga"></param>
+        /// <param name="decAncho"></param>
+        /// <param name="sintSistemaID"></param>
+        /// <param name="bitGalvanizado"></param>
+        /// <returns></returns>
+        public List<SeleccionPanel> ListarSeleccionPanel(decimal decCapacidadCarga, decimal decAncho, short sintSistemaID, bool bitGalvanizado)
+        {
+            List<SeleccionPanel> result = new List<SeleccionPanel>();
+            try
+            {
+                result = (new PanelLogic()).ListarSeleccionPanel(decCapacidadCarga, decAncho, sintSistemaID, bitGalvanizado);
+            }
+            catch (Exception ex)
+            {
+                Adsisplus.Cotyrsa.BusinessLogic.EventLogManager.LogErrorEntry(ex.Message);
+            }
+            return result;
+        }
     }
 }

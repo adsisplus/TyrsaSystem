@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="dbTyrsa" Class="MarcosDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=(local);Initial Catalog=dbTyrsa;Persist Security Info=True;User ID=usrCotyrsa" SettingsObjectName="Adsisplus.Cotyrsa.DataAccess.Properties.Settings" SettingsPropertyName="dbTyrsaConnectionString" Provider="System.Data.SqlClient" />
+  <Connection Mode="AppSettings" ConnectionString="Data Source=local;Initial Catalog=dbTyrsa;Persist Security Info=True;User ID=usrCotyrsa" SettingsObjectName="Adsisplus.Cotyrsa.DataAccess.Properties.Settings" SettingsPropertyName="dbTyrsaConnectionString" Provider="System.Data.SqlClient" />
   <Table Name="" Member="FactorMarcoSP">
     <Type Name="FactorMarcoSP" Id="ID1">
       <Column Name="sintFactorMarcoID" Type="System.Int16" CanBeNull="false" />
@@ -48,7 +48,7 @@
   </Table>
   <Table Name="" Member="entSeleccionMarco">
     <Type Name="entSeleccionMarco" Id="ID4">
-      <Column Name="SKU" Type="System.Int32" CanBeNull="false" />
+      <Column Name="SKU" Type="System.String" CanBeNull="false" />
       <Column Name="intConfiguraMarcoID" Type="System.Int32" CanBeNull="false" />
       <Column Name="decPesoMarco" Type="System.Decimal" CanBeNull="false" />
       <Column Name="decPrecioUnitario" Type="System.Decimal" CanBeNull="false" />
@@ -179,84 +179,8 @@
     </ElementType>
   </Function>
   <Function Name="dbo.stp_ListarFondoMarco" Method="stp_ListarFondoMarco">
-    <Parameter Name="sintFondoMarcoID" Type="System.Int32" DbType="Int" />
-    <Parameter Name="sintTipoMarcoID" Type="System.Int32" DbType="Int" />
-    <Parameter Name="intCalibreAceroID" Type="System.Int32" DbType="Int" />
-    <Parameter Name="decFondoMarco" Type="System.Decimal" DbType="Decimal(8,3)" />
     <ElementType Name="stp_ListarFondoMarcoResult">
-      <Column Name="sintFondoMarcoID" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
-      <Column Name="vchTipoMarcoTyrsa" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
-      <Column Name="intCalibreAceroID" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="vchCalibreAcero" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="vchFondoMarco" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
       <Column Name="decFondoMarco" Type="System.Decimal" DbType="Decimal(18,4)" CanBeNull="true" />
-      <Column Name="vchParte1" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
-      <Column Name="vchDescripcion1" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
-      <Column Name="decFactor1" Type="System.Decimal" DbType="Decimal(18,4)" CanBeNull="true" />
-      <Column Name="vchParte2" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
-      <Column Name="vchDescripcion2" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
-      <Column Name="decFactor2" Type="System.Decimal" DbType="Decimal(18,4)" CanBeNull="true" />
-      <Column Name="vchParte3" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
-      <Column Name="vchDescripcion3" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
-      <Column Name="decFactor3" Type="System.Decimal" DbType="Decimal(18,4)" CanBeNull="true" />
-      <Column Name="vchParte4" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
-      <Column Name="vchDescripcion4" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
-      <Column Name="decFactor4" Type="System.Decimal" DbType="Decimal(18,8)" CanBeNull="true" />
-      <Column Name="vchParte5" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
-      <Column Name="vchDescripcion5" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
-      <Column Name="decFactor5" Type="System.Decimal" DbType="Decimal(18,4)" CanBeNull="true" />
-      <Column Name="vchParte6" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
-      <Column Name="vchDescripcion6" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
-      <Column Name="decFactor6" Type="System.Decimal" DbType="Decimal(18,4)" CanBeNull="true" />
-      <Column Name="vchParte7" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
-      <Column Name="vchDescripcion7" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
-      <Column Name="decFactor7" Type="System.Decimal" DbType="Decimal(18,4)" CanBeNull="true" />
-      <Column Name="vchParte8" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
-      <Column Name="vchDescripcion8" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
-      <Column Name="decFactor8" Type="System.Decimal" DbType="Decimal(18,8)" CanBeNull="true" />
-      <Column Name="vchParte9" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
-      <Column Name="vchDescripcion9" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
-      <Column Name="decFactor9" Type="System.Decimal" DbType="Decimal(18,4)" CanBeNull="true" />
-      <Column Name="vchParte10" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
-      <Column Name="vchDescripcion10" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
-      <Column Name="decFactor10" Type="System.Decimal" DbType="Decimal(18,4)" CanBeNull="true" />
-      <Column Name="vchParte11" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
-      <Column Name="vchDescripcion11" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
-      <Column Name="decFactor11" Type="System.Decimal" DbType="Decimal(18,4)" CanBeNull="true" />
-      <Column Name="vchParte12" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
-      <Column Name="vchDescripcion12" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
-      <Column Name="decFactor12" Type="System.Decimal" DbType="Decimal(18,4)" CanBeNull="true" />
-      <Column Name="vchParte13" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
-      <Column Name="vchDescripcion13" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
-      <Column Name="decFactor13" Type="System.Decimal" DbType="Decimal(18,4)" CanBeNull="true" />
-      <Column Name="vchParte14" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
-      <Column Name="vchDescripcion14" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
-      <Column Name="decFactor14" Type="System.Decimal" DbType="Decimal(18,4)" CanBeNull="true" />
-      <Column Name="vchParte15" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
-      <Column Name="vchDescripcion15" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
-      <Column Name="decFactor15" Type="System.Decimal" DbType="Decimal(18,4)" CanBeNull="true" />
-      <Column Name="vchParte16" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
-      <Column Name="vchDescripcion16" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
-      <Column Name="decFactor16" Type="System.Decimal" DbType="Decimal(18,4)" CanBeNull="true" />
-      <Column Name="vchParte17" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
-      <Column Name="vchDescripcion17" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
-      <Column Name="decFactor17" Type="System.Decimal" DbType="Decimal(18,4)" CanBeNull="true" />
-      <Column Name="vchParte18" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
-      <Column Name="vchDescripcion18" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
-      <Column Name="decFactor18" Type="System.Decimal" DbType="Decimal(18,4)" CanBeNull="true" />
-      <Column Name="vchParte19" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
-      <Column Name="vchDescripcion19" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
-      <Column Name="decFactor19" Type="System.Decimal" DbType="Decimal(18,8)" CanBeNull="true" />
-      <Column Name="vchParaCostoLamina" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
-      <Column Name="vchCostoLamina" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
-      <Column Name="decCostoLamina" Type="System.Decimal" DbType="Decimal(18,4)" CanBeNull="true" />
-      <Column Name="vchParaCostoSolera" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
-      <Column Name="vchCostoSolera" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
-      <Column Name="decCostoSolera" Type="System.Decimal" DbType="Decimal(18,4)" CanBeNull="true" />
-      <Column Name="vchParaFactorAcero" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
-      <Column Name="vchFactorAcero" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
-      <Column Name="decFactorAcero" Type="System.Decimal" DbType="Decimal(18,4)" CanBeNull="true" />
-      <Column Name="bitActivo" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
     </ElementType>
   </Function>
   <Function Name="dbo.stp_ListarSeleccionMarco" Method="stp_ListarSeleccionMarco">
@@ -270,7 +194,7 @@
   </Function>
   <Function Name="dbo.stp_setSeleccionMarco" Method="stp_setSeleccionMarco">
     <Parameter Name="intSeleccionMarcoID" Type="System.Int32" DbType="Int" />
-    <Parameter Name="SKU" Parameter="sKU" Type="System.Int32" DbType="Int" />
+    <Parameter Name="SKU" Parameter="sKU" Type="System.String" DbType="VarChar(50)" />
     <Parameter Name="decPesoMarco" Type="System.Decimal" DbType="Decimal(8,3)" />
     <Parameter Name="decPrecioUnitario" Type="System.Decimal" DbType="Decimal(8,3)" />
     <Parameter Name="intTipo" Type="System.Int32" DbType="Int" />

@@ -282,5 +282,23 @@ namespace Adsisplus.Cotyrsa.WcfService.MarcosServices
             return result;
         }
         #endregion
+
+        /// <summary>
+        /// Procedimiento para listar los fondos de marco
+        /// </summary>
+        /// <returns></returns>
+        public List<decimal> ListarFondoMarco()
+        {
+            List<decimal> result = new List<decimal>();
+            try
+            {
+                result = (new MarcosLogic()).ListarFondoMarco();
+            }
+            catch (Exception ex)
+            {
+                Adsisplus.Cotyrsa.BusinessLogic.EventLogManager.LogErrorEntry(ex.Message);
+            }
+            return result;
+        }
     }
 }

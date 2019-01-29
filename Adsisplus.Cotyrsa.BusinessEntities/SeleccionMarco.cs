@@ -19,7 +19,7 @@ namespace Adsisplus.Cotyrsa.BusinessEntities
         /// Valor del SKU
         /// </summary>
         [DataMember]
-        public int? SKU { get; set; }
+        public string SKU { get; set; }
         /// <summary>
         /// ID de la configuración del Marco
         /// </summary>
