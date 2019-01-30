@@ -23,5 +23,22 @@ namespace Adsisplus.Cotyrsa.WcfService.CrossBarServices
         [OperationContract]
         [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ListarDatosPanel")]
         List<DatosCrossBar> ListarDatosPanel(Int32 intDatosCrossBarID, Int32 intElementoID, Int32 intDatoMarcoID);
+
+        /// <summary>
+        /// Procedimiento que nos muestra la lista de ancho páneles para cotizaciones
+        /// </summary>
+        /// <returns></returns>
+        [OperationContract]
+        [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ListarAnchoCrossBar")]
+        List<decimal> ListarAnchoCrossBar();
+
+        /// <summary>
+        /// Procedimiento que nos muestra la lista de ancho páneles para cotizaciones
+        /// </summary>
+        /// <param name="decAncho"></param>
+        /// <returns></returns>
+        [OperationContract]
+        [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ListarSeleccionCrossBar")]
+        List<SeleccionCrossBar> ListarSeleccionCrossBar(decimal decAncho);
     }
 }

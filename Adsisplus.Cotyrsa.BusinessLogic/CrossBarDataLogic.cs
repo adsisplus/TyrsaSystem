@@ -36,5 +36,40 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
             }
             return results;
         }
+        /// <summary>
+        /// Procedimiento que nos muestra la lista de ancho páneles para cotizaciones
+        /// </summary>
+        /// <returns></returns>
+        public List<decimal> ListarAnchoCrossBar()
+        {
+            List<decimal> result = new List<decimal>();
+            try
+            {
+                result = CatalogosDA.ListarAnchoCrossBar();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
+        /// <summary>
+        /// Procedimiento que nos muestra la lista de ancho páneles para cotizaciones
+        /// </summary>
+        /// <param name="decAncho"></param>
+        /// <returns></returns>
+        public List<SeleccionCrossBar> ListarSeleccionCrossBar(decimal decAncho)
+        {
+            List<SeleccionCrossBar> result = new List<SeleccionCrossBar>();
+            try
+            {
+                result = CatalogosDA.ListarSeleccionCrossBar(decAncho);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
     }
 }

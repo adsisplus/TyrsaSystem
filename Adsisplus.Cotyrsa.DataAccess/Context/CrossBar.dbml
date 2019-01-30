@@ -14,4 +14,34 @@
       <Column Name="bitActivo" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
     </ElementType>
   </Function>
+  <Function Name="dbo.stp_ListarAnchoCrossBar" Method="stp_ListarAnchoCrossBar">
+    <ElementType Name="stp_ListarAnchoCrossBarResult">
+      <Column Name="decAncho" Type="System.Decimal" DbType="Decimal(12,3)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.stp_ListarSeleccionCrossBar" Method="stp_ListarSeleccionCrossBar">
+    <Parameter Name="decAncho" Type="System.Decimal" DbType="Decimal(8,3)" />
+    <ElementType Name="stp_ListarSeleccionCrossBarResult">
+      <Column Name="sintCrossBarID" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Column Name="vchTipoCrossBar" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="decPrecioFinal" Type="System.Decimal" DbType="Decimal(12,2)" CanBeNull="true" />
+      <Column Name="sintFactorCrossBarID" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="sintNumPieza" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="decDesarrollo" Type="System.Decimal" DbType="Decimal(8,3)" CanBeNull="true" />
+      <Column Name="decLongitud" Type="System.Decimal" DbType="Decimal(8,3)" CanBeNull="true" />
+      <Column Name="vchMaterial" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="decAncho" Type="System.Decimal" DbType="Decimal(12,3)" CanBeNull="true" />
+      <Column Name="decLargo" Type="System.Decimal" DbType="Decimal(12,3)" CanBeNull="true" />
+      <Column Name="intPiezaLamina" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="intNumPiezas" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="sintPesoPieza" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="decPesoPartida" Type="System.Decimal" DbType="Decimal(12,2)" CanBeNull="true" />
+      <Column Name="decPrecioAcero" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
+      <Column Name="decTotal" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
+      <Column Name="decTotalKiloUnitario" Type="System.Decimal" DbType="Decimal(12,3)" CanBeNull="true" />
+      <Column Name="decAreaPintura" Type="System.Decimal" DbType="Decimal(12,3)" CanBeNull="true" />
+      <Column Name="sintCara" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="bitActivo" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </ElementType>
+  </Function>
 </Database>

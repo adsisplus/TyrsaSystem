@@ -33,5 +33,40 @@ namespace Adsisplus.Cotyrsa.WcfService.CrossBarServices
             }
             return result;
         }
+        /// <summary>
+        /// Procedimiento que nos muestra la lista de ancho páneles para cotizaciones
+        /// </summary>
+        /// <returns></returns>
+        public List<decimal> ListarAnchoCrossBar()
+        {
+            List<decimal> result = new List<decimal>();
+            try
+            {
+                result = (new CrossBarDataLogic()).ListarAnchoCrossBar();
+            }
+            catch (Exception ex)
+            {
+                Adsisplus.Cotyrsa.BusinessLogic.EventLogManager.LogErrorEntry(ex.Message);
+            }
+            return result;
+        }
+        /// <summary>
+        /// Procedimiento que nos muestra la lista de ancho páneles para cotizaciones
+        /// </summary>
+        /// <param name="decAncho"></param>
+        /// <returns></returns>
+        public List<SeleccionCrossBar> ListarSeleccionCrossBar(decimal decAncho)
+        {
+            List<SeleccionCrossBar> result = new List<SeleccionCrossBar>();
+            try
+            {
+                result = (new CrossBarDataLogic()).ListarSeleccionCrossBar(decAncho);
+            }
+            catch (Exception ex)
+            {
+                Adsisplus.Cotyrsa.BusinessLogic.EventLogManager.LogErrorEntry(ex.Message);
+            }
+            return result;
+        }
     }
 }
