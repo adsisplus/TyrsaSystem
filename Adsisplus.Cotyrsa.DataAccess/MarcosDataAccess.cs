@@ -411,21 +411,26 @@ namespace Adsisplus.Cotyrsa.DataAccess
             return result;
         }
         /// <summary>
-        /// Procedimiento que realiza el alta, modificación y baja de los datos de la tabla tbl_SeleccionMarco
+        /// Procedimiento que almacena toda la información de la pantalla de captura de Marco
         /// </summary>
         /// <param name="marco"></param>
+        /// <param name="rack"></param>
         /// <param name="tinOpcion"></param>
         /// <returns></returns>
-        public Resultado setSeleccionMarco(SeleccionMarco marco, short tinOpcion)
+        public Resultado setSeleccionMarco(SeleccionMarco marco, RackSelectivo rack, short tinOpcion)
         {
             Resultado result = new Resultado();
             try
             {
                 using (MarcosDataContext dc = new MarcosDataContext(Helper.ConnectionString()))
                 {
-                    var query = from item in dc.stp_setSeleccionMarco(marco.intSeleccionMarcoID, marco.SKU, marco.decPesoMarco, marco.decPrecioUnitario,
-                        marco.intTipoID, marco.intMaterialID, marco.decFondo, marco.decAltura, marco.decAlturaPandeo,
-                        marco.decCapacidadMarco, marco.bitActivo, (byte)tinOpcion)
+                    var query = from item in dc.stp_setSeleccionMarco(marco.intRackID, marco.intSeleccionMarcoID, marco.intDetCotizacionID,
+                        //DATOS GENERALES DEL MARCO
+                        rack.decFondoMarco, (byte)rack.tinOpcionMarco, rack.decDimensionClaro, rack.decNNSV, rack.decMargenExcedente, rack.decAlturaMarco,
+                        rack.decAlturaPiso, rack.decNNSV, rack.decNPVS, rack.decAlturaPandeo, rack.decCargaModulo,
+                        // DATOS DEL MARCO SELECCIONADO                                            
+                        marco.SKU, marco.decPesoMarco, marco.decPrecioUnitario, marco.intTipoID, marco.intMaterialID, marco.decFondo, marco.decAltura, 
+                        marco.bitActivo, (byte)tinOpcion)
                                 select new Resultado
                                 {
                                     vchDescripcion = item.vchDescripcion,
@@ -440,6 +445,84 @@ namespace Adsisplus.Cotyrsa.DataAccess
             }
             return result;
         }
+        /// <summary>
+        /// Procedimiento que obtiene los datos a mostrar en patalla del marco
+        /// </summary>
+        /// <param name="intDetCotizacionID"></param>
+        /// <returns></returns>
+        public RackSelectivo ListarDatosPantallaMarco(int intDetCotizacionID)
+        {
+            RackSelectivo result = new RackSelectivo();
+            try
+            {
+                using (MarcosDataContext dc = new MarcosDataContext(Helper.ConnectionString()))
+                {
+                    var query = from item in dc.stp_ListarDatosPantallaMarco(intDetCotizacionID)
+                                select new RackSelectivo
+                                {
+                                    intRackID = item.intRackID,
+                                    intDetCotizaID = item.intDetCotizaID,
+                                    intSeleccionMarcoID = item.intSeleccionMarcoID,
+                                    decFondoMarco = item.decFondoMarco,
+                                    tinOpcionMarco = item.tinOpcionMarco,
+                                    decDimensionClaro = item.decDimensionClaro,
+                                    decNNSVS = item.decNNSVS,
+                                    decMargenExcedente = item.decMargenExcedente,
+                                    decAlturaMarco = item.decAlturaMarco,
+                                    decAlturaPiso = item.decAlturaPiso,
+                                    decNNSV = item.decNNSV,
+                                    decNNPVS = item.decNNPVS,
+                                    decCargaModulo = item.decCargaModulo,
+                                    decAlturaPandeo = item.decAlturaPandeo
+                                };
+                    result = query.First();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
+        /// <summary>
+        /// Procedimiento que muestra la seleccion del marco
+        /// </summary>
+        /// <param name="intSeleccionMarcoID"></param>
+        /// <returns></returns>
+        public SeleccionMarco ListarDatosSeleccionMarco(int intSeleccionMarcoID)
+        {
+            SeleccionMarco result = new SeleccionMarco();
+            try
+            {
+                using (MarcosDataContext dc = new MarcosDataContext(Helper.ConnectionString()))
+                {
+                    var query = from item in dc.stp_ListarDatosSeleccionMarco(intSeleccionMarcoID)
+                                select new SeleccionMarco
+                                {
+                                    intSeleccionMarcoID = item.intSeleccionMarcoID,
+                                    SKU = item.SKU,
+                                    decPesoMarco = item.decPesoMarco,
+                                    decPrecioUnitario = item.decPrecioUnitario,
+                                    intTipoID = item.intTipo,
+                                    vchTipo = item.vchTipo,
+                                    intMaterialID = item.intMaterialID,
+                                    vchMaterial = item.vchMaterialID,
+                                    decFondo = item.decFondo,
+                                    decAltura = item.decAltura,
+                                    decAlturaPandeo = item.decAlturaPandeo,
+                                    decCapacidadMarco = item.decCapacidadMarco,
+                                    bitActivo = item.bitActivo
+                                };
+                    result = query.First();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
+
         /// <summary>
         /// Procedimiento para listar los fondos de marco
         /// </summary>

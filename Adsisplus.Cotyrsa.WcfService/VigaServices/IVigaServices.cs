@@ -133,25 +133,23 @@ namespace Adsisplus.Cotyrsa.WcfService.VigaServices
             short sintSistemaID, bool bitEstructural);
 
         /// <summary>
-        /// Procedimiento que realiza el almacenado de la información de la viga seleccionada
+        /// Procedimiento que almacena toda la información de la pantalla de captura de Viga
         /// </summary>
         /// <param name="viga"></param>
+        /// <param name="rack"></param>
         /// <param name="tinOpcion"></param>
         /// <returns></returns>
         [OperationContract]
-        [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "setSeleccionViga")]
-        Resultado setSeleccionViga(SeleccionViga viga, short tinOpcion);
+        [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "setDatosViga")]
+        Resultado setDatosViga(SeleccionViga viga, RackSelectivo rack, short tinOpcion);
 
-        #region Procedimientos por revisar
         /// <summary>
-        /// Procedimiento que devuelve la información del Rack Selectivo
+        /// Procedimiento que obtiene los datos de la pantalla de la viga a mostrar
         /// </summary>
-        /// <param name="intRackID"></param>
-        /// <param name="intDetCotizaID"></param>
+        /// <param name="intDetCotizacionID"></param>
         /// <returns></returns>
         [OperationContract]
-        [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ListarDatosRackSelectivo")]
-        DatosRackSelectivo ListarDatosRackSelectivo(int intRackID, int intDetCotizaID);
-        #endregion
+        [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ListarDatosPantallaViga")]
+        RackSelectivo ListarDatosPantallaViga(int intDetCotizacionID);
     }
 }

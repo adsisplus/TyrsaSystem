@@ -230,18 +230,20 @@ namespace Adsisplus.Cotyrsa.WcfService.VigaServices
             }
             return result;
         }
+
         /// <summary>
-        /// Procedimiento que realiza el almacenado de la información de la viga seleccionada
+        /// Procedimiento que almacena toda la información de la pantalla de captura de Viga
         /// </summary>
         /// <param name="viga"></param>
+        /// <param name="rack"></param>
         /// <param name="tinOpcion"></param>
         /// <returns></returns>
-        public Resultado setSeleccionViga(SeleccionViga viga, short tinOpcion)
+        public Resultado setDatosViga(SeleccionViga viga, RackSelectivo rack, short tinOpcion)
         {
             Resultado result = new Resultado();
             try
             {
-                result = (new VigaLogic()).setSeleccionViga(viga, tinOpcion);
+                result = (new VigaLogic()).setDatosViga(viga, rack, tinOpcion);
             }
             catch (Exception ex)
             {
@@ -249,19 +251,17 @@ namespace Adsisplus.Cotyrsa.WcfService.VigaServices
             }
             return result;
         }
-
-        #region Procedimientos por revisar
         /// <summary>
-        /// Procedimiento que devuelve la información del Rack Selectivo
+        /// Procedimiento que obtiene los datos de la pantalla de la viga a mostrar
         /// </summary>
-        /// <param name="intRackID"></param>
+        /// <param name="intDetCotizacionID"></param>
         /// <returns></returns>
-        public DatosRackSelectivo ListarDatosRackSelectivo(int intRackID, int intDetCotizaID)
+        public RackSelectivo ListarDatosPantallaViga(int intDetCotizacionID)
         {
-            DatosRackSelectivo result = new DatosRackSelectivo();
+            RackSelectivo result = new RackSelectivo();
             try
             {
-                result = (new VigaLogic()).ListarDatosRackSelectivo(intRackID, intDetCotizaID);
+                result = (new VigaLogic()).ListarDatosPantallaViga(intDetCotizacionID);
             }
             catch (Exception ex)
             {
@@ -269,6 +269,5 @@ namespace Adsisplus.Cotyrsa.WcfService.VigaServices
             }
             return result;
         }
-        #endregion
     }
 }

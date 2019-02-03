@@ -15,6 +15,14 @@ namespace Adsisplus.Cotyrsa.BusinessEntities
         /// </summary>
         public int? intSeleccionVigaID { get; set; }
         /// <summary>
+        /// ID de la tabla tbl_RackSelectivo
+        /// </summary>
+        public int? intRackID { get; set; }
+        /// <summary>
+        /// Id de la tabla tbl_DET_Cotizacion
+        /// </summary>
+        public int? intDetCotizacionID { get; set; }
+        /// <summary>
         /// Id del tipo de Viga
         /// </summary>
         public short? sintTipoVigaID { get; set; }

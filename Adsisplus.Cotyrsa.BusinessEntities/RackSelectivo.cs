@@ -21,6 +21,11 @@ namespace Adsisplus.Cotyrsa.BusinessEntities
         [DataMember]
         public int? intSeleccionVigaID { get; set; }
         /// <summary>
+        /// ID de la tabla tbl_SeleccionMarco
+        /// </summary>
+        [DataMember]
+        public int? intSeleccionMarcoID { get; set; }
+        /// <summary>
         /// ID de la tabla tbl_DET_Cotizacion
         /// </summary>
         [DataMember]
@@ -78,6 +83,11 @@ namespace Adsisplus.Cotyrsa.BusinessEntities
         /// </summary>
         [DataMember]
         public decimal? decDistanciaLargoProducto { get; set; }
+        /// <summary>
+        /// Indica el tipo de opción seleccionada por el cliente
+        /// </summary>
+        [DataMember]
+        public short? tinOpcionViga { get; set; }
 
         #endregion
 
@@ -92,6 +102,30 @@ namespace Adsisplus.Cotyrsa.BusinessEntities
         /// </summary>
         [DataMember]
         public decimal? decAlturaMarco { get; set; }
+        /// <summary>
+        /// Indica la opción seleccionada por el cliente
+        /// </summary>
+        [DataMember]
+        public short? tinOpcionMarco { get; set; }
+
+        [DataMember]
+        public decimal? decNNSV { get; set; }
+
+        [DataMember]
+        public decimal? decMargenExcedente { get; set; }
+
+        [DataMember]
+        public decimal? decAlturaPiso { get; set; }
+
+        [DataMember]
+        public decimal? decNPVS { get; set; }
+
+        [DataMember]
+        public decimal? decNNSVS { get; set; }
+
+        [DataMember]
+        public decimal? decNNPVS { get; set; }
+
         /// <summary>
         /// Numeros de Niveles sobre vigas
         /// </summary>
@@ -113,7 +147,7 @@ namespace Adsisplus.Cotyrsa.BusinessEntities
         /// más cercana al piso(primer nivel de vigas). En metros
         /// </summary>
         [DataMember]
-        public decimal? decAlturaPandel { get; set; }
+        public decimal? decAlturaPandeo { get; set; }
         #endregion
 
 

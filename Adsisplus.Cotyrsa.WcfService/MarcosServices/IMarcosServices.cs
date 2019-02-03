@@ -144,7 +144,7 @@ namespace Adsisplus.Cotyrsa.WcfService.MarcosServices
         /// <returns></returns>
         [OperationContract]
         [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "setSeleccionMarco")]
-        Resultado setSeleccionMarco(SeleccionMarco marco, short tinOpcion);
+        Resultado setSeleccionMarco(SeleccionMarco marco, RackSelectivo rack, short tinOpcion);
         /// <summary>
         /// Procedimiento para listar los fondos de marco
         /// </summary>
@@ -152,5 +152,33 @@ namespace Adsisplus.Cotyrsa.WcfService.MarcosServices
         [OperationContract]
         [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ListarFondoMarco")]
         List<decimal> ListarFondoMarco();
+
+        /// <summary>
+        /// Procedimiento que permite listar los marcos en base a la capacidad
+        /// de carga y la altura de pandeo
+        /// </summary>
+        /// <param name="decCapacidadCarga"></param>
+        /// <param name="decAlturaPandeo"></param>
+        /// <returns></returns>
+        [OperationContract]
+        [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ListarSeleccionMarco")]
+        List<SeleccionMarco> ListarSeleccionMarco(decimal decCapacidadCarga, decimal decAlturaPandeo, decimal decFondo,
+            decimal decAlturaMarco, short sintSistemaID, bool bitEstructural);
+        /// <summary>
+        /// Procedimiento que lista los datos del Marco seleccionado
+        /// </summary>
+        /// <param name="intSeleccionMarcoID"></param>
+        /// <returns></returns>
+        [OperationContract]
+        [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ListarDatosSeleccionMarco")]
+        SeleccionMarco ListarDatosSeleccionMarco(int intSeleccionMarcoID);
+        /// <summary>
+        /// Procedimiento que obtiene los datos a mostrar en patalla del marco
+        /// </summary>
+        /// <param name="intDetCotizacionID"></param>
+        /// <returns></returns>
+        [OperationContract]
+        [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ListarDatosPantallaMarco")]
+        RackSelectivo ListarDatosPantallaMarco(int intDetCotizacionID);
     }
 }

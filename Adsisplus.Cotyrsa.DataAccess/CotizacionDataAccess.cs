@@ -129,13 +129,14 @@ namespace Adsisplus.Cotyrsa.DataAccess
             {
                 using (CotizacionDataContext dc = new CotizacionDataContext(Helper.ConnectionString()))
                 {
-                    var query = from item in dc.stp_setDetCotizacion(cotizacion.intDetCotizaID, cotizacion.intCotizacionID, cotizacion.sintMontajeID, cotizacion.intPartida, cotizacion.intCantidad,
-                        cotizacion.decMedidaFrente, cotizacion.decMedidaFondo, cotizacion.decAlto, cotizacion.decPesoKg, cotizacion.bitMontaCarga,
-                        cotizacion.intNumeroTarimaPorNivel, cotizacion.intNumeroNivelSobreViga, cotizacion.intPosicion, cotizacion.sintVisitas, cotizacion.vchDimensionMontacarga,
-                        cotizacion.decDolar, cotizacion.decMonto, cotizacion.decSubtotal, cotizacion.decDescuento, cotizacion.decDescuentoFin,
-                        cotizacion.decIEMPS, cotizacion.decRetISR, cotizacion.decRetIVA, cotizacion.decIVA, cotizacion.decTotal, cotizacion.datFechaArmado, cotizacion.intProductoGralID,
-                        cotizacion.intRelCotizaProductoID, cotizacion.intSubProductoID, cotizacion.bitActivo,
-                        (byte)tinOpcion)
+                    var query = from item in dc.stp_setDetCotizacion(cotizacion.intDetCotizaID, cotizacion.intCotizacionID, cotizacion.sintMontajeID, 
+                        cotizacion.intPartida, cotizacion.intCantidad, cotizacion.decMedidaFrente, cotizacion.decMedidaFondo, cotizacion.decAlto, 
+                        cotizacion.decPesoKg, cotizacion.bitMontaCarga, cotizacion.intNumeroTarimaPorNivel, cotizacion.intNumeroNivelSobreViga, 
+                        cotizacion.intPosicion, cotizacion.sintVisitas, cotizacion.vchDimensionMontacarga, cotizacion.decDolar, cotizacion.decMonto, 
+                        cotizacion.decSubtotal, cotizacion.decDescuento, cotizacion.decDescuentoFin, cotizacion.decIEMPS, cotizacion.decRetISR, 
+                        cotizacion.decRetIVA, cotizacion.decIVA, cotizacion.decTotal, cotizacion.datFechaArmado, cotizacion.intProductoGralID,
+                        cotizacion.intRelCotizaProductoID, cotizacion.intSubProductoID, cotizacion.intRackID, cotizacion.intSeleccionVigaID,
+                        cotizacion.intSeleccionMarcoID, cotizacion.bitActivo, (byte)tinOpcion)
                                 select new Resultado
                                 {
                                     vchDescripcion = item.vchDescripcion,
@@ -208,6 +209,10 @@ namespace Adsisplus.Cotyrsa.DataAccess
                                 {
                                     intDetCotizaID = item.intDetCotizaID,
                                     intCotizacionID = item.intCotizacionID,
+
+                                    intSeleccionVigaID = item.intSeleccionVigaID,
+                                    intSeleccionMarcoID = item.intSeleccionMarcoID,
+
                                     sintMontajeID = item.sintMontajeID,
                                     intPartida = item.intPartida,
                                     intCantidad = item.intCantidad,

@@ -356,7 +356,7 @@ namespace Adsisplus.Cotyrsa.DataAccess
             return result;
         }
         /// <summary>
-        /// Procedimiento que muestra los datos de la seleccion de Viga
+        /// Procedimiento que muestra la seleccion de Viga
         /// </summary>
         /// <param name="intSeleccionVigaID"></param>
         /// <returns></returns>
@@ -395,26 +395,32 @@ namespace Adsisplus.Cotyrsa.DataAccess
             return result;
         }
         /// <summary>
-        /// Procedimiento que realiza el almacenado de la información de la viga seleccionada
+        /// Procedimiento que almacena toda la información de la pantalla de captura de Viga
         /// </summary>
         /// <param name="viga"></param>
+        /// <param name="rack"></param>
         /// <param name="tinOpcion"></param>
         /// <returns></returns>
-        public Resultado setSeleccionViga(SeleccionViga viga, short tinOpcion)
+        public Resultado setDatosViga(SeleccionViga viga, RackSelectivo rack, short tinOpcion)
         {
             Resultado result = new Resultado();
             try
             {
                 using (VigasDataContext dc = new VigasDataContext(Helper.ConnectionString()))
                 {
-                    var query = from item in dc.stp_setSeleccionViga(viga.intSeleccionVigaID, viga.SKU, viga.decPesoViga, viga.decPrecioUnitarioSinIVA,
-                        viga.intTipoID, viga.intMaterialID, viga.decPatin, viga.decPeralte, viga.decLongitud,
-                        viga.decCapacidadParVigasRequerida, viga.decCapacidadParVigasMaxima, viga.bitActivo, (byte)tinOpcion)
-                                select new Resultado
-                                {
-                                    vchDescripcion = item.vchDescripcion,
-                                    vchResultado = item.vchResultado
-                                };
+                    var query = from item in dc.stp_setSeleccionViga(viga.intRackID, viga.intSeleccionVigaID, viga.intDetCotizacionID, viga.SKU, viga.decPesoViga,
+                        viga.decPrecioUnitarioSinIVA, viga.intTipoID, viga.intMaterialID, viga.decPatin, viga.decPeralte, viga.decLongitud, 
+                        viga.decCapacidadParVigasRequerida, viga.decCapacidadParVigasMaxima,
+                        // Datos que serán almacenados en la tabla tbl_RackSelectivo
+                        rack.bitEstructural, rack.bitSobresale, rack.decDistanciaLargoProducto, (byte) rack.tinOpcionViga, rack.intNumTarimaNivel, rack.decLongitudViga, 
+                        rack.decCapCargaReqViga,
+                        
+                        viga.bitActivo, (byte)tinOpcion)
+                                  select new Resultado
+                                  {
+                                      vchDescripcion = item.vchDescripcion,
+                                      vchResultado = item.vchResultado
+                                  };
                     result = query.First();
                 }
             }
@@ -424,49 +430,34 @@ namespace Adsisplus.Cotyrsa.DataAccess
             }
             return result;
         }
-
-        #region Procedimientos por revisar
-
         /// <summary>
-        /// Procedimiento que devuelve la información del Rack Selectivo
+        /// Procedimiento que obtiene los datos de la pantalla de la viga a mostrar
         /// </summary>
-        /// <param name="intRackID"></param>
-        /// <param name="intDetCotizaID"></param>
+        /// <param name="intDetCotizacionID"></param>
         /// <returns></returns>
-        public DatosRackSelectivo ListarDatosRackSelectivo(int intRackID, int intDetCotizaID)
+        public RackSelectivo ListarDatosPantallaViga(int intDetCotizacionID)
         {
-            DatosRackSelectivo result = new DatosRackSelectivo();
+            RackSelectivo result = new RackSelectivo();
             try
             {
                 using (VigasDataContext dc = new VigasDataContext(Helper.ConnectionString()))
                 {
-                    var query = from item in dc.stp_ListarDatosRack(intRackID, intDetCotizaID)
-                                select new DatosRackSelectivo
+                    var query = from item in dc.stp_ListarDatosPantallaViga(intDetCotizacionID)
+                                select new RackSelectivo
                                 {
                                     intRackID = item.intRackID,
-
+                                    intDetCotizaID = item.intDetCotizaID,
                                     intSeleccionVigaID = item.intSeleccionVigaID,
-                                    intNumTarimaNivel = item.intNumTarimaNivel,
-                                    decLongitudViga = item.decLongitudViga,
-                                    decCapCargaReqViga = item.decCapCargaReqViga,
-                                    bitActivo = item.bitActivo,
                                     bitEstructural = item.bitEstructural,
                                     bitSobresale = item.bitSobresale,
-                                    decDistanciaLargoProducto = item.decDistanciaLargoProducto,
-                                    decAltura = item.decAltura,
-                                    decFondo = item.decFondo,
                                     decFrente = item.decFrente,
+                                    decFondo = item.decFondo,
+                                    decAltura = item.decAltura,
                                     decPeso = item.decPeso,
-                                    decCapacidadParVigasRequerida = item.decCapViga,
-                                    decCapacidadParVigasMaxima = item.decCapVigaMax,
-                                    decLongitud = item.decLongitud,
-                                    decPatin = item.decPatin,
-                                    decPeralte = item.decPeralte,
-                                    decPesoViga = item.decPesoViga,
-                                    decPrecioUnitarioSinIVA = item.decPrecioUnitario,
-                                    vchMaterial = item.vchMaterial,
-                                    SKU = item.SKU,
-                                    vchTipo = item.vchTipo,
+                                    intNumTarimaNivel = item.intNumTarimaNivel,
+                                    tinOpcionViga = item.tinOpcionViga,
+                                    decLongitudViga = item.decLongitudViga,
+                                    decCapCargaReqViga = item.decCapCargaReqViga
                                 };
                     result = query.First();
                 }
@@ -477,68 +468,6 @@ namespace Adsisplus.Cotyrsa.DataAccess
             }
             return result;
         }
-        /// <summary>
-        /// Procedimient que permite realizar el alta, modificación y baja de los datos de
-        /// rack selectivo (tbl_RackSelectivo y tbl_SeleccionViga)
-        /// </summary>
-        /// <param name="rack"></param>
-        /// <param name="tintOpcion"></param>
-        /// <returns></returns>
-        public Resultado setDatosRackSelectivo(DatosRackSelectivo rack, short tintOpcion)
-        {
-            Resultado result = new Resultado();
-            string vchResultado = string.Empty;
-            try
-            {
-                using (VigasDataContext dc = new VigasDataContext(Helper.ConnectionString()))
-                {
-                    var query = from item in dc.stp_setDatosRackSelectivo(rack.intRackID, rack.intDetCotizaID, rack.intSeleccionVigaID, rack.intNumTarimaNivel,
-                        rack.decLongitudViga, rack.decCapCargaReqViga, rack.bitEstructural, rack.decAltura, rack.decFondo,
-                        rack.decFrente, rack.decPeso, rack.decCapacidadParVigasRequerida, rack.decCapacidadParVigasMaxima, rack.decLongitud,
-                        rack.decPatin, rack.decPeralte, rack.decPesoViga, rack.decPrecioUnitarioSinIVA, rack.intMaterialID,
-                        rack.SKU, rack.intTipoID, rack.bitSobresale, rack.decDistanciaLargoProducto, rack.bitActivo, (byte)tintOpcion)
-                                select new Resultado
-                                {
-                                    vchDescripcion = item.vchDescripcion,
-                                    vchResultado = item.vchResultado
-                                };
-                            result = query.First();
-                }
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-            return result;
-        }
-        /// <summary>
-        /// Procedimiento que realiza el almacenado de la información en la tabla tbl_Rack_selectivo
-        /// </summary>
-        /// <param name="rack"></param>
-        /// <param name="tintOpocion"></param>
-        /// <returns></returns>
-        public string setRackSelectivo(RackSelectivo rack, short tintOpocion)
-        {
-            string vchResultado = string.Empty;
-            try
-            {
-                using (VigasDataContext dc = new VigasDataContext(Helper.ConnectionString()))
-                {
-                    dc.stp_setRackSelectivo(rack.intRackID, rack.intSeleccionVigaID, rack.intDetCotizaID, rack.intNumTarimaNivel,
-                     rack.decFrente, rack.decFondo, rack.decAltura, rack.decPeso, rack.decLongitudViga,
-                     rack.decCapCargaReqViga, rack.bitEstructural, rack.bitSobresale, rack.decDistanciaLargoProducto, rack.bitActivo,
-                     (byte)tintOpocion, ref vchResultado);
-                }
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-            return vchResultado;
-        }
-
-        #endregion
-
 
     }
 }

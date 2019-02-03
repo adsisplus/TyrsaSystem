@@ -16,6 +16,17 @@ namespace Adsisplus.Cotyrsa.BusinessEntities
         [DataMember]
         public int? intSeleccionMarcoID { get; set; }
         /// <summary>
+        /// ID de la cotización
+        /// </summary>
+        [DataMember]
+        public int? intDetCotizacionID { get; set; }
+        /// <summary>
+        /// ID de la tabla tbl_RackSeleccion
+        /// </summary>
+        [DataMember]
+        public int? intRackID { get; set; }
+
+        /// <summary>
         /// Valor del SKU
         /// </summary>
         [DataMember]

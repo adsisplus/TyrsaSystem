@@ -263,17 +263,18 @@ namespace Adsisplus.Cotyrsa.WcfService.MarcosServices
             return result;
         }
         /// <summary>
-        /// Procedimiento que realiza el alta, modificación y baja de los datos de la tabla tbl_SeleccionMarco
+        /// Procedimiento que almacena toda la información de la pantalla de captura de Marco
         /// </summary>
         /// <param name="marco"></param>
+        /// <param name="rack"></param>
         /// <param name="tinOpcion"></param>
         /// <returns></returns>
-        public Resultado setSeleccionMarco(SeleccionMarco marco, short tinOpcion)
+        public Resultado setSeleccionMarco(SeleccionMarco marco, RackSelectivo rack, short tinOpcion)
         {
             Resultado result = new Resultado();
             try
             {
-                result = (new MarcosLogic()).setSeleccionMarco(marco, tinOpcion);
+                result = (new MarcosLogic()).setSeleccionMarco(marco, rack, tinOpcion);
             }
             catch (Exception ex)
             {
@@ -293,6 +294,65 @@ namespace Adsisplus.Cotyrsa.WcfService.MarcosServices
             try
             {
                 result = (new MarcosLogic()).ListarFondoMarco();
+            }
+            catch (Exception ex)
+            {
+                Adsisplus.Cotyrsa.BusinessLogic.EventLogManager.LogErrorEntry(ex.Message);
+            }
+            return result;
+        }
+
+        /// <summary>
+        /// Procedimiento que permite listar los marcos en base a la capacidad
+        /// de carga y la altura de pandeo
+        /// </summary>
+        /// <param name="decCapacidadCarga"></param>
+        /// <param name="decAlturaPandeo"></param>
+        /// <returns></returns>
+        public List<SeleccionMarco> ListarSeleccionMarco(decimal decCapacidadCarga, decimal decAlturaPandeo, decimal decFondo,
+            decimal decAlturaMarco, short sintSistemaID, bool bitEstructural)
+        {
+            List<SeleccionMarco> result = new List<SeleccionMarco>();
+            try
+            {
+                result = (new MarcosLogic()).ListarSeleccionMarco(decCapacidadCarga, decAlturaPandeo, decFondo, decAlturaMarco, sintSistemaID, bitEstructural);
+            }
+            catch (Exception ex)
+            {
+                Adsisplus.Cotyrsa.BusinessLogic.EventLogManager.LogErrorEntry(ex.Message);
+            }
+            return result;
+        }
+        /// <summary>
+        /// Procedimiento que lista los datos del Marco seleccionado
+        /// </summary>
+        /// <param name="intSeleccionMarcoID"></param>
+        /// <returns></returns>
+        public SeleccionMarco ListarDatosSeleccionMarco(int intSeleccionMarcoID)
+        {
+            SeleccionMarco result = new SeleccionMarco();
+            try
+            {
+                result = (new MarcosLogic()).ListarDatosSeleccionMarco(intSeleccionMarcoID);
+            }
+            catch (Exception ex)
+            {
+                Adsisplus.Cotyrsa.BusinessLogic.EventLogManager.LogErrorEntry(ex.Message);
+            }
+            return result;
+        }
+
+        /// <summary>
+        /// Procedimiento que obtiene los datos a mostrar en patalla del marco
+        /// </summary>
+        /// <param name="intDetCotizacionID"></param>
+        /// <returns></returns>
+        public RackSelectivo ListarDatosPantallaMarco(int intDetCotizacionID)
+        {
+            RackSelectivo result = new RackSelectivo();
+            try
+            {
+                result = (new MarcosLogic()).ListarDatosPantallaMarco(intDetCotizacionID);
             }
             catch (Exception ex)
             {
