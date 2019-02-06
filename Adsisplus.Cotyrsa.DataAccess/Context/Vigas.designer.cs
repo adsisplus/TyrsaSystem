@@ -2703,7 +2703,7 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 		
 		private System.Nullable<int> _intDetCotizaID;
 		
-		private int _intSeleccionVigaID;
+		private System.Nullable<int> _intSeleccionVigaID;
 		
 		private System.Nullable<bool> _bitEstructural;
 		
@@ -2761,8 +2761,8 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intSeleccionVigaID", DbType="Int NOT NULL")]
-		public int intSeleccionVigaID
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intSeleccionVigaID", DbType="Int")]
+		public System.Nullable<int> intSeleccionVigaID
 		{
 			get
 			{

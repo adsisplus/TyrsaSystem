@@ -244,6 +244,24 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
             return result;
         }
         /// <summary>
+        /// Procedimiento que muestra la seleccion de Viga
+        /// </summary>
+        /// <param name="intSeleccionVigaID"></param>
+        /// <returns></returns>
+        public SeleccionViga ListaDatosSeleccionViga(int intSeleccionVigaID)
+        {
+            SeleccionViga result = new SeleccionViga();
+            try
+            {
+                result = CatalogosDA.ListaDatosSeleccionViga(intSeleccionVigaID);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
+        /// <summary>
         /// Procedimiento que almacena toda la información de la pantalla de captura de Viga
         /// </summary>
         /// <param name="viga"></param>

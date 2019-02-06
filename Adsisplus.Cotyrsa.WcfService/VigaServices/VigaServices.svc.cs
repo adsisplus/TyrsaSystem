@@ -230,7 +230,24 @@ namespace Adsisplus.Cotyrsa.WcfService.VigaServices
             }
             return result;
         }
-
+        /// <summary>
+        /// Procedimiento que muestra la seleccion de Viga
+        /// </summary>
+        /// <param name="intSeleccionVigaID"></param>
+        /// <returns></returns>
+        public SeleccionViga ListaDatosSeleccionViga(int intSeleccionVigaID)
+        {
+            SeleccionViga result = new SeleccionViga();
+            try
+            {
+                result = (new VigaLogic()).ListaDatosSeleccionViga(intSeleccionVigaID);
+            }
+            catch(Exception ex)
+            {
+                Adsisplus.Cotyrsa.BusinessLogic.EventLogManager.LogErrorEntry(ex.Message);
+            }
+            return result;
+        }
         /// <summary>
         /// Procedimiento que almacena toda la información de la pantalla de captura de Viga
         /// </summary>
