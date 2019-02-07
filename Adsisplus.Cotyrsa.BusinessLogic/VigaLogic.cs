@@ -291,7 +291,7 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
             RackSelectivo result = new RackSelectivo();
             try
             {
-                CatalogosDA.ListarDatosPantallaViga(intDetCotizacionID);
+                result = CatalogosDA.ListarDatosPantallaViga(intDetCotizacionID);
             }
             catch (Exception ex)
             {
