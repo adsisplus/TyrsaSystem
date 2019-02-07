@@ -148,6 +148,7 @@ namespace Adsisplus.Cotyrsa.DataAccess
                                 select new DatosViga()
                                 {
                                     intDatosVigaID = item.intDatosVigaID,
+                                    intConfiguraVigaID = item.intConfiguraVigaID,
                                     vchPintura = item.vchPintura,
                                     vchElemento = item.vchElemento,
                                     sintCantidadDatosMarco = item.sintCantidadDatosMarco,
@@ -408,7 +409,7 @@ namespace Adsisplus.Cotyrsa.DataAccess
             {
                 using (VigasDataContext dc = new VigasDataContext(Helper.ConnectionString()))
                 {
-                    var query = from item in dc.stp_setSeleccionViga(viga.intRackID, viga.intSeleccionVigaID, viga.intDetCotizacionID, viga.SKU, viga.decPesoViga,
+                    var query = from item in dc.stp_setSeleccionViga(viga.intRackID, viga.intConfiguraVigaID, viga.intSeleccionVigaID, viga.intDetCotizacionID, viga.SKU, viga.decPesoViga,
                         viga.decPrecioUnitarioSinIVA, viga.intTipoID, viga.intMaterialID, viga.decPatin, viga.decPeralte, viga.decLongitud, 
                         viga.decCapacidadParVigasRequerida, viga.decCapacidadParVigasMaxima,
                         // Datos que serán almacenados en la tabla tbl_RackSelectivo

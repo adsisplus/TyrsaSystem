@@ -1,38 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="dbTyrsa" Class="SistemasTyrsaDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
   <Connection Mode="AppSettings" ConnectionString="Data Source=local;Initial Catalog=dbTyrsa;Persist Security Info=True;User ID=usrCotyrsa" SettingsObjectName="Adsisplus.Cotyrsa.DataAccess.Properties.Settings" SettingsPropertyName="dbTyrsaConnectionString" Provider="System.Data.SqlClient" />
-  <Function Name="dbo.stp_setDatosMarco" Method="stp_setDatosMarco">
-    <Parameter Name="intDatoMarcoID" Type="System.Int32" DbType="Int" />
-    <Parameter Name="intCotizacionID" Type="System.Int32" DbType="Int" />
-    <Parameter Name="intElementoID" Type="System.Int32" DbType="Int" />
-    <Parameter Name="sintPinturaID" Type="System.Int16" DbType="SmallInt" />
-    <Parameter Name="decMedidaFondo" Type="System.Decimal" DbType="Decimal(20,2)" />
-    <Parameter Name="decMedidaAlto" Type="System.Decimal" DbType="Decimal(20,2)" />
-    <Parameter Name="bitDobleMonten" Type="System.Boolean" DbType="Bit" />
-    <Parameter Name="intNumeroNivelSobreViga" Type="System.Int32" DbType="Int" />
-    <Parameter Name="decAlturaPandeo" Type="System.Decimal" DbType="Decimal(20,2)" />
-    <Parameter Name="decCapacidadxNivel" Type="System.Decimal" DbType="Decimal(20,2)" />
-    <Parameter Name="sintCantidad" Type="System.Int16" DbType="SmallInt" />
-    <Parameter Name="bitActivo" Type="System.Boolean" DbType="Bit" />
-    <Parameter Name="tinOpcion" Type="System.Byte" DbType="TinyInt" />
-    <ElementType Name="stp_setDatosMarcoResult">
-      <Column Name="vchResultado" Type="System.String" DbType="VarChar(2) NOT NULL" CanBeNull="false" />
-      <Column Name="vchDescripcion" Type="System.String" DbType="VarChar(48) NOT NULL" CanBeNull="false" />
-    </ElementType>
-  </Function>
-  <Function Name="dbo.stp_setDatosViga" Method="stp_setDatosViga">
-    <Parameter Name="intDatosVigaID" Type="System.Int32" DbType="Int" />
-    <Parameter Name="sintPinturaID" Type="System.Int16" DbType="SmallInt" />
-    <Parameter Name="intElementoID" Type="System.Int32" DbType="Int" />
-    <Parameter Name="intDatoMarcoID" Type="System.Int32" DbType="Int" />
-    <Parameter Name="decLargo" Type="System.Decimal" DbType="Decimal(12,2)" />
-    <Parameter Name="intCantidad" Type="System.Int32" DbType="Int" />
-    <Parameter Name="bitActivo" Type="System.Boolean" DbType="Bit" />
-    <Parameter Name="tinOpcion" Type="System.Byte" DbType="TinyInt" />
-    <ElementType Name="stp_setDatosVigaResult">
-      <Column Name="vchResultado" Type="System.String" DbType="VarChar(2) NOT NULL" CanBeNull="false" />
-      <Column Name="vchDescripcion" Type="System.String" DbType="VarChar(47) NOT NULL" CanBeNull="false" />
-    </ElementType>
-  </Function>
   <Function Name="dbo.stp_setDatosPanel" Method="stp_setDatosPanel">
     <Parameter Name="intDatosPanelID" Type="System.Int32" DbType="Int" />
     <Parameter Name="intElementoID" Type="System.Int32" DbType="Int" />
@@ -178,6 +145,41 @@
       <Column Name="intCapacidadPesoPoste" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="datFechaAlta" Type="System.DateTime" DbType="Date" CanBeNull="true" />
       <Column Name="bitActivo" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.stp_setDatosMarco" Method="stp_setDatosMarco">
+    <Parameter Name="intDatoMarcoID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intConfiguraMarcoID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intCotizacionID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intElementoID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="sintPinturaID" Type="System.Int16" DbType="SmallInt" />
+    <Parameter Name="decMedidaFondo" Type="System.Decimal" DbType="Decimal(20,2)" />
+    <Parameter Name="decMedidaAlto" Type="System.Decimal" DbType="Decimal(20,2)" />
+    <Parameter Name="bitDobleMonten" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="intNumeroNivelSobreViga" Type="System.Int32" DbType="Int" />
+    <Parameter Name="decAlturaPandeo" Type="System.Decimal" DbType="Decimal(20,2)" />
+    <Parameter Name="decCapacidadxNivel" Type="System.Decimal" DbType="Decimal(20,2)" />
+    <Parameter Name="sintCantidad" Type="System.Int16" DbType="SmallInt" />
+    <Parameter Name="bitActivo" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="tinOpcion" Type="System.Byte" DbType="TinyInt" />
+    <ElementType Name="stp_setDatosMarcoResult">
+      <Column Name="vchResultado" Type="System.String" DbType="VarChar(12)" CanBeNull="true" />
+      <Column Name="vchDescripcion" Type="System.String" DbType="VarChar(48) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.stp_setDatosViga" Method="stp_setDatosViga">
+    <Parameter Name="intDatosVigaID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intConfiguraVigaID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="sintPinturaID" Type="System.Int16" DbType="SmallInt" />
+    <Parameter Name="intElementoID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intDatoMarcoID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="decLargo" Type="System.Decimal" DbType="Decimal(12,2)" />
+    <Parameter Name="intCantidad" Type="System.Int32" DbType="Int" />
+    <Parameter Name="bitActivo" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="tinOpcion" Type="System.Byte" DbType="TinyInt" />
+    <ElementType Name="stp_setDatosVigaResult">
+      <Column Name="vchResultado" Type="System.String" DbType="VarChar(12)" CanBeNull="true" />
+      <Column Name="vchDescripcion" Type="System.String" DbType="VarChar(47) NOT NULL" CanBeNull="false" />
     </ElementType>
   </Function>
 </Database>

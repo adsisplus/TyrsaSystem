@@ -13,18 +13,25 @@ namespace Adsisplus.Cotyrsa.BusinessEntities
         /// <summary>
         /// Id de la viga seleccionada
         /// </summary>
+        [DataMember]
         public int? intSeleccionVigaID { get; set; }
+
+        [DataMember]
+        public int? intConfiguraVigaID { get; set; }
         /// <summary>
         /// ID de la tabla tbl_RackSelectivo
         /// </summary>
+        [DataMember]
         public int? intRackID { get; set; }
         /// <summary>
         /// Id de la tabla tbl_DET_Cotizacion
         /// </summary>
+        [DataMember]
         public int? intDetCotizacionID { get; set; }
         /// <summary>
         /// Id del tipo de Viga
         /// </summary>
+        [DataMember]
         public short? sintTipoVigaID { get; set; }
         /// <summary>
         /// Valor de SKU
@@ -44,6 +51,7 @@ namespace Adsisplus.Cotyrsa.BusinessEntities
         /// <summary>
         /// ID del tipo de Viga
         /// </summary>
+        [DataMember]
         public int? intTipoID { get; set; }
         /// <summary>
         /// Tipo de VIga

@@ -68,7 +68,7 @@ namespace Adsisplus.Cotyrsa.DataAccess
             {
                 using (SistemasTyrsaDataContext dc = new SistemasTyrsaDataContext(Helper.ConnectionString()))
                 {
-                    var query = from item in dc.stp_setDatosMarco(datosMarco.intDatoMarcoID, datosMarco.intCotizacionID, datosMarco.intElementoID, datosMarco.sintPinturaID,
+                    var query = from item in dc.stp_setDatosMarco(datosMarco.intDatoMarcoID, datosMarco.intConfiguraMarcoID, datosMarco.intCotizacionID, datosMarco.intElementoID, datosMarco.sintPinturaID,
                         datosMarco.decMedidaFondo, datosMarco.decMedidaAlto, datosMarco.bitDobleMonten, datosMarco.intNumeroNivelSobreViga, datosMarco.decAlturaPandeo,
                         datosMarco.decCapacidadxNivel, datosMarco.sintCantidad, datosMarco.bitActivo, (byte)sintOpcion)
                                 select new Resultado
@@ -98,7 +98,7 @@ namespace Adsisplus.Cotyrsa.DataAccess
             {
                 using (SistemasTyrsaDataContext dc = new SistemasTyrsaDataContext(Helper.ConnectionString()))
                 {
-                    var query = from item in dc.stp_setDatosViga(datosViga.intDatosVigaID, datosViga.sintPinturaID, datosViga.intElementoID, datosViga.intDatoMarcoID,
+                    var query = from item in dc.stp_setDatosViga(datosViga.intDatosVigaID, datosViga.intConfiguraVigaID, datosViga.sintPinturaID, datosViga.intElementoID, datosViga.intDatoMarcoID,
                         datosViga.decLargo, datosViga.intCantidad, datosViga.bitActivo, (byte)sintOpcion)
                                 select new Resultado
                                 {

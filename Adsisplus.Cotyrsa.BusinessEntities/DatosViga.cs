@@ -36,5 +36,8 @@ namespace Adsisplus.Cotyrsa.BusinessEntities
 
         [DataMember]
         public Boolean? bitActivo { get; set; }
+
+        [DataMember]
+        public int? intConfiguraVigaID { get; set; }
     }
 }

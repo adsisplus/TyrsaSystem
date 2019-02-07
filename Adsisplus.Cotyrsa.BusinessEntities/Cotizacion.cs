@@ -21,6 +21,9 @@ namespace Adsisplus.Cotyrsa.BusinessEntities
         public int? intSeleccionMarcoID { get; set; }
 
         [DataMember]
+        public int? intElementoID { get; set; }
+
+        [DataMember]
         public int? intRackID { get; set; }
 
         [DataMember]

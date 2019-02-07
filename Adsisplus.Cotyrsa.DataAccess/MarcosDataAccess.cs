@@ -98,6 +98,7 @@ namespace Adsisplus.Cotyrsa.DataAccess
                                 select new DatosMarco()
                                 {
                                     intDatoMarcoID = item.intDatoMarcoID,
+                                    intConfiguraMarcoID = item.intConfiguraMarcoID,
                                     intCotizacionID = item.intCotizacionID,
                                     vchFolio = item.vchFolio,
                                     vchElemento = item.vchElemento,
@@ -424,7 +425,7 @@ namespace Adsisplus.Cotyrsa.DataAccess
             {
                 using (MarcosDataContext dc = new MarcosDataContext(Helper.ConnectionString()))
                 {
-                    var query = from item in dc.stp_setSeleccionMarco(marco.intRackID, marco.intSeleccionMarcoID, marco.intDetCotizacionID,
+                    var query = from item in dc.stp_setSeleccionMarco(marco.intRackID, marco.intConfiguraMarcoID, marco.intSeleccionMarcoID, marco.intDetCotizacionID,
                         //DATOS GENERALES DEL MARCO
                         rack.decFondoMarco, (byte)rack.tinOpcionMarco, rack.decDimensionClaro, rack.decNNSV, rack.decMargenExcedente, rack.decAlturaMarco,
                         rack.decAlturaPiso, rack.decNNSV, rack.decNPVS, rack.decAlturaPandeo, rack.decCargaModulo,

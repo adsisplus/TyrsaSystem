@@ -129,7 +129,7 @@ namespace Adsisplus.Cotyrsa.DataAccess
             {
                 using (CotizacionDataContext dc = new CotizacionDataContext(Helper.ConnectionString()))
                 {
-                    var query = from item in dc.stp_setDetCotizacion(cotizacion.intDetCotizaID, cotizacion.intCotizacionID, cotizacion.sintMontajeID, 
+                    var query = from item in dc.stp_setDetCotizacion(cotizacion.intDetCotizaID, cotizacion.intCotizacionID, cotizacion.intElementoID, cotizacion.sintMontajeID, 
                         cotizacion.intPartida, cotizacion.intCantidad, cotizacion.decMedidaFrente, cotizacion.decMedidaFondo, cotizacion.decAlto, 
                         cotizacion.decPesoKg, cotizacion.bitMontaCarga, cotizacion.intNumeroTarimaPorNivel, cotizacion.intNumeroNivelSobreViga, 
                         cotizacion.intPosicion, cotizacion.sintVisitas, cotizacion.vchDimensionMontacarga, cotizacion.decDolar, cotizacion.decMonto, 
