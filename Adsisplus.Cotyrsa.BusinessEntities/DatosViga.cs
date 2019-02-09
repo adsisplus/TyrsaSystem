@@ -39,5 +39,8 @@ namespace Adsisplus.Cotyrsa.BusinessEntities
 
         [DataMember]
         public int? intConfiguraVigaID { get; set; }
+
+        [DataMember]
+        public int? SKU { get; set; }
     }
 }

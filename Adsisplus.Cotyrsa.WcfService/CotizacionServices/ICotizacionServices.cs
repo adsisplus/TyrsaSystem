@@ -55,6 +55,15 @@ namespace Adsisplus.Cotyrsa.WcfService.CotizacionServices
         [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "setDetCotizacion")]
         Resultado setDetCotizacion(Cotizacion cotizacion, short tinOpcion);
         /// <summary>
+        /// Procedimiento que realiza la relación entre cotización y el sistema selectivo
+        /// </summary>
+        /// <param name="sistema"></param>
+        /// <param name="tinOpcion"></param>
+        /// <returns></returns>
+        [OperationContract]
+        [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "setDatosRelSistemaSelectivo")]
+        Resultado setDatosRelSistemaSelectivo(RelSistemaSelectivo sistema, short tinOpcion);
+        /// <summary>
         /// Procedimeinto que lista los datos de la cotización
         /// </summary>
         /// <param name="intEmpresaID"></param>
@@ -63,6 +72,16 @@ namespace Adsisplus.Cotyrsa.WcfService.CotizacionServices
         [OperationContract]
         [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ListarCotizacion")]
         List<Cotizacion> ListarCotizacion(int intEmpresaID, int intCotizacionID);
+        /// <summary>
+        /// Procedimiento que nos devuelve los ID's de los elementos ligados a la cotización
+        /// y al sistema selectivo
+        /// </summary>
+        /// <param name="intCotizacionID"></param>
+        /// <returns></returns>
+        [OperationContract]
+        [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ListarDatosSistemaSelectivo")]
+        RelSistemaSelectivo ListarDatosSistemaSelectivo(int intCotizacionID);
+
         /// <summary>
         /// Procedimiento que lista el detalle de cotización
         /// </summary>

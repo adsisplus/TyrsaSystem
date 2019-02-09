@@ -29,7 +29,7 @@ namespace Adsisplus.Cotyrsa.BusinessEntities
         /// ID de la tabla tbl_DET_Cotizacion
         /// </summary>
         [DataMember]
-        public int? intDetCotizaID { get; set; }
+        public int? intCotizacionID { get; set; }
         /// <summary>
         /// Número de tarimas por nivel
         /// </summary>

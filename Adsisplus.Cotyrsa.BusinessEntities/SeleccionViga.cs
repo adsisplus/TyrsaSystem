@@ -27,7 +27,7 @@ namespace Adsisplus.Cotyrsa.BusinessEntities
         /// Id de la tabla tbl_DET_Cotizacion
         /// </summary>
         [DataMember]
-        public int? intDetCotizacionID { get; set; }
+        public int? intCotizacionID { get; set; }
         /// <summary>
         /// Id del tipo de Viga
         /// </summary>

@@ -34,21 +34,6 @@
       <Column Name="decTotal" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
     </ElementType>
   </Function>
-  <Function Name="dbo.stp_setMstCotizacion" Method="stp_setMstCotizacion">
-    <Parameter Name="intCotizacionID" Type="System.Int32" DbType="Int" />
-    <Parameter Name="intEstatusID" Type="System.Int32" DbType="Int" />
-    <Parameter Name="sintPrioridadID" Type="System.Int16" DbType="SmallInt" />
-    <Parameter Name="intEmpresaID" Type="System.Int32" DbType="Int" />
-    <Parameter Name="vchFolio" Type="System.String" DbType="VarChar(250)" />
-    <Parameter Name="datFechaAceptacion" Type="System.DateTime" DbType="DateTime" />
-    <Parameter Name="datFechaRechazo" Type="System.DateTime" DbType="DateTime" />
-    <Parameter Name="bitActivo" Type="System.Boolean" DbType="Bit" />
-    <Parameter Name="tinOpcion" Type="System.Byte" DbType="TinyInt" />
-    <ElementType Name="stp_setMstCotizacionResult">
-      <Column Name="vchResultado" Type="System.String" DbType="VarChar(263)" CanBeNull="true" />
-      <Column Name="vchDescripcion" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-    </ElementType>
-  </Function>
   <Function Name="dbo.stp_ListarCotizacion" Method="stp_ListarCotizacion">
     <Parameter Name="intEmpresaID" Type="System.Int32" DbType="Int" />
     <Parameter Name="intCotizacionID" Type="System.Int32" DbType="Int" />
@@ -102,6 +87,21 @@
       <Column Name="bitActivo" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
     </ElementType>
   </Function>
+  <Function Name="dbo.stp_setMstCotizacion" Method="stp_setMstCotizacion">
+    <Parameter Name="intCotizacionID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intEstatusID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="sintPrioridadID" Type="System.Int16" DbType="SmallInt" />
+    <Parameter Name="intEmpresaID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="vchFolio" Type="System.String" DbType="VarChar(250)" />
+    <Parameter Name="datFechaAceptacion" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="datFechaRechazo" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="bitActivo" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="tinOpcion" Type="System.Byte" DbType="TinyInt" />
+    <ElementType Name="stp_setMstCotizacionResult">
+      <Column Name="vchResultado" Type="System.String" DbType="VarChar(263)" CanBeNull="true" />
+      <Column Name="vchDescripcion" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
   <Function Name="dbo.stp_setDetCotizacion" Method="stp_setDetCotizacion">
     <Parameter Name="intDetCotizaID" Type="System.Int32" DbType="Int" />
     <Parameter Name="intCotizacionID" Type="System.Int32" DbType="Int" />
@@ -141,6 +141,45 @@
     <ElementType Name="stp_setDetCotizacionResult">
       <Column Name="vchResultado" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
       <Column Name="vchDescripcion" Type="System.String" DbType="VarChar(58) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.stp_setDatosRelSistemaSelectivo" Method="stp_setDatosRelSistemaSelectivo">
+    <Parameter Name="intTipoElementoCoti_ProductoID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intTipoElementoID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intTipoElementoAlmacenID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intDatoMarcoID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intDatosVigaID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intDatosPanelID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intDatosCrossBarID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intDistanciadorID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intParrillaID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intVigaTopeID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intProtectorPosteID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intProtectorBateriaID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intCotizacionID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="sintSistemaCargaMarcoID" Type="System.Int16" DbType="SmallInt" />
+    <Parameter Name="datFechaAlta" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="bitActivo" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="tinOpcion" Type="System.Byte" DbType="TinyInt" />
+    <ElementType Name="stp_setDatosRelSistemaSelectivoResult">
+      <Column Name="vchResultado" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="vchDescripcion" Type="System.String" DbType="VarChar(52) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.stp_ListarDatosSistemaSelectivo" Method="stp_ListarDatosSistemaSelectivo">
+    <Parameter Name="intCotizacionID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="stp_ListarDatosSistemaSelectivoResult">
+      <Column Name="intTipoElementoCoti_Producto" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="intCotizacionID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="intDatosVigaID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="intDatoMarcoID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="intDatosPanelID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="intDatosCrossBarID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="intDistanciadorID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="intTipoElementoID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="intTipoElementoAlmacenID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="datFechaAlta" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="bitActivo" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
     </ElementType>
   </Function>
 </Database>

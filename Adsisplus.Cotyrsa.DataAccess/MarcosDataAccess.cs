@@ -462,7 +462,7 @@ namespace Adsisplus.Cotyrsa.DataAccess
                                 select new RackSelectivo
                                 {
                                     intRackID = item.intRackID,
-                                    intDetCotizaID = item.intDetCotizaID,
+                                    intCotizacionID = item.intCotizacionID,
                                     intSeleccionMarcoID = item.intSeleccionMarcoID,
                                     decFondoMarco = item.decFondoMarco,
                                     tinOpcionMarco = item.tinOpcionMarco,

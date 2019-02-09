@@ -94,6 +94,25 @@ namespace Adsisplus.Cotyrsa.WcfService.CotizacionServices
             return result;
         }
         /// <summary>
+        /// Procedimiento que realiza la relación entre cotización y el sistema selectivo
+        /// </summary>
+        /// <param name="sistema"></param>
+        /// <param name="tinOpcion"></param>
+        /// <returns></returns>
+        public Resultado setDatosRelSistemaSelectivo(RelSistemaSelectivo sistema, short tinOpcion)
+        {
+            Resultado result = new Resultado();
+            try
+            {
+                result = (new CotizacionLogic()).setDatosRelSistemaSelectivo(sistema, tinOpcion);
+            }
+            catch (Exception ex)
+            {
+                Adsisplus.Cotyrsa.BusinessLogic.EventLogManager.LogErrorEntry(ex.Message);
+            }
+            return result;
+        }
+        /// <summary>
         /// Procedimeinto que lista los datos de la cotización
         /// </summary>
         /// <param name="intEmpresaID"></param>
@@ -113,11 +132,30 @@ namespace Adsisplus.Cotyrsa.WcfService.CotizacionServices
             return result;
         }
         /// <summary>
-        /// Procedimiento que lista el detalle de cotización
+        /// Procedimiento que nos devuelve los ID's de los elementos ligados a la cotización
+        /// y al sistema selectivo
         /// </summary>
         /// <param name="intCotizacionID"></param>
         /// <returns></returns>
-        public List<Cotizacion> ListarDetalleCotizacion(int intCotizacionID)
+        public RelSistemaSelectivo ListarDatosSistemaSelectivo(int intCotizacionID)
+        {
+            RelSistemaSelectivo result = new RelSistemaSelectivo();
+            try
+            {
+                result = (new CotizacionLogic()).ListarDatosSistemaSelectivo(intCotizacionID);
+            }
+            catch (Exception ex)
+            {
+                Adsisplus.Cotyrsa.BusinessLogic.EventLogManager.LogErrorEntry(ex.Message);
+            }
+            return result;
+        }
+            /// <summary>
+            /// Procedimiento que lista el detalle de cotización
+            /// </summary>
+            /// <param name="intCotizacionID"></param>
+            /// <returns></returns>
+            public List<Cotizacion> ListarDetalleCotizacion(int intCotizacionID)
         {
             List<Cotizacion> result = new List<Cotizacion>();
             try

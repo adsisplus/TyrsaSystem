@@ -100,8 +100,7 @@ namespace Adsisplus.Cotyrsa.DataAccess
                 using (CotizacionDataContext dc = new CotizacionDataContext(Helper.ConnectionString()))
                 {
                     var query = from item in dc.stp_setMstCotizacion(cotizacion.intCotizacionID, cotizacion.intEstatusID, cotizacion.sintPrioridadID, cotizacion.intEmpresaID,
-                        cotizacion.vchFolio, cotizacion.datFechaAceptacion, cotizacion.datFechaRechazo,
-                        cotizacion.bitActivo, (byte)tinOpcion)
+                        cotizacion.vchFolio, cotizacion.datFechaAceptacion, cotizacion.datFechaRechazo, cotizacion.bitActivo, (byte)tinOpcion)
                                 select new Resultado
                                 {
                                     vchDescripcion = item.vchDescripcion,
@@ -137,6 +136,37 @@ namespace Adsisplus.Cotyrsa.DataAccess
                         cotizacion.decRetIVA, cotizacion.decIVA, cotizacion.decTotal, cotizacion.datFechaArmado, cotizacion.intProductoGralID,
                         cotizacion.intRelCotizaProductoID, cotizacion.intSubProductoID, cotizacion.intRackID, cotizacion.intSeleccionVigaID,
                         cotizacion.intSeleccionMarcoID, cotizacion.bitActivo, (byte)tinOpcion)
+                                select new Resultado
+                                {
+                                    vchDescripcion = item.vchDescripcion,
+                                    vchResultado = item.vchResultado
+                                };
+                    result = query.First();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
+        /// <summary>
+        /// Procedimiento que realiza la relación entre cotización y el sistema selectivo
+        /// </summary>
+        /// <param name="sistema"></param>
+        /// <param name="tinOpcion"></param>
+        /// <returns></returns>
+        public Resultado setDatosRelSistemaSelectivo(RelSistemaSelectivo sistema, short tinOpcion)
+        {
+            Resultado result = new Resultado();
+            try
+            {
+                using (CotizacionDataContext dc = new CotizacionDataContext(Helper.ConnectionString()))
+                {
+                    var query = from item in dc.stp_setDatosRelSistemaSelectivo(sistema.intTipoElementoCoti_Producto, sistema.intTipoElementoID, sistema.intTipoElementoAlmacenID,
+                        sistema.intDatoMarcoID, sistema.intDatosVigaID, sistema.intDatosPanelID, sistema.intDatosCrossBarID, sistema.intDistanciadorID,
+                        sistema.intParrillaID, sistema.intVigaTopeID, sistema.intProtectorPosteID, sistema.intProtectorBateriaID, sistema.intCotizacionID,
+                        sistema.sintSistemaCargaMarcoID, sistema.datFechaAlta, sistema.bitActivo, (byte)tinOpcion)
                                 select new Resultado
                                 {
                                     vchDescripcion = item.vchDescripcion,
@@ -192,6 +222,44 @@ namespace Adsisplus.Cotyrsa.DataAccess
             }
             return result;
         }
+        /// <summary>
+        /// Procedimiento que nos devuelve los ID's de los elementos ligados a la cotización
+        /// y al sistema selectivo
+        /// </summary>
+        /// <param name="intCotizacionID"></param>
+        /// <returns></returns>
+        public RelSistemaSelectivo ListarDatosSistemaSelectivo(int intCotizacionID)
+        {
+            RelSistemaSelectivo result = new RelSistemaSelectivo();
+            try
+            {
+                using (CotizacionDataContext dc = new CotizacionDataContext(Helper.ConnectionString()))
+                {
+                    var query = from item in dc.stp_ListarDatosSistemaSelectivo(intCotizacionID)
+                                select new RelSistemaSelectivo
+                                {
+                                    intTipoElementoCoti_Producto = item.intTipoElementoCoti_Producto,
+                                    intCotizacionID = item.intCotizacionID,
+                                    intDatosVigaID = item.intDatosVigaID,
+                                    intDatoMarcoID = item.intDatoMarcoID,
+                                    intDatosPanelID = item.intDatosPanelID,
+                                    intDatosCrossBarID = item.intDatosCrossBarID,
+                                    intDistanciadorID = item.intDistanciadorID,
+                                    intTipoElementoID = item.intTipoElementoID,
+                                    intTipoElementoAlmacenID = item.intTipoElementoAlmacenID,
+                                    datFechaAlta = item.datFechaAlta,
+                                    bitActivo = item.bitActivo
+                                };
+                    result = query.First();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
+
         /// <summary>
         /// Procedimiento que lista el detalle de cotización
         /// </summary>

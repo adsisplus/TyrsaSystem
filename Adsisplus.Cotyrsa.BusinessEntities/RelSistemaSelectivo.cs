@@ -86,6 +86,11 @@ namespace Adsisplus.Cotyrsa.BusinessEntities
         public Int32? intCapacidadPesoPoste { get; set; }
         [DataMember]
         public DateTime? datFechaAlta { get; set; }
+
+        [DataMember]
+        public short? sintSistemaCargaMarcoID { get; set; }
+
+
         [DataMember]
         public bool? bitActivo { get; set; }
     }

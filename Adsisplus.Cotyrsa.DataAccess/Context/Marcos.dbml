@@ -171,25 +171,6 @@
     <Parameter Name="bitEstructural" Type="System.Boolean" DbType="Bit" />
     <ElementType IdRef="ID4" />
   </Function>
-  <Function Name="dbo.stp_ListarDatosPantallaMarco" Method="stp_ListarDatosPantallaMarco">
-    <Parameter Name="intDetCotizaID" Type="System.Int32" DbType="Int" />
-    <ElementType Name="stp_ListarDatosPantallaMarcoResult">
-      <Column Name="intRackID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="intDetCotizaID" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="intSeleccionMarcoID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="decFondoMarco" Type="System.Decimal" DbType="Decimal(8,3)" CanBeNull="true" />
-      <Column Name="tinOpcionMarco" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
-      <Column Name="decDimensionClaro" Type="System.Decimal" DbType="Decimal(8,3)" CanBeNull="true" />
-      <Column Name="decNNSVS" Type="System.Decimal" DbType="Decimal(8,3)" CanBeNull="true" />
-      <Column Name="decMargenExcedente" Type="System.Decimal" DbType="Decimal(8,3)" CanBeNull="true" />
-      <Column Name="decAlturaMarco" Type="System.Decimal" DbType="Decimal(8,3)" CanBeNull="true" />
-      <Column Name="decAlturaPiso" Type="System.Decimal" DbType="Decimal(8,3)" CanBeNull="true" />
-      <Column Name="decNNSV" Type="System.Decimal" DbType="Decimal(8,3)" CanBeNull="true" />
-      <Column Name="decNNPVS" Type="System.Decimal" DbType="Decimal(8,3)" CanBeNull="true" />
-      <Column Name="decCargaModulo" Type="System.Decimal" DbType="Decimal(8,3)" CanBeNull="true" />
-      <Column Name="decAlturaPandeo" Type="System.Decimal" DbType="Decimal(8,3)" CanBeNull="true" />
-    </ElementType>
-  </Function>
   <Function Name="dbo.stp_ListarDatosSeleccionMarco" Method="stp_ListarDatosSeleccionMarco">
     <Parameter Name="intSeleccionMarcoID" Type="System.Int32" DbType="Int" />
     <ElementType Name="stp_ListarDatosSeleccionMarcoResult">
@@ -258,6 +239,25 @@
     <ElementType Name="stp_setSeleccionMarcoResult">
       <Column Name="vchResultado" Type="System.String" DbType="VarChar(12)" CanBeNull="true" />
       <Column Name="vchDescripcion" Type="System.String" DbType="VarChar(57) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.stp_ListarDatosPantallaMarco" Method="stp_ListarDatosPantallaMarco">
+    <Parameter Name="intCotizacionID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="stp_ListarDatosPantallaMarcoResult">
+      <Column Name="intRackID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="intCotizacionID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="intSeleccionMarcoID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="decFondoMarco" Type="System.Decimal" DbType="Decimal(8,3)" CanBeNull="true" />
+      <Column Name="tinOpcionMarco" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="decDimensionClaro" Type="System.Decimal" DbType="Decimal(8,3)" CanBeNull="true" />
+      <Column Name="decNNSVS" Type="System.Decimal" DbType="Decimal(8,3)" CanBeNull="true" />
+      <Column Name="decMargenExcedente" Type="System.Decimal" DbType="Decimal(8,3)" CanBeNull="true" />
+      <Column Name="decAlturaMarco" Type="System.Decimal" DbType="Decimal(8,3)" CanBeNull="true" />
+      <Column Name="decAlturaPiso" Type="System.Decimal" DbType="Decimal(8,3)" CanBeNull="true" />
+      <Column Name="decNNSV" Type="System.Decimal" DbType="Decimal(8,3)" CanBeNull="true" />
+      <Column Name="decNNPVS" Type="System.Decimal" DbType="Decimal(8,3)" CanBeNull="true" />
+      <Column Name="decCargaModulo" Type="System.Decimal" DbType="Decimal(8,3)" CanBeNull="true" />
+      <Column Name="decAlturaPandeo" Type="System.Decimal" DbType="Decimal(8,3)" CanBeNull="true" />
     </ElementType>
   </Function>
 </Database>
