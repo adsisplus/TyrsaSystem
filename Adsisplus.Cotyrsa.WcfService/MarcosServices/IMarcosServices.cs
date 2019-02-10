@@ -145,13 +145,13 @@ namespace Adsisplus.Cotyrsa.WcfService.MarcosServices
         [OperationContract]
         [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "setSeleccionMarco")]
         Resultado setSeleccionMarco(SeleccionMarco marco, RackSelectivo rack, short tinOpcion);
-        /// <summary>
-        /// Procedimiento para listar los fondos de marco
-        /// </summary>
-        /// <returns></returns>
-        [OperationContract]
-        [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ListarFondoMarco")]
-        List<decimal> ListarFondoMarco();
+        ///// <summary>
+        ///// Procedimiento para listar los fondos de marco
+        ///// </summary>
+        ///// <returns></returns>
+        //[OperationContract]
+        //[WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ListarFondoMarco")]
+        //List<decimal> ListarFondoMarco();
 
         /// <summary>
         /// Procedimiento que permite listar los marcos en base a la capacidad
