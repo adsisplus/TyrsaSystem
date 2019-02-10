@@ -425,12 +425,19 @@ namespace Adsisplus.Cotyrsa.DataAccess
             {
                 using (MarcosDataContext dc = new MarcosDataContext(Helper.ConnectionString()))
                 {
-                    var query = from item in dc.stp_setSeleccionMarco(marco.intRackID, marco.intConfiguraMarcoID, marco.intSeleccionMarcoID, marco.intDetCotizacionID,
-                        //DATOS GENERALES DEL MARCO
-                        rack.decFondoMarco, (byte)rack.tinOpcionMarco, rack.decDimensionClaro, rack.decNNSV, rack.decMargenExcedente, rack.decAlturaMarco,
-                        rack.decAlturaPiso, rack.decNNSV, rack.decNPVS, rack.decAlturaPandeo, rack.decCargaModulo,
+                    var query = from item in dc.stp_setSeleccionMarco(marco.intSeleccionMarcoID, marco.intRackID, marco.intConfiguraMarcoID, 
+                        rack.intCotizacionID,
+                        // SELECCIÓN DE MARCO
+                        marco.SKU, marco.decPesoMarco, marco.decPrecioUnitario, marco.intTipoID, marco.intMaterialID, marco.decFondo, 
+                        marco.decAltura, marco.decAlturaPandeo, marco.decCapacidadMarco, 
+                        // DATOS QUE SE ALMACENAN EN LA TABLA tbl_RackSelectivo
+                        rack.decFondoMarco, rack.decAlturaMarco, (byte)rack.tinOpcionMarco,
+                        // DATOS OPCIÓN UNO
+                        rack.decDimensionClaro, rack.decNNSV, rack.decMargenExcedente,
+                        // DATOS OPCIÓN DOS
+                        rack.decAlturaPiso, rack.decNNSV, rack.decNPVS, 
+                        rack.decCargaModulo, rack.decAlturaPandeo,
                         // DATOS DEL MARCO SELECCIONADO                                            
-                        marco.SKU, marco.decPesoMarco, marco.decPrecioUnitario, marco.intTipoID, marco.intMaterialID, marco.decFondo, marco.decAltura, 
                         marco.bitActivo, (byte)tinOpcion)
                                 select new Resultado
                                 {
