@@ -278,6 +278,8 @@ namespace Adsisplus.Cotyrsa.DataAccess
                                     intDetCotizaID = item.intDetCotizaID,
                                     intCotizacionID = item.intCotizacionID,
 
+                                    intRackID = item.intRackID,
+
                                     intSeleccionVigaID = item.intSeleccionVigaID,
                                     intSeleccionMarcoID = item.intSeleccionMarcoID,
 
