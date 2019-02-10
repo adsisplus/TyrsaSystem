@@ -37,7 +37,7 @@ namespace Adsisplus.Cotyrsa.BusinessEntities
         /// Valor de SKU
         /// </summary>
         [DataMember]
-        public string SKU { get; set; }
+        public int? SKU { get; set; }
         /// <summary>
         /// Valor del peso de la viga en Kg
         /// </summary>

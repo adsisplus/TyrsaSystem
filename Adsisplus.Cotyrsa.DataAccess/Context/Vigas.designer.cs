@@ -181,7 +181,7 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 	public partial class entSeleccionViga
 	{
 		
-		private string _vchSKU;
+		private int _vchSKU;
 		
 		private short _sintTipoVigaID;
 		
@@ -215,8 +215,8 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 		{
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchSKU", CanBeNull=false)]
-		public string SKU
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchSKU")]
+		public int SKU
 		{
 			get
 			{
