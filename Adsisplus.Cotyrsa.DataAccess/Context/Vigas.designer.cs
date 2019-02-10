@@ -211,6 +211,10 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 		
 		private short _sintLongitudId;
 		
+		private int _intTipoID;
+		
+		private int _intMaterialID;
+		
 		public entSeleccionViga()
 		{
 		}
@@ -451,6 +455,38 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 				if ((this._sintLongitudId != value))
 				{
 					this._sintLongitudId = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intTipoID")]
+		public int intTipoID
+		{
+			get
+			{
+				return this._intTipoID;
+			}
+			set
+			{
+				if ((this._intTipoID != value))
+				{
+					this._intTipoID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intMaterialID")]
+		public int intMaterialID
+		{
+			get
+			{
+				return this._intMaterialID;
+			}
+			set
+			{
+				if ((this._intMaterialID != value))
+				{
+					this._intMaterialID = value;
 				}
 			}
 		}

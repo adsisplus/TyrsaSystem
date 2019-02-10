@@ -875,6 +875,10 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 		
 		private decimal _decCapacidadMarco;
 		
+		private int _intTipoID;
+		
+		private int _intMaterialID;
+		
 		public entSeleccionMarco()
 		{
 		}
@@ -1035,6 +1039,38 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 				if ((this._decCapacidadMarco != value))
 				{
 					this._decCapacidadMarco = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intTipoID")]
+		public int intTipoID
+		{
+			get
+			{
+				return this._intTipoID;
+			}
+			set
+			{
+				if ((this._intTipoID != value))
+				{
+					this._intTipoID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intMaterialID")]
+		public int intMaterialID
+		{
+			get
+			{
+				return this._intMaterialID;
+			}
+			set
+			{
+				if ((this._intMaterialID != value))
+				{
+					this._intMaterialID = value;
 				}
 			}
 		}

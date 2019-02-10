@@ -58,6 +58,8 @@
       <Column Name="decAltura" Type="System.Decimal" CanBeNull="false" />
       <Column Name="decAlturaPandeo" Type="System.Decimal" CanBeNull="false" />
       <Column Name="decCapacidadMarco" Type="System.Decimal" CanBeNull="false" />
+      <Column Member="intTipoID" Type="System.Int32" CanBeNull="false" />
+      <Column Member="intMaterialID" Type="System.Int32" CanBeNull="false" />
     </Type>
   </Table>
   <Function Name="dbo.stp_RelSistemaCargaMarcoPoste" Method="stp_RelSistemaCargaMarcoPoste">

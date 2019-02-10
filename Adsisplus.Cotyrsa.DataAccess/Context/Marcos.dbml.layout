@@ -20,10 +20,10 @@
         <elementListCompartment Id="1c9fe1e9-b4d1-473b-81e8-af7aa1cfa124" absoluteBounds="7.64, 2.335, 1.9700000000000002, 3.1339111328125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="54a1217d-4f5d-429b-9445-8e5faa8f771b" absoluteBounds="0.625, 4, 2, 2.7324039713541666">
+    <classShape Id="54a1217d-4f5d-429b-9445-8e5faa8f771b" absoluteBounds="0.625, 4, 2, 3.1170068359374996">
       <DataClassMoniker Name="/MarcosDataContext/entSeleccionMarco" />
       <nestedChildShapes>
-        <elementListCompartment Id="a9279c3a-a803-44a2-ba57-5570c0cc7975" absoluteBounds="0.64, 4.46, 1.9700000000000002, 2.1724039713541665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="a9279c3a-a803-44a2-ba57-5570c0cc7975" absoluteBounds="0.64, 4.46, 1.9700000000000002, 2.5570068359375" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
   </nestedChildShapes>

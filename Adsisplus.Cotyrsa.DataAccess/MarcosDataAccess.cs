@@ -399,8 +399,10 @@ namespace Adsisplus.Cotyrsa.DataAccess
                                     decPesoMarco = item.decPesoMarco,
                                     decPrecioUnitario = item.decPrecioUnitario,
                                     vchMaterial = item.vchMaterial,
+                                    intMaterialID = item.intMaterialID,
                                     SKU = item.SKU,
-                                    vchTipo = item.vchTipo
+                                    vchTipo = item.vchTipo,
+                                    intTipoID = item.intTipoID
                                 };
                     result.AddRange(query);
                 }

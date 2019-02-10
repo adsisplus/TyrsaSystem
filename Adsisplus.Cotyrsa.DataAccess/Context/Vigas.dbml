@@ -17,6 +17,8 @@
       <Column Name="decPesoPieza" Type="System.Decimal" CanBeNull="false" />
       <Column Name="decPesoPartida" Type="System.Decimal" CanBeNull="false" />
       <Column Name="sintLongitudId" Type="System.Int16" CanBeNull="false" />
+      <Column Member="intTipoID" Type="System.Int32" CanBeNull="false" />
+      <Column Member="intMaterialID" Type="System.Int32" CanBeNull="false" />
     </Type>
   </Table>
   <Function Name="dbo.stp_ListarTotalViga" Method="stp_ListarTotalViga">
