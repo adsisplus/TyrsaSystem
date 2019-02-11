@@ -250,12 +250,21 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
         /// <param name="rack"></param>
         /// <param name="tinOpcion"></param>
         /// <returns></returns>
-        public Resultado setSeleccionMarco(SeleccionMarco marco, RackSelectivo rack, short tinOpcion)
+        public Resultado setSeleccionMarco(SeleccionMarco marco, DatosMarco mstMarco, RackSelectivo rack, short tinOpcion)
         {
             Resultado result = new Resultado();
             try
             {
+                // Almacenamos los datos de la selección Marco
                 result = CatalogosDA.setSeleccionMarco(marco, rack, tinOpcion);
+                if (result.vchResultado != "NOK")
+                {
+                    int intSeleccionMarcoID = Convert.ToInt32(result.vchResultado);
+                    // Almacenamos la información del marco
+                    marco.intSeleccionMarcoID = intSeleccionMarcoID;
+                    
+                    result = (new SistemasTyrsaDataAccess()).setDatosMarco(mstMarco, tinOpcion);
+                }
             }
             catch (Exception ex)
             {

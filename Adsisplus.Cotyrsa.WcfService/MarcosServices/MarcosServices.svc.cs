@@ -269,12 +269,12 @@ namespace Adsisplus.Cotyrsa.WcfService.MarcosServices
         /// <param name="rack"></param>
         /// <param name="tinOpcion"></param>
         /// <returns></returns>
-        public Resultado setSeleccionMarco(SeleccionMarco marco, RackSelectivo rack, short tinOpcion)
+        public Resultado setSeleccionMarco(SeleccionMarco marco, DatosMarco mstMarco, RackSelectivo rack, short tinOpcion)
         {
             Resultado result = new Resultado();
             try
             {
-                result = (new MarcosLogic()).setSeleccionMarco(marco, rack, tinOpcion);
+                result = (new MarcosLogic()).setSeleccionMarco(marco, mstMarco, rack, tinOpcion);
             }
             catch (Exception ex)
             {

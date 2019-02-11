@@ -14,6 +14,9 @@ namespace Adsisplus.Cotyrsa.BusinessEntities
         public Int32? intDatosVigaID { get; set; }
 
         [DataMember]
+        public int? intDetCotizaID { get; set; }
+
+        [DataMember]
         public Int32? intElementoID { get; set; }
         [DataMember]
         public String vchElemento { get; set; }

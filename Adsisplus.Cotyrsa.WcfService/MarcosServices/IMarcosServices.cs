@@ -144,7 +144,7 @@ namespace Adsisplus.Cotyrsa.WcfService.MarcosServices
         /// <returns></returns>
         [OperationContract]
         [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "setSeleccionMarco")]
-        Resultado setSeleccionMarco(SeleccionMarco marco, RackSelectivo rack, short tinOpcion);
+        Resultado setSeleccionMarco(SeleccionMarco marco, DatosMarco mstMarco, RackSelectivo rack, short tinOpcion);
         ///// <summary>
         ///// Procedimiento para listar los fondos de marco
         ///// </summary>
