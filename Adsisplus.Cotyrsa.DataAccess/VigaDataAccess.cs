@@ -463,6 +463,7 @@ namespace Adsisplus.Cotyrsa.DataAccess
                                 {
                                     intRackID = item.intRackID,
                                     intCotizacionID = item.intCotizacionID,
+                                    intDetCotizaID = item.intDetCotizaID,
                                     intSeleccionVigaID = item.intSeleccionVigaID,
                                     bitEstructural = item.bitEstructural,
                                     bitSobresale = item.bitSobresale,
@@ -470,7 +471,7 @@ namespace Adsisplus.Cotyrsa.DataAccess
                                     decFondo = item.decFondo,
                                     decAltura = item.decAltura,
                                     decPeso = item.decPeso,
-                                    intNumTarimaNivel = item.intNumTarimaNivel,
+                                    
                                     tinOpcionViga = item.tinOpcionViga,
                                     decLongitudViga = item.decLongitudViga,
                                     decCapCargaReqViga = item.decCapCargaReqViga

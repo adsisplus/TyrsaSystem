@@ -30,6 +30,9 @@ namespace Adsisplus.Cotyrsa.BusinessEntities
         /// </summary>
         [DataMember]
         public int? intCotizacionID { get; set; }
+
+        [DataMember]
+        public int? intDetCotizaID { get; set; }
         /// <summary>
         /// ID de la relación de la tabla de producto cotización
         /// </summary>
