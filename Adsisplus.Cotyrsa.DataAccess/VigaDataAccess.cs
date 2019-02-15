@@ -137,20 +137,33 @@ namespace Adsisplus.Cotyrsa.DataAccess
             }
             return result;
         }
-        public List<DatosViga> ListarDatosViga(Int32 intDatosVigaID, Int16 sintPinturaID, Int32 intElementoID, Int32 intDatoMarcoID)
+        /// <summary>
+        /// Procedimiento que obtiene los datos de la viga (tbl_MST_DatosVigA)
+        /// </summary>
+        /// <param name="intDatosVigaID"></param>
+        /// <param name="sintPinturaID"></param>
+        /// <param name="intElementoID"></param>
+        /// <param name="intDatoMarcoID"></param>
+        /// <param name="intDetCotizacionID"></param>
+        /// <returns></returns>
+        public List<DatosViga> ListarDatosViga(Int32 intDatosVigaID, Int16 sintPinturaID, Int32 intElementoID, Int32 intDatoMarcoID, int intDetCotizacionID)
         {
             List<DatosViga> results = new List<DatosViga>();
             try
             {
                 using (VigasDataContext dc = new VigasDataContext(Helper.ConnectionString()))
                 {
-                    var query = from item in dc.stp_ListarDatosViga(intDatosVigaID, sintPinturaID, intElementoID, intDatoMarcoID)
+                    var query = from item in dc.stp_ListarDatosViga(intDatosVigaID, sintPinturaID, intElementoID, intDatoMarcoID, intDetCotizacionID)
                                 select new DatosViga()
                                 {
                                     intDatosVigaID = item.intDatosVigaID,
-                                    intConfiguraVigaID = item.intConfiguraVigaID,
+                                    //intConfiguraVigaID = item.intConfiguraVigaID,
+                                    sintPinturaID = item.sintPinturaID,
                                     vchPintura = item.vchPintura,
+                                    intElementoID = item.intElementoID,
                                     vchElemento = item.vchElemento,
+                                    intDatoMarcoID = item.intDatoMarcoID,
+                                    SKU = (int)item.SKU,
                                     sintCantidadDatosMarco = item.sintCantidadDatosMarco,
                                     decLargo = item.decLargo,
                                     intCantidad = item.intCantidad,

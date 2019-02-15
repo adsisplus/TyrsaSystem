@@ -90,9 +90,10 @@ namespace Adsisplus.Cotyrsa.DataAccess
         /// Procedimiento que realiza el alta, modificación o baja de los datos de la tabla mst_Cotizacion
         /// </summary>
         /// <param name="cotizacion"></param>
+        /// <param name="rack"></param>
         /// <param name="tinOpcion"></param>
         /// <returns></returns>
-        public Resultado setMstCotizacion(Cotizacion cotizacion, short tinOpcion)
+        public Resultado setMstCotizacion(Cotizacion cotizacion, RackSelectivo rack, short tinOpcion)
         {
             Resultado result = new Resultado();
             try
@@ -100,7 +101,12 @@ namespace Adsisplus.Cotyrsa.DataAccess
                 using (CotizacionDataContext dc = new CotizacionDataContext(Helper.ConnectionString()))
                 {
                     var query = from item in dc.stp_setMstCotizacion(cotizacion.intCotizacionID, cotizacion.intEstatusID, cotizacion.sintPrioridadID, cotizacion.intEmpresaID,
-                        cotizacion.vchFolio, cotizacion.datFechaAceptacion, cotizacion.datFechaRechazo, cotizacion.bitActivo, (byte)tinOpcion)
+                        cotizacion.vchFolio, cotizacion.datFechaAceptacion, cotizacion.datFechaRechazo,
+                        // Datos que son almacenados en tbl_RackSelectivo
+                        rack.intRackID, rack.bitMontacarga, rack.intNumTarimaNivel, 
+                        //rack.decFrente, rack.decFondo, rack.decAltura, rack.decPeso,
+                        rack.vchDimensionMontacarga, rack.intNumeroNivelSobreViga, rack.intPosicion, rack.sintVisitas,
+                        rack.intRelCotizaProductoID, rack.intProductoGralID, rack.intSubProductoID, cotizacion.bitActivo, (byte)tinOpcion)
                                 select new Resultado
                                 {
                                     vchDescripcion = item.vchDescripcion,
@@ -128,14 +134,10 @@ namespace Adsisplus.Cotyrsa.DataAccess
             {
                 using (CotizacionDataContext dc = new CotizacionDataContext(Helper.ConnectionString()))
                 {
-                    var query = from item in dc.stp_setDetCotizacion(cotizacion.intDetCotizaID, cotizacion.intCotizacionID, cotizacion.intElementoID, cotizacion.sintMontajeID, 
-                        cotizacion.intPartida, cotizacion.intCantidad, cotizacion.decMedidaFrente, cotizacion.decMedidaFondo, cotizacion.decAlto, 
-                        cotizacion.decPesoKg, cotizacion.bitMontaCarga, cotizacion.intNumeroTarimaPorNivel, cotizacion.intNumeroNivelSobreViga, 
-                        cotizacion.intPosicion, cotizacion.sintVisitas, cotizacion.vchDimensionMontacarga, cotizacion.decDolar, cotizacion.decMonto, 
-                        cotizacion.decSubtotal, cotizacion.decDescuento, cotizacion.decDescuentoFin, cotizacion.decIEMPS, cotizacion.decRetISR, 
-                        cotizacion.decRetIVA, cotizacion.decIVA, cotizacion.decTotal, cotizacion.datFechaArmado, cotizacion.intProductoGralID,
-                        cotizacion.intRelCotizaProductoID, cotizacion.intSubProductoID, cotizacion.intRackID, cotizacion.intSeleccionVigaID,
-                        cotizacion.intSeleccionMarcoID, cotizacion.bitActivo, (byte)tinOpcion)
+                    var query = from item in dc.stp_setDetCotizacion(cotizacion.intDetCotizaID, cotizacion.intCotizacionID, cotizacion.intElementoID, cotizacion.intPartida, cotizacion.intCantidad,
+                        cotizacion.decDolar, cotizacion.decMonto, cotizacion.decSubtotal, cotizacion.decDescuento,
+                        cotizacion.decDescuentoFin, cotizacion.decIEMPS, cotizacion.decRetISR, cotizacion.decRetIVA, cotizacion.decIVA, cotizacion.decTotal, 
+                        cotizacion.bitActivo, (byte)tinOpcion)
                                 select new Resultado
                                 {
                                     vchDescripcion = item.vchDescripcion,
@@ -209,7 +211,7 @@ namespace Adsisplus.Cotyrsa.DataAccess
 
                                     intRelCotizaProductoID = item.intRelCotizaProductoID,
                                     intProductoGralID = item.intProductoGralID,
-                                    intDetCotizaID = item.intDetCotizaID,
+
                                     datFechaArmado = item.datFechaArmado,
                                     intSubProductoID = item.intSubProductoID
                                 };
@@ -259,20 +261,20 @@ namespace Adsisplus.Cotyrsa.DataAccess
             }
             return result;
         }
-
         /// <summary>
         /// Procedimiento que lista el detalle de cotización
         /// </summary>
         /// <param name="intCotizacionID"></param>
+        /// <param name="intElementoID"></param>
         /// <returns></returns>
-        public List<Cotizacion> ListarDetalleCotizacion(int intCotizacionID)
+        public List<Cotizacion> ListarDetalleCotizacion(int intCotizacionID, int intElementoID)
         {
             List<Cotizacion> result = new List<Cotizacion>();
             try
             {
                 using (CotizacionDataContext dc = new CotizacionDataContext(Helper.ConnectionString()))
                 {
-                    var query = from item in dc.stp_ListarDetalleCotizacion(intCotizacionID)
+                    var query = from item in dc.stp_ListarDetalleCotizacion(intCotizacionID, intElementoID)
                                 select new Cotizacion
                                 {
                                     intDetCotizaID = item.intDetCotizaID,
@@ -286,10 +288,10 @@ namespace Adsisplus.Cotyrsa.DataAccess
                                     sintMontajeID = item.sintMontajeID,
                                     intPartida = item.intPartida,
                                     intCantidad = item.intCantidad,
-                                    decMedidaFrente = item.decMedidaFrente,
-                                    decMedidaFondo = item.decMedidaFondo,
-                                    decAlto = item.decAlto,
-                                    decPesoKg = item.decPesoKg,
+                                    //decMedidaFrente = item.decMedidaFrente,
+                                    //decMedidaFondo = item.decMedidaFondo,
+                                    //decAlto = item.decAlto,
+                                    //decPesoKg = item.decPesoKg,
                                     bitMontaCarga = item.bitMontacarga,
                                     intNumeroTarimaPorNivel = item.intNumeroTarimaPorNivel,
                                     intNumeroNivelSobreViga = item.intNumeroNivelSobreViga,
@@ -317,5 +319,47 @@ namespace Adsisplus.Cotyrsa.DataAccess
             }
             return result;
         }
+        /// <summary>
+        /// Procedimiento que nos devuelve la información capturada/mostrada en cotización
+        /// </summary>
+        /// <param name="intCotizacionID"></param>
+        /// <returns></returns>
+        public Cotizacion ListarDatosPantallaCotizacion(int intCotizacionID)
+        {
+            Cotizacion result = new Cotizacion();
+            try
+            {
+                using (CotizacionDataContext dc = new CotizacionDataContext(Helper.ConnectionString()))
+                {
+                    var query = from item in dc.stp_ListarDatosPantallaCotizacion(intCotizacionID)
+                                select new Cotizacion
+                                {
+                                    intCotizacionID = item.intCotizacionID,
+                                    intEmpresaID = item.intEmpresaID,
+                                    intEstatusID = item.intEstatusID,
+                                    sintPrioridadID = item.sintPrioridadID,
+                                    datFechaAceptacion = item.datFechaAceptacion,
+                                    datFechaCotizacion = item.datFechaCotizacion,
+                                    datFechaRechazo = item.datFechaRechazo,
+                                    vchFolio = item.vchFolio,
+                                    intRackID = item.intRackID,
+                                    bitMontaCarga = item.bitMontacarga,
+                                    intNumeroTarimaPorNivel = item.intNumTarimaNivel,
+                                    
+                                    vchDimensionMontacarga = item.vchDimensionMontacarga,
+                                    intNumeroNivelSobreViga = item.intNumeroNivelSobreViga,
+                                    intPosicion = item.intPosicion,
+                                    sintVisitas = item.sintVisitas
+                                };
+                    result = query.First();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
+
     }
 }

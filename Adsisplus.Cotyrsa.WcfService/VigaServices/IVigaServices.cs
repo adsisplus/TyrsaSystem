@@ -49,16 +49,17 @@ namespace Adsisplus.Cotyrsa.WcfService.VigaServices
         [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ListarConfiguracion_Viga")]
         List<Configuracion_Viga> ListarConfiguracion_Viga(short sintTipoVigaID, int intElementoID, int intCalibreID, short sintFactorVigaID);
         /// <summary>
-        /// Obtiene la lista de los datos por viga
+        /// Procedimiento que obtiene los datos de la viga (tbl_MST_DatosVigA)
         /// </summary>
         /// <param name="intDatosVigaID"></param>
         /// <param name="sintPinturaID"></param>
         /// <param name="intElementoID"></param>
         /// <param name="intDatoMarcoID"></param>
+        /// <param name="intDetCotizacionID"></param>
         /// <returns></returns>
         [OperationContract]
         [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ListarDatosViga")]
-        List<DatosViga> ListarDatosViga(Int32 intDatosVigaID, Int16 sintPinturaID, Int32 intElementoID, Int32 intDatoMarcoID);
+        List<DatosViga> ListarDatosViga(Int32 intDatosVigaID, Int16 sintPinturaID, Int32 intElementoID, Int32 intDatoMarcoID, int intDetCotizacionID);
         /// <summary>
         /// Obtiene la lista de las viga por tope
         /// </summary>
@@ -146,11 +147,15 @@ namespace Adsisplus.Cotyrsa.WcfService.VigaServices
         /// </summary>
         /// <param name="viga"></param>
         /// <param name="rack"></param>
+        /// <param name="sintPinturaID"></param>
+        /// <param name="intCotizacionID"></param>
+        /// <param name="intDetCotizacionID"></param>
+        /// <param name="intCantidad"></param>
         /// <param name="tinOpcion"></param>
         /// <returns></returns>
         [OperationContract]
         [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "setDatosViga")]
-        Resultado setDatosViga(SeleccionViga viga, RackSelectivo rack, short tinOpcion);
+        Resultado setDatosViga(SeleccionViga viga, RackSelectivo rack, short sintPinturaID, int intCotizacionID, int intDetCotizacionID, int intCantidad, short tinOpcion);
 
         /// <summary>
         /// Procedimiento que obtiene los datos de la pantalla de la viga a mostrar

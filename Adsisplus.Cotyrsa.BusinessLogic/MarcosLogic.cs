@@ -262,8 +262,9 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
                     int intSeleccionMarcoID = Convert.ToInt32(result.vchResultado);
                     // Almacenamos la información del marco
                     marco.intSeleccionMarcoID = intSeleccionMarcoID;
-                    
-                    result = (new SistemasTyrsaDataAccess()).setDatosMarco(mstMarco, tinOpcion);
+                    // Invocamos el método para dar de alta el sistema selectivo, se invoca con valor 2 ya que
+                    // dicho registro ya existe desde el alta de la cotización
+                    result = (new SistemasTyrsaDataAccess()).setDatosMarco(mstMarco, 2);
                 }
             }
             catch (Exception ex)

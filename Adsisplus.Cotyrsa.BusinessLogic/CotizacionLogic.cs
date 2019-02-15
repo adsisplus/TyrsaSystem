@@ -68,14 +68,15 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
         /// Procedimiento que realiza el alta, modificación o baja de los datos de la tabla mst_Cotizacion
         /// </summary>
         /// <param name="cotizacion"></param>
+        /// <param name="rack"></param>
         /// <param name="tinOpcion"></param>
         /// <returns></returns>
-        public Resultado setMstCotizacion(Cotizacion cotizacion, short tinOpcion)
+        public Resultado setMstCotizacion(Cotizacion cotizacion, RackSelectivo rack, short tinOpcion)
         {
             Resultado result = new Resultado();
             try
             {
-                result = CatalogosDA.setMstCotizacion(cotizacion, tinOpcion);
+                result = CatalogosDA.setMstCotizacion(cotizacion, rack, tinOpcion);
             }
             catch (Exception ex)
             {
@@ -163,13 +164,32 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
             /// Procedimiento que lista el detalle de cotización
             /// </summary>
             /// <param name="intCotizacionID"></param>
+            /// <param name="intElementoID"></param>
             /// <returns></returns>
-            public List<Cotizacion> ListarDetalleCotizacion(int intCotizacionID)
+            public List<Cotizacion> ListarDetalleCotizacion(int intCotizacionID, int intElementoID)
         {
             List<Cotizacion> result = new List<Cotizacion>();
             try
             {
-                result = CatalogosDA.ListarDetalleCotizacion(intCotizacionID);
+                result = CatalogosDA.ListarDetalleCotizacion(intCotizacionID, intElementoID);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
+        /// <summary>
+        /// Procedimiento que nos devuelve la información capturada/mostrada en cotización
+        /// </summary>
+        /// <param name="intCotizacionID"></param>
+        /// <returns></returns>
+        public Cotizacion ListarDatosPantallaCotizacion(int intCotizacionID)
+        {
+            Cotizacion result = new Cotizacion();
+            try
+            {
+                result = CatalogosDA.ListarDatosPantallaCotizacion(intCotizacionID);
             }
             catch (Exception ex)
             {

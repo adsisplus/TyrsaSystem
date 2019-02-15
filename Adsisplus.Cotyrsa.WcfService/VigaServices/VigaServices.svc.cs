@@ -59,19 +59,20 @@ namespace Adsisplus.Cotyrsa.WcfService.VigaServices
             return result;
         }
         /// <summary>
-        /// Obtiene la lista de configuración por viga
+        /// Procedimiento que obtiene los datos de la viga (tbl_MST_DatosVigA)
         /// </summary>
         /// <param name="intDatosVigaID"></param>
         /// <param name="sintPinturaID"></param>
         /// <param name="intElementoID"></param>
         /// <param name="intDatoMarcoID"></param>
+        /// <param name="intDetCotizacionID"></param>
         /// <returns></returns>
-        public List<DatosViga> ListarDatosViga(int intDatosVigaID, short sintPinturaID, int intElementoID, int intDatoMarcoID)
+        public List<DatosViga> ListarDatosViga(int intDatosVigaID, short sintPinturaID, int intElementoID, int intDatoMarcoID, int intDetCotizacion)
         {
             List<DatosViga> result = new List<DatosViga>();
             try
             {
-                result = (new VigaLogic()).ListarDatosViga(intDatosVigaID, sintPinturaID, intElementoID, intDatosVigaID);
+                result = (new VigaLogic()).ListarDatosViga(intDatosVigaID, sintPinturaID, intElementoID, intDatosVigaID, intDetCotizacion);
             }
             catch (Exception ex)
             {
@@ -253,14 +254,18 @@ namespace Adsisplus.Cotyrsa.WcfService.VigaServices
         /// </summary>
         /// <param name="viga"></param>
         /// <param name="rack"></param>
+        /// <param name="sintPinturaID"></param>
+        /// <param name="intCotizacionID"></param>
+        /// <param name="intDetCotizacionID"></param>
+        /// <param name="intCantidad"></param>
         /// <param name="tinOpcion"></param>
         /// <returns></returns>
-        public Resultado setDatosViga(SeleccionViga viga, RackSelectivo rack, short tinOpcion)
+        public Resultado setDatosViga(SeleccionViga viga, RackSelectivo rack, short sintPinturaID, int intCotizacionID, int intDetCotizacionID, int intCantidad, short tinOpcion)
         {
             Resultado result = new Resultado();
             try
             {
-                result = (new VigaLogic()).setDatosViga(viga, rack, tinOpcion);
+                result = (new VigaLogic()).setDatosViga(viga, rack, intCotizacionID, intDetCotizacionID, sintPinturaID, intCantidad, tinOpcion);
             }
             catch (Exception ex)
             {

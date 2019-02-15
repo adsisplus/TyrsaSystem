@@ -80,14 +80,14 @@ namespace Adsisplus.Cotyrsa.BusinessEntities
         public bool? bitActivo { get; set; }
 
         // Datos que seran almacenados en la tabla tbl_RackSelectivo
-        [DataMember]
-        public decimal? decMedidaFrente { get; set; }
-        [DataMember]
-        public decimal? decMedidaFondo { get; set; }
-        [DataMember]
-        public decimal? decAlto { get; set; }
-        [DataMember]
-        public decimal? decPesoKg { get; set; }
+        //[DataMember]
+        //public decimal? decMedidaFrente { get; set; }
+        //[DataMember]
+        //public decimal? decMedidaFondo { get; set; }
+        //[DataMember]
+        //public decimal? decAlto { get; set; }
+        //[DataMember]
+        //public decimal? decPesoKg { get; set; }
         [DataMember]
         public bool? bitMontaCarga { get; set; }
         [DataMember]

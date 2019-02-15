@@ -70,12 +70,21 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
             }
             return result;
         }
-        public List<DatosViga> ListarDatosViga(Int32 intDatosVigaID, Int16 sintPinturaID, Int32 intElementoID, Int32 intDatoMarcoID)
+        /// <summary>
+        /// Procedimiento que obtiene los datos de la viga (tbl_MST_DatosVigA)
+        /// </summary>
+        /// <param name="intDatosVigaID"></param>
+        /// <param name="sintPinturaID"></param>
+        /// <param name="intElementoID"></param>
+        /// <param name="intDatoMarcoID"></param>
+        /// <param name="intDetCotizacionID"></param>
+        /// <returns></returns>
+        public List<DatosViga> ListarDatosViga(Int32 intDatosVigaID, Int16 sintPinturaID, Int32 intElementoID, Int32 intDatoMarcoID, int intDetCotizacionID)
         {
             List<DatosViga> results = null;
             try
             {
-                results = CatalogosDA.ListarDatosViga(intDatosVigaID, sintPinturaID, intElementoID, intDatoMarcoID);
+                results = CatalogosDA.ListarDatosViga(intDatosVigaID, sintPinturaID, intElementoID, intDatoMarcoID, intDetCotizacionID);
             }
             catch (Exception ex)
             {
@@ -266,14 +275,86 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
         /// </summary>
         /// <param name="viga"></param>
         /// <param name="rack"></param>
+        /// <param name="intCotizacionID"></param>
+        /// <param name="intDetCotizacionID"></param>
+        /// <param name="sintPinturaID"></param>
+        /// <param name="intCantidad"></param>
         /// <param name="tinOpcion"></param>
         /// <returns></returns>
-        public Resultado setDatosViga(SeleccionViga viga, RackSelectivo rack, short tinOpcion)
+        public Resultado setDatosViga(SeleccionViga viga, RackSelectivo rack, int intCotizacionID, int intDetCotizacionID, short sintPinturaID, int intCantidad, short tinOpcion)
         {
             Resultado result = new Resultado();
+            int intSeleccionVigaID = 0;
+            int intDetCotizaID = 0;
+            int intDatosViga = 0;
+            // Obtenemos la información de la cotización
+            //Cotizacion datosCotizacion = (new CotizacionLogic()).ListarDatosPantallaCotizacion(intCotizacionID);
+            // Obtenemos la información del sistema Selectivo
+            RelSistemaSelectivo sistema = (new CotizacionLogic()).ListarDatosSistemaSelectivo(intCotizacionID);
             try
             {
-                result = CatalogosDA.setDatosViga(viga, rack, tinOpcion);
+                // 1. Se realiza el registro de la viga en las tablas tbl_RackSelectivo y tbl_SeleccionViga, 
+                // devolverá el intSeleccionVigaID
+                if(viga.intSeleccionVigaID != 0 || viga.intSeleccionVigaID != null)
+                    // En caso de que exista valor en el ID, solo actualizamos los valores
+                    result = CatalogosDA.setDatosViga(viga, rack, 2);
+                else
+                    // En caso contrario, realizamos la inserción
+                    result = CatalogosDA.setDatosViga(viga, rack, 1);
+
+                if (result.vchResultado != "NOK")
+                {
+                    // Obtenemos el ID de la seleccion Viga ID
+                    intSeleccionVigaID = Convert.ToInt32(result.vchResultado);
+
+                    // Procedemos a llenar la entidad de la cotización
+                    Cotizacion detCotizacion = new Cotizacion();
+                    detCotizacion.intDetCotizaID = intDetCotizacionID;
+                    detCotizacion.intCotizacionID = intCotizacionID;
+                    detCotizacion.intElementoID = 2; // ID correspondiente a Viga
+                    detCotizacion.intPartida = 0;
+                    detCotizacion.intCantidad = intCantidad;
+                    detCotizacion.decMonto = viga.decPrecioUnitarioSinIVA;
+                    detCotizacion.decSubtotal = viga.decPrecioUnitarioSinIVA * intCantidad;
+
+                    result = (new CotizacionLogic()).setDetCotizacion(detCotizacion, (short)(intDetCotizacionID == 0 ? 1 : 2));
+
+                    if (result.vchResultado != "NOK")
+                    {
+                        
+
+
+                        // Obtenemos el ID de la cotización
+                        intDetCotizaID = Convert.ToInt32(result.vchResultado);
+                        DatosViga mstViga = new DatosViga();
+                        //Buscamos la viga en base al detalle de la cotización
+                        mstViga = (new VigaLogic()).ListarDatosViga(0, 0, 0, 0, intDetCotizacionID).First();
+
+                        mstViga.intDetCotizaID = intDetCotizaID;
+                        mstViga.SKU = viga.SKU;
+                        mstViga.sintPinturaID = sintPinturaID;
+                        mstViga.intElementoID = 2;
+                        mstViga.decLargo = viga.decLongitud;
+                        mstViga.intCantidad = intCantidad;
+                        
+                        // Realizamos el alta / modificación de la viga
+                        result = (new SistemasTyrsaLogic()).setDatosViga(mstViga, (short)(mstViga.intDatosVigaID == 0 ? 1 : 2));
+
+                        // Validamos el resultado
+                        if (result.vchResultado != "NOK")
+                        {
+                            intDatosViga = Convert.ToInt32(result.vchResultado);
+                            if (sistema.intDatosVigaID == 0 || sistema.intDatosVigaID == null)
+                            {
+                                sistema.intDatosVigaID = intDatosViga;
+                                sistema.intTipoElementoAlmacenID = 17; // Valor por default
+                                sistema.intCotizacionID = intCotizacionID;
+
+                                result = (new CotizacionLogic()).setDatosRelSistemaSelectivo(sistema, tinOpcion);
+                            }
+                        }
+                    }
+                }
             }
             catch (Exception ex)
             {
@@ -284,14 +365,14 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
         /// <summary>
         /// Procedimiento que obtiene los datos de la pantalla de la viga a mostrar
         /// </summary>
-        /// <param name="intDetCotizacionID"></param>
+        /// <param name="intCotizacionID"></param>
         /// <returns></returns>
-        public RackSelectivo ListarDatosPantallaViga(int intDetCotizacionID)
+        public RackSelectivo ListarDatosPantallaViga(int intCotizacionID)
         {
             RackSelectivo result = new RackSelectivo();
             try
             {
-                result = CatalogosDA.ListarDatosPantallaViga(intDetCotizacionID);
+                result = CatalogosDA.ListarDatosPantallaViga(intCotizacionID);
             }
             catch (Exception ex)
             {

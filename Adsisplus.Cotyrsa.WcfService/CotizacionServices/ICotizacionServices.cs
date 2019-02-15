@@ -40,11 +40,12 @@ namespace Adsisplus.Cotyrsa.WcfService.CotizacionServices
         /// Procedimiento que realiza el alta, modificación o baja de los datos de la tabla mst_Cotizacion
         /// </summary>
         /// <param name="cotizacion"></param>
+        /// <param name="rack"></param>
         /// <param name="tinOpcion"></param>
         /// <returns></returns>
         [OperationContract]
         [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "setMstCotizacion")]
-        Resultado setMstCotizacion(Cotizacion cotizacion, short tinOpcion);
+        Resultado setMstCotizacion(Cotizacion cotizacion, RackSelectivo rack, short tinOpcion);
         /// <summary>
         /// Procedimiento que realiza el alta, modificación o baja de los datos de la tabla det_Cotizacion
         /// </summary>
@@ -89,7 +90,15 @@ namespace Adsisplus.Cotyrsa.WcfService.CotizacionServices
         /// <returns></returns>
         [OperationContract]
         [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ListarDetalleCotizacion")]
-        List<Cotizacion> ListarDetalleCotizacion(int intCotizacionID);
+        List<Cotizacion> ListarDetalleCotizacion(int intCotizacionID, int intElementoID);
+        /// <summary>
+        /// Procedimiento que nos devuelve la información capturada/mostrada en cotización
+        /// </summary>
+        /// <param name="intCotizacionID"></param>
+        /// <returns></returns>
+        [OperationContract]
+        [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ListarDatosPantallaCotizacion")]
+        Cotizacion ListarDatosPantallaCotizacion(int intCotizacionID);
 
     }
 }

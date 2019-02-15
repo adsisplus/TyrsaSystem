@@ -22,7 +22,7 @@ namespace Adsisplus.Cotyrsa.BusinessEntities
         public String vchElemento { get; set; }
 
         [DataMember]
-        public Int16? intDatoMarcoID { get; set; }
+        public int? intDatoMarcoID { get; set; }
         [DataMember]
         public Int16? sintCantidadDatosMarco { get; set; }
 

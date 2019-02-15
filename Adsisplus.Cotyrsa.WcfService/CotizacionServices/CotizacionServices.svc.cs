@@ -59,14 +59,15 @@ namespace Adsisplus.Cotyrsa.WcfService.CotizacionServices
         /// Procedimiento que realiza el alta, modificación o baja de los datos de la tabla mst_Cotizacion
         /// </summary>
         /// <param name="cotizacion"></param>
+        /// <param name="rack"></param>
         /// <param name="tinOpcion"></param>
         /// <returns></returns>
-        public Resultado setMstCotizacion(Cotizacion cotizacion, short tinOpcion)
+        public Resultado setMstCotizacion(Cotizacion cotizacion, RackSelectivo rack, short tinOpcion)
         {
             Resultado result = new Resultado();
             try
             {
-                result = (new CotizacionLogic()).setMstCotizacion(cotizacion, tinOpcion);
+                result = (new CotizacionLogic()).setMstCotizacion(cotizacion, rack, tinOpcion);
             }
             catch (Exception ex)
             {
@@ -155,12 +156,12 @@ namespace Adsisplus.Cotyrsa.WcfService.CotizacionServices
             /// </summary>
             /// <param name="intCotizacionID"></param>
             /// <returns></returns>
-            public List<Cotizacion> ListarDetalleCotizacion(int intCotizacionID)
+            public List<Cotizacion> ListarDetalleCotizacion(int intCotizacionID, int intElementoID)
         {
             List<Cotizacion> result = new List<Cotizacion>();
             try
             {
-                result = (new CotizacionLogic()).ListarDetalleCotizacion(intCotizacionID);
+                result = (new CotizacionLogic()).ListarDetalleCotizacion(intCotizacionID, intElementoID);
             }
             catch (Exception ex)
             {
@@ -168,6 +169,26 @@ namespace Adsisplus.Cotyrsa.WcfService.CotizacionServices
             }
             return result;
         }
+
+        /// <summary>
+        /// Procedimiento que nos devuelve la información capturada/mostrada en cotización
+        /// </summary>
+        /// <param name="intCotizacionID"></param>
+        /// <returns></returns>
+        public Cotizacion ListarDatosPantallaCotizacion(int intCotizacionID)
+        {
+            Cotizacion result = new Cotizacion();
+            try
+            {
+                result = (new CotizacionLogic()).ListarDatosPantallaCotizacion(intCotizacionID);
+            }
+            catch (Exception ex)
+            {
+                Adsisplus.Cotyrsa.BusinessLogic.EventLogManager.LogErrorEntry(ex.Message);
+            }
+            return result;
+        }
+
 
         #region SELECCIÓN DE VIGAS
 

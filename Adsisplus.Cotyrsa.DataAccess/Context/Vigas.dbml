@@ -17,8 +17,8 @@
       <Column Name="decPesoPieza" Type="System.Decimal" CanBeNull="false" />
       <Column Name="decPesoPartida" Type="System.Decimal" CanBeNull="false" />
       <Column Name="sintLongitudId" Type="System.Int16" CanBeNull="false" />
-      <Column Member="intTipoID" Type="System.Int32" CanBeNull="false" />
-      <Column Member="intMaterialID" Type="System.Int32" CanBeNull="false" />
+      <Column Name="intTipoID" Type="System.Int32" CanBeNull="false" />
+      <Column Name="intMaterialID" Type="System.Int32" CanBeNull="false" />
     </Type>
   </Table>
   <Function Name="dbo.stp_ListarTotalViga" Method="stp_ListarTotalViga">
@@ -200,22 +200,6 @@
       <Column Name="bitActivo" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
     </ElementType>
   </Function>
-  <Function Name="dbo.stp_ListarDatosViga" Method="stp_ListarDatosViga">
-    <Parameter Name="intDatosVigaID" Type="System.Int32" DbType="Int" />
-    <Parameter Name="sintPinturaID" Type="System.Int16" DbType="SmallInt" />
-    <Parameter Name="intElementoID" Type="System.Int32" DbType="Int" />
-    <Parameter Name="intDatoMarcoID" Type="System.Int32" DbType="Int" />
-    <ElementType Name="stp_ListarDatosVigaResult">
-      <Column Name="intDatosVigaID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="intConfiguraVigaID" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="vchPintura" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
-      <Column Name="vchElemento" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
-      <Column Name="sintCantidadDatosMarco" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
-      <Column Name="decLargo" Type="System.Decimal" DbType="Decimal(12,2)" CanBeNull="true" />
-      <Column Name="intCantidad" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="bitActivo" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-    </ElementType>
-  </Function>
   <Function Name="dbo.stp_ListarDatosPantallaViga" Method="stp_ListarDatosPantallaViga">
     <Parameter Name="intCotizacionID" Type="System.Int32" DbType="Int" />
     <ElementType Name="stp_ListarDatosPantallaVigaResult">
@@ -267,6 +251,26 @@
     <ElementType Name="stp_setSeleccionVigaResult">
       <Column Name="vchResultado" Type="System.String" DbType="VarChar(12)" CanBeNull="true" />
       <Column Name="vchDescripcion" Type="System.String" DbType="VarChar(58) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.stp_ListarDatosViga" Method="stp_ListarDatosViga">
+    <Parameter Name="intDatosVigaID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="sintPinturaID" Type="System.Int16" DbType="SmallInt" />
+    <Parameter Name="intElementoID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intDatoMarcoID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intDetCotizacionID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="stp_ListarDatosVigaResult">
+      <Column Name="intDatosVigaID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="sintPinturaID" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="vchPintura" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
+      <Column Name="intElementoID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="vchElemento" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
+      <Column Name="intDatoMarcoID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SKU" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="sintCantidadDatosMarco" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="decLargo" Type="System.Decimal" DbType="Decimal(12,2)" CanBeNull="true" />
+      <Column Name="intCantidad" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="bitActivo" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
     </ElementType>
   </Function>
 </Database>

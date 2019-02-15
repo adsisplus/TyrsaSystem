@@ -31,6 +31,22 @@ namespace Adsisplus.Cotyrsa.BusinessEntities
         [DataMember]
         public int? intCotizacionID { get; set; }
         /// <summary>
+        /// ID de la relación de la tabla de producto cotización
+        /// </summary>
+        [DataMember]
+        public int? intRelCotizaProductoID { get; set; }
+        /// <summary>
+        /// Id del producto a cotizar
+        /// </summary>
+        [DataMember]
+        public int? intProductoGralID { get; set; }
+        /// <summary>
+        /// Id del subproducto a cotizar
+        /// </summary>
+        [DataMember]
+        public int? intSubProductoID { get; set; }
+
+        /// <summary>
         /// Número de tarimas por nivel
         /// </summary>
         [DataMember]
@@ -55,6 +71,19 @@ namespace Adsisplus.Cotyrsa.BusinessEntities
         /// </summary>
         [DataMember]
         public decimal? decPeso { get; set; }
+
+        [DataMember]
+        public bool? bitMontacarga { get; set; }
+
+        [DataMember]
+        public string vchDimensionMontacarga { get; set; }
+
+        [DataMember]
+        public int? intPosicion { get; set; }
+
+        [DataMember]
+        public short? sintVisitas { get; set; }
+
 
         #region Datos para la Viga
 
