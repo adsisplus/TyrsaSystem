@@ -253,16 +253,16 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
             return result;
         }
         /// <summary>
-        /// Procedimiento que muestra la seleccion de Viga
+        /// Procedimiento que muestra la lista de las vigas ligadas a la cotización
         /// </summary>
-        /// <param name="intSeleccionVigaID"></param>
+        /// <param name="intCotizacionID"></param>
         /// <returns></returns>
-        public SeleccionViga ListaDatosSeleccionViga(int intSeleccionVigaID)
+        public List<SeleccionViga> ListaDatosSeleccionViga(int iintCotizacionID)
         {
-            SeleccionViga result = new SeleccionViga();
+            List<SeleccionViga> result = new List<SeleccionViga>();
             try
             {
-                result = CatalogosDA.ListaDatosSeleccionViga(intSeleccionVigaID);
+                result = CatalogosDA.ListaDatosSeleccionViga(iintCotizacionID);
             }
             catch (Exception ex)
             {

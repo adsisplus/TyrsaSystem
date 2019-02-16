@@ -134,13 +134,13 @@ namespace Adsisplus.Cotyrsa.WcfService.VigaServices
             short sintSistemaID, bool bitEstructural);
 
         /// <summary>
-        /// Procedimiento que muestra la seleccion de Viga
+        /// Procedimiento que muestra la lista de las vigas ligadas a la cotización
         /// </summary>
-        /// <param name="intSeleccionVigaID"></param>
+        /// <param name="intCotizacionID"></param>
         /// <returns></returns>
         [OperationContract]
         [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ListaDatosSeleccionViga")]
-        SeleccionViga ListaDatosSeleccionViga(int intSeleccionVigaID);
+        List<SeleccionViga> ListaDatosSeleccionViga(int intCotizacionID);
 
         /// <summary>
         /// Procedimiento que almacena toda la información de la pantalla de captura de Viga

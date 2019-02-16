@@ -181,25 +181,6 @@
       <Column Name="bitActivo" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
     </ElementType>
   </Function>
-  <Function Name="dbo.stp_ListarDatosSeleccionViga" Method="stp_ListarDatosSeleccionViga">
-    <Parameter Name="intSeleccionVigaID" Type="System.Int32" DbType="Int" />
-    <ElementType Name="stp_ListarDatosSeleccionVigaResult">
-      <Column Name="intSeleccionVigaID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="SKU" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="decPesoViga" Type="System.Decimal" DbType="Decimal(8,3)" CanBeNull="true" />
-      <Column Name="decPrecioUnitario" Type="System.Decimal" DbType="Decimal(8,3)" CanBeNull="true" />
-      <Column Name="intTipoID" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="vchTipo" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
-      <Column Name="intMaterialID" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="vchMaterial" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="decPatin" Type="System.Decimal" DbType="Decimal(8,3)" CanBeNull="true" />
-      <Column Name="decPeralte" Type="System.Decimal" DbType="Decimal(8,3)" CanBeNull="true" />
-      <Column Name="decLongitud" Type="System.Decimal" DbType="Decimal(8,3)" CanBeNull="true" />
-      <Column Name="decCapViga" Type="System.Decimal" DbType="Decimal(8,3)" CanBeNull="true" />
-      <Column Name="decCapVigaMax" Type="System.Decimal" DbType="Decimal(8,3)" CanBeNull="true" />
-      <Column Name="bitActivo" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-    </ElementType>
-  </Function>
   <Function Name="dbo.stp_ListarSeleccionViga" Method="stp_ListarSeleccionViga">
     <Parameter Name="CPPV" Parameter="cPPV" Type="System.Decimal" DbType="Decimal(8,2)" />
     <Parameter Name="LV" Parameter="lV" Type="System.Decimal" DbType="Decimal(8,2)" />
@@ -273,6 +254,25 @@
       <Column Name="tinOpcionViga" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
       <Column Name="decLongitudViga" Type="System.Decimal" DbType="Decimal(8,3)" CanBeNull="true" />
       <Column Name="decCapCargaReqViga" Type="System.Decimal" DbType="Decimal(8,3)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.stp_ListarDatosSeleccionViga" Method="stp_ListarDatosSeleccionViga">
+    <Parameter Name="intCotizacionID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="stp_ListarDatosSeleccionVigaResult">
+      <Column Name="intSeleccionVigaID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="SKU" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="decPesoViga" Type="System.Decimal" DbType="Decimal(8,3)" CanBeNull="true" />
+      <Column Name="decPrecioUnitario" Type="System.Decimal" DbType="Decimal(8,3)" CanBeNull="true" />
+      <Column Name="intTipoID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="vchTipo" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="intMaterialID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="vchMaterial" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="decPatin" Type="System.Decimal" DbType="Decimal(8,3)" CanBeNull="true" />
+      <Column Name="decPeralte" Type="System.Decimal" DbType="Decimal(8,3)" CanBeNull="true" />
+      <Column Name="decLongitud" Type="System.Decimal" DbType="Decimal(8,3)" CanBeNull="true" />
+      <Column Name="decCapViga" Type="System.Decimal" DbType="Decimal(8,3)" CanBeNull="true" />
+      <Column Name="decCapVigaMax" Type="System.Decimal" DbType="Decimal(8,3)" CanBeNull="true" />
+      <Column Name="bitActivo" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
     </ElementType>
   </Function>
 </Database>

@@ -232,16 +232,16 @@ namespace Adsisplus.Cotyrsa.WcfService.VigaServices
             return result;
         }
         /// <summary>
-        /// Procedimiento que muestra la seleccion de Viga
+        /// Procedimiento que muestra la lista de las vigas ligadas a la cotización
         /// </summary>
-        /// <param name="intSeleccionVigaID"></param>
+        /// <param name="intCotizacionID"></param>
         /// <returns></returns>
-        public SeleccionViga ListaDatosSeleccionViga(int intSeleccionVigaID)
+        public List<SeleccionViga> ListaDatosSeleccionViga(int intCotizacionID)
         {
-            SeleccionViga result = new SeleccionViga();
+            List<SeleccionViga> result = new List<SeleccionViga>();
             try
             {
-                result = (new VigaLogic()).ListaDatosSeleccionViga(intSeleccionVigaID);
+                result = (new VigaLogic()).ListaDatosSeleccionViga(intCotizacionID);
             }
             catch(Exception ex)
             {

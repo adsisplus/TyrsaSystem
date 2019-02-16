@@ -372,18 +372,18 @@ namespace Adsisplus.Cotyrsa.DataAccess
             return result;
         }
         /// <summary>
-        /// Procedimiento que muestra la seleccion de Viga
+        /// Procedimiento que muestra la lista de las vigas ligadas a la cotización
         /// </summary>
-        /// <param name="intSeleccionVigaID"></param>
+        /// <param name="intCotizacionID"></param>
         /// <returns></returns>
-        public SeleccionViga ListaDatosSeleccionViga(int intSeleccionVigaID)
+        public List<SeleccionViga> ListaDatosSeleccionViga(int intCotizacionID)
         {
-            SeleccionViga result = new SeleccionViga();
+            List<SeleccionViga> result = new List<SeleccionViga>();
             try
             {
                 using (VigasDataContext dc = new VigasDataContext(Helper.ConnectionString()))
                 {
-                    var query = from item in dc.stp_ListarDatosSeleccionViga(intSeleccionVigaID)
+                    var query = from item in dc.stp_ListarDatosSeleccionViga(intCotizacionID)
                                 select new SeleccionViga
                                 {
                                     intSeleccionVigaID = item.intSeleccionVigaID,
@@ -401,7 +401,7 @@ namespace Adsisplus.Cotyrsa.DataAccess
                                     decCapacidadParVigasMaxima = item.decCapVigaMax,
                                     bitActivo = item.bitActivo
                                 };
-                    result = query.First();
+                    result.AddRange(query);
                 }
             }
             catch (Exception ex)
