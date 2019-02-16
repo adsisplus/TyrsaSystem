@@ -345,8 +345,12 @@ namespace Adsisplus.Cotyrsa.DataAccess
                                     intRackID = item.intRackID,
                                     bitMontaCarga = item.bitMontacarga,
                                     intNumeroTarimaPorNivel = item.intNumTarimaNivel,
-                                    
+
+                                    intRelCotizaProductoID = item.intRelCotizaProductoID,
+                                    intProductoGralID = item.intProductoGralID,
+                                    intSubProductoID = item.intSubProductoID,
                                     vchDimensionMontacarga = item.vchDimensionMontacarga,
+
                                     intNumeroNivelSobreViga = item.intNumeroNivelSobreViga,
                                     intPosicion = item.intPosicion,
                                     sintVisitas = item.sintVisitas
