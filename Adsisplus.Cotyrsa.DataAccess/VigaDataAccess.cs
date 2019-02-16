@@ -451,9 +451,9 @@ namespace Adsisplus.Cotyrsa.DataAccess
         /// </summary>
         /// <param name="intDetCotizacionID"></param>
         /// <returns></returns>
-        public RackSelectivo ListarDatosPantallaViga(int intCotizacionID)
+        public List<RackSelectivo> ListarDatosPantallaViga(int intCotizacionID)
         {
-            RackSelectivo result = new RackSelectivo();
+            List <RackSelectivo> result = new List <RackSelectivo>();
             try
             {
                 using (VigasDataContext dc = new VigasDataContext(Helper.ConnectionString()))
@@ -476,7 +476,7 @@ namespace Adsisplus.Cotyrsa.DataAccess
                                     decLongitudViga = item.decLongitudViga,
                                     decCapCargaReqViga = item.decCapCargaReqViga
                                 };
-                    result = query.First();
+                    result.AddRange(query);
                 }
             }
             catch (Exception ex)

@@ -321,9 +321,6 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
 
                     if (result.vchResultado != "NOK")
                     {
-                        
-
-
                         // Obtenemos el ID de la cotización
                         intDetCotizaID = Convert.ToInt32(result.vchResultado);
                         DatosViga mstViga = new DatosViga();
@@ -367,9 +364,9 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
         /// </summary>
         /// <param name="intCotizacionID"></param>
         /// <returns></returns>
-        public RackSelectivo ListarDatosPantallaViga(int intCotizacionID)
+        public List<RackSelectivo> ListarDatosPantallaViga(int intCotizacionID)
         {
-            RackSelectivo result = new RackSelectivo();
+            List <RackSelectivo> result = new List<RackSelectivo>();
             try
             {
                 result = CatalogosDA.ListarDatosPantallaViga(intCotizacionID);

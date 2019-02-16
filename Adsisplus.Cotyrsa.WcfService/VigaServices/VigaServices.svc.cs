@@ -278,9 +278,9 @@ namespace Adsisplus.Cotyrsa.WcfService.VigaServices
         /// </summary>
         /// <param name="intDetCotizacionID"></param>
         /// <returns></returns>
-        public RackSelectivo ListarDatosPantallaViga(int intDetCotizacionID)
+        public List<RackSelectivo> ListarDatosPantallaViga(int intDetCotizacionID)
         {
-            RackSelectivo result = new RackSelectivo();
+            List<RackSelectivo> result = new List<RackSelectivo>();
             try
             {
                 result = (new VigaLogic()).ListarDatosPantallaViga(intDetCotizacionID);
