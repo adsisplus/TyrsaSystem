@@ -121,6 +121,14 @@ namespace Adsisplus.Cotyrsa.BusinessEntities
         [DataMember]
         public short? tinOpcionViga { get; set; }
 
+        [DataMember]
+        public int? intNumeroTarimaPorNivel { get; set; }
+
+        [DataMember]
+        public int? intCantidadVigas { get; set; }
+
+        [DataMember]
+        public short? sintPinturaID { get; set; }
         #endregion
 
         #region Datos para el Marco

@@ -23,11 +23,15 @@ namespace Adsisplus.Cotyrsa.BusinessEntities
         /// </summary>
         [DataMember]
         public int? intRackID { get; set; }
+
         /// <summary>
         /// Id de la tabla tbl_DET_Cotizacion
         /// </summary>
         [DataMember]
         public int? intCotizacionID { get; set; }
+
+        [DataMember]
+        public int? intDetCotizaID { get; set; }
         /// <summary>
         /// Id del tipo de Viga
         /// </summary>
@@ -113,6 +117,15 @@ namespace Adsisplus.Cotyrsa.BusinessEntities
         /// </summary>
         [DataMember]
         public short? sintLongitudID { get; set; }
+
+        [DataMember]
+        public short? sintNTPN { get; set; }
+
+        [DataMember]
+        public String vchFamiliaViga { get; set; }
+
+        [DataMember]
+        public String vchLongitud { get; set; }
 
         [DataMember]
         public bool? bitActivo { get; set; }
