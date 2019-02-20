@@ -37,6 +37,8 @@ namespace Adsisplus.Cotyrsa.DataAccess
                                     datFechaAceptacion = item.datFechaAceptacion,
                                     datFechaRechazo = item.datFechaRechazo,
                                     intEmpresaID = item.intEmpresaID,
+                                    intProductoGralID = item.intProductoGralID,
+                                    intSubProductoID = item.intSubProductoID,
                                     decMonto = item.decMonto,
                                     decIVA = item.decIVA,
                                     decTotal = item.decTotal
