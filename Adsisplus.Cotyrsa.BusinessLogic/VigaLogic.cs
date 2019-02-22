@@ -325,7 +325,7 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
                         intDetCotizaID = Convert.ToInt32(result.vchResultado);
                         DatosViga mstViga = new DatosViga();
                         //Buscamos la viga en base al detalle de la cotización
-                        mstViga = (new VigaLogic()).ListarDatosViga(0, 0, 0, 0, intDetCotizacionID).First();
+                        mstViga = (new VigaLogic()).ListarDatosViga((int)sistema.intDatosVigaID, 0, 2, 0, intDetCotizacionID).First();
 
                         mstViga.intDetCotizaID = intDetCotizaID;
                         mstViga.SKU = viga.SKU;
@@ -335,7 +335,7 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
                         mstViga.intCantidad = intCantidad;
                         
                         // Realizamos el alta / modificación de la viga
-                        result = (new SistemasTyrsaLogic()).setDatosViga(mstViga, (short)(mstViga.intDatosVigaID == 0 ? 1 : 2));
+                        result = (new SistemasTyrsaLogic()).setDatosViga(mstViga, (short)((int)sistema.intDatosVigaID == 0 ? 1 : 2));
 
                         // Validamos el resultado
                         if (result.vchResultado != "NOK")
