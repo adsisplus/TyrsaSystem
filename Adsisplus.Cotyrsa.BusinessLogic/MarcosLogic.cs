@@ -52,12 +52,12 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
             return results;
         }
 
-        public List<DatosMarco> ListarDatosMarco(Int32 intDatoMarcoID, Int32 intCotizacionID, Int32 intElementoID, Int16 sintPinturaID)
+        public List<DatosMarco> ListarDatosMarco(Int32 intDatoMarcoID, Int32 intCotizacionID, Int32 intElementoID, Int16 sintPinturaID, int intDetCotizacionID)
         {
             List<DatosMarco> results = null;
             try
             {
-                results = CatalogosDA.ListarDatosMarco(intDatoMarcoID, intCotizacionID, intElementoID, sintPinturaID);
+                results = CatalogosDA.ListarDatosMarco(intDatoMarcoID, intCotizacionID, intElementoID, sintPinturaID, intDetCotizacionID);
             }
             catch (Exception ex)
             {
@@ -248,23 +248,96 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
         /// </summary>
         /// <param name="marco"></param>
         /// <param name="rack"></param>
+        /// <param name="intCotizacionID"></param>
+        /// <param name="intDetCotizacionID"></param>
+        /// <param name="sintPinturaID"></param>
+        /// <param name="intCantidad"></param>
         /// <param name="tinOpcion"></param>
         /// <returns></returns>
-        public Resultado setSeleccionMarco(SeleccionMarco marco, DatosMarco mstMarco, RackSelectivo rack, short tinOpcion)
+        public Resultado setSeleccionMarco(SeleccionMarco marco, RackSelectivo rack, int intCotizacionID, int intDetCotizacionID, short sintPinturaID, int intCantidad, short tinOpcion)
         {
             Resultado result = new Resultado();
+            int intSeleccionMarcoID = 0;
+            int intDetCotizaID = 0;
+            int intDatosMarcoID = 0;
+            // Obtenemos la información de la cotización
+            //Cotizacion datosCotizacion = (new CotizacionLogic()).ListarDatosPantallaCotizacion(intCotizacionID);
+            // Obtenemos la información del sistema Selectivo
+            RelSistemaSelectivo sistema = (new CotizacionLogic()).ListarDatosSistemaSelectivo(intCotizacionID);
             try
             {
-                // Almacenamos los datos de la selección Marco
-                result = CatalogosDA.setSeleccionMarco(marco, rack, tinOpcion);
+                // 1. Se realiza el registro del marco en las tablas tbl_RackSelectivo y tbl_SeleccionMarco, 
+                // devolverá el intSeleccionVigaID
+                if (marco.intSeleccionMarcoID != 0 || marco.intSeleccionMarcoID != null)
+                    // En caso de no ser 0, realizamos la actualización de los datos del marco
+                    result = CatalogosDA.setSeleccionMarco(marco, rack, 2);
+                else
+                    // En caso contrario, almacenamos los datos de la selección Marco
+                    result = CatalogosDA.setSeleccionMarco(marco, rack, 1);
+
+                // Validamos la respuesta obtenida
                 if (result.vchResultado != "NOK")
                 {
-                    int intSeleccionMarcoID = Convert.ToInt32(result.vchResultado);
+                    // Obtenemos el ID del marco insertado / actualizado
+                    intSeleccionMarcoID = Convert.ToInt32(result.vchResultado);
+
+                    // Procedemos a llenar la entidad de la cotización
+                    Cotizacion detCotizacion = new Cotizacion();
+                    detCotizacion.intDetCotizaID = intDetCotizacionID;
+                    detCotizacion.intCotizacionID = intCotizacionID;
+                    detCotizacion.intElementoID = 1; // ID correspondiente a Marco
+                    detCotizacion.intPartida = 0;
+                    detCotizacion.intCantidad = intCantidad;
+                    detCotizacion.decMonto = marco.decPrecioUnitario;
+                    detCotizacion.decSubtotal = marco.decPrecioUnitario * intCantidad;
+
                     // Almacenamos la información del marco
                     marco.intSeleccionMarcoID = intSeleccionMarcoID;
-                    // Invocamos el método para dar de alta el sistema selectivo, se invoca con valor 2 ya que
-                    // dicho registro ya existe desde el alta de la cotización
-                    result = (new SistemasTyrsaDataAccess()).setDatosMarco(mstMarco, 2);
+
+                    // 2. Realizamos el alta de la cotización
+                    result = (new CotizacionLogic()).setDetCotizacion(detCotizacion, (short)(intDetCotizacionID == 0 ? 1 : 2));
+
+                    // Validamos la respuesta del procedimiento
+                    if (result.vchResultado != "NOK")
+                    {
+                        // Obtenemos el id del detalle de la cotización
+                        intDetCotizaID = Convert.ToInt32(result.vchResultado);
+                        DatosMarco mstMarco = new DatosMarco();
+
+                        // Obtenemos información del Marco (tbl_MST_DatosMarco)
+                        mstMarco = (new MarcosLogic()).ListarDatosMarco((int)sistema.intDatoMarcoID, intCotizacionID, 1, sintPinturaID, intDetCotizacionID).First();
+
+                        
+                        mstMarco.intCotizacionID = intCotizacionID;
+                        mstMarco.intDetCotizaID = intDetCotizaID;
+                        mstMarco.intElementoID = 1;
+                        mstMarco.sintPinturaID = sintPinturaID;
+                        mstMarco.intConfiguraMarcoID = marco.intConfiguraMarcoID;
+                        mstMarco.decMedidaFondo = marco.decFondo;
+                        mstMarco.decMedidaAlto = marco.decAltura;
+                        //mstMarco.bitDobleMonten = marco.bit
+                        mstMarco.decAlturaPandeo = marco.decAlturaPandeo;
+                        mstMarco.decCapacidadxNivel = marco.decCapacidadMarco;
+                        mstMarco.sintCantidad = sintPinturaID;
+
+                        // Realizamos el registro del marco
+                        result = (new SistemasTyrsaLogic()).setDatosMarco(mstMarco, (short)(((short)sistema.intDatoMarcoID) == 0 ? 1 : 2));
+
+                        // Validamos el resultado
+                        if (result.vchResultado != "NOK")
+                        {
+                            intDatosMarcoID = Convert.ToInt32(result.vchResultado);
+                            if (sistema.intDatoMarcoID == null || sistema.intDatoMarcoID == 0)
+                            {
+                                sistema.intDatoMarcoID = intDatosMarcoID;
+                                sistema.intTipoElementoAlmacenID = 17;
+                                sistema.intCotizacionID = intCotizacionID;
+
+                                result = (new CotizacionLogic()).setDatosRelSistemaSelectivo(sistema, 2);
+                            }
+                        }
+                        
+                    }
                 }
             }
             catch (Exception ex)

@@ -48,7 +48,7 @@ namespace Adsisplus.Cotyrsa.WcfService.MarcosServices
         /// <returns></returns>
         [OperationContract]
         [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ListarDatosMarco")]
-        List<DatosMarco> ListarDatosMarco(Int32 intDatoMarcoID, Int32 intCotizacionID, Int32 intElementoID, Int16 sintPinturaID);
+        List<DatosMarco> ListarDatosMarco(Int32 intDatoMarcoID, Int32 intCotizacionID, Int32 intElementoID, Int16 sintPinturaID, int intDetCotizacionID);
         /// <summary>
         /// Obtiene la lista de fonto por un marco en particular
         /// </summary>
@@ -137,14 +137,19 @@ namespace Adsisplus.Cotyrsa.WcfService.MarcosServices
         List<SeleccionMarco> seleccionMarco(decimal decCapacidadCarga, decimal decAlturaPandeo, decimal decFondo,
             decimal decAlturaMarco, short sintSistemaID, bool bitEstructural);
         /// <summary>
-        /// Procedimiento que realiza el alta, modificación y baja de los datos de la tabla tbl_SeleccionMarco
+        /// Procedimiento que almacena toda la información de la pantalla de captura de Marco
         /// </summary>
         /// <param name="marco"></param>
+        /// <param name="rack"></param>
+        /// <param name="intCotizacionID"></param>
+        /// <param name="intDetCotizacionID"></param>
+        /// <param name="sintPinturaID"></param>
+        /// <param name="intCantidad"></param>
         /// <param name="tinOpcion"></param>
         /// <returns></returns>
         [OperationContract]
         [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "setSeleccionMarco")]
-        Resultado setSeleccionMarco(SeleccionMarco marco, DatosMarco mstMarco, RackSelectivo rack, short tinOpcion);
+        Resultado setSeleccionMarco(SeleccionMarco marco, RackSelectivo rack, int intCotizacionID, int intDetCotizacionID, short sintPinturaID, int intCantidad, short tinOpcion);
         ///// <summary>
         ///// Procedimiento para listar los fondos de marco
         ///// </summary>

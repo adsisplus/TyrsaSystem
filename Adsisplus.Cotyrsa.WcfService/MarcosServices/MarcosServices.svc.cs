@@ -47,12 +47,12 @@ namespace Adsisplus.Cotyrsa.WcfService.MarcosServices
         /// <param name="intElementoID"></param>
         /// <param name="sintPinturaID"></param>
         /// <returns></returns>
-        public List<DatosMarco> ListarDatosMarco(int intDatoMarcoID, int intCotizacionID, int intElementoID, short sintPinturaID)
+        public List<DatosMarco> ListarDatosMarco(int intDatoMarcoID, int intCotizacionID, int intElementoID, short sintPinturaID, int intDetCotizacionID)
         {
             List<DatosMarco> result = new List<DatosMarco>();
             try
             {
-                result = (new MarcosLogic()).ListarDatosMarco(intDatoMarcoID, intCotizacionID, intElementoID, sintPinturaID);
+                result = (new MarcosLogic()).ListarDatosMarco(intDatoMarcoID, intCotizacionID, intElementoID, sintPinturaID, intDetCotizacionID);
             }
             catch (Exception ex)
             {
@@ -267,14 +267,18 @@ namespace Adsisplus.Cotyrsa.WcfService.MarcosServices
         /// </summary>
         /// <param name="marco"></param>
         /// <param name="rack"></param>
+        /// <param name="intCotizacionID"></param>
+        /// <param name="intDetCotizacionID"></param>
+        /// <param name="sintPinturaID"></param>
+        /// <param name="intCantidad"></param>
         /// <param name="tinOpcion"></param>
         /// <returns></returns>
-        public Resultado setSeleccionMarco(SeleccionMarco marco, DatosMarco mstMarco, RackSelectivo rack, short tinOpcion)
+        public Resultado setSeleccionMarco(SeleccionMarco marco, RackSelectivo rack, int intCotizacionID, int intDetCotizacionID, short sintPinturaID, int intCantidad, short tinOpcion)
         {
             Resultado result = new Resultado();
             try
             {
-                result = (new MarcosLogic()).setSeleccionMarco(marco, mstMarco, rack, tinOpcion);
+                result = (new MarcosLogic()).setSeleccionMarco(marco, rack, intCotizacionID, intDetCotizacionID, sintPinturaID, intCantidad, tinOpcion);
             }
             catch (Exception ex)
             {

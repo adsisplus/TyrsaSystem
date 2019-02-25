@@ -87,14 +87,14 @@ namespace Adsisplus.Cotyrsa.DataAccess
             return results;
         }
 
-        public List<DatosMarco> ListarDatosMarco(Int32 intDatoMarcoID, Int32 intCotizacionID, Int32 intElementoID, Int16 sintPinturaID)
+        public List<DatosMarco> ListarDatosMarco(Int32 intDatoMarcoID, Int32 intCotizacionID, Int32 intElementoID, Int16 sintPinturaID, int intDetCotizacion)
         {
             List<DatosMarco> results = new List<DatosMarco>();
             try
             {
                 using (MarcosDataContext dc = new MarcosDataContext(Helper.ConnectionString()))
                 {
-                    var query = from item in dc.stp_ListarDatosMarco(intDatoMarcoID, intCotizacionID, intElementoID, sintPinturaID)
+                    var query = from item in dc.stp_ListarDatosMarco(intDatoMarcoID, intCotizacionID, intElementoID, sintPinturaID, intDetCotizacion)
                                 select new DatosMarco()
                                 {
                                     intDatoMarcoID = item.intDatoMarcoID,

@@ -58,8 +58,8 @@
       <Column Name="decAltura" Type="System.Decimal" CanBeNull="false" />
       <Column Name="decAlturaPandeo" Type="System.Decimal" CanBeNull="false" />
       <Column Name="decCapacidadMarco" Type="System.Decimal" CanBeNull="false" />
-      <Column Member="intTipoID" Type="System.Int32" CanBeNull="false" />
-      <Column Member="intMaterialID" Type="System.Int32" CanBeNull="false" />
+      <Column Name="intTipoID" Type="System.Int32" CanBeNull="false" />
+      <Column Name="intMaterialID" Type="System.Int32" CanBeNull="false" />
     </Type>
   </Table>
   <Function Name="dbo.stp_RelSistemaCargaMarcoPoste" Method="stp_RelSistemaCargaMarcoPoste">
@@ -182,28 +182,6 @@
       <Column Name="bitActivo" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
     </ElementType>
   </Function>
-  <Function Name="dbo.stp_ListarDatosMarco" Method="stp_ListarDatosMarco">
-    <Parameter Name="intDatoMarcoID" Type="System.Int32" DbType="Int" />
-    <Parameter Name="intCotizacionID" Type="System.Int32" DbType="Int" />
-    <Parameter Name="intElementoID" Type="System.Int32" DbType="Int" />
-    <Parameter Name="sintPinturaID" Type="System.Int16" DbType="SmallInt" />
-    <ElementType Name="stp_ListarDatosMarcoResult">
-      <Column Name="intDatoMarcoID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="intConfiguraMarcoID" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="intCotizacionID" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="vchFolio" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
-      <Column Name="vchElemento" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
-      <Column Name="vchPintura" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
-      <Column Name="decMedidaFondo" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
-      <Column Name="decMedidaAlto" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
-      <Column Name="bitDobleMonten" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="intNumeroNivelSobreViga" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="decAlturaPandeo" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
-      <Column Name="decCapacidadxNivel" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
-      <Column Name="sintCantidad" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
-      <Column Name="bitActivo" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-    </ElementType>
-  </Function>
   <Function Name="dbo.stp_ListarDatosPantallaMarco" Method="stp_ListarDatosPantallaMarco">
     <Parameter Name="intCotizacionID" Type="System.Int32" DbType="Int" />
     <ElementType Name="stp_ListarDatosPantallaMarcoResult">
@@ -235,8 +213,8 @@
   <Function Name="dbo.stp_setSeleccionMarco" Method="stp_setSeleccionMarco">
     <Parameter Name="intSeleccionMarcoID" Type="System.Int32" DbType="Int" />
     <Parameter Name="intRackID" Type="System.Int32" DbType="Int" />
-    <Parameter Name="intConfiguraMarcoID" Type="System.Int32" DbType="Int" />
     <Parameter Name="intCotizacionID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intConfiguraMarcoID" Type="System.Int32" DbType="Int" />
     <Parameter Name="SKU" Parameter="sKU" Type="System.String" DbType="VarChar(50)" />
     <Parameter Name="decPesoMarco" Type="System.Decimal" DbType="Decimal(8,3)" />
     <Parameter Name="decPrecioUnitario" Type="System.Decimal" DbType="Decimal(8,3)" />
@@ -262,6 +240,29 @@
     <ElementType Name="stp_setSeleccionMarcoResult">
       <Column Name="vchResultado" Type="System.String" DbType="VarChar(12)" CanBeNull="true" />
       <Column Name="vchDescripcion" Type="System.String" DbType="VarChar(57) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.stp_ListarDatosMarco" Method="stp_ListarDatosMarco">
+    <Parameter Name="intDatoMarcoID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intCotizacionID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intElementoID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="sintPinturaID" Type="System.Int16" DbType="SmallInt" />
+    <Parameter Name="intDetCotizacionID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="stp_ListarDatosMarcoResult">
+      <Column Name="intDatoMarcoID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="intConfiguraMarcoID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="intCotizacionID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="vchFolio" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="vchElemento" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
+      <Column Name="vchPintura" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
+      <Column Name="decMedidaFondo" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
+      <Column Name="decMedidaAlto" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
+      <Column Name="bitDobleMonten" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="intNumeroNivelSobreViga" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="decAlturaPandeo" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
+      <Column Name="decCapacidadxNivel" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
+      <Column Name="sintCantidad" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="bitActivo" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
     </ElementType>
   </Function>
 </Database>
