@@ -164,14 +164,13 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
             /// Procedimiento que lista el detalle de cotización
             /// </summary>
             /// <param name="intCotizacionID"></param>
-            /// <param name="intElementoID"></param>
             /// <returns></returns>
-            public List<Cotizacion> ListarDetalleCotizacion(int intCotizacionID, int intElementoID)
+            public List<Cotizacion> ListarDetalleCotizacion(int intCotizacionID)
         {
             List<Cotizacion> result = new List<Cotizacion>();
             try
             {
-                result = CatalogosDA.ListarDetalleCotizacion(intCotizacionID, intElementoID);
+                result = CatalogosDA.ListarDetalleCotizacion(intCotizacionID);
             }
             catch (Exception ex)
             {

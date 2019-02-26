@@ -105,7 +105,7 @@ namespace Adsisplus.Cotyrsa.DataAccess
                     var query = from item in dc.stp_setMstCotizacion(cotizacion.intCotizacionID, cotizacion.intEstatusID, cotizacion.sintPrioridadID, cotizacion.intEmpresaID,
                         cotizacion.vchFolio, cotizacion.datFechaAceptacion, cotizacion.datFechaRechazo,
                         // Datos que son almacenados en tbl_RackSelectivo
-                        rack.intRackID, rack.bitMontacarga, rack.intNumTarimaNivel, 
+                        rack.intRackID, rack.bitMontacarga, rack.intNumeroTarimaPorNivel, 
                         //rack.decFrente, rack.decFondo, rack.decAltura, rack.decPeso,
                         rack.vchDimensionMontacarga, rack.intNumeroNivelSobreViga, rack.intPosicion, rack.sintVisitas,
                         rack.intRelCotizaProductoID, rack.intProductoGralID, rack.intSubProductoID, cotizacion.bitActivo, (byte)tinOpcion)
@@ -269,14 +269,14 @@ namespace Adsisplus.Cotyrsa.DataAccess
         /// <param name="intCotizacionID"></param>
         /// <param name="intElementoID"></param>
         /// <returns></returns>
-        public List<Cotizacion> ListarDetalleCotizacion(int intCotizacionID, int intElementoID)
+        public List<Cotizacion> ListarDetalleCotizacion(int intCotizacionID)
         {
             List<Cotizacion> result = new List<Cotizacion>();
             try
             {
                 using (CotizacionDataContext dc = new CotizacionDataContext(Helper.ConnectionString()))
                 {
-                    var query = from item in dc.stp_ListarDetalleCotizacion(intCotizacionID, intElementoID)
+                    var query = from item in dc.stp_ListarDetalleCotizacion(intCotizacionID)
                                 select new Cotizacion
                                 {
                                     intDetCotizaID = item.intDetCotizaID,
@@ -290,10 +290,12 @@ namespace Adsisplus.Cotyrsa.DataAccess
                                     sintMontajeID = item.sintMontajeID,
                                     intPartida = item.intPartida,
                                     intCantidad = item.intCantidad,
-                                    //decMedidaFrente = item.decMedidaFrente,
-                                    //decMedidaFondo = item.decMedidaFondo,
-                                    //decAlto = item.decAlto,
-                                    //decPesoKg = item.decPesoKg,
+
+                                    decMedidaFrente = item.decMedidaFrente,
+                                    decMedidaFondo = item.decMedidaFondo,
+                                    decAlto = item.decAlto,
+                                    decPesoKg = item.decPesoKg,
+
                                     bitMontaCarga = item.bitMontacarga,
                                     intNumeroTarimaPorNivel = item.intNumeroTarimaPorNivel,
                                     intNumeroNivelSobreViga = item.intNumeroNivelSobreViga,

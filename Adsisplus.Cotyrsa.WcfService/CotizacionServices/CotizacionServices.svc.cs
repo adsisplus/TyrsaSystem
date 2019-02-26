@@ -156,12 +156,12 @@ namespace Adsisplus.Cotyrsa.WcfService.CotizacionServices
             /// </summary>
             /// <param name="intCotizacionID"></param>
             /// <returns></returns>
-            public List<Cotizacion> ListarDetalleCotizacion(int intCotizacionID, int intElementoID)
+            public List<Cotizacion> ListarDetalleCotizacion(int intCotizacionID)
         {
             List<Cotizacion> result = new List<Cotizacion>();
             try
             {
-                result = (new CotizacionLogic()).ListarDetalleCotizacion(intCotizacionID, intElementoID);
+                result = (new CotizacionLogic()).ListarDetalleCotizacion(intCotizacionID);
             }
             catch (Exception ex)
             {

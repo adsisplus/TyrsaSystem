@@ -53,7 +53,7 @@ namespace Adsisplus.Cotyrsa.BusinessEntities
         /// Número de tarimas por nivel
         /// </summary>
         [DataMember]
-        public int? intNumTarimaNivel { get; set; }
+        public int? intNumeroTarimaPorNivel { get; set; }
         /// <summary>
         /// Valor de la longitud del frente de la tarima con producto
         /// </summary>
@@ -120,9 +120,6 @@ namespace Adsisplus.Cotyrsa.BusinessEntities
         /// </summary>
         [DataMember]
         public short? tinOpcionViga { get; set; }
-
-        [DataMember]
-        public int? intNumeroTarimaPorNivel { get; set; }
 
         [DataMember]
         public int? intCantidadVigas { get; set; }

@@ -90,7 +90,7 @@ namespace Adsisplus.Cotyrsa.WcfService.CotizacionServices
         /// <returns></returns>
         [OperationContract]
         [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ListarDetalleCotizacion")]
-        List<Cotizacion> ListarDetalleCotizacion(int intCotizacionID, int intElementoID);
+        List<Cotizacion> ListarDetalleCotizacion(int intCotizacionID);
         /// <summary>
         /// Procedimiento que nos devuelve la información capturada/mostrada en cotización
         /// </summary>
