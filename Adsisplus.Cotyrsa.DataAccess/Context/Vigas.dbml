@@ -227,26 +227,6 @@
       <Column Name="bitActivo" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
     </ElementType>
   </Function>
-  <Function Name="dbo.stp_ListarDatosPantallaViga" Method="stp_ListarDatosPantallaViga">
-    <Parameter Name="intCotizacionID" Type="System.Int32" DbType="Int" />
-    <ElementType Name="stp_ListarDatosPantallaVigaResult">
-      <Column Name="intRackID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="intDetCotizaID" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="intCotizacionID" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="intSeleccionVigaID" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="bitEstructural" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="bitSobresale" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="decDistanciaLargoProducto" Type="System.Decimal" DbType="Decimal(8,3)" CanBeNull="true" />
-      <Column Name="decFrente" Type="System.Decimal" DbType="Decimal(8,3)" CanBeNull="true" />
-      <Column Name="decFondo" Type="System.Decimal" DbType="Decimal(8,3)" CanBeNull="true" />
-      <Column Name="decAltura" Type="System.Decimal" DbType="Decimal(8,3)" CanBeNull="true" />
-      <Column Name="decPeso" Type="System.Decimal" DbType="Decimal(8,3)" CanBeNull="true" />
-      <Column Name="sintNTPN" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
-      <Column Name="tinOpcionViga" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
-      <Column Name="decLongitudViga" Type="System.Decimal" DbType="Decimal(8,3)" CanBeNull="true" />
-      <Column Name="decCapCargaReqViga" Type="System.Decimal" DbType="Decimal(8,3)" CanBeNull="true" />
-    </ElementType>
-  </Function>
   <Function Name="dbo.stp_setSeleccionViga" Method="stp_setSeleccionViga">
     <Parameter Name="intRackID" Type="System.Int32" DbType="Int" />
     <Parameter Name="intSeleccionVigaID" Type="System.Int32" DbType="Int" />
@@ -278,6 +258,28 @@
     <ElementType Name="stp_setSeleccionVigaResult">
       <Column Name="vchResultado" Type="System.String" DbType="VarChar(12)" CanBeNull="true" />
       <Column Name="vchDescripcion" Type="System.String" DbType="VarChar(58) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.stp_ListarDatosPantallaViga" Method="stp_ListarDatosPantallaViga">
+    <Parameter Name="intCotizacionID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intSeleccionVigaID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="stp_ListarDatosPantallaVigaResult">
+      <Column Name="intRackID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="intDetCotizaID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="intCotizacionID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="intNumTarimaNivel" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="intSeleccionVigaID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="bitEstructural" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="bitSobresale" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="decDistanciaLargoProducto" Type="System.Decimal" DbType="Decimal(8,3)" CanBeNull="true" />
+      <Column Name="decFrente" Type="System.Decimal" DbType="Decimal(8,3)" CanBeNull="true" />
+      <Column Name="decFondo" Type="System.Decimal" DbType="Decimal(8,3)" CanBeNull="true" />
+      <Column Name="decAltura" Type="System.Decimal" DbType="Decimal(8,3)" CanBeNull="true" />
+      <Column Name="decPeso" Type="System.Decimal" DbType="Decimal(8,3)" CanBeNull="true" />
+      <Column Name="sintNTPN" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="tinOpcionViga" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="decLongitudViga" Type="System.Decimal" DbType="Decimal(8,3)" CanBeNull="true" />
+      <Column Name="decCapCargaReqViga" Type="System.Decimal" DbType="Decimal(8,3)" CanBeNull="true" />
     </ElementType>
   </Function>
 </Database>

@@ -164,6 +164,6 @@ namespace Adsisplus.Cotyrsa.WcfService.VigaServices
         /// <returns></returns>
         [OperationContract]
         [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ListarDatosPantallaViga")]
-        List<RackSelectivo> ListarDatosPantallaViga(int intDetCotizacionID);
+        List<RackSelectivo> ListarDatosPantallaViga(int intDetCotizacionID, int intSeleccionVigaID);
     }
 }

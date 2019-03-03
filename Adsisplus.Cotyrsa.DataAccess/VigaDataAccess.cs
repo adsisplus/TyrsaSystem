@@ -449,14 +449,14 @@ namespace Adsisplus.Cotyrsa.DataAccess
         /// </summary>
         /// <param name="intDetCotizacionID"></param>
         /// <returns></returns>
-        public List<RackSelectivo> ListarDatosPantallaViga(int intCotizacionID)
+        public List<RackSelectivo> ListarDatosPantallaViga(int intCotizacionID, int intSeleccionVigaID)
         {
             List <RackSelectivo> result = new List <RackSelectivo>();
             try
             {
                 using (VigasDataContext dc = new VigasDataContext(Helper.ConnectionString()))
                 {
-                    var query = from item in dc.stp_ListarDatosPantallaViga(intCotizacionID)
+                    var query = from item in dc.stp_ListarDatosPantallaViga(intCotizacionID, intSeleccionVigaID)
                                 select new RackSelectivo
                                 {
                                     intRackID = item.intRackID,

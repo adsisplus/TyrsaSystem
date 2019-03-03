@@ -364,12 +364,12 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
         /// </summary>
         /// <param name="intCotizacionID"></param>
         /// <returns></returns>
-        public List<RackSelectivo> ListarDatosPantallaViga(int intCotizacionID)
+        public List<RackSelectivo> ListarDatosPantallaViga(int intCotizacionID, int intSeleccionVigaID)
         {
             List <RackSelectivo> result = new List<RackSelectivo>();
             try
             {
-                result = CatalogosDA.ListarDatosPantallaViga(intCotizacionID);
+                result = CatalogosDA.ListarDatosPantallaViga(intCotizacionID, intSeleccionVigaID);
             }
             catch (Exception ex)
             {

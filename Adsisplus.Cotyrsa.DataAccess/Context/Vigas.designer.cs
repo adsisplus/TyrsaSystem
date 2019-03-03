@@ -140,13 +140,6 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 			return ((ISingleResult<stp_ListarDatosSeleccionVigaResult>)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.stp_ListarDatosPantallaViga")]
-		public ISingleResult<stp_ListarDatosPantallaVigaResult> stp_ListarDatosPantallaViga([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intCotizacionID)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), intCotizacionID);
-			return ((ISingleResult<stp_ListarDatosPantallaVigaResult>)(result.ReturnValue));
-		}
-		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.stp_setSeleccionViga")]
 		public ISingleResult<stp_setSeleccionVigaResult> stp_setSeleccionViga(
 					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intRackID, 
@@ -179,6 +172,13 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), intRackID, intSeleccionVigaID, intCotizacinID, decFrente, decFondo, decAltura, decPeso, sintNTPN, decLongitudViga, decCapCargaReqViga, bitEstructural, bitSobresale, tinOpcionViga, decDistanciaLargoProducto, sKU, decPesoViga, decPrecioUnitario, intTipoID, intMaterialID, decPatin, decPeralte, decLongitud, decCapViga, decCapVigaMax, intNumeroTarimaPorNivel, bitActivo, tinOpcion);
 			return ((ISingleResult<stp_setSeleccionVigaResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.stp_ListarDatosPantallaViga")]
+		public ISingleResult<stp_ListarDatosPantallaVigaResult> stp_ListarDatosPantallaViga([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intCotizacionID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intSeleccionVigaID)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), intCotizacionID, intSeleccionVigaID);
+			return ((ISingleResult<stp_ListarDatosPantallaVigaResult>)(result.ReturnValue));
 		}
 	}
 	
@@ -2765,6 +2765,50 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 		}
 	}
 	
+	public partial class stp_setSeleccionVigaResult
+	{
+		
+		private string _vchResultado;
+		
+		private string _vchDescripcion;
+		
+		public stp_setSeleccionVigaResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchResultado", DbType="VarChar(12)")]
+		public string vchResultado
+		{
+			get
+			{
+				return this._vchResultado;
+			}
+			set
+			{
+				if ((this._vchResultado != value))
+				{
+					this._vchResultado = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchDescripcion", DbType="VarChar(58) NOT NULL", CanBeNull=false)]
+		public string vchDescripcion
+		{
+			get
+			{
+				return this._vchDescripcion;
+			}
+			set
+			{
+				if ((this._vchDescripcion != value))
+				{
+					this._vchDescripcion = value;
+				}
+			}
+		}
+	}
+	
 	public partial class stp_ListarDatosPantallaVigaResult
 	{
 		
@@ -2773,6 +2817,8 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 		private System.Nullable<int> _intDetCotizaID;
 		
 		private System.Nullable<int> _intCotizacionID;
+		
+		private System.Nullable<int> _intNumTarimaNivel;
 		
 		private System.Nullable<int> _intSeleccionVigaID;
 		
@@ -2846,6 +2892,22 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 				if ((this._intCotizacionID != value))
 				{
 					this._intCotizacionID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intNumTarimaNivel", DbType="Int")]
+		public System.Nullable<int> intNumTarimaNivel
+		{
+			get
+			{
+				return this._intNumTarimaNivel;
+			}
+			set
+			{
+				if ((this._intNumTarimaNivel != value))
+				{
+					this._intNumTarimaNivel = value;
 				}
 			}
 		}
@@ -3038,50 +3100,6 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 				if ((this._decCapCargaReqViga != value))
 				{
 					this._decCapCargaReqViga = value;
-				}
-			}
-		}
-	}
-	
-	public partial class stp_setSeleccionVigaResult
-	{
-		
-		private string _vchResultado;
-		
-		private string _vchDescripcion;
-		
-		public stp_setSeleccionVigaResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchResultado", DbType="VarChar(12)")]
-		public string vchResultado
-		{
-			get
-			{
-				return this._vchResultado;
-			}
-			set
-			{
-				if ((this._vchResultado != value))
-				{
-					this._vchResultado = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchDescripcion", DbType="VarChar(58) NOT NULL", CanBeNull=false)]
-		public string vchDescripcion
-		{
-			get
-			{
-				return this._vchDescripcion;
-			}
-			set
-			{
-				if ((this._vchDescripcion != value))
-				{
-					this._vchDescripcion = value;
 				}
 			}
 		}
