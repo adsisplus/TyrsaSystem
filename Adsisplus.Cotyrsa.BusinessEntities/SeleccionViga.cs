@@ -119,9 +119,6 @@ namespace Adsisplus.Cotyrsa.BusinessEntities
         public short? sintLongitudID { get; set; }
 
         [DataMember]
-        public short? sintNTPN { get; set; }
-
-        [DataMember]
         public String vchFamiliaViga { get; set; }
 
         [DataMember]

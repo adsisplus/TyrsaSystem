@@ -360,7 +360,8 @@ namespace Adsisplus.Cotyrsa.DataAccess
                                     decCapacidadParVigasRequerida = item.decPesoPieza,
                                     decCapacidadParVigasMaxima = item.decPesoPartida,
                                     sintLongitudID = item.sintLongitudId,
-                                    
+                                    intMaterialID = item.intMaterialID,
+                                    intTipoID = item.intTipoID
                                 };
                     result.AddRange(query);
                 }
@@ -424,12 +425,12 @@ namespace Adsisplus.Cotyrsa.DataAccess
             {
                 using (VigasDataContext dc = new VigasDataContext(Helper.ConnectionString()))
                 {
-                    var query = from item in dc.stp_setSeleccionViga(viga.intRackID, viga.intSeleccionVigaID, viga.intCotizacionID, rack.decFrente, 
-                        rack.decFondo, rack.decAltura, rack.decPeso, viga.sintNTPN,  rack.decLongitudViga, rack.decCapCargaReqViga, rack.bitEstructural, 
-                        rack.bitSobresale, Convert.ToByte(rack.tinOpcionViga), rack.decDistanciaLargoProducto, Convert.ToString(viga.SKU), viga.decPesoViga,
-                        viga.decPrecioUnitarioSinIVA, viga.intTipoID, viga.intMaterialID, viga.decPatin, viga.decPeralte, viga.decLongitud, 
-                        viga.decCapacidadParVigasRequerida, viga.decCapacidadParVigasMaxima, rack.intNumeroTarimaPorNivel,                         
-                        viga.bitActivo, (byte)tinOpcion)
+                    var query = from item in dc.stp_setSeleccionViga(viga.intRackID, viga.intSeleccionVigaID, viga.intCotizacionID, viga.intDetCotizaID,
+                        rack.decFrente, rack.decFondo, rack.decAltura, rack.decPeso, rack.decLongitudViga, 
+                        rack.decCapCargaReqViga, rack.bitEstructural, rack.bitSobresale, Convert.ToByte(rack.tinOpcionViga), rack.decDistanciaLargoProducto, 
+                        Convert.ToString(viga.SKU), viga.decPesoViga, viga.decPrecioUnitarioSinIVA, viga.intTipoID, viga.intMaterialID, 
+                        viga.decPatin, viga.decPeralte, viga.decLongitud, viga.decCapacidadParVigasRequerida, viga.decCapacidadParVigasMaxima, 
+                        rack.intNumeroTarimaPorNivel, viga.bitActivo, (byte)tinOpcion)
                                   select new Resultado
                                   {
                                       vchDescripcion = item.vchDescripcion,
@@ -463,9 +464,11 @@ namespace Adsisplus.Cotyrsa.DataAccess
                                     intDetCotizaID = item.intDetCotizaID,
                                     intCotizacionID = item.intCotizacionID,
                                     intSeleccionVigaID = item.intSeleccionVigaID,
-                                    //intNumTarimaNivel = item.intNumTarimaNivel,
-                                    //intCantidadVigas = item.intCantidadVigas,
-                                    //sintPinturaID = item.sintPinturaID,
+
+                                    intNumeroTarimaPorNivel = item.intNumTarimaNivel,
+                                    intCantidadVigas = item.intCantidad,
+                                    sintPinturaID = item.sintPinturaID,
+
                                     bitEstructural = item.bitEstructural,
                                     bitSobresale = item.bitSobresale,
                                     decDistanciaLargoProducto = item.decDistanciaLargoProducto,

@@ -284,48 +284,60 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
         public Resultado setDatosViga(SeleccionViga viga, RackSelectivo rack, int intCotizacionID, int intDetCotizacionID, short sintPinturaID, int intCantidad, short tinOpcion)
         {
             Resultado result = new Resultado();
-            int intSeleccionVigaID = 0;
-            int intDetCotizaID = 0;
-            int intDatosViga = 0;
+            int? intSeleccionVigaID = null;
+            int? intDetCotizaID = null;
+            int? intDatosViga = null;
             // Obtenemos la información de la cotización
             //Cotizacion datosCotizacion = (new CotizacionLogic()).ListarDatosPantallaCotizacion(intCotizacionID);
             // Obtenemos la información del sistema Selectivo
             RelSistemaSelectivo sistema = (new CotizacionLogic()).ListarDatosSistemaSelectivo(intCotizacionID);
             try
             {
-                // 1. Se realiza el registro de la viga en las tablas tbl_RackSelectivo y tbl_SeleccionViga, 
-                // devolverá el intSeleccionVigaID
-                if(viga.intSeleccionVigaID != 0 || viga.intSeleccionVigaID != null)
-                    // En caso de que exista valor en el ID, solo actualizamos los valores
-                    result = CatalogosDA.setDatosViga(viga, rack, 2);
-                else
-                    // En caso contrario, realizamos la inserción
-                    result = CatalogosDA.setDatosViga(viga, rack, 1);
+                // Obtenemos el ID de la seleccion Viga ID
+                intSeleccionVigaID = null;
 
-                if (result.vchResultado != "NOK")
+                // Procedemos a llenar la entidad de la cotización
+                Cotizacion detCotizacion = new Cotizacion();
+                detCotizacion.intDetCotizaID = intDetCotizacionID;
+                detCotizacion.intCotizacionID = intCotizacionID;
+                detCotizacion.intElementoID = 2; // ID correspondiente a Viga
+                detCotizacion.intPartida = 0;
+                detCotizacion.intCantidad = intCantidad;
+                detCotizacion.decMonto = viga.decPrecioUnitarioSinIVA;
+                detCotizacion.decSubtotal = viga.decPrecioUnitarioSinIVA * intCantidad;
+
+                result = (new CotizacionLogic()).setDetCotizacion(detCotizacion, (short)(intDetCotizacionID == 0 ? 1 : 2));
+
+                if(result.vchResultado != "NOK")
                 {
-                    // Obtenemos el ID de la seleccion Viga ID
-                    intSeleccionVigaID = Convert.ToInt32(result.vchResultado);
+                    // Establecemos el id del detalle de la cotización
+                    intDetCotizaID = Convert.ToInt32(result.vchResultado);
+                    viga.intDetCotizaID = intDetCotizaID;
 
-                    // Procedemos a llenar la entidad de la cotización
-                    Cotizacion detCotizacion = new Cotizacion();
-                    detCotizacion.intDetCotizaID = intDetCotizacionID;
-                    detCotizacion.intCotizacionID = intCotizacionID;
-                    detCotizacion.intElementoID = 2; // ID correspondiente a Viga
-                    detCotizacion.intPartida = 0;
-                    detCotizacion.intCantidad = intCantidad;
-                    detCotizacion.decMonto = viga.decPrecioUnitarioSinIVA;
-                    detCotizacion.decSubtotal = viga.decPrecioUnitarioSinIVA * intCantidad;
-
-                    result = (new CotizacionLogic()).setDetCotizacion(detCotizacion, (short)(intDetCotizacionID == 0 ? 1 : 2));
+                    // 1. Se realiza el registro de la viga en las tablas tbl_RackSelectivo y tbl_SeleccionViga, 
+                    // devolverá el intSeleccionVigaID
+                    if (viga.intSeleccionVigaID != null)
+                        // En caso de que exista valor en el ID, solo actualizamos los valores
+                        result = CatalogosDA.setDatosViga(viga, rack, 2);
+                    else
+                        // En caso contrario, realizamos la inserción
+                        result = CatalogosDA.setDatosViga(viga, rack, 1);
 
                     if (result.vchResultado != "NOK")
                     {
                         // Obtenemos el ID de la cotización
-                        intDetCotizaID = Convert.ToInt32(result.vchResultado);
+                        intSeleccionVigaID = Convert.ToInt32(result.vchResultado);
+                        List<DatosViga> ListMstViga = new List<DatosViga>();
                         DatosViga mstViga = new DatosViga();
-                        //Buscamos la viga en base al detalle de la cotización
-                        mstViga = (new VigaLogic()).ListarDatosViga((int)sistema.intDatosVigaID, 0, 2, 0, intDetCotizacionID).First();
+
+                        // Validamos si es un nuevo registro
+                        if(tinOpcion != 1)
+                            //Buscamos la viga en base al detalle de la cotización
+                            ListMstViga = (new VigaLogic()).ListarDatosViga((int)sistema.intDatosVigaID, 0, 2, 0, intDetCotizacionID);
+                        // En caso de no existir
+                        if (ListMstViga.Count > 0)
+                            mstViga = ListMstViga.First();
+                        mstViga.intDatosVigaID = 0;
 
                         mstViga.intDetCotizaID = intDetCotizaID;
                         mstViga.SKU = viga.SKU;
@@ -335,7 +347,7 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
                         mstViga.intCantidad = intCantidad;
                         
                         // Realizamos el alta / modificación de la viga
-                        result = (new SistemasTyrsaLogic()).setDatosViga(mstViga, (short)((int)sistema.intDatosVigaID == 0 ? 1 : 2));
+                        result = (new SistemasTyrsaLogic()).setDatosViga(mstViga, tinOpcion);
 
                         // Validamos el resultado
                         if (result.vchResultado != "NOK")
@@ -347,7 +359,7 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
                                 sistema.intTipoElementoAlmacenID = 17; // Valor por default
                                 sistema.intCotizacionID = intCotizacionID;
 
-                                result = (new CotizacionLogic()).setDatosRelSistemaSelectivo(sistema, tinOpcion);
+                                result = (new CotizacionLogic()).setDatosRelSistemaSelectivo(sistema, 2);
                             }
                         }
                     }

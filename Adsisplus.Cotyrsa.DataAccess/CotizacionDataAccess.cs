@@ -29,6 +29,7 @@ namespace Adsisplus.Cotyrsa.DataAccess
                                 select new Cotizacion()
                                 {
                                     intCotizacionID = item.intCotizacionID,
+                                    intRackID = item.intRackID,
                                     vchEstatus = item.vchEstatus,
                                     vchPrioridad = item.vchPrioridad,
                                     vchNombreCliente = item.vchNombreCliente,
@@ -216,6 +217,7 @@ namespace Adsisplus.Cotyrsa.DataAccess
 
                                     datFechaArmado = item.datFechaArmado,
                                     intSubProductoID = item.intSubProductoID
+                                    //intRackID = item.intRackID
                                 };
                     result.AddRange(query);
                 }
@@ -348,8 +350,7 @@ namespace Adsisplus.Cotyrsa.DataAccess
                                     vchFolio = item.vchFolio,
                                     intRackID = item.intRackID,
                                     bitMontaCarga = item.bitMontacarga,
-                                    intNumeroTarimaPorNivel = item.intNumTarimaNivel,
-
+                                    
                                     intRelCotizaProductoID = item.intRelCotizaProductoID,
                                     intProductoGralID = item.intProductoGralID,
                                     intSubProductoID = item.intSubProductoID,
