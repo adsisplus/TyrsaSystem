@@ -466,7 +466,7 @@ namespace Adsisplus.Cotyrsa.DataAccess
                                     intSeleccionVigaID = item.intSeleccionVigaID,
 
                                     intNumeroTarimaPorNivel = item.intNumTarimaNivel,
-                                    intCantidadVigas = item.intCantidad,
+                                    intCantidad = item.intCantidad,
                                     sintPinturaID = item.sintPinturaID,
 
                                     bitEstructural = item.bitEstructural,
@@ -478,7 +478,9 @@ namespace Adsisplus.Cotyrsa.DataAccess
                                     decPeso = item.decPeso,
                                     tinOpcionViga = item.tinOpcionViga,
                                     decLongitudViga = item.decLongitudViga,
-                                    decCapCargaReqViga = item.decCapCargaReqViga
+                                    decCapCargaReqViga = item.decCapCargaReqViga,
+                                    intPiezaXLamina = item.intPiezaXLamina,
+                                    intPiezaXLaminaCuerpo = item.intPiezaXLaminaCuerpo
                                 };
                     result.AddRange(query);
                 }

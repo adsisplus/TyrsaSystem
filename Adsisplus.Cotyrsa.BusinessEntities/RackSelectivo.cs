@@ -122,7 +122,7 @@ namespace Adsisplus.Cotyrsa.BusinessEntities
         public short? tinOpcionViga { get; set; }
 
         [DataMember]
-        public int? intCantidadVigas { get; set; }
+        public int? intCantidad { get; set; }
 
         [DataMember]
         public short? sintPinturaID { get; set; }
@@ -186,6 +186,13 @@ namespace Adsisplus.Cotyrsa.BusinessEntities
         [DataMember]
         public decimal? decAlturaPandeo { get; set; }
         #endregion
+
+
+        [DataMember]
+        public int? intPiezaXLamina { get; set; }
+
+        [DataMember]
+        public int? intPiezaXLaminaCuerpo { get; set; }
 
 
         [DataMember]

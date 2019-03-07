@@ -281,11 +281,11 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
         /// <param name="intCantidad"></param>
         /// <param name="tinOpcion"></param>
         /// <returns></returns>
-        public Resultado setDatosViga(SeleccionViga viga, RackSelectivo rack, int intCotizacionID, int intDetCotizacionID, short sintPinturaID, int intCantidad, short tinOpcion)
+        public Resultado setDatosViga(SeleccionViga viga, RackSelectivo rack, int intCotizacionID, int intDetCotizaID, short sintPinturaID, int intCantidad, short tinOpcion)
         {
             Resultado result = new Resultado();
             int? intSeleccionVigaID = null;
-            int? intDetCotizaID = null;
+            //int? intDetCotizaID_ = null;
             int? intDatosViga = null;
             // Obtenemos la información de la cotización
             //Cotizacion datosCotizacion = (new CotizacionLogic()).ListarDatosPantallaCotizacion(intCotizacionID);
@@ -298,7 +298,7 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
 
                 // Procedemos a llenar la entidad de la cotización
                 Cotizacion detCotizacion = new Cotizacion();
-                detCotizacion.intDetCotizaID = intDetCotizacionID;
+                detCotizacion.intDetCotizaID = intDetCotizaID;
                 detCotizacion.intCotizacionID = intCotizacionID;
                 detCotizacion.intElementoID = 2; // ID correspondiente a Viga
                 detCotizacion.intPartida = 0;
@@ -306,7 +306,7 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
                 detCotizacion.decMonto = viga.decPrecioUnitarioSinIVA;
                 detCotizacion.decSubtotal = viga.decPrecioUnitarioSinIVA * intCantidad;
 
-                result = (new CotizacionLogic()).setDetCotizacion(detCotizacion, (short)(intDetCotizacionID == 0 ? 1 : 2));
+                result = (new CotizacionLogic()).setDetCotizacion(detCotizacion, (short)(intDetCotizaID == 0 ? 1 : 2));
 
                 if(result.vchResultado != "NOK")
                 {
@@ -333,12 +333,13 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
                         // Validamos si es un nuevo registro
                         if(tinOpcion != 1)
                             //Buscamos la viga en base al detalle de la cotización
-                            ListMstViga = (new VigaLogic()).ListarDatosViga((int)sistema.intDatosVigaID, 0, 2, 0, intDetCotizacionID);
-                        // En caso de no existir
+                            ListMstViga = (new VigaLogic()).ListarDatosViga((int)sistema.intDatosVigaID, 0, 2, 0, intDetCotizaID);
+                        // En caso de existir, asignamos el resultado
                         if (ListMstViga.Count > 0)
                             mstViga = ListMstViga.First();
-                        mstViga.intDatosVigaID = 0;
-
+                        else // En caso contrario, establecemos el valor a 0
+                            mstViga.intDatosVigaID = 0;
+                        // Actualizamos la información
                         mstViga.intDetCotizaID = intDetCotizaID;
                         mstViga.SKU = viga.SKU;
                         mstViga.sintPinturaID = sintPinturaID;
