@@ -306,7 +306,7 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
                 detCotizacion.decMonto = viga.decPrecioUnitarioSinIVA;
                 detCotizacion.decSubtotal = viga.decPrecioUnitarioSinIVA * intCantidad;
 
-                result = (new CotizacionLogic()).setDetCotizacion(detCotizacion, (short)(intDetCotizaID == 0 ? 1 : 2));
+                result = (new CotizacionLogic()).setDetCotizacion(detCotizacion, (short)(intDetCotizaID == 0 ? 1 : tinOpcion));
 
                 if(result.vchResultado != "NOK")
                 {
@@ -318,7 +318,7 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
                     // devolverá el intSeleccionVigaID
                     if (viga.intSeleccionVigaID != null)
                         // En caso de que exista valor en el ID, solo actualizamos los valores
-                        result = CatalogosDA.setDatosViga(viga, rack, 2);
+                        result = CatalogosDA.setDatosViga(viga, rack, tinOpcion);
                     else
                         // En caso contrario, realizamos la inserción
                         result = CatalogosDA.setDatosViga(viga, rack, 1);
@@ -354,9 +354,13 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
                         if (result.vchResultado != "NOK")
                         {
                             intDatosViga = Convert.ToInt32(result.vchResultado);
-                            if (sistema.intDatosVigaID == 0 || sistema.intDatosVigaID == null)
+                            if ((sistema.intDatosVigaID == 0 || sistema.intDatosVigaID == null) || tinOpcion == 3)
                             {
-                                sistema.intDatosVigaID = intDatosViga;
+                                // En caso de realizar la baja, establecemos el valor a 0
+                                if (tinOpcion == 3)
+                                    sistema.intDatosVigaID = 0;
+                                else
+                                    sistema.intDatosVigaID = intDatosViga;
                                 sistema.intTipoElementoAlmacenID = 17; // Valor por default
                                 sistema.intCotizacionID = intCotizacionID;
 
