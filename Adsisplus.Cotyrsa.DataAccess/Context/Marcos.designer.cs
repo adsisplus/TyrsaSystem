@@ -2363,8 +2363,6 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 		
 		private System.Nullable<short> _sintCantidad;
 		
-		private System.Nullable<int> _intCotizacionID;
-		
 		private System.Nullable<decimal> _decMedidaFondo;
 		
 		private System.Nullable<decimal> _decMedidaAlto;
@@ -2493,22 +2491,6 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 				if ((this._sintCantidad != value))
 				{
 					this._sintCantidad = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intCotizacionID", DbType="Int")]
-		public System.Nullable<int> intCotizacionID
-		{
-			get
-			{
-				return this._intCotizacionID;
-			}
-			set
-			{
-				if ((this._intCotizacionID != value))
-				{
-					this._intCotizacionID = value;
 				}
 			}
 		}

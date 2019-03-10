@@ -255,7 +255,6 @@
       <Column Name="vchElemento" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
       <Column Name="intConfiguraMarcoID" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="sintCantidad" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
-      <Column Name="intCotizacionID" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="decMedidaFondo" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
       <Column Name="decMedidaAlto" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
       <Column Name="bitDobleMonten" Type="System.Boolean" DbType="Bit" CanBeNull="true" />

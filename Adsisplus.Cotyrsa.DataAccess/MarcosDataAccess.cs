@@ -113,7 +113,7 @@ namespace Adsisplus.Cotyrsa.DataAccess
                                     intConfiguraMarcoID = item.intConfiguraMarcoID,
                                     sintCantidad = item.sintCantidad,
                                     
-                                    intCotizacionID = item.intCotizacionID,
+                                    //intCotizacionID = item.intCotizacionID,
                                     //vchFolio = item.vchFolio,+
                                     
                                     
