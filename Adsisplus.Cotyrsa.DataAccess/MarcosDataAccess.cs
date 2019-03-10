@@ -472,18 +472,19 @@ namespace Adsisplus.Cotyrsa.DataAccess
         /// </summary>
         /// <param name="intDetCotizacionID"></param>
         /// <returns></returns>
-        public RackSelectivo ListarDatosPantallaMarco(int intDetCotizacionID)
+        public RackSelectivo ListarDatosPantallaMarco(int intDetCotizacionID, int intSeleccionMarcoID)
         {
             RackSelectivo result = new RackSelectivo();
             try
             {
                 using (MarcosDataContext dc = new MarcosDataContext(Helper.ConnectionString()))
                 {
-                    var query = from item in dc.stp_ListarDatosPantallaMarco(intDetCotizacionID)
+                    var query = from item in dc.stp_ListarDatosPantallaMarco(intDetCotizacionID, intSeleccionMarcoID)
                                 select new RackSelectivo
                                 {
                                     intRackID = item.intRackID,
                                     intCotizacionID = item.intCotizacionID,
+                                    intDetCotizaID = item.intDetCotizaID,
                                     intSeleccionMarcoID = item.intSeleccionMarcoID,
                                     decFondoMarco = item.decFondoMarco,
                                     tinOpcionMarco = item.tinOpcionMarco,

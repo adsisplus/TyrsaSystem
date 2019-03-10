@@ -332,13 +332,14 @@ namespace Adsisplus.Cotyrsa.WcfService.MarcosServices
         /// Procedimiento que obtiene los datos a mostrar en patalla del marco
         /// </summary>
         /// <param name="intDetCotizacionID"></param>
+        /// <param name="intSeleccionMarcoID"></param>
         /// <returns></returns>
-        public RackSelectivo ListarDatosPantallaMarco(int intDetCotizacionID)
+        public RackSelectivo ListarDatosPantallaMarco(int intDetCotizacionID, int intSeleccionMarcoID)
         {
             RackSelectivo result = new RackSelectivo();
             try
             {
-                result = (new MarcosLogic()).ListarDatosPantallaMarco(intDetCotizacionID);
+                result = (new MarcosLogic()).ListarDatosPantallaMarco(intDetCotizacionID, intSeleccionMarcoID);
             }
             catch (Exception ex)
             {

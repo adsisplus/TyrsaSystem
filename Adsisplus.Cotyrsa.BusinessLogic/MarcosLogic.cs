@@ -409,13 +409,14 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
         /// Procedimiento que obtiene los datos a mostrar en patalla del marco
         /// </summary>
         /// <param name="intDetCotizacionID"></param>
+        /// <param name="intSeleccionMarcoID"></param>
         /// <returns></returns>
-        public RackSelectivo ListarDatosPantallaMarco(int intDetCotizacionID)
+        public RackSelectivo ListarDatosPantallaMarco(int intDetCotizacionID, int intSeleccionMarcoID)
         {
             RackSelectivo result = new RackSelectivo();
             try
             {
-                result = CatalogosDA.ListarDatosPantallaMarco(intDetCotizacionID);
+                result = CatalogosDA.ListarDatosPantallaMarco(intDetCotizacionID, intSeleccionMarcoID);
             }
             catch (Exception ex)
             {
