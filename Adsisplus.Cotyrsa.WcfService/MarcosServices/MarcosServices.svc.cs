@@ -47,12 +47,12 @@ namespace Adsisplus.Cotyrsa.WcfService.MarcosServices
         /// <param name="intElementoID"></param>
         /// <param name="sintPinturaID"></param>
         /// <returns></returns>
-        public List<DatosMarco> ListarDatosMarco(int intDatoMarcoID, int intCotizacionID, int intElementoID, short sintPinturaID, int intDetCotizacionID)
+        public List<DatosMarco> ListarDatosMarco(int intDatoMarcoID, int intDetCotizaID, int intElementoID, short sintPinturaID)
         {
             List<DatosMarco> result = new List<DatosMarco>();
             try
             {
-                result = (new MarcosLogic()).ListarDatosMarco(intDatoMarcoID, intCotizacionID, intElementoID, sintPinturaID, intDetCotizacionID);
+                result = (new MarcosLogic()).ListarDatosMarco(intDatoMarcoID, intDetCotizaID, intElementoID, sintPinturaID);
             }
             catch (Exception ex)
             {
@@ -287,24 +287,6 @@ namespace Adsisplus.Cotyrsa.WcfService.MarcosServices
             return result;
         }
         #endregion
-
-        ///// <summary>
-        ///// Procedimiento para listar los fondos de marco
-        ///// </summary>
-        ///// <returns></returns>
-        //public List<decimal> ListarFondoMarco()
-        //{
-        //    List<decimal> result = new List<decimal>();
-        //    try
-        //    {
-        //        result = (new MarcosLogic()).ListarFondoMarco();
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        Adsisplus.Cotyrsa.BusinessLogic.EventLogManager.LogErrorEntry(ex.Message);
-        //    }
-        //    return result;
-        //}
 
         /// <summary>
         /// Procedimiento que permite listar los marcos en base a la capacidad

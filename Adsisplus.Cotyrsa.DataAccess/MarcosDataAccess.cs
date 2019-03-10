@@ -86,30 +86,43 @@ namespace Adsisplus.Cotyrsa.DataAccess
             }
             return results;
         }
-
-        public List<DatosMarco> ListarDatosMarco(Int32 intDatoMarcoID, Int32 intCotizacionID, Int32 intElementoID, Int16 sintPinturaID, int intDetCotizacion)
+        /// <summary>
+        /// Obtiene la listad de datos ligados al marco
+        /// </summary>
+        /// <param name="intDatoMarcoID"></param>
+        /// <param name="intDetCotizaID"></param>
+        /// <param name="intElementoID"></param>
+        /// <param name="sintPinturaID"></param>
+        /// <returns></returns>
+        public List<DatosMarco> ListarDatosMarco(Int32 intDatoMarcoID, Int32 intDetCotizaID, Int32 intElementoID, Int16 sintPinturaID)
         {
             List<DatosMarco> results = new List<DatosMarco>();
             try
             {
                 using (MarcosDataContext dc = new MarcosDataContext(Helper.ConnectionString()))
                 {
-                    var query = from item in dc.stp_ListarDatosMarco(intDatoMarcoID, intCotizacionID, intElementoID, sintPinturaID, intDetCotizacion)
+                    var query = from item in dc.stp_ListarDatosMarco(intDatoMarcoID, intDetCotizaID, intElementoID, sintPinturaID)
                                 select new DatosMarco()
                                 {
                                     intDatoMarcoID = item.intDatoMarcoID,
-                                    intConfiguraMarcoID = item.intConfiguraMarcoID,
-                                    intCotizacionID = item.intCotizacionID,
-                                    vchFolio = item.vchFolio,
-                                    vchElemento = item.vchElemento,
+                                    sintPinturaID = item.sintPinturaID,
                                     vchPintura = item.vchPintura,
+                                    intElementoID = item.intElementoID,
+                                    vchElemento = item.vchElemento,
+
+                                    intConfiguraMarcoID = item.intConfiguraMarcoID,
+                                    sintCantidad = item.sintCantidad,
+                                    
+                                    intCotizacionID = item.intCotizacionID,
+                                    //vchFolio = item.vchFolio,+
+                                    
+                                    
                                     decMedidaFondo = item.decMedidaFondo,
                                     decMedidaAlto = item.decMedidaAlto,
                                     bitDobleMonten = item.bitDobleMonten,
                                     intNumeroNivelSobreViga = item.intNumeroNivelSobreViga,
                                     decAlturaPandeo = item.decAlturaPandeo,
                                     decCapacidadxNivel = item.decCapacidadxNivel,
-                                    sintCantidad = item.sintCantidad,
                                     bitActivo = item.bitActivo
                                 };
                     results.AddRange(query);
@@ -427,11 +440,10 @@ namespace Adsisplus.Cotyrsa.DataAccess
             {
                 using (MarcosDataContext dc = new MarcosDataContext(Helper.ConnectionString()))
                 {
-                    var query = from item in dc.stp_setSeleccionMarco(marco.intSeleccionMarcoID, marco.intRackID, marco.intConfiguraMarcoID, 
-                        rack.intCotizacionID,
+                    var query = from item in dc.stp_setSeleccionMarco(marco.intRackID, marco.intSeleccionMarcoID, marco.intDetCotizacionID, marco.intConfiguraMarcoID, 
                         // SELECCIÓN DE MARCO
-                        marco.SKU, marco.decPesoMarco, marco.decPrecioUnitario, marco.intTipoID, marco.intMaterialID, marco.decFondo, 
-                        marco.decAltura, marco.decAlturaPandeo, marco.decCapacidadMarco, 
+                        marco.SKU, marco.decPesoMarco, marco.decPrecioUnitario, marco.intTipoID, marco.intMaterialID, 
+                        marco.decFondo, marco.decAltura, marco.decAlturaPandeo, marco.decCapacidadMarco, 
                         // DATOS QUE SE ALMACENAN EN LA TABLA tbl_RackSelectivo
                         rack.decFondoMarco, rack.decAlturaMarco, (byte)rack.tinOpcionMarco,
                         // DATOS OPCIÓN UNO

@@ -51,13 +51,20 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
             }
             return results;
         }
-
-        public List<DatosMarco> ListarDatosMarco(Int32 intDatoMarcoID, Int32 intCotizacionID, Int32 intElementoID, Int16 sintPinturaID, int intDetCotizacionID)
+        /// <summary>
+        /// Obtiene la listad de datos ligados al marco
+        /// </summary>
+        /// <param name="intDatoMarcoID"></param>
+        /// <param name="intDetCotizaID"></param>
+        /// <param name="intElementoID"></param>
+        /// <param name="sintPinturaID"></param>
+        /// <returns></returns>
+        public List<DatosMarco> ListarDatosMarco(Int32 intDatoMarcoID, Int32 intDetCotizaID, Int32 intElementoID, Int16 sintPinturaID)
         {
             List<DatosMarco> results = null;
             try
             {
-                results = CatalogosDA.ListarDatosMarco(intDatoMarcoID, intCotizacionID, intElementoID, sintPinturaID, intDetCotizacionID);
+                results = CatalogosDA.ListarDatosMarco(intDatoMarcoID, intDetCotizaID, intElementoID, sintPinturaID);
             }
             catch (Exception ex)
             {
@@ -254,60 +261,65 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
         /// <param name="intCantidad"></param>
         /// <param name="tinOpcion"></param>
         /// <returns></returns>
-        public Resultado setSeleccionMarco(SeleccionMarco marco, RackSelectivo rack, int intCotizacionID, int intDetCotizacionID, short sintPinturaID, int intCantidad, short tinOpcion)
+        public Resultado setSeleccionMarco(SeleccionMarco marco, RackSelectivo rack, int intCotizacionID, int intDetCotizaID, short sintPinturaID, int intCantidad, short tinOpcion)
         {
             Resultado result = new Resultado();
-            int intSeleccionMarcoID = 0;
-            int intDetCotizaID = 0;
-            int intDatosMarcoID = 0;
-            // Obtenemos la información de la cotización
-            //Cotizacion datosCotizacion = (new CotizacionLogic()).ListarDatosPantallaCotizacion(intCotizacionID);
+            int? intSeleccionMarcoID = 0;
+            int? intDatosMarcoID = 0;
+            
             // Obtenemos la información del sistema Selectivo
             RelSistemaSelectivo sistema = (new CotizacionLogic()).ListarDatosSistemaSelectivo(intCotizacionID);
             try
             {
-                // 1. Se realiza el registro del marco en las tablas tbl_RackSelectivo y tbl_SeleccionMarco, 
-                // devolverá el intSeleccionVigaID
-                if (marco.intSeleccionMarcoID != 0 || marco.intSeleccionMarcoID != null)
-                    // En caso de no ser 0, realizamos la actualización de los datos del marco
-                    result = CatalogosDA.setSeleccionMarco(marco, rack, 2);
-                else
-                    // En caso contrario, almacenamos los datos de la selección Marco
-                    result = CatalogosDA.setSeleccionMarco(marco, rack, 1);
+                intSeleccionMarcoID = null;
 
+                // Procedemos a llenar la entidad de la cotización
+                Cotizacion detCotizacion = new Cotizacion();
+                detCotizacion.intDetCotizaID = intDetCotizaID;
+                detCotizacion.intCotizacionID = intCotizacionID;
+                detCotizacion.intElementoID = 1; // ID correspondiente a Marco
+                detCotizacion.intPartida = 0;
+                detCotizacion.intCantidad = intCantidad;
+                detCotizacion.decMonto = marco.decPrecioUnitario;
+                detCotizacion.decSubtotal = marco.decPrecioUnitario * intCantidad;
+
+                // 2. Realizamos el alta de la cotización
+                result = (new CotizacionLogic()).setDetCotizacion(detCotizacion, (short)(intDetCotizaID == 0 ? 1 : tinOpcion));
                 // Validamos la respuesta obtenida
                 if (result.vchResultado != "NOK")
                 {
-                    // Obtenemos el ID del marco insertado / actualizado
-                    intSeleccionMarcoID = Convert.ToInt32(result.vchResultado);
+                    // Obtenemos el ID de detalle insertado / actualizado
+                    intDetCotizaID = Convert.ToInt32(result.vchResultado);
+                    marco.intDetCotizacionID = intDetCotizaID;
 
-                    // Procedemos a llenar la entidad de la cotización
-                    Cotizacion detCotizacion = new Cotizacion();
-                    detCotizacion.intDetCotizaID = intDetCotizacionID;
-                    detCotizacion.intCotizacionID = intCotizacionID;
-                    detCotizacion.intElementoID = 1; // ID correspondiente a Marco
-                    detCotizacion.intPartida = 0;
-                    detCotizacion.intCantidad = intCantidad;
-                    detCotizacion.decMonto = marco.decPrecioUnitario;
-                    detCotizacion.decSubtotal = marco.decPrecioUnitario * intCantidad;
-
-                    // Almacenamos la información del marco
-                    marco.intSeleccionMarcoID = intSeleccionMarcoID;
-
-                    // 2. Realizamos el alta de la cotización
-                    result = (new CotizacionLogic()).setDetCotizacion(detCotizacion, (short)(intDetCotizacionID == 0 ? 1 : 2));
+                    // 1. Se realiza el registro del marco en las tablas tbl_RackSelectivo y tbl_SeleccionMarco, 
+                    // devolverá el intSeleccionVigaID
+                    if (marco.intSeleccionMarcoID != null)
+                        // En caso de no ser 0, realizamos la actualización de los datos del marco
+                        result = CatalogosDA.setSeleccionMarco(marco, rack, tinOpcion);
+                    else
+                        // En caso contrario, almacenamos los datos de la selección Marco
+                        result = CatalogosDA.setSeleccionMarco(marco, rack, 1);
 
                     // Validamos la respuesta del procedimiento
                     if (result.vchResultado != "NOK")
                     {
-                        // Obtenemos el id del detalle de la cotización
-                        intDetCotizaID = Convert.ToInt32(result.vchResultado);
+                        // Obtenemos el ID del marco insertado/Actualizado
+                        intSeleccionMarcoID = Convert.ToInt32(result.vchResultado);
+                        List<DatosMarco> listMstMarco = new List<DatosMarco>();
                         DatosMarco mstMarco = new DatosMarco();
 
-                        // Obtenemos información del Marco (tbl_MST_DatosMarco)
-                        mstMarco = (new MarcosLogic()).ListarDatosMarco((int)sistema.intDatoMarcoID, intCotizacionID, 1, sintPinturaID, intDetCotizacionID).First();
+                        // validamos si es un registro nuevo
+                        if(tinOpcion != 1)
+                            // Obtenemos información del Marco (tbl_MST_DatosMarco)
+                            listMstMarco = (new MarcosLogic()).ListarDatosMarco((int)sistema.intDatoMarcoID, intDetCotizaID, 1, sintPinturaID);
 
-                        
+                        // En caso de existir, asignamos el resultado
+                        if (listMstMarco.Count > 0)
+                            mstMarco = listMstMarco.First();
+                        else // En caso contrario, establecemos el valor a 0
+                            mstMarco.intDatoMarcoID = 0;
+                        // Actualizamos la información
                         mstMarco.intCotizacionID = intCotizacionID;
                         mstMarco.intDetCotizaID = intDetCotizaID;
                         mstMarco.intElementoID = 1;
@@ -315,21 +327,26 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
                         mstMarco.intConfiguraMarcoID = marco.intConfiguraMarcoID;
                         mstMarco.decMedidaFondo = marco.decFondo;
                         mstMarco.decMedidaAlto = marco.decAltura;
-                        //mstMarco.bitDobleMonten = marco.bit
+                        mstMarco.bitDobleMonten = marco.bitDobleMontel;
                         mstMarco.decAlturaPandeo = marco.decAlturaPandeo;
                         mstMarco.decCapacidadxNivel = marco.decCapacidadMarco;
                         mstMarco.sintCantidad = sintPinturaID;
 
                         // Realizamos el registro del marco
-                        result = (new SistemasTyrsaLogic()).setDatosMarco(mstMarco, (short)(((short)sistema.intDatoMarcoID) == 0 ? 1 : 2));
+                        result = (new SistemasTyrsaLogic()).setDatosMarco(mstMarco, tinOpcion);
 
                         // Validamos el resultado
                         if (result.vchResultado != "NOK")
                         {
                             intDatosMarcoID = Convert.ToInt32(result.vchResultado);
-                            if (sistema.intDatoMarcoID == null || sistema.intDatoMarcoID == 0)
+                            if ((sistema.intDatoMarcoID == null || sistema.intDatoMarcoID == 0)|| tinOpcion == 3)
                             {
-                                sistema.intDatoMarcoID = intDatosMarcoID;
+                                // En caso de realizar la baja, establecemos el valor a 0
+                                if (tinOpcion == 3)
+                                    sistema.intDatoMarcoID = 0;
+                                else
+                                    sistema.intDatoMarcoID = intDatosMarcoID;
+
                                 sistema.intTipoElementoAlmacenID = 17;
                                 sistema.intCotizacionID = intCotizacionID;
 

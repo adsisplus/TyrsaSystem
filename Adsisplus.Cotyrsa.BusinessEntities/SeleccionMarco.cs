@@ -87,6 +87,10 @@ namespace Adsisplus.Cotyrsa.BusinessEntities
         [DataMember]
         public decimal? decCapacidadMarco { get; set; }
         /// <summary>
+        /// Indica si viene o nó con doble montel
+        /// </summary>
+        public bool? bitDobleMontel { get; set; }
+        /// <summary>
         /// Estatus de la selección de Marco
         /// </summary>
         [DataMember]

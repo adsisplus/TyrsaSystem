@@ -48,7 +48,7 @@ namespace Adsisplus.Cotyrsa.WcfService.MarcosServices
         /// <returns></returns>
         [OperationContract]
         [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ListarDatosMarco")]
-        List<DatosMarco> ListarDatosMarco(Int32 intDatoMarcoID, Int32 intCotizacionID, Int32 intElementoID, Int16 sintPinturaID, int intDetCotizacionID);
+        List<DatosMarco> ListarDatosMarco(Int32 intDatoMarcoID, Int32 intDetCotizaID, Int32 intElementoID, Int16 sintPinturaID);
         /// <summary>
         /// Obtiene la lista de fonto por un marco en particular
         /// </summary>
