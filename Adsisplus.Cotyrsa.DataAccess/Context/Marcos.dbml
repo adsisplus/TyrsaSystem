@@ -182,15 +182,6 @@
       <Column Name="bitActivo" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
     </ElementType>
   </Function>
-  <Function Name="dbo.stp_ListarSeleccionMarco" Method="stp_ListarSeleccionMarco">
-    <Parameter Name="decCapacidadCarga" Type="System.Decimal" DbType="Decimal(8,3)" />
-    <Parameter Name="decAlturaPandeo" Type="System.Decimal" DbType="Decimal(8,3)" />
-    <Parameter Name="decFondo" Type="System.Decimal" DbType="Decimal(8,3)" />
-    <Parameter Name="decAlturaMarco" Type="System.Decimal" DbType="Decimal(8,3)" />
-    <Parameter Name="Sistema" Parameter="sistema" Type="System.Int16" DbType="SmallInt" />
-    <Parameter Name="bitEstructural" Type="System.Boolean" DbType="Bit" />
-    <ElementType IdRef="ID4" />
-  </Function>
   <Function Name="dbo.stp_setSeleccionMarco" Method="stp_setSeleccionMarco">
     <Parameter Name="intRackID" Type="System.Int32" DbType="Int" />
     <Parameter Name="intSeleccionMarcoID" Type="System.Int32" DbType="Int" />
@@ -266,5 +257,14 @@
       <Column Name="decCargaModulo" Type="System.Decimal" DbType="Decimal(8,3)" CanBeNull="true" />
       <Column Name="decAlturaPandeo" Type="System.Decimal" DbType="Decimal(8,3)" CanBeNull="true" />
     </ElementType>
+  </Function>
+  <Function Name="dbo.stp_ListarSeleccionMarco" Method="stp_ListarSeleccionMarco">
+    <Parameter Name="decCapacidadCarga" Type="System.Decimal" DbType="Decimal(8,3)" />
+    <Parameter Name="decAlturaPandeo" Type="System.Decimal" DbType="Decimal(8,3)" />
+    <Parameter Name="decFondo" Type="System.Decimal" DbType="Decimal(8,3)" />
+    <Parameter Name="decAlturaMarco" Type="System.Decimal" DbType="Decimal(8,3)" />
+    <Parameter Name="Sistema" Parameter="sistema" Type="System.Int16" DbType="SmallInt" />
+    <Parameter Name="bitEstructural" Type="System.Boolean" DbType="Bit" />
+    <ElementType IdRef="ID4" />
   </Function>
 </Database>
