@@ -101,26 +101,6 @@
       <Column Name="vchDescripcion" Type="System.String" DbType="VarChar(60) NOT NULL" CanBeNull="false" />
     </ElementType>
   </Function>
-  <Function Name="dbo.stp_setDatosMarco" Method="stp_setDatosMarco">
-    <Parameter Name="intDatoMarcoID" Type="System.Int32" DbType="Int" />
-    <Parameter Name="intConfiguraMarcoID" Type="System.Int32" DbType="Int" />
-    <Parameter Name="intCotizacionID" Type="System.Int32" DbType="Int" />
-    <Parameter Name="intElementoID" Type="System.Int32" DbType="Int" />
-    <Parameter Name="sintPinturaID" Type="System.Int16" DbType="SmallInt" />
-    <Parameter Name="decMedidaFondo" Type="System.Decimal" DbType="Decimal(20,2)" />
-    <Parameter Name="decMedidaAlto" Type="System.Decimal" DbType="Decimal(20,2)" />
-    <Parameter Name="bitDobleMonten" Type="System.Boolean" DbType="Bit" />
-    <Parameter Name="intNumeroNivelSobreViga" Type="System.Int32" DbType="Int" />
-    <Parameter Name="decAlturaPandeo" Type="System.Decimal" DbType="Decimal(20,2)" />
-    <Parameter Name="decCapacidadxNivel" Type="System.Decimal" DbType="Decimal(20,2)" />
-    <Parameter Name="sintCantidad" Type="System.Int16" DbType="SmallInt" />
-    <Parameter Name="bitActivo" Type="System.Boolean" DbType="Bit" />
-    <Parameter Name="tinOpcion" Type="System.Byte" DbType="TinyInt" />
-    <ElementType Name="stp_setDatosMarcoResult">
-      <Column Name="vchResultado" Type="System.String" DbType="VarChar(12)" CanBeNull="true" />
-      <Column Name="vchDescripcion" Type="System.String" DbType="VarChar(48) NOT NULL" CanBeNull="false" />
-    </ElementType>
-  </Function>
   <Function Name="dbo.stp_setDatosViga" Method="stp_setDatosViga">
     <Parameter Name="intDatosVigaID" Type="System.Int32" DbType="Int" />
     <Parameter Name="intDetCotizaID" Type="System.Int32" DbType="Int" />
@@ -137,6 +117,27 @@
     <ElementType Name="stp_setDatosVigaResult">
       <Column Name="vchResultado" Type="System.String" DbType="VarChar(12)" CanBeNull="true" />
       <Column Name="vchDescripcion" Type="System.String" DbType="VarChar(47) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.stp_setDatosMarco" Method="stp_setDatosMarco">
+    <Parameter Name="intDatoMarcoID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intConfiguraMarcoID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intCotizacionID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intDetCotizaID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intElementoID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="sintPinturaID" Type="System.Int16" DbType="SmallInt" />
+    <Parameter Name="decMedidaFondo" Type="System.Decimal" DbType="Decimal(20,2)" />
+    <Parameter Name="decMedidaAlto" Type="System.Decimal" DbType="Decimal(20,2)" />
+    <Parameter Name="bitDobleMonten" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="intNumeroNivelSobreViga" Type="System.Int32" DbType="Int" />
+    <Parameter Name="decAlturaPandeo" Type="System.Decimal" DbType="Decimal(20,2)" />
+    <Parameter Name="decCapacidadxNivel" Type="System.Decimal" DbType="Decimal(20,2)" />
+    <Parameter Name="sintCantidad" Type="System.Int16" DbType="SmallInt" />
+    <Parameter Name="bitActivo" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="tinOpcion" Type="System.Byte" DbType="TinyInt" />
+    <ElementType Name="stp_setDatosMarcoResult">
+      <Column Name="vchResultado" Type="System.String" DbType="VarChar(12)" CanBeNull="true" />
+      <Column Name="vchDescripcion" Type="System.String" DbType="VarChar(48) NOT NULL" CanBeNull="false" />
     </ElementType>
   </Function>
 </Database>

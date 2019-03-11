@@ -498,7 +498,10 @@ namespace Adsisplus.Cotyrsa.DataAccess
                                     decCargaModulo = item.decCargaModulo,
                                     decAlturaPandeo = item.decAlturaPandeo
                                 };
-                    result = query.First();
+                    if (query.Count() > 0)
+                        result = query.First();
+                    else
+                        result = new RackSelectivo();
                 }
             }
             catch (Exception ex)
