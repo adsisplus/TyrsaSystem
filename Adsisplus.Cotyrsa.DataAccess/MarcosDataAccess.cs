@@ -404,18 +404,18 @@ namespace Adsisplus.Cotyrsa.DataAccess
                     var query = from item in dc.stp_ListarSeleccionMarco(decCapacidadCarga, decAlturaPandeo, decFondo, decAlturaMarco, sintSistemaID, bitEstructural)
                                 select new SeleccionMarco
                                 {
-                                    intConfiguraMarcoID = item.intConfiguraMarcoID,
-                                    decAltura = item.decAltura,
-                                    decAlturaPandeo = item.decAlturaPandeo,
-                                    decCapacidadMarco = item.decCapacidadMarco,
-                                    decFondo = item.decFondo,
-                                    decPesoMarco = item.decPesoMarco,
-                                    decPrecioUnitario = item.decPrecioUnitario,
-                                    vchMaterial = item.vchMaterial,
-                                    intMaterialID = item.intMaterialID,
-                                    SKU = item.SKU,
-                                    vchTipo = item.vchTipo,
-                                    intTipoID = item.intTipoID
+                                    intConfiguraMarcoID = Convert.ToInt32(item.intConfiguraMarcoID),
+                                    decAltura = Convert.ToDecimal(item.decAltura),
+                                    decAlturaPandeo = Convert.ToDecimal(item.decAlturaPandeo),
+                                    decCapacidadMarco = Convert.ToDecimal(item.decCapacidadMarco),
+                                    decFondo = Convert.ToDecimal(item.decFondo),
+                                    decPesoMarco = Convert.ToDecimal(item.decPesoMarco),
+                                    decPrecioUnitario = Convert.ToDecimal(item.decPrecioUnitario),
+                                    vchMaterial = Convert.ToString(item.vchMaterial),
+                                    intMaterialID = Convert.ToInt32(item.intMaterialID),
+                                    SKU = Convert.ToString(item.SKU),
+                                    vchTipo = Convert.ToString(item.vchTipo),
+                                    intTipoID = Convert.ToInt32(item.intTipoID)
                                 };
                     result.AddRange(query);
                 }
