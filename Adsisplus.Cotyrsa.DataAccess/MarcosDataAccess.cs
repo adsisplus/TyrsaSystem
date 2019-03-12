@@ -416,6 +416,7 @@ namespace Adsisplus.Cotyrsa.DataAccess
                                     SKU = Convert.ToString(item.SKU),
                                     vchTipo = Convert.ToString(item.vchTipo),
                                     intTipoID = Convert.ToInt32(item.intTipoID)
+                                    
                                 };
                     result.AddRange(query);
                 }
