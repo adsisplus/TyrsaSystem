@@ -176,7 +176,7 @@ namespace Adsisplus.Cotyrsa.WcfService.MarcosServices
         /// <returns></returns>
         [OperationContract]
         [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ListarDatosSeleccionMarco")]
-        SeleccionMarco ListarDatosSeleccionMarco(int intSeleccionMarcoID);
+        List<SeleccionMarco> ListarDatosSeleccionMarco(int intCotizacionID);
         /// <summary>
         /// Procedimiento que obtiene los datos a mostrar en patalla del marco
         /// </summary>

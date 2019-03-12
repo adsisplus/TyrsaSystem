@@ -513,21 +513,21 @@ namespace Adsisplus.Cotyrsa.DataAccess
         /// </summary>
         /// <param name="intSeleccionMarcoID"></param>
         /// <returns></returns>
-        public SeleccionMarco ListarDatosSeleccionMarco(int intSeleccionMarcoID)
+        public List<SeleccionMarco> ListarDatosSeleccionMarco(int intCotizacionID)
         {
-            SeleccionMarco result = new SeleccionMarco();
+            List<SeleccionMarco> result = new List<SeleccionMarco>();
             try
             {
                 using (MarcosDataContext dc = new MarcosDataContext(Helper.ConnectionString()))
                 {
-                    var query = from item in dc.stp_ListarDatosSeleccionMarco(intSeleccionMarcoID)
+                    var query = from item in dc.stp_ListarDatosSeleccionMarco(intCotizacionID)
                                 select new SeleccionMarco
                                 {
                                     intSeleccionMarcoID = item.intSeleccionMarcoID,
                                     SKU = item.SKU,
                                     decPesoMarco = item.decPesoMarco,
                                     decPrecioUnitario = item.decPrecioUnitario,
-                                    intTipoID = item.intTipo,
+                                    intTipoID = item.intTipoID,
                                     vchTipo = item.vchTipo,
                                     intMaterialID = item.intMaterialID,
                                     vchMaterial = item.vchMaterialID,
@@ -537,7 +537,7 @@ namespace Adsisplus.Cotyrsa.DataAccess
                                     decCapacidadMarco = item.decCapacidadMarco,
                                     bitActivo = item.bitActivo
                                 };
-                    result = query.First();
+                    result.AddRange(query);
                 }
             }
             catch (Exception ex)

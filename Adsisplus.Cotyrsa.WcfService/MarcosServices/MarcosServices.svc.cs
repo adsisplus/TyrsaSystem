@@ -314,12 +314,12 @@ namespace Adsisplus.Cotyrsa.WcfService.MarcosServices
         /// </summary>
         /// <param name="intSeleccionMarcoID"></param>
         /// <returns></returns>
-        public SeleccionMarco ListarDatosSeleccionMarco(int intSeleccionMarcoID)
+        public List<SeleccionMarco> ListarDatosSeleccionMarco(int intCotizacionID)
         {
-            SeleccionMarco result = new SeleccionMarco();
+            List<SeleccionMarco> result = new List<SeleccionMarco>();
             try
             {
-                result = (new MarcosLogic()).ListarDatosSeleccionMarco(intSeleccionMarcoID);
+                result = (new MarcosLogic()).ListarDatosSeleccionMarco(intCotizacionID);
             }
             catch (Exception ex)
             {

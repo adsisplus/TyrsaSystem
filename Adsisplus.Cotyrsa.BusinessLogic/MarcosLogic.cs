@@ -430,12 +430,12 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
         /// </summary>
         /// <param name="intSeleccionMarcoID"></param>
         /// <returns></returns>
-        public SeleccionMarco ListarDatosSeleccionMarco(int intSeleccionMarcoID)
+        public List<SeleccionMarco> ListarDatosSeleccionMarco(int intCotizacionID)
         {
-            SeleccionMarco result = new SeleccionMarco();
+            List<SeleccionMarco> result = new List<SeleccionMarco>();
             try
             {
-                result = CatalogosDA.ListarDatosSeleccionMarco(intSeleccionMarcoID);
+                result = CatalogosDA.ListarDatosSeleccionMarco(intCotizacionID);
             }
             catch (Exception ex)
             {
