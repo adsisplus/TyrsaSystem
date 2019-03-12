@@ -334,9 +334,9 @@ namespace Adsisplus.Cotyrsa.WcfService.MarcosServices
         /// <param name="intDetCotizacionID"></param>
         /// <param name="intSeleccionMarcoID"></param>
         /// <returns></returns>
-        public RackSelectivo ListarDatosPantallaMarco(int intDetCotizacionID, int intSeleccionMarcoID)
+        public List<RackSelectivo> ListarDatosPantallaMarco(int intDetCotizacionID, int intSeleccionMarcoID)
         {
-            RackSelectivo result = new RackSelectivo();
+            List<RackSelectivo> result = new List<RackSelectivo>();
             try
             {
                 result = (new MarcosLogic()).ListarDatosPantallaMarco(intDetCotizacionID, intSeleccionMarcoID);

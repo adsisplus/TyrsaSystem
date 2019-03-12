@@ -473,9 +473,9 @@ namespace Adsisplus.Cotyrsa.DataAccess
         /// </summary>
         /// <param name="intDetCotizacionID"></param>
         /// <returns></returns>
-        public RackSelectivo ListarDatosPantallaMarco(int intDetCotizacionID, int intSeleccionMarcoID)
+        public List<RackSelectivo> ListarDatosPantallaMarco(int intDetCotizacionID, int intSeleccionMarcoID)
         {
-            RackSelectivo result = new RackSelectivo();
+            List<RackSelectivo> result = new List<RackSelectivo>();
             try
             {
                 using (MarcosDataContext dc = new MarcosDataContext(Helper.ConnectionString()))
@@ -499,10 +499,7 @@ namespace Adsisplus.Cotyrsa.DataAccess
                                     decCargaModulo = item.decCargaModulo,
                                     decAlturaPandeo = item.decAlturaPandeo
                                 };
-                    if (query.Count() > 0)
-                        result = query.First();
-                    else
-                        result = new RackSelectivo();
+                    result.AddRange(query);
                 }
             }
             catch (Exception ex)

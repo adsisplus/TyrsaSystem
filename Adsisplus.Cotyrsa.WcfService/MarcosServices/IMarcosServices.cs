@@ -184,6 +184,6 @@ namespace Adsisplus.Cotyrsa.WcfService.MarcosServices
         /// <returns></returns>
         [OperationContract]
         [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ListarDatosPantallaMarco")]
-        RackSelectivo ListarDatosPantallaMarco(int intDetCotizacionID, int intSeleccionMarcoID);
+        List<RackSelectivo> ListarDatosPantallaMarco(int intDetCotizacionID, int intSeleccionMarcoID);
     }
 }

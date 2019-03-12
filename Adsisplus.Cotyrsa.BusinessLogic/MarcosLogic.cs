@@ -411,9 +411,9 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
         /// <param name="intDetCotizacionID"></param>
         /// <param name="intSeleccionMarcoID"></param>
         /// <returns></returns>
-        public RackSelectivo ListarDatosPantallaMarco(int intDetCotizacionID, int intSeleccionMarcoID)
+        public List<RackSelectivo> ListarDatosPantallaMarco(int intDetCotizacionID, int intSeleccionMarcoID)
         {
-            RackSelectivo result = new RackSelectivo();
+            List<RackSelectivo> result = new List<RackSelectivo>();
             try
             {
                 result = CatalogosDA.ListarDatosPantallaMarco(intDetCotizacionID, intSeleccionMarcoID);
