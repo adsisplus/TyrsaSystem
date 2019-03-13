@@ -487,6 +487,11 @@ namespace Adsisplus.Cotyrsa.DataAccess
                                     intCotizacionID = item.intCotizacionID,
                                     intDetCotizaID = item.intDetCotizaID,
                                     intSeleccionMarcoID = item.intSeleccionMarcoID,
+
+                                    sintPinturaID = item.sintPinturaID,
+                                    intCantidad = Convert.ToInt32(item.sintCantidad),
+                                    bitEstructural = item.bitEstructural,
+
                                     decFondoMarco = item.decFondoMarco,
                                     tinOpcionMarco = item.tinOpcionMarco,
                                     decDimensionClaro = item.decDimensionClaro,
