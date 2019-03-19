@@ -74,5 +74,47 @@ namespace Adsisplus.Cotyrsa.WcfService.PanelServices
             }
             return result;
         }
+        /// <summary>
+        /// Procedimiento que devuelve información de la pantalla del panel seleccionado
+        /// </summary>
+        /// <param name="intDetCotizacionID"></param>
+        /// <param name="intSeleccionPanelID"></param>
+        /// <returns></returns>
+        public List<DatosPantallaPanel> ListarDatosPantallaPanel(int intDetCotizacionID, int intSeleccionPanelID)
+        {
+            List<DatosPantallaPanel> result = new List<DatosPantallaPanel>();
+            try
+            {
+                result = (new PanelLogic()).ListarDatosPantallaPanel(intDetCotizacionID, intSeleccionPanelID);
+            }
+            catch (Exception ex)
+            {
+                Adsisplus.Cotyrsa.BusinessLogic.EventLogManager.LogErrorEntry(ex.Message);
+            }
+            return result;
+        }
+
+        /// <summary>
+        /// Procedimiemto que realiza el alta del panel a la cotización
+        /// </summary>
+        /// <param name="dppPanel"></param>
+        /// <param name="intCotizacionID"></param>
+        /// <param name="intDetCotizaID"></param>
+        /// <param name="intCantidad"></param>
+        /// <param name="tinOpcion"></param>
+        /// <returns></returns>
+        public Resultado setSeleccionPanel(DatosPantallaPanel dppPanel, int intCotizacionID, int intDetCotizaID, int intCantidad, short tinOpcion)
+        {
+            Resultado result = new Resultado();
+            try
+            {
+                result = (new PanelLogic()).setSeleccionPanel(dppPanel, intCotizacionID, intDetCotizaID, intCantidad, tinOpcion);
+            }
+            catch (Exception ex)
+            {
+                Adsisplus.Cotyrsa.BusinessLogic.EventLogManager.LogErrorEntry(ex.Message);
+            }
+            return result;
+        }
     }
 }

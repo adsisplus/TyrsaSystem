@@ -441,7 +441,7 @@ namespace Adsisplus.Cotyrsa.DataAccess
             {
                 using (MarcosDataContext dc = new MarcosDataContext(Helper.ConnectionString()))
                 {
-                    var query = from item in dc.stp_setSeleccionMarco(marco.intRackID, marco.intSeleccionMarcoID, marco.intDetCotizacionID, marco.intConfiguraMarcoID, 
+                    var query = from item in dc.stp_setSeleccionMarco(marco.intSeleccionMarcoID, marco.intRackID, marco.intDetCotizacionID, marco.intConfiguraMarcoID, 
                         // SELECCIÓN DE MARCO
                         marco.SKU, marco.decPesoMarco, marco.decPrecioUnitario, marco.intTipoID, marco.intMaterialID, 
                         marco.decFondo, marco.decAltura, marco.decAlturaPandeo, marco.decCapacidadMarco, 

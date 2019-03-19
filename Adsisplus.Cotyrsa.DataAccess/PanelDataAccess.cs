@@ -79,20 +79,97 @@ namespace Adsisplus.Cotyrsa.DataAccess
                     var query = from item in dc.stp_ListarSeleccionPanel(decCapacidadCarga, decAncho, sintSistemaID, bitGalvanizado)
                                 select new SeleccionPanel
                                 {
-                                    bitActivo = item.bitActivo,
+                                    intPanelID = item.intPanelID,
+                                    sintSKU = item.sintSKU,
+                                    vchCalibreAcero = item.vchCalibreAcero,
                                     decAncho = item.decAncho,
                                     decFondo = item.decFondo,
-                                    decKgReferencia = item.decKgReferencia,
-                                    decKgTyrsa = item.decKgTyrsa,
                                     decPesoKg = item.decPesoKg,
+                                    sintCorreccion = item.sintCorreccion,
+                                    decTotal = item.decTotal,
                                     decPrecioEfectivoRef = item.decPrecioEfectivoRef,
                                     decRelPrecioTyrsa = item.decRelPrecioTyrsa,
-                                    decTotal = item.decTotal,
-                                    sintCorreccion = item.sintCorreccion,
-                                    sintSKU = item.sintSKU,
-                                    vchCalibreAcero = item.vchCalibreAcero
+                                    decKgTyrsa = item.decKgTyrsa,
+                                    decKgReferencia = item.decKgReferencia,
+                                    bitActivo = item.bitActivo
                                 };
                     result.AddRange(query);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
+        /// <summary>
+        /// Procedimiento que devuelve información de la pantalla del panel seleccionado
+        /// </summary>
+        /// <param name="intDetCotizacionID"></param>
+        /// <param name="intSeleccionPanelID"></param>
+        /// <returns></returns>
+        public List<DatosPantallaPanel> ListarDatosPantallaPanel(int intDetCotizacionID, int intSeleccionPanelID)
+        {
+            List<DatosPantallaPanel> result = new List<DatosPantallaPanel>();
+            try
+            {
+                using (PanelesDataContext dc = new PanelesDataContext(Helper.ConnectionString()))
+                {
+                    var query = from item in dc.stp_ListarDatosPantallaPanel(intDetCotizacionID, intSeleccionPanelID)
+                                select new DatosPantallaPanel
+                                {
+                                    intRackID = item.intRackID,
+                                    intDetCotizaID = item.intDetCotizaID,
+                                    intCotizacionID = item.intCotizacionID,
+
+                                    intSeleccionPanelID = item.intSeleccionPanelID,
+                                    intPanelID = item.intPanelID,
+                                    bitGalvanizado = item.bitGalvanizado,
+                                    bitPintado = item.bitPintado,
+                                    sintSKU = item.sintSKU,
+                                    vchCalibreAcero = item.vchCalibreAcero,
+                                    decAncho = item.decAncho,
+                                    decFondo = item.decFondo,
+                                    decPesoKg = item.decPesoKg,
+                                    sintCorreccion = item.sintCorreccion,
+                                    decTotal = item.decTotal,
+                                    decPrecioEfectivoRef = item.decPrecioEfectivoRef,
+                                    decRelPrecioTyrsa = item.decRelPrecioTyrsa,
+                                    decKgTyrsa = item.decKgTyrsa,
+                                    decKgReferencia = item.decKgReferencia
+                                };
+                    result.AddRange(query);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
+        /// <summary>
+        /// Procedimiento que almacena los datos del panel seleccionado
+        /// </summary>
+        /// <param name="panel"></param>
+        /// <param name="tinOpcion"></param>
+        /// <returns></returns>
+        public Resultado setSeleccionPanel(SeleccionPanel panel, short tinOpcion)
+        {
+            Resultado result = new Resultado();
+            try
+            {
+                using (PanelesDataContext dc = new PanelesDataContext(Helper.ConnectionString()))
+                {
+                    var query = from item in dc.stp_setSeleccionPanel(panel.intSeleccionPanelID, panel.intRackID, panel.intDetCotizaID, panel.intPanelID,
+                        panel.bitGalvanizado, panel.bitPintado, panel.sintSKU, panel.vchCalibreAcero, panel.decAncho, panel.decFondo,
+                        panel.decPesoKg, panel.sintCorreccion, panel.decTotal, panel.decPrecioEfectivoRef,
+                        panel.decRelPrecioTyrsa, panel.decKgTyrsa, panel.decKgReferencia, panel.bitActivo, tinOpcion)
+                                select new Resultado
+                                {
+                                    vchDescripcion = item.vchDescripcion,
+                                    vchResultado = item.vchResultado
+                                };
+                    result = query.First();
                 }
             }
             catch (Exception ex)

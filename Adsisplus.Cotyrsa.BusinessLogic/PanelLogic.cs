@@ -73,5 +73,153 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
             }
             return result;
         }
+        /// <summary>
+        /// Procedimiento que devuelve información de la pantalla del panel seleccionado
+        /// </summary>
+        /// <param name="intDetCotizacionID"></param>
+        /// <param name="intSeleccionPanelID"></param>
+        /// <returns></returns>
+        public List<DatosPantallaPanel> ListarDatosPantallaPanel(int intDetCotizacionID, int intSeleccionPanelID)
+        {
+            List<DatosPantallaPanel> result = new List<DatosPantallaPanel>();
+            try
+            {
+                result = CatalogosDA.ListarDatosPantallaPanel(intDetCotizacionID, intSeleccionPanelID);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
+        /// <summary>
+        /// Procedimiemto que realiza el alta del panel a la cotización
+        /// </summary>
+        /// <param name="dppPanel"></param>
+        /// <param name="intCotizacionID"></param>
+        /// <param name="intDetCotizaID"></param>
+        /// <param name="intCantidad"></param>
+        /// <param name="tinOpcion"></param>
+        /// <returns></returns>
+        public Resultado setSeleccionPanel(DatosPantallaPanel dppPanel, int intCotizacionID, int intDetCotizaID, int intCantidad, short tinOpcion)
+        {
+            Resultado result = new Resultado();
+            int? intSeleccionPanelID = 0;
+            int? intDatosPanelID = 0;
+
+            try
+            {
+                // Obtenemos la información del sistema Selectivo
+                RelSistemaSelectivo sistema = (new CotizacionLogic()).ListarDatosSistemaSelectivo(intCotizacionID);
+                intSeleccionPanelID = null;
+
+                // Procedemos a llenar la entidad de la cotización
+                Cotizacion detCotizacion = new Cotizacion();
+                detCotizacion.intDetCotizaID = intDetCotizaID;
+                detCotizacion.intCotizacionID = intCotizacionID;
+                detCotizacion.intElementoID = 3; // ID correspondiente a Panel
+                detCotizacion.intPartida = 0;
+                detCotizacion.intCantidad = intCantidad;
+                detCotizacion.decMonto = dppPanel.decTotal;
+                detCotizacion.decSubtotal = dppPanel.decTotal * intCantidad;
+
+                // 1. Realizamos el alta de la cotización
+                result = (new CotizacionLogic()).setDetCotizacion(detCotizacion, (short)(intDetCotizaID == 0 ? 1 : tinOpcion));
+                // Validamos la respuesta obtenida
+                if (result.vchResultado != "NOK")
+                {
+                    // Obtenemos el ID de detalle insertado / actualizado
+                    intDetCotizaID = Convert.ToInt32(result.vchResultado);
+                    dppPanel.intDetCotizaID = intDetCotizaID;
+                    
+                    // Trasladamos la información de la pantalla a la entidad panel
+                    SeleccionPanel panel = new SeleccionPanel();
+                    panel.intDetCotizaID = dppPanel.intDetCotizaID;
+                    panel.intPanelID = dppPanel.intPanelID;
+                    panel.intRackID = dppPanel.intRackID;
+                    panel.intSeleccionPanelID = dppPanel.intSeleccionPanelID;
+                    panel.sintCorreccion = dppPanel.sintCorreccion;
+                    panel.sintSKU = dppPanel.sintSKU;
+                    panel.vchCalibreAcero = dppPanel.vchCalibreAcero;
+                    panel.bitActivo = dppPanel.bitActivo;
+                    panel.bitGalvanizado = dppPanel.bitGalvanizado;
+                    panel.bitPintado = dppPanel.bitPintado;
+                    panel.decAncho = dppPanel.decAncho;
+                    panel.decFondo = dppPanel.decFondo;
+                    panel.decKgReferencia = dppPanel.decKgReferencia;
+                    panel.decKgTyrsa = dppPanel.decKgTyrsa;
+                    panel.decPesoKg = dppPanel.decPesoKg;
+                    panel.decPrecioEfectivoRef = dppPanel.decPrecioEfectivoRef;
+                    panel.decRelPrecioTyrsa = dppPanel.decRelPrecioTyrsa;
+                    panel.decTotal = dppPanel.decTotal;
+
+
+                    // 2. Se realiza el registro del panel en las tablas tbl_RackSelectivo y tbl_SeleccionPanel, 
+                    // devolverá el intSeleccionPanelID
+                    if (panel.intSeleccionPanelID != null)
+                        // En caso de no ser 0, realizamos la actualización de los datos del marco
+                        result = CatalogosDA.setSeleccionPanel(panel, tinOpcion);
+                    else
+                        // En caso contrario, almacenamos los datos de la selección Marco
+                        result = CatalogosDA.setSeleccionPanel(panel, 1);
+
+                    // Validamos la respuesta del procedimiento
+                    if (result.vchResultado != "NOK")
+                    {
+                        // Obtenemos el ID del Panel insertado/Actualizado
+                        intSeleccionPanelID = Convert.ToInt32(result.vchResultado);
+                        // Lista que nos almacenará los páneles
+                        List<DatosPanel> lstMstPanel = new List<DatosPanel>();
+                        DatosPanel mstPanel = new DatosPanel();
+
+                        // validamos si es un registro nuevo
+                        if (tinOpcion != 1)
+                            // Obtenemos información del Marco (tbl_MST_DatosMarco)
+                            lstMstPanel = (new PanelLogic()).ListarDatosPanel((int)sistema.intDatosPanelID, 3, (int)sistema.intDatoMarcoID, 0);
+
+                        // En caso de existir, asignamos el resultado
+                        if (lstMstPanel.Count > 0)
+                            mstPanel = lstMstPanel.First();
+                        else // En caso contrario, establecemos el valor a 0
+                            mstPanel.intDatosPanelID = 0;
+                        // Actualizamos la información
+                        mstPanel.decAnchoPanel = panel.decAncho;
+                        mstPanel.decCapacidadCargaPanel = panel.decPesoKg;
+                        mstPanel.intCantidadPanel = intCantidad;
+                        mstPanel.intDatoMarcoID = sistema.intDatoMarcoID;
+                        mstPanel.intElementoID = 3; // ID correspondiente al panel
+                        mstPanel.sintCantidadDatoMarco = 0; // ¿Qué corresponde este dato?
+                        mstPanel.sintPinturaID = null; // Se supone que no existe pintura?
+
+                        // Realizamos el registro del panel
+                        result = (new SistemasTyrsaLogic()).setDatosPanel(mstPanel, tinOpcion);
+
+                        // Validamos el resultado
+                        if (result.vchResultado != "NOK")
+                        {
+                            intDatosPanelID = Convert.ToInt32(result.vchResultado);
+                            if ((sistema.intDatosPanelID == null || sistema.intDatosPanelID == 0) || tinOpcion == 3)
+                            {
+                                // En caso de realizar la baja, establecemos el valor a 0
+                                if (tinOpcion == 3)
+                                    sistema.intDatosPanelID = 0;
+                                else
+                                    sistema.intDatosPanelID = intDatosPanelID;
+
+                                sistema.intTipoElementoAlmacenID = 17;
+                                sistema.intCotizacionID = intCotizacionID;
+
+                                result = (new CotizacionLogic()).setDatosRelSistemaSelectivo(sistema, 2);
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
     }
 }

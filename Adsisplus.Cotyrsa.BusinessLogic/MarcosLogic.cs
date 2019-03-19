@@ -267,10 +267,11 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
             int? intSeleccionMarcoID = 0;
             int? intDatosMarcoID = 0;
             
-            // Obtenemos la información del sistema Selectivo
-            RelSistemaSelectivo sistema = (new CotizacionLogic()).ListarDatosSistemaSelectivo(intCotizacionID);
             try
             {
+                // Obtenemos la información del sistema Selectivo
+                RelSistemaSelectivo sistema = (new CotizacionLogic()).ListarDatosSistemaSelectivo(intCotizacionID);
+
                 intSeleccionMarcoID = null;
 
                 // Procedemos a llenar la entidad de la cotización
@@ -283,7 +284,7 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
                 detCotizacion.decMonto = marco.decPrecioUnitario;
                 detCotizacion.decSubtotal = marco.decPrecioUnitario * intCantidad;
 
-                // 2. Realizamos el alta de la cotización
+                // 1. Realizamos el alta de la cotización
                 result = (new CotizacionLogic()).setDetCotizacion(detCotizacion, (short)(intDetCotizaID == 0 ? 1 : tinOpcion));
                 // Validamos la respuesta obtenida
                 if (result.vchResultado != "NOK")
@@ -292,7 +293,7 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
                     intDetCotizaID = Convert.ToInt32(result.vchResultado);
                     marco.intDetCotizacionID = intDetCotizaID;
 
-                    // 1. Se realiza el registro del marco en las tablas tbl_RackSelectivo y tbl_SeleccionMarco, 
+                    // 2. Se realiza el registro del marco en las tablas tbl_RackSelectivo y tbl_SeleccionMarco, 
                     // devolverá el intSeleccionVigaID
                     if (marco.intSeleccionMarcoID != null)
                         // En caso de no ser 0, realizamos la actualización de los datos del marco

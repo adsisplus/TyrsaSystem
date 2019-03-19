@@ -164,38 +164,6 @@
       <Column Name="decFondoMarco" Type="System.Decimal" DbType="Decimal(18,4)" CanBeNull="true" />
     </ElementType>
   </Function>
-  <Function Name="dbo.stp_setSeleccionMarco" Method="stp_setSeleccionMarco">
-    <Parameter Name="intRackID" Type="System.Int32" DbType="Int" />
-    <Parameter Name="intSeleccionMarcoID" Type="System.Int32" DbType="Int" />
-    <Parameter Name="intDetCotizaID" Type="System.Int32" DbType="Int" />
-    <Parameter Name="intConfiguraMarcoID" Type="System.Int32" DbType="Int" />
-    <Parameter Name="SKU" Parameter="sKU" Type="System.String" DbType="VarChar(50)" />
-    <Parameter Name="decPesoMarco" Type="System.Decimal" DbType="Decimal(8,3)" />
-    <Parameter Name="decPrecioUnitario" Type="System.Decimal" DbType="Decimal(8,3)" />
-    <Parameter Name="intTipoID" Type="System.Int32" DbType="Int" />
-    <Parameter Name="intMaterialID" Type="System.Int32" DbType="Int" />
-    <Parameter Name="decFondo" Type="System.Decimal" DbType="Decimal(8,3)" />
-    <Parameter Name="decAltura" Type="System.Decimal" DbType="Decimal(8,3)" />
-    <Parameter Name="decAlturaPandeo" Type="System.Decimal" DbType="Decimal(8,3)" />
-    <Parameter Name="decCapacidadMarco" Type="System.Decimal" DbType="Decimal(8,3)" />
-    <Parameter Name="decFondoMarco" Type="System.Decimal" DbType="Decimal(8,3)" />
-    <Parameter Name="decAlturaMarco" Type="System.Decimal" DbType="Decimal(8,3)" />
-    <Parameter Name="tinOpcionMarco" Type="System.Byte" DbType="TinyInt" />
-    <Parameter Name="decDimensionClaro" Type="System.Decimal" DbType="Decimal(8,3)" />
-    <Parameter Name="decNNSVS" Type="System.Decimal" DbType="Decimal(8,3)" />
-    <Parameter Name="decMargenExcedente" Type="System.Decimal" DbType="Decimal(8,3)" />
-    <Parameter Name="decAlturaPiso" Type="System.Decimal" DbType="Decimal(8,3)" />
-    <Parameter Name="decNNSV" Type="System.Decimal" DbType="Decimal(8,3)" />
-    <Parameter Name="decNNPVS" Type="System.Decimal" DbType="Decimal(8,3)" />
-    <Parameter Name="decCargaModulo" Type="System.Decimal" DbType="Decimal(8,3)" />
-    <Parameter Name="decAlturaPandeoRack" Type="System.Decimal" DbType="Decimal(8,3)" />
-    <Parameter Name="bitActivo" Type="System.Boolean" DbType="Bit" />
-    <Parameter Name="tinOpcion" Type="System.Byte" DbType="TinyInt" />
-    <ElementType Name="stp_setSeleccionMarcoResult">
-      <Column Name="vchResultado" Type="System.String" DbType="VarChar(12)" CanBeNull="true" />
-      <Column Name="vchDescripcion" Type="System.String" DbType="VarChar(57) NOT NULL" CanBeNull="false" />
-    </ElementType>
-  </Function>
   <Function Name="dbo.stp_ListarDatosMarco" Method="stp_ListarDatosMarco">
     <Parameter Name="intDatoMarcoID" Type="System.Int32" DbType="Int" />
     <Parameter Name="intCotizacionID" Type="System.Int32" DbType="Int" />
@@ -268,6 +236,38 @@
       <Column Name="decNNPVS" Type="System.Decimal" DbType="Decimal(8,3)" CanBeNull="true" />
       <Column Name="decCargaModulo" Type="System.Decimal" DbType="Decimal(8,3)" CanBeNull="true" />
       <Column Name="decAlturaPandeo" Type="System.Decimal" DbType="Decimal(8,3)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.stp_setSeleccionMarco" Method="stp_setSeleccionMarco">
+    <Parameter Name="intSeleccionMarcoID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intRackID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intDetCotizaID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intConfiguraMarcoID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="SKU" Parameter="sKU" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="decPesoMarco" Type="System.Decimal" DbType="Decimal(8,3)" />
+    <Parameter Name="decPrecioUnitario" Type="System.Decimal" DbType="Decimal(8,3)" />
+    <Parameter Name="intTipoID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intMaterialID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="decFondo" Type="System.Decimal" DbType="Decimal(8,3)" />
+    <Parameter Name="decAltura" Type="System.Decimal" DbType="Decimal(8,3)" />
+    <Parameter Name="decAlturaPandeo" Type="System.Decimal" DbType="Decimal(8,3)" />
+    <Parameter Name="decCapacidadMarco" Type="System.Decimal" DbType="Decimal(8,3)" />
+    <Parameter Name="decFondoMarco" Type="System.Decimal" DbType="Decimal(8,3)" />
+    <Parameter Name="decAlturaMarco" Type="System.Decimal" DbType="Decimal(8,3)" />
+    <Parameter Name="tinOpcionMarco" Type="System.Byte" DbType="TinyInt" />
+    <Parameter Name="decDimensionClaro" Type="System.Decimal" DbType="Decimal(8,3)" />
+    <Parameter Name="decNNSVS" Type="System.Decimal" DbType="Decimal(8,3)" />
+    <Parameter Name="decMargenExcedente" Type="System.Decimal" DbType="Decimal(8,3)" />
+    <Parameter Name="decAlturaPiso" Type="System.Decimal" DbType="Decimal(8,3)" />
+    <Parameter Name="decNNSV" Type="System.Decimal" DbType="Decimal(8,3)" />
+    <Parameter Name="decNNPVS" Type="System.Decimal" DbType="Decimal(8,3)" />
+    <Parameter Name="decCargaModulo" Type="System.Decimal" DbType="Decimal(8,3)" />
+    <Parameter Name="decAlturaPandeoRack" Type="System.Decimal" DbType="Decimal(8,3)" />
+    <Parameter Name="bitActivo" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="tinOpcion" Type="System.Byte" DbType="TinyInt" />
+    <ElementType Name="stp_setSeleccionMarcoResult">
+      <Column Name="vchResultado" Type="System.String" DbType="VarChar(12)" CanBeNull="true" />
+      <Column Name="vchDescripcion" Type="System.String" DbType="VarChar(57) NOT NULL" CanBeNull="false" />
     </ElementType>
   </Function>
 </Database>

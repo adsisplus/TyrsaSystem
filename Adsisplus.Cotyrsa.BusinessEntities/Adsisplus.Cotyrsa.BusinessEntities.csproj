@@ -65,6 +65,7 @@
     <Compile Include="DatosGuiaEntrada.cs" />
     <Compile Include="DatosMarco.cs" />
     <Compile Include="DatosPanel.cs" />
+    <Compile Include="DatosPantallaPanel.cs" />
     <Compile Include="DatosParrilla.cs" />
     <Compile Include="DatosPerfil.cs" />
     <Compile Include="DatosPiso.cs" />
