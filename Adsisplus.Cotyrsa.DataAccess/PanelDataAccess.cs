@@ -163,7 +163,7 @@ namespace Adsisplus.Cotyrsa.DataAccess
                     var query = from item in dc.stp_setSeleccionPanel(panel.intSeleccionPanelID, panel.intRackID, panel.intDetCotizaID, panel.intPanelID,
                         panel.bitGalvanizado, panel.bitPintado, panel.sintSKU, panel.vchCalibreAcero, panel.decAncho, panel.decFondo,
                         panel.decPesoKg, panel.sintCorreccion, panel.decTotal, panel.decPrecioEfectivoRef,
-                        panel.decRelPrecioTyrsa, panel.decKgTyrsa, panel.decKgReferencia, panel.bitActivo, tinOpcion)
+                        panel.decRelPrecioTyrsa, panel.decKgTyrsa, panel.decKgReferencia, panel.bitActivo, (byte)tinOpcion)
                                 select new Resultado
                                 {
                                     vchDescripcion = item.vchDescripcion,
