@@ -57,6 +57,7 @@ namespace Adsisplus.Cotyrsa.WcfService.PanelServices
         /// Procedimiemto que realiza el alta del panel a la cotización
         /// </summary>
         /// <param name="dppPanel"></param>
+        /// <param name="panel"></param>
         /// <param name="intCotizacionID"></param>
         /// <param name="intDetCotizaID"></param>
         /// <param name="intCantidad"></param>
@@ -64,6 +65,6 @@ namespace Adsisplus.Cotyrsa.WcfService.PanelServices
         /// <returns></returns>
         [OperationContract]
         [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "setSeleccionPanel")]
-        Resultado setSeleccionPanel(DatosPantallaPanel dppPanel, int intCotizacionID, int intDetCotizaID, int intCantidad, short tinOpcion);
+        Resultado setSeleccionPanel(DatosPantallaPanel dppPanel, SeleccionPanel panel, int intCotizacionID, int intDetCotizaID, int intCantidad, short tinOpcion);
     }
 }

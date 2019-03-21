@@ -17,6 +17,19 @@ namespace Adsisplus.Cotyrsa.BusinessEntities
         [DataMember]
         public int? intCotizacionID { get; set; }
         [DataMember]
+        public short? sintPinturaID { get; set; }
+        [DataMember]
+        public decimal? decAnchoBus { get; set; }
+        [DataMember]
+        public decimal? decLargo { get; set; }
+        [DataMember]
+        public short? sintCantidadPanelNivel { get; set; }
+        [DataMember]
+        public int? intCantidadPanel { get; set; }
+        [DataMember]
+        public string vchCalibre { get; set; }
+
+        [DataMember]
         public int? intSeleccionPanelID { get; set; }
         [DataMember]
         public int? intPanelID { get; set; }
@@ -24,6 +37,9 @@ namespace Adsisplus.Cotyrsa.BusinessEntities
         public bool? bitGalvanizado { get; set; }
         [DataMember]
         public bool? bitPintado { get; set; }
+
+        // datos que se mostrarán en el grid
+
         [DataMember]
         public short? sintSKU { get; set; }
         [DataMember]

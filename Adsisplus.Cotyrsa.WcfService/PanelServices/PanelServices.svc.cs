@@ -98,17 +98,18 @@ namespace Adsisplus.Cotyrsa.WcfService.PanelServices
         /// Procedimiemto que realiza el alta del panel a la cotización
         /// </summary>
         /// <param name="dppPanel"></param>
+        /// <param name="panel"></param>
         /// <param name="intCotizacionID"></param>
         /// <param name="intDetCotizaID"></param>
         /// <param name="intCantidad"></param>
         /// <param name="tinOpcion"></param>
         /// <returns></returns>
-        public Resultado setSeleccionPanel(DatosPantallaPanel dppPanel, int intCotizacionID, int intDetCotizaID, int intCantidad, short tinOpcion)
+        public Resultado setSeleccionPanel(DatosPantallaPanel dppPanel, SeleccionPanel panel, int intCotizacionID, int intDetCotizaID, int intCantidad, short tinOpcion)
         {
             Resultado result = new Resultado();
             try
             {
-                result = (new PanelLogic()).setSeleccionPanel(dppPanel, intCotizacionID, intDetCotizaID, intCantidad, tinOpcion);
+                result = (new PanelLogic()).setSeleccionPanel(dppPanel, panel, intCotizacionID, intDetCotizaID, intCantidad, tinOpcion);
             }
             catch (Exception ex)
             {

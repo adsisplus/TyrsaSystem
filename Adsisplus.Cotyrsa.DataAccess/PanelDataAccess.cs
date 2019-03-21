@@ -121,11 +121,23 @@ namespace Adsisplus.Cotyrsa.DataAccess
                                     intRackID = item.intRackID,
                                     intDetCotizaID = item.intDetCotizaID,
                                     intCotizacionID = item.intCotizacionID,
+                                    
+                                    // Datos generales de la pantalla
+                                    sintPinturaID = item.sintPinturaID,
+                                    decAnchoBus = item.decAnchoBus,
+                                    decLargo = item.decLargo,
+                                    sintCantidadPanelNivel = item.sintCantidadPanelNivel,
+                                    intCantidadPanel = item.intCantidadPanel,
+                                    vchCalibre = item.vchCalibre,
 
                                     intSeleccionPanelID = item.intSeleccionPanelID,
                                     intPanelID = item.intPanelID,
                                     bitGalvanizado = item.bitGalvanizado,
                                     bitPintado = item.bitPintado,
+
+
+
+                                    // Datos de la selección
                                     sintSKU = item.sintSKU,
                                     vchCalibreAcero = item.vchCalibreAcero,
                                     decAncho = item.decAncho,
@@ -150,20 +162,23 @@ namespace Adsisplus.Cotyrsa.DataAccess
         /// <summary>
         /// Procedimiento que almacena los datos del panel seleccionado
         /// </summary>
+        /// <param name="dppPanel"></param>
         /// <param name="panel"></param>
         /// <param name="tinOpcion"></param>
         /// <returns></returns>
-        public Resultado setSeleccionPanel(SeleccionPanel panel, short tinOpcion)
+        public Resultado setSeleccionPanel(DatosPantallaPanel dppPanel, SeleccionPanel panel, short tinOpcion)
         {
             Resultado result = new Resultado();
             try
             {
                 using (PanelesDataContext dc = new PanelesDataContext(Helper.ConnectionString()))
                 {
-                    var query = from item in dc.stp_setSeleccionPanel(panel.intSeleccionPanelID, panel.intRackID, panel.intDetCotizaID, panel.intPanelID,
-                        panel.bitGalvanizado, panel.bitPintado, panel.sintSKU, panel.vchCalibreAcero, panel.decAncho, panel.decFondo,
-                        panel.decPesoKg, panel.sintCorreccion, panel.decTotal, panel.decPrecioEfectivoRef,
-                        panel.decRelPrecioTyrsa, panel.decKgTyrsa, panel.decKgReferencia, panel.bitActivo, (byte)tinOpcion)
+                    var query = from item in dc.stp_setSeleccionPanel(dppPanel.intSeleccionPanelID, dppPanel.intRackID, panel.intDetCotizaID, panel.intPanelID,
+                        dppPanel.bitGalvanizado, dppPanel.bitPintado, dppPanel.decAnchoBus, dppPanel.sintCantidadPanelNivel, 
+                        // Datos de la seleccion
+                        panel.sintSKU, panel.vchCalibreAcero, panel.decAncho, panel.decFondo, panel.decPesoKg, panel.sintCorreccion, panel.decTotal,
+                        panel.decPrecioEfectivoRef, panel.decRelPrecioTyrsa, panel.decKgTyrsa, panel.decKgReferencia, panel.bitActivo,
+                        (byte)tinOpcion)
                                 select new Resultado
                                 {
                                     vchDescripcion = item.vchDescripcion,

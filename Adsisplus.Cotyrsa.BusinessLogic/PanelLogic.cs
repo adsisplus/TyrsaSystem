@@ -101,7 +101,7 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
         /// <param name="intCantidad"></param>
         /// <param name="tinOpcion"></param>
         /// <returns></returns>
-        public Resultado setSeleccionPanel(DatosPantallaPanel dppPanel, int intCotizacionID, int intDetCotizaID, int intCantidad, short tinOpcion)
+        public Resultado setSeleccionPanel(DatosPantallaPanel dppPanel, SeleccionPanel panel, int intCotizacionID, int intDetCotizaID, int intCantidad, short tinOpcion)
         {
             Resultado result = new Resultado();
             int? intSeleccionPanelID = 0;
@@ -131,37 +131,15 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
                     // Obtenemos el ID de detalle insertado / actualizado
                     intDetCotizaID = Convert.ToInt32(result.vchResultado);
                     dppPanel.intDetCotizaID = intDetCotizaID;
-                    
-                    // Trasladamos la información de la pantalla a la entidad panel
-                    SeleccionPanel panel = new SeleccionPanel();
-                    panel.intDetCotizaID = dppPanel.intDetCotizaID;
-                    panel.intPanelID = dppPanel.intPanelID;
-                    panel.intRackID = dppPanel.intRackID;
-                    panel.intSeleccionPanelID = dppPanel.intSeleccionPanelID;
-                    panel.sintCorreccion = dppPanel.sintCorreccion;
-                    panel.sintSKU = dppPanel.sintSKU;
-                    panel.vchCalibreAcero = dppPanel.vchCalibreAcero;
-                    panel.bitActivo = dppPanel.bitActivo;
-                    panel.bitGalvanizado = dppPanel.bitGalvanizado;
-                    panel.bitPintado = dppPanel.bitPintado;
-                    panel.decAncho = dppPanel.decAncho;
-                    panel.decFondo = dppPanel.decFondo;
-                    panel.decKgReferencia = dppPanel.decKgReferencia;
-                    panel.decKgTyrsa = dppPanel.decKgTyrsa;
-                    panel.decPesoKg = dppPanel.decPesoKg;
-                    panel.decPrecioEfectivoRef = dppPanel.decPrecioEfectivoRef;
-                    panel.decRelPrecioTyrsa = dppPanel.decRelPrecioTyrsa;
-                    panel.decTotal = dppPanel.decTotal;
-
 
                     // 2. Se realiza el registro del panel en las tablas tbl_RackSelectivo y tbl_SeleccionPanel, 
                     // devolverá el intSeleccionPanelID
-                    if (panel.intSeleccionPanelID != null)
+                    if (dppPanel.intSeleccionPanelID != null)
                         // En caso de no ser 0, realizamos la actualización de los datos del marco
-                        result = CatalogosDA.setSeleccionPanel(panel, tinOpcion);
+                        result = CatalogosDA.setSeleccionPanel(dppPanel, panel, tinOpcion);
                     else
                         // En caso contrario, almacenamos los datos de la selección Marco
-                        result = CatalogosDA.setSeleccionPanel(panel, 1);
+                        result = CatalogosDA.setSeleccionPanel(dppPanel, panel, 1);
 
                     // Validamos la respuesta del procedimiento
                     if (result.vchResultado != "NOK")

@@ -21,30 +21,6 @@
       <Column Name="decAncho" Type="System.Decimal" DbType="Decimal(8,3)" CanBeNull="true" />
     </ElementType>
   </Function>
-  <Function Name="dbo.stp_ListarDatosPantallaPanel" Method="stp_ListarDatosPantallaPanel">
-    <Parameter Name="intCotizacionID" Type="System.Int32" DbType="Int" />
-    <Parameter Name="intSeleccionPanelID" Type="System.Int32" DbType="Int" />
-    <ElementType Name="stp_ListarDatosPantallaPanelResult">
-      <Column Name="intRackID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="intDetCotizaID" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="intCotizacionID" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="intSeleccionPanelID" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="intPanelID" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="bitGalvanizado" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="bitPintado" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="sintSKU" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
-      <Column Name="vchCalibreAcero" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="decAncho" Type="System.Decimal" DbType="Decimal(8,3)" CanBeNull="true" />
-      <Column Name="decFondo" Type="System.Decimal" DbType="Decimal(8,3)" CanBeNull="true" />
-      <Column Name="decPesoKg" Type="System.Decimal" DbType="Decimal(8,3)" CanBeNull="true" />
-      <Column Name="sintCorreccion" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
-      <Column Name="decTotal" Type="System.Decimal" DbType="Decimal(8,3)" CanBeNull="true" />
-      <Column Name="decPrecioEfectivoRef" Type="System.Decimal" DbType="Decimal(8,3)" CanBeNull="true" />
-      <Column Name="decRelPrecioTyrsa" Type="System.Decimal" DbType="Decimal(8,3)" CanBeNull="true" />
-      <Column Name="decKgTyrsa" Type="System.Decimal" DbType="Decimal(8,3)" CanBeNull="true" />
-      <Column Name="decKgReferencia" Type="System.Decimal" DbType="Decimal(8,3)" CanBeNull="true" />
-    </ElementType>
-  </Function>
   <Function Name="dbo.stp_ListarSeleccionPanel" Method="stp_ListarSeleccionPanel">
     <Parameter Name="decCapacidadCarga" Type="System.Decimal" DbType="Decimal(8,3)" />
     <Parameter Name="decAncho" Type="System.Decimal" DbType="Decimal(8,3)" />
@@ -66,6 +42,36 @@
       <Column Name="bitActivo" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
     </ElementType>
   </Function>
+  <Function Name="dbo.stp_ListarDatosPantallaPanel" Method="stp_ListarDatosPantallaPanel">
+    <Parameter Name="intCotizacionID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intSeleccionPanelID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="stp_ListarDatosPantallaPanelResult">
+      <Column Name="intRackID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="intDetCotizaID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="intCotizacionID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="sintPinturaID" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="decAnchoBus" Type="System.Decimal" DbType="Decimal(8,3)" CanBeNull="true" />
+      <Column Name="decLargo" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="sintCantidadPanelNivel" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="intCantidadPanel" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="vchCalibre" Type="System.String" DbType="VarChar(2) NOT NULL" CanBeNull="false" />
+      <Column Name="intSeleccionPanelID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="intPanelID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="bitGalvanizado" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="bitPintado" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="sintSKU" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="vchCalibreAcero" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="decAncho" Type="System.Decimal" DbType="Decimal(8,3)" CanBeNull="true" />
+      <Column Name="decFondo" Type="System.Decimal" DbType="Decimal(8,3)" CanBeNull="true" />
+      <Column Name="decPesoKg" Type="System.Decimal" DbType="Decimal(8,3)" CanBeNull="true" />
+      <Column Name="sintCorreccion" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="decTotal" Type="System.Decimal" DbType="Decimal(8,3)" CanBeNull="true" />
+      <Column Name="decPrecioEfectivoRef" Type="System.Decimal" DbType="Decimal(8,3)" CanBeNull="true" />
+      <Column Name="decRelPrecioTyrsa" Type="System.Decimal" DbType="Decimal(8,3)" CanBeNull="true" />
+      <Column Name="decKgTyrsa" Type="System.Decimal" DbType="Decimal(8,3)" CanBeNull="true" />
+      <Column Name="decKgReferencia" Type="System.Decimal" DbType="Decimal(8,3)" CanBeNull="true" />
+    </ElementType>
+  </Function>
   <Function Name="dbo.stp_setSeleccionPanel" Method="stp_setSeleccionPanel">
     <Parameter Name="intSeleccionPanelID" Type="System.Int32" DbType="Int" />
     <Parameter Name="intRackID" Type="System.Int32" DbType="Int" />
@@ -73,6 +79,8 @@
     <Parameter Name="intPanelID" Type="System.Int32" DbType="Int" />
     <Parameter Name="bitGalvanizado" Type="System.Boolean" DbType="Bit" />
     <Parameter Name="bitPintado" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="decAnchoBus" Type="System.Decimal" DbType="Decimal(8,3)" />
+    <Parameter Name="sintCantidadPanelNivel" Type="System.Int16" DbType="SmallInt" />
     <Parameter Name="sintSKU" Type="System.Int16" DbType="SmallInt" />
     <Parameter Name="vchCalibreAcero" Type="System.String" DbType="VarChar(50)" />
     <Parameter Name="decAncho" Type="System.Decimal" DbType="Decimal(8,3)" />

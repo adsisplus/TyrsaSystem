@@ -10,11 +10,11 @@ namespace Adsisplus.Cotyrsa.BusinessEntities
     [DataContract]
     public class SeleccionPanel
     {
-        [DataMember]
-        public int? intSeleccionPanelID { get; set; }
+        //[DataMember]
+        //public int? intSeleccionPanelID { get; set; }
 
-        [DataMember]
-        public int? intRackID { get; set; }
+        //[DataMember]
+        //public int? intRackID { get; set; }
 
         [DataMember]
         public int? intDetCotizaID { get; set; }
@@ -22,11 +22,11 @@ namespace Adsisplus.Cotyrsa.BusinessEntities
         [DataMember]
         public int? intPanelID { get; set; }
 
-        [DataMember]
-        public bool? bitGalvanizado { get; set; }
+        //[DataMember]
+        //public bool? bitGalvanizado { get; set; }
 
-        [DataMember]
-        public bool? bitPintado { get; set; }
+        //[DataMember]
+        //public bool? bitPintado { get; set; }
 
         [DataMember]
         public short? sintSKU { get; set; }
