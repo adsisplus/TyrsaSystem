@@ -10,8 +10,8 @@ namespace Adsisplus.Cotyrsa.BusinessEntities
     [DataContract]
     public class SeleccionPanel
     {
-        //[DataMember]
-        //public int? intSeleccionPanelID { get; set; }
+        [DataMember]
+        public int? intSeleccionPanelID { get; set; }
 
         //[DataMember]
         //public int? intRackID { get; set; }

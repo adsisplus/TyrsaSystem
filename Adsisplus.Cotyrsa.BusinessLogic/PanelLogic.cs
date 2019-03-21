@@ -134,7 +134,7 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
 
                     // 2. Se realiza el registro del panel en las tablas tbl_RackSelectivo y tbl_SeleccionPanel, 
                     // devolverá el intSeleccionPanelID
-                    if (dppPanel.intSeleccionPanelID != null)
+                    if (panel.intSeleccionPanelID != null)
                         // En caso de no ser 0, realizamos la actualización de los datos del marco
                         result = CatalogosDA.setSeleccionPanel(dppPanel, panel, tinOpcion);
                     else
