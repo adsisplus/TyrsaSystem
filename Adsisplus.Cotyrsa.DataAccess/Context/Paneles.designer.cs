@@ -117,6 +117,13 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), intSeleccionPanelID, intRackID, intDetCotizaID, intPanelID, bitGalvanizado, bitPintado, decAnchoBus, sintCantidadPanelNivel, sintSKU, vchCalibreAcero, decAncho, decFondo, decPesoKg, sintCorreccion, decTotal, decPrecioEfectivoRef, decRelPrecioTyrsa, decKgTyrsa, decKgReferencia, bitActivo, tinOpcion);
 			return ((ISingleResult<stp_setSeleccionPanelResult>)(result.ReturnValue));
 		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.stp_ListarDatosSeleccionPanel")]
+		public ISingleResult<stp_ListarDatosSeleccionPanelResult> stp_ListarDatosSeleccionPanel([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intCotizacionID)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), intCotizacionID);
+			return ((ISingleResult<stp_ListarDatosSeleccionPanelResult>)(result.ReturnValue));
+		}
 	}
 	
 	public partial class stp_ListarDatosPanelResult
@@ -1018,6 +1025,248 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 				if ((this._vchDescripcion != value))
 				{
 					this._vchDescripcion = value;
+				}
+			}
+		}
+	}
+	
+	public partial class stp_ListarDatosSeleccionPanelResult
+	{
+		
+		private int _intSeleccionPanelID;
+		
+		private System.Nullable<short> _sintSKU;
+		
+		private string _vchCalibreAcero;
+		
+		private System.Nullable<decimal> _decAncho;
+		
+		private System.Nullable<decimal> _decFondo;
+		
+		private System.Nullable<decimal> _decPesoKg;
+		
+		private System.Nullable<short> _sintCorreccion;
+		
+		private System.Nullable<decimal> _decTotal;
+		
+		private System.Nullable<decimal> _decPrecioEfectivoRef;
+		
+		private System.Nullable<decimal> _decRelPrecioTyrsa;
+		
+		private System.Nullable<decimal> _decKgTyrsa;
+		
+		private System.Nullable<decimal> _decKgReferencia;
+		
+		private System.Nullable<bool> _bitActivo;
+		
+		public stp_ListarDatosSeleccionPanelResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intSeleccionPanelID", DbType="Int NOT NULL")]
+		public int intSeleccionPanelID
+		{
+			get
+			{
+				return this._intSeleccionPanelID;
+			}
+			set
+			{
+				if ((this._intSeleccionPanelID != value))
+				{
+					this._intSeleccionPanelID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sintSKU", DbType="SmallInt")]
+		public System.Nullable<short> sintSKU
+		{
+			get
+			{
+				return this._sintSKU;
+			}
+			set
+			{
+				if ((this._sintSKU != value))
+				{
+					this._sintSKU = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchCalibreAcero", DbType="VarChar(50)")]
+		public string vchCalibreAcero
+		{
+			get
+			{
+				return this._vchCalibreAcero;
+			}
+			set
+			{
+				if ((this._vchCalibreAcero != value))
+				{
+					this._vchCalibreAcero = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decAncho", DbType="Decimal(8,3)")]
+		public System.Nullable<decimal> decAncho
+		{
+			get
+			{
+				return this._decAncho;
+			}
+			set
+			{
+				if ((this._decAncho != value))
+				{
+					this._decAncho = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decFondo", DbType="Decimal(8,3)")]
+		public System.Nullable<decimal> decFondo
+		{
+			get
+			{
+				return this._decFondo;
+			}
+			set
+			{
+				if ((this._decFondo != value))
+				{
+					this._decFondo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decPesoKg", DbType="Decimal(8,3)")]
+		public System.Nullable<decimal> decPesoKg
+		{
+			get
+			{
+				return this._decPesoKg;
+			}
+			set
+			{
+				if ((this._decPesoKg != value))
+				{
+					this._decPesoKg = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sintCorreccion", DbType="SmallInt")]
+		public System.Nullable<short> sintCorreccion
+		{
+			get
+			{
+				return this._sintCorreccion;
+			}
+			set
+			{
+				if ((this._sintCorreccion != value))
+				{
+					this._sintCorreccion = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decTotal", DbType="Decimal(8,3)")]
+		public System.Nullable<decimal> decTotal
+		{
+			get
+			{
+				return this._decTotal;
+			}
+			set
+			{
+				if ((this._decTotal != value))
+				{
+					this._decTotal = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decPrecioEfectivoRef", DbType="Decimal(8,3)")]
+		public System.Nullable<decimal> decPrecioEfectivoRef
+		{
+			get
+			{
+				return this._decPrecioEfectivoRef;
+			}
+			set
+			{
+				if ((this._decPrecioEfectivoRef != value))
+				{
+					this._decPrecioEfectivoRef = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decRelPrecioTyrsa", DbType="Decimal(8,3)")]
+		public System.Nullable<decimal> decRelPrecioTyrsa
+		{
+			get
+			{
+				return this._decRelPrecioTyrsa;
+			}
+			set
+			{
+				if ((this._decRelPrecioTyrsa != value))
+				{
+					this._decRelPrecioTyrsa = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decKgTyrsa", DbType="Decimal(8,3)")]
+		public System.Nullable<decimal> decKgTyrsa
+		{
+			get
+			{
+				return this._decKgTyrsa;
+			}
+			set
+			{
+				if ((this._decKgTyrsa != value))
+				{
+					this._decKgTyrsa = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decKgReferencia", DbType="Decimal(8,3)")]
+		public System.Nullable<decimal> decKgReferencia
+		{
+			get
+			{
+				return this._decKgReferencia;
+			}
+			set
+			{
+				if ((this._decKgReferencia != value))
+				{
+					this._decKgReferencia = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_bitActivo", DbType="Bit")]
+		public System.Nullable<bool> bitActivo
+		{
+			get
+			{
+				return this._bitActivo;
+			}
+			set
+			{
+				if ((this._bitActivo != value))
+				{
+					this._bitActivo = value;
 				}
 			}
 		}

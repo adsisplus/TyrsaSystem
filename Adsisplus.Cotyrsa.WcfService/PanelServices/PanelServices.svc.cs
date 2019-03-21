@@ -93,7 +93,24 @@ namespace Adsisplus.Cotyrsa.WcfService.PanelServices
             }
             return result;
         }
-
+        /// <summary>
+        /// Procedimeinto que nos muestra la lista de seleccion panel en base a una cotizacion
+        /// </summary>
+        /// <param name="intCotizacionID"></param>
+        /// <returns></returns>
+        public List<SeleccionPanel> ListarDatosSeleccionPanel(int intCotizacionID)
+        {
+            List<SeleccionPanel> result = new List<SeleccionPanel>();
+            try
+            {
+                result = (new PanelLogic()).ListarDatosSeleccionPanel(intCotizacionID);
+            }
+            catch (Exception ex)
+            {
+                Adsisplus.Cotyrsa.BusinessLogic.EventLogManager.LogErrorEntry(ex.Message);
+            }
+            return result;
+        }
         /// <summary>
         /// Procedimiemto que realiza el alta del panel a la cotización
         /// </summary>

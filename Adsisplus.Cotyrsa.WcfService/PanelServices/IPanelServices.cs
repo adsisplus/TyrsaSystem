@@ -54,6 +54,14 @@ namespace Adsisplus.Cotyrsa.WcfService.PanelServices
         [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ListarDatosPantallaPanel")]
         List<DatosPantallaPanel> ListarDatosPantallaPanel(int intDetCotizacionID, int intSeleccionPanelID);
         /// <summary>
+        /// Procedimeinto que nos muestra la lista de seleccion panel en base a una cotizacion
+        /// </summary>
+        /// <param name="intCotizacionID"></param>
+        /// <returns></returns>
+        [OperationContract]
+        [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ListarDatosSeleccionPanel")]
+        List<SeleccionPanel> ListarDatosSeleccionPanel(int intCotizacionID);
+        /// <summary>
         /// Procedimiemto que realiza el alta del panel a la cotización
         /// </summary>
         /// <param name="dppPanel"></param>

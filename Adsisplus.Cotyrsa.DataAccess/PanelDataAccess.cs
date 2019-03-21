@@ -160,6 +160,44 @@ namespace Adsisplus.Cotyrsa.DataAccess
             return result;
         }
         /// <summary>
+        /// Procedimeinto que nos muestra la lista de seleccion panel en base a una cotizacion
+        /// </summary>
+        /// <param name="intCotizacionID"></param>
+        /// <returns></returns>
+        public List<SeleccionPanel> ListarDatosSeleccionPanel(int intCotizacionID)
+        {
+            List<SeleccionPanel> result = new List<SeleccionPanel>();
+            try
+            {
+                using (PanelesDataContext dc = new PanelesDataContext(Helper.ConnectionString()))
+                {
+                    var query = from item in dc.stp_ListarDatosSeleccionPanel(intCotizacionID)
+                                select new SeleccionPanel
+                                {
+                                    intSeleccionPanelID = item.intSeleccionPanelID,
+                                    sintSKU = item.sintSKU,
+                                    vchCalibreAcero = item.vchCalibreAcero,
+                                    decAncho = item.decAncho,
+                                    decFondo = item.decFondo,
+                                    decPesoKg = item.decPesoKg,
+                                    sintCorreccion = item.sintCorreccion,
+                                    decTotal = item.decTotal,
+                                    decPrecioEfectivoRef = item.decPrecioEfectivoRef,
+                                    decRelPrecioTyrsa = item.decRelPrecioTyrsa,
+                                    decKgTyrsa = item.decKgTyrsa,
+                                    decKgReferencia = item.decKgReferencia,
+                                    bitActivo = item.bitActivo
+                                };
+                    result.AddRange(query);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
+        /// <summary>
         /// Procedimiento que almacena los datos del panel seleccionado
         /// </summary>
         /// <param name="dppPanel"></param>
