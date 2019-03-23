@@ -73,28 +73,150 @@ namespace Adsisplus.Cotyrsa.DataAccess
                     var query = from item in dc.stp_ListarSeleccionCrossBar(decAncho)
                                 select new SeleccionCrossBar
                                 {
-                                    bitActivo = item.bitActivo,
-                                    decAncho = item.decAncho,
-                                    decAreaPintura = item.decAreaPintura,
-                                    decDesarrollo = item.decDesarrollo,
-                                    decLargo = item.decLargo,
-                                    decLongitud = item.decLongitud,
-                                    decPesoPartida = item.decPesoPartida,
-                                    decPrecioAcero = item.decPrecioAcero,
-                                    decPrecioFinal = item.decPrecioFinal,
-                                    decTotal = item.decTotal,
-                                    decTotalKiloUnitario = item.decTotalKiloUnitario,
-                                    intNumPiezas = item.intNumPiezas,
-                                    intPiezaLamina = item.intPiezaLamina,
-                                    sintCara = item.sintCara,
                                     sintCrossBarID = item.sintCrossBarID,
+                                    vchTipoCrossBar = item.vchTipoCrossBar,
+                                    decPrecioFinal = item.decPrecioFinal,
                                     sintFactorCrossBarID = item.sintFactorCrossBarID,
                                     sintNumPieza = item.sintNumPieza,
-                                    sintPesoPieza = item.sintPesoPieza,
+                                    decDesarrollo = item.decDesarrollo,
+                                    decLongitud = item.decLongitud,
                                     vchMaterial = item.vchMaterial,
-                                    vchTipoCrossBar = item.vchTipoCrossBar
+                                    decAncho = item.decAncho,
+                                    decLargo = item.decLargo,
+                                    intPiezaLamina = item.intPiezaLamina,
+                                    intNumPiezas = item.intNumPiezas,
+                                    sintPesoPieza = item.sintPesoPieza,
+                                    decPesoPartida = item.decPesoPartida,
+                                    decPrecioAcero = item.decPrecioAcero,
+                                    decTotal = item.decTotal,
+                                    decTotalKiloUnitario = item.decTotalKiloUnitario,
+                                    decAreaPintura = item.decAreaPintura,
+                                    sintCara = item.sintCara,
+                                    bitActivo = item.bitActivo
                                 };
                     result.AddRange(query);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
+        /// <summary>
+        /// Procedimiento que muestra los datos de CrossBar, tabla tbl_MST_DatosCrossBar
+        /// </summary>
+        /// <param name="intDatosCrossBarID"></param>
+        /// <param name="intElementoID"></param>
+        /// <param name="intDatoMarcoID"></param>
+        /// <returns></returns>
+        public List<DatosCrossBar> ListarDatosCrossBar(int intDatosCrossBarID, int intElementoID, int intDatoMarcoID)
+        {
+            List<DatosCrossBar> result = new List<DatosCrossBar>();
+            try
+            {
+                using (CrossBarDataContext dc = new CrossBarDataContext(Helper.ConnectionString()))
+                {
+                    var query = from item in dc.stp_ListarDatosCrossBar(intDatosCrossBarID, intElementoID, intDatoMarcoID)
+                                select new DatosCrossBar
+                                {
+                                    bitActivo = item.bitActivo,
+                                    bitConectorVigaCrossbar = item.bitConectorVigaCrossbar,
+                                    decAnchoCrossBar = item.decAnchoCrossBar,
+                                    intCantidadNivelCrossbar = item.intCantidadNivelCrossbar,
+                                    intDatosCrossBarID = item.intDatosCrossBarID,
+                                    vchElemento = item.vchElemento
+                                };
+                    result.AddRange(query);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
+        /// <summary>
+        /// Procedimiento que devuelve la información de una CrossBar seleccionadao
+        /// </summary>
+        /// <param name="intSeleccionCrossBarID"></param>
+        /// <param name="intCotizacionID"></param>
+        /// <returns></returns>
+        public List<DatosPantallaCrossBar> ListarDatosPantallaCrossBar(int intSeleccionCrossBarID, int intCotizacionID)
+        {
+            List<DatosPantallaCrossBar> result = new List<DatosPantallaCrossBar>();
+            try
+            {
+                using (CrossBarDataContext dc = new CrossBarDataContext(Helper.ConnectionString()))
+                {
+                    var query = from item in dc.stp_ListarDatosPantallaCrossBar(intSeleccionCrossBarID, intCotizacionID)
+                                select new DatosPantallaCrossBar
+                                {
+                                    bitConectorViga = item.bitConectorViga,
+                                    decAncho = item.decAnchoBus,
+                                    decLargo = item.decLargoBus,
+                                    intDetCotizaID = item.intDetCotizaID,
+                                    intRackID = item.intRackID,
+                                    crossBar = new SeleccionCrossBar()
+                                    {
+                                        bitActivo = item.bitActivo,
+                                        decAncho = item.decAncho,
+                                        decAreaPintura = item.decAreaPintura,
+                                        decDesarrollo = item.decDesarrollo,
+                                        decLargo = item.decLargo,
+                                        decLongitud = item.decLongitud,
+                                        decPesoPartida = item.decPesoPartida,
+                                        decPrecioAcero = item.decPrecioAcero,
+                                        decPrecioFinal = item.decPrecioFinal,
+                                        decTotal = item.decTotal,
+                                        decTotalKiloUnitario = item.decTotalKiloUnitario,
+                                        intNumPiezas = item.intNumPiezas,
+                                        intPiezaLamina = item.intPiezaLamina,
+                                        intSeleccionCrossBarID = item.intSeleccionCrossBarID,
+                                        sintCara = item.sintCara,
+                                        sintCrossBarID = item.sintCrossBarID,
+                                        sintFactorCrossBarID = item.sintFactorCrossBarID,
+                                        sintNumPieza = item.sintNumPieza,
+                                        sintPesoPieza = item.sintPesoPieza,
+                                        vchMaterial = item.vchMaterial,
+                                        vchTipoCrossBar = item.vchTipoCrossBar
+                                    }
+                                };
+                    result.AddRange(query);
+                }
+            }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
+        /// <summary>
+        /// Procedimiento que realiza el alta del Crossbar
+        /// </summary>
+        /// <param name="datosGrales"></param>
+        /// <param name="crossBar"></param>
+        /// <param name="tinOpcion"></param>
+        /// <returns></returns>
+        public Resultado setSeleccionCrossBar(DatosPantallaCrossBar datosGrales, SeleccionCrossBar crossBar, short tinOpcion)
+        {
+            Resultado result = new Resultado();
+            try
+            {
+                using (CrossBarDataContext dc = new CrossBarDataContext(Helper.ConnectionString()))
+                {
+                    var query = from item in dc.stp_setSeleccionCrossBar(crossBar.intSeleccionCrossBarID, datosGrales.intRackID, datosGrales.intDetCotizaID, datosGrales.decAncho,
+                        datosGrales.decLargo, datosGrales.bitConectorViga, crossBar.sintCrossBarID, crossBar.vchTipoCrossBar, crossBar.decPrecioFinal,
+                        crossBar.sintFactorCrossBarID, crossBar.sintNumPieza, crossBar.decDesarrollo, crossBar.decLongitud, crossBar.vchMaterial,
+                        crossBar.decAncho, crossBar.decLargo, crossBar.intPiezaLamina, crossBar.intNumPiezas, crossBar.sintPesoPieza,
+                        crossBar.decPesoPartida, crossBar.decPrecioAcero, crossBar.decTotal, crossBar.decTotalKiloUnitario, crossBar.decAreaPintura,
+                        crossBar.sintCara, crossBar.bitActivo, (byte) tinOpcion)
+                                select new Resultado
+                                {
+                                    vchResultado = item.vchResultado,
+                                    vchDescripcion = item.vchDescripcion
+                                };
+                    result = query.First();
                 }
             }
             catch (Exception ex)

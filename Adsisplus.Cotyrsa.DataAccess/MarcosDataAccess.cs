@@ -452,8 +452,8 @@ namespace Adsisplus.Cotyrsa.DataAccess
                         // DATOS OPCIÓN DOS
                         rack.decAlturaPiso, rack.decNNSV, rack.decNPVS, 
                         rack.decCargaModulo, rack.decAlturaPandeo,
-                        // DATOS DEL MARCO SELECCIONADO                                            
-                        marco.bitActivo, (byte)tinOpcion)
+                        // DATOS DEL MARCO SELECCIONADO
+                        rack.bitEstructural, marco.bitActivo, (byte)tinOpcion)
                                 select new Resultado
                                 {
                                     vchDescripcion = item.vchDescripcion,

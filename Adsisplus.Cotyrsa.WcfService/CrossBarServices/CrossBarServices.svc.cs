@@ -68,5 +68,47 @@ namespace Adsisplus.Cotyrsa.WcfService.CrossBarServices
             }
             return result;
         }
+        /// <summary>
+        /// Procedimiento que devuelve la información de una CrossBar seleccionadao
+        /// </summary>
+        /// <param name="intSeleccionCrossBarID"></param>
+        /// <param name="intCotizacionID"></param>
+        /// <returns></returns>
+        public List<DatosPantallaCrossBar> ListarDatosPantallaCrossBar(int intSeleccionCrossBarID, int intCotizacionID)
+        {
+            List<DatosPantallaCrossBar> result = new List<DatosPantallaCrossBar>();
+            try
+            {
+                result = (new CrossBarDataLogic()).ListarDatosPantallaCrossBar(intSeleccionCrossBarID, intCotizacionID);
+            }
+            catch (Exception ex)
+            {
+                Adsisplus.Cotyrsa.BusinessLogic.EventLogManager.LogErrorEntry(ex.Message);
+            }
+            return result;
+        }
+        /// <summary>
+        /// Procedimiento que realiza el alta del CrossBar a la cotización
+        /// </summary>
+        /// <param name="dppCrossBar"></param>
+        /// <param name="crossBar"></param>
+        /// <param name="intCotizacionID"></param>
+        /// <param name="intDetCotizaID"></param>
+        /// <param name="intCantidad"></param>
+        /// <param name="tinOpcion"></param>
+        /// <returns></returns>
+        public Resultado setSeleccionCrossBar(DatosPantallaCrossBar dppCrossBar, SeleccionCrossBar crossBar, int intCotizacionID, int intDetCotizaID, int intCantidad, short tinOpcion)
+        {
+            Resultado result = new Resultado();
+            try
+            {
+                result = (new CrossBarDataLogic()).setSeleccionCrossBar(dppCrossBar, crossBar, intCotizacionID, intDetCotizaID, intCantidad, tinOpcion);
+            }
+            catch (Exception ex)
+            {
+                Adsisplus.Cotyrsa.BusinessLogic.EventLogManager.LogErrorEntry(ex.Message);
+            }
+            return result;
+        }
     }
 }

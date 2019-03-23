@@ -25,6 +25,9 @@ namespace Adsisplus.Cotyrsa.BusinessEntities
         public Int16? sintCantidadDatoMarco { get; set; }
 
         [DataMember]
+        public int? intDetCotizaID { get; set; }
+
+        [DataMember]
         public Decimal? decAnchoCrossBar { get; set; }
         [DataMember]
         public Boolean? bitConectorVigaCrossbar { get; set; }

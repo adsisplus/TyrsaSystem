@@ -130,25 +130,27 @@ namespace Adsisplus.Cotyrsa.DataAccess
                                     intCantidadPanel = item.intCantidadPanel,
                                     vchCalibre = item.vchCalibre,
 
-                                    intSeleccionPanelID = item.intSeleccionPanelID,
-                                    intPanelID = item.intPanelID,
                                     bitGalvanizado = item.bitGalvanizado,
                                     bitPintado = item.bitPintado,
 
-
-
                                     // Datos de la selección
-                                    sintSKU = item.sintSKU,
-                                    vchCalibreAcero = item.vchCalibreAcero,
-                                    decAncho = item.decAncho,
-                                    decFondo = item.decFondo,
-                                    decPesoKg = item.decPesoKg,
-                                    sintCorreccion = item.sintCorreccion,
-                                    decTotal = item.decTotal,
-                                    decPrecioEfectivoRef = item.decPrecioEfectivoRef,
-                                    decRelPrecioTyrsa = item.decRelPrecioTyrsa,
-                                    decKgTyrsa = item.decKgTyrsa,
-                                    decKgReferencia = item.decKgReferencia
+                                    panel = new SeleccionPanel()
+                                    {
+                                        intSeleccionPanelID = item.intSeleccionPanelID,
+                                        intPanelID = item.intPanelID,
+
+                                        sintSKU = item.sintSKU,
+                                        vchCalibreAcero = item.vchCalibreAcero,
+                                        decAncho = item.decAncho,
+                                        decFondo = item.decFondo,
+                                        decPesoKg = item.decPesoKg,
+                                        sintCorreccion = item.sintCorreccion,
+                                        decTotal = item.decTotal,
+                                        decPrecioEfectivoRef = item.decPrecioEfectivoRef,
+                                        decRelPrecioTyrsa = item.decRelPrecioTyrsa,
+                                        decKgTyrsa = item.decKgTyrsa,
+                                        decKgReferencia = item.decKgReferencia
+                                    }
                                 };
                     result.AddRange(query);
                 }
@@ -211,7 +213,8 @@ namespace Adsisplus.Cotyrsa.DataAccess
             {
                 using (PanelesDataContext dc = new PanelesDataContext(Helper.ConnectionString()))
                 {
-                    var query = from item in dc.stp_setSeleccionPanel(panel.intSeleccionPanelID, dppPanel.intRackID, panel.intDetCotizaID, panel.intPanelID,
+                    var query = from item in dc.stp_setSeleccionPanel(panel.intSeleccionPanelID, dppPanel.intRackID, dppPanel.intDetCotizaID, 
+                        panel.intPanelID,
                         dppPanel.bitGalvanizado, dppPanel.bitPintado, dppPanel.decAnchoBus, dppPanel.sintCantidadPanelNivel, 
                         // Datos de la seleccion
                         panel.sintSKU, panel.vchCalibreAcero, panel.decAncho, panel.decFondo, panel.decPesoKg, panel.sintCorreccion, panel.decTotal,

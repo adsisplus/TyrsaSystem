@@ -138,8 +138,8 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
                 detCotizacion.intElementoID = 3; // ID correspondiente a Panel
                 detCotizacion.intPartida = 0;
                 detCotizacion.intCantidad = intCantidad;
-                detCotizacion.decMonto = dppPanel.decTotal;
-                detCotizacion.decSubtotal = dppPanel.decTotal * intCantidad;
+                detCotizacion.decMonto = panel.decTotal;
+                detCotizacion.decSubtotal = panel.decTotal * intCantidad;
 
                 // 1. Realizamos el alta de la cotización
                 result = (new CotizacionLogic()).setDetCotizacion(detCotizacion, (short)(intDetCotizaID == 0 ? 1 : tinOpcion));

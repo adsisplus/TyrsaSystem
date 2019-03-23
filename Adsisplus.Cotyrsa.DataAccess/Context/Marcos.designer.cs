@@ -204,10 +204,11 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Decimal(8,3)")] System.Nullable<decimal> decNNPVS, 
 					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Decimal(8,3)")] System.Nullable<decimal> decCargaModulo, 
 					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Decimal(8,3)")] System.Nullable<decimal> decAlturaPandeoRack, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Bit")] System.Nullable<bool> bitEstructural, 
 					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Bit")] System.Nullable<bool> bitActivo, 
 					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="TinyInt")] System.Nullable<byte> tinOpcion)
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), intSeleccionMarcoID, intRackID, intDetCotizaID, intConfiguraMarcoID, sKU, decPesoMarco, decPrecioUnitario, intTipoID, intMaterialID, decFondo, decAltura, decAlturaPandeo, decCapacidadMarco, decFondoMarco, decAlturaMarco, tinOpcionMarco, decDimensionClaro, decNNSVS, decMargenExcedente, decAlturaPiso, decNNSV, decNNPVS, decCargaModulo, decAlturaPandeoRack, bitActivo, tinOpcion);
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), intSeleccionMarcoID, intRackID, intDetCotizaID, intConfiguraMarcoID, sKU, decPesoMarco, decPrecioUnitario, intTipoID, intMaterialID, decFondo, decAltura, decAlturaPandeo, decCapacidadMarco, decFondoMarco, decAlturaMarco, tinOpcionMarco, decDimensionClaro, decNNSVS, decMargenExcedente, decAlturaPiso, decNNSV, decNNPVS, decCargaModulo, decAlturaPandeoRack, bitEstructural, bitActivo, tinOpcion);
 			return ((ISingleResult<stp_setSeleccionMarcoResult>)(result.ReturnValue));
 		}
 	}

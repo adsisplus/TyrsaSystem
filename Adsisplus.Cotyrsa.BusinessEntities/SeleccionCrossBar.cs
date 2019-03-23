@@ -11,6 +11,9 @@ namespace Adsisplus.Cotyrsa.BusinessEntities
     public class SeleccionCrossBar
     {
         [DataMember]
+        public int? intSeleccionCrossBarID { get; set; }
+
+        [DataMember]
         public short? sintCrossBarID { get; set; }
 
         [DataMember]
