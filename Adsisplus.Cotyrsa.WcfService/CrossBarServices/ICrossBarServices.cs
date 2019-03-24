@@ -49,6 +49,15 @@ namespace Adsisplus.Cotyrsa.WcfService.CrossBarServices
         [OperationContract]
         [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ListarDatosPantallaCrossBar")]
         List<DatosPantallaCrossBar> ListarDatosPantallaCrossBar(int intSeleccionCrossBarID, int intCotizacionID);
+
+        /// <summary>
+        /// Procedimiento que obtiene los datos de la seleccion de Cross Bar
+        /// </summary>
+        /// <param name="intCotizacionID"></param>
+        /// <returns></returns>
+        [OperationContract]
+        [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ListarDatosSeleccionCrossBar")]
+        List<SeleccionCrossBar> ListarDatosSeleccionCrossBar(int intCotizacionID);
         /// <summary>
         /// Procedimiento que realiza el alta del CrossBar a la cotización
         /// </summary>

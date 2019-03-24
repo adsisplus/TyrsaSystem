@@ -88,6 +88,24 @@ namespace Adsisplus.Cotyrsa.WcfService.CrossBarServices
             return result;
         }
         /// <summary>
+        /// Procedimiento que obtiene los datos de la seleccion de Cross Bar
+        /// </summary>
+        /// <param name="intCotizacionID"></param>
+        /// <returns></returns>
+        public List<SeleccionCrossBar> ListarDatosSeleccionCrossBar(int intCotizacionID)
+        {
+            List<SeleccionCrossBar> result = new List<SeleccionCrossBar>();
+            try
+            {
+                result = (new CrossBarDataLogic()).ListarDatosSeleccionCrossBar(intCotizacionID);
+            }
+            catch (Exception ex)
+            {
+                Adsisplus.Cotyrsa.BusinessLogic.EventLogManager.LogErrorEntry(ex.Message);
+            }
+            return result;
+        }
+        /// <summary>
         /// Procedimiento que realiza el alta del CrossBar a la cotización
         /// </summary>
         /// <param name="dppCrossBar"></param>

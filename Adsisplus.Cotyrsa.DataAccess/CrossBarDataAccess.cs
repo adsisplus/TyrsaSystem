@@ -192,6 +192,52 @@ namespace Adsisplus.Cotyrsa.DataAccess
             return result;
         }
         /// <summary>
+        /// Procedimiento que obtiene los datos de la seleccion de Cross Bar
+        /// </summary>
+        /// <param name="intCotizacionID"></param>
+        /// <returns></returns>
+        public List<SeleccionCrossBar> ListarDatosSeleccionCrossBar(int intCotizacionID)
+        {
+            List<SeleccionCrossBar> result = new List<SeleccionCrossBar>();
+            try
+            {
+                using (CrossBarDataContext dc = new CrossBarDataContext(Helper.ConnectionString()))
+                {
+                    var query = from item in dc.stp_ListarDatosSeleccionCrossBar(intCotizacionID)
+                                select new SeleccionCrossBar
+                                {
+                                    intSeleccionCrossBarID = item.intSeleccionCrossBarID,
+                                    sintCrossBarID = item.sintCrossBarID,
+                                    vchTipoCrossBar = item.vchTipoCrossBar,
+                                    decPrecioFinal = item.decPrecioFinal,
+                                    sintFactorCrossBarID = item.sintFactorCrossBarID,
+                                    sintNumPieza = item.sintNumPieza,
+                                    decDesarrollo = item.decDesarrollo,
+                                    decLongitud = item.decLongitud,
+                                    vchMaterial = item.vchMaterial,
+                                    decAncho = item.decAncho,
+                                    decLargo = item.decLargo,
+                                    intPiezaLamina = item.sintPesoPieza,
+                                    intNumPiezas = item.intNumPiezas,
+                                    sintPesoPieza = item.sintPesoPieza,
+                                    decPesoPartida = item.decPesoPartida,
+                                    decPrecioAcero = item.decPrecioAcero,
+                                    decTotal = item.decTotal,
+                                    decTotalKiloUnitario = item.decTotalKiloUnitario,
+                                    decAreaPintura = item.decAreaPintura,
+                                    sintCara = item.sintCara,
+                                    bitActivo = item.bitActivo
+                                };
+                    result.AddRange(query);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
+        /// <summary>
         /// Procedimiento que realiza el alta del Crossbar
         /// </summary>
         /// <param name="datosGrales"></param>

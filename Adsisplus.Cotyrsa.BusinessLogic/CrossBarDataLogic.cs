@@ -111,6 +111,24 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
             return result;
         }
         /// <summary>
+        /// Procedimiento que obtiene los datos de la seleccion de Cross Bar
+        /// </summary>
+        /// <param name="intCotizacionID"></param>
+        /// <returns></returns>
+        public List<SeleccionCrossBar> ListarDatosSeleccionCrossBar(int intCotizacionID)
+        {
+            List<SeleccionCrossBar> result = new List<SeleccionCrossBar>();
+            try
+            {
+                result = CatalogosDA.ListarDatosSeleccionCrossBar(intCotizacionID);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
+        /// <summary>
         /// Procedimiento que realiza el alta del CrossBar a la cotización
         /// </summary>
         /// <param name="dppCrossBar"></param>
