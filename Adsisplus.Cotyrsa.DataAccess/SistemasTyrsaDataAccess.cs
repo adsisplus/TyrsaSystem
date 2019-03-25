@@ -187,8 +187,8 @@ namespace Adsisplus.Cotyrsa.DataAccess
             {
                 using (SistemasTyrsaDataContext dc = new SistemasTyrsaDataContext(Helper.ConnectionString()))
                 {
-                    var query = from item in dc.stp_setDatosDistanciador(datosDistanciador.intDistanciadorID, datosDistanciador.intCotizacionID, datosDistanciador.intElementoID,
-                        datosDistanciador.intCantidadDistanciador, datosDistanciador.decLargoDistanciador, datosDistanciador.bitActivo, (byte)sintOpcion)
+                    var query = from item in dc.stp_setDatosDistanciador(datosDistanciador.intDistanciadorID, datosDistanciador.intCotizacionID, datosDistanciador.intDetCotizaID, datosDistanciador.intElementoID,
+                        datosDistanciador.sintPinturaID, datosDistanciador.intCantidadDistanciador, datosDistanciador.decLargoDistanciador, datosDistanciador.bitActivo, (byte)sintOpcion)
                                 select new Resultado
                                 {
                                     vchDescripcion = item.vchDescripcion,
@@ -217,7 +217,7 @@ namespace Adsisplus.Cotyrsa.DataAccess
                 using (SistemasTyrsaDataContext dc = new SistemasTyrsaDataContext(Helper.ConnectionString()))
                 {
                     var query = from item in dc.stp_setDatosParrilla(datosParrilla.intParrillaID, datosParrilla.intElementoID, datosParrilla.sintPinturaID,
-                        datosParrilla.intCotizacionID, datosParrilla.decFrenteParrilla, datosParrilla.decFondoParrilla, datosParrilla.decCostoParrilla,
+                        datosParrilla.intCotizacionID, datosParrilla.intDetCotizaID, datosParrilla.decFrenteParrilla, datosParrilla.decFondoParrilla, datosParrilla.decCostoParrilla,
                         datosParrilla.decTamanioCuadroParrilla, datosParrilla.intCantidadParrilla, datosParrilla.bitActivo, (byte)sintOpcion)
                                 select new Resultado
                                 {
@@ -246,8 +246,8 @@ namespace Adsisplus.Cotyrsa.DataAccess
             {
                 using (SistemasTyrsaDataContext dc = new SistemasTyrsaDataContext(Helper.ConnectionString()))
                 {
-                    var query = from item in dc.stp_setDatosVigaTope(datosVigaTope.intVigaTopeID, datosVigaTope.intCantidadVigaTope, datosVigaTope.intElementoID,
-                        datosVigaTope.intDatosVigaID, datosVigaTope.intCotizacionID, datosVigaTope.sintPinturaID, datosVigaTope.intCantidad,
+                    var query = from item in dc.stp_setDatosVigaTope(datosVigaTope.intVigaTopeID, datosVigaTope.intElementoID, datosVigaTope.intDatosVigaID, datosVigaTope.intCotizacionID,
+                        datosVigaTope.intDetCotizaID, datosVigaTope.sintPinturaID, datosVigaTope.intCantidad, datosVigaTope.decPrecioUnitario,
                         datosVigaTope.bitActivo, (byte)sintOpcion)
                                 select new Resultado
                                 {
@@ -276,8 +276,8 @@ namespace Adsisplus.Cotyrsa.DataAccess
             {
                 using (SistemasTyrsaDataContext dc = new SistemasTyrsaDataContext(Helper.ConnectionString()))
                 {
-                    var query = from item in dc.stp_setDatosProtectorPoste(datosProtector.intProtectorPosteID, datosProtector.intElementoID, datosProtector.intCotizacionID,
-                        datosProtector.sintPinturaID, datosProtector.intCantidadProtectorPoste, datosProtector.bitActivo, (byte)sintOpcion)
+                    var query = from item in dc.stp_setDatosProtectorPoste(datosProtector.intProtectorPosteID, datosProtector.intElementoID, datosProtector.intCotizacionID, datosProtector.intDetCotizaID,
+                        datosProtector.decPrecioUnitario, datosProtector.sintPinturaID, datosProtector.intCantidadProtectorPoste, datosProtector.bitActivo, (byte)sintOpcion)
                                 select new Resultado
                                 {
                                     vchDescripcion = item.vchDescripcion,
@@ -305,9 +305,10 @@ namespace Adsisplus.Cotyrsa.DataAccess
             {
                 using (SistemasTyrsaDataContext dc = new SistemasTyrsaDataContext(Helper.ConnectionString()))
                 {
-                    var query = from item in dc.stp_setDatosProtectorBateria(datosProtectorBateria.intProtectorBateriaID, datosProtectorBateria.intElementoID,
-                        datosProtectorBateria.intCotizacionID, datosProtectorBateria.intCantidadSencilla, datosProtectorBateria.intCantidadDoble,
-                        datosProtectorBateria.intCantidadCuadruple, datosProtectorBateria.bitActivo, (byte)sintOpcion)
+                    var query = from item in dc.stp_setDatosProtectorBateria(datosProtectorBateria.intProtectorBateriaID, datosProtectorBateria.intElementoID, datosProtectorBateria.intCotizacionID,
+                        datosProtectorBateria.intDetCotizaID, datosProtectorBateria.intCantidadSencilla, datosProtectorBateria.intCantidadDoble, datosProtectorBateria.intCantidadTriple,
+                        datosProtectorBateria.intCantidadCuadruple, datosProtectorBateria.decPrecioSencilla, datosProtectorBateria.decPrecioDoble, datosProtectorBateria.decPrecioTriple, datosProtectorBateria.decPrecioCuadruple,
+                        datosProtectorBateria.bitActivo, (byte)sintOpcion)
                                 select new Resultado
                                 {
                                     vchDescripcion = item.vchDescripcion,

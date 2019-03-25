@@ -63,16 +63,16 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.stp_ListarDatosProtectorPoste")]
-		public ISingleResult<stp_ListarDatosProtectorPosteResult> stp_ListarDatosProtectorPoste([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intProtectorPosteID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intElementoID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intCotizacionID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="SmallInt")] System.Nullable<short> sintPinturaID)
+		public ISingleResult<stp_ListarDatosProtectorPosteResult> stp_ListarDatosProtectorPoste([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intProtectorPosteID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intElementoID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intCotizacionID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intDetCotizaID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="SmallInt")] System.Nullable<short> sintPinturaID)
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), intProtectorPosteID, intElementoID, intCotizacionID, sintPinturaID);
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), intProtectorPosteID, intElementoID, intCotizacionID, intDetCotizaID, sintPinturaID);
 			return ((ISingleResult<stp_ListarDatosProtectorPosteResult>)(result.ReturnValue));
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.stp_ListarDatosProtectorBateria")]
-		public ISingleResult<stp_ListarDatosProtectorBateriaResult> stp_ListarDatosProtectorBateria([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intProtectorBateriaID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intElementoID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intCotizacionID)
+		public ISingleResult<stp_ListarDatosProtectorBateriaResult> stp_ListarDatosProtectorBateria([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intProtectorBateriaID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intElementoID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intCotizacionID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intDetCotizaID)
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), intProtectorBateriaID, intElementoID, intCotizacionID);
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), intProtectorBateriaID, intElementoID, intCotizacionID, intDetCotizaID);
 			return ((ISingleResult<stp_ListarDatosProtectorBateriaResult>)(result.ReturnValue));
 		}
 	}
@@ -86,11 +86,15 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 		
 		private System.Nullable<int> _intCotizacionID;
 		
+		private System.Nullable<int> _intDetCotizaID;
+		
 		private string _vchFolio;
 		
 		private string _vchPintura;
 		
 		private System.Nullable<int> _intCantidadProtectorPoste;
+		
+		private System.Nullable<decimal> _decPrecioUnitario;
 		
 		private System.Nullable<bool> _bitActivo;
 		
@@ -146,6 +150,22 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intDetCotizaID", DbType="Int")]
+		public System.Nullable<int> intDetCotizaID
+		{
+			get
+			{
+				return this._intDetCotizaID;
+			}
+			set
+			{
+				if ((this._intDetCotizaID != value))
+				{
+					this._intDetCotizaID = value;
+				}
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchFolio", DbType="VarChar(250)")]
 		public string vchFolio
 		{
@@ -194,6 +214,22 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decPrecioUnitario", DbType="Decimal(18,2)")]
+		public System.Nullable<decimal> decPrecioUnitario
+		{
+			get
+			{
+				return this._decPrecioUnitario;
+			}
+			set
+			{
+				if ((this._decPrecioUnitario != value))
+				{
+					this._decPrecioUnitario = value;
+				}
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_bitActivo", DbType="Bit")]
 		public System.Nullable<bool> bitActivo
 		{
@@ -220,13 +256,25 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 		
 		private System.Nullable<int> _intCotizacionID;
 		
+		private System.Nullable<int> _intDetCotizaID;
+		
 		private string _vchFolio;
 		
 		private System.Nullable<int> _intCantidadSencilla;
 		
 		private System.Nullable<int> _intCantidadDoble;
 		
+		private System.Nullable<int> _intCantidadTriple;
+		
 		private System.Nullable<int> _intCantidadCuadruple;
+		
+		private System.Nullable<decimal> _decPrecioSencilla;
+		
+		private System.Nullable<decimal> _decPrecioDoble;
+		
+		private System.Nullable<decimal> _decPrecioTriple;
+		
+		private System.Nullable<decimal> _decPrecioCuadruple;
 		
 		private System.Nullable<bool> _bitActivo;
 		
@@ -282,6 +330,22 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intDetCotizaID", DbType="Int")]
+		public System.Nullable<int> intDetCotizaID
+		{
+			get
+			{
+				return this._intDetCotizaID;
+			}
+			set
+			{
+				if ((this._intDetCotizaID != value))
+				{
+					this._intDetCotizaID = value;
+				}
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchFolio", DbType="VarChar(250)")]
 		public string vchFolio
 		{
@@ -330,6 +394,22 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intCantidadTriple", DbType="Int")]
+		public System.Nullable<int> intCantidadTriple
+		{
+			get
+			{
+				return this._intCantidadTriple;
+			}
+			set
+			{
+				if ((this._intCantidadTriple != value))
+				{
+					this._intCantidadTriple = value;
+				}
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intCantidadCuadruple", DbType="Int")]
 		public System.Nullable<int> intCantidadCuadruple
 		{
@@ -342,6 +422,70 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 				if ((this._intCantidadCuadruple != value))
 				{
 					this._intCantidadCuadruple = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decPrecioSencilla", DbType="Decimal(18,2)")]
+		public System.Nullable<decimal> decPrecioSencilla
+		{
+			get
+			{
+				return this._decPrecioSencilla;
+			}
+			set
+			{
+				if ((this._decPrecioSencilla != value))
+				{
+					this._decPrecioSencilla = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decPrecioDoble", DbType="Decimal(18,2)")]
+		public System.Nullable<decimal> decPrecioDoble
+		{
+			get
+			{
+				return this._decPrecioDoble;
+			}
+			set
+			{
+				if ((this._decPrecioDoble != value))
+				{
+					this._decPrecioDoble = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decPrecioTriple", DbType="Decimal(18,2)")]
+		public System.Nullable<decimal> decPrecioTriple
+		{
+			get
+			{
+				return this._decPrecioTriple;
+			}
+			set
+			{
+				if ((this._decPrecioTriple != value))
+				{
+					this._decPrecioTriple = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decPrecioCuadruple", DbType="Decimal(18,2)")]
+		public System.Nullable<decimal> decPrecioCuadruple
+		{
+			get
+			{
+				return this._decPrecioCuadruple;
+			}
+			set
+			{
+				if ((this._decPrecioCuadruple != value))
+				{
+					this._decPrecioCuadruple = value;
 				}
 			}
 		}

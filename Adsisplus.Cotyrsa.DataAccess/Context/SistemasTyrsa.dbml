@@ -29,78 +29,6 @@
       <Column Name="vchDescripcion" Type="System.String" DbType="VarChar(52) NOT NULL" CanBeNull="false" />
     </ElementType>
   </Function>
-  <Function Name="dbo.stp_setDatosDistanciador" Method="stp_setDatosDistanciador">
-    <Parameter Name="intDistanciadorID" Type="System.Int32" DbType="Int" />
-    <Parameter Name="intCotizacionID" Type="System.Int32" DbType="Int" />
-    <Parameter Name="intElementoID" Type="System.Int32" DbType="Int" />
-    <Parameter Name="intCantidadDistanciador" Type="System.Int32" DbType="Int" />
-    <Parameter Name="decLargoDistanciador" Type="System.Decimal" DbType="Decimal(20,2)" />
-    <Parameter Name="bitActivo" Type="System.Boolean" DbType="Bit" />
-    <Parameter Name="tinOpcion" Type="System.Byte" DbType="TinyInt" />
-    <ElementType Name="stp_setDatosDistanciadorResult">
-      <Column Name="vchResultado" Type="System.String" DbType="VarChar(2) NOT NULL" CanBeNull="false" />
-      <Column Name="vchDescripcion" Type="System.String" DbType="VarChar(55) NOT NULL" CanBeNull="false" />
-    </ElementType>
-  </Function>
-  <Function Name="dbo.stp_setDatosParrilla" Method="stp_setDatosParrilla">
-    <Parameter Name="intParrillaID" Type="System.Int32" DbType="Int" />
-    <Parameter Name="intElementoID" Type="System.Int32" DbType="Int" />
-    <Parameter Name="sintPinturaID" Type="System.Int16" DbType="SmallInt" />
-    <Parameter Name="intCotizacionID" Type="System.Int32" DbType="Int" />
-    <Parameter Name="decFrenteParrilla" Type="System.Decimal" DbType="Decimal(20,2)" />
-    <Parameter Name="decFondoParrilla" Type="System.Decimal" DbType="Decimal(20,2)" />
-    <Parameter Name="decCostoParrilla" Type="System.Decimal" DbType="Decimal(20,2)" />
-    <Parameter Name="decTamanioCuadroParrilla" Type="System.Decimal" DbType="Decimal(20,2)" />
-    <Parameter Name="intCantidadParrilla" Type="System.Int32" DbType="Int" />
-    <Parameter Name="bitActivo" Type="System.Boolean" DbType="Bit" />
-    <Parameter Name="tinOpcion" Type="System.Byte" DbType="TinyInt" />
-    <ElementType Name="stp_setDatosParrillaResult">
-      <Column Name="vchResultado" Type="System.String" DbType="VarChar(2) NOT NULL" CanBeNull="false" />
-      <Column Name="vchDescripcion" Type="System.String" DbType="VarChar(51) NOT NULL" CanBeNull="false" />
-    </ElementType>
-  </Function>
-  <Function Name="dbo.stp_setDatosVigaTope" Method="stp_setDatosVigaTope">
-    <Parameter Name="intVigaTopeID" Type="System.Int32" DbType="Int" />
-    <Parameter Name="intCantidadVigaTope" Type="System.Int32" DbType="Int" />
-    <Parameter Name="intElementoID" Type="System.Int32" DbType="Int" />
-    <Parameter Name="intDatosVigaID" Type="System.Int32" DbType="Int" />
-    <Parameter Name="intCotizacionID" Type="System.Int32" DbType="Int" />
-    <Parameter Name="sintPinturaID" Type="System.Int16" DbType="SmallInt" />
-    <Parameter Name="intCantidad" Type="System.Int32" DbType="Int" />
-    <Parameter Name="bitActivo" Type="System.Boolean" DbType="Bit" />
-    <Parameter Name="tinOpcion" Type="System.Byte" DbType="TinyInt" />
-    <ElementType Name="stp_setDatosVigaTopeResult">
-      <Column Name="vchResultado" Type="System.String" DbType="VarChar(2) NOT NULL" CanBeNull="false" />
-      <Column Name="vchDescripcion" Type="System.String" DbType="VarChar(52) NOT NULL" CanBeNull="false" />
-    </ElementType>
-  </Function>
-  <Function Name="dbo.stp_setDatosProtectorPoste" Method="stp_setDatosProtectorPoste">
-    <Parameter Name="intProtectorPosteID" Type="System.Int32" DbType="Int" />
-    <Parameter Name="intElementoID" Type="System.Int32" DbType="Int" />
-    <Parameter Name="intCotizacionID" Type="System.Int32" DbType="Int" />
-    <Parameter Name="sintPinturaID" Type="System.Int16" DbType="SmallInt" />
-    <Parameter Name="intCantidadProtectorPoste" Type="System.Int32" DbType="Int" />
-    <Parameter Name="bitActivo" Type="System.Boolean" DbType="Bit" />
-    <Parameter Name="tinOpcion" Type="System.Byte" DbType="TinyInt" />
-    <ElementType Name="stp_setDatosProtectorPosteResult">
-      <Column Name="vchResultado" Type="System.String" DbType="VarChar(2) NOT NULL" CanBeNull="false" />
-      <Column Name="vchDescripcion" Type="System.String" DbType="VarChar(58) NOT NULL" CanBeNull="false" />
-    </ElementType>
-  </Function>
-  <Function Name="dbo.stp_setDatosProtectorBateria" Method="stp_setDatosProtectorBateria">
-    <Parameter Name="intProtectorBateriaID" Type="System.Int32" DbType="Int" />
-    <Parameter Name="intElementoID" Type="System.Int32" DbType="Int" />
-    <Parameter Name="intCotizacionID" Type="System.Int32" DbType="Int" />
-    <Parameter Name="intCantidadSencilla" Type="System.Int32" DbType="Int" />
-    <Parameter Name="intCantidadDoble" Type="System.Int32" DbType="Int" />
-    <Parameter Name="intCantidadCuadruple" Type="System.Int32" DbType="Int" />
-    <Parameter Name="bitActivo" Type="System.Boolean" DbType="Bit" />
-    <Parameter Name="tinOpcion" Type="System.Byte" DbType="TinyInt" />
-    <ElementType Name="stp_setDatosProtectorBateriaResult">
-      <Column Name="vchResultado" Type="System.String" DbType="VarChar(2) NOT NULL" CanBeNull="false" />
-      <Column Name="vchDescripcion" Type="System.String" DbType="VarChar(60) NOT NULL" CanBeNull="false" />
-    </ElementType>
-  </Function>
   <Function Name="dbo.stp_setDatosViga" Method="stp_setDatosViga">
     <Parameter Name="intDatosVigaID" Type="System.Int32" DbType="Int" />
     <Parameter Name="intDetCotizaID" Type="System.Int32" DbType="Int" />
@@ -138,6 +66,90 @@
     <ElementType Name="stp_setDatosMarcoResult">
       <Column Name="vchResultado" Type="System.String" DbType="VarChar(12)" CanBeNull="true" />
       <Column Name="vchDescripcion" Type="System.String" DbType="VarChar(48) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.stp_setDatosProtectorPoste" Method="stp_setDatosProtectorPoste">
+    <Parameter Name="intProtectorPosteID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intElementoID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intCotizacionID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intDetCotizaID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="decPrecioUnitario" Type="System.Decimal" DbType="Decimal(8,3)" />
+    <Parameter Name="sintPinturaID" Type="System.Int16" DbType="SmallInt" />
+    <Parameter Name="intCantidadProtectorPoste" Type="System.Int32" DbType="Int" />
+    <Parameter Name="bitActivo" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="tinOpcion" Type="System.Byte" DbType="TinyInt" />
+    <ElementType Name="stp_setDatosProtectorPosteResult">
+      <Column Name="vchResultado" Type="System.String" DbType="VarChar(12)" CanBeNull="true" />
+      <Column Name="vchDescripcion" Type="System.String" DbType="VarChar(58) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.stp_setDatosProtectorBateria" Method="stp_setDatosProtectorBateria">
+    <Parameter Name="intProtectorBateriaID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intElementoID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intCotizacionID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intDetCotizaID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intCantidadSencilla" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intCantidadDoble" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intCantidadTriple" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intCantidadCuadruple" Type="System.Int32" DbType="Int" />
+    <Parameter Name="decPrecioSencilla" Type="System.Decimal" DbType="Decimal(8,3)" />
+    <Parameter Name="decPrecioDoble" Type="System.Decimal" DbType="Decimal(8,3)" />
+    <Parameter Name="decPrecioTriple" Type="System.Decimal" DbType="Decimal(8,3)" />
+    <Parameter Name="decPrecioCuadruple" Type="System.Decimal" DbType="Decimal(8,3)" />
+    <Parameter Name="bitActivo" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="tinOpcion" Type="System.Byte" DbType="TinyInt" />
+    <ElementType Name="stp_setDatosProtectorBateriaResult">
+      <Column Name="vchResultado" Type="System.String" DbType="VarChar(12)" CanBeNull="true" />
+      <Column Name="vchDescripcion" Type="System.String" DbType="VarChar(60) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.stp_setDatosVigaTope" Method="stp_setDatosVigaTope">
+    <Parameter Name="intVigaTopeID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intElementoID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intDatosVigaID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intCotizacionID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intDetCotizaID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="sintPinturaID" Type="System.Int16" DbType="SmallInt" />
+    <Parameter Name="intCantidad" Type="System.Int32" DbType="Int" />
+    <Parameter Name="decPrecioUnitario" Type="System.Decimal" DbType="Decimal(8,3)" />
+    <Parameter Name="bitActivo" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="tinOpcion" Type="System.Byte" DbType="TinyInt" />
+    <ElementType Name="stp_setDatosVigaTopeResult">
+      <Column Name="vchResultado" Type="System.String" DbType="VarChar(12)" CanBeNull="true" />
+      <Column Name="vchDescripcion" Type="System.String" DbType="VarChar(52) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.stp_setDatosParrilla" Method="stp_setDatosParrilla">
+    <Parameter Name="intParrillaID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intElementoID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="sintPinturaID" Type="System.Int16" DbType="SmallInt" />
+    <Parameter Name="intCotizacionID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intDetCotizaID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="decFrenteParrilla" Type="System.Decimal" DbType="Decimal(20,2)" />
+    <Parameter Name="decFondoParrilla" Type="System.Decimal" DbType="Decimal(20,2)" />
+    <Parameter Name="decCostoParrilla" Type="System.Decimal" DbType="Decimal(20,2)" />
+    <Parameter Name="decTamanioCuadroParrilla" Type="System.Decimal" DbType="Decimal(20,2)" />
+    <Parameter Name="intCantidadParrilla" Type="System.Int32" DbType="Int" />
+    <Parameter Name="bitActivo" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="tinOpcion" Type="System.Byte" DbType="TinyInt" />
+    <ElementType Name="stp_setDatosParrillaResult">
+      <Column Name="vchResultado" Type="System.String" DbType="VarChar(12)" CanBeNull="true" />
+      <Column Name="vchDescripcion" Type="System.String" DbType="VarChar(51) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.stp_setDatosDistanciador" Method="stp_setDatosDistanciador">
+    <Parameter Name="intDistanciadorID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intCotizacionID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intDetCotizaID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intElementoID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="sintPinturaID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intCantidadDistanciador" Type="System.Int32" DbType="Int" />
+    <Parameter Name="decLargoDistanciador" Type="System.Decimal" DbType="Decimal(20,2)" />
+    <Parameter Name="bitActivo" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="tinOpcion" Type="System.Byte" DbType="TinyInt" />
+    <ElementType Name="stp_setDatosDistanciadorResult">
+      <Column Name="vchResultado" Type="System.String" DbType="VarChar(12)" CanBeNull="true" />
+      <Column Name="vchDescripcion" Type="System.String" DbType="VarChar(55) NOT NULL" CanBeNull="false" />
     </ElementType>
   </Function>
 </Database>

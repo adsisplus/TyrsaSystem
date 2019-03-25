@@ -22,7 +22,16 @@ namespace Adsisplus.Cotyrsa.WcfService.ParrillaServices
         /// <param name="intCotizacionID"></param>
         /// <returns></returns>
         [OperationContract]
-        [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ListarDatosPanel")]
-        List<DatosParrilla> ListarDatosPanel(Int32 intParrillaID, Int32 intElementoID, Int16 sintPinturaID, Int32 intCotizacionID);
+        [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ListarDatosParrilla")]
+        List<DatosParrilla> ListarDatosParrilla(Int32 intParrillaID, Int32 intElementoID, Int16 sintPinturaID, Int32 intCotizacionID, int intDetCotizaID);
+        /// <summary>
+        /// Procedimiento que almacena los datos de la parrilla
+        /// </summary>
+        /// <param name="parrilla"></param>
+        /// <param name="tinOpcion"></param>
+        /// <returns></returns>
+        [OperationContract]
+        [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "setDatosParrilla")]
+        Resultado setDatosParrilla(DatosParrilla parrilla, short tinOpcion);
     }
 }

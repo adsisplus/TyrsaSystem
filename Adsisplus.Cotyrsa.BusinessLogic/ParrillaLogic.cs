@@ -21,19 +21,89 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
         }
 
         #endregion
-
-        public List<DatosParrilla> ListarDatosPanel(Int32 intParrillaID, Int32 intElementoID, Int16 sintPinturaID, Int32 intCotizacionID)
+        /// <summary>
+        /// Procedimiento que muestra los datos de la parrilla en base a la cotización
+        /// </summary>
+        /// <param name="intParrillaID"></param>
+        /// <param name="intElementoID"></param>
+        /// <param name="sintPinturaID"></param>
+        /// <param name="intCotizacionID"></param>
+        /// <param name="intDetCotizaID"></param>
+        /// <returns></returns>
+        public List<DatosParrilla> ListarDatosParrilla(Int32 intParrillaID, Int32 intElementoID, Int16 sintPinturaID, Int32 intCotizacionID, int intDetCotizaID)
         {
             List<DatosParrilla> results = null;
             try
             {
-                results = CatalogosDA.ListarDatosPanel(intParrillaID, intElementoID, sintPinturaID, intCotizacionID);
+                results = CatalogosDA.ListarDatosParrilla(intParrillaID, intElementoID, sintPinturaID, intCotizacionID, intDetCotizaID);
             }
             catch (Exception ex)
             {
                 throw ex;
             }
             return results;
+        }
+        /// <summary>
+        /// Procedimiento que almacena los datos de la parrilla
+        /// </summary>
+        /// <param name="parrilla"></param>
+        /// <param name="tinOpcion"></param>
+        /// <returns></returns>
+        public Resultado setDatosParrilla(DatosParrilla parrilla, short tinOpcion)
+        {
+            Resultado result = new Resultado();
+            int? intParrillaID;
+            int? intDetCotizaID;
+            try
+            {
+                // Obtenemos la información del sistema Selectivo
+                RelSistemaSelectivo sistema = (new CotizacionLogic()).ListarDatosSistemaSelectivo((int)parrilla.intCotizacionID);
+                intParrillaID = null;
+
+                // Procedemos a llenar la entidad de la cotización
+                Cotizacion detCotizacion = new Cotizacion();
+                detCotizacion.intDetCotizaID = parrilla.intDetCotizaID;
+                detCotizacion.intCotizacionID = parrilla.intCotizacionID;
+                detCotizacion.intElementoID = 6; // ID correspondiente a Parrilla
+                detCotizacion.intPartida = 0;
+                detCotizacion.intCantidad = parrilla.intCantidadParrilla;
+                detCotizacion.decMonto = parrilla.decCostoParrilla;
+                detCotizacion.decSubtotal = parrilla.decCostoParrilla * parrilla.intCantidadParrilla;
+
+                // 1. Realizamos el alta de la cotización
+                result = (new CotizacionLogic()).setDetCotizacion(detCotizacion, (short)(parrilla.intDetCotizaID == 0 ? 1 : tinOpcion));
+                // Validamos la respuesta obtenida
+                if (result.vchResultado != "NOK")
+                {
+                    // Almacenamos el ID del detalle de la cotización
+                    intDetCotizaID = Convert.ToInt32(result.vchResultado);
+                    parrilla.intDetCotizaID = intDetCotizaID;
+                    // Procedeimos a realizar el almacenado de la información
+                    result = (new SistemasTyrsaLogic()).setDatosParrilla(parrilla, tinOpcion);
+                    if (result.vchResultado != "NOK")
+                    {
+                        intParrillaID = Convert.ToInt32(result.vchResultado);
+                        if ((sistema.intParrillaID == null || sistema.intParrillaID == 0) || tinOpcion == 3)
+                        {
+                            // En caso de realizar la baja, establecemos el valor a 0
+                            if (tinOpcion == 3)
+                                sistema.intParrillaID = 0;
+                            else
+                                sistema.intParrillaID = intParrillaID;
+
+                            sistema.intTipoElementoAlmacenID = 17;
+                            sistema.intCotizacionID = parrilla.intCotizacionID;
+
+                            result = (new CotizacionLogic()).setDatosRelSistemaSelectivo(sistema, 2);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
         }
     }
 }

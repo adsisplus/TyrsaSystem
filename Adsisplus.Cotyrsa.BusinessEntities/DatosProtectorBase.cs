@@ -20,6 +20,10 @@ namespace Adsisplus.Cotyrsa.BusinessEntities
 
         [DataMember]
         public Int32? intCotizacionID { get; set; }
+
+        [DataMember]
+        public int? intDetCotizaID { get; set; }
+
         [DataMember]
         public String vchFolio { get; set; }
 
@@ -27,6 +31,9 @@ namespace Adsisplus.Cotyrsa.BusinessEntities
         public Int16? sintPinturaID { get; set; }
         [DataMember]
         public String vchPintura { get; set; }
+
+        [DataMember]
+        public decimal? decPrecioUnitario { get; set; }
 
         [DataMember]
         public Int32? intCantidadProtectorPoste { get; set; }

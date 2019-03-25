@@ -92,13 +92,23 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
             }
             return results;
         }
-
-        public List<DatosVigaTope> ListarDatosVigaTope(Int32 intCantidadVigaTope, Int32 intVigaTopeID, Int32 intElementoID, Int32 intDatosVigaID, Int32 intCotizacionID, Int16 sintPinturaID)
+        /// <summary>
+        /// Procedimiento que lista los datos de la viga tope lisgado a la cotización
+        /// </summary>
+        /// <param name="intCantidadVigaTope"></param>
+        /// <param name="intVigaTopeID"></param>
+        /// <param name="intElementoID"></param>
+        /// <param name="intDatosVigaID"></param>
+        /// <param name="intCotizacionID"></param>
+        /// <param name="intDetCotizaID"></param>
+        /// <param name="sintPinturaID"></param>
+        /// <returns></returns>
+        public List<DatosVigaTope> ListarDatosVigaTope(Int32 intCantidadVigaTope, Int32 intVigaTopeID, Int32 intElementoID, Int32 intDatosVigaID, Int32 intCotizacionID, int intDetCotizaID, Int16 sintPinturaID)
         {
             List<DatosVigaTope> results = null;
             try
             {
-                results = CatalogosDA.ListarDatosVigaTope(intCantidadVigaTope, intVigaTopeID, intElementoID, intDatosVigaID, intCotizacionID, sintPinturaID);
+                results = CatalogosDA.ListarDatosVigaTope(intCantidadVigaTope, intVigaTopeID, intElementoID, intDatosVigaID, intCotizacionID, intDetCotizaID, sintPinturaID);
             }
             catch (Exception ex)
             {
@@ -387,6 +397,68 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
             try
             {
                 result = CatalogosDA.ListarDatosPantallaViga(intCotizacionID, intSeleccionVigaID);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
+        /// <summary>
+        /// Procedimiento que almacena los datos de Viga Tope
+        /// </summary>
+        /// <param name="vigaTope"></param>
+        /// <param name="tinOpcion"></param>
+        /// <returns></returns>
+        public Resultado setDatosVigaTope(DatosVigaTope vigaTope, short tinOpcion)
+        {
+            Resultado result = new Resultado();
+            int? intVigaTopeID;
+            int? intDetCotizaID;
+            try
+            {
+                // Obtenemos la información del sistema Selectivo
+                RelSistemaSelectivo sistema = (new CotizacionLogic()).ListarDatosSistemaSelectivo((int)vigaTope.intCotizacionID);
+                intVigaTopeID = null;
+
+                // Procedemos a llenar la entidad de la cotización
+                Cotizacion detCotizacion = new Cotizacion();
+                detCotizacion.intDetCotizaID = vigaTope.intDetCotizaID;
+                detCotizacion.intCotizacionID = vigaTope.intCotizacionID;
+                detCotizacion.intElementoID = 7; // ID correspondiente a Vigas Topes
+                detCotizacion.intPartida = 0;
+                detCotizacion.intCantidad = vigaTope.intCantidadVigaTope;
+                detCotizacion.decMonto = vigaTope.decPrecioUnitario;
+                detCotizacion.decSubtotal = vigaTope.decPrecioUnitario * vigaTope.intCantidadVigaTope;
+
+                // 1. Realizamos el alta de la cotización
+                result = (new CotizacionLogic()).setDetCotizacion(detCotizacion, (short)(vigaTope.intDetCotizaID == 0 ? 1 : tinOpcion));
+                // Validamos la respuesta obtenida
+                if (result.vchResultado != "NOK")
+                {
+                    // Almacenamos el ID del detalle de la cotización
+                    intDetCotizaID = Convert.ToInt32(result.vchResultado);
+                    vigaTope.intDetCotizaID = intDetCotizaID;
+                    // Procedeimos a realizar el almacenado de la información
+                    result = (new SistemasTyrsaLogic()).setDatosVigaTope(vigaTope, tinOpcion);
+                    if (result.vchResultado != "NOK")
+                    {
+                        intVigaTopeID = Convert.ToInt32(result.vchResultado);
+                        if ((sistema.intVigaTopeID == null || sistema.intVigaTopeID == 0) || tinOpcion == 3)
+                        {
+                            // En caso de realizar la baja, establecemos el valor a 0
+                            if (tinOpcion == 3)
+                                sistema.intParrillaID = 0;
+                            else
+                                sistema.intVigaTopeID = intVigaTopeID;
+
+                            sistema.intTipoElementoAlmacenID = 17;
+                            sistema.intCotizacionID = vigaTope.intCotizacionID;
+
+                            result = (new CotizacionLogic()).setDatosRelSistemaSelectivo(sistema, 2);
+                        }
+                    }
+                }
             }
             catch (Exception ex)
             {

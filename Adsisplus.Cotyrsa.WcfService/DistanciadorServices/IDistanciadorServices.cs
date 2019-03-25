@@ -14,14 +14,25 @@ namespace Adsisplus.Cotyrsa.WcfService.DistanciadorServices
     public interface IDistanciadorServices
     {
         /// <summary>
-        /// Obtiene la lista de Datos por panel
+        /// Procedimiento que lista los datos del distanciador en base a la cotización
         /// </summary>
         /// <param name="intDistanciadorID"></param>
         /// <param name="intCotizacionID"></param>
+        /// <param name="intDetCotizaID"></param>
         /// <param name="intElementoID"></param>
         /// <returns></returns>
         [OperationContract]
         [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ListarDatosPanel")]
-        List<DatosDistanciador> ListarDatosPanel(Int32 intDistanciadorID, Int32 intCotizacionID, Int32 intElementoID);
+        List<DatosDistanciador> ListarDatosDistanciador(Int32 intDistanciadorID, Int32 intCotizacionID, int intDetCotizaID, Int32 intElementoID);
+
+        /// <summary>
+        /// Procedimiento que almacena los datos del Distanciador
+        /// </summary>
+        /// <param name="distanciador"></param>
+        /// <param name="tinOpcion"></param>
+        /// <returns></returns>
+        [OperationContract]
+        [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "setDatosDistanciador")]
+        Resultado setDatosDistanciador(DatosDistanciador distanciador, short tinOpcion);
     }
 }

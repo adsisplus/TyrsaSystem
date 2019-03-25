@@ -21,13 +21,41 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
         }
 
         #endregion
-
-        public List<DatosProtectorBase> ListarDatosProtectorPoste(Int32 intProtectorPosteID, Int32 intElementoID, Int32 intCotizacionID, Int16 sintPinturaID)
+        /// <summary>
+        /// Procedimiento que muestra los datos del protector viga en base a la cotización
+        /// </summary>
+        /// <param name="intProtectorPosteID"></param>
+        /// <param name="intElementoID"></param>
+        /// <param name="intCotizacionID"></param>
+        /// <param name="intDetCotizaID"></param>
+        /// <param name="sintPinturaID"></param>
+        public List<DatosProtectorBase> ListarDatosProtectorPoste(Int32 intProtectorPosteID, Int32 intElementoID, Int32 intCotizacionID, int intDetCotizaID, Int16 sintPinturaID)
         {
             List<DatosProtectorBase> results = null;
             try
             {
-                results = CatalogosDA.ListarDatosProtectorPoste(intProtectorPosteID, intElementoID, intCotizacionID, sintPinturaID);
+                results = CatalogosDA.ListarDatosProtectorPoste(intProtectorPosteID, intElementoID, intCotizacionID, intDetCotizaID, sintPinturaID);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return results;
+        }
+        /// <summary>
+        /// Procedimeinto que nos muestra la información del protector de batería en base a la cotización
+        /// </summary>
+        /// <param name="intProtectorBateriaID"></param>
+        /// <param name="intElementoID"></param>
+        /// <param name="intCotizacionID"></param>
+        /// <param name="intDetCotizaID"></param>
+        /// <returns></returns>
+        public List<DatosProtectorBateria> ListarDatosProtectorBateria(Int32 intProtectorBateriaID, Int32 intElementoID, Int32 intCotizacionID, int intDetCotizaID)
+        {
+            List<DatosProtectorBateria> results = null;
+            try
+            {
+                results = CatalogosDA.ListarDatosProtectorBateria(intProtectorBateriaID, intElementoID, intCotizacionID, intDetCotizaID);
             }
             catch (Exception ex)
             {
@@ -36,18 +64,130 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
             return results;
         }
 
-        public List<DatosProtectorBateria> ListarDatosProtectorBateria(Int32 intProtectorBateriaID, Int32 intElementoID, Int32 intCotizacionID)
+        /// <summary>
+        /// Realiza el alta, modificación o baja a los datos protector poste
+        /// </summary>
+        /// <param name="datosProtector"></param>
+        /// <param name="sintOpcion"></param>
+        /// <returns></returns>
+        public Resultado setDatosProtectorPoste(DatosProtectorBase datosProtector, short tinOpcion)
         {
-            List<DatosProtectorBateria> results = null;
+            Resultado result = new Resultado();
+            int? intProtectorPosteID;
+            int? intDetCotizaID;
             try
             {
-                results = CatalogosDA.ListarDatosProtectorBateria(intProtectorBateriaID, intElementoID, intCotizacionID);
+                // Obtenemos la información del sistema Selectivo
+                RelSistemaSelectivo sistema = (new CotizacionLogic()).ListarDatosSistemaSelectivo((int)datosProtector.intCotizacionID);
+                intProtectorPosteID = null;
+
+                // Procedemos a llenar la entidad de la cotización
+                Cotizacion detCotizacion = new Cotizacion();
+                detCotizacion.intDetCotizaID = datosProtector.intDetCotizaID;
+                detCotizacion.intCotizacionID = datosProtector.intCotizacionID;
+                detCotizacion.intElementoID = 8; // ID correspondiente a Distanciador
+                detCotizacion.intPartida = 0;
+                detCotizacion.intCantidad = datosProtector.intCantidadProtectorPoste;
+                detCotizacion.decMonto = datosProtector.decPrecioUnitario;
+                detCotizacion.decSubtotal = datosProtector.decPrecioUnitario * datosProtector.intCantidadProtectorPoste;
+
+                // 1. Realizamos el alta de la cotización
+                result = (new CotizacionLogic()).setDetCotizacion(detCotizacion, (short)(datosProtector.intDetCotizaID == 0 ? 1 : tinOpcion));
+                // Validamos la respuesta obtenida
+                if (result.vchResultado != "NOK")
+                {
+                    // Almacenamos el ID del detalle de la cotización
+                    intDetCotizaID = Convert.ToInt32(result.vchResultado);
+                    datosProtector.intDetCotizaID = intDetCotizaID;
+                    // Procedeimos a realizar el almacenado de la información
+                    result = (new SistemasTyrsaLogic()).setDatosProtectorPoste(datosProtector, tinOpcion);
+                    if (result.vchResultado != "NOK")
+                    {
+                        intProtectorPosteID = Convert.ToInt32(result.vchResultado);
+                        if ((sistema.intProtectorPosteID == null || sistema.intProtectorPosteID == 0) || tinOpcion == 3)
+                        {
+                            // En caso de realizar la baja, establecemos el valor a 0
+                            if (tinOpcion == 3)
+                                sistema.intProtectorPosteID = 0;
+                            else
+                                sistema.intProtectorPosteID = intProtectorPosteID;
+
+                            sistema.intTipoElementoAlmacenID = 17;
+                            sistema.intCotizacionID = datosProtector.intCotizacionID;
+
+                            result = (new CotizacionLogic()).setDatosRelSistemaSelectivo(sistema, 2);
+                        }
+                    }
+                }
             }
             catch (Exception ex)
             {
                 throw ex;
             }
-            return results;
+            return result;
+        }
+
+        /// <summary>
+        /// Realiza el alta, baja o modificación a los datos de Protector Batería
+        /// </summary>
+        /// <param name="datosProtectorBateria"></param>
+        /// <param name="sintOpcion"></param>
+        /// <returns></returns>
+        public Resultado setDatosProtectorBateria(DatosProtectorBateria datosProtectorBateria, short tinOpcion)
+        {
+            Resultado result = new Resultado();
+            int? intProtectorBateriaID;
+            int? intDetCotizaID;
+            try
+            {
+                // Obtenemos la información del sistema Selectivo
+                RelSistemaSelectivo sistema = (new CotizacionLogic()).ListarDatosSistemaSelectivo((int)datosProtectorBateria.intCotizacionID);
+                intProtectorBateriaID = null;
+
+                // Procedemos a llenar la entidad de la cotización
+                Cotizacion detCotizacion = new Cotizacion();
+                detCotizacion.intDetCotizaID = datosProtectorBateria.intDetCotizaID;
+                detCotizacion.intCotizacionID = datosProtectorBateria.intCotizacionID;
+                detCotizacion.intElementoID = 9; // ID correspondiente a Distanciador
+                detCotizacion.intPartida = 0;
+                detCotizacion.intCantidad = datosProtectorBateria.intCantidadSencilla;
+                detCotizacion.decMonto = datosProtectorBateria.decPrecioSencilla;
+                detCotizacion.decSubtotal = datosProtectorBateria.decPrecioSencilla * datosProtectorBateria.intCantidadSencilla;
+
+                // 1. Realizamos el alta de la cotización
+                result = (new CotizacionLogic()).setDetCotizacion(detCotizacion, (short)(datosProtectorBateria.intDetCotizaID == 0 ? 1 : tinOpcion));
+                // Validamos la respuesta obtenida
+                if (result.vchResultado != "NOK")
+                {
+                    // Almacenamos el ID del detalle de la cotización
+                    intDetCotizaID = Convert.ToInt32(result.vchResultado);
+                    datosProtectorBateria.intDetCotizaID = intDetCotizaID;
+                    // Procedeimos a realizar el almacenado de la información
+                    result = (new SistemasTyrsaLogic()).setDatosProtectorBateria(datosProtectorBateria, tinOpcion);
+                    if (result.vchResultado != "NOK")
+                    {
+                        intProtectorBateriaID = Convert.ToInt32(result.vchResultado);
+                        if ((sistema.intProtectorBateriaID == null || sistema.intProtectorBateriaID == 0) || tinOpcion == 3)
+                        {
+                            // En caso de realizar la baja, establecemos el valor a 0
+                            if (tinOpcion == 3)
+                                sistema.intProtectorBateriaID = 0;
+                            else
+                                sistema.intProtectorBateriaID = intProtectorBateriaID;
+
+                            sistema.intTipoElementoAlmacenID = 17;
+                            sistema.intCotizacionID = datosProtectorBateria.intCotizacionID;
+
+                            result = (new CotizacionLogic()).setDatosRelSistemaSelectivo(sistema, 2);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
         }
     }
 }

@@ -14,18 +14,38 @@ namespace Adsisplus.Cotyrsa.WcfService.DistanciadorServices
     public class DistanciadorServices : IDistanciadorServices
     {
         /// <summary>
-        /// Obtiene la lista de Datos por panel
+        /// Procedimiento que lista los datos del distanciador en base a la cotización
         /// </summary>
         /// <param name="intDistanciadorID"></param>
         /// <param name="intCotizacionID"></param>
+        /// <param name="intDetCotizaID"></param>
         /// <param name="intElementoID"></param>
         /// <returns></returns>
-        public List<DatosDistanciador> ListarDatosPanel(int intDistanciadorID, int intCotizacionID, int intElementoID)
+        public List<DatosDistanciador> ListarDatosDistanciador(int intDistanciadorID, int intCotizacionID, int intDetCotizaID, int intElementoID)
         {
             List<DatosDistanciador> result = new List<DatosDistanciador>();
             try
             {
-                result = (new DistanciadorLogic()).ListarDatosPanel(intDistanciadorID, intCotizacionID, intElementoID);
+                result = (new DistanciadorLogic()).ListarDatosDistanciador(intDistanciadorID, intCotizacionID, intDetCotizaID, intElementoID);
+            }
+            catch (Exception ex)
+            {
+                Adsisplus.Cotyrsa.BusinessLogic.EventLogManager.LogErrorEntry(ex.Message);
+            }
+            return result;
+        }
+        /// <summary>
+        /// Procedimiento que almacena los datos del Distanciador
+        /// </summary>
+        /// <param name="distanciador"></param>
+        /// <param name="tinOpcion"></param>
+        /// <returns></returns>
+        public Resultado setDatosDistanciador(DatosDistanciador distanciador, short tinOpcion)
+        {
+            Resultado result = new Resultado();
+            try
+            {
+                result = (new DistanciadorLogic()).setDatosDistanciador(distanciador, tinOpcion);
             }
             catch (Exception ex)
             {

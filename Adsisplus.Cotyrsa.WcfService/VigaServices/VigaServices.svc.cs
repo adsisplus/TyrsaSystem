@@ -81,21 +81,22 @@ namespace Adsisplus.Cotyrsa.WcfService.VigaServices
             return result;
         }
         /// <summary>
-        /// Obtiene la lista de los datos por viga
+        /// Procedimiento que lista los datos de la viga tope ligado a la cotización
         /// </summary>
         /// <param name="intCantidadVigaTope"></param>
         /// <param name="intVigaTopeID"></param>
         /// <param name="intElementoID"></param>
         /// <param name="intDatosVigaID"></param>
         /// <param name="intCotizacionID"></param>
+        /// <param name="intDetCotizaID"></param>
         /// <param name="sintPinturaID"></param>
         /// <returns></returns>
-        public List<DatosVigaTope> ListarDatosVigaTope(int intCantidadVigaTope, int intVigaTopeID, int intElementoID, int intDatosVigaID, int intCotizacionID, short sintPinturaID)
+        public List<DatosVigaTope> ListarDatosVigaTope(int intCantidadVigaTope, int intVigaTopeID, int intElementoID, int intDatosVigaID, int intCotizacionID, int intDetCotizaID, short sintPinturaID)
         {
             List<DatosVigaTope> result = new List<DatosVigaTope>();
             try
             {
-                result = (new VigaLogic()).ListarDatosVigaTope(intCantidadVigaTope, intVigaTopeID, intElementoID, intDatosVigaID, intCotizacionID, sintPinturaID);
+                result = (new VigaLogic()).ListarDatosVigaTope(intCantidadVigaTope, intVigaTopeID, intElementoID, intDatosVigaID, intCotizacionID, intDetCotizaID, sintPinturaID);
             }
             catch (Exception ex)
             {
@@ -284,6 +285,26 @@ namespace Adsisplus.Cotyrsa.WcfService.VigaServices
             try
             {
                 result = (new VigaLogic()).ListarDatosPantallaViga(intDetCotizacionID, intSeleccionVigaID);
+            }
+            catch (Exception ex)
+            {
+                Adsisplus.Cotyrsa.BusinessLogic.EventLogManager.LogErrorEntry(ex.Message);
+            }
+            return result;
+        }
+
+        /// <summary>
+        /// Procedimiento que almacena los datos de Viga Tope
+        /// </summary>
+        /// <param name="vigaTope"></param>
+        /// <param name="tinOpcion"></param>
+        /// <returns></returns>
+        public Resultado setDatosVigaTope(DatosVigaTope vigaTope, short tinOpcion)
+        {
+            Resultado result = new Resultado();
+            try
+            {
+                result = (new VigaLogic()).setDatosVigaTope(vigaTope, tinOpcion);
             }
             catch (Exception ex)
             {

@@ -14,6 +14,8 @@ namespace Adsisplus.Cotyrsa.BusinessEntities
         public Int32? intCantidadVigaTope { get; set; }
 
         [DataMember]
+        public int? intCantidad { get; set; }
+        [DataMember]
         public Int32? intVigaTopeID { get; set; }
 
         [DataMember]
@@ -23,6 +25,10 @@ namespace Adsisplus.Cotyrsa.BusinessEntities
 
         [DataMember]
         public Int32? intCotizacionID { get; set; }
+
+        [DataMember]
+        public int? intDetCotizaID { get; set; }
+
         [DataMember]
         public String vchFolio { get; set; }
 
@@ -37,7 +43,7 @@ namespace Adsisplus.Cotyrsa.BusinessEntities
         public Int32? intCantidadDatosViga { get; set; }
 
         [DataMember]
-        public Int32? intCantidad { get; set; }
+        public decimal? decPrecioUnitario { get; set; }
 
         [DataMember]
         public Boolean? bitActivo { get; set; }

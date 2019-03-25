@@ -178,24 +178,37 @@ namespace Adsisplus.Cotyrsa.DataAccess
             }
             return results;
         }
-
-        public List<DatosVigaTope> ListarDatosVigaTope(Int32 intCantidadVigaTope, Int32 intVigaTopeID, Int32 intElementoID, Int32 intDatosVigaID, Int32 intCotizacionID, Int16 sintPinturaID)
+        /// <summary>
+        /// Procedimiento que lista los datos de viga tope
+        /// </summary>
+        /// <param name="intCantidadVigaTope"></param>
+        /// <param name="intVigaTopeID"></param>
+        /// <param name="intElementoID"></param>
+        /// <param name="intDatosVigaID"></param>
+        /// <param name="intCotizacionID"></param>
+        /// <param name="intDetCotizaID"></param>
+        /// <param name="sintPinturaID"></param>
+        /// <returns></returns>
+        public List<DatosVigaTope> ListarDatosVigaTope(Int32 intCantidadVigaTope, Int32 intVigaTopeID, Int32 intElementoID, Int32 intDatosVigaID, Int32 intCotizacionID, int intDetCotizaID, Int16 sintPinturaID)
         {
             List<DatosVigaTope> results = new List<DatosVigaTope>();
             try
             {
                 using (VigasDataContext dc = new VigasDataContext(Helper.ConnectionString()))
                 {
-                    var query = from item in dc.stp_ListarDatosVigaTope(intCantidadVigaTope, intVigaTopeID, intElementoID, intDatosVigaID, intCotizacionID, sintPinturaID)
+                    var query = from item in dc.stp_ListarDatosVigaTope(intCantidadVigaTope, intVigaTopeID, intElementoID, intDatosVigaID, intCotizacionID, intDetCotizaID, sintPinturaID)
                                 select new DatosVigaTope()
                                 {
                                     intVigaTopeID = item.intVigaTopeID,
                                     vchElemento = item.vchElemento,
-                                    intCantidadDatosViga = item.intCantidadDatosViga,
+                                    intDatosVigaID = item.intDatosVigaID,
                                     intCotizacionID = item.intCotizacionID,
-                                    vchFolio = item.vchFolio,
+                                    intDetCotizaID = item.intDetCotizaID,
+                                    sintPinturaID = item.sintPinturaID,
                                     vchPintura = item.vchPintura,
-                                    intCantidadVigaTope = item.intCantidadVigaTope,
+                                    intCantidadDatosViga = item.intCantidadDatosViga,
+                                    vchFolio = item.vchFolio,
+                                    decPrecioUnitario = item.decPrecioUnitario,
                                     intCantidad = item.intCantidad,
                                     bitActivo = item.bitActivo
                                 };

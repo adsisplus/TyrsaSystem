@@ -14,19 +14,39 @@ namespace Adsisplus.Cotyrsa.WcfService.ParrillaServices
     public class ParrillaServices : IParrillaServices
     {
         /// <summary>
-        /// Obtiene la lista de datos del panel
+        /// Procedimiento que muestra los datos de la parrilla en base a la cotización
         /// </summary>
         /// <param name="intParrillaID"></param>
         /// <param name="intElementoID"></param>
         /// <param name="sintPinturaID"></param>
         /// <param name="intCotizacionID"></param>
+        /// <param name="intDetCotizaID"></param>
         /// <returns></returns>
-        public List<DatosParrilla> ListarDatosPanel(int intParrillaID, int intElementoID, short sintPinturaID, int intCotizacionID)
+        public List<DatosParrilla> ListarDatosParrilla(int intParrillaID, int intElementoID, short sintPinturaID, int intCotizacionID, int intDetCotizaID)
         {
             List<DatosParrilla> result = new List<DatosParrilla>();
             try
             {
-                result = (new ParrillaLogic()).ListarDatosPanel(intParrillaID, intElementoID, sintPinturaID, intCotizacionID);
+                result = (new ParrillaLogic()).ListarDatosParrilla(intParrillaID, intElementoID, sintPinturaID, intCotizacionID, intDetCotizaID);
+            }
+            catch (Exception ex)
+            {
+                Adsisplus.Cotyrsa.BusinessLogic.EventLogManager.LogErrorEntry(ex.Message);
+            }
+            return result;
+        }
+        /// <summary>
+        /// Procedimiento que almacena los datos de la parrilla
+        /// </summary>
+        /// <param name="parrilla"></param>
+        /// <param name="tinOpcion"></param>
+        /// <returns></returns>
+        public Resultado setDatosParrilla(DatosParrilla parrilla, short tinOpcion)
+        {
+            Resultado result = new Resultado();
+            try
+            {
+                result = (new ParrillaLogic()).setDatosParrilla(parrilla, tinOpcion);
             }
             catch (Exception ex)
             {
