@@ -180,12 +180,13 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
                             mstPanel.intDatosPanelID = 0;
                         // Actualizamos la información
                         mstPanel.decAnchoPanel = panel.decAncho;
+                        mstPanel.intDetCotizaID = intDetCotizaID;
                         mstPanel.decCapacidadCargaPanel = panel.decPesoKg;
                         mstPanel.intCantidadPanel = intCantidad;
                         mstPanel.intDatoMarcoID = sistema.intDatoMarcoID;
                         mstPanel.intElementoID = 3; // ID correspondiente al panel
                         mstPanel.sintCantidadDatoMarco = 0; // ¿Qué corresponde este dato?
-                        mstPanel.sintPinturaID = null; // Se supone que no existe pintura?
+                        mstPanel.sintPinturaID = dppPanel.sintPinturaID; // Se supone que no existe pintura?
 
                         // Realizamos el registro del panel
                         result = (new SistemasTyrsaLogic()).setDatosPanel(mstPanel, tinOpcion);

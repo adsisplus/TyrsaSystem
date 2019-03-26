@@ -1,20 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="dbTyrsa" Class="SistemasTyrsaDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
   <Connection Mode="AppSettings" ConnectionString="Data Source=local;Initial Catalog=dbTyrsa;Persist Security Info=True;User ID=usrCotyrsa" SettingsObjectName="Adsisplus.Cotyrsa.DataAccess.Properties.Settings" SettingsPropertyName="dbTyrsaConnectionString" Provider="System.Data.SqlClient" />
-  <Function Name="dbo.stp_setDatosPanel" Method="stp_setDatosPanel">
-    <Parameter Name="intDatosPanelID" Type="System.Int32" DbType="Int" />
-    <Parameter Name="intElementoID" Type="System.Int32" DbType="Int" />
-    <Parameter Name="intDatoMarcoID" Type="System.Int32" DbType="Int" />
-    <Parameter Name="sintPinturaID" Type="System.Int16" DbType="SmallInt" />
-    <Parameter Name="decAnchoPanel" Type="System.Decimal" DbType="Decimal(20,2)" />
-    <Parameter Name="intCantidadPanel" Type="System.Int32" DbType="Int" />
-    <Parameter Name="decCapacidadCargaPanel" Type="System.Decimal" DbType="Decimal(20,2)" />
-    <Parameter Name="bitActivo" Type="System.Boolean" DbType="Bit" />
-    <Parameter Name="tinOpcion" Type="System.Byte" DbType="TinyInt" />
-    <ElementType Name="stp_setDatosPanelResult">
-      <Column Name="vchResultado" Type="System.String" DbType="VarChar(2) NOT NULL" CanBeNull="false" />
-      <Column Name="vchDescripcion" Type="System.String" DbType="VarChar(48) NOT NULL" CanBeNull="false" />
-    </ElementType>
-  </Function>
   <Function Name="dbo.stp_setDatosCrossBar" Method="stp_setDatosCrossBar">
     <Parameter Name="intDatosCrossBarID" Type="System.Int32" DbType="Int" />
     <Parameter Name="intElementoID" Type="System.Int32" DbType="Int" />
@@ -150,6 +135,22 @@
     <ElementType Name="stp_setDatosDistanciadorResult">
       <Column Name="vchResultado" Type="System.String" DbType="VarChar(12)" CanBeNull="true" />
       <Column Name="vchDescripcion" Type="System.String" DbType="VarChar(55) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.stp_setDatosPanel" Method="stp_setDatosPanel">
+    <Parameter Name="intDatosPanelID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intElementoID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intDatoMarcoID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intDetCotizaID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="sintPinturaID" Type="System.Int16" DbType="SmallInt" />
+    <Parameter Name="decAnchoPanel" Type="System.Decimal" DbType="Decimal(20,2)" />
+    <Parameter Name="intCantidadPanel" Type="System.Int32" DbType="Int" />
+    <Parameter Name="decCapacidadCargaPanel" Type="System.Decimal" DbType="Decimal(20,2)" />
+    <Parameter Name="bitActivo" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="tinOpcion" Type="System.Byte" DbType="TinyInt" />
+    <ElementType Name="stp_setDatosPanelResult">
+      <Column Name="vchResultado" Type="System.String" DbType="VarChar(12)" CanBeNull="true" />
+      <Column Name="vchDescripcion" Type="System.String" DbType="VarChar(48) NOT NULL" CanBeNull="false" />
     </ElementType>
   </Function>
 </Database>

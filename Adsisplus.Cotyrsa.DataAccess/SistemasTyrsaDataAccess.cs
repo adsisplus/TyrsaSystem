@@ -128,8 +128,9 @@ namespace Adsisplus.Cotyrsa.DataAccess
             {
                 using (SistemasTyrsaDataContext dc = new SistemasTyrsaDataContext(Helper.ConnectionString()))
                 {
-                    var query = from item in dc.stp_setDatosPanel(datosPanel.intDatosPanelID, datosPanel.intElementoID, datosPanel.intDatoMarcoID, datosPanel.sintPinturaID,
-                        datosPanel.decAnchoPanel, datosPanel.intCantidadPanel, datosPanel.decCapacidadCargaPanel, datosPanel.bitActivo, (byte)sintOpcion)
+                    var query = from item in dc.stp_setDatosPanel(datosPanel.intDatosPanelID, datosPanel.intElementoID, datosPanel.intDatoMarcoID, datosPanel.intDetCotizaID,
+                        datosPanel.sintPinturaID, datosPanel.decAnchoPanel, datosPanel.intCantidadPanel, datosPanel.decCapacidadCargaPanel, datosPanel.bitActivo,
+                        (byte)sintOpcion)
                                 select new Resultado
                                 {
                                     vchDescripcion = item.vchDescripcion,
