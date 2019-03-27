@@ -29,6 +29,9 @@ namespace Adsisplus.Cotyrsa.BusinessEntities
         public short? sintPinturaID { get; set; }
 
         [DataMember]
+        public string vchPintura { get; set; }
+
+        [DataMember]
         public String vchFolio { get; set; }
 
         [DataMember]
