@@ -22,7 +22,7 @@ namespace Adsisplus.Cotyrsa.WcfService.DistanciadorServices
         /// <param name="intElementoID"></param>
         /// <returns></returns>
         [OperationContract]
-        [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ListarDatosPanel")]
+        [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ListarDatosDistanciador")]
         List<DatosDistanciador> ListarDatosDistanciador(Int32 intDistanciadorID, Int32 intCotizacionID, int intDetCotizaID, Int32 intElementoID);
 
         /// <summary>
