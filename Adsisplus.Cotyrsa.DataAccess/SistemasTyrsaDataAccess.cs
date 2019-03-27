@@ -158,7 +158,7 @@ namespace Adsisplus.Cotyrsa.DataAccess
             {
                 using (SistemasTyrsaDataContext dc = new SistemasTyrsaDataContext(Helper.ConnectionString()))
                 {
-                    var query = from item in dc.stp_setDatosCrossBar(datosCrossBar.intDatosCrossBarID, datosCrossBar.intElementoID, datosCrossBar.intDatoMarcoID,
+                    var query = from item in dc.stp_setDatosCrossBar(datosCrossBar.intDatosCrossBarID, datosCrossBar.intDetCotizaID, datosCrossBar.intElementoID, datosCrossBar.intDatoMarcoID,
                         datosCrossBar.decAnchoCrossBar, datosCrossBar.bitConectorVigaCrossbar, datosCrossBar.intCantidadNivelCrossbar, datosCrossBar.bitActivo,
                         (byte)sintOpcion)
                                 select new Resultado

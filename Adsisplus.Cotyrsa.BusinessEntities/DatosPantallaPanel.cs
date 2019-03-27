@@ -20,6 +20,9 @@ namespace Adsisplus.Cotyrsa.BusinessEntities
         public short? sintPinturaID { get; set; }
         [DataMember]
         public decimal? decAnchoBus { get; set; }
+
+        [DataMember]
+        public decimal? decCapacidadCarga { get; set; }
         [DataMember]
         public decimal? decLargo { get; set; }
         [DataMember]

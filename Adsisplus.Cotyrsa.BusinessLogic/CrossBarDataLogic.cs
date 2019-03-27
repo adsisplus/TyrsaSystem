@@ -141,20 +141,20 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
         public Resultado setSeleccionCrossBar(DatosPantallaCrossBar dppCrossBar, SeleccionCrossBar crossBar, int intCotizacionID, int intDetCotizaID, int intCantidad, short tinOpcion)
         {
             Resultado result = new Resultado();
-            int? intSeleccionPanelID = 0;
+            int? intSeleccionCrossBarID = 0;
             int? intDatosCrossBarID = 0;
 
             try
             {
                 // Obtenemos la información del sistema Selectivo
                 RelSistemaSelectivo sistema = (new CotizacionLogic()).ListarDatosSistemaSelectivo(intCotizacionID);
-                intSeleccionPanelID = null;
+                intSeleccionCrossBarID = null;
 
                 // Procedemos a llenar la entidad de la cotización
                 Cotizacion detCotizacion = new Cotizacion();
                 detCotizacion.intDetCotizaID = intDetCotizaID;
                 detCotizacion.intCotizacionID = intCotizacionID;
-                detCotizacion.intElementoID = 3; // ID correspondiente a Panel
+                detCotizacion.intElementoID = 4; // ID correspondiente a Panel
                 detCotizacion.intPartida = 0;
                 detCotizacion.intCantidad = intCantidad;
                 detCotizacion.decMonto = crossBar.decTotal;
@@ -181,7 +181,7 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
                     if (result.vchResultado != "NOK")
                     {
                         // Obtenemos el ID del Panel insertado/Actualizado
-                        intSeleccionPanelID = Convert.ToInt32(result.vchResultado);
+                        intSeleccionCrossBarID = Convert.ToInt32(result.vchResultado);
                         // Lista que nos almacenará los páneles
                         List<DatosCrossBar> lstMstCrossBar = new List<DatosCrossBar>();
                         DatosCrossBar mstCrossBar = new DatosCrossBar();
