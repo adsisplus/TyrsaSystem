@@ -25,17 +25,14 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
         /// <summary>
         /// Procedimiento que lista los datos del distanciador en base a la cotización
         /// </summary>
-        /// <param name="intDistanciadorID"></param>
         /// <param name="intCotizacionID"></param>
-        /// <param name="intDetCotizaID"></param>
-        /// <param name="intElementoID"></param>
         /// <returns></returns>
-        public List<DatosDistanciador> ListarDatosDistanciador(Int32 intDistanciadorID, Int32 intCotizacionID, int intDetCotizaID, Int32 intElementoID)
+        public List<DatosDistanciador> ListarDatosDistanciador(Int32 intCotizacionID)
         {
             List<DatosDistanciador> results = null;
             try
             {
-                results = CatalogosDA.ListarDatosDistanciador(intDistanciadorID, intCotizacionID, intDetCotizaID, intElementoID);
+                results = CatalogosDA.ListarDatosDistanciador(intCotizacionID);
             }
             catch (Exception ex)
             {

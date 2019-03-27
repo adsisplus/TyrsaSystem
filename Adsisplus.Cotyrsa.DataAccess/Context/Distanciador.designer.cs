@@ -63,9 +63,9 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.stp_ListarDatosDistanciador")]
-		public ISingleResult<stp_ListarDatosDistanciadorResult> stp_ListarDatosDistanciador([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intDistanciadorID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intCotizacionID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intDetCotizaID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intElementoID)
+		public ISingleResult<stp_ListarDatosDistanciadorResult> stp_ListarDatosDistanciador([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intCotizacionID)
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), intDistanciadorID, intCotizacionID, intDetCotizaID, intElementoID);
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), intCotizacionID);
 			return ((ISingleResult<stp_ListarDatosDistanciadorResult>)(result.ReturnValue));
 		}
 	}

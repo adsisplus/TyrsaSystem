@@ -16,14 +16,11 @@ namespace Adsisplus.Cotyrsa.WcfService.DistanciadorServices
         /// <summary>
         /// Procedimiento que lista los datos del distanciador en base a la cotización
         /// </summary>
-        /// <param name="intDistanciadorID"></param>
         /// <param name="intCotizacionID"></param>
-        /// <param name="intDetCotizaID"></param>
-        /// <param name="intElementoID"></param>
         /// <returns></returns>
         [OperationContract]
         [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ListarDatosDistanciador")]
-        List<DatosDistanciador> ListarDatosDistanciador(Int32 intDistanciadorID, Int32 intCotizacionID, int intDetCotizaID, Int32 intElementoID);
+        List<DatosDistanciador> ListarDatosDistanciador(Int32 intCotizacionID);
 
         /// <summary>
         /// Procedimiento que almacena los datos del Distanciador
