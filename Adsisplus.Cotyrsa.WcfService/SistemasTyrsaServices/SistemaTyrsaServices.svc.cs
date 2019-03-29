@@ -242,5 +242,23 @@ namespace Adsisplus.Cotyrsa.WcfService.SistemasTyrsaServices
             }
             return result;
         }
+        /// <summary>
+        /// Procedimiento que devuelve los datos de tornillería en base al id de la cotización
+        /// </summary>
+        /// <param name="intCotizacionID"></param>
+        /// <returns></returns>
+        public List<DatosTornilleria> ListarTornillosSelectivoCotizacion(int intCotizacionID)
+        {
+            List<DatosTornilleria> result = new List<DatosTornilleria>();
+            try
+            {
+                result = (new SistemasTyrsaLogic()).ListarTornillosSelectivoCotizacion(intCotizacionID);
+            }
+            catch (Exception ex)
+            {
+                Adsisplus.Cotyrsa.BusinessLogic.EventLogManager.LogErrorEntry(ex.Message);
+            }
+            return result;
+        }
     }
 }

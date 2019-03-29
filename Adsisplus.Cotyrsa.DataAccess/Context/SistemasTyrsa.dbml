@@ -1,18 +1,18 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="dbTyrsa" Class="SistemasTyrsaDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=local;Initial Catalog=dbTyrsa;Persist Security Info=True;User ID=usrCotyrsa" SettingsObjectName="Adsisplus.Cotyrsa.DataAccess.Properties.Settings" SettingsPropertyName="dbTyrsaConnectionString" Provider="System.Data.SqlClient" />
+  <Connection Mode="AppSettings" ConnectionString="Data Source=local;Initial Catalog=dbTyrsa;User ID=usrCotyrsa" SettingsObjectName="Adsisplus.Cotyrsa.DataAccess.Properties.Settings" SettingsPropertyName="dbTyrsaConnectionString" Provider="System.Data.SqlClient" />
   <Table Name="" Member="mstTornilleria">
     <Type Name="mstTornilleria" Id="ID1">
-      <Column Member="intDatoTornilleriaID" Type="System.Int32" CanBeNull="false" />
-      <Column Member="sintTornilleriaID" Type="System.Int16" CanBeNull="false" />
-      <Column Member="intElementoID" Type="System.Int32" CanBeNull="false" />
-      <Column Member="intCotizacionID" Type="System.Int32" CanBeNull="false" />
-      <Column Member="intDetCotizaID" Type="System.Int32" CanBeNull="false" />
-      <Column Member="vchSubMenu" Type="System.String" CanBeNull="false" />
-      <Column Member="vchDescripcion" Type="System.String" CanBeNull="false" />
-      <Column Member="intCantidad" Type="System.Int32" CanBeNull="false" />
-      <Column Member="decPrecioUnitario" Type="System.Decimal" CanBeNull="false" />
-      <Column Member="decTotal" Type="System.Decimal" CanBeNull="false" />
-      <Column Member="bitActivo" Type="System.Boolean" CanBeNull="false" />
+      <Column Name="intDatoTornilleriaID" Type="System.Int32" CanBeNull="false" />
+      <Column Name="sintTornilleriaID" Type="System.Int16" CanBeNull="false" />
+      <Column Name="intElementoID" Type="System.Int32" CanBeNull="false" />
+      <Column Name="intCotizacionID" Type="System.Int32" CanBeNull="false" />
+      <Column Name="intDetCotizaID" Type="System.Int32" CanBeNull="false" />
+      <Column Name="vchSubMenu" Type="System.String" CanBeNull="false" />
+      <Column Name="vchDescripcion" Type="System.String" CanBeNull="false" />
+      <Column Name="intCantidad" Type="System.Int32" CanBeNull="false" />
+      <Column Name="decPrecioUnitario" Type="System.Decimal" CanBeNull="false" />
+      <Column Name="decTotal" Type="System.Decimal" CanBeNull="false" />
+      <Column Name="bitActivo" Type="System.Boolean" CanBeNull="false" />
     </Type>
   </Table>
   <Function Name="dbo.stp_setDatosViga" Method="stp_setDatosViga">
@@ -175,5 +175,21 @@
     <Parameter Name="bitEstructural" Type="System.Boolean" DbType="Bit" />
     <Parameter Name="bitEsCuadruple" Type="System.Boolean" DbType="Bit" />
     <ElementType IdRef="ID1" />
+  </Function>
+  <Function Name="dbo.stp_ListarTornillosSelectivoCotizacion" Method="stp_ListarTornillosSelectivoCotizacion">
+    <Parameter Name="intCotizacionID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="stp_ListarTornillosSelectivoCotizacionResult">
+      <Column Name="intDatoTornilleriaID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="sintTornilleriaID" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="intElementoID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="intCotizacionID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="intDetCotizaID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="vchSubMenu" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="vchDescripcion" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="intCantidad" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="decPrecioUnitario" Type="System.Decimal" DbType="Decimal(8,2)" CanBeNull="true" />
+      <Column Name="decTotal" Type="System.Decimal" DbType="Decimal(12,2)" CanBeNull="true" />
+      <Column Name="bitActivo" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </ElementType>
   </Function>
 </Database>

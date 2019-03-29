@@ -233,5 +233,23 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
             }
             return result;
         }
+        /// <summary>
+        /// Procedimiento que devuelve los datos de tornillería en base al id de la cotización
+        /// </summary>
+        /// <param name="intCotizacionID"></param>
+        /// <returns></returns>
+        public List<DatosTornilleria> ListarTornillosSelectivoCotizacion(int intCotizacionID)
+        {
+            List<DatosTornilleria> result = new List<DatosTornilleria>();
+            try
+            {
+                result = CatalogosDA.ListarTornillosSelectivoCotizacion(intCotizacionID);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
     }
 }

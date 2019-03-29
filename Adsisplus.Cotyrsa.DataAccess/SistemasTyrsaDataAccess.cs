@@ -363,5 +363,41 @@ namespace Adsisplus.Cotyrsa.DataAccess
             }
             return result;
         }
+        /// <summary>
+        /// Procedimiento que devuelve los datos de tornillería en base al id de la cotización
+        /// </summary>
+        /// <param name="intCotizacionID"></param>
+        /// <returns></returns>
+        public List<DatosTornilleria> ListarTornillosSelectivoCotizacion(int intCotizacionID)
+        {
+            List<DatosTornilleria> result = new List<DatosTornilleria>();
+            try
+            {
+                using (SistemasTyrsaDataContext dc = new SistemasTyrsaDataContext(Helper.ConnectionString()))
+                {
+                    var query = from item in dc.stp_ListarTornillosSelectivoCotizacion(intCotizacionID)
+                                select new DatosTornilleria
+                                {
+                                    intDatoTornilleriaID = item.intDatoTornilleriaID,
+                                    sintTornilleriaID = item.sintTornilleriaID,
+                                    intElementoID = item.intElementoID,
+                                    intCotizacionID = item.intCotizacionID,
+                                    intDetCotizaID = item.intDetCotizaID,
+                                    vchSubMenu = item.vchSubMenu,
+                                    vchDescripcion = item.vchDescripcion,
+                                    intCantidad = item.intCantidad,
+                                    decPrecioUnitario = item.decPrecioUnitario,
+                                    decTotal = item.decTotal,
+                                    bitActivo = item.bitActivo
+                                };
+                    result.AddRange(query);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
     }
 }
