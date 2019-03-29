@@ -1,4 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="SistemasTyrsa">
   <DataContextMoniker Name="/SistemasTyrsaDataContext" />
+  <nestedChildShapes>
+    <classShape Id="595d1fa7-cfe4-4930-8874-96ebb9297741" absoluteBounds="4.375, 1.625, 2, 2.9247054036458326">
+      <DataClassMoniker Name="/SistemasTyrsaDataContext/mstTornilleria" />
+      <nestedChildShapes>
+        <elementListCompartment Id="238d1b20-c88e-4d63-b7b2-63f3d6732e81" absoluteBounds="4.39, 2.085, 1.9700000000000002, 2.364705403645833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
 </ordesignerObjectsDiagram>

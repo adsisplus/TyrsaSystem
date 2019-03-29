@@ -77,6 +77,7 @@
     <Compile Include="DatosRielImportado.cs" />
     <Compile Include="DatosRielPortaRueda.cs" />
     <Compile Include="DatosRielTarima.cs" />
+    <Compile Include="DatosTornilleria.cs" />
     <Compile Include="DatosViga.cs" />
     <Compile Include="DatosVigaAtirantado.cs" />
     <Compile Include="DatosVigaEntrada.cs" />

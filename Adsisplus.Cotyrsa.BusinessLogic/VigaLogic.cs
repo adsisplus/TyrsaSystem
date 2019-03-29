@@ -95,20 +95,14 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
         /// <summary>
         /// Procedimiento que lista los datos de la viga tope lisgado a la cotización
         /// </summary>
-        /// <param name="intCantidadVigaTope"></param>
-        /// <param name="intVigaTopeID"></param>
-        /// <param name="intElementoID"></param>
-        /// <param name="intDatosVigaID"></param>
         /// <param name="intCotizacionID"></param>
-        /// <param name="intDetCotizaID"></param>
-        /// <param name="sintPinturaID"></param>
         /// <returns></returns>
-        public List<DatosVigaTope> ListarDatosVigaTope(Int32 intCantidadVigaTope, Int32 intVigaTopeID, Int32 intElementoID, Int32 intDatosVigaID, Int32 intCotizacionID, int intDetCotizaID, Int16 sintPinturaID)
+        public List<DatosVigaTope> ListarDatosVigaTope(Int32 intCotizacionID)
         {
             List<DatosVigaTope> results = null;
             try
             {
-                results = CatalogosDA.ListarDatosVigaTope(intCantidadVigaTope, intVigaTopeID, intElementoID, intDatosVigaID, intCotizacionID, intDetCotizaID, sintPinturaID);
+                results = CatalogosDA.ListarDatosVigaTope(intCotizacionID);
             }
             catch (Exception ex)
             {

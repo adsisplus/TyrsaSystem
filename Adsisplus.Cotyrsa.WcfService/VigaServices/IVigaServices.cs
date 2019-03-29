@@ -63,17 +63,11 @@ namespace Adsisplus.Cotyrsa.WcfService.VigaServices
         /// <summary>
         /// Procedimiento que lista los datos de la viga tope ligado a la cotización
         /// </summary>
-        /// <param name="intCantidadVigaTope"></param>
-        /// <param name="intVigaTopeID"></param>
-        /// <param name="intElementoID"></param>
-        /// <param name="intDatosVigaID"></param>
         /// <param name="intCotizacionID"></param>
-        /// <param name="intDetCotizaID"></param>
-        /// <param name="sintPinturaID"></param>
         /// <returns></returns>
         [OperationContract]
         [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ListarDatosVigaTope")]
-        List<DatosVigaTope> ListarDatosVigaTope(Int32 intCantidadVigaTope, Int32 intVigaTopeID, Int32 intElementoID, Int32 intDatosVigaID, Int32 intCotizacionID, int intDetCotizaID, Int16 sintPinturaID);
+        List<DatosVigaTope> ListarDatosVigaTope(Int32 intCotizacionID);
         /// <summary>
         /// Permite realizar la actualización de las vigas en factores y número de viga y piezas
         /// </summary>

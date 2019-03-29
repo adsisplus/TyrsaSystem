@@ -83,20 +83,14 @@ namespace Adsisplus.Cotyrsa.WcfService.VigaServices
         /// <summary>
         /// Procedimiento que lista los datos de la viga tope ligado a la cotización
         /// </summary>
-        /// <param name="intCantidadVigaTope"></param>
-        /// <param name="intVigaTopeID"></param>
-        /// <param name="intElementoID"></param>
-        /// <param name="intDatosVigaID"></param>
         /// <param name="intCotizacionID"></param>
-        /// <param name="intDetCotizaID"></param>
-        /// <param name="sintPinturaID"></param>
         /// <returns></returns>
-        public List<DatosVigaTope> ListarDatosVigaTope(int intCantidadVigaTope, int intVigaTopeID, int intElementoID, int intDatosVigaID, int intCotizacionID, int intDetCotizaID, short sintPinturaID)
+        public List<DatosVigaTope> ListarDatosVigaTope(int intCotizacionID)
         {
             List<DatosVigaTope> result = new List<DatosVigaTope>();
             try
             {
-                result = (new VigaLogic()).ListarDatosVigaTope(intCantidadVigaTope, intVigaTopeID, intElementoID, intDatosVigaID, intCotizacionID, intDetCotizaID, sintPinturaID);
+                result = (new VigaLogic()).ListarDatosVigaTope(intCotizacionID);
             }
             catch (Exception ex)
             {

@@ -189,14 +189,14 @@ namespace Adsisplus.Cotyrsa.DataAccess
         /// <param name="intDetCotizaID"></param>
         /// <param name="sintPinturaID"></param>
         /// <returns></returns>
-        public List<DatosVigaTope> ListarDatosVigaTope(Int32 intCantidadVigaTope, Int32 intVigaTopeID, Int32 intElementoID, Int32 intDatosVigaID, Int32 intCotizacionID, int intDetCotizaID, Int16 sintPinturaID)
+        public List<DatosVigaTope> ListarDatosVigaTope(Int32 intCotizacionID)
         {
             List<DatosVigaTope> results = new List<DatosVigaTope>();
             try
             {
                 using (VigasDataContext dc = new VigasDataContext(Helper.ConnectionString()))
                 {
-                    var query = from item in dc.stp_ListarDatosVigaTope(intCantidadVigaTope, intVigaTopeID, intElementoID, intDatosVigaID, intCotizacionID, intDetCotizaID, sintPinturaID)
+                    var query = from item in dc.stp_ListarDatosVigaTope(intCotizacionID)
                                 select new DatosVigaTope()
                                 {
                                     intVigaTopeID = item.intVigaTopeID,

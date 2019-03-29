@@ -16,25 +16,18 @@ namespace Adsisplus.Cotyrsa.WcfService.ProteccionServices
         /// <summary>
         /// Procedimiento que muestra los datos del protector viga en base a la cotización
         /// </summary>
-        /// <param name="intProtectorPosteID"></param>
-        /// <param name="intElementoID"></param>
         /// <param name="intCotizacionID"></param>
-        /// <param name="intDetCotizaID"></param>
-        /// <param name="sintPinturaID"></param>
         [OperationContract]
         [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ListarDatosProtectorPoste")]
-        List<DatosProtectorBase> ListarDatosProtectorPoste(Int32 intProtectorPosteID, Int32 intElementoID, Int32 intCotizacionID, int intDetCotizaID, Int16 sintPinturaID);
+        List<DatosProtectorBase> ListarDatosProtectorPoste(Int32 intCotizacionID);
         /// <summary>
         /// Procedimeinto que nos muestra la información del protector de batería en base a la cotización
         /// </summary>
-        /// <param name="intProtectorBateriaID"></param>
-        /// <param name="intElementoID"></param>
         /// <param name="intCotizacionID"></param>
-        /// <param name="intDetCotizaID"></param>
         /// <returns></returns>
         [OperationContract]
         [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ListarDatosProtectorBateria")]
-        List<DatosProtectorBateria> ListarDatosProtectorBateria(Int32 intProtectorBateriaID, Int32 intElementoID, Int32 intCotizacionID, int intDetCotizaID);
+        List<DatosProtectorBateria> ListarDatosProtectorBateria(Int32 intCotizacionID);
 
         /// <summary>
         /// Realiza el alta, modificación o baja a los datos protector poste

@@ -16,18 +16,14 @@ namespace Adsisplus.Cotyrsa.WcfService.ParrillaServices
         /// <summary>
         /// Procedimiento que muestra los datos de la parrilla en base a la cotización
         /// </summary>
-        /// <param name="intParrillaID"></param>
-        /// <param name="intElementoID"></param>
-        /// <param name="sintPinturaID"></param>
         /// <param name="intCotizacionID"></param>
-        /// <param name="intDetCotizaID"></param>
         /// <returns></returns>
-        public List<DatosParrilla> ListarDatosParrilla(int intParrillaID, int intElementoID, short sintPinturaID, int intCotizacionID, int intDetCotizaID)
+        public List<DatosParrilla> ListarDatosParrilla(int intCotizacionID)
         {
             List<DatosParrilla> result = new List<DatosParrilla>();
             try
             {
-                result = (new ParrillaLogic()).ListarDatosParrilla(intParrillaID, intElementoID, sintPinturaID, intCotizacionID, intDetCotizaID);
+                result = (new ParrillaLogic()).ListarDatosParrilla(intCotizacionID);
             }
             catch (Exception ex)
             {

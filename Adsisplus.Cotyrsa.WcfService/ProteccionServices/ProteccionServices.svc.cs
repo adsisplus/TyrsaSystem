@@ -16,17 +16,14 @@ namespace Adsisplus.Cotyrsa.WcfService.ProteccionServices
         /// <summary>
         /// Procedimeinto que nos muestra la información del protector de batería en base a la cotización
         /// </summary>
-        /// <param name="intProtectorBateriaID"></param>
-        /// <param name="intElementoID"></param>
         /// <param name="intCotizacionID"></param>
-        /// <param name="intDetCotizaID"></param>
         /// <returns></returns>
-        public List<DatosProtectorBateria> ListarDatosProtectorBateria(int intProtectorBateriaID, int intElementoID, int intCotizacionID, int intDetCotizaID)
+        public List<DatosProtectorBateria> ListarDatosProtectorBateria(int intCotizacionID)
         {
             List<DatosProtectorBateria> result = new List<DatosProtectorBateria>();
             try
             {
-                result = (new ProtectoresLogic()).ListarDatosProtectorBateria(intProtectorBateriaID, intElementoID, intCotizacionID, intDetCotizaID);
+                result = (new ProtectoresLogic()).ListarDatosProtectorBateria(intCotizacionID);
             }
             catch (Exception ex)
             {
@@ -37,17 +34,13 @@ namespace Adsisplus.Cotyrsa.WcfService.ProteccionServices
         /// <summary>
         /// Procedimiento que muestra los datos del protector viga en base a la cotización
         /// </summary>
-        /// <param name="intProtectorPosteID"></param>
-        /// <param name="intElementoID"></param>
         /// <param name="intCotizacionID"></param>
-        /// <param name="intDetCotizaID"></param>
-        /// <param name="sintPinturaID"></param>
-        public List<DatosProtectorBase> ListarDatosProtectorPoste(int intProtectorPosteID, int intElementoID, int intCotizacionID, int intDetCotizaID, short sintPinturaID)
+        public List<DatosProtectorBase> ListarDatosProtectorPoste(int intCotizacionID)
         {
             List<DatosProtectorBase> result = new List<DatosProtectorBase>();
             try
             {
-                result = (new ProtectoresLogic()).ListarDatosProtectorPoste(intProtectorPosteID, intElementoID, intCotizacionID, intDetCotizaID, sintPinturaID);
+                result = (new ProtectoresLogic()).ListarDatosProtectorPoste(intCotizacionID);
             }
             catch (Exception ex)
             {

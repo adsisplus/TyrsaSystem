@@ -24,18 +24,14 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
         /// <summary>
         /// Procedimiento que muestra los datos de la parrilla en base a la cotización
         /// </summary>
-        /// <param name="intParrillaID"></param>
-        /// <param name="intElementoID"></param>
-        /// <param name="sintPinturaID"></param>
         /// <param name="intCotizacionID"></param>
-        /// <param name="intDetCotizaID"></param>
         /// <returns></returns>
-        public List<DatosParrilla> ListarDatosParrilla(Int32 intParrillaID, Int32 intElementoID, Int16 sintPinturaID, Int32 intCotizacionID, int intDetCotizaID)
+        public List<DatosParrilla> ListarDatosParrilla(Int32 intCotizacionID)
         {
             List<DatosParrilla> results = null;
             try
             {
-                results = CatalogosDA.ListarDatosParrilla(intParrillaID, intElementoID, sintPinturaID, intCotizacionID, intDetCotizaID);
+                results = CatalogosDA.ListarDatosParrilla(intCotizacionID);
             }
             catch (Exception ex)
             {

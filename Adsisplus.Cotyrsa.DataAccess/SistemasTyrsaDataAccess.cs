@@ -324,5 +324,44 @@ namespace Adsisplus.Cotyrsa.DataAccess
             }
             return result;
         }
+        /// <summary>
+        /// Procedimiento que muestra los datos de tornilleria
+        /// </summary>
+        /// <param name="intConfiguraMarcoID"></param>
+        /// <param name="intCotizacionID"></param>
+        /// <param name="bitEstructural"></param>
+        /// <param name="bitEsCuadruple"></param>
+        /// <returns></returns>
+        public List<DatosTornilleria> ListarDatosTornilleria(int intConfiguraMarcoID, int intCotizacionID, bool bitEstructural, bool bitEsCuadruple)
+        {
+            List<DatosTornilleria> result = new List<DatosTornilleria>();
+            try
+            {
+                using (SistemasTyrsaDataContext dc = new SistemasTyrsaDataContext(Helper.ConnectionString()))
+                {
+                    var query = from item in dc.stp_ListarTornillosSelectivo(intConfiguraMarcoID, intCotizacionID, bitEstructural, bitEsCuadruple)
+                                select new DatosTornilleria
+                                {
+                                    intDatoTornilleriaID = item.intDatoTornilleriaID,
+                                    sintTornilleriaID = item.sintTornilleriaID,
+                                    intElementoID = item.intElementoID,
+                                    intCotizacionID = item.intCotizacionID,
+                                    intDetCotizaID = item.intDetCotizaID,
+                                    vchSubMenu = item.vchSubMenu,
+                                    vchDescripcion = item.vchDescripcion,
+                                    intCantidad = item.intCantidad,
+                                    decPrecioUnitario = item.decPrecioUnitario,
+                                    decTotal = item.decTotal,
+                                    bitActivo = item.bitActivo
+                                };
+                    result.AddRange(query);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
     }
 }

@@ -62,188 +62,18 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.stp_ListarDatosProtectorPoste")]
-		public ISingleResult<stp_ListarDatosProtectorPosteResult> stp_ListarDatosProtectorPoste([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intProtectorPosteID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intElementoID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intCotizacionID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intDetCotizaID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="SmallInt")] System.Nullable<short> sintPinturaID)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), intProtectorPosteID, intElementoID, intCotizacionID, intDetCotizaID, sintPinturaID);
-			return ((ISingleResult<stp_ListarDatosProtectorPosteResult>)(result.ReturnValue));
-		}
-		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.stp_ListarDatosProtectorBateria")]
-		public ISingleResult<stp_ListarDatosProtectorBateriaResult> stp_ListarDatosProtectorBateria([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intProtectorBateriaID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intElementoID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intCotizacionID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intDetCotizaID)
+		public ISingleResult<stp_ListarDatosProtectorBateriaResult> stp_ListarDatosProtectorBateria([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intCotizacionID)
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), intProtectorBateriaID, intElementoID, intCotizacionID, intDetCotizaID);
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), intCotizacionID);
 			return ((ISingleResult<stp_ListarDatosProtectorBateriaResult>)(result.ReturnValue));
 		}
-	}
-	
-	public partial class stp_ListarDatosProtectorPosteResult
-	{
 		
-		private int _intProtectorPosteID;
-		
-		private string _vchElemento;
-		
-		private System.Nullable<int> _intCotizacionID;
-		
-		private System.Nullable<int> _intDetCotizaID;
-		
-		private string _vchFolio;
-		
-		private string _vchPintura;
-		
-		private System.Nullable<int> _intCantidadProtectorPoste;
-		
-		private System.Nullable<decimal> _decPrecioUnitario;
-		
-		private System.Nullable<bool> _bitActivo;
-		
-		public stp_ListarDatosProtectorPosteResult()
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.stp_ListarDatosProtectorPoste")]
+		public ISingleResult<stp_ListarDatosProtectorPosteResult> stp_ListarDatosProtectorPoste([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intCotizacionID)
 		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intProtectorPosteID", DbType="Int NOT NULL")]
-		public int intProtectorPosteID
-		{
-			get
-			{
-				return this._intProtectorPosteID;
-			}
-			set
-			{
-				if ((this._intProtectorPosteID != value))
-				{
-					this._intProtectorPosteID = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchElemento", DbType="VarChar(25)")]
-		public string vchElemento
-		{
-			get
-			{
-				return this._vchElemento;
-			}
-			set
-			{
-				if ((this._vchElemento != value))
-				{
-					this._vchElemento = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intCotizacionID", DbType="Int")]
-		public System.Nullable<int> intCotizacionID
-		{
-			get
-			{
-				return this._intCotizacionID;
-			}
-			set
-			{
-				if ((this._intCotizacionID != value))
-				{
-					this._intCotizacionID = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intDetCotizaID", DbType="Int")]
-		public System.Nullable<int> intDetCotizaID
-		{
-			get
-			{
-				return this._intDetCotizaID;
-			}
-			set
-			{
-				if ((this._intDetCotizaID != value))
-				{
-					this._intDetCotizaID = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchFolio", DbType="VarChar(250)")]
-		public string vchFolio
-		{
-			get
-			{
-				return this._vchFolio;
-			}
-			set
-			{
-				if ((this._vchFolio != value))
-				{
-					this._vchFolio = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchPintura", DbType="VarChar(25)")]
-		public string vchPintura
-		{
-			get
-			{
-				return this._vchPintura;
-			}
-			set
-			{
-				if ((this._vchPintura != value))
-				{
-					this._vchPintura = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intCantidadProtectorPoste", DbType="Int")]
-		public System.Nullable<int> intCantidadProtectorPoste
-		{
-			get
-			{
-				return this._intCantidadProtectorPoste;
-			}
-			set
-			{
-				if ((this._intCantidadProtectorPoste != value))
-				{
-					this._intCantidadProtectorPoste = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decPrecioUnitario", DbType="Decimal(18,2)")]
-		public System.Nullable<decimal> decPrecioUnitario
-		{
-			get
-			{
-				return this._decPrecioUnitario;
-			}
-			set
-			{
-				if ((this._decPrecioUnitario != value))
-				{
-					this._decPrecioUnitario = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_bitActivo", DbType="Bit")]
-		public System.Nullable<bool> bitActivo
-		{
-			get
-			{
-				return this._bitActivo;
-			}
-			set
-			{
-				if ((this._bitActivo != value))
-				{
-					this._bitActivo = value;
-				}
-			}
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), intCotizacionID);
+			return ((ISingleResult<stp_ListarDatosProtectorPosteResult>)(result.ReturnValue));
 		}
 	}
 	
@@ -486,6 +316,176 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 				if ((this._decPrecioCuadruple != value))
 				{
 					this._decPrecioCuadruple = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_bitActivo", DbType="Bit")]
+		public System.Nullable<bool> bitActivo
+		{
+			get
+			{
+				return this._bitActivo;
+			}
+			set
+			{
+				if ((this._bitActivo != value))
+				{
+					this._bitActivo = value;
+				}
+			}
+		}
+	}
+	
+	public partial class stp_ListarDatosProtectorPosteResult
+	{
+		
+		private int _intProtectorPosteID;
+		
+		private string _vchElemento;
+		
+		private System.Nullable<int> _intCotizacionID;
+		
+		private System.Nullable<int> _intDetCotizaID;
+		
+		private string _vchFolio;
+		
+		private string _vchPintura;
+		
+		private System.Nullable<int> _intCantidadProtectorPoste;
+		
+		private System.Nullable<decimal> _decPrecioUnitario;
+		
+		private System.Nullable<bool> _bitActivo;
+		
+		public stp_ListarDatosProtectorPosteResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intProtectorPosteID", DbType="Int NOT NULL")]
+		public int intProtectorPosteID
+		{
+			get
+			{
+				return this._intProtectorPosteID;
+			}
+			set
+			{
+				if ((this._intProtectorPosteID != value))
+				{
+					this._intProtectorPosteID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchElemento", DbType="VarChar(25)")]
+		public string vchElemento
+		{
+			get
+			{
+				return this._vchElemento;
+			}
+			set
+			{
+				if ((this._vchElemento != value))
+				{
+					this._vchElemento = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intCotizacionID", DbType="Int")]
+		public System.Nullable<int> intCotizacionID
+		{
+			get
+			{
+				return this._intCotizacionID;
+			}
+			set
+			{
+				if ((this._intCotizacionID != value))
+				{
+					this._intCotizacionID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intDetCotizaID", DbType="Int")]
+		public System.Nullable<int> intDetCotizaID
+		{
+			get
+			{
+				return this._intDetCotizaID;
+			}
+			set
+			{
+				if ((this._intDetCotizaID != value))
+				{
+					this._intDetCotizaID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchFolio", DbType="VarChar(250)")]
+		public string vchFolio
+		{
+			get
+			{
+				return this._vchFolio;
+			}
+			set
+			{
+				if ((this._vchFolio != value))
+				{
+					this._vchFolio = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchPintura", DbType="VarChar(25)")]
+		public string vchPintura
+		{
+			get
+			{
+				return this._vchPintura;
+			}
+			set
+			{
+				if ((this._vchPintura != value))
+				{
+					this._vchPintura = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intCantidadProtectorPoste", DbType="Int")]
+		public System.Nullable<int> intCantidadProtectorPoste
+		{
+			get
+			{
+				return this._intCantidadProtectorPoste;
+			}
+			set
+			{
+				if ((this._intCantidadProtectorPoste != value))
+				{
+					this._intCantidadProtectorPoste = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decPrecioUnitario", DbType="Decimal(18,2)")]
+		public System.Nullable<decimal> decPrecioUnitario
+		{
+			get
+			{
+				return this._decPrecioUnitario;
+			}
+			set
+			{
+				if ((this._decPrecioUnitario != value))
+				{
+					this._decPrecioUnitario = value;
 				}
 			}
 		}

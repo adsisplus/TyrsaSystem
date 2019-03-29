@@ -222,5 +222,26 @@ namespace Adsisplus.Cotyrsa.WcfService.SistemasTyrsaServices
             }
             return result;
         }
+        /// <summary>
+        /// Procedimiento que muestra los datos de tornilleria
+        /// </summary>
+        /// <param name="intConfiguraMarcoID"></param>
+        /// <param name="intCotizacionID"></param>
+        /// <param name="bitEstructural"></param>
+        /// <param name="bitEsCuadruple"></param>
+        /// <returns></returns>
+        public List<DatosTornilleria> ListarDatosTornilleria(int intConfiguraMarcoID, int intCotizacionID, bool bitEstructural, bool bitEsCuadruple)
+        {
+            List<DatosTornilleria> result = new List<DatosTornilleria>();
+            try
+            {
+                result = (new SistemasTyrsaLogic()).ListarDatosTornilleria(intConfiguraMarcoID, intCotizacionID, bitEstructural, bitEsCuadruple);
+            }
+            catch (Exception ex)
+            {
+                Adsisplus.Cotyrsa.BusinessLogic.EventLogManager.LogErrorEntry(ex.Message);
+            }
+            return result;
+        }
     }
 }

@@ -16,14 +16,11 @@ namespace Adsisplus.Cotyrsa.WcfService.ParrillaServices
         /// <summary>
         /// Obtiene la lista de datos del panel
         /// </summary>
-        /// <param name="intParrillaID"></param>
-        /// <param name="intElementoID"></param>
-        /// <param name="sintPinturaID"></param>
         /// <param name="intCotizacionID"></param>
         /// <returns></returns>
         [OperationContract]
         [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ListarDatosParrilla")]
-        List<DatosParrilla> ListarDatosParrilla(Int32 intParrillaID, Int32 intElementoID, Int16 sintPinturaID, Int32 intCotizacionID, int intDetCotizaID);
+        List<DatosParrilla> ListarDatosParrilla(Int32 intCotizacionID);
         /// <summary>
         /// Procedimiento que almacena los datos de la parrilla
         /// </summary>

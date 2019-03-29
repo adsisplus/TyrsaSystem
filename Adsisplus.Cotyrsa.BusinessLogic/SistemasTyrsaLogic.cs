@@ -197,7 +197,28 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
             Resultado result = new Resultado();
             try
             {
-                ; result = CatalogosDA.setDatosProtectorBateria(datosProtectorBateria, sintOpcion);
+                result = CatalogosDA.setDatosProtectorBateria(datosProtectorBateria, sintOpcion);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
+        /// <summary>
+        /// Procedimiento que muestra los datos de tornilleria
+        /// </summary>
+        /// <param name="intConfiguraMarcoID"></param>
+        /// <param name="intCotizacionID"></param>
+        /// <param name="bitEstructural"></param>
+        /// <param name="bitEsCuadruple"></param>
+        /// <returns></returns>
+        public List<DatosTornilleria> ListarDatosTornilleria(int intConfiguraMarcoID, int intCotizacionID, bool bitEstructural, bool bitEsCuadruple)
+        {
+            List<DatosTornilleria> result = new List<DatosTornilleria>();
+            try
+            {
+                result = CatalogosDA.ListarDatosTornilleria(intConfiguraMarcoID, intCotizacionID, bitEstructural, bitEsCuadruple);
             }
             catch (Exception ex)
             {
