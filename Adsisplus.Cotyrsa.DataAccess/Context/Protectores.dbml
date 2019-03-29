@@ -27,6 +27,7 @@
       <Column Name="intCotizacionID" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="intDetCotizaID" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="vchFolio" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="sintPinturaID" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
       <Column Name="vchPintura" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
       <Column Name="intCantidadProtectorPoste" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="decPrecioUnitario" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />

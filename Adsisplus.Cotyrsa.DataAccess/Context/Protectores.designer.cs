@@ -350,6 +350,8 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 		
 		private string _vchFolio;
 		
+		private System.Nullable<short> _sintPinturaID;
+		
 		private string _vchPintura;
 		
 		private System.Nullable<int> _intCantidadProtectorPoste;
@@ -438,6 +440,22 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 				if ((this._vchFolio != value))
 				{
 					this._vchFolio = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sintPinturaID", DbType="SmallInt")]
+		public System.Nullable<short> sintPinturaID
+		{
+			get
+			{
+				return this._sintPinturaID;
+			}
+			set
+			{
+				if ((this._sintPinturaID != value))
+				{
+					this._sintPinturaID = value;
 				}
 			}
 		}
