@@ -225,17 +225,16 @@ namespace Adsisplus.Cotyrsa.WcfService.SistemasTyrsaServices
         /// <summary>
         /// Procedimiento que muestra los datos de tornilleria
         /// </summary>
-        /// <param name="intConfiguraMarcoID"></param>
         /// <param name="intCotizacionID"></param>
         /// <param name="bitEstructural"></param>
         /// <param name="bitEsCuadruple"></param>
         /// <returns></returns>
-        public List<DatosTornilleria> ListarDatosTornilleria(int intConfiguraMarcoID, int intCotizacionID, bool bitEstructural, bool bitEsCuadruple)
+        public List<DatosTornilleria> ListarDatosTornilleria(int intCotizacionID, bool bitEstructural, bool bitEsCuadruple)
         {
             List<DatosTornilleria> result = new List<DatosTornilleria>();
             try
             {
-                result = (new SistemasTyrsaLogic()).ListarDatosTornilleria(intConfiguraMarcoID, intCotizacionID, bitEstructural, bitEsCuadruple);
+                result = (new SistemasTyrsaLogic()).ListarDatosTornilleria(intCotizacionID, bitEstructural, bitEsCuadruple);
             }
             catch (Exception ex)
             {

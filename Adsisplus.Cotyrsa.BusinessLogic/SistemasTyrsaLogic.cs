@@ -208,17 +208,24 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
         /// <summary>
         /// Procedimiento que muestra los datos de tornilleria
         /// </summary>
-        /// <param name="intConfiguraMarcoID"></param>
         /// <param name="intCotizacionID"></param>
         /// <param name="bitEstructural"></param>
         /// <param name="bitEsCuadruple"></param>
         /// <returns></returns>
-        public List<DatosTornilleria> ListarDatosTornilleria(int intConfiguraMarcoID, int intCotizacionID, bool bitEstructural, bool bitEsCuadruple)
+        public List<DatosTornilleria> ListarDatosTornilleria(int intCotizacionID, bool bitEstructural, bool bitEsCuadruple)
         {
             List<DatosTornilleria> result = new List<DatosTornilleria>();
             try
             {
-                result = CatalogosDA.ListarDatosTornilleria(intConfiguraMarcoID, intCotizacionID, bitEstructural, bitEsCuadruple);
+                // Buscamos la información del sistema selectivo
+                RelSistemaSelectivo sistema = (new CotizacionLogic()).ListarDatosSistemaSelectivo(intCotizacionID);
+                if (sistema.intDatoMarcoID != null || sistema.intDatoMarcoID != 0)
+                {
+                    // Obtenemos los datos del marco
+                    List<DatosMarco> lstMarco = (new MarcosLogic()).ListarDatosMarco((int)sistema.intDatoMarcoID, intCotizacionID, 2, 0);
+                    if(lstMarco.Count > 0)
+                        result = CatalogosDA.ListarDatosTornilleria((int)lstMarco.First().intConfiguraMarcoID, intCotizacionID, bitEstructural, bitEsCuadruple);
+                }
             }
             catch (Exception ex)
             {

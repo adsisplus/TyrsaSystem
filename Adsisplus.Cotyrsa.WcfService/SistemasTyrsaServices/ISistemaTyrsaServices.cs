@@ -127,13 +127,12 @@ namespace Adsisplus.Cotyrsa.WcfService.SistemasTyrsaServices
         /// <summary>
         /// Procedimiento que muestra los datos de tornilleria
         /// </summary>
-        /// <param name="intConfiguraMarcoID"></param>
         /// <param name="intCotizacionID"></param>
         /// <param name="bitEstructural"></param>
         /// <param name="bitEsCuadruple"></param>
         /// <returns></returns>
         [OperationContract]
         [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ListarDatosTornilleria")]
-        List<DatosTornilleria> ListarDatosTornilleria(int intConfiguraMarcoID, int intCotizacionID, bool bitEstructural, bool bitEsCuadruple);
+        List<DatosTornilleria> ListarDatosTornilleria(int intCotizacionID, bool bitEstructural, bool bitEsCuadruple);
     }
 }
