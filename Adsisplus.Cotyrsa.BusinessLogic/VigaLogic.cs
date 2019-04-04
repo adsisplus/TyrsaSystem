@@ -433,6 +433,8 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
                     // Almacenamos el ID del detalle de la cotización
                     intDetCotizaID = Convert.ToInt32(result.vchResultado);
                     vigaTope.intDetCotizaID = intDetCotizaID;
+                    vigaTope.intDatosVigaID = sistema.intDatosVigaID;
+                    vigaTope.intElementoID = 7;
                     // Procedeimos a realizar el almacenado de la información
                     result = (new SistemasTyrsaLogic()).setDatosVigaTope(vigaTope, tinOpcion);
                     if (result.vchResultado != "NOK")
