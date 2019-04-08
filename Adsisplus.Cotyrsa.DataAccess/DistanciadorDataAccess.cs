@@ -46,5 +46,75 @@ namespace Adsisplus.Cotyrsa.DataAccess
             }
             return results;
         }
+        /// <summary>
+        /// Obtiene la lista de distanciadores en base al altura
+        /// </summary>
+        /// <param name="decAltura"></param>
+        /// <returns></returns>
+        public List<SeleccionDistanciador> ListarSeleccionDistanciador(decimal decAltura)
+        {
+            List<SeleccionDistanciador> result = new List<SeleccionDistanciador>();
+            try
+            {
+                using (DistanciadorDataContext dc = new DistanciadorDataContext(Helper.ConnectionString()))
+                {
+                    var query = from item in dc.stp_ListarSeleccionDistanciador(decAltura)
+                                select new SeleccionDistanciador
+                                {
+                                    vchSKU = item.vchSKU,
+                                    decAltura = item.decAltura,
+                                    decPesoKg = item.decPesoKg,
+                                    decPrecioTyrsa = item.decPrecioTyrsa,
+                                    decPrecioReferencia = item.decPrecioReferencia,
+                                    decRelacionPrecio = item.decRelacionPrecio,
+                                    decPrecioMetroTyrsa = item.decPrecioMetroTyrsa,
+                                    decPrecioMetroRef = item.decPrecioMetroRef,
+                                    decPrecioKgTyrsa = item.decPrecioKgTyrsa,
+                                    decPrecioKgRef = item.decPrecioKgRef,
+                                    decPesoAnguloCobro = item.decPesoAnguloCobro,
+                                    decPesoPlacaCobro = item.decPesoPlacaCobro,
+                                    sintCantidadPzaAngulo = item.sintCantidadPzaAngulo,
+                                    sintCantidadPzaPlaca = item.sintCantidadPzaPlaca,
+                                    decPesoPorDistanciador = item.decPesoPorDistanciador,
+                                    decAreaPinturaAngulo = item.decAreaPinturaAngulo,
+                                    decAreaPinturaPlaca = item.decAreaPinturaPlaca,
+                                    decPinturaTotal = item.decPinturaTotal,
+                                    decTotalKgTotal = item.decTotalKgTotal,
+                                    bitActivo = item.bitActivo
+                                };
+                    result.AddRange(query);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
+        /// <summary>
+        /// Obtiene la lista de valores de altura de distanciador
+        /// </summary>
+        /// <returns></returns>
+        public List<CatalogoDecimal> ListarCatalogoDistanciador()
+        {
+            List<CatalogoDecimal> result = new List<CatalogoDecimal>();
+            try
+            {
+                using (DistanciadorDataContext dc = new DistanciadorDataContext(Helper.ConnectionString()))
+                {
+                    var query = from item in dc.stp_ListarCatAlturaDistanciador()
+                                select new CatalogoDecimal
+                                {
+                                    decValor = item.decAltura
+                                };
+                    result.AddRange(query);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
     }
 }

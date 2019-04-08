@@ -1,12 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="dbTyrsa" Class="CatalogosDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=local;Initial Catalog=dbTyrsa;Persist Security Info=True;User ID=usrCotyrsa" SettingsObjectName="Adsisplus.Cotyrsa.DataAccess.Properties.Settings" SettingsPropertyName="dbTyrsaConnectionString" Provider="System.Data.SqlClient" />
-  <Function Name="dbo.stp_ListarCatAlturaMarco" Method="stp_ListarCatAlturaMarco">
-    <ElementType Name="stp_ListarCatAlturaMarcoResult">
-      <Column Name="intAlturaMarcoID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="decAlturaMarco" Type="System.Decimal" DbType="Decimal(8,2)" CanBeNull="true" />
-      <Column Name="bitActivo" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-    </ElementType>
-  </Function>
+  <Connection Mode="AppSettings" ConnectionString="Data Source=(local);Initial Catalog=dbTyrsa;User ID=usrCotyrsa" SettingsObjectName="Adsisplus.Cotyrsa.DataAccess.Properties.Settings" SettingsPropertyName="dbTyrsaConnectionString1" Provider="System.Data.SqlClient" />
   <Function Name="dbo.stp_ListarCatCalibreAcero" Method="stp_ListarCatCalibreAcero">
     <ElementType Name="stp_ListarCatCalibreAceroResult">
       <Column Name="intCalibreAceroID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
@@ -430,6 +423,12 @@
       <Column Name="intSubProductoID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="vchDescripcion" Type="System.String" DbType="VarChar(126) NOT NULL" CanBeNull="false" />
       <Column Name="bitActivo" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.stp_ListarCatAlturaMarco" Method="stp_ListarCatAlturaMarco">
+    <ElementType Name="stp_ListarCatAlturaMarcoResult">
+      <Column Name="decAlturaMarco" Type="System.Decimal" DbType="Decimal(8,2)" CanBeNull="true" />
+      <Column Name="intAlturaMarcoID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
     </ElementType>
   </Function>
 </Database>

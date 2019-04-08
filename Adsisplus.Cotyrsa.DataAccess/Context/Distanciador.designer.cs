@@ -62,11 +62,393 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 			OnCreated();
 		}
 		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.stp_ListarSeleccionDistanciador")]
+		public ISingleResult<stp_ListarSeleccionDistanciadorResult> stp_ListarSeleccionDistanciador([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Decimal(8,3)")] System.Nullable<decimal> decAltura)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), decAltura);
+			return ((ISingleResult<stp_ListarSeleccionDistanciadorResult>)(result.ReturnValue));
+		}
+		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.stp_ListarDatosDistanciador")]
 		public ISingleResult<stp_ListarDatosDistanciadorResult> stp_ListarDatosDistanciador([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intCotizacionID)
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), intCotizacionID);
 			return ((ISingleResult<stp_ListarDatosDistanciadorResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.stp_ListarCatAlturaDistanciador")]
+		public ISingleResult<stp_ListarCatAlturaDistanciadorResult> stp_ListarCatAlturaDistanciador()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<stp_ListarCatAlturaDistanciadorResult>)(result.ReturnValue));
+		}
+	}
+	
+	public partial class stp_ListarSeleccionDistanciadorResult
+	{
+		
+		private string _vchSKU;
+		
+		private System.Nullable<decimal> _decAltura;
+		
+		private System.Nullable<decimal> _decPesoKg;
+		
+		private System.Nullable<decimal> _decPrecioTyrsa;
+		
+		private System.Nullable<decimal> _decPrecioReferencia;
+		
+		private System.Nullable<decimal> _decRelacionPrecio;
+		
+		private System.Nullable<decimal> _decPrecioMetroTyrsa;
+		
+		private System.Nullable<decimal> _decPrecioMetroRef;
+		
+		private System.Nullable<decimal> _decPrecioKgTyrsa;
+		
+		private System.Nullable<decimal> _decPrecioKgRef;
+		
+		private System.Nullable<decimal> _decPesoAnguloCobro;
+		
+		private System.Nullable<decimal> _decPesoPlacaCobro;
+		
+		private System.Nullable<short> _sintCantidadPzaAngulo;
+		
+		private System.Nullable<short> _sintCantidadPzaPlaca;
+		
+		private System.Nullable<decimal> _decPesoPorDistanciador;
+		
+		private System.Nullable<decimal> _decAreaPinturaAngulo;
+		
+		private System.Nullable<decimal> _decAreaPinturaPlaca;
+		
+		private System.Nullable<decimal> _decPinturaTotal;
+		
+		private System.Nullable<decimal> _decTotalKgTotal;
+		
+		private System.Nullable<bool> _bitActivo;
+		
+		public stp_ListarSeleccionDistanciadorResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchSKU", DbType="VarChar(10)")]
+		public string vchSKU
+		{
+			get
+			{
+				return this._vchSKU;
+			}
+			set
+			{
+				if ((this._vchSKU != value))
+				{
+					this._vchSKU = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decAltura", DbType="Decimal(8,2)")]
+		public System.Nullable<decimal> decAltura
+		{
+			get
+			{
+				return this._decAltura;
+			}
+			set
+			{
+				if ((this._decAltura != value))
+				{
+					this._decAltura = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decPesoKg", DbType="Decimal(10,3)")]
+		public System.Nullable<decimal> decPesoKg
+		{
+			get
+			{
+				return this._decPesoKg;
+			}
+			set
+			{
+				if ((this._decPesoKg != value))
+				{
+					this._decPesoKg = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decPrecioTyrsa", DbType="Decimal(10,2)")]
+		public System.Nullable<decimal> decPrecioTyrsa
+		{
+			get
+			{
+				return this._decPrecioTyrsa;
+			}
+			set
+			{
+				if ((this._decPrecioTyrsa != value))
+				{
+					this._decPrecioTyrsa = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decPrecioReferencia", DbType="Decimal(10,2)")]
+		public System.Nullable<decimal> decPrecioReferencia
+		{
+			get
+			{
+				return this._decPrecioReferencia;
+			}
+			set
+			{
+				if ((this._decPrecioReferencia != value))
+				{
+					this._decPrecioReferencia = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decRelacionPrecio", DbType="Decimal(10,2)")]
+		public System.Nullable<decimal> decRelacionPrecio
+		{
+			get
+			{
+				return this._decRelacionPrecio;
+			}
+			set
+			{
+				if ((this._decRelacionPrecio != value))
+				{
+					this._decRelacionPrecio = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decPrecioMetroTyrsa", DbType="Decimal(10,2)")]
+		public System.Nullable<decimal> decPrecioMetroTyrsa
+		{
+			get
+			{
+				return this._decPrecioMetroTyrsa;
+			}
+			set
+			{
+				if ((this._decPrecioMetroTyrsa != value))
+				{
+					this._decPrecioMetroTyrsa = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decPrecioMetroRef", DbType="Decimal(10,2)")]
+		public System.Nullable<decimal> decPrecioMetroRef
+		{
+			get
+			{
+				return this._decPrecioMetroRef;
+			}
+			set
+			{
+				if ((this._decPrecioMetroRef != value))
+				{
+					this._decPrecioMetroRef = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decPrecioKgTyrsa", DbType="Decimal(10,2)")]
+		public System.Nullable<decimal> decPrecioKgTyrsa
+		{
+			get
+			{
+				return this._decPrecioKgTyrsa;
+			}
+			set
+			{
+				if ((this._decPrecioKgTyrsa != value))
+				{
+					this._decPrecioKgTyrsa = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decPrecioKgRef", DbType="Decimal(10,2)")]
+		public System.Nullable<decimal> decPrecioKgRef
+		{
+			get
+			{
+				return this._decPrecioKgRef;
+			}
+			set
+			{
+				if ((this._decPrecioKgRef != value))
+				{
+					this._decPrecioKgRef = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decPesoAnguloCobro", DbType="Decimal(10,3)")]
+		public System.Nullable<decimal> decPesoAnguloCobro
+		{
+			get
+			{
+				return this._decPesoAnguloCobro;
+			}
+			set
+			{
+				if ((this._decPesoAnguloCobro != value))
+				{
+					this._decPesoAnguloCobro = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decPesoPlacaCobro", DbType="Decimal(10,4)")]
+		public System.Nullable<decimal> decPesoPlacaCobro
+		{
+			get
+			{
+				return this._decPesoPlacaCobro;
+			}
+			set
+			{
+				if ((this._decPesoPlacaCobro != value))
+				{
+					this._decPesoPlacaCobro = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sintCantidadPzaAngulo", DbType="SmallInt")]
+		public System.Nullable<short> sintCantidadPzaAngulo
+		{
+			get
+			{
+				return this._sintCantidadPzaAngulo;
+			}
+			set
+			{
+				if ((this._sintCantidadPzaAngulo != value))
+				{
+					this._sintCantidadPzaAngulo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sintCantidadPzaPlaca", DbType="SmallInt")]
+		public System.Nullable<short> sintCantidadPzaPlaca
+		{
+			get
+			{
+				return this._sintCantidadPzaPlaca;
+			}
+			set
+			{
+				if ((this._sintCantidadPzaPlaca != value))
+				{
+					this._sintCantidadPzaPlaca = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decPesoPorDistanciador", DbType="Decimal(10,3)")]
+		public System.Nullable<decimal> decPesoPorDistanciador
+		{
+			get
+			{
+				return this._decPesoPorDistanciador;
+			}
+			set
+			{
+				if ((this._decPesoPorDistanciador != value))
+				{
+					this._decPesoPorDistanciador = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decAreaPinturaAngulo", DbType="Decimal(10,4)")]
+		public System.Nullable<decimal> decAreaPinturaAngulo
+		{
+			get
+			{
+				return this._decAreaPinturaAngulo;
+			}
+			set
+			{
+				if ((this._decAreaPinturaAngulo != value))
+				{
+					this._decAreaPinturaAngulo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decAreaPinturaPlaca", DbType="Decimal(10,4)")]
+		public System.Nullable<decimal> decAreaPinturaPlaca
+		{
+			get
+			{
+				return this._decAreaPinturaPlaca;
+			}
+			set
+			{
+				if ((this._decAreaPinturaPlaca != value))
+				{
+					this._decAreaPinturaPlaca = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decPinturaTotal", DbType="Decimal(10,4)")]
+		public System.Nullable<decimal> decPinturaTotal
+		{
+			get
+			{
+				return this._decPinturaTotal;
+			}
+			set
+			{
+				if ((this._decPinturaTotal != value))
+				{
+					this._decPinturaTotal = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decTotalKgTotal", DbType="Decimal(10,4)")]
+		public System.Nullable<decimal> decTotalKgTotal
+		{
+			get
+			{
+				return this._decTotalKgTotal;
+			}
+			set
+			{
+				if ((this._decTotalKgTotal != value))
+				{
+					this._decTotalKgTotal = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_bitActivo", DbType="Bit")]
+		public System.Nullable<bool> bitActivo
+		{
+			get
+			{
+				return this._bitActivo;
+			}
+			set
+			{
+				if ((this._bitActivo != value))
+				{
+					this._bitActivo = value;
+				}
+			}
 		}
 	}
 	
@@ -271,6 +653,32 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 				if ((this._bitActivo != value))
 				{
 					this._bitActivo = value;
+				}
+			}
+		}
+	}
+	
+	public partial class stp_ListarCatAlturaDistanciadorResult
+	{
+		
+		private System.Nullable<decimal> _decAltura;
+		
+		public stp_ListarCatAlturaDistanciadorResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decAltura", DbType="Decimal(8,2)")]
+		public System.Nullable<decimal> decAltura
+		{
+			get
+			{
+				return this._decAltura;
+			}
+			set
+			{
+				if ((this._decAltura != value))
+				{
+					this._decAltura = value;
 				}
 			}
 		}

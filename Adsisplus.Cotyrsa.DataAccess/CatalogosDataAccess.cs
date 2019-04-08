@@ -21,8 +21,8 @@ namespace Adsisplus.Cotyrsa.DataAccess
                                 select new CatalogoDecimal()
                                 {
                                     intCatalogoID = item.intAlturaMarcoID,
-                                    decValor = item.decAlturaMarco,
-                                    bitActivo = item.bitActivo
+                                    decValor = item.decAlturaMarco/*,
+                                    bitActivo = item.bitActivo*/
                                 };
                     results.AddRange(query);
                 }

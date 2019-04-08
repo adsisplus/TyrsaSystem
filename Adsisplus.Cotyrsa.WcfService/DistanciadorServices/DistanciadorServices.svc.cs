@@ -32,6 +32,41 @@ namespace Adsisplus.Cotyrsa.WcfService.DistanciadorServices
             return result;
         }
         /// <summary>
+        /// Obtiene la lista de distanciadores en base al altura
+        /// </summary>
+        /// <param name="decAltura"></param>
+        /// <returns></returns>
+        public List<SeleccionDistanciador> ListarSeleccionDistanciador(decimal decAltura)
+        {
+            List<SeleccionDistanciador> result = new List<SeleccionDistanciador>();
+            try
+            {
+                result = (new DistanciadorLogic()).ListarSeleccionDistanciador(decAltura);
+            }
+            catch (Exception ex)
+            {
+                Adsisplus.Cotyrsa.BusinessLogic.EventLogManager.LogErrorEntry(ex.Message);
+            }
+            return result;
+        }
+        /// <summary>
+        /// Obtiene la lista de valores de altura de distanciador
+        /// </summary>
+        /// <returns></returns>
+        public List<CatalogoDecimal> ListarCatalogoDistanciador()
+        {
+            List<CatalogoDecimal> result = new List<CatalogoDecimal>();
+            try
+            {
+                result = (new DistanciadorLogic()).ListarCatalogoDistanciador();
+            }
+            catch (Exception ex)
+            {
+                Adsisplus.Cotyrsa.BusinessLogic.EventLogManager.LogErrorEntry(ex.Message);
+            }
+            return result;
+        }
+        /// <summary>
         /// Procedimiento que almacena los datos del Distanciador
         /// </summary>
         /// <param name="distanciador"></param>

@@ -21,7 +21,21 @@ namespace Adsisplus.Cotyrsa.WcfService.DistanciadorServices
         [OperationContract]
         [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ListarDatosDistanciador")]
         List<DatosDistanciador> ListarDatosDistanciador(Int32 intCotizacionID);
-
+        /// <summary>
+        /// Obtiene la lista de distanciadores en base al altura
+        /// </summary>
+        /// <param name="decAltura"></param>
+        /// <returns></returns>
+        [OperationContract]
+        [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ListarSeleccionDistanciador")]
+        List<SeleccionDistanciador> ListarSeleccionDistanciador(decimal decAltura);
+        /// <summary>
+        /// Obtiene la lista de valores de altura de distanciador
+        /// </summary>
+        /// <returns></returns>
+        [OperationContract]
+        [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ListarCatalogoDistanciador")]
+        List<CatalogoDecimal> ListarCatalogoDistanciador();
         /// <summary>
         /// Procedimiento que almacena los datos del Distanciador
         /// </summary>

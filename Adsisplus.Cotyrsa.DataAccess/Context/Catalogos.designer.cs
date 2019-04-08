@@ -62,13 +62,6 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.stp_ListarCatAlturaMarco")]
-		public ISingleResult<stp_ListarCatAlturaMarcoResult> stp_ListarCatAlturaMarco()
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
-			return ((ISingleResult<stp_ListarCatAlturaMarcoResult>)(result.ReturnValue));
-		}
-		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.stp_ListarCatCalibreAcero")]
 		public ISingleResult<stp_ListarCatCalibreAceroResult> stp_ListarCatCalibreAcero()
 		{
@@ -383,67 +376,12 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), intProductoGralID);
 			return ((ISingleResult<stp_ListarCatSistemaResult>)(result.ReturnValue));
 		}
-	}
-	
-	public partial class stp_ListarCatAlturaMarcoResult
-	{
 		
-		private int _intAlturaMarcoID;
-		
-		private System.Nullable<decimal> _decAlturaMarco;
-		
-		private System.Nullable<bool> _bitActivo;
-		
-		public stp_ListarCatAlturaMarcoResult()
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.stp_ListarCatAlturaMarco")]
+		public ISingleResult<stp_ListarCatAlturaMarcoResult> stp_ListarCatAlturaMarco()
 		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intAlturaMarcoID", DbType="Int NOT NULL")]
-		public int intAlturaMarcoID
-		{
-			get
-			{
-				return this._intAlturaMarcoID;
-			}
-			set
-			{
-				if ((this._intAlturaMarcoID != value))
-				{
-					this._intAlturaMarcoID = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decAlturaMarco", DbType="Decimal(8,2)")]
-		public System.Nullable<decimal> decAlturaMarco
-		{
-			get
-			{
-				return this._decAlturaMarco;
-			}
-			set
-			{
-				if ((this._decAlturaMarco != value))
-				{
-					this._decAlturaMarco = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_bitActivo", DbType="Bit")]
-		public System.Nullable<bool> bitActivo
-		{
-			get
-			{
-				return this._bitActivo;
-			}
-			set
-			{
-				if ((this._bitActivo != value))
-				{
-					this._bitActivo = value;
-				}
-			}
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<stp_ListarCatAlturaMarcoResult>)(result.ReturnValue));
 		}
 	}
 	
@@ -4726,6 +4664,50 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 				if ((this._bitActivo != value))
 				{
 					this._bitActivo = value;
+				}
+			}
+		}
+	}
+	
+	public partial class stp_ListarCatAlturaMarcoResult
+	{
+		
+		private System.Nullable<decimal> _decAlturaMarco;
+		
+		private int _intAlturaMarcoID;
+		
+		public stp_ListarCatAlturaMarcoResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decAlturaMarco", DbType="Decimal(8,2)")]
+		public System.Nullable<decimal> decAlturaMarco
+		{
+			get
+			{
+				return this._decAlturaMarco;
+			}
+			set
+			{
+				if ((this._decAlturaMarco != value))
+				{
+					this._decAlturaMarco = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intAlturaMarcoID", DbType="Int NOT NULL")]
+		public int intAlturaMarcoID
+		{
+			get
+			{
+				return this._intAlturaMarcoID;
+			}
+			set
+			{
+				if ((this._intAlturaMarcoID != value))
+				{
+					this._intAlturaMarcoID = value;
 				}
 			}
 		}
