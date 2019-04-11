@@ -38,7 +38,9 @@ namespace Adsisplus.Cotyrsa.DataAccess
                                     vchTelefonoMovil = item.vchTelefonoMovil,
                                     vchMail = item.vchMail,
                                     bitActivo = item.bitActivo,
-                                    bitCausaRetencion = item.bitCausaRetencion
+                                    //bitCausaRetencion = item.bitCausaRetencion
+                                    vchTelefonoFijo = item.vchTelefonoFijo,
+                                    vchExtension = item.vchExtension
 
                                 };
                     results.AddRange(query);
@@ -92,7 +94,8 @@ namespace Adsisplus.Cotyrsa.DataAccess
                 {
                     var query = from item in dc.stp_setPersona(persona.intPersonaID, persona.intTipoPersonaID, persona.intEmpresaID, persona.vchNombreCompleto, persona.vchNombre,
                         persona.vchApPaterno, persona.vchApMaterno, persona.datFechaNacimiento, persona.vchLugarNacimiento, persona.vchRFC, persona.vchCURP, persona.sintEdad,
-                        persona.vchTelefono, persona.vchTelefonoMovil, persona.vchMail, persona.bitActivo, persona.bitCausaRetencion, (byte)tinOpcion)
+                        persona.vchTelefono, persona.vchTelefonoMovil, persona.vchMail, persona.vchTelefonoFijo, persona.vchExtension, 
+                        persona.bitActivo, /*persona.bitCausaRetencion,*/ (byte)tinOpcion)
                                 select new Resultado
                                 {
                                     vchResultado = item.vchResultado,

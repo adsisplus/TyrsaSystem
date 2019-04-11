@@ -56,8 +56,13 @@ namespace Adsisplus.Cotyrsa.BusinessEntities
         public string vchMail { get; set; }
         [DataMember]
         public bool? bitActivo { get; set; }
+        //[DataMember]
+        //public bool? bitCausaRetencion { get; set; }
+
         [DataMember]
-        public bool? bitCausaRetencion { get; set; }
+        public string vchTelefonoFijo { get; set; }
+        [DataMember]
+        public string vchExtension { get; set; }
         
 
     }
