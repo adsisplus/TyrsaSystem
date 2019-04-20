@@ -41,5 +41,8 @@ namespace Adsisplus.Cotyrsa.BusinessEntities
         /// </summary>
         [DataMember]
         public string vchRFC { get; set; }
+
+        [DataMember]
+        public bool? bitCausaRetencion { get; set; }
     }
 }

@@ -188,12 +188,13 @@ namespace Adsisplus.Cotyrsa.BusinessEntities
         #endregion
 
 
-        [DataMember]
-        public int? intPiezaXLamina { get; set; }
+        //[DataMember]
+        //public int? intPiezaXLamina { get; set; }
 
+        //[DataMember]
+        //public int? intPiezaXLaminaCuerpo { get; set; }
         [DataMember]
-        public int? intPiezaXLaminaCuerpo { get; set; }
-
+        public bool? bitManual { get; set; }
 
         [DataMember]
         public bool? bitActivo { get; set; }

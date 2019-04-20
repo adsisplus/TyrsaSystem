@@ -443,7 +443,10 @@ namespace Adsisplus.Cotyrsa.DataAccess
                         rack.decCapCargaReqViga, rack.bitEstructural, rack.bitSobresale, Convert.ToByte(rack.tinOpcionViga), rack.decDistanciaLargoProducto, 
                         Convert.ToString(viga.SKU), viga.decPesoViga, viga.decPrecioUnitarioSinIVA, viga.intTipoID, viga.intMaterialID, 
                         viga.decPatin, viga.decPeralte, viga.decLongitud, viga.decCapacidadParVigasRequerida, viga.decCapacidadParVigasMaxima, 
-                        rack.intNumeroTarimaPorNivel, viga.bitActivo, (byte)tinOpcion)
+                        rack.intNumeroTarimaPorNivel,
+                        // DATOS DEL RACK SELECTIVO
+                        rack.bitMontacarga, rack.bitManual, rack.vchDimensionMontacarga,
+                        viga.bitActivo, (byte)tinOpcion)
                                   select new Resultado
                                   {
                                       vchDescripcion = item.vchDescripcion,
@@ -492,8 +495,11 @@ namespace Adsisplus.Cotyrsa.DataAccess
                                     tinOpcionViga = item.tinOpcionViga,
                                     decLongitudViga = item.decLongitudViga,
                                     decCapCargaReqViga = item.decCapCargaReqViga,
-                                    intPiezaXLamina = item.intPiezaXLamina,
-                                    intPiezaXLaminaCuerpo = item.intPiezaXLaminaCuerpo
+                                    //intPiezaXLamina = item.intPiezaXLamina,
+                                    //intPiezaXLaminaCuerpo = item.intPiezaXLaminaCuerpo
+                                    bitMontacarga = item.bitMontaCarga,
+                                    bitManual = item.bitManual,
+                                    vchDimensionMontacarga = item.vchDimensionMontacarga
                                 };
                     result.AddRange(query);
                 }

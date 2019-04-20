@@ -126,6 +126,20 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 			return ((ISingleResult<stp_ListarDatosSeleccionVigaResult>)(result.ReturnValue));
 		}
 		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.stp_ListarSeleccionViga")]
+		public ISingleResult<entSeleccionViga> stp_ListarSeleccionViga([global::System.Data.Linq.Mapping.ParameterAttribute(Name="CPPV", DbType="Decimal(8,2)")] System.Nullable<decimal> cPPV, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="LV", DbType="Decimal(8,2)")] System.Nullable<decimal> lV, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Sistema", DbType="SmallInt")] System.Nullable<short> sistema, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Bit")] System.Nullable<bool> bitEstructural)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), cPPV, lV, sistema, bitEstructural);
+			return ((ISingleResult<entSeleccionViga>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.stp_ListarDatosVigaTope")]
+		public ISingleResult<stp_ListarDatosVigaTopeResult> stp_ListarDatosVigaTope([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intCotizacionID)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), intCotizacionID);
+			return ((ISingleResult<stp_ListarDatosVigaTopeResult>)(result.ReturnValue));
+		}
+		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.stp_setSeleccionViga")]
 		public ISingleResult<stp_setSeleccionVigaResult> stp_setSeleccionViga(
 					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intRackID, 
@@ -153,18 +167,14 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Decimal(8,3)")] System.Nullable<decimal> decCapViga, 
 					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Decimal(8,3)")] System.Nullable<decimal> decCapVigaMax, 
 					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intNumeroTarimaPorNivel, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Bit")] System.Nullable<bool> bitMontaCarga, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Bit")] System.Nullable<bool> bitManual, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(50)")] string vchDimensionMontaCarga, 
 					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Bit")] System.Nullable<bool> bitActivo, 
 					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="TinyInt")] System.Nullable<byte> tinOpcion)
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), intRackID, intSeleccionVigaID, intCotizacinID, intDetCotizaID, decFrente, decFondo, decAltura, decPeso, decLongitudViga, decCapCargaReqViga, bitEstructural, bitSobresale, tinOpcionViga, decDistanciaLargoProducto, sKU, decPesoViga, decPrecioUnitario, intTipoID, intMaterialID, decPatin, decPeralte, decLongitud, decCapViga, decCapVigaMax, intNumeroTarimaPorNivel, bitActivo, tinOpcion);
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), intRackID, intSeleccionVigaID, intCotizacinID, intDetCotizaID, decFrente, decFondo, decAltura, decPeso, decLongitudViga, decCapCargaReqViga, bitEstructural, bitSobresale, tinOpcionViga, decDistanciaLargoProducto, sKU, decPesoViga, decPrecioUnitario, intTipoID, intMaterialID, decPatin, decPeralte, decLongitud, decCapViga, decCapVigaMax, intNumeroTarimaPorNivel, bitMontaCarga, bitManual, vchDimensionMontaCarga, bitActivo, tinOpcion);
 			return ((ISingleResult<stp_setSeleccionVigaResult>)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.stp_ListarSeleccionViga")]
-		public ISingleResult<entSeleccionViga> stp_ListarSeleccionViga([global::System.Data.Linq.Mapping.ParameterAttribute(Name="CPPV", DbType="Decimal(8,2)")] System.Nullable<decimal> cPPV, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="LV", DbType="Decimal(8,2)")] System.Nullable<decimal> lV, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Sistema", DbType="SmallInt")] System.Nullable<short> sistema, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Bit")] System.Nullable<bool> bitEstructural)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), cPPV, lV, sistema, bitEstructural);
-			return ((ISingleResult<entSeleccionViga>)(result.ReturnValue));
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.stp_ListarDatosPantallaViga")]
@@ -172,13 +182,6 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), intCotizacionID, intSeleccionVigaID);
 			return ((ISingleResult<stp_ListarDatosPantallaVigaResult>)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.stp_ListarDatosVigaTope")]
-		public ISingleResult<stp_ListarDatosVigaTopeResult> stp_ListarDatosVigaTope([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intCotizacionID)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), intCotizacionID);
-			return ((ISingleResult<stp_ListarDatosVigaTopeResult>)(result.ReturnValue));
 		}
 	}
 	
@@ -219,6 +222,12 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 		private int _intTipoID;
 		
 		private int _intMaterialID;
+		
+		private bool _bitMontaCarga;
+		
+		private string _vchDimensionMontacarga;
+		
+		private bool _bitManual;
 		
 		public entSeleccionViga()
 		{
@@ -492,6 +501,54 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 				if ((this._intMaterialID != value))
 				{
 					this._intMaterialID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_bitMontaCarga")]
+		public bool bitMontaCarga
+		{
+			get
+			{
+				return this._bitMontaCarga;
+			}
+			set
+			{
+				if ((this._bitMontaCarga != value))
+				{
+					this._bitMontaCarga = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchDimensionMontacarga", CanBeNull=false)]
+		public string vchDimensionMontacarga
+		{
+			get
+			{
+				return this._vchDimensionMontacarga;
+			}
+			set
+			{
+				if ((this._vchDimensionMontacarga != value))
+				{
+					this._vchDimensionMontacarga = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_bitManual")]
+		public bool bitManual
+		{
+			get
+			{
+				return this._bitManual;
+			}
+			set
+			{
+				if ((this._bitManual != value))
+				{
+					this._bitManual = value;
 				}
 			}
 		}
@@ -2595,6 +2652,230 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 		}
 	}
 	
+	public partial class stp_ListarDatosVigaTopeResult
+	{
+		
+		private int _intVigaTopeID;
+		
+		private string _vchElemento;
+		
+		private System.Nullable<int> _intDatosVigaID;
+		
+		private System.Nullable<int> _intCantidadDatosViga;
+		
+		private System.Nullable<int> _intCotizacionID;
+		
+		private System.Nullable<int> _intDetCotizaID;
+		
+		private System.Nullable<short> _sintPinturaID;
+		
+		private string _vchPintura;
+		
+		private string _vchFolio;
+		
+		private System.Nullable<int> _intCantidad;
+		
+		private System.Nullable<decimal> _decPrecioUnitario;
+		
+		private System.Nullable<bool> _bitActivo;
+		
+		public stp_ListarDatosVigaTopeResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intVigaTopeID", DbType="Int NOT NULL")]
+		public int intVigaTopeID
+		{
+			get
+			{
+				return this._intVigaTopeID;
+			}
+			set
+			{
+				if ((this._intVigaTopeID != value))
+				{
+					this._intVigaTopeID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchElemento", DbType="VarChar(25)")]
+		public string vchElemento
+		{
+			get
+			{
+				return this._vchElemento;
+			}
+			set
+			{
+				if ((this._vchElemento != value))
+				{
+					this._vchElemento = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intDatosVigaID", DbType="Int")]
+		public System.Nullable<int> intDatosVigaID
+		{
+			get
+			{
+				return this._intDatosVigaID;
+			}
+			set
+			{
+				if ((this._intDatosVigaID != value))
+				{
+					this._intDatosVigaID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intCantidadDatosViga", DbType="Int")]
+		public System.Nullable<int> intCantidadDatosViga
+		{
+			get
+			{
+				return this._intCantidadDatosViga;
+			}
+			set
+			{
+				if ((this._intCantidadDatosViga != value))
+				{
+					this._intCantidadDatosViga = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intCotizacionID", DbType="Int")]
+		public System.Nullable<int> intCotizacionID
+		{
+			get
+			{
+				return this._intCotizacionID;
+			}
+			set
+			{
+				if ((this._intCotizacionID != value))
+				{
+					this._intCotizacionID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intDetCotizaID", DbType="Int")]
+		public System.Nullable<int> intDetCotizaID
+		{
+			get
+			{
+				return this._intDetCotizaID;
+			}
+			set
+			{
+				if ((this._intDetCotizaID != value))
+				{
+					this._intDetCotizaID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sintPinturaID", DbType="SmallInt")]
+		public System.Nullable<short> sintPinturaID
+		{
+			get
+			{
+				return this._sintPinturaID;
+			}
+			set
+			{
+				if ((this._sintPinturaID != value))
+				{
+					this._sintPinturaID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchPintura", DbType="VarChar(25)")]
+		public string vchPintura
+		{
+			get
+			{
+				return this._vchPintura;
+			}
+			set
+			{
+				if ((this._vchPintura != value))
+				{
+					this._vchPintura = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchFolio", DbType="VarChar(250)")]
+		public string vchFolio
+		{
+			get
+			{
+				return this._vchFolio;
+			}
+			set
+			{
+				if ((this._vchFolio != value))
+				{
+					this._vchFolio = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intCantidad", DbType="Int")]
+		public System.Nullable<int> intCantidad
+		{
+			get
+			{
+				return this._intCantidad;
+			}
+			set
+			{
+				if ((this._intCantidad != value))
+				{
+					this._intCantidad = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decPrecioUnitario", DbType="Decimal(18,2)")]
+		public System.Nullable<decimal> decPrecioUnitario
+		{
+			get
+			{
+				return this._decPrecioUnitario;
+			}
+			set
+			{
+				if ((this._decPrecioUnitario != value))
+				{
+					this._decPrecioUnitario = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_bitActivo", DbType="Bit")]
+		public System.Nullable<bool> bitActivo
+		{
+			get
+			{
+				return this._bitActivo;
+			}
+			set
+			{
+				if ((this._bitActivo != value))
+				{
+					this._bitActivo = value;
+				}
+			}
+		}
+	}
+	
 	public partial class stp_setSeleccionVigaResult
 	{
 		
@@ -2676,9 +2957,11 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 		
 		private System.Nullable<int> _intNumTarimaNivel;
 		
-		private System.Nullable<int> _intPiezaXLamina;
+		private System.Nullable<bool> _bitManual;
 		
-		private System.Nullable<int> _intPiezaXLaminaCuerpo;
+		private System.Nullable<bool> _bitMontaCarga;
+		
+		private string _vchDimensionMontacarga;
 		
 		public stp_ListarDatosPantallaVigaResult()
 		{
@@ -2956,258 +3239,50 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intPiezaXLamina", DbType="Int")]
-		public System.Nullable<int> intPiezaXLamina
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_bitManual", DbType="Bit")]
+		public System.Nullable<bool> bitManual
 		{
 			get
 			{
-				return this._intPiezaXLamina;
+				return this._bitManual;
 			}
 			set
 			{
-				if ((this._intPiezaXLamina != value))
+				if ((this._bitManual != value))
 				{
-					this._intPiezaXLamina = value;
+					this._bitManual = value;
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intPiezaXLaminaCuerpo", DbType="Int")]
-		public System.Nullable<int> intPiezaXLaminaCuerpo
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_bitMontaCarga", DbType="Bit")]
+		public System.Nullable<bool> bitMontaCarga
 		{
 			get
 			{
-				return this._intPiezaXLaminaCuerpo;
+				return this._bitMontaCarga;
 			}
 			set
 			{
-				if ((this._intPiezaXLaminaCuerpo != value))
+				if ((this._bitMontaCarga != value))
 				{
-					this._intPiezaXLaminaCuerpo = value;
-				}
-			}
-		}
-	}
-	
-	public partial class stp_ListarDatosVigaTopeResult
-	{
-		
-		private int _intVigaTopeID;
-		
-		private string _vchElemento;
-		
-		private System.Nullable<int> _intDatosVigaID;
-		
-		private System.Nullable<int> _intCantidadDatosViga;
-		
-		private System.Nullable<int> _intCotizacionID;
-		
-		private System.Nullable<int> _intDetCotizaID;
-		
-		private System.Nullable<short> _sintPinturaID;
-		
-		private string _vchPintura;
-		
-		private string _vchFolio;
-		
-		private System.Nullable<int> _intCantidad;
-		
-		private System.Nullable<decimal> _decPrecioUnitario;
-		
-		private System.Nullable<bool> _bitActivo;
-		
-		public stp_ListarDatosVigaTopeResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intVigaTopeID", DbType="Int NOT NULL")]
-		public int intVigaTopeID
-		{
-			get
-			{
-				return this._intVigaTopeID;
-			}
-			set
-			{
-				if ((this._intVigaTopeID != value))
-				{
-					this._intVigaTopeID = value;
+					this._bitMontaCarga = value;
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchElemento", DbType="VarChar(25)")]
-		public string vchElemento
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchDimensionMontacarga", DbType="VarChar(50)")]
+		public string vchDimensionMontacarga
 		{
 			get
 			{
-				return this._vchElemento;
+				return this._vchDimensionMontacarga;
 			}
 			set
 			{
-				if ((this._vchElemento != value))
+				if ((this._vchDimensionMontacarga != value))
 				{
-					this._vchElemento = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intDatosVigaID", DbType="Int")]
-		public System.Nullable<int> intDatosVigaID
-		{
-			get
-			{
-				return this._intDatosVigaID;
-			}
-			set
-			{
-				if ((this._intDatosVigaID != value))
-				{
-					this._intDatosVigaID = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intCantidadDatosViga", DbType="Int")]
-		public System.Nullable<int> intCantidadDatosViga
-		{
-			get
-			{
-				return this._intCantidadDatosViga;
-			}
-			set
-			{
-				if ((this._intCantidadDatosViga != value))
-				{
-					this._intCantidadDatosViga = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intCotizacionID", DbType="Int")]
-		public System.Nullable<int> intCotizacionID
-		{
-			get
-			{
-				return this._intCotizacionID;
-			}
-			set
-			{
-				if ((this._intCotizacionID != value))
-				{
-					this._intCotizacionID = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intDetCotizaID", DbType="Int")]
-		public System.Nullable<int> intDetCotizaID
-		{
-			get
-			{
-				return this._intDetCotizaID;
-			}
-			set
-			{
-				if ((this._intDetCotizaID != value))
-				{
-					this._intDetCotizaID = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sintPinturaID", DbType="SmallInt")]
-		public System.Nullable<short> sintPinturaID
-		{
-			get
-			{
-				return this._sintPinturaID;
-			}
-			set
-			{
-				if ((this._sintPinturaID != value))
-				{
-					this._sintPinturaID = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchPintura", DbType="VarChar(25)")]
-		public string vchPintura
-		{
-			get
-			{
-				return this._vchPintura;
-			}
-			set
-			{
-				if ((this._vchPintura != value))
-				{
-					this._vchPintura = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchFolio", DbType="VarChar(250)")]
-		public string vchFolio
-		{
-			get
-			{
-				return this._vchFolio;
-			}
-			set
-			{
-				if ((this._vchFolio != value))
-				{
-					this._vchFolio = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intCantidad", DbType="Int")]
-		public System.Nullable<int> intCantidad
-		{
-			get
-			{
-				return this._intCantidad;
-			}
-			set
-			{
-				if ((this._intCantidad != value))
-				{
-					this._intCantidad = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decPrecioUnitario", DbType="Decimal(18,2)")]
-		public System.Nullable<decimal> decPrecioUnitario
-		{
-			get
-			{
-				return this._decPrecioUnitario;
-			}
-			set
-			{
-				if ((this._decPrecioUnitario != value))
-				{
-					this._decPrecioUnitario = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_bitActivo", DbType="Bit")]
-		public System.Nullable<bool> bitActivo
-		{
-			get
-			{
-				return this._bitActivo;
-			}
-			set
-			{
-				if ((this._bitActivo != value))
-				{
-					this._bitActivo = value;
+					this._vchDimensionMontacarga = value;
 				}
 			}
 		}

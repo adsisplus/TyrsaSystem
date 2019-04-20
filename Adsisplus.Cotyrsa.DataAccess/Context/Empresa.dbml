@@ -12,6 +12,7 @@
     <Parameter Name="bitEsCliente" Type="System.Boolean" DbType="Bit" />
     <Parameter Name="bitActivo" Type="System.Boolean" DbType="Bit" />
     <Parameter Name="bitEsProveedor" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="bitCausaRetencion" Type="System.Boolean" DbType="Bit" />
     <Parameter Name="tinOpcion" Type="System.Byte" DbType="TinyInt" />
     <ElementType Name="stp_setEmpresaResult">
       <Column Name="vchResultado" Type="System.String" DbType="VarChar(12)" CanBeNull="true" />
@@ -34,6 +35,7 @@
       <Column Name="bitEsCliente" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
       <Column Name="bitActivo" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
       <Column Name="bitEsProveedor" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="bitCausaRetencion" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
     </ElementType>
   </Function>
 </Database>

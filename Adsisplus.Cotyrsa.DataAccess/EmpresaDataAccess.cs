@@ -29,6 +29,7 @@ namespace Adsisplus.Cotyrsa.DataAccess
                                     bitEsCliente = item.bitEsCliente,
                                     bitActivo = item.bitActivo,
                                     bitEsProveedor = item.bitEsProveedor,
+                                    bitCausaRetencion = item.bitCausaRetencion,
                                     sintTipoEmpresaID = item.sintTipoEmpresaID,
                                     vchRFC = item.vchRFC,
                                     vchTelefono = item.vchTelefono
@@ -56,7 +57,7 @@ namespace Adsisplus.Cotyrsa.DataAccess
                 using (EmpresaDataContext dc = new EmpresaDataContext(Helper.ConnectionString()))
                 {
                     var query = from item in dc.stp_setEmpresa(empresa.intEmpresaID, empresa.sintTipoEmpresaID, empresa.vchNombre, empresa.vchCorreo, empresa.vchCorreoFacturacion,
-                        empresa.vchCondisionesGenerales, empresa.vchTelefono, empresa.vchRFC, empresa.bitEsCliente, empresa.bitActivo, empresa.bitEsProveedor, (byte)tinOpcion)
+                        empresa.vchCondisionesGenerales, empresa.vchTelefono, empresa.vchRFC, empresa.bitEsCliente, empresa.bitActivo, empresa.bitEsProveedor, empresa.bitCausaRetencion, (byte)tinOpcion)
                                 select new Resultado()
                                 {
                                     vchResultado = item.vchResultado,

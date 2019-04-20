@@ -106,9 +106,9 @@ namespace Adsisplus.Cotyrsa.DataAccess
                     var query = from item in dc.stp_setMstCotizacion(cotizacion.intCotizacionID, cotizacion.intEstatusID, cotizacion.sintPrioridadID, cotizacion.intEmpresaID,
                         cotizacion.vchFolio, cotizacion.datFechaAceptacion, cotizacion.datFechaRechazo,
                         // Datos que son almacenados en tbl_RackSelectivo
-                        rack.intRackID, rack.bitMontacarga, rack.intNumeroTarimaPorNivel, 
+                        rack.intRackID, //rack.bitMontacarga, rack.intNumeroTarimaPorNivel, 
                         //rack.decFrente, rack.decFondo, rack.decAltura, rack.decPeso,
-                        rack.vchDimensionMontacarga, rack.intNumeroNivelSobreViga, rack.intPosicion, rack.sintVisitas,
+                        /*rack.vchDimensionMontacarga, rack.intNumeroNivelSobreViga, rack.intPosicion,*/ rack.sintVisitas,
                         rack.intRelCotizaProductoID, rack.intProductoGralID, rack.intSubProductoID, cotizacion.bitActivo, (byte)tinOpcion)
                                 select new Resultado
                                 {
