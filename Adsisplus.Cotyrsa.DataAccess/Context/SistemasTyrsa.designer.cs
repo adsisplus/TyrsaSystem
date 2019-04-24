@@ -91,25 +91,11 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 			return ((ISingleResult<stp_setDatosProtectorPosteResult>)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.stp_setDatosProtectorBateria")]
-		public ISingleResult<stp_setDatosProtectorBateriaResult> stp_setDatosProtectorBateria([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intProtectorBateriaID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intElementoID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intCotizacionID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intDetCotizaID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intCantidadSencilla, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intCantidadDoble, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intCantidadTriple, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intCantidadCuadruple, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Decimal(8,3)")] System.Nullable<decimal> decPrecioSencilla, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Decimal(8,3)")] System.Nullable<decimal> decPrecioDoble, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Decimal(8,3)")] System.Nullable<decimal> decPrecioTriple, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Decimal(8,3)")] System.Nullable<decimal> decPrecioCuadruple, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Bit")] System.Nullable<bool> bitActivo, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="TinyInt")] System.Nullable<byte> tinOpcion)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), intProtectorBateriaID, intElementoID, intCotizacionID, intDetCotizaID, intCantidadSencilla, intCantidadDoble, intCantidadTriple, intCantidadCuadruple, decPrecioSencilla, decPrecioDoble, decPrecioTriple, decPrecioCuadruple, bitActivo, tinOpcion);
-			return ((ISingleResult<stp_setDatosProtectorBateriaResult>)(result.ReturnValue));
-		}
-		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.stp_setDatosVigaTope")]
 		public ISingleResult<stp_setDatosVigaTopeResult> stp_setDatosVigaTope([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intVigaTopeID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intElementoID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intDatosVigaID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intCotizacionID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intDetCotizaID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="SmallInt")] System.Nullable<short> sintPinturaID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intCantidad, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Decimal(8,3)")] System.Nullable<decimal> decPrecioUnitario, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Bit")] System.Nullable<bool> bitActivo, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="TinyInt")] System.Nullable<byte> tinOpcion)
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), intVigaTopeID, intElementoID, intDatosVigaID, intCotizacionID, intDetCotizaID, sintPinturaID, intCantidad, decPrecioUnitario, bitActivo, tinOpcion);
 			return ((ISingleResult<stp_setDatosVigaTopeResult>)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.stp_setDatosParrilla")]
-		public ISingleResult<stp_setDatosParrillaResult> stp_setDatosParrilla([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intParrillaID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intElementoID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="SmallInt")] System.Nullable<short> sintPinturaID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intCotizacionID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intDetCotizaID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Decimal(20,2)")] System.Nullable<decimal> decFrenteParrilla, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Decimal(20,2)")] System.Nullable<decimal> decFondoParrilla, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Decimal(20,2)")] System.Nullable<decimal> decCostoParrilla, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Decimal(20,2)")] System.Nullable<decimal> decTamanioCuadroParrilla, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intCantidadParrilla, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Bit")] System.Nullable<bool> bitActivo, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="TinyInt")] System.Nullable<byte> tinOpcion)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), intParrillaID, intElementoID, sintPinturaID, intCotizacionID, intDetCotizaID, decFrenteParrilla, decFondoParrilla, decCostoParrilla, decTamanioCuadroParrilla, intCantidadParrilla, bitActivo, tinOpcion);
-			return ((ISingleResult<stp_setDatosParrillaResult>)(result.ReturnValue));
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.stp_setDatosDistanciador")]
@@ -145,6 +131,37 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), intCotizacionID);
 			return ((ISingleResult<stp_ListarTornillosSelectivoCotizacionResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.stp_setDatosParrilla")]
+		public ISingleResult<stp_setDatosParrillaResult> stp_setDatosParrilla([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intParrillaID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intElementoID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="SmallInt")] System.Nullable<short> sintPinturaID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intCotizacionID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intDetCotizaID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Decimal(20,2)")] System.Nullable<decimal> decFrenteParrilla, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Decimal(20,2)")] System.Nullable<decimal> decFondoParrilla, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Decimal(20,2)")] System.Nullable<decimal> decCostoParrilla, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Decimal(20,2)")] System.Nullable<decimal> decTamanioCuadroParrilla, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intCantidadParrilla, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Decimal(8,5)")] System.Nullable<decimal> decPesoParrilla, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Bit")] System.Nullable<bool> bitGalvanizado, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Bit")] System.Nullable<bool> bitPintura, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Bit")] System.Nullable<bool> bitActivo, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="TinyInt")] System.Nullable<byte> tinOpcion)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), intParrillaID, intElementoID, sintPinturaID, intCotizacionID, intDetCotizaID, decFrenteParrilla, decFondoParrilla, decCostoParrilla, decTamanioCuadroParrilla, intCantidadParrilla, decPesoParrilla, bitGalvanizado, bitPintura, bitActivo, tinOpcion);
+			return ((ISingleResult<stp_setDatosParrillaResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.stp_setDatosProtectorBateria")]
+		public ISingleResult<stp_setDatosProtectorBateriaResult> stp_setDatosProtectorBateria(
+					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intProtectorBateriaID, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intElementoID, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intCotizacionID, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intDetCotizaID, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intCantidadSencilla, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intCantidadDoble, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intCantidadTriple, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intCantidadCuadruple, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Decimal(8,3)")] System.Nullable<decimal> decPrecioSencilla, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Decimal(8,3)")] System.Nullable<decimal> decPrecioDoble, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Decimal(8,3)")] System.Nullable<decimal> decPrecioTriple, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Decimal(8,3)")] System.Nullable<decimal> decPrecioCuadruple, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Decimal(8,3)")] System.Nullable<decimal> decLargoSencilla, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Decimal(8,3)")] System.Nullable<decimal> decLargoDoble, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Decimal(8,3)")] System.Nullable<decimal> decLargoTriple, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Bit")] System.Nullable<bool> bitActivo, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="TinyInt")] System.Nullable<byte> tinOpcion)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), intProtectorBateriaID, intElementoID, intCotizacionID, intDetCotizaID, intCantidadSencilla, intCantidadDoble, intCantidadTriple, intCantidadCuadruple, decPrecioSencilla, decPrecioDoble, decPrecioTriple, decPrecioCuadruple, decLargoSencilla, decLargoDoble, decLargoTriple, bitActivo, tinOpcion);
+			return ((ISingleResult<stp_setDatosProtectorBateriaResult>)(result.ReturnValue));
 		}
 	}
 	
@@ -487,50 +504,6 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 		}
 	}
 	
-	public partial class stp_setDatosProtectorBateriaResult
-	{
-		
-		private string _vchResultado;
-		
-		private string _vchDescripcion;
-		
-		public stp_setDatosProtectorBateriaResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchResultado", DbType="VarChar(12)")]
-		public string vchResultado
-		{
-			get
-			{
-				return this._vchResultado;
-			}
-			set
-			{
-				if ((this._vchResultado != value))
-				{
-					this._vchResultado = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchDescripcion", DbType="VarChar(60) NOT NULL", CanBeNull=false)]
-		public string vchDescripcion
-		{
-			get
-			{
-				return this._vchDescripcion;
-			}
-			set
-			{
-				if ((this._vchDescripcion != value))
-				{
-					this._vchDescripcion = value;
-				}
-			}
-		}
-	}
-	
 	public partial class stp_setDatosVigaTopeResult
 	{
 		
@@ -559,50 +532,6 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchDescripcion", DbType="VarChar(52) NOT NULL", CanBeNull=false)]
-		public string vchDescripcion
-		{
-			get
-			{
-				return this._vchDescripcion;
-			}
-			set
-			{
-				if ((this._vchDescripcion != value))
-				{
-					this._vchDescripcion = value;
-				}
-			}
-		}
-	}
-	
-	public partial class stp_setDatosParrillaResult
-	{
-		
-		private string _vchResultado;
-		
-		private string _vchDescripcion;
-		
-		public stp_setDatosParrillaResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchResultado", DbType="VarChar(12)")]
-		public string vchResultado
-		{
-			get
-			{
-				return this._vchResultado;
-			}
-			set
-			{
-				if ((this._vchResultado != value))
-				{
-					this._vchResultado = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchDescripcion", DbType="VarChar(51) NOT NULL", CanBeNull=false)]
 		public string vchDescripcion
 		{
 			get
@@ -952,6 +881,94 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 				if ((this._bitActivo != value))
 				{
 					this._bitActivo = value;
+				}
+			}
+		}
+	}
+	
+	public partial class stp_setDatosParrillaResult
+	{
+		
+		private string _vchResultado;
+		
+		private string _vchDescripcion;
+		
+		public stp_setDatosParrillaResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchResultado", DbType="VarChar(12)")]
+		public string vchResultado
+		{
+			get
+			{
+				return this._vchResultado;
+			}
+			set
+			{
+				if ((this._vchResultado != value))
+				{
+					this._vchResultado = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchDescripcion", DbType="VarChar(51) NOT NULL", CanBeNull=false)]
+		public string vchDescripcion
+		{
+			get
+			{
+				return this._vchDescripcion;
+			}
+			set
+			{
+				if ((this._vchDescripcion != value))
+				{
+					this._vchDescripcion = value;
+				}
+			}
+		}
+	}
+	
+	public partial class stp_setDatosProtectorBateriaResult
+	{
+		
+		private string _vchResultado;
+		
+		private string _vchDescripcion;
+		
+		public stp_setDatosProtectorBateriaResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchResultado", DbType="VarChar(12)")]
+		public string vchResultado
+		{
+			get
+			{
+				return this._vchResultado;
+			}
+			set
+			{
+				if ((this._vchResultado != value))
+				{
+					this._vchResultado = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchDescripcion", DbType="VarChar(60) NOT NULL", CanBeNull=false)]
+		public string vchDescripcion
+		{
+			get
+			{
+				return this._vchDescripcion;
+			}
+			set
+			{
+				if ((this._vchDescripcion != value))
+				{
+					this._vchDescripcion = value;
 				}
 			}
 		}

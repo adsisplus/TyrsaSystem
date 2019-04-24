@@ -97,6 +97,12 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 		
 		private System.Nullable<int> _intCantidadParrilla;
 		
+		private System.Nullable<decimal> _decPesoParrilla;
+		
+		private System.Nullable<bool> _bitGalvanizado;
+		
+		private System.Nullable<bool> _bitPintura;
+		
 		private System.Nullable<bool> _bitActivo;
 		
 		public stp_ListarDatosParrillaResult()
@@ -291,6 +297,54 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 				if ((this._intCantidadParrilla != value))
 				{
 					this._intCantidadParrilla = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decPesoParrilla", DbType="Decimal(8,5)")]
+		public System.Nullable<decimal> decPesoParrilla
+		{
+			get
+			{
+				return this._decPesoParrilla;
+			}
+			set
+			{
+				if ((this._decPesoParrilla != value))
+				{
+					this._decPesoParrilla = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_bitGalvanizado", DbType="Bit")]
+		public System.Nullable<bool> bitGalvanizado
+		{
+			get
+			{
+				return this._bitGalvanizado;
+			}
+			set
+			{
+				if ((this._bitGalvanizado != value))
+				{
+					this._bitGalvanizado = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_bitPintura", DbType="Bit")]
+		public System.Nullable<bool> bitPintura
+		{
+			get
+			{
+				return this._bitPintura;
+			}
+			set
+			{
+				if ((this._bitPintura != value))
+				{
+					this._bitPintura = value;
 				}
 			}
 		}

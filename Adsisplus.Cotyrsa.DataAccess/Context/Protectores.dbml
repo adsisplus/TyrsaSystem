@@ -1,5 +1,20 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="dbTyrsa" Class="ProtectoresDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
   <Connection Mode="AppSettings" ConnectionString="Data Source=local;Initial Catalog=dbTyrsa;Persist Security Info=True;User ID=usrCotyrsa" SettingsObjectName="Adsisplus.Cotyrsa.DataAccess.Properties.Settings" SettingsPropertyName="dbTyrsaConnectionString" Provider="System.Data.SqlClient" />
+  <Function Name="dbo.stp_ListarDatosProtectorPoste" Method="stp_ListarDatosProtectorPoste">
+    <Parameter Name="intCotizacionID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="stp_ListarDatosProtectorPosteResult">
+      <Column Name="intProtectorPosteID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="vchElemento" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
+      <Column Name="intCotizacionID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="intDetCotizaID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="vchFolio" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="sintPinturaID" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="vchPintura" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
+      <Column Name="intCantidadProtectorPoste" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="decPrecioUnitario" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="bitActivo" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </ElementType>
+  </Function>
   <Function Name="dbo.stp_ListarDatosProtectorBateria" Method="stp_ListarDatosProtectorBateria">
     <Parameter Name="intCotizacionID" Type="System.Int32" DbType="Int" />
     <ElementType Name="stp_ListarDatosProtectorBateriaResult">
@@ -16,21 +31,9 @@
       <Column Name="decPrecioDoble" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
       <Column Name="decPrecioTriple" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
       <Column Name="decPrecioCuadruple" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
-      <Column Name="bitActivo" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-    </ElementType>
-  </Function>
-  <Function Name="dbo.stp_ListarDatosProtectorPoste" Method="stp_ListarDatosProtectorPoste">
-    <Parameter Name="intCotizacionID" Type="System.Int32" DbType="Int" />
-    <ElementType Name="stp_ListarDatosProtectorPosteResult">
-      <Column Name="intProtectorPosteID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="vchElemento" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
-      <Column Name="intCotizacionID" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="intDetCotizaID" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="vchFolio" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
-      <Column Name="sintPinturaID" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
-      <Column Name="vchPintura" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
-      <Column Name="intCantidadProtectorPoste" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="decPrecioUnitario" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="decLargoSencilla" Type="System.Decimal" DbType="Decimal(8,3)" CanBeNull="true" />
+      <Column Name="decLargoDoble" Type="System.Decimal" DbType="Decimal(8,3)" CanBeNull="true" />
+      <Column Name="decLargoTriple" Type="System.Decimal" DbType="Decimal(8,3)" CanBeNull="true" />
       <Column Name="bitActivo" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
     </ElementType>
   </Function>

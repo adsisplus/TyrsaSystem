@@ -50,6 +50,15 @@ namespace Adsisplus.Cotyrsa.BusinessEntities
         public decimal? decPrecioCuadruple { get; set; }
 
         [DataMember]
+        public decimal? decLargoSencilla { get; set; }
+
+        [DataMember]
+        public decimal? decLargoDoble { get; set; }
+
+        [DataMember]
+        public decimal? decLargoTriple { get; set; }
+
+        [DataMember]
         public Boolean? bitActivo { get; set; }
     }
 }

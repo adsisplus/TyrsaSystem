@@ -37,6 +37,9 @@ namespace Adsisplus.Cotyrsa.DataAccess
                                     decCostoParrilla = item.decCostoParrilla,
                                     decTamanioCuadroParrilla = item.decTamanioCuadroParrilla,
                                     intCantidadParrilla = item.intCantidadParrilla,
+                                    decPesoParrilla = item.decPesoParrilla,
+                                    bitGalvanizado = item.bitGalvanizado,
+                                    bitPintura = item.bitPintura,
                                     bitActivo = item.bitActivo
                                 };
                     results.AddRange(query);

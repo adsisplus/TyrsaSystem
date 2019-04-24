@@ -75,6 +75,11 @@ namespace Adsisplus.Cotyrsa.DataAccess
                                     decPrecioDoble = item.decPrecioDoble,
                                     decPrecioTriple = item.decPrecioTriple,
                                     decPrecioCuadruple = item.decPrecioCuadruple,
+
+                                    decLargoSencilla = item.decLargoSencilla,
+                                    decLargoDoble = item.decLargoDoble,
+                                    decLargoTriple = item.decLargoTriple,
+
                                     bitActivo = item.bitActivo
                                 };
                     results.AddRange(query);
