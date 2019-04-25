@@ -92,6 +92,7 @@
     <Compile Include="FactorMarco.cs" />
     <Compile Include="FactorViga.cs" />
     <Compile Include="FondoMarco.cs" />
+    <Compile Include="InsumoIndividual.cs" />
     <Compile Include="Localidad.cs" />
     <Compile Include="Modelo.cs" />
     <Compile Include="Municipio.cs" />

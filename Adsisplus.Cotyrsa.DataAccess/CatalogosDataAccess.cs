@@ -1246,6 +1246,67 @@ namespace Adsisplus.Cotyrsa.DataAccess
             }
             return result;
         }
+        /// <summary>
+        /// Procedimiento que lista los datos del insumo individual
+        /// </summary>
+        /// <returns></returns>
+        public List<InsumoIndividual> ListarCatInsumoIndividual()
+        {
+            List<InsumoIndividual> result = new List<InsumoIndividual>();
+            try
+            {
+                using (CatalogosDataContext dc = new CatalogosDataContext(Helper.ConnectionString()))
+                {
+                    var query = from item in dc.stp_ListarCatInsumoIndividual()
+                                select new InsumoIndividual
+                                {
+                                    bitActivo = item.bitActivo,
+                                    decFactor = item.decFactor,
+                                    decPesos = item.decPesos,
+                                    decUSA = item.decUSA,
+                                    intSubProductoID = item.intSubProductoID,
+                                    intUnidadMedicionID = item.intUnidadMedicionID,
+                                    sintInsumoIndividualID = item.sintInsumoIndividualID,
+                                    vchDescripcion = item.vchDescripcion
+                                };
+                    result.AddRange(query);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
+        /// <summary>
+        /// Procedimiento de alta, baja y modificación de los datos del insumo individual
+        /// </summary>
+        /// <param name="insumo"></param>
+        /// <param name="tinOpcion"></param>
+        /// <returns></returns>
+        public Resultado setDatosInsumoIndividual(InsumoIndividual insumo, short tinOpcion)
+        {
+            Resultado result = new Resultado();
+            try
+            {
+                using (CatalogosDataContext dc = new CatalogosDataContext(Helper.ConnectionString()))
+                {
+                    var query = from item in dc.stp_setDatosInsumoIndividual(insumo.sintInsumoIndividualID, insumo.intSubProductoID, insumo.intUnidadMedicionID,
+                        insumo.vchDescripcion, insumo.decFactor, insumo.decPesos, insumo.decUSA, insumo.bitActivo, (byte)tinOpcion)
+                                select new Resultado
+                                {
+                                    vchDescripcion = item.vchDescripcion,
+                                    vchResultado = item.vchResultado
+                                };
+                    result = query.First();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
     }
 
 

@@ -692,5 +692,42 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
             return result;
         }
         #endregion
+
+        /// <summary>
+        /// Procedimiento que lista los datos del insumo individual
+        /// </summary>
+        /// <returns></returns>
+        public List<InsumoIndividual> ListarCatInsumoIndividual()
+        {
+            List<InsumoIndividual> result = new List<InsumoIndividual>();
+            try
+            {
+                result = CatalogosDA.ListarCatInsumoIndividual();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
+        /// <summary>
+        /// Procedimiento de alta, baja y modificación de los datos del insumo individual
+        /// </summary>
+        /// <param name="insumo"></param>
+        /// <param name="tinOpcion"></param>
+        /// <returns></returns>
+        public Resultado setDatosInsumoIndividual(InsumoIndividual insumo, short tinOpcion)
+        {
+            Resultado result = new Resultado();
+            try
+            {
+                result = CatalogosDA.setDatosInsumoIndividual(insumo, tinOpcion);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
     }
 }

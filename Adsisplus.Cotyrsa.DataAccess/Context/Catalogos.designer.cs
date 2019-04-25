@@ -383,6 +383,20 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
 			return ((ISingleResult<stp_ListarCatAlturaMarcoResult>)(result.ReturnValue));
 		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.stp_ListarCatInsumoIndividual")]
+		public ISingleResult<stp_ListarCatInsumoIndividualResult> stp_ListarCatInsumoIndividual()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<stp_ListarCatInsumoIndividualResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.stp_setDatosInsumoIndividual")]
+		public ISingleResult<stp_setDatosInsumoIndividualResult> stp_setDatosInsumoIndividual([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="SmallInt")] System.Nullable<short> sintInsumoIndividualID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intSubProductoID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intUnidadMedicionID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(250)")] string vchDescripcion, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Decimal(8,2)")] System.Nullable<decimal> decFactor, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Decimal(12,2)")] System.Nullable<decimal> decPesos, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Decimal(12,2)")] System.Nullable<decimal> decUSA, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Bit")] System.Nullable<bool> bitActivo, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="TinyInt")] System.Nullable<byte> tinOpcion)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), sintInsumoIndividualID, intSubProductoID, intUnidadMedicionID, vchDescripcion, decFactor, decPesos, decUSA, bitActivo, tinOpcion);
+			return ((ISingleResult<stp_setDatosInsumoIndividualResult>)(result.ReturnValue));
+		}
 	}
 	
 	public partial class stp_ListarCatCalibreAceroResult
@@ -4708,6 +4722,202 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 				if ((this._intAlturaMarcoID != value))
 				{
 					this._intAlturaMarcoID = value;
+				}
+			}
+		}
+	}
+	
+	public partial class stp_ListarCatInsumoIndividualResult
+	{
+		
+		private short _sintInsumoIndividualID;
+		
+		private System.Nullable<int> _intSubProductoID;
+		
+		private System.Nullable<int> _intUnidadMedicionID;
+		
+		private string _vchDescripcion;
+		
+		private System.Nullable<decimal> _decFactor;
+		
+		private System.Nullable<decimal> _decPesos;
+		
+		private System.Nullable<decimal> _decUSA;
+		
+		private System.Nullable<bool> _bitActivo;
+		
+		public stp_ListarCatInsumoIndividualResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sintInsumoIndividualID", DbType="SmallInt NOT NULL")]
+		public short sintInsumoIndividualID
+		{
+			get
+			{
+				return this._sintInsumoIndividualID;
+			}
+			set
+			{
+				if ((this._sintInsumoIndividualID != value))
+				{
+					this._sintInsumoIndividualID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intSubProductoID", DbType="Int")]
+		public System.Nullable<int> intSubProductoID
+		{
+			get
+			{
+				return this._intSubProductoID;
+			}
+			set
+			{
+				if ((this._intSubProductoID != value))
+				{
+					this._intSubProductoID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intUnidadMedicionID", DbType="Int")]
+		public System.Nullable<int> intUnidadMedicionID
+		{
+			get
+			{
+				return this._intUnidadMedicionID;
+			}
+			set
+			{
+				if ((this._intUnidadMedicionID != value))
+				{
+					this._intUnidadMedicionID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchDescripcion", DbType="VarChar(250)")]
+		public string vchDescripcion
+		{
+			get
+			{
+				return this._vchDescripcion;
+			}
+			set
+			{
+				if ((this._vchDescripcion != value))
+				{
+					this._vchDescripcion = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decFactor", DbType="Decimal(8,2)")]
+		public System.Nullable<decimal> decFactor
+		{
+			get
+			{
+				return this._decFactor;
+			}
+			set
+			{
+				if ((this._decFactor != value))
+				{
+					this._decFactor = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decPesos", DbType="Decimal(12,2)")]
+		public System.Nullable<decimal> decPesos
+		{
+			get
+			{
+				return this._decPesos;
+			}
+			set
+			{
+				if ((this._decPesos != value))
+				{
+					this._decPesos = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decUSA", DbType="Decimal(12,2)")]
+		public System.Nullable<decimal> decUSA
+		{
+			get
+			{
+				return this._decUSA;
+			}
+			set
+			{
+				if ((this._decUSA != value))
+				{
+					this._decUSA = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_bitActivo", DbType="Bit")]
+		public System.Nullable<bool> bitActivo
+		{
+			get
+			{
+				return this._bitActivo;
+			}
+			set
+			{
+				if ((this._bitActivo != value))
+				{
+					this._bitActivo = value;
+				}
+			}
+		}
+	}
+	
+	public partial class stp_setDatosInsumoIndividualResult
+	{
+		
+		private string _vchResultado;
+		
+		private string _vchDescripcion;
+		
+		public stp_setDatosInsumoIndividualResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchResultado", DbType="VarChar(12)")]
+		public string vchResultado
+		{
+			get
+			{
+				return this._vchResultado;
+			}
+			set
+			{
+				if ((this._vchResultado != value))
+				{
+					this._vchResultado = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchDescripcion", DbType="VarChar(52) NOT NULL", CanBeNull=false)]
+		public string vchDescripcion
+		{
+			get
+			{
+				return this._vchDescripcion;
+			}
+			set
+			{
+				if ((this._vchDescripcion != value))
+				{
+					this._vchDescripcion = value;
 				}
 			}
 		}

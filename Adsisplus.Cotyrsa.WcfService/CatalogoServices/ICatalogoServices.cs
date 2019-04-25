@@ -304,5 +304,23 @@ namespace Adsisplus.Cotyrsa.WcfService.CatalogoServices
         [OperationContract]
         [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ListarCatSistema")]
         List<Catalogo> ListarCatSistema(int intProductoGralID);
+
+        /// <summary>
+        /// Procedimiento que lista los datos del insumo individual
+        /// </summary>
+        /// <returns></returns>
+        [OperationContract]
+        [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ListarCatInsumoIndividual")]
+        List<InsumoIndividual> ListarCatInsumoIndividual();
+
+        /// <summary>
+        /// Procedimiento de alta, baja y modificación de los datos del insumo individual
+        /// </summary>
+        /// <param name="insumo"></param>
+        /// <param name="tinOpcion"></param>
+        /// <returns></returns>
+        [OperationContract]
+        [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "setDatosInsumoIndividual")]
+        Resultado setDatosInsumoIndividual(InsumoIndividual insumo, short tinOpcion);
     }
 }
