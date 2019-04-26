@@ -1248,16 +1248,17 @@ namespace Adsisplus.Cotyrsa.DataAccess
         }
         /// <summary>
         /// Procedimiento que lista los datos del insumo individual
+        /// <paramref name="intSubProductoID"/>
         /// </summary>
         /// <returns></returns>
-        public List<InsumoIndividual> ListarCatInsumoIndividual()
+        public List<InsumoIndividual> ListarCatInsumoIndividual(int intSubProductoID)
         {
             List<InsumoIndividual> result = new List<InsumoIndividual>();
             try
             {
                 using (CatalogosDataContext dc = new CatalogosDataContext(Helper.ConnectionString()))
                 {
-                    var query = from item in dc.stp_ListarCatInsumoIndividual()
+                    var query = from item in dc.stp_ListarCatInsumoIndividual(intSubProductoID)
                                 select new InsumoIndividual
                                 {
                                     bitActivo = item.bitActivo,

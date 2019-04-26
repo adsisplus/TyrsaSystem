@@ -695,14 +695,15 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
 
         /// <summary>
         /// Procedimiento que lista los datos del insumo individual
+        /// <paramref name="intSubProductoID"/>
         /// </summary>
         /// <returns></returns>
-        public List<InsumoIndividual> ListarCatInsumoIndividual()
+        public List<InsumoIndividual> ListarCatInsumoIndividual(int intSubProductoID)
         {
             List<InsumoIndividual> result = new List<InsumoIndividual>();
             try
             {
-                result = CatalogosDA.ListarCatInsumoIndividual();
+                result = CatalogosDA.ListarCatInsumoIndividual(intSubProductoID);
             }
             catch (Exception ex)
             {

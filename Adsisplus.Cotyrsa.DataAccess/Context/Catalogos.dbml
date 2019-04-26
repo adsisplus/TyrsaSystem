@@ -431,18 +431,6 @@
       <Column Name="intAlturaMarcoID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
     </ElementType>
   </Function>
-  <Function Name="dbo.stp_ListarCatInsumoIndividual" Method="stp_ListarCatInsumoIndividual">
-    <ElementType Name="stp_ListarCatInsumoIndividualResult">
-      <Column Name="sintInsumoIndividualID" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
-      <Column Name="intSubProductoID" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="intUnidadMedicionID" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="vchDescripcion" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
-      <Column Name="decFactor" Type="System.Decimal" DbType="Decimal(8,2)" CanBeNull="true" />
-      <Column Name="decPesos" Type="System.Decimal" DbType="Decimal(12,2)" CanBeNull="true" />
-      <Column Name="decUSA" Type="System.Decimal" DbType="Decimal(12,2)" CanBeNull="true" />
-      <Column Name="bitActivo" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-    </ElementType>
-  </Function>
   <Function Name="dbo.stp_setDatosInsumoIndividual" Method="stp_setDatosInsumoIndividual">
     <Parameter Name="sintInsumoIndividualID" Type="System.Int16" DbType="SmallInt" />
     <Parameter Name="intSubProductoID" Type="System.Int32" DbType="Int" />
@@ -456,6 +444,19 @@
     <ElementType Name="stp_setDatosInsumoIndividualResult">
       <Column Name="vchResultado" Type="System.String" DbType="VarChar(12)" CanBeNull="true" />
       <Column Name="vchDescripcion" Type="System.String" DbType="VarChar(52) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.stp_ListarCatInsumoIndividual" Method="stp_ListarCatInsumoIndividual">
+    <Parameter Name="intSubProductoID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="stp_ListarCatInsumoIndividualResult">
+      <Column Name="sintInsumoIndividualID" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Column Name="intSubProductoID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="intUnidadMedicionID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="vchDescripcion" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="decFactor" Type="System.Decimal" DbType="Decimal(8,2)" CanBeNull="true" />
+      <Column Name="decPesos" Type="System.Decimal" DbType="Decimal(12,2)" CanBeNull="true" />
+      <Column Name="decUSA" Type="System.Decimal" DbType="Decimal(12,2)" CanBeNull="true" />
+      <Column Name="bitActivo" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
     </ElementType>
   </Function>
 </Database>

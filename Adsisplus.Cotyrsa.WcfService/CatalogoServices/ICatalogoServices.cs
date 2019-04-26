@@ -308,10 +308,11 @@ namespace Adsisplus.Cotyrsa.WcfService.CatalogoServices
         /// <summary>
         /// Procedimiento que lista los datos del insumo individual
         /// </summary>
+        /// <param name="intSubProductoID"></param>
         /// <returns></returns>
         [OperationContract]
         [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ListarCatInsumoIndividual")]
-        List<InsumoIndividual> ListarCatInsumoIndividual();
+        List<InsumoIndividual> ListarCatInsumoIndividual(int intSubProductoID);
 
         /// <summary>
         /// Procedimiento de alta, baja y modificación de los datos del insumo individual
