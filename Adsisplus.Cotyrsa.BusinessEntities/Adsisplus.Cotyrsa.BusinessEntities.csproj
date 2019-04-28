@@ -72,11 +72,13 @@
     <Compile Include="DatosPiso.cs" />
     <Compile Include="DatosProtectorBase.cs" />
     <Compile Include="DatosProtectorBateria.cs" />
+    <Compile Include="DatosProtectorRack.cs" />
     <Compile Include="DatosRackSelectivo.cs" />
     <Compile Include="DatosRielDinamico.cs" />
     <Compile Include="DatosRielImportado.cs" />
     <Compile Include="DatosRielPortaRueda.cs" />
     <Compile Include="DatosRielTarima.cs" />
+    <Compile Include="DatosSeleccionBateria.cs" />
     <Compile Include="DatosTornilleria.cs" />
     <Compile Include="DatosViga.cs" />
     <Compile Include="DatosVigaAtirantado.cs" />

@@ -210,6 +210,13 @@ namespace Adsisplus.Cotyrsa.DataAccess
                                     vchFolio = item.vchFolio,
                                     decPrecioUnitario = item.decPrecioUnitario,
                                     intCantidad = item.intCantidad,
+
+                                    decPrecioVentaUnitario = item.decPrecioVentaUnitario,
+                                    decPrecioVentaTotal = item.decPrecioVentaTotal,
+                                    decPeso = item.decPeso,
+                                    sintLongitudID = item.sintLongitudID,
+                                    intCalibreID = item.intCalibreID,
+
                                     bitActivo = item.bitActivo
                                 };
                     results.AddRange(query);

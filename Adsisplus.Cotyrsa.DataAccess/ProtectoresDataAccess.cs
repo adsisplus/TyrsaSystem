@@ -33,6 +33,12 @@ namespace Adsisplus.Cotyrsa.DataAccess
                                     sintPinturaID = item.sintPinturaID,
                                     vchPintura = item.vchPintura,
                                     intCantidadProtectorPoste = item.intCantidadProtectorPoste,
+
+                                    decAltura = item.decAltura,
+                                    sintLongitudID = item.sintLongitudID,
+                                    decPrecioVentaTotal = item.decPrecioVentaTotal,
+                                    decPrecioVentaUnitario = item.decPrecioVentaUnitario,
+
                                     bitActivo = item.bitActivo
                                 };
                     results.AddRange(query);
@@ -90,6 +96,121 @@ namespace Adsisplus.Cotyrsa.DataAccess
                 throw ex;
             }
             return results;
+        }
+        /// <summary>
+        /// Procedimiento que permite obtener la lista de protectores rack
+        /// </summary>
+        /// <returns></returns>
+        public List<DatosProtectorRack> ListarDatosSeleccionProtectorRack()
+        {
+            List<DatosProtectorRack> result = new List<DatosProtectorRack>();
+            try
+            {
+                using (ProtectoresDataContext dc = new ProtectoresDataContext(Helper.ConnectionString()))
+                {
+                    var query = from item in dc.stp_ListarSeleccionProtectorRack()
+                                select new DatosProtectorRack
+                                {
+                                    decPrecioFinal = item.decPrecioFinal,
+                                    vchTipoProtector = item.vchTipoProtector
+                                };
+                    result.AddRange(query);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
+        /// <summary>
+        /// Procedimiento que devuelve la lista de baterias sencillas
+        /// </summary>
+        /// <returns></returns>
+        public List<DatosSeleccionBateria> ListarSeleccionBateriaSencilla()
+        {
+            List<DatosSeleccionBateria> result = new List<DatosSeleccionBateria>();
+            try
+            {
+                using (ProtectoresDataContext dc = new ProtectoresDataContext(Helper.ConnectionString()))
+                {
+                    var query = from item in dc.stp_ListarSeleccionBateriaSencilla()
+                                select new DatosSeleccionBateria
+                                {
+                                    SKU = item.SKU,
+                                    intNumBotas = item.intNumBotas,
+                                    intNumBarras = item.intNumBarras,
+                                    TOTAL = item.TOTAL,
+                                    intAltura = item.intAltura
+                                };
+                    result.AddRange(query);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
+        /// <summary>
+        /// Procedimiento que lista los datos de batería doble
+        /// </summary>
+        /// <returns></returns>
+        public List<DatosSeleccionBateria> ListarSeleccionBateriaDoble()
+        {
+            List<DatosSeleccionBateria> result = new List<DatosSeleccionBateria>();
+            try
+            {
+                using (ProtectoresDataContext dc = new ProtectoresDataContext(Helper.ConnectionString()))
+                {
+                    var query = from item in dc.stp_ListarSeleccionBateriaDoble()
+                                select new DatosSeleccionBateria
+                                {
+                                    SKU = item.SKU,
+                                    intNumBotas = item.intNumBotas,
+                                    intNumBarras = item.intNumBarras,
+                                    vchMaterial = item.vchMaterial,
+                                    TOTAL = item.TOTAL,
+                                    intAltura = item.intAltura
+                                };
+                    result.AddRange(query);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
+        /// <summary>
+        /// Procedimiento que lista los datos de batería cuadruple
+        /// </summary>
+        /// <returns></returns>
+        public List<DatosSeleccionBateria> ListarSeleccionBateriaCuadruple()
+        {
+            List<DatosSeleccionBateria> result = new List<DatosSeleccionBateria>();
+            try
+            {
+                using (ProtectoresDataContext dc = new ProtectoresDataContext(Helper.ConnectionString()))
+                {
+                    var query = from item in dc.stp_ListarSeleccionBateriaCuadruple()
+                                select new DatosSeleccionBateria
+                                {
+                                    SKU = item.SKU,
+                                    intNumBotas = item.intNumBotas,
+                                    intNumBarras = item.intNumBarras,
+                                    vchMaterial = item.vchMaterial,
+                                    TOTAL = item.TOTAL,
+                                    intAltura = item.intAltura
+                                };
+                    result.AddRange(query);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
         }
     }
 }

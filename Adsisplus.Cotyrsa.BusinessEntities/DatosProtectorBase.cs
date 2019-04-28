@@ -40,5 +40,17 @@ namespace Adsisplus.Cotyrsa.BusinessEntities
        
         [DataMember]
         public Boolean? bitActivo { get; set; }
+
+        [DataMember]
+        public decimal? decAltura { get; set; }
+
+        [DataMember]
+        public short? sintLongitudID { get; set; }
+
+        [DataMember]
+        public decimal? decPrecioVentaTotal { get; set; }
+
+        [DataMember]
+        public decimal? decPrecioVentaUnitario { get; set; }
     }
 }

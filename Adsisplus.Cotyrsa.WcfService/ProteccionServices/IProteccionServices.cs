@@ -48,5 +48,37 @@ namespace Adsisplus.Cotyrsa.WcfService.ProteccionServices
         [OperationContract]
         [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "setDatosProtectorBateria")]
         Resultado setDatosProtectorBateria(DatosProtectorBateria datosProtectorBateria, short tinOpcion);
+
+        /// <summary>
+        /// Procedimiento que permite obtener la lista de protectores rack
+        /// </summary>
+        /// <returns></returns>
+        [OperationContract]
+        [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ListarDatosSeleccionProtectorRack")]
+        List<DatosProtectorRack> ListarDatosSeleccionProtectorRack();
+
+        /// <summary>
+        /// Procedimiento que devuelve la lista de baterias sencillas
+        /// </summary>
+        /// <returns></returns>
+        [OperationContract]
+        [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ListarSeleccionBateriaSencilla")]
+        List<DatosSeleccionBateria> ListarSeleccionBateriaSencilla();
+
+        /// <summary>
+        /// Procedimiento que lista los datos de batería doble
+        /// </summary>
+        /// <returns></returns>
+        [OperationContract]
+        [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ListarSeleccionBateriaDoble")]
+        List<DatosSeleccionBateria> ListarSeleccionBateriaDoble();
+
+        /// <summary>
+        /// Procedimiento que lista los datos de batería cuadruple
+        /// </summary>
+        /// <returns></returns>
+        [OperationContract]
+        [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ListarSeleccionBateriaCuadruple")]
+        List<DatosSeleccionBateria> ListarSeleccionBateriaCuadruple();
     }
 }

@@ -103,6 +103,10 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 		
 		private System.Nullable<bool> _bitPintura;
 		
+		private System.Nullable<decimal> _decPrecioVentaUnitario;
+		
+		private System.Nullable<decimal> _decPrecioVentaTotal;
+		
 		private System.Nullable<bool> _bitActivo;
 		
 		public stp_ListarDatosParrillaResult()
@@ -345,6 +349,38 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 				if ((this._bitPintura != value))
 				{
 					this._bitPintura = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decPrecioVentaUnitario", DbType="Decimal(8,3)")]
+		public System.Nullable<decimal> decPrecioVentaUnitario
+		{
+			get
+			{
+				return this._decPrecioVentaUnitario;
+			}
+			set
+			{
+				if ((this._decPrecioVentaUnitario != value))
+				{
+					this._decPrecioVentaUnitario = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decPrecioVentaTotal", DbType="Decimal(8,3)")]
+		public System.Nullable<decimal> decPrecioVentaTotal
+		{
+			get
+			{
+				return this._decPrecioVentaTotal;
+			}
+			set
+			{
+				if ((this._decPrecioVentaTotal != value))
+				{
+					this._decPrecioVentaTotal = value;
 				}
 			}
 		}

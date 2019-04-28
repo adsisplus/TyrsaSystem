@@ -40,6 +40,11 @@ namespace Adsisplus.Cotyrsa.DataAccess
                                     decPesoParrilla = item.decPesoParrilla,
                                     bitGalvanizado = item.bitGalvanizado,
                                     bitPintura = item.bitPintura,
+
+                                    decPrecioVentaUnitario = item.decPrecioVentaUnitario,
+                                    decPrecioVentaTotal = item.decPrecioVentaTotal,
+
+
                                     bitActivo = item.bitActivo
                                 };
                     results.AddRange(query);

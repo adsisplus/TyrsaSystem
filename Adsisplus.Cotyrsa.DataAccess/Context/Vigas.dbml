@@ -21,7 +21,7 @@
       <Column Name="intMaterialID" Type="System.Int32" CanBeNull="false" />
       <Column Name="bitMontaCarga" Type="System.Boolean" CanBeNull="false" />
       <Column Name="vchDimensionMontacarga" Type="System.String" CanBeNull="false" />
-      <Column Member="bitManual" Type="System.Boolean" CanBeNull="false" />
+      <Column Name="bitManual" Type="System.Boolean" CanBeNull="false" />
     </Type>
   </Table>
   <Function Name="dbo.stp_ListarTotalViga" Method="stp_ListarTotalViga">
@@ -211,23 +211,6 @@
     <Parameter Name="bitEstructural" Type="System.Boolean" DbType="Bit" />
     <ElementType IdRef="ID1" />
   </Function>
-  <Function Name="dbo.stp_ListarDatosVigaTope" Method="stp_ListarDatosVigaTope">
-    <Parameter Name="intCotizacionID" Type="System.Int32" DbType="Int" />
-    <ElementType Name="stp_ListarDatosVigaTopeResult">
-      <Column Name="intVigaTopeID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="vchElemento" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
-      <Column Name="intDatosVigaID" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="intCantidadDatosViga" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="intCotizacionID" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="intDetCotizaID" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="sintPinturaID" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
-      <Column Name="vchPintura" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
-      <Column Name="vchFolio" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
-      <Column Name="intCantidad" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="decPrecioUnitario" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
-      <Column Name="bitActivo" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-    </ElementType>
-  </Function>
   <Function Name="dbo.stp_setSeleccionViga" Method="stp_setSeleccionViga">
     <Parameter Name="intRackID" Type="System.Int32" DbType="Int" />
     <Parameter Name="intSeleccionVigaID" Type="System.Int32" DbType="Int" />
@@ -288,6 +271,28 @@
       <Column Name="bitManual" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
       <Column Name="bitMontaCarga" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
       <Column Name="vchDimensionMontacarga" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.stp_ListarDatosVigaTope" Method="stp_ListarDatosVigaTope">
+    <Parameter Name="intCotizacionID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="stp_ListarDatosVigaTopeResult">
+      <Column Name="intVigaTopeID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="vchElemento" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
+      <Column Name="intDatosVigaID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="intCantidadDatosViga" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="intCotizacionID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="intDetCotizaID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="sintPinturaID" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="vchPintura" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
+      <Column Name="vchFolio" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="intCantidad" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="decPrecioUnitario" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="decPrecioVentaUnitario" Type="System.Decimal" DbType="Decimal(8,3)" CanBeNull="true" />
+      <Column Name="decPrecioVentaTotal" Type="System.Decimal" DbType="Decimal(8,3)" CanBeNull="true" />
+      <Column Name="decPeso" Type="System.Decimal" DbType="Decimal(8,3)" CanBeNull="true" />
+      <Column Name="sintLongitudID" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="intCalibreID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="bitActivo" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
     </ElementType>
   </Function>
 </Database>

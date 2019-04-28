@@ -87,5 +87,75 @@ namespace Adsisplus.Cotyrsa.WcfService.ProteccionServices
             }
             return result;
         }
+
+        /// <summary>
+        /// Procedimiento que permite obtener la lista de protectores rack
+        /// </summary>
+        /// <returns></returns>
+        public List<DatosProtectorRack> ListarDatosSeleccionProtectorRack()
+        {
+            List<DatosProtectorRack> result = new List<DatosProtectorRack>();
+            try
+            {
+                result = (new ProtectoresLogic()).ListarDatosSeleccionProtectorRack();
+            }
+            catch (Exception ex)
+            {
+                Adsisplus.Cotyrsa.BusinessLogic.EventLogManager.LogErrorEntry(ex.Message);
+            }
+            return result;
+        }
+        /// <summary>
+        /// Procedimiento que devuelve la lista de baterias sencillas
+        /// </summary>
+        /// <returns></returns>
+        public List<DatosSeleccionBateria> ListarSeleccionBateriaSencilla()
+        {
+            List<DatosSeleccionBateria> result = new List<DatosSeleccionBateria>();
+            try
+            {
+                result = (new ProtectoresLogic()).ListarSeleccionBateriaSencilla();
+            }
+            catch (Exception ex)
+            {
+                Adsisplus.Cotyrsa.BusinessLogic.EventLogManager.LogErrorEntry(ex.Message);
+            }
+            return result;
+        }
+
+        /// <summary>
+        /// Procedimiento que lista los datos de batería doble
+        /// </summary>
+        /// <returns></returns>
+        public List<DatosSeleccionBateria> ListarSeleccionBateriaDoble()
+        {
+            List<DatosSeleccionBateria> result = new List<DatosSeleccionBateria>();
+            try
+            {
+                result = (new ProtectoresLogic()).ListarSeleccionBateriaDoble();
+            }
+            catch (Exception ex)
+            {
+                Adsisplus.Cotyrsa.BusinessLogic.EventLogManager.LogErrorEntry(ex.Message);
+            }
+            return result;
+        }
+        /// <summary>
+        /// Procedimiento que lista los datos de batería cuadruple
+        /// </summary>
+        /// <returns></returns>
+        public List<DatosSeleccionBateria> ListarSeleccionBateriaCuadruple()
+        {
+            List<DatosSeleccionBateria> result = new List<DatosSeleccionBateria>();
+            try
+            {
+                result = (new ProtectoresLogic()).ListarSeleccionBateriaCuadruple();
+            }
+            catch (Exception ex)
+            {
+                Adsisplus.Cotyrsa.BusinessLogic.EventLogManager.LogErrorEntry(ex.Message);
+            }
+            return result;
+        }
     }
 }
