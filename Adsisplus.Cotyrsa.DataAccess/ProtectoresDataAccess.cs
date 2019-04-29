@@ -36,6 +36,8 @@ namespace Adsisplus.Cotyrsa.DataAccess
 
                                     decAltura = item.decAltura,
                                     sintLongitudID = item.sintLongitudID,
+                                    vchLongitud = item.vchLongitud,
+
                                     decPrecioVentaTotal = item.decPrecioVentaTotal,
                                     decPrecioVentaUnitario = item.decPrecioVentaUnitario,
 

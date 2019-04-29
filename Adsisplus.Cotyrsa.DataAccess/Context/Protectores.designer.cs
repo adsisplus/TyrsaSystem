@@ -818,6 +818,8 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 		
 		private System.Nullable<short> _sintLongitudID;
 		
+		private string _vchLongitud;
+		
 		private System.Nullable<decimal> _decPrecioVentaTotal;
 		
 		private System.Nullable<decimal> _decPrecioVentaUnitario;
@@ -1000,6 +1002,22 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 				if ((this._sintLongitudID != value))
 				{
 					this._sintLongitudID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchLongitud", DbType="VarChar(50)")]
+		public string vchLongitud
+		{
+			get
+			{
+				return this._vchLongitud;
+			}
+			set
+			{
+				if ((this._vchLongitud != value))
+				{
+					this._vchLongitud = value;
 				}
 			}
 		}

@@ -167,18 +167,34 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 			return ((ISingleResult<stp_setDatosParrillaResult>)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.stp_setDatosVigaTope")]
-		public ISingleResult<stp_setDatosVigaTopeResult> stp_setDatosVigaTope([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intVigaTopeID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intElementoID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intDatosVigaID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intCotizacionID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intDetCotizaID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="SmallInt")] System.Nullable<short> sintPinturaID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intCantidad, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Decimal(8,3)")] System.Nullable<decimal> decPrecioUnitario, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Decimal(8,3)")] System.Nullable<decimal> decPrecioVentaUnitario, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Decimal(8,3)")] System.Nullable<decimal> decPrecioVentaTotal, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Decimal(8,3)")] System.Nullable<decimal> decPeso, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="SmallInt")] System.Nullable<short> sintLongitudID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intCalibreID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Bit")] System.Nullable<bool> bitActivo, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="TinyInt")] System.Nullable<byte> tinOpcion)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), intVigaTopeID, intElementoID, intDatosVigaID, intCotizacionID, intDetCotizaID, sintPinturaID, intCantidad, decPrecioUnitario, decPrecioVentaUnitario, decPrecioVentaTotal, decPeso, sintLongitudID, intCalibreID, bitActivo, tinOpcion);
-			return ((ISingleResult<stp_setDatosVigaTopeResult>)(result.ReturnValue));
-		}
-		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.stp_setDatosProtectorPoste")]
 		public ISingleResult<stp_setDatosProtectorPosteResult> stp_setDatosProtectorPoste([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intProtectorPosteID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intElementoID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intCotizacionID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intDetCotizaID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Decimal(8,3)")] System.Nullable<decimal> decPrecioUnitario, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="SmallInt")] System.Nullable<short> sintPinturaID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intCantidadProtectorPoste, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Bit")] System.Nullable<bool> bitActivo, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Decimal(8,3)")] System.Nullable<decimal> decAltura, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="SmallInt")] System.Nullable<short> sintLongitudID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Decimal(8,3)")] System.Nullable<decimal> decPrecioVentaTotal, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Decimal(8,3)")] System.Nullable<decimal> decPrecioVentaUnitario, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="TinyInt")] System.Nullable<byte> tinOpcion)
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), intProtectorPosteID, intElementoID, intCotizacionID, intDetCotizaID, decPrecioUnitario, sintPinturaID, intCantidadProtectorPoste, bitActivo, decAltura, sintLongitudID, decPrecioVentaTotal, decPrecioVentaUnitario, tinOpcion);
 			return ((ISingleResult<stp_setDatosProtectorPosteResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.stp_setDatosVigaTope")]
+		public ISingleResult<stp_setDatosVigaTopeResult> stp_setDatosVigaTope(
+					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intVigaTopeID, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intElementoID, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intDatosVigaID, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intCotizacionID, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intDetCotizaID, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="SmallInt")] System.Nullable<short> sintPinturaID, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intCantidad, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Decimal(8,3)")] System.Nullable<decimal> decPrecioUnitario, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Decimal(8,3)")] System.Nullable<decimal> decPrecioVentaUnitario, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Decimal(8,3)")] System.Nullable<decimal> decPrecioVentaTotal, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Decimal(8,3)")] System.Nullable<decimal> decPeso, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="SmallInt")] System.Nullable<short> sintLongitudID, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intCalibreID, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Decimal(8,3)")] System.Nullable<decimal> decLargo, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Bit")] System.Nullable<bool> bitActivo, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="TinyInt")] System.Nullable<byte> tinOpcion)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), intVigaTopeID, intElementoID, intDatosVigaID, intCotizacionID, intDetCotizaID, sintPinturaID, intCantidad, decPrecioUnitario, decPrecioVentaUnitario, decPrecioVentaTotal, decPeso, sintLongitudID, intCalibreID, decLargo, bitActivo, tinOpcion);
+			return ((ISingleResult<stp_setDatosVigaTopeResult>)(result.ReturnValue));
 		}
 	}
 	
@@ -903,50 +919,6 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 		}
 	}
 	
-	public partial class stp_setDatosVigaTopeResult
-	{
-		
-		private string _vchResultado;
-		
-		private string _vchDescripcion;
-		
-		public stp_setDatosVigaTopeResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchResultado", DbType="VarChar(12)")]
-		public string vchResultado
-		{
-			get
-			{
-				return this._vchResultado;
-			}
-			set
-			{
-				if ((this._vchResultado != value))
-				{
-					this._vchResultado = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchDescripcion", DbType="VarChar(52) NOT NULL", CanBeNull=false)]
-		public string vchDescripcion
-		{
-			get
-			{
-				return this._vchDescripcion;
-			}
-			set
-			{
-				if ((this._vchDescripcion != value))
-				{
-					this._vchDescripcion = value;
-				}
-			}
-		}
-	}
-	
 	public partial class stp_setDatosProtectorPosteResult
 	{
 		
@@ -975,6 +947,50 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchDescripcion", DbType="VarChar(58) NOT NULL", CanBeNull=false)]
+		public string vchDescripcion
+		{
+			get
+			{
+				return this._vchDescripcion;
+			}
+			set
+			{
+				if ((this._vchDescripcion != value))
+				{
+					this._vchDescripcion = value;
+				}
+			}
+		}
+	}
+	
+	public partial class stp_setDatosVigaTopeResult
+	{
+		
+		private string _vchResultado;
+		
+		private string _vchDescripcion;
+		
+		public stp_setDatosVigaTopeResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchResultado", DbType="VarChar(12)")]
+		public string vchResultado
+		{
+			get
+			{
+				return this._vchResultado;
+			}
+			set
+			{
+				if ((this._vchResultado != value))
+				{
+					this._vchResultado = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchDescripcion", DbType="VarChar(52) NOT NULL", CanBeNull=false)]
 		public string vchDescripcion
 		{
 			get

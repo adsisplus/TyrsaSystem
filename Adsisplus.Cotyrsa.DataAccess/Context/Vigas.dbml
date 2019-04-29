@@ -291,7 +291,10 @@
       <Column Name="decPrecioVentaTotal" Type="System.Decimal" DbType="Decimal(8,3)" CanBeNull="true" />
       <Column Name="decPeso" Type="System.Decimal" DbType="Decimal(8,3)" CanBeNull="true" />
       <Column Name="sintLongitudID" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="vchLongitud" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Column Name="intCalibreID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="vchCalibre" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="decLargo" Type="System.Decimal" DbType="Decimal(8,3)" CanBeNull="true" />
       <Column Name="bitActivo" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
     </ElementType>
   </Function>

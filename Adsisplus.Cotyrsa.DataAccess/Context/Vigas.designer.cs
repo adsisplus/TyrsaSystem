@@ -3097,7 +3097,13 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 		
 		private System.Nullable<short> _sintLongitudID;
 		
+		private string _vchLongitud;
+		
 		private System.Nullable<int> _intCalibreID;
+		
+		private string _vchCalibre;
+		
+		private System.Nullable<decimal> _decLargo;
 		
 		private System.Nullable<bool> _bitActivo;
 		
@@ -3345,6 +3351,22 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchLongitud", DbType="VarChar(50)")]
+		public string vchLongitud
+		{
+			get
+			{
+				return this._vchLongitud;
+			}
+			set
+			{
+				if ((this._vchLongitud != value))
+				{
+					this._vchLongitud = value;
+				}
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intCalibreID", DbType="Int")]
 		public System.Nullable<int> intCalibreID
 		{
@@ -3357,6 +3379,38 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 				if ((this._intCalibreID != value))
 				{
 					this._intCalibreID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchCalibre", DbType="VarChar(50)")]
+		public string vchCalibre
+		{
+			get
+			{
+				return this._vchCalibre;
+			}
+			set
+			{
+				if ((this._vchCalibre != value))
+				{
+					this._vchCalibre = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decLargo", DbType="Decimal(8,3)")]
+		public System.Nullable<decimal> decLargo
+		{
+			get
+			{
+				return this._decLargo;
+			}
+			set
+			{
+				if ((this._decLargo != value))
+				{
+					this._decLargo = value;
 				}
 			}
 		}

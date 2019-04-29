@@ -215,7 +215,9 @@ namespace Adsisplus.Cotyrsa.DataAccess
                                     decPrecioVentaTotal = item.decPrecioVentaTotal,
                                     decPeso = item.decPeso,
                                     sintLongitudID = item.sintLongitudID,
+                                    vchLongitud = item.vchLongitud,
                                     intCalibreID = item.intCalibreID,
+                                    vchCalibre = item.vchCalibre,
 
                                     bitActivo = item.bitActivo
                                 };

@@ -251,7 +251,7 @@ namespace Adsisplus.Cotyrsa.DataAccess
                     var query = from item in dc.stp_setDatosVigaTope(datosVigaTope.intVigaTopeID, datosVigaTope.intElementoID, datosVigaTope.intDatosVigaID, datosVigaTope.intCotizacionID,
                         datosVigaTope.intDetCotizaID, datosVigaTope.sintPinturaID, datosVigaTope.intCantidad, datosVigaTope.decPrecioUnitario, 
                         datosVigaTope.decPrecioVentaUnitario, datosVigaTope.decPrecioVentaTotal, datosVigaTope.decPeso, datosVigaTope.sintLongitudID, datosVigaTope.intCalibreID,
-                        datosVigaTope.bitActivo, (byte)sintOpcion)
+                        datosVigaTope.decLargo, datosVigaTope.bitActivo, (byte)sintOpcion)
                                 select new Resultado
                                 {
                                     vchDescripcion = item.vchDescripcion,
