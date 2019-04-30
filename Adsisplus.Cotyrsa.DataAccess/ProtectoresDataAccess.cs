@@ -88,6 +88,25 @@ namespace Adsisplus.Cotyrsa.DataAccess
                                     decLargoDoble = item.decLargoDoble,
                                     decLargoTriple = item.decLargoTriple,
 
+                                    decPrecioVentaUnitarioSencilla = item.decPrecioVentaUnitarioSencilla,
+                                    decPrecioVentaUnitarioDoble = item.decPrecioVentaUnitarioDoble,
+                                    decPrecioVentaUnitarioTriple = item.decPrecioVentaUnitarioTriple,
+                                    decPrecioVentaTotaloSencilla = item.decPrecioVentaTotaloSencilla,
+                                    decPrecioVentaTotalDoble = item.decPrecioVentaTotalDoble,
+                                    decPrecioVentaTotalTriple = item.decPrecioVentaTotalTriple,
+                                    decAlturaSencilla = item.decAlturaSencilla,
+                                    decAlturaDoble = item.decAlturaDoble,
+                                    decAlturaTriple = item.decAlturaTriple,
+                                    sintPinturaIDSencilla = item.sintPinturaIDSencilla,
+						            sintPinturaIDDoble = item.sintPinturaIDDoble,
+						            sintPinturaIDTriple = item.sintPinturaIDTriple,
+						            intBotasSencilla = item.intBotasSencilla,
+						            intBotasDoble = item.intBotasDoble,
+						            intBotasTriple = item.intBotasTriple,
+						            intBarrasSencilla = item.intBarrasSencilla,
+						            intBarrasDoble = item.intBarrasDoble,
+						            intBarrasTriple = item.intBarrasTriple,
+
                                     bitActivo = item.bitActivo
                                 };
                     results.AddRange(query);

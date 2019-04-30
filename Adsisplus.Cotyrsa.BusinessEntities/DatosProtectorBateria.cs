@@ -60,5 +60,59 @@ namespace Adsisplus.Cotyrsa.BusinessEntities
 
         [DataMember]
         public Boolean? bitActivo { get; set; }
+
+        [DataMember]
+        public decimal? decPrecioVentaUnitarioSencilla { get; set; }
+
+        [DataMember]
+        public decimal? decPrecioVentaUnitarioDoble { get; set; }
+
+        [DataMember]
+        public decimal? decPrecioVentaUnitarioTriple { get; set; }
+
+        [DataMember]
+        public decimal? decPrecioVentaTotaloSencilla { get; set; }
+
+        [DataMember]
+        public decimal? decPrecioVentaTotalDoble { get; set; }
+
+        [DataMember]
+        public decimal? decPrecioVentaTotalTriple { get; set; }
+
+        [DataMember]
+        public decimal? decAlturaSencilla { get; set; }
+
+        [DataMember]
+        public decimal? decAlturaDoble { get; set; }
+
+        [DataMember]
+        public decimal? decAlturaTriple { get; set; }
+
+        [DataMember]
+        public short? sintPinturaIDSencilla { get; set; }
+
+        [DataMember]
+        public short? sintPinturaIDDoble { get; set; }
+
+        [DataMember]
+        public short? sintPinturaIDTriple { get; set; }
+
+        [DataMember]
+        public int? intBotasSencilla { get; set; }
+
+        [DataMember]
+        public int? intBotasDoble { get; set; }
+
+        [DataMember]
+        public int? intBarrasSencilla { get; set; }
+
+        [DataMember]
+        public int? intBotasTriple { get; set; }
+
+        [DataMember]
+        public int? intBarrasDoble { get; set; }
+
+        [DataMember]
+        public int? intBarrasTriple { get; set; }
     }
 }

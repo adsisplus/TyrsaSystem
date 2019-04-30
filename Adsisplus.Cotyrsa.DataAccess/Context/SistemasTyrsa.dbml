@@ -123,29 +123,6 @@
       <Column Name="bitActivo" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
     </ElementType>
   </Function>
-  <Function Name="dbo.stp_setDatosProtectorBateria" Method="stp_setDatosProtectorBateria">
-    <Parameter Name="intProtectorBateriaID" Type="System.Int32" DbType="Int" />
-    <Parameter Name="intElementoID" Type="System.Int32" DbType="Int" />
-    <Parameter Name="intCotizacionID" Type="System.Int32" DbType="Int" />
-    <Parameter Name="intDetCotizaID" Type="System.Int32" DbType="Int" />
-    <Parameter Name="intCantidadSencilla" Type="System.Int32" DbType="Int" />
-    <Parameter Name="intCantidadDoble" Type="System.Int32" DbType="Int" />
-    <Parameter Name="intCantidadTriple" Type="System.Int32" DbType="Int" />
-    <Parameter Name="intCantidadCuadruple" Type="System.Int32" DbType="Int" />
-    <Parameter Name="decPrecioSencilla" Type="System.Decimal" DbType="Decimal(8,3)" />
-    <Parameter Name="decPrecioDoble" Type="System.Decimal" DbType="Decimal(8,3)" />
-    <Parameter Name="decPrecioTriple" Type="System.Decimal" DbType="Decimal(8,3)" />
-    <Parameter Name="decPrecioCuadruple" Type="System.Decimal" DbType="Decimal(8,3)" />
-    <Parameter Name="decLargoSencilla" Type="System.Decimal" DbType="Decimal(8,3)" />
-    <Parameter Name="decLargoDoble" Type="System.Decimal" DbType="Decimal(8,3)" />
-    <Parameter Name="decLargoTriple" Type="System.Decimal" DbType="Decimal(8,3)" />
-    <Parameter Name="bitActivo" Type="System.Boolean" DbType="Bit" />
-    <Parameter Name="tinOpcion" Type="System.Byte" DbType="TinyInt" />
-    <ElementType Name="stp_setDatosProtectorBateriaResult">
-      <Column Name="vchResultado" Type="System.String" DbType="VarChar(12)" CanBeNull="true" />
-      <Column Name="vchDescripcion" Type="System.String" DbType="VarChar(60) NOT NULL" CanBeNull="false" />
-    </ElementType>
-  </Function>
   <Function Name="dbo.stp_setDatosParrilla" Method="stp_setDatosParrilla">
     <Parameter Name="intParrillaID" Type="System.Int32" DbType="Int" />
     <Parameter Name="intElementoID" Type="System.Int32" DbType="Int" />
@@ -208,6 +185,47 @@
     <ElementType Name="stp_setDatosVigaTopeResult">
       <Column Name="vchResultado" Type="System.String" DbType="VarChar(12)" CanBeNull="true" />
       <Column Name="vchDescripcion" Type="System.String" DbType="VarChar(52) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.stp_setDatosProtectorBateria" Method="stp_setDatosProtectorBateria">
+    <Parameter Name="intProtectorBateriaID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intElementoID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intCotizacionID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intDetCotizaID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intCantidadSencilla" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intCantidadDoble" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intCantidadTriple" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intCantidadCuadruple" Type="System.Int32" DbType="Int" />
+    <Parameter Name="decPrecioSencilla" Type="System.Decimal" DbType="Decimal(8,3)" />
+    <Parameter Name="decPrecioDoble" Type="System.Decimal" DbType="Decimal(8,3)" />
+    <Parameter Name="decPrecioTriple" Type="System.Decimal" DbType="Decimal(8,3)" />
+    <Parameter Name="decPrecioCuadruple" Type="System.Decimal" DbType="Decimal(8,3)" />
+    <Parameter Name="decLargoSencilla" Type="System.Decimal" DbType="Decimal(8,3)" />
+    <Parameter Name="decLargoDoble" Type="System.Decimal" DbType="Decimal(8,3)" />
+    <Parameter Name="decLargoTriple" Type="System.Decimal" DbType="Decimal(8,3)" />
+    <Parameter Name="decPrecioVentaUnitarioSencilla" Type="System.Decimal" DbType="Decimal(8,3)" />
+    <Parameter Name="decPrecioVentaUnitarioDoble" Type="System.Decimal" DbType="Decimal(8,3)" />
+    <Parameter Name="decPrecioVentaUnitarioTriple" Type="System.Decimal" DbType="Decimal(8,3)" />
+    <Parameter Name="decPrecioVentaTotaloSencilla" Type="System.Decimal" DbType="Decimal(8,3)" />
+    <Parameter Name="decPrecioVentaTotalDoble" Type="System.Decimal" DbType="Decimal(8,3)" />
+    <Parameter Name="decPrecioVentaTotalTriple" Type="System.Decimal" DbType="Decimal(8,3)" />
+    <Parameter Name="decAlturaSencilla" Type="System.Decimal" DbType="Decimal(8,3)" />
+    <Parameter Name="decAlturaDoble" Type="System.Decimal" DbType="Decimal(8,3)" />
+    <Parameter Name="decAlturaTriple" Type="System.Decimal" DbType="Decimal(8,3)" />
+    <Parameter Name="sintPinturaIDSencilla" Type="System.Int16" DbType="SmallInt" />
+    <Parameter Name="sintPinturaIDDoble" Type="System.Int16" DbType="SmallInt" />
+    <Parameter Name="sintPinturaIDTriple" Type="System.Int16" DbType="SmallInt" />
+    <Parameter Name="intBotasSencilla" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intBotasDoble" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intBotasTriple" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intBarrasSencilla" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intBarrasDoble" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intBarrasTriple" Type="System.Int32" DbType="Int" />
+    <Parameter Name="bitActivo" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="tinOpcion" Type="System.Byte" DbType="TinyInt" />
+    <ElementType Name="stp_setDatosProtectorBateriaResult">
+      <Column Name="vchResultado" Type="System.String" DbType="VarChar(12)" CanBeNull="true" />
+      <Column Name="vchDescripcion" Type="System.String" DbType="VarChar(60) NOT NULL" CanBeNull="false" />
     </ElementType>
   </Function>
 </Database>

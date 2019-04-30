@@ -312,7 +312,12 @@ namespace Adsisplus.Cotyrsa.DataAccess
                     var query = from item in dc.stp_setDatosProtectorBateria(datosProtectorBateria.intProtectorBateriaID, datosProtectorBateria.intElementoID, datosProtectorBateria.intCotizacionID,
                         datosProtectorBateria.intDetCotizaID, datosProtectorBateria.intCantidadSencilla, datosProtectorBateria.intCantidadDoble, datosProtectorBateria.intCantidadTriple,
                         datosProtectorBateria.intCantidadCuadruple, datosProtectorBateria.decPrecioSencilla, datosProtectorBateria.decPrecioDoble, datosProtectorBateria.decPrecioTriple, datosProtectorBateria.decPrecioCuadruple,
-                        datosProtectorBateria.decLargoSencilla, datosProtectorBateria.decLargoDoble, datosProtectorBateria.decLargoTriple, datosProtectorBateria.bitActivo, (byte)sintOpcion)
+                        datosProtectorBateria.decLargoSencilla, datosProtectorBateria.decLargoDoble, datosProtectorBateria.decLargoTriple, datosProtectorBateria.decPrecioVentaUnitarioSencilla,
+                        datosProtectorBateria.decPrecioVentaUnitarioDoble, datosProtectorBateria.decPrecioVentaUnitarioTriple, datosProtectorBateria.decPrecioVentaTotaloSencilla,
+                        datosProtectorBateria.decPrecioVentaTotalDoble, datosProtectorBateria.decPrecioVentaTotalTriple, datosProtectorBateria.decAlturaSencilla, datosProtectorBateria.decAlturaDoble,
+                        datosProtectorBateria.decAlturaTriple, datosProtectorBateria.sintPinturaIDSencilla, datosProtectorBateria.sintPinturaIDDoble, datosProtectorBateria.sintPinturaIDTriple,
+                        datosProtectorBateria.intBotasSencilla, datosProtectorBateria.intBotasDoble, datosProtectorBateria.intBotasTriple, datosProtectorBateria.intBarrasSencilla, datosProtectorBateria.intBarrasDoble,
+                        datosProtectorBateria.intBotasTriple, datosProtectorBateria.bitActivo, (byte)sintOpcion)
                                 select new Resultado
                                 {
                                     vchDescripcion = item.vchDescripcion,
