@@ -11,6 +11,15 @@ namespace Adsisplus.Cotyrsa.BusinessEntities
     public class SeleccionDistanciador
     {
         [DataMember]
+        public int? intSeleccionDistanciadorID { get; set; }
+
+        [DataMember]
+        public int? intRackID { get; set; }
+
+        [DataMember]
+        public int? intDetCotizaID { get; set; }
+
+        [DataMember]
         public string vchSKU { get; set; }
         [DataMember]
         public decimal? decAltura { get; set; }

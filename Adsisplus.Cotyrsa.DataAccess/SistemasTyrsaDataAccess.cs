@@ -309,15 +309,14 @@ namespace Adsisplus.Cotyrsa.DataAccess
             {
                 using (SistemasTyrsaDataContext dc = new SistemasTyrsaDataContext(Helper.ConnectionString()))
                 {
-                    var query = from item in dc.stp_setDatosProtectorBateria(datosProtectorBateria.intProtectorBateriaID, datosProtectorBateria.intElementoID, datosProtectorBateria.intCotizacionID,
-                        datosProtectorBateria.intDetCotizaID, datosProtectorBateria.intCantidadSencilla, datosProtectorBateria.intCantidadDoble, datosProtectorBateria.intCantidadTriple,
-                        datosProtectorBateria.intCantidadCuadruple, datosProtectorBateria.decPrecioSencilla, datosProtectorBateria.decPrecioDoble, datosProtectorBateria.decPrecioTriple, datosProtectorBateria.decPrecioCuadruple,
-                        datosProtectorBateria.decLargoSencilla, datosProtectorBateria.decLargoDoble, datosProtectorBateria.decLargoTriple, datosProtectorBateria.decPrecioVentaUnitarioSencilla,
-                        datosProtectorBateria.decPrecioVentaUnitarioDoble, datosProtectorBateria.decPrecioVentaUnitarioTriple, datosProtectorBateria.decPrecioVentaTotaloSencilla,
-                        datosProtectorBateria.decPrecioVentaTotalDoble, datosProtectorBateria.decPrecioVentaTotalTriple, datosProtectorBateria.decAlturaSencilla, datosProtectorBateria.decAlturaDoble,
-                        datosProtectorBateria.decAlturaTriple, datosProtectorBateria.sintPinturaIDSencilla, datosProtectorBateria.sintPinturaIDDoble, datosProtectorBateria.sintPinturaIDTriple,
-                        datosProtectorBateria.intBotasSencilla, datosProtectorBateria.intBotasDoble, datosProtectorBateria.intBotasTriple, datosProtectorBateria.intBarrasSencilla, datosProtectorBateria.intBarrasDoble,
-                        datosProtectorBateria.intBotasTriple, datosProtectorBateria.bitActivo, (byte)sintOpcion)
+                    var query = from item in dc.stp_setDatosProtectorBateria(datosProtectorBateria.intProtectorBateriaID, datosProtectorBateria.intElementoID, datosProtectorBateria.intCotizacionID, datosProtectorBateria.intDetCotizaID, 
+                        datosProtectorBateria.intCantidadSencilla, datosProtectorBateria.intCantidadDoble, datosProtectorBateria.intCantidadCuadruple, datosProtectorBateria.decPrecioSencilla, 
+                        datosProtectorBateria.decPrecioDoble, datosProtectorBateria.decPrecioCuadruple, datosProtectorBateria.decLargoSencilla, datosProtectorBateria.decLargoDoble,
+                        datosProtectorBateria.decPrecioVentaUnitarioSencilla, datosProtectorBateria.decPrecioVentaUnitarioDoble, datosProtectorBateria.decPrecioVentaUnitarioCuadruple, 
+                        datosProtectorBateria.decPrecioVentaTotalSencilla, datosProtectorBateria.decPrecioVentaTotalDoble, datosProtectorBateria.decPrecioVentaTotalCuadruple, 
+                        datosProtectorBateria.decAlturaSencilla, datosProtectorBateria.decAlturaDoble, datosProtectorBateria.decAlturaCuadruple, datosProtectorBateria.sintPinturaIDSencilla, 
+                        datosProtectorBateria.sintPinturaIDDoble, datosProtectorBateria.sintPinturaIDCuadruple, datosProtectorBateria.intBotasSencilla, datosProtectorBateria.intBotasDoble, datosProtectorBateria.intBotasCuadruple, 
+                        datosProtectorBateria.intBarrasSencilla, datosProtectorBateria.intBarrasDoble, datosProtectorBateria.intBotasCuadruple, datosProtectorBateria.bitActivo, (byte)sintOpcion)
                                 select new Resultado
                                 {
                                     vchDescripcion = item.vchDescripcion,

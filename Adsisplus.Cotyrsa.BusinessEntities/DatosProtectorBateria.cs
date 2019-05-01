@@ -31,8 +31,8 @@ namespace Adsisplus.Cotyrsa.BusinessEntities
         [DataMember]
         public Int32? intCantidadDoble { get; set; }
 
-        [DataMember]
-        public int? intCantidadTriple { get; set; }
+        //[DataMember]
+        //public int? intCantidadTriple { get; set; }
 
         [DataMember]
         public Int32? intCantidadCuadruple { get; set; }
@@ -43,8 +43,8 @@ namespace Adsisplus.Cotyrsa.BusinessEntities
         [DataMember]
         public decimal? decPrecioDoble { get; set; }
 
-        [DataMember]
-        public decimal? decPrecioTriple { get; set; }
+        //[DataMember]
+        //public decimal? decPrecioTriple { get; set; }
 
         [DataMember]
         public decimal? decPrecioCuadruple { get; set; }
@@ -55,11 +55,13 @@ namespace Adsisplus.Cotyrsa.BusinessEntities
         [DataMember]
         public decimal? decLargoDoble { get; set; }
 
-        [DataMember]
-        public decimal? decLargoTriple { get; set; }
+        //[DataMember]
+        //public decimal? decLargoTriple { get; set; }
 
         [DataMember]
         public Boolean? bitActivo { get; set; }
+
+
 
         [DataMember]
         public decimal? decPrecioVentaUnitarioSencilla { get; set; }
@@ -68,16 +70,16 @@ namespace Adsisplus.Cotyrsa.BusinessEntities
         public decimal? decPrecioVentaUnitarioDoble { get; set; }
 
         [DataMember]
-        public decimal? decPrecioVentaUnitarioTriple { get; set; }
+        public decimal? decPrecioVentaUnitarioCuadruple { get; set; }
 
         [DataMember]
-        public decimal? decPrecioVentaTotaloSencilla { get; set; }
+        public decimal? decPrecioVentaTotalSencilla { get; set; }
 
         [DataMember]
         public decimal? decPrecioVentaTotalDoble { get; set; }
 
         [DataMember]
-        public decimal? decPrecioVentaTotalTriple { get; set; }
+        public decimal? decPrecioVentaTotalCuadruple { get; set; }
 
         [DataMember]
         public decimal? decAlturaSencilla { get; set; }
@@ -86,7 +88,7 @@ namespace Adsisplus.Cotyrsa.BusinessEntities
         public decimal? decAlturaDoble { get; set; }
 
         [DataMember]
-        public decimal? decAlturaTriple { get; set; }
+        public decimal? decAlturaCuadruple { get; set; }
 
         [DataMember]
         public short? sintPinturaIDSencilla { get; set; }
@@ -95,7 +97,7 @@ namespace Adsisplus.Cotyrsa.BusinessEntities
         public short? sintPinturaIDDoble { get; set; }
 
         [DataMember]
-        public short? sintPinturaIDTriple { get; set; }
+        public short? sintPinturaIDCuadruple { get; set; }
 
         [DataMember]
         public int? intBotasSencilla { get; set; }
@@ -107,12 +109,12 @@ namespace Adsisplus.Cotyrsa.BusinessEntities
         public int? intBarrasSencilla { get; set; }
 
         [DataMember]
-        public int? intBotasTriple { get; set; }
+        public int? intBotasCuadruple { get; set; }
 
         [DataMember]
         public int? intBarrasDoble { get; set; }
 
         [DataMember]
-        public int? intBarrasTriple { get; set; }
+        public int? intBarrasCuadruple { get; set; }
     }
 }

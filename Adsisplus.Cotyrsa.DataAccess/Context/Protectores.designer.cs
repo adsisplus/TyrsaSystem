@@ -774,15 +774,11 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 		
 		private System.Nullable<int> _intCantidadDoble;
 		
-		private System.Nullable<int> _intCantidadTriple;
-		
 		private System.Nullable<int> _intCantidadCuadruple;
 		
 		private System.Nullable<decimal> _decPrecioSencilla;
 		
 		private System.Nullable<decimal> _decPrecioDoble;
-		
-		private System.Nullable<decimal> _decPrecioTriple;
 		
 		private System.Nullable<decimal> _decPrecioCuadruple;
 		
@@ -790,45 +786,43 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 		
 		private System.Nullable<decimal> _decLargoDoble;
 		
-		private System.Nullable<decimal> _decLargoTriple;
-		
 		private System.Nullable<bool> _bitActivo;
 		
 		private System.Nullable<decimal> _decPrecioVentaUnitarioSencilla;
 		
 		private System.Nullable<decimal> _decPrecioVentaUnitarioDoble;
 		
-		private System.Nullable<decimal> _decPrecioVentaUnitarioTriple;
+		private System.Nullable<decimal> _decPrecioVentaUnitarioCuadruple;
 		
 		private System.Nullable<decimal> _decPrecioVentaTotaloSencilla;
 		
 		private System.Nullable<decimal> _decPrecioVentaTotalDoble;
 		
-		private System.Nullable<decimal> _decPrecioVentaTotalTriple;
+		private System.Nullable<decimal> _decPrecioVentaTotalCuadruple;
 		
 		private System.Nullable<decimal> _decAlturaSencilla;
 		
 		private System.Nullable<decimal> _decAlturaDoble;
 		
-		private System.Nullable<decimal> _decAlturaTriple;
+		private System.Nullable<decimal> _decAlturaCuadruple;
 		
 		private System.Nullable<short> _sintPinturaIDSencilla;
 		
 		private System.Nullable<short> _sintPinturaIDDoble;
 		
-		private System.Nullable<short> _sintPinturaIDTriple;
+		private System.Nullable<short> _sintPinturaIDCuadruple;
 		
 		private System.Nullable<int> _intBotasSencilla;
 		
 		private System.Nullable<int> _intBotasDoble;
 		
-		private System.Nullable<int> _intBotasTriple;
+		private System.Nullable<int> _intBotasCuadruple;
 		
 		private System.Nullable<int> _intBarrasSencilla;
 		
 		private System.Nullable<int> _intBarrasDoble;
 		
-		private System.Nullable<int> _intBarrasTriple;
+		private System.Nullable<int> _intBarrasCuadruple;
 		
 		public stp_ListarDatosProtectorBateriaResult()
 		{
@@ -946,22 +940,6 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intCantidadTriple", DbType="Int")]
-		public System.Nullable<int> intCantidadTriple
-		{
-			get
-			{
-				return this._intCantidadTriple;
-			}
-			set
-			{
-				if ((this._intCantidadTriple != value))
-				{
-					this._intCantidadTriple = value;
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intCantidadCuadruple", DbType="Int")]
 		public System.Nullable<int> intCantidadCuadruple
 		{
@@ -1006,22 +984,6 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 				if ((this._decPrecioDoble != value))
 				{
 					this._decPrecioDoble = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decPrecioTriple", DbType="Decimal(18,2)")]
-		public System.Nullable<decimal> decPrecioTriple
-		{
-			get
-			{
-				return this._decPrecioTriple;
-			}
-			set
-			{
-				if ((this._decPrecioTriple != value))
-				{
-					this._decPrecioTriple = value;
 				}
 			}
 		}
@@ -1074,22 +1036,6 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decLargoTriple", DbType="Decimal(8,3)")]
-		public System.Nullable<decimal> decLargoTriple
-		{
-			get
-			{
-				return this._decLargoTriple;
-			}
-			set
-			{
-				if ((this._decLargoTriple != value))
-				{
-					this._decLargoTriple = value;
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_bitActivo", DbType="Bit")]
 		public System.Nullable<bool> bitActivo
 		{
@@ -1138,18 +1084,18 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decPrecioVentaUnitarioTriple", DbType="Decimal(8,3)")]
-		public System.Nullable<decimal> decPrecioVentaUnitarioTriple
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decPrecioVentaUnitarioCuadruple", DbType="Decimal(8,3)")]
+		public System.Nullable<decimal> decPrecioVentaUnitarioCuadruple
 		{
 			get
 			{
-				return this._decPrecioVentaUnitarioTriple;
+				return this._decPrecioVentaUnitarioCuadruple;
 			}
 			set
 			{
-				if ((this._decPrecioVentaUnitarioTriple != value))
+				if ((this._decPrecioVentaUnitarioCuadruple != value))
 				{
-					this._decPrecioVentaUnitarioTriple = value;
+					this._decPrecioVentaUnitarioCuadruple = value;
 				}
 			}
 		}
@@ -1186,18 +1132,18 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decPrecioVentaTotalTriple", DbType="Decimal(8,3)")]
-		public System.Nullable<decimal> decPrecioVentaTotalTriple
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decPrecioVentaTotalCuadruple", DbType="Decimal(8,3)")]
+		public System.Nullable<decimal> decPrecioVentaTotalCuadruple
 		{
 			get
 			{
-				return this._decPrecioVentaTotalTriple;
+				return this._decPrecioVentaTotalCuadruple;
 			}
 			set
 			{
-				if ((this._decPrecioVentaTotalTriple != value))
+				if ((this._decPrecioVentaTotalCuadruple != value))
 				{
-					this._decPrecioVentaTotalTriple = value;
+					this._decPrecioVentaTotalCuadruple = value;
 				}
 			}
 		}
@@ -1234,18 +1180,18 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decAlturaTriple", DbType="Decimal(8,3)")]
-		public System.Nullable<decimal> decAlturaTriple
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decAlturaCuadruple", DbType="Decimal(8,3)")]
+		public System.Nullable<decimal> decAlturaCuadruple
 		{
 			get
 			{
-				return this._decAlturaTriple;
+				return this._decAlturaCuadruple;
 			}
 			set
 			{
-				if ((this._decAlturaTriple != value))
+				if ((this._decAlturaCuadruple != value))
 				{
-					this._decAlturaTriple = value;
+					this._decAlturaCuadruple = value;
 				}
 			}
 		}
@@ -1282,18 +1228,18 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sintPinturaIDTriple", DbType="SmallInt")]
-		public System.Nullable<short> sintPinturaIDTriple
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sintPinturaIDCuadruple", DbType="SmallInt")]
+		public System.Nullable<short> sintPinturaIDCuadruple
 		{
 			get
 			{
-				return this._sintPinturaIDTriple;
+				return this._sintPinturaIDCuadruple;
 			}
 			set
 			{
-				if ((this._sintPinturaIDTriple != value))
+				if ((this._sintPinturaIDCuadruple != value))
 				{
-					this._sintPinturaIDTriple = value;
+					this._sintPinturaIDCuadruple = value;
 				}
 			}
 		}
@@ -1330,18 +1276,18 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intBotasTriple", DbType="Int")]
-		public System.Nullable<int> intBotasTriple
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intBotasCuadruple", DbType="Int")]
+		public System.Nullable<int> intBotasCuadruple
 		{
 			get
 			{
-				return this._intBotasTriple;
+				return this._intBotasCuadruple;
 			}
 			set
 			{
-				if ((this._intBotasTriple != value))
+				if ((this._intBotasCuadruple != value))
 				{
-					this._intBotasTriple = value;
+					this._intBotasCuadruple = value;
 				}
 			}
 		}
@@ -1378,18 +1324,18 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intBarrasTriple", DbType="Int")]
-		public System.Nullable<int> intBarrasTriple
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intBarrasCuadruple", DbType="Int")]
+		public System.Nullable<int> intBarrasCuadruple
 		{
 			get
 			{
-				return this._intBarrasTriple;
+				return this._intBarrasCuadruple;
 			}
 			set
 			{
-				if ((this._intBarrasTriple != value))
+				if ((this._intBarrasCuadruple != value))
 				{
-					this._intBarrasTriple = value;
+					this._intBarrasCuadruple = value;
 				}
 			}
 		}
