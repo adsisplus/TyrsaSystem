@@ -395,6 +395,35 @@ namespace Adsisplus.Cotyrsa.DataAccess
             return result;
         }
         /// <summary>
+        /// Procedimiento que obtiene la lista de vigas tipo C
+        /// </summary>
+        /// <param name="decLongitudViga"></param>
+        /// <returns></returns>
+        public List<SeleccionViga_TipoC> ListarSeleccionVigas_TipoC(decimal decLongitudViga)
+        {
+            List<SeleccionViga_TipoC> result = new List<SeleccionViga_TipoC>();
+            try
+            {
+                using (VigasDataContext dc = new VigasDataContext(Helper.ConnectionString()))
+                {
+                    var query = from item in dc.stp_ListarSeleccionViga_Tipo_C(decLongitudViga)
+                                select new SeleccionViga_TipoC
+                                {
+                                    SKU = item.SKU,
+                                    decPesoPieza = item.decPesoPieza,
+                                    TOTAL = item.TOTAL,
+                                    decTotal = item.decTotal
+                                };
+                    result.AddRange(query);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
+        /// <summary>
         /// Procedimiento que muestra la lista de las vigas ligadas a la cotización
         /// </summary>
         /// <param name="intCotizacionID"></param>

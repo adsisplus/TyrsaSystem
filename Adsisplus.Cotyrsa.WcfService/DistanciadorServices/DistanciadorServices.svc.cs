@@ -70,14 +70,17 @@ namespace Adsisplus.Cotyrsa.WcfService.DistanciadorServices
         /// Procedimiento que almacena los datos del Distanciador
         /// </summary>
         /// <param name="distanciador"></param>
+        /// <param name="seleccionDistanciador"></param>
+        /// <param name="intCotizacionID"></param>
+        /// <param name="intDetCotizaID"></param>
         /// <param name="tinOpcion"></param>
         /// <returns></returns>
-        public Resultado setDatosDistanciador(DatosDistanciador distanciador, short tinOpcion)
+        public Resultado setDatosDistanciador(DatosDistanciador distanciador, SeleccionDistanciador seleccionDistanciador, int intCotizacionID, int intDetCotizaID, short tinOpcion)
         {
             Resultado result = new Resultado();
             try
             {
-                result = (new DistanciadorLogic()).setDatosDistanciador(distanciador, tinOpcion);
+                result = (new DistanciadorLogic()).setDatosDistanciador(distanciador, seleccionDistanciador, intCotizacionID, intDetCotizaID, tinOpcion);
             }
             catch (Exception ex)
             {

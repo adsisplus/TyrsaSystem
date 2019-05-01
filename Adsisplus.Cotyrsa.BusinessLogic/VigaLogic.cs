@@ -257,6 +257,24 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
             return result;
         }
         /// <summary>
+        /// Procedimiento que obtiene la lista de vigas tipo C
+        /// </summary>
+        /// <param name="decLongitudViga"></param>
+        /// <returns></returns>
+        public List<SeleccionViga_TipoC> ListarSeleccionVigas_TipoC(decimal decLongitudViga)
+        {
+            List<SeleccionViga_TipoC> result = new List<SeleccionViga_TipoC>();
+            try
+            {
+                result = CatalogosDA.ListarSeleccionVigas_TipoC(decLongitudViga);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
+        /// <summary>
         /// Procedimiento que muestra la lista de las vigas ligadas a la cotización
         /// </summary>
         /// <param name="intCotizacionID"></param>

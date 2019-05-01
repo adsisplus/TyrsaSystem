@@ -298,4 +298,13 @@
       <Column Name="bitActivo" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
     </ElementType>
   </Function>
+  <Function Name="dbo.stp_ListarSeleccionViga_Tipo_C" Method="stp_ListarSeleccionViga_Tipo_C">
+    <Parameter Name="LV" Parameter="lV" Type="System.Decimal" DbType="Decimal(8,2)" />
+    <ElementType Name="stp_ListarSeleccionViga_Tipo_CResult">
+      <Column Name="SKU" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="decPesoPieza" Type="System.Decimal" DbType="Decimal(38,6)" CanBeNull="true" />
+      <Column Name="TOTAL" Type="System.Decimal" DbType="Decimal(38,3)" CanBeNull="true" />
+      <Column Name="decTotal" Type="System.Decimal" DbType="Decimal(38,6)" CanBeNull="true" />
+    </ElementType>
+  </Function>
 </Database>

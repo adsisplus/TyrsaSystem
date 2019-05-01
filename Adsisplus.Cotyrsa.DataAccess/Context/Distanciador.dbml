@@ -46,4 +46,33 @@
       <Column Name="decAltura" Type="System.Decimal" DbType="Decimal(8,2)" CanBeNull="true" />
     </ElementType>
   </Function>
+  <Function Name="dbo.stp_setSeleccionDistanciador" Method="stp_setSeleccionDistanciador">
+    <Parameter Name="intSeleccionDistanciadorID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intRackID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intDetCotizaID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="vchSKU" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="decAltura" Type="System.Decimal" DbType="Decimal(8,3)" />
+    <Parameter Name="decPesoKg" Type="System.Decimal" DbType="Decimal(8,3)" />
+    <Parameter Name="decPrecioTyrsa" Type="System.Decimal" DbType="Decimal(8,3)" />
+    <Parameter Name="decPrecioReferencia" Type="System.Decimal" DbType="Decimal(8,3)" />
+    <Parameter Name="decRelacionPrecio" Type="System.Decimal" DbType="Decimal(8,3)" />
+    <Parameter Name="decPrecioMetroTyrsa" Type="System.Decimal" DbType="Decimal(8,3)" />
+    <Parameter Name="decPrecioMetroRef" Type="System.Decimal" DbType="Decimal(8,3)" />
+    <Parameter Name="decPrecioKgTyrsa" Type="System.Decimal" DbType="Decimal(8,3)" />
+    <Parameter Name="decPrecioKgRef" Type="System.Decimal" DbType="Decimal(8,3)" />
+    <Parameter Name="decPesoAnguloCobro" Type="System.Decimal" DbType="Decimal(8,3)" />
+    <Parameter Name="decPesoPlacaCobro" Type="System.Decimal" DbType="Decimal(8,3)" />
+    <Parameter Name="sintCantidadPzaAngulo" Type="System.Int16" DbType="SmallInt" />
+    <Parameter Name="sintCantidadPzaPlaca" Type="System.Int16" DbType="SmallInt" />
+    <Parameter Name="decPesoPorDistanciador" Type="System.Decimal" DbType="Decimal(8,3)" />
+    <Parameter Name="decAreaPinturaAngulo" Type="System.Decimal" DbType="Decimal(8,3)" />
+    <Parameter Name="decAreaPinturaPlaca" Type="System.Decimal" DbType="Decimal(8,3)" />
+    <Parameter Name="decPinturaTotal" Type="System.Decimal" DbType="Decimal(8,3)" />
+    <Parameter Name="decTotalKgTotal" Type="System.Decimal" DbType="Decimal(8,3)" />
+    <Parameter Name="tinOpcion" Type="System.Byte" DbType="TinyInt" />
+    <ElementType Name="stp_setSeleccionDistanciadorResult">
+      <Column Name="vchResultado" Type="System.String" DbType="VarChar(12)" CanBeNull="true" />
+      <Column Name="vchDescripcion" Type="System.String" DbType="VarChar(63) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
 </Database>

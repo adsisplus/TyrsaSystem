@@ -116,5 +116,38 @@ namespace Adsisplus.Cotyrsa.DataAccess
             }
             return result;
         }
+        /// <summary>
+        /// Procedimiento que realiza el alta de la seleccion distanciador
+        /// </summary>
+        /// <param name="distanciador"></param>
+        /// <param name="tinOpcion"></param>
+        /// <returns></returns>
+        public Resultado setSeleccionDistanciador(SeleccionDistanciador distanciador, short tinOpcion)
+        {
+            Resultado result = new Resultado();
+            try
+            {
+                using (DistanciadorDataContext dc = new DistanciadorDataContext(Helper.ConnectionString()))
+                {
+                    var query = from item in dc.stp_setSeleccionDistanciador(distanciador.intSeleccionDistanciadorID, distanciador.intRackID, distanciador.intDetCotizaID, distanciador.vchSKU,
+                        distanciador.decAltura, distanciador.decPesoKg, distanciador.decPrecioTyrsa, distanciador.decPrecioReferencia,
+                        distanciador.decRelacionPrecio, distanciador.decPrecioMetroTyrsa, distanciador.decPrecioMetroRef, distanciador.decPrecioKgRef,
+                        distanciador.decPrecioKgRef, distanciador.decPesoAnguloCobro, distanciador.decPesoPlacaCobro, distanciador.sintCantidadPzaAngulo,
+                        distanciador.sintCantidadPzaPlaca, distanciador.decPesoPorDistanciador, distanciador.decAreaPinturaAngulo, distanciador.decAreaPinturaPlaca,
+                        distanciador.decPinturaTotal, distanciador.decTotalKgTotal, (byte)tinOpcion)
+                                select new Resultado
+                                {
+                                    vchDescripcion = item.vchDescripcion,
+                                    vchResultado = item.vchResultado
+                                };
+                    result = query.First();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
     }
 }

@@ -127,7 +127,14 @@ namespace Adsisplus.Cotyrsa.WcfService.VigaServices
         [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "seleccionVigas")]
         List<SeleccionViga> seleccionVigas(decimal decLongitudViga, int intNumeroTarimasPorNivel, decimal decTarimaProductoPeso,
             short sintSistemaID, bool bitEstructural);
-
+        /// <summary>
+        /// Procedimiento que obtiene la lista de vigas tipo C
+        /// </summary>
+        /// <param name="decLongitudViga"></param>
+        /// <returns></returns>
+        [OperationContract]
+        [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ListarSeleccionVigas_TipoC")]
+        List<SeleccionViga_TipoC> ListarSeleccionVigas_TipoC(decimal decLongitudViga);
         /// <summary>
         /// Procedimiento que muestra la lista de las vigas ligadas a la cotización
         /// </summary>

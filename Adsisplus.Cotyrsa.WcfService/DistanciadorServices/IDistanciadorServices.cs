@@ -40,10 +40,13 @@ namespace Adsisplus.Cotyrsa.WcfService.DistanciadorServices
         /// Procedimiento que almacena los datos del Distanciador
         /// </summary>
         /// <param name="distanciador"></param>
+        /// <param name="seleccionDistanciador"></param>
+        /// <param name="intCotizacionID"></param>
+        /// <param name="intDetCotizaID"></param>
         /// <param name="tinOpcion"></param>
         /// <returns></returns>
         [OperationContract]
         [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "setDatosDistanciador")]
-        Resultado setDatosDistanciador(DatosDistanciador distanciador, short tinOpcion);
+        Resultado setDatosDistanciador(DatosDistanciador distanciador, SeleccionDistanciador seleccionDistanciador, int intCotizacionID, int intDetCotizaID, short tinOpcion);
     }
 }

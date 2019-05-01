@@ -183,6 +183,13 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), intCotizacionID);
 			return ((ISingleResult<stp_ListarDatosVigaTopeResult>)(result.ReturnValue));
 		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.stp_ListarSeleccionViga_Tipo_C")]
+		public ISingleResult<stp_ListarSeleccionViga_Tipo_CResult> stp_ListarSeleccionViga_Tipo_C([global::System.Data.Linq.Mapping.ParameterAttribute(Name="LV", DbType="Decimal(8,2)")] System.Nullable<decimal> lV)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), lV);
+			return ((ISingleResult<stp_ListarSeleccionViga_Tipo_CResult>)(result.ReturnValue));
+		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="")]
@@ -3427,6 +3434,86 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 				if ((this._bitActivo != value))
 				{
 					this._bitActivo = value;
+				}
+			}
+		}
+	}
+	
+	public partial class stp_ListarSeleccionViga_Tipo_CResult
+	{
+		
+		private long _SKU;
+		
+		private System.Nullable<decimal> _decPesoPieza;
+		
+		private System.Nullable<decimal> _TOTAL;
+		
+		private System.Nullable<decimal> _decTotal;
+		
+		public stp_ListarSeleccionViga_Tipo_CResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SKU", DbType="BigInt NOT NULL")]
+		public long SKU
+		{
+			get
+			{
+				return this._SKU;
+			}
+			set
+			{
+				if ((this._SKU != value))
+				{
+					this._SKU = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decPesoPieza", DbType="Decimal(38,6)")]
+		public System.Nullable<decimal> decPesoPieza
+		{
+			get
+			{
+				return this._decPesoPieza;
+			}
+			set
+			{
+				if ((this._decPesoPieza != value))
+				{
+					this._decPesoPieza = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TOTAL", DbType="Decimal(38,3)")]
+		public System.Nullable<decimal> TOTAL
+		{
+			get
+			{
+				return this._TOTAL;
+			}
+			set
+			{
+				if ((this._TOTAL != value))
+				{
+					this._TOTAL = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decTotal", DbType="Decimal(38,6)")]
+		public System.Nullable<decimal> decTotal
+		{
+			get
+			{
+				return this._decTotal;
+			}
+			set
+			{
+				if ((this._decTotal != value))
+				{
+					this._decTotal = value;
 				}
 			}
 		}
