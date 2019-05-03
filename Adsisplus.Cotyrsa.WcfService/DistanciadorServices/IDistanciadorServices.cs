@@ -36,6 +36,26 @@ namespace Adsisplus.Cotyrsa.WcfService.DistanciadorServices
         [OperationContract]
         [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ListarCatalogoDistanciador")]
         List<CatalogoDecimal> ListarCatalogoDistanciador();
+
+        /// <summary>
+        /// Procedimiento que lista los datos de selección distanciador
+        /// </summary>
+        /// <param name="intCotizacion"></param>
+        /// <returns></returns>
+        [OperationContract]
+        [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ListarDatosSeleccionDistanciador")]
+        List<SeleccionDistanciador> ListarDatosSeleccionDistanciador(int intCotizacion);
+
+        /// <summary>
+        /// Lista los datos de la pantalla Distanciador
+        /// </summary>
+        /// <param name="intSeleccionDistanciadorID"></param>
+        /// <param name="intCotizacionID"></param>
+        /// <returns></returns>
+        [OperationContract]
+        [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ListarDatosPantallaDistanciador")]
+        List<DatosPantallaDistanciador> ListarDatosPantallaDistanciador(int intSeleccionDistanciadorID, int intCotizacionID);
+
         /// <summary>
         /// Procedimiento que almacena los datos del Distanciador
         /// </summary>

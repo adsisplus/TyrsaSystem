@@ -117,6 +117,106 @@ namespace Adsisplus.Cotyrsa.DataAccess
             return result;
         }
         /// <summary>
+        /// Procedimiento que lista los datos de selección distanciador
+        /// </summary>
+        /// <param name="intCotizacion"></param>
+        /// <returns></returns>
+        public List<SeleccionDistanciador> ListarDatosSeleccionDistanciador(int intCotizacion)
+        {
+            List<SeleccionDistanciador> result = new List<SeleccionDistanciador>();
+            try
+            {
+                using (DistanciadorDataContext dc = new DistanciadorDataContext(Helper.ConnectionString()))
+                {
+                    var query = from item in dc.stp_ListarDatosSeleccionDistanciador(intCotizacion)
+                                select new SeleccionDistanciador
+                                {
+                                    intSeleccionDistanciadorID = item.intSeleccionDistanciadorID,
+                                    vchSKU = item.vchSKU,
+                                    decAltura = item.decAltura,
+                                    decPesoKg = item.decPesoKg,
+                                    decPrecioTyrsa = item.decPrecioTyrsa,
+                                    decPrecioReferencia = item.decPrecioReferencia,
+                                    decRelacionPrecio = item.decRelacionPrecio,
+                                    decPrecioMetroTyrsa = item.decPrecioMetroTyrsa,
+                                    decPrecioMetroRef = item.decPrecioMetroRef,
+                                    decPrecioKgTyrsa = item.decPrecioKgTyrsa,
+                                    decPrecioKgRef = item.decPrecioKgRef,
+                                    decPesoAnguloCobro = item.decPesoAnguloCobro,
+                                    decPesoPlacaCobro = item.decPesoPlacaCobro,
+                                    sintCantidadPzaAngulo = item.sintCantidadPzaAngulo,
+                                    sintCantidadPzaPlaca = item.sintCantidadPzaPlaca,
+                                    decPesoPorDistanciador = item.decPesoPorDistanciador,
+                                    decAreaPinturaAngulo = item.decAreaPinturaAngulo,
+                                    decAreaPinturaPlaca = item.decAreaPinturaPlaca,
+                                    decPinturaTotal = item.decPinturaTotal,
+                                    decTotalKgTotal = item.decTotalKgTotal,
+                                    bitActivo = item.bitActivo
+                                };
+                    result.AddRange(query);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
+        /// <summary>
+        /// Lista los datos de la pantalla Distanciador
+        /// </summary>
+        /// <param name="intSeleccionDistanciadorID"></param>
+        /// <param name="intCotizacionID"></param>
+        /// <returns></returns>
+        public List<DatosPantallaDistanciador> ListarDatosPantallaDistanciador(int intSeleccionDistanciadorID, int intCotizacionID)
+        {
+            List<DatosPantallaDistanciador> result = new List<DatosPantallaDistanciador>();
+            try
+            {
+                using (DistanciadorDataContext dc = new DistanciadorDataContext(Helper.ConnectionString()))
+                {
+                    var query = from item in dc.stp_ListarDatosPantallaDistanciador(intSeleccionDistanciadorID, intCotizacionID)
+                                select new DatosPantallaDistanciador
+                                {
+                                    sintPinturaID = item.sintPinturaID,
+                                    decAltura = item.decAltura,
+                                    intCantidad = item.intCantidadDistanciador,
+                                    decLargo = item.decLargoDistanciador,
+                                    distanciador = new SeleccionDistanciador()
+                                    {
+                                        vchSKU = item.vchSKU,
+                                        decAltura = item.decAltura,
+                                        decPesoKg = item.decPesoKg,
+                                        decPrecioTyrsa = item.decPrecioTyrsa,
+                                        decPrecioReferencia = item.decPrecioReferencia,
+                                        decRelacionPrecio = item.decRelacionPrecio,
+                                        decPrecioMetroTyrsa = item.decPrecioMetroTyrsa,
+                                        decPrecioMetroRef = item.decPrecioMetroRef,
+                                        decPrecioKgTyrsa = item.decPrecioKgTyrsa,
+                                        decPrecioKgRef = item.decPrecioKgRef,
+                                        decPesoAnguloCobro = item.decPesoAnguloCobro,
+                                        decPesoPlacaCobro = item.decPesoPlacaCobro,
+                                        sintCantidadPzaAngulo = item.sintCantidadPzaAngulo,
+                                        sintCantidadPzaPlaca = item.sintCantidadPzaPlaca,
+                                        decPesoPorDistanciador = item.decPesoPorDistanciador,
+                                        decAreaPinturaAngulo = item.decAreaPinturaAngulo,
+                                        decAreaPinturaPlaca = item.decAreaPinturaPlaca,
+                                        decPinturaTotal = item.decPinturaTotal,
+                                        decTotalKgTotal = item.decTotalKgTotal,
+                                        bitActivo = item.bitActivo
+                                    }
+                                };
+                    result.AddRange(query);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
+
+        /// <summary>
         /// Procedimiento que realiza el alta de la seleccion distanciador
         /// </summary>
         /// <param name="distanciador"></param>

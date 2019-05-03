@@ -66,6 +66,7 @@
     <Compile Include="DatosMarco.cs" />
     <Compile Include="DatosPanel.cs" />
     <Compile Include="DatosPantallaCrossBar.cs" />
+    <Compile Include="DatosPantallaDistanciador.cs" />
     <Compile Include="DatosPantallaPanel.cs" />
     <Compile Include="DatosParrilla.cs" />
     <Compile Include="DatosPerfil.cs" />

@@ -76,6 +76,44 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
             return result;
         }
         /// <summary>
+        /// Procedimiento que lista los datos de selección distanciador
+        /// </summary>
+        /// <param name="intCotizacion"></param>
+        /// <returns></returns>
+        public List<SeleccionDistanciador> ListarDatosSeleccionDistanciador(int intCotizacion)
+        {
+            List<SeleccionDistanciador> result = new List<SeleccionDistanciador>();
+            try
+            {
+                result = CatalogosDA.ListarDatosSeleccionDistanciador(intCotizacion);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
+
+        /// <summary>
+        /// Lista los datos de la pantalla Distanciador
+        /// </summary>
+        /// <param name="intSeleccionDistanciadorID"></param>
+        /// <param name="intCotizacionID"></param>
+        /// <returns></returns>
+        public List<DatosPantallaDistanciador> ListarDatosPantallaDistanciador(int intSeleccionDistanciadorID, int intCotizacionID)
+        {
+            List<DatosPantallaDistanciador> result = new List<DatosPantallaDistanciador>();
+            try
+            {
+                result = CatalogosDA.ListarDatosPantallaDistanciador(intSeleccionDistanciadorID, intCotizacionID);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
+        /// <summary>
         /// Procedimiento que almacena los datos del Distanciador
         /// </summary>
         /// <param name="distanciador"></param>
