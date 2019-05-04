@@ -86,7 +86,7 @@ namespace Adsisplus.Cotyrsa.DataAccess
 
                                     decLargoSencilla = item.decLargoSencilla,
                                     decLargoDoble = item.decLargoDoble,
-                                    //decLargoTriple = item.decLargoTriple,
+                                    decLargoCuadruple = item.decLargoCuadruple,
 
                                     decPrecioVentaUnitarioSencilla = item.decPrecioVentaUnitarioSencilla,
                                     decPrecioVentaUnitarioDoble = item.decPrecioVentaUnitarioDoble,

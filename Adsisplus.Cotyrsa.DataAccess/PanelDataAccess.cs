@@ -127,6 +127,7 @@ namespace Adsisplus.Cotyrsa.DataAccess
                                     decAnchoBus = item.decAnchoBus,
                                     decLargo = item.decLargo,
                                     sintCantidadPanelNivel = item.sintCantidadPanelNivel,
+                                    decCapacidadCarga = item.decCapacidadCargaPanel,
                                     intCantidadPanel = item.intCantidadPanel,
                                     vchCalibre = item.vchCalibre,
 

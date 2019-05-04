@@ -300,10 +300,10 @@ namespace Adsisplus.Cotyrsa.DataAccess
 
                                     bitMontaCarga = item.bitMontacarga,
                                     intNumeroTarimaPorNivel = item.intNumeroTarimaPorNivel,
-                                    intNumeroNivelSobreViga = item.intNumeroNivelSobreViga,
+                                    //intNumeroNivelSobreViga = item.intNumeroNivelSobreViga,
                                     intPosicion = item.intPosicion,
                                     sintVisitas = item.sintVisitas,
-                                    vchDimensionMontacarga = item.vchDimensionMontacarga,
+                                    //vchDimensionMontacarga = item.vchDimensionMontacarga,
                                     decDolar = item.decDolar,
                                     decMonto = item.decMonto,
                                     decSubtotal = item.decSubtotal,

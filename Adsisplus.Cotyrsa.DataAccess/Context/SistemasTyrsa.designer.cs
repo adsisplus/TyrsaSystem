@@ -187,6 +187,7 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Decimal(8,3)")] System.Nullable<decimal> decPrecioCuadruple, 
 					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Decimal(8,3)")] System.Nullable<decimal> decLargoSencilla, 
 					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Decimal(8,3)")] System.Nullable<decimal> decLargoDoble, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Decimal(8,3)")] System.Nullable<decimal> decLargoCuadruple, 
 					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Decimal(8,3)")] System.Nullable<decimal> decPrecioVentaUnitarioSencilla, 
 					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Decimal(8,3)")] System.Nullable<decimal> decPrecioVentaUnitarioDoble, 
 					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Decimal(8,3)")] System.Nullable<decimal> decPrecioVentaUnitarioCuadruple, 
@@ -208,7 +209,7 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Bit")] System.Nullable<bool> bitActivo, 
 					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="TinyInt")] System.Nullable<byte> tinOpcion)
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), intProtectorBateriaID, intElementoID, intCotizacionID, intDetCotizaID, intCantidadSencilla, intCantidadDoble, intCantidadCuadruple, decPrecioSencilla, decPrecioDoble, decPrecioCuadruple, decLargoSencilla, decLargoDoble, decPrecioVentaUnitarioSencilla, decPrecioVentaUnitarioDoble, decPrecioVentaUnitarioCuadruple, decPrecioVentaTotaloSencilla, decPrecioVentaTotalDoble, decPrecioVentaTotalCuadruple, decAlturaSencilla, decAlturaDoble, decAlturaCuadruple, sintPinturaIDSencilla, sintPinturaIDDoble, sintPinturaIDCuadruple, intBotasSencilla, intBotasDoble, intBotasCuadruple, intBarrasSencilla, intBarrasDoble, intBarrasCuadruple, bitActivo, tinOpcion);
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), intProtectorBateriaID, intElementoID, intCotizacionID, intDetCotizaID, intCantidadSencilla, intCantidadDoble, intCantidadCuadruple, decPrecioSencilla, decPrecioDoble, decPrecioCuadruple, decLargoSencilla, decLargoDoble, decLargoCuadruple, decPrecioVentaUnitarioSencilla, decPrecioVentaUnitarioDoble, decPrecioVentaUnitarioCuadruple, decPrecioVentaTotaloSencilla, decPrecioVentaTotalDoble, decPrecioVentaTotalCuadruple, decAlturaSencilla, decAlturaDoble, decAlturaCuadruple, sintPinturaIDSencilla, sintPinturaIDDoble, sintPinturaIDCuadruple, intBotasSencilla, intBotasDoble, intBotasCuadruple, intBarrasSencilla, intBarrasDoble, intBarrasCuadruple, bitActivo, tinOpcion);
 			return ((ISingleResult<stp_setDatosProtectorBateriaResult>)(result.ReturnValue));
 		}
 	}

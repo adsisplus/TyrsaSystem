@@ -200,6 +200,7 @@
     <Parameter Name="decPrecioCuadruple" Type="System.Decimal" DbType="Decimal(8,3)" />
     <Parameter Name="decLargoSencilla" Type="System.Decimal" DbType="Decimal(8,3)" />
     <Parameter Name="decLargoDoble" Type="System.Decimal" DbType="Decimal(8,3)" />
+    <Parameter Name="decLargoCuadruple" Type="System.Decimal" DbType="Decimal(8,3)" />
     <Parameter Name="decPrecioVentaUnitarioSencilla" Type="System.Decimal" DbType="Decimal(8,3)" />
     <Parameter Name="decPrecioVentaUnitarioDoble" Type="System.Decimal" DbType="Decimal(8,3)" />
     <Parameter Name="decPrecioVentaUnitarioCuadruple" Type="System.Decimal" DbType="Decimal(8,3)" />

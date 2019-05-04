@@ -218,6 +218,7 @@ namespace Adsisplus.Cotyrsa.DataAccess
                                     vchLongitud = item.vchLongitud,
                                     intCalibreID = item.intCalibreID,
                                     vchCalibre = item.vchCalibre,
+                                    decLargo = item.decLargo,
 
                                     bitActivo = item.bitActivo
                                 };

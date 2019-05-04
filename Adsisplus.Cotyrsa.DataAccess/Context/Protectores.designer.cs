@@ -786,6 +786,8 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 		
 		private System.Nullable<decimal> _decLargoDoble;
 		
+		private System.Nullable<decimal> _decLargoCuadruple;
+		
 		private System.Nullable<bool> _bitActivo;
 		
 		private System.Nullable<decimal> _decPrecioVentaUnitarioSencilla;
@@ -1032,6 +1034,22 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 				if ((this._decLargoDoble != value))
 				{
 					this._decLargoDoble = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decLargoCuadruple", DbType="Decimal(8,3)")]
+		public System.Nullable<decimal> decLargoCuadruple
+		{
+			get
+			{
+				return this._decLargoCuadruple;
+			}
+			set
+			{
+				if ((this._decLargoCuadruple != value))
+				{
+					this._decLargoCuadruple = value;
 				}
 			}
 		}

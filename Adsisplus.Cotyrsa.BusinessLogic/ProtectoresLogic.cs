@@ -92,6 +92,7 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
                     // Almacenamos el ID del detalle de la cotización
                     intDetCotizaID = Convert.ToInt32(result.vchResultado);
                     datosProtector.intDetCotizaID = intDetCotizaID;
+                    datosProtector.intElementoID = 8;
                     // Procedeimos a realizar el almacenado de la información
                     result = (new SistemasTyrsaLogic()).setDatosProtectorPoste(datosProtector, tinOpcion);
                     if (result.vchResultado != "NOK")

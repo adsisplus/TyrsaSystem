@@ -312,11 +312,12 @@ namespace Adsisplus.Cotyrsa.DataAccess
                     var query = from item in dc.stp_setDatosProtectorBateria(datosProtectorBateria.intProtectorBateriaID, datosProtectorBateria.intElementoID, datosProtectorBateria.intCotizacionID, datosProtectorBateria.intDetCotizaID, 
                         datosProtectorBateria.intCantidadSencilla, datosProtectorBateria.intCantidadDoble, datosProtectorBateria.intCantidadCuadruple, datosProtectorBateria.decPrecioSencilla, 
                         datosProtectorBateria.decPrecioDoble, datosProtectorBateria.decPrecioCuadruple, datosProtectorBateria.decLargoSencilla, datosProtectorBateria.decLargoDoble,
-                        datosProtectorBateria.decPrecioVentaUnitarioSencilla, datosProtectorBateria.decPrecioVentaUnitarioDoble, datosProtectorBateria.decPrecioVentaUnitarioCuadruple, 
-                        datosProtectorBateria.decPrecioVentaTotalSencilla, datosProtectorBateria.decPrecioVentaTotalDoble, datosProtectorBateria.decPrecioVentaTotalCuadruple, 
-                        datosProtectorBateria.decAlturaSencilla, datosProtectorBateria.decAlturaDoble, datosProtectorBateria.decAlturaCuadruple, datosProtectorBateria.sintPinturaIDSencilla, 
-                        datosProtectorBateria.sintPinturaIDDoble, datosProtectorBateria.sintPinturaIDCuadruple, datosProtectorBateria.intBotasSencilla, datosProtectorBateria.intBotasDoble, datosProtectorBateria.intBotasCuadruple, 
-                        datosProtectorBateria.intBarrasSencilla, datosProtectorBateria.intBarrasDoble, datosProtectorBateria.intBotasCuadruple, datosProtectorBateria.bitActivo, (byte)sintOpcion)
+                        datosProtectorBateria.decLargoCuadruple, datosProtectorBateria.decPrecioVentaUnitarioSencilla, datosProtectorBateria.decPrecioVentaUnitarioDoble, 
+                        datosProtectorBateria.decPrecioVentaUnitarioCuadruple, datosProtectorBateria.decPrecioVentaTotalSencilla, datosProtectorBateria.decPrecioVentaTotalDoble, 
+                        datosProtectorBateria.decPrecioVentaTotalCuadruple, datosProtectorBateria.decAlturaSencilla, datosProtectorBateria.decAlturaDoble, datosProtectorBateria.decAlturaCuadruple, 
+                        datosProtectorBateria.sintPinturaIDSencilla, datosProtectorBateria.sintPinturaIDDoble, datosProtectorBateria.sintPinturaIDCuadruple, datosProtectorBateria.intBotasSencilla,
+                        datosProtectorBateria.intBotasDoble, datosProtectorBateria.intBotasCuadruple, datosProtectorBateria.intBarrasSencilla, datosProtectorBateria.intBarrasDoble, datosProtectorBateria.intBotasCuadruple,
+                        datosProtectorBateria.bitActivo, (byte)sintOpcion)
                                 select new Resultado
                                 {
                                     vchDescripcion = item.vchDescripcion,

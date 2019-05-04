@@ -71,6 +71,7 @@
       <Column Name="decPrecioCuadruple" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
       <Column Name="decLargoSencilla" Type="System.Decimal" DbType="Decimal(8,3)" CanBeNull="true" />
       <Column Name="decLargoDoble" Type="System.Decimal" DbType="Decimal(8,3)" CanBeNull="true" />
+      <Column Name="decLargoCuadruple" Type="System.Decimal" DbType="Decimal(8,3)" CanBeNull="true" />
       <Column Name="bitActivo" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
       <Column Name="decPrecioVentaUnitarioSencilla" Type="System.Decimal" DbType="Decimal(8,3)" CanBeNull="true" />
       <Column Name="decPrecioVentaUnitarioDoble" Type="System.Decimal" DbType="Decimal(8,3)" CanBeNull="true" />

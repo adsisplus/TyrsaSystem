@@ -55,6 +55,10 @@ namespace Adsisplus.Cotyrsa.BusinessEntities
         [DataMember]
         public decimal? decLargoDoble { get; set; }
 
+        [DataMember]
+        public decimal? decLargoCuadruple { get; set; }
+
+
         //[DataMember]
         //public decimal? decLargoTriple { get; set; }
 
