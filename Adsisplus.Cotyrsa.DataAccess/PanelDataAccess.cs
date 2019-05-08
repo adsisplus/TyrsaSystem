@@ -215,7 +215,7 @@ namespace Adsisplus.Cotyrsa.DataAccess
                 using (PanelesDataContext dc = new PanelesDataContext(Helper.ConnectionString()))
                 {
                     var query = from item in dc.stp_setSeleccionPanel(panel.intSeleccionPanelID, dppPanel.intRackID, dppPanel.intDetCotizaID, panel.intPanelID,
-                        dppPanel.bitGalvanizado, dppPanel.bitPintado, dppPanel.decAnchoBus, dppPanel.decCapacidadCarga, dppPanel.sintCantidadPanelNivel, 
+                        dppPanel.bitGalvanizado, dppPanel.bitPintado, dppPanel.decAnchoBus, dppPanel.decLargo, dppPanel.decCapacidadCarga, dppPanel.sintCantidadPanelNivel, 
                         // Datos de la seleccion
                         panel.sintSKU, panel.vchCalibreAcero, panel.decAncho, panel.decFondo, panel.decPesoKg, panel.sintCorreccion, panel.decTotal,
                         panel.decPrecioEfectivoRef, panel.decRelPrecioTyrsa, panel.decKgTyrsa, panel.decKgReferencia, panel.bitActivo,

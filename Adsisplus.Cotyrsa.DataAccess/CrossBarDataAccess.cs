@@ -157,6 +157,8 @@ namespace Adsisplus.Cotyrsa.DataAccess
                                     decLargo = item.decLargoBus,
                                     intDetCotizaID = item.intDetCotizaID,
                                     intRackID = item.intRackID,
+                                    intCantNivel = item.intCantidadNivelCrossbar,
+                                    intCantidad = item.intCantidad,
                                     crossBar = new SeleccionCrossBar()
                                     {
                                         bitActivo = item.bitActivo,

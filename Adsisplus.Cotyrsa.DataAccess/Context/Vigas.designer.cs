@@ -33,7 +33,7 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
     #endregion
 		
 		public VigasDataContext() : 
-				base(global::Adsisplus.Cotyrsa.DataAccess.Properties.Settings.Default.dbTyrsaConnectionString, mappingSource)
+				base(global::Adsisplus.Cotyrsa.DataAccess.Properties.Settings.Default.dbTyrsaConnectionString1, mappingSource)
 		{
 			OnCreated();
 		}
@@ -126,13 +126,6 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 			return ((ISingleResult<stp_ListarDatosSeleccionVigaResult>)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.stp_ListarSeleccionViga")]
-		public ISingleResult<entSeleccionViga> stp_ListarSeleccionViga([global::System.Data.Linq.Mapping.ParameterAttribute(Name="CPPV", DbType="Decimal(8,2)")] System.Nullable<decimal> cPPV, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="LV", DbType="Decimal(8,2)")] System.Nullable<decimal> lV, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Sistema", DbType="SmallInt")] System.Nullable<short> sistema, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Bit")] System.Nullable<bool> bitEstructural)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), cPPV, lV, sistema, bitEstructural);
-			return ((ISingleResult<entSeleccionViga>)(result.ReturnValue));
-		}
-		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.stp_setSeleccionViga")]
 		public ISingleResult<stp_setSeleccionVigaResult> stp_setSeleccionViga(
 					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intRackID, 
@@ -184,6 +177,13 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 			return ((ISingleResult<stp_ListarDatosVigaTopeResult>)(result.ReturnValue));
 		}
 		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.stp_ListarSeleccionViga")]
+		public ISingleResult<entSeleccionViga> stp_ListarSeleccionViga([global::System.Data.Linq.Mapping.ParameterAttribute(Name="CPPV", DbType="Decimal(8,2)")] System.Nullable<decimal> cPPV, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="LV", DbType="Decimal(8,2)")] System.Nullable<decimal> lV, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Sistema", DbType="SmallInt")] System.Nullable<short> sistema, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Bit")] System.Nullable<bool> bitEstructural)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), cPPV, lV, sistema, bitEstructural);
+			return ((ISingleResult<entSeleccionViga>)(result.ReturnValue));
+		}
+		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.stp_ListarSeleccionViga_Tipo_C")]
 		public ISingleResult<stp_ListarSeleccionViga_Tipo_CResult> stp_ListarSeleccionViga_Tipo_C([global::System.Data.Linq.Mapping.ParameterAttribute(Name="LV", DbType="Decimal(8,2)")] System.Nullable<decimal> lV)
 		{
@@ -216,7 +216,7 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 		
 		private int _intLargo;
 		
-		private int _intPatin;
+		private decimal _intPatin;
 		
 		private string _intPeralte;
 		
@@ -401,7 +401,7 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intPatin")]
-		public int intPatin
+		public decimal decPatin
 		{
 			get
 			{

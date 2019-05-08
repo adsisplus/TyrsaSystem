@@ -77,6 +77,32 @@
       <Column Name="vchDescripcion" Type="System.String" DbType="VarChar(60) NOT NULL" CanBeNull="false" />
     </ElementType>
   </Function>
+  <Function Name="dbo.stp_ListarDatosSeleccionCrossBar" Method="stp_ListarDatosSeleccionCrossBar">
+    <Parameter Name="intCotizacionID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="stp_ListarDatosSeleccionCrossBarResult">
+      <Column Name="intSeleccionCrossBarID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="sintCrossBarID" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="vchTipoCrossBar" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="decPrecioFinal" Type="System.Decimal" DbType="Decimal(8,3)" CanBeNull="true" />
+      <Column Name="sintFactorCrossBarID" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="sintNumPieza" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="decDesarrollo" Type="System.Decimal" DbType="Decimal(8,3)" CanBeNull="true" />
+      <Column Name="decLongitud" Type="System.Decimal" DbType="Decimal(8,3)" CanBeNull="true" />
+      <Column Name="vchMaterial" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="decAncho" Type="System.Decimal" DbType="Decimal(8,3)" CanBeNull="true" />
+      <Column Name="decLargo" Type="System.Decimal" DbType="Decimal(8,3)" CanBeNull="true" />
+      <Column Name="intPiezaLamina" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="intNumPiezas" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="sintPesoPieza" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="decPesoPartida" Type="System.Decimal" DbType="Decimal(8,3)" CanBeNull="true" />
+      <Column Name="decPrecioAcero" Type="System.Decimal" DbType="Decimal(8,3)" CanBeNull="true" />
+      <Column Name="decTotal" Type="System.Decimal" DbType="Decimal(8,3)" CanBeNull="true" />
+      <Column Name="decTotalKiloUnitario" Type="System.Decimal" DbType="Decimal(8,3)" CanBeNull="true" />
+      <Column Name="decAreaPintura" Type="System.Decimal" DbType="Decimal(8,3)" CanBeNull="true" />
+      <Column Name="sintCara" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="bitActivo" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </ElementType>
+  </Function>
   <Function Name="dbo.stp_ListarDatosPantallaCrossBar" Method="stp_ListarDatosPantallaCrossBar">
     <Parameter Name="intSeleccionCrossBarID" Type="System.Int32" DbType="Int" />
     <Parameter Name="intCotizacionID" Type="System.Int32" DbType="Int" />
@@ -84,6 +110,8 @@
       <Column Name="intRackID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="intDetCotizaID" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="intCotizacionID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="intCantidadNivelCrossbar" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="intCantidad" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="bitActivo" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
       <Column Name="bitConectorViga" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
       <Column Name="decAncho" Type="System.Decimal" DbType="Decimal(8,3)" CanBeNull="true" />
@@ -109,32 +137,6 @@
       <Column Name="sintPesoPieza" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
       <Column Name="vchMaterial" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Column Name="vchTipoCrossBar" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-    </ElementType>
-  </Function>
-  <Function Name="dbo.stp_ListarDatosSeleccionCrossBar" Method="stp_ListarDatosSeleccionCrossBar">
-    <Parameter Name="intCotizacionID" Type="System.Int32" DbType="Int" />
-    <ElementType Name="stp_ListarDatosSeleccionCrossBarResult">
-      <Column Name="intSeleccionCrossBarID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="sintCrossBarID" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
-      <Column Name="vchTipoCrossBar" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="decPrecioFinal" Type="System.Decimal" DbType="Decimal(8,3)" CanBeNull="true" />
-      <Column Name="sintFactorCrossBarID" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
-      <Column Name="sintNumPieza" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
-      <Column Name="decDesarrollo" Type="System.Decimal" DbType="Decimal(8,3)" CanBeNull="true" />
-      <Column Name="decLongitud" Type="System.Decimal" DbType="Decimal(8,3)" CanBeNull="true" />
-      <Column Name="vchMaterial" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="decAncho" Type="System.Decimal" DbType="Decimal(8,3)" CanBeNull="true" />
-      <Column Name="decLargo" Type="System.Decimal" DbType="Decimal(8,3)" CanBeNull="true" />
-      <Column Name="intPiezaLamina" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="intNumPiezas" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="sintPesoPieza" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
-      <Column Name="decPesoPartida" Type="System.Decimal" DbType="Decimal(8,3)" CanBeNull="true" />
-      <Column Name="decPrecioAcero" Type="System.Decimal" DbType="Decimal(8,3)" CanBeNull="true" />
-      <Column Name="decTotal" Type="System.Decimal" DbType="Decimal(8,3)" CanBeNull="true" />
-      <Column Name="decTotalKiloUnitario" Type="System.Decimal" DbType="Decimal(8,3)" CanBeNull="true" />
-      <Column Name="decAreaPintura" Type="System.Decimal" DbType="Decimal(8,3)" CanBeNull="true" />
-      <Column Name="sintCara" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
-      <Column Name="bitActivo" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
     </ElementType>
   </Function>
 </Database>

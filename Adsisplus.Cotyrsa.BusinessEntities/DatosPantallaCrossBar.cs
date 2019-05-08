@@ -26,6 +26,12 @@ namespace Adsisplus.Cotyrsa.BusinessEntities
         public bool? bitConectorViga { get; set; }
 
         [DataMember]
+        public int? intCantNivel { get; set; }
+
+        [DataMember]
+        public int? intCantidad { get; set; }
+
+        [DataMember]
         public SeleccionCrossBar crossBar { get; set; }
     }
 }

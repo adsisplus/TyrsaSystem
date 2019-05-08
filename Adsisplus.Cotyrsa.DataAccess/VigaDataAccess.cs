@@ -378,7 +378,7 @@ namespace Adsisplus.Cotyrsa.DataAccess
                                     vchMaterial = item.vchMaterial,
                                     vchLongitud = item.vchLongitud,
                                     intLargo = item.intLargo,
-                                    decPatin = Convert.ToDecimal(item.intPatin),
+                                    decPatin = Convert.ToDecimal(item.decPatin),
                                     decPeralte = Convert.ToDecimal(item.intPeralte),
                                     decCapacidadParVigasRequerida = item.decPesoPieza,
                                     decCapacidadParVigasMaxima = item.decPesoPartida,
