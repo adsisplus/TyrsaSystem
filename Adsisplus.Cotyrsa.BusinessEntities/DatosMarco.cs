@@ -11,53 +11,59 @@ namespace Adsisplus.Cotyrsa.BusinessEntities
     public class DatosMarco
     {
         [DataMember]
-        public Int32? intDatoMarcoID { get; set; }
+        public int? intDatoMarcoID { get; set; }
 
         [DataMember]
-        public Int32? intCotizacionID { get; set; }
+        public int? intCotizacionID { get; set; }
 
         [DataMember]
         public int? intDetCotizaID { get; set; }
 
-        [DataMember]
-        public String vchFolio { get; set; }
+        //[DataMember]
+        //public string vchFolio { get; set; }
 
         [DataMember]
-        public Int32? intElementoID { get; set; }
+        public int? intElementoID { get; set; }
         [DataMember]
-        public String vchElemento { get; set; }
+        public string vchElemento { get; set; }
 
         [DataMember]
-        public Int16? sintPinturaID { get; set; }
+        public short? sintPinturaID { get; set; }
         [DataMember]
-        public String vchPintura { get; set; }
+        public string vchPintura { get; set; }
+
+        //[DataMember]
+        //public Decimal? decMedidaFondo { get; set; }
+
+        //[DataMember]
+        //public Decimal? decMedidaAlto { get; set; }
+
+        //[DataMember]
+        //public Boolean? bitDobleMonten { get; set; }
+
+        //[DataMember]
+        //public Int32? intNumeroNivelSobreViga { get; set; }
+
+        //[DataMember]
+        //public Decimal? decCapacidadxNivel { get; set; }
 
         [DataMember]
-        public Decimal? decMedidaFondo { get; set; }
+        public short? sintCantidad { get; set; }
 
         [DataMember]
-        public Decimal? decMedidaAlto { get; set; }
+        public decimal? decAlturaPandeo { get; set; }
 
         [DataMember]
-        public Boolean? bitDobleMonten { get; set; }
+        public decimal? decAltura { get; set; }
 
         [DataMember]
-        public Int32? intNumeroNivelSobreViga { get; set; }
+        public decimal? decFondo { get; set; }
 
         [DataMember]
-        public Decimal? decAlturaPandeo { get; set; }
+        public bool? bitActivo { get; set; }
 
-        [DataMember]
-        public Decimal? decCapacidadxNivel { get; set; }
-
-        [DataMember]
-        public Int16? sintCantidad { get; set; }
-
-        [DataMember]
-        public Boolean? bitActivo { get; set; }
-
-        [DataMember]
-        public int? intConfiguraMarcoID { get; set; }
+        //[DataMember]
+        //public int? intConfiguraMarcoID { get; set; }
 
     }
 }

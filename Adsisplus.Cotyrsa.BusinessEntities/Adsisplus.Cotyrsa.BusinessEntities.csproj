@@ -67,6 +67,7 @@
     <Compile Include="DatosPanel.cs" />
     <Compile Include="DatosPantallaCrossBar.cs" />
     <Compile Include="DatosPantallaDistanciador.cs" />
+    <Compile Include="DatosPantallaMarco.cs" />
     <Compile Include="DatosPantallaPanel.cs" />
     <Compile Include="DatosParrilla.cs" />
     <Compile Include="DatosPerfil.cs" />
@@ -99,6 +100,7 @@
     <Compile Include="Localidad.cs" />
     <Compile Include="Modelo.cs" />
     <Compile Include="Municipio.cs" />
+    <Compile Include="NivelPorMarco.cs" />
     <Compile Include="Persona.cs" />
     <Compile Include="PersonaCotizacion.cs" />
     <Compile Include="Pintura.cs" />

@@ -90,39 +90,30 @@ namespace Adsisplus.Cotyrsa.DataAccess
         /// Obtiene la listad de datos ligados al marco
         /// </summary>
         /// <param name="intDatoMarcoID"></param>
-        /// <param name="intDetCotizaID"></param>
-        /// <param name="intElementoID"></param>
-        /// <param name="sintPinturaID"></param>
+        /// <param name="intCotizacionID"></param>
         /// <returns></returns>
-        public List<DatosMarco> ListarDatosMarco(Int32 intDatoMarcoID, Int32 intDetCotizaID, Int32 intElementoID, Int16 sintPinturaID)
+        public List<DatosMarco> ListarDatosMarco(int intDatoMarcoID, int intCotizacionID)
         {
             List<DatosMarco> results = new List<DatosMarco>();
             try
             {
                 using (MarcosDataContext dc = new MarcosDataContext(Helper.ConnectionString()))
                 {
-                    var query = from item in dc.stp_ListarDatosMarco(intDatoMarcoID, intDetCotizaID, intElementoID, sintPinturaID)
+                    var query = from item in dc.stp_ListarDatosMarco(intDatoMarcoID, intCotizacionID)
                                 select new DatosMarco()
                                 {
+
                                     intDatoMarcoID = item.intDatoMarcoID,
                                     sintPinturaID = item.sintPinturaID,
                                     vchPintura = item.vchPintura,
                                     intElementoID = item.intElementoID,
                                     vchElemento = item.vchElemento,
 
-                                    intConfiguraMarcoID = item.intConfiguraMarcoID,
                                     sintCantidad = item.sintCantidad,
-                                    
-                                    //intCotizacionID = item.intCotizacionID,
-                                    //vchFolio = item.vchFolio,+
-                                    
-                                    
-                                    decMedidaFondo = item.decMedidaFondo,
-                                    decMedidaAlto = item.decMedidaAlto,
-                                    bitDobleMonten = item.bitDobleMonten,
-                                    intNumeroNivelSobreViga = item.intNumeroNivelSobreViga,
+
                                     decAlturaPandeo = item.decAlturaPandeo,
-                                    decCapacidadxNivel = item.decCapacidadxNivel,
+                                    decAltura = item.decAltura,
+                                    decFondo = item.decFondo,
                                     bitActivo = item.bitActivo
                                 };
                     results.AddRange(query);
@@ -399,27 +390,27 @@ namespace Adsisplus.Cotyrsa.DataAccess
             List<SeleccionMarco> result = new List<SeleccionMarco>();
             try
             {
-                using (MarcosDataContext dc = new MarcosDataContext(Helper.ConnectionString()))
-                {
-                    var query = from item in dc.stp_ListarSeleccionMarco(decCapacidadCarga, decAlturaPandeo, decFondo, decAlturaMarco, sintSistemaID, bitEstructural)
-                                select new SeleccionMarco
-                                {
-                                    intConfiguraMarcoID = Convert.ToInt32(item.intConfiguraMarcoID),
-                                    decAltura = Convert.ToDecimal(item.decAltura),
-                                    decAlturaPandeo = Convert.ToDecimal(item.decAlturaPandeo),
-                                    decCapacidadMarco = Convert.ToDecimal(item.decCapacidadMarco),
-                                    decFondo = Convert.ToDecimal(item.decFondo),
-                                    decPesoMarco = Convert.ToDecimal(item.decPesoMarco),
-                                    decPrecioUnitario = Convert.ToDecimal(item.decPrecioUnitario),
-                                    vchMaterial = Convert.ToString(item.vchMaterial),
-                                    intMaterialID = Convert.ToInt32(item.intMaterialID),
-                                    SKU = Convert.ToString(item.SKU),
-                                    vchTipo = Convert.ToString(item.vchTipo),
-                                    intTipoID = Convert.ToInt32(item.intTipoID)
+                //using (MarcosDataContext dc = new MarcosDataContext(Helper.ConnectionString()))
+                //{
+                //    var query = from item in dc.stp_ListarSeleccionMarco(decCapacidadCarga, decAlturaPandeo, decFondo, decAlturaMarco, sintSistemaID, bitEstructural)
+                //                select new SeleccionMarco
+                //                {
+                //                    intConfiguraMarcoID = Convert.ToInt32(item.intConfiguraMarcoID),
+                //                    decAltura = Convert.ToDecimal(item.decAltura),
+                //                    decAlturaPandeo = Convert.ToDecimal(item.decAlturaPandeo),
+                //                    decCapacidadMarco = Convert.ToDecimal(item.decCapacidadMarco),
+                //                    decFondo = Convert.ToDecimal(item.decFondo),
+                //                    decPesoMarco = Convert.ToDecimal(item.decPesoMarco),
+                //                    decPrecioUnitario = Convert.ToDecimal(item.decPrecioUnitario),
+                //                    vchMaterial = Convert.ToString(item.vchMaterial),
+                //                    intMaterialID = Convert.ToInt32(item.intMaterialID),
+                //                    SKU = Convert.ToString(item.SKU),
+                //                    vchTipo = Convert.ToString(item.vchTipo),
+                //                    intTipoID = Convert.ToInt32(item.intTipoID)
                                     
-                                };
-                    result.AddRange(query);
-                }
+                //                };
+                //    result.AddRange(query);
+                //}
             }
             catch (Exception ex)
             {
@@ -431,29 +422,45 @@ namespace Adsisplus.Cotyrsa.DataAccess
         /// Procedimiento que almacena toda la información de la pantalla de captura de Marco
         /// </summary>
         /// <param name="marco"></param>
-        /// <param name="rack"></param>
         /// <param name="tinOpcion"></param>
         /// <returns></returns>
-        public Resultado setSeleccionMarco(SeleccionMarco marco, RackSelectivo rack, short tinOpcion)
+        public Resultado setSeleccionMarco(SeleccionMarco marco, short tinOpcion)
         {
             Resultado result = new Resultado();
             try
             {
                 using (MarcosDataContext dc = new MarcosDataContext(Helper.ConnectionString()))
                 {
-                    var query = from item in dc.stp_setSeleccionMarco(marco.intSeleccionMarcoID, marco.intRackID, marco.intDetCotizacionID, marco.intConfiguraMarcoID, 
-                        // SELECCIÓN DE MARCO
-                        marco.SKU, marco.decPesoMarco, marco.decPrecioUnitario, marco.intTipoID, marco.intMaterialID, 
-                        marco.decFondo, marco.decAltura, marco.decAlturaPandeo, marco.decCapacidadMarco, 
-                        // DATOS QUE SE ALMACENAN EN LA TABLA tbl_RackSelectivo
-                        rack.decFondoMarco, rack.decAlturaMarco, (byte)rack.tinOpcionMarco,
-                        // DATOS OPCIÓN UNO
-                        rack.decDimensionClaro, rack.decNNSV, rack.decMargenExcedente,
-                        // DATOS OPCIÓN DOS
-                        rack.decAlturaPiso, rack.decNNSV, rack.decNPVS, 
-                        rack.decCargaModulo, rack.decAlturaPandeo,
-                        // DATOS DEL MARCO SELECCIONADO
-                        rack.bitEstructural, marco.bitActivo, (byte)tinOpcion)
+                    var query = from item in dc.stp_setSeleccionMarco(marco.intSeleccionMarcoID, marco.intRackID, marco.intDetCotizaID, marco.intNumeroNiveles, 
+                        marco.bitRolado, marco.bitEstructural, marco.bitActivo, (byte)tinOpcion)
+                                select new Resultado
+                                {
+                                    vchDescripcion = item.vchDescripcion,
+                                    vchResultado = item.vchResultado
+                                };
+                    result = query.First();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
+        /// <summary>
+        /// Procedimiento que almacena la información de los niveles por marco
+        /// </summary>
+        /// <param name="nivel"></param>
+        /// <param name="tinOpcion"></param>
+        /// <returns></returns>
+        public Resultado setNivelPorMarco(NivelPorMarco nivel, short tinOpcion)
+        {
+            Resultado result = new Resultado();
+            try
+            {
+                using (MarcosDataContext dc = new MarcosDataContext(Helper.ConnectionString()))
+                {
+                    var query = from item in dc.stp_setNivelPorMarco(nivel.intNivelID, nivel.intSeleccionMarcoID, nivel.intNumeroTarima, nivel.decPeso, nivel.decTotal, nivel.bitActivo, (byte)tinOpcion)
                                 select new Resultado
                                 {
                                     vchDescripcion = item.vchDescripcion,
@@ -472,37 +479,71 @@ namespace Adsisplus.Cotyrsa.DataAccess
         /// Procedimiento que obtiene los datos a mostrar en patalla del marco
         /// </summary>
         /// <param name="intDetCotizacionID"></param>
+        /// <param name="intSeleccionMarcoID"></param>
         /// <returns></returns>
-        public List<RackSelectivo> ListarDatosPantallaMarco(int intDetCotizacionID, int intSeleccionMarcoID)
+        public List<DatosPantallaMarco> ListarDatosPantallaMarco(int intDetCotizacionID, int intSeleccionMarcoID)
         {
-            List<RackSelectivo> result = new List<RackSelectivo>();
+            List<DatosPantallaMarco> result = new List<DatosPantallaMarco>();
             try
             {
                 using (MarcosDataContext dc = new MarcosDataContext(Helper.ConnectionString()))
                 {
                     var query = from item in dc.stp_ListarDatosPantallaMarco(intDetCotizacionID, intSeleccionMarcoID)
-                                select new RackSelectivo
+                                select new DatosPantallaMarco
                                 {
-                                    intRackID = item.intRackID,
-                                    intCotizacionID = item.intCotizacionID,
-                                    intDetCotizaID = item.intDetCotizaID,
+                                    seleccion = new SeleccionMarco()
+                                    {
+                                        intRackID = item.intRackID,
+                                        intDetCotizaID = item.intDetCotizaID,
+                                        intSeleccionMarcoID = item.intSeleccionMarcoID,
+                                        intNumeroNiveles = item.intNumeroNiveles,
+                                        bitEstructural = item.bitEstructural,
+                                        bitRolado = item.bitRolado
+                                    },
+                                    marco = new DatosMarco()
+                                    {
+                                        intDatoMarcoID = item.intDatoMarcoID,
+                                        sintPinturaID = item.sintPinturaID,
+                                        sintCantidad = item.sintCantidad,
+                                        decAlturaPandeo = item.decAlturaPandeo,
+                                        decAltura = item.decAltura,
+                                        decFondo = item.decFondo
+                                    }
+                                };
+                    result.AddRange(query);
+                }
+
+                // Realizamos el barrido de la lista
+                for (int i = 0; i < result.Count(); i++)
+                    result[i].nivel = ListarDatosNivelPorMarco((int)result[i].seleccion.intSeleccionMarcoID);
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
+        /// <summary>
+        /// Procedimiento que lista los datos de nivel por marco
+        /// <paramref name="intSeleccionMarcoID"/>
+        /// </summary>
+        /// <returns></returns>
+        public List<NivelPorMarco> ListarDatosNivelPorMarco(int intSeleccionMarcoID)
+        {
+            List<NivelPorMarco> result = new List<NivelPorMarco>();
+            try
+            {
+                using (MarcosDataContext dc = new MarcosDataContext(Helper.ConnectionString()))
+                {
+                    var query = from item in dc.stp_ListarDatosNivelPorMarco(intSeleccionMarcoID)
+                                select new NivelPorMarco
+                                {
+                                    intNivelID = item.intNivelID,
                                     intSeleccionMarcoID = item.intSeleccionMarcoID,
-
-                                    sintPinturaID = item.sintPinturaID,
-                                    intCantidad = Convert.ToInt32(item.sintCantidad),
-                                    bitEstructural = item.bitEstructural,
-
-                                    decFondoMarco = item.decFondoMarco,
-                                    tinOpcionMarco = item.tinOpcionMarco,
-                                    decDimensionClaro = item.decDimensionClaro,
-                                    decNNSVS = item.decNNSVS,
-                                    decMargenExcedente = item.decMargenExcedente,
-                                    decAlturaMarco = item.decAlturaMarco,
-                                    decAlturaPiso = item.decAlturaPiso,
-                                    decNNSV = item.decNNSV,
-                                    decNNPVS = item.decNNPVS,
-                                    decCargaModulo = item.decCargaModulo,
-                                    decAlturaPandeo = item.decAlturaPandeo
+                                    intNumeroTarima = item.intNumeroTarima,
+                                    decPeso = item.decPeso,
+                                    decTotal = item.decTotal
                                 };
                     result.AddRange(query);
                 }
@@ -523,27 +564,27 @@ namespace Adsisplus.Cotyrsa.DataAccess
             List<SeleccionMarco> result = new List<SeleccionMarco>();
             try
             {
-                using (MarcosDataContext dc = new MarcosDataContext(Helper.ConnectionString()))
-                {
-                    var query = from item in dc.stp_ListarDatosSeleccionMarco(intCotizacionID)
-                                select new SeleccionMarco
-                                {
-                                    intSeleccionMarcoID = item.intSeleccionMarcoID,
-                                    SKU = item.SKU,
-                                    decPesoMarco = item.decPesoMarco,
-                                    decPrecioUnitario = item.decPrecioUnitario,
-                                    intTipoID = item.intTipoID,
-                                    vchTipo = item.vchTipo,
-                                    intMaterialID = item.intMaterialID,
-                                    vchMaterial = item.vchMaterialID,
-                                    decFondo = item.decFondo,
-                                    decAltura = item.decAltura,
-                                    decAlturaPandeo = item.decAlturaPandeo,
-                                    decCapacidadMarco = item.decCapacidadMarco,
-                                    bitActivo = item.bitActivo
-                                };
-                    result.AddRange(query);
-                }
+                //using (MarcosDataContext dc = new MarcosDataContext(Helper.ConnectionString()))
+                //{
+                //    var query = from item in dc.stp_ListarDatosSeleccionMarco(intCotizacionID)
+                //                select new SeleccionMarco
+                //                {
+                //                    intSeleccionMarcoID = item.intSeleccionMarcoID,
+                //                    SKU = item.SKU,
+                //                    decPesoMarco = item.decPesoMarco,
+                //                    decPrecioUnitario = item.decPrecioUnitario,
+                //                    intTipoID = item.intTipoID,
+                //                    vchTipo = item.vchTipo,
+                //                    intMaterialID = item.intMaterialID,
+                //                    vchMaterial = item.vchMaterialID,
+                //                    decFondo = item.decFondo,
+                //                    decAltura = item.decAltura,
+                //                    decAlturaPandeo = item.decAlturaPandeo,
+                //                    decCapacidadMarco = item.decCapacidadMarco,
+                //                    bitActivo = item.bitActivo
+                //                };
+                //    result.AddRange(query);
+                //}
             }
             catch (Exception ex)
             {

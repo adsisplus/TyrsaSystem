@@ -55,16 +55,14 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
         /// Obtiene la listad de datos ligados al marco
         /// </summary>
         /// <param name="intDatoMarcoID"></param>
-        /// <param name="intDetCotizaID"></param>
-        /// <param name="intElementoID"></param>
-        /// <param name="sintPinturaID"></param>
+        /// <param name="intCotizacionID"></param>
         /// <returns></returns>
-        public List<DatosMarco> ListarDatosMarco(Int32 intDatoMarcoID, Int32 intDetCotizaID, Int32 intElementoID, Int16 sintPinturaID)
+        public List<DatosMarco> ListarDatosMarco(int intDatoMarcoID, int intCotizacionID)
         {
             List<DatosMarco> results = null;
             try
             {
-                results = CatalogosDA.ListarDatosMarco(intDatoMarcoID, intDetCotizaID, intElementoID, sintPinturaID);
+                results = CatalogosDA.ListarDatosMarco(intDatoMarcoID, intCotizacionID);
             }
             catch (Exception ex)
             {
@@ -229,27 +227,27 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
             }
             return result;
         }
-        /// <summary>
-        /// Procedimiento que permite listar los marcos en base a la capacidad
-        /// de carga y la altura de pandeo
-        /// </summary>
-        /// <param name="decCapacidadCarga"></param>
-        /// <param name="decAlturaPandeo"></param>
-        /// <returns></returns>
-        public List<SeleccionMarco> seleccionMarco(decimal decCapacidadCarga, decimal decAlturaPandeo, decimal decFondo, 
-            decimal decAlturaMarco, short sintSistemaID, bool bitEstructural)
-        {
-            List<SeleccionMarco> result = new List<SeleccionMarco>();
-            try
-            {
-                result = CatalogosDA.ListarSeleccionMarco(decCapacidadCarga, decAlturaPandeo, decFondo, decAlturaMarco, sintSistemaID, bitEstructural);
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-            return result;
-        }
+        ///// <summary>
+        ///// Procedimiento que permite listar los marcos en base a la capacidad
+        ///// de carga y la altura de pandeo
+        ///// </summary>
+        ///// <param name="decCapacidadCarga"></param>
+        ///// <param name="decAlturaPandeo"></param>
+        ///// <returns></returns>
+        //public List<SeleccionMarco> seleccionMarco(decimal decCapacidadCarga, decimal decAlturaPandeo, decimal decFondo, 
+        //    decimal decAlturaMarco, short sintSistemaID, bool bitEstructural)
+        //{
+        //    List<SeleccionMarco> result = new List<SeleccionMarco>();
+        //    try
+        //    {
+        //        result = CatalogosDA.ListarSeleccionMarco(decCapacidadCarga, decAlturaPandeo, decFondo, decAlturaMarco, sintSistemaID, bitEstructural);
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        throw ex;
+        //    }
+        //    return result;
+        //}
         /// <summary>
         /// Procedimiento que almacena toda la información de la pantalla de captura de Marco
         /// </summary>
@@ -261,7 +259,7 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
         /// <param name="intCantidad"></param>
         /// <param name="tinOpcion"></param>
         /// <returns></returns>
-        public Resultado setSeleccionMarco(SeleccionMarco marco, RackSelectivo rack, int intCotizacionID, int intDetCotizaID, short sintPinturaID, int intCantidad, short tinOpcion)
+        public Resultado setSeleccionMarco(DatosPantallaMarco marco, int intCotizacionID, int intDetCotizaID, short sintPinturaID, int intCantidad, short tinOpcion)
         {
             Resultado result = new Resultado();
             int? intSeleccionMarcoID = 0;
@@ -281,8 +279,9 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
                 detCotizacion.intElementoID = 1; // ID correspondiente a Marco
                 detCotizacion.intPartida = 0;
                 detCotizacion.intCantidad = intCantidad;
-                detCotizacion.decMonto = marco.decPrecioUnitario;
-                detCotizacion.decSubtotal = marco.decPrecioUnitario * intCantidad;
+
+                detCotizacion.decMonto = 0;//marco.decPrecioUnitario;
+                detCotizacion.decSubtotal = 0;//marco.decPrecioUnitario * intCantidad;
 
                 // 1. Realizamos el alta de la cotización
                 result = (new CotizacionLogic()).setDetCotizacion(detCotizacion, (short)(intDetCotizaID == 0 ? 1 : tinOpcion));
@@ -291,16 +290,16 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
                 {
                     // Obtenemos el ID de detalle insertado / actualizado
                     intDetCotizaID = Convert.ToInt32(result.vchResultado);
-                    marco.intDetCotizacionID = intDetCotizaID;
+                    marco.seleccion.intDetCotizaID = intDetCotizaID;
 
                     // 2. Se realiza el registro del marco en las tablas tbl_RackSelectivo y tbl_SeleccionMarco, 
                     // devolverá el intSeleccionVigaID
-                    if (marco.intSeleccionMarcoID != null)
+                    if (marco.seleccion.intSeleccionMarcoID != null)
                         // En caso de no ser 0, realizamos la actualización de los datos del marco
-                        result = CatalogosDA.setSeleccionMarco(marco, rack, tinOpcion);
+                        result = CatalogosDA.setSeleccionMarco(marco.seleccion, tinOpcion);
                     else
                         // En caso contrario, almacenamos los datos de la selección Marco
-                        result = CatalogosDA.setSeleccionMarco(marco, rack, 1);
+                        result = CatalogosDA.setSeleccionMarco(marco.seleccion, 1);
 
                     // Validamos la respuesta del procedimiento
                     if (result.vchResultado != "NOK")
@@ -311,26 +310,29 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
                         DatosMarco mstMarco = new DatosMarco();
 
                         // validamos si es un registro nuevo
-                        if(tinOpcion != 1)
+                        if (tinOpcion != 1)
                             // Obtenemos información del Marco (tbl_MST_DatosMarco)
-                            listMstMarco = (new MarcosLogic()).ListarDatosMarco((int)sistema.intDatoMarcoID, intDetCotizaID, 1, sintPinturaID);
+                            listMstMarco = (new MarcosLogic()).ListarDatosMarco((int)sistema.intDatoMarcoID, intDetCotizaID);
 
                         // En caso de existir, asignamos el resultado
                         if (listMstMarco.Count > 0)
                             mstMarco = listMstMarco.First();
                         else // En caso contrario, establecemos el valor a 0
                             mstMarco.intDatoMarcoID = 0;
+
                         // Actualizamos la información
                         mstMarco.intCotizacionID = intCotizacionID;
                         mstMarco.intDetCotizaID = intDetCotizaID;
                         mstMarco.intElementoID = 1;
                         mstMarco.sintPinturaID = sintPinturaID;
-                        mstMarco.intConfiguraMarcoID = marco.intConfiguraMarcoID;
-                        mstMarco.decMedidaFondo = marco.decFondo;
-                        mstMarco.decMedidaAlto = marco.decAltura;
-                        mstMarco.bitDobleMonten = marco.bitDobleMontel;
-                        mstMarco.decAlturaPandeo = marco.decAlturaPandeo;
-                        mstMarco.decCapacidadxNivel = marco.decCapacidadMarco;
+                        //mstMarco.intConfiguraMarcoID = marco.intConfiguraMarcoID;
+                        //mstMarco.decMedidaFondo = marco.decFondo;
+                        //mstMarco.decMedidaAlto = marco.decAltura;
+                        //mstMarco.bitDobleMonten = marco.bitDobleMontel;
+                        mstMarco.decAlturaPandeo = marco.marco.decAlturaPandeo;
+                        //mstMarco.decCapacidadxNivel = marco.decCapacidadMarco;
+                        mstMarco.decAltura = marco.marco.decAltura;
+                        mstMarco.decFondo = marco.marco.decFondo;
                         mstMarco.sintCantidad = sintPinturaID;
 
                         // Realizamos el registro del marco
@@ -384,27 +386,27 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
             return result;
         }
 
-        /// <summary>
-        /// Procedimiento que permite listar los marcos en base a la capacidad
-        /// de carga y la altura de pandeo
-        /// </summary>
-        /// <param name="decCapacidadCarga"></param>
-        /// <param name="decAlturaPandeo"></param>
-        /// <returns></returns>
-        public List<SeleccionMarco> ListarSeleccionMarco(decimal decCapacidadCarga, decimal decAlturaPandeo, decimal decFondo,
-            decimal decAlturaMarco, short sintSistemaID, bool bitEstructural)
-        {
-            List<SeleccionMarco> result = new List<SeleccionMarco>();
-            try
-            {
-                result = CatalogosDA.ListarSeleccionMarco(decCapacidadCarga, decAlturaPandeo, decFondo, decAlturaMarco, sintSistemaID, bitEstructural);
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-            return result;
-        }
+        ///// <summary>
+        ///// Procedimiento que permite listar los marcos en base a la capacidad
+        ///// de carga y la altura de pandeo
+        ///// </summary>
+        ///// <param name="decCapacidadCarga"></param>
+        ///// <param name="decAlturaPandeo"></param>
+        ///// <returns></returns>
+        //public List<SeleccionMarco> ListarSeleccionMarco(decimal decCapacidadCarga, decimal decAlturaPandeo, decimal decFondo,
+        //    decimal decAlturaMarco, short sintSistemaID, bool bitEstructural)
+        //{
+        //    List<SeleccionMarco> result = new List<SeleccionMarco>();
+        //    try
+        //    {
+        //        result = CatalogosDA.ListarSeleccionMarco(decCapacidadCarga, decAlturaPandeo, decFondo, decAlturaMarco, sintSistemaID, bitEstructural);
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        throw ex;
+        //    }
+        //    return result;
+        //}
 
         /// <summary>
         /// Procedimiento que obtiene los datos a mostrar en patalla del marco
@@ -412,9 +414,9 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
         /// <param name="intDetCotizacionID"></param>
         /// <param name="intSeleccionMarcoID"></param>
         /// <returns></returns>
-        public List<RackSelectivo> ListarDatosPantallaMarco(int intDetCotizacionID, int intSeleccionMarcoID)
+        public List<DatosPantallaMarco> ListarDatosPantallaMarco(int intDetCotizacionID, int intSeleccionMarcoID)
         {
-            List<RackSelectivo> result = new List<RackSelectivo>();
+            List<DatosPantallaMarco> result = new List<DatosPantallaMarco>();
             try
             {
                 result = CatalogosDA.ListarDatosPantallaMarco(intDetCotizacionID, intSeleccionMarcoID);
