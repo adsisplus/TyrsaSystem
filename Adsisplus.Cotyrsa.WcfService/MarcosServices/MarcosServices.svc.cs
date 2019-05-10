@@ -285,27 +285,27 @@ namespace Adsisplus.Cotyrsa.WcfService.MarcosServices
         }
         #endregion
 
-        ///// <summary>
-        ///// Procedimiento que permite listar los marcos en base a la capacidad
-        ///// de carga y la altura de pandeo
-        ///// </summary>
-        ///// <param name="decCapacidadCarga"></param>
-        ///// <param name="decAlturaPandeo"></param>
-        ///// <returns></returns>
-        //public List<SeleccionMarco> ListarSeleccionMarco(decimal decCapacidadCarga, decimal decAlturaPandeo, decimal decFondo,
-        //    decimal decAlturaMarco, short sintSistemaID, bool bitEstructural)
-        //{
-        //    List<SeleccionMarco> result = new List<SeleccionMarco>();
-        //    try
-        //    {
-        //        //result = (new MarcosLogic()).ListarSeleccionMarco(decCapacidadCarga, decAlturaPandeo, decFondo, decAlturaMarco, sintSistemaID, bitEstructural);
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        Adsisplus.Cotyrsa.BusinessLogic.EventLogManager.LogErrorEntry(ex.Message);
-        //    }
-        //    return result;
-        //}
+        /// <summary>
+        /// Procedimiento que permite listar los marcos en base a la capacidad
+        /// de carga y la altura de pandeo
+        /// </summary>
+        /// <param name="decCapacidadCarga"></param>
+        /// <param name="decAlturaPandeo"></param>
+        /// <returns></returns>
+        public List<SeleccionMarco> ListarSeleccionMarco(decimal decCapacidadCarga, decimal decAlturaPandeo, decimal decFondo,
+            decimal decAlturaMarco, short sintSistemaID, bool bitEstructural)
+        {
+            List<SeleccionMarco> result = new List<SeleccionMarco>();
+            try
+            {
+                //result = (new MarcosLogic()).ListarSeleccionMarco(decCapacidadCarga, decAlturaPandeo, decFondo, decAlturaMarco, sintSistemaID, bitEstructural);
+            }
+            catch (Exception ex)
+            {
+                Adsisplus.Cotyrsa.BusinessLogic.EventLogManager.LogErrorEntry(ex.Message);
+            }
+            return result;
+        }
         /// <summary>
         /// Procedimiento que lista los datos del Marco seleccionado
         /// </summary>

@@ -390,27 +390,27 @@ namespace Adsisplus.Cotyrsa.DataAccess
             List<SeleccionMarco> result = new List<SeleccionMarco>();
             try
             {
-                //using (MarcosDataContext dc = new MarcosDataContext(Helper.ConnectionString()))
-                //{
-                //    var query = from item in dc.stp_ListarSeleccionMarco(decCapacidadCarga, decAlturaPandeo, decFondo, decAlturaMarco, sintSistemaID, bitEstructural)
-                //                select new SeleccionMarco
-                //                {
-                //                    intConfiguraMarcoID = Convert.ToInt32(item.intConfiguraMarcoID),
-                //                    decAltura = Convert.ToDecimal(item.decAltura),
-                //                    decAlturaPandeo = Convert.ToDecimal(item.decAlturaPandeo),
-                //                    decCapacidadMarco = Convert.ToDecimal(item.decCapacidadMarco),
-                //                    decFondo = Convert.ToDecimal(item.decFondo),
-                //                    decPesoMarco = Convert.ToDecimal(item.decPesoMarco),
-                //                    decPrecioUnitario = Convert.ToDecimal(item.decPrecioUnitario),
-                //                    vchMaterial = Convert.ToString(item.vchMaterial),
-                //                    intMaterialID = Convert.ToInt32(item.intMaterialID),
-                //                    SKU = Convert.ToString(item.SKU),
-                //                    vchTipo = Convert.ToString(item.vchTipo),
-                //                    intTipoID = Convert.ToInt32(item.intTipoID)
-                                    
-                //                };
-                //    result.AddRange(query);
-                //}
+                using (MarcosDataContext dc = new MarcosDataContext(Helper.ConnectionString()))
+                {
+                    var query = from item in dc.stp_ListarSeleccionMarco(decCapacidadCarga, decAlturaPandeo, decFondo, decAlturaMarco, sintSistemaID, bitEstructural)
+                                select new SeleccionMarco
+                                {
+                                    intConfiguraMarcoID = Convert.ToInt32(item.intConfiguraMarcoID),
+                                    decAltura = Convert.ToDecimal(item.decAltura),
+                                    decAlturaPandeo = Convert.ToDecimal(item.decAlturaPandeo),
+                                    decCapacidad = Convert.ToDecimal(item.decCapacidadMarco),
+                                    decFondo = Convert.ToDecimal(item.decFondo),
+                                    decPeso = Convert.ToDecimal(item.decPesoMarco),
+                                    decPrecioUnitario = Convert.ToDecimal(item.decPrecioUnitario),
+                                    vchMaterial = Convert.ToString(item.vchMaterial),
+                                    intMaterialID = Convert.ToInt32(item.intMaterialID),
+                                    vchSKU = Convert.ToString(item.SKU),
+                                    vchTipo = Convert.ToString(item.vchTipo),
+                                    intTipoID = Convert.ToInt32(item.intTipoID)
+
+                                };
+                    result.AddRange(query);
+                }
             }
             catch (Exception ex)
             {
@@ -422,17 +422,21 @@ namespace Adsisplus.Cotyrsa.DataAccess
         /// Procedimiento que almacena toda la información de la pantalla de captura de Marco
         /// </summary>
         /// <param name="marco"></param>
+        /// <param name="listNivel"></param>
         /// <param name="tinOpcion"></param>
         /// <returns></returns>
-        public Resultado setSeleccionMarco(SeleccionMarco marco, short tinOpcion)
+        public Resultado setSeleccionMarco(SeleccionMarco marco, List<NivelPorMarco> listNivel, short tinOpcion)
         {
             Resultado result = new Resultado();
+            Resultado resultNivel = new Resultado();
             try
             {
                 using (MarcosDataContext dc = new MarcosDataContext(Helper.ConnectionString()))
                 {
                     var query = from item in dc.stp_setSeleccionMarco(marco.intSeleccionMarcoID, marco.intRackID, marco.intDetCotizaID, marco.intNumeroNiveles, 
-                        marco.bitRolado, marco.bitEstructural, marco.bitActivo, (byte)tinOpcion)
+                        marco.bitRolado, marco.bitEstructural, marco.vchSKU, marco.intConfiguraMarcoID, marco.decPeso,
+                        marco.decPrecioUnitario, marco.vchTipo, marco.vchMaterial, marco.intTipoID, marco.intMaterialID, marco.decFondo,
+                        marco.decAltura, marco.decAlturaPandeo, marco.decCapacidad, marco.bitActivo, (byte)tinOpcion)
                                 select new Resultado
                                 {
                                     vchDescripcion = item.vchDescripcion,
@@ -440,6 +444,25 @@ namespace Adsisplus.Cotyrsa.DataAccess
                                 };
                     result = query.First();
                 }
+                if(result.vchResultado != "NOK")
+                    // Almacenamos los cambios para el procedimiento de nivel marco
+                    foreach (NivelPorMarco nivel in listNivel)
+                    {
+                        using (MarcosDataContext dc = new MarcosDataContext(Helper.ConnectionString()))
+                        {
+                            var query = from item in dc.stp_setNivelPorMarco(nivel.intNivelID, nivel.intSeleccionMarcoID, nivel.intNumeroTarima, nivel.decPeso, nivel.decTotal, nivel.bitActivo, (byte)tinOpcion)
+                                        select new Resultado
+                                        {
+                                            vchDescripcion = item.vchDescripcion,
+                                            vchResultado = item.vchResultado
+                                        };
+                            resultNivel = query.First();
+                        }
+                    if(resultNivel.vchResultado != "NOK")
+                        break;
+                    }
+                // Concatenamos el resultado
+                result.vchDescripcion += ". " + resultNivel.vchDescripcion;
             }
             catch (Exception ex)
             {

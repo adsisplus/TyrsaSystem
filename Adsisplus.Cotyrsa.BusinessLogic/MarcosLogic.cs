@@ -280,8 +280,8 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
                 detCotizacion.intPartida = 0;
                 detCotizacion.intCantidad = intCantidad;
 
-                detCotizacion.decMonto = 0;//marco.decPrecioUnitario;
-                detCotizacion.decSubtotal = 0;//marco.decPrecioUnitario * intCantidad;
+                detCotizacion.decMonto = marco.seleccion.decPrecioUnitario;
+                detCotizacion.decSubtotal = marco.seleccion.decPrecioUnitario * intCantidad;
 
                 // 1. Realizamos el alta de la cotización
                 result = (new CotizacionLogic()).setDetCotizacion(detCotizacion, (short)(intDetCotizaID == 0 ? 1 : tinOpcion));
@@ -296,10 +296,10 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
                     // devolverá el intSeleccionVigaID
                     if (marco.seleccion.intSeleccionMarcoID != null)
                         // En caso de no ser 0, realizamos la actualización de los datos del marco
-                        result = CatalogosDA.setSeleccionMarco(marco.seleccion, tinOpcion);
+                        result = CatalogosDA.setSeleccionMarco(marco.seleccion, marco.nivel, tinOpcion);
                     else
                         // En caso contrario, almacenamos los datos de la selección Marco
-                        result = CatalogosDA.setSeleccionMarco(marco.seleccion, 1);
+                        result = CatalogosDA.setSeleccionMarco(marco.seleccion, marco.nivel, 1);
 
                     // Validamos la respuesta del procedimiento
                     if (result.vchResultado != "NOK")
@@ -386,27 +386,27 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
             return result;
         }
 
-        ///// <summary>
-        ///// Procedimiento que permite listar los marcos en base a la capacidad
-        ///// de carga y la altura de pandeo
-        ///// </summary>
-        ///// <param name="decCapacidadCarga"></param>
-        ///// <param name="decAlturaPandeo"></param>
-        ///// <returns></returns>
-        //public List<SeleccionMarco> ListarSeleccionMarco(decimal decCapacidadCarga, decimal decAlturaPandeo, decimal decFondo,
-        //    decimal decAlturaMarco, short sintSistemaID, bool bitEstructural)
-        //{
-        //    List<SeleccionMarco> result = new List<SeleccionMarco>();
-        //    try
-        //    {
-        //        result = CatalogosDA.ListarSeleccionMarco(decCapacidadCarga, decAlturaPandeo, decFondo, decAlturaMarco, sintSistemaID, bitEstructural);
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        throw ex;
-        //    }
-        //    return result;
-        //}
+        /// <summary>
+        /// Procedimiento que permite listar los marcos en base a la capacidad
+        /// de carga y la altura de pandeo
+        /// </summary>
+        /// <param name="decCapacidadCarga"></param>
+        /// <param name="decAlturaPandeo"></param>
+        /// <returns></returns>
+        public List<SeleccionMarco> ListarSeleccionMarco(decimal decCapacidadCarga, decimal decAlturaPandeo, decimal decFondo,
+            decimal decAlturaMarco, short sintSistemaID, bool bitEstructural)
+        {
+            List<SeleccionMarco> result = new List<SeleccionMarco>();
+            try
+            {
+                result = CatalogosDA.ListarSeleccionMarco(decCapacidadCarga, decAlturaPandeo, decFondo, decAlturaMarco, sintSistemaID, bitEstructural);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
 
         /// <summary>
         /// Procedimiento que obtiene los datos a mostrar en patalla del marco
