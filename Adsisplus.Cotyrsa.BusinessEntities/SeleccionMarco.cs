@@ -41,7 +41,7 @@ namespace Adsisplus.Cotyrsa.BusinessEntities
         /// Peso del MArco en Kg
         /// </summary>
         [DataMember]
-        public decimal? decPeso { get; set; }
+        public decimal? decPesoMarco { get; set; }
         /// <summary>
         /// Precio unitario del marco sin IVA
         /// </summary>
@@ -62,6 +62,15 @@ namespace Adsisplus.Cotyrsa.BusinessEntities
         /// </summary>
         [DataMember]
         public int? intMaterialID { get; set; }
+
+        [DataMember]
+        public decimal? decFondo { get; set; }
+
+        [DataMember]
+        public decimal? decAltura { get; set; }
+
+        [DataMember]
+        public decimal? decAlturaPandeo { get; set; }
         /// <summary>
         /// Material del marco
         /// </summary>
@@ -71,22 +80,22 @@ namespace Adsisplus.Cotyrsa.BusinessEntities
         /// Fondo del marco en metros
         /// </summary>
         [DataMember]
-        public decimal? decFondo { get; set; }
+        public decimal? decFondoMarco { get; set; }
         /// <summary>
         /// Altura del marco
         /// </summary>
         [DataMember]
-        public decimal? decAltura { get; set; }
+        public decimal? decAlturaMarco { get; set; }
         /// <summary>
         /// Altura de la altura del pandeo en metros
         /// </summary>
         [DataMember]
-        public decimal? decAlturaPandeo { get; set; }
+        public decimal? decAlturaPandeoRack { get; set; }
         /// <summary>
         /// Capacidad por marco en kilogramos
         /// </summary>
         [DataMember]
-        public decimal? decCapacidad { get; set; }
+        public decimal? decCapacidadMarco { get; set; }
         ///// <summary>
         ///// Indica si viene o nó con doble montel
         ///// </summary>

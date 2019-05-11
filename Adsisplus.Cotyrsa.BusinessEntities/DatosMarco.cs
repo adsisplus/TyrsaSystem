@@ -35,8 +35,8 @@ namespace Adsisplus.Cotyrsa.BusinessEntities
         //[DataMember]
         //public Decimal? decMedidaFondo { get; set; }
 
-        //[DataMember]
-        //public Decimal? decMedidaAlto { get; set; }
+        [DataMember]
+        public Decimal? decMedidaAlto { get; set; }
 
         //[DataMember]
         //public Boolean? bitDobleMonten { get; set; }
@@ -62,8 +62,8 @@ namespace Adsisplus.Cotyrsa.BusinessEntities
         [DataMember]
         public bool? bitActivo { get; set; }
 
-        //[DataMember]
-        //public int? intConfiguraMarcoID { get; set; }
+        [DataMember]
+        public int? intConfiguraMarcoID { get; set; }
 
     }
 }

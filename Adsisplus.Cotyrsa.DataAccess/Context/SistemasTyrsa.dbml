@@ -211,6 +211,8 @@
     <Parameter Name="intDetCotizaID" Type="System.Int32" DbType="Int" />
     <Parameter Name="intElementoID" Type="System.Int32" DbType="Int" />
     <Parameter Name="sintPinturaID" Type="System.Int16" DbType="SmallInt" />
+    <Parameter Name="intConfiguraMarcoID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="decMedidaAlto" Type="System.Decimal" DbType="Decimal(8,3)" />
     <Parameter Name="sintCantidad" Type="System.Int16" DbType="SmallInt" />
     <Parameter Name="decAlturaPandeo" Type="System.Decimal" DbType="Decimal(20,2)" />
     <Parameter Name="decAltura" Type="System.Decimal" DbType="Decimal(8,3)" />

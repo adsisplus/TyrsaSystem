@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Transactions;
 using Adsisplus.Cotyrsa.BusinessEntities;
 using Adsisplus.Cotyrsa.DataAccess.Context;
 
@@ -102,7 +103,6 @@ namespace Adsisplus.Cotyrsa.DataAccess
                     var query = from item in dc.stp_ListarDatosMarco(intDatoMarcoID, intCotizacionID)
                                 select new DatosMarco()
                                 {
-
                                     intDatoMarcoID = item.intDatoMarcoID,
                                     sintPinturaID = item.sintPinturaID,
                                     vchPintura = item.vchPintura,
@@ -110,6 +110,7 @@ namespace Adsisplus.Cotyrsa.DataAccess
                                     vchElemento = item.vchElemento,
 
                                     sintCantidad = item.sintCantidad,
+                                    decMedidaAlto = item.decMedidaAlto,
 
                                     decAlturaPandeo = item.decAlturaPandeo,
                                     decAltura = item.decAltura,
@@ -398,9 +399,9 @@ namespace Adsisplus.Cotyrsa.DataAccess
                                     intConfiguraMarcoID = Convert.ToInt32(item.intConfiguraMarcoID),
                                     decAltura = Convert.ToDecimal(item.decAltura),
                                     decAlturaPandeo = Convert.ToDecimal(item.decAlturaPandeo),
-                                    decCapacidad = Convert.ToDecimal(item.decCapacidadMarco),
+                                    decCapacidadMarco = Convert.ToDecimal(item.decCapacidadMarco),
                                     decFondo = Convert.ToDecimal(item.decFondo),
-                                    decPeso = Convert.ToDecimal(item.decPesoMarco),
+                                    decPesoMarco = Convert.ToDecimal(item.decPesoMarco),
                                     decPrecioUnitario = Convert.ToDecimal(item.decPrecioUnitario),
                                     vchMaterial = Convert.ToString(item.vchMaterial),
                                     intMaterialID = Convert.ToInt32(item.intMaterialID),
@@ -431,38 +432,46 @@ namespace Adsisplus.Cotyrsa.DataAccess
             Resultado resultNivel = new Resultado();
             try
             {
-                using (MarcosDataContext dc = new MarcosDataContext(Helper.ConnectionString()))
+                using (TransactionScope transaction = new TransactionScope())
                 {
-                    var query = from item in dc.stp_setSeleccionMarco(marco.intSeleccionMarcoID, marco.intRackID, marco.intDetCotizaID, marco.intNumeroNiveles, 
-                        marco.bitRolado, marco.bitEstructural, marco.vchSKU, marco.intConfiguraMarcoID, marco.decPeso,
-                        marco.decPrecioUnitario, marco.vchTipo, marco.vchMaterial, marco.intTipoID, marco.intMaterialID, marco.decFondo,
-                        marco.decAltura, marco.decAlturaPandeo, marco.decCapacidad, marco.bitActivo, (byte)tinOpcion)
-                                select new Resultado
-                                {
-                                    vchDescripcion = item.vchDescripcion,
-                                    vchResultado = item.vchResultado
-                                };
-                    result = query.First();
-                }
-                if(result.vchResultado != "NOK")
-                    // Almacenamos los cambios para el procedimiento de nivel marco
-                    foreach (NivelPorMarco nivel in listNivel)
+                    using (MarcosDataContext dc = new MarcosDataContext(Helper.ConnectionString()))
                     {
-                        using (MarcosDataContext dc = new MarcosDataContext(Helper.ConnectionString()))
-                        {
-                            var query = from item in dc.stp_setNivelPorMarco(nivel.intNivelID, nivel.intSeleccionMarcoID, nivel.intNumeroTarima, nivel.decPeso, nivel.decTotal, nivel.bitActivo, (byte)tinOpcion)
-                                        select new Resultado
-                                        {
-                                            vchDescripcion = item.vchDescripcion,
-                                            vchResultado = item.vchResultado
-                                        };
-                            resultNivel = query.First();
-                        }
-                    if(resultNivel.vchResultado != "NOK")
-                        break;
+                        var query = from item in dc.stp_setSeleccionMarco(marco.intSeleccionMarcoID, marco.intRackID, marco.intDetCotizaID, marco.intConfiguraMarcoID,
+                            marco.decFondoMarco, marco.decAlturaMarco, marco.decAlturaPandeoRack, marco.vchSKU, marco.decPesoMarco,
+                            marco.decPrecioUnitario, marco.intTipoID, marco.intMaterialID, marco.decFondo, marco.decAltura,
+                            marco.decAlturaPandeo, marco.decCapacidadMarco, marco.bitEstructural, marco.bitRolado, marco.intNumeroNiveles,
+                            marco.bitActivo, (byte)tinOpcion)
+                                    select new Resultado
+                                    {
+                                        vchDescripcion = item.vchDescripcion,
+                                        vchResultado = item.vchResultado
+                                    };
+                        result = query.First();
                     }
-                // Concatenamos el resultado
-                result.vchDescripcion += ". " + resultNivel.vchDescripcion;
+                    if (result.vchResultado != "NOK")
+                        // Almacenamos los cambios para el procedimiento de nivel marco
+                        foreach (NivelPorMarco nivel in listNivel)
+                        {
+                            using (MarcosDataContext dc = new MarcosDataContext(Helper.ConnectionString()))
+                            {
+                                var query = from item in dc.stp_setNivelPorMarco(nivel.intNivelID, nivel.intSeleccionMarcoID, nivel.intNumeroTarima, nivel.decPeso, nivel.decTotal, nivel.bitActivo, (byte)tinOpcion)
+                                            select new Resultado
+                                            {
+                                                vchDescripcion = item.vchDescripcion,
+                                                vchResultado = item.vchResultado
+                                            };
+                                resultNivel = query.First();
+                            }
+                            if (resultNivel.vchResultado != "NOK")
+                                break;
+                        }
+                    // Concatenamos el resultado
+                    result.vchDescripcion += ". " + resultNivel.vchDescripcion;
+                    // The Complete method commits the transaction. If an exception has been thrown,
+                    // Complete is not  called and the transaction is rolled back.
+                    if (result.vchResultado == "OK" && resultNivel.vchResultado == "OK")
+                        transaction.Complete();
+                }
             }
             catch (Exception ex)
             {
@@ -521,13 +530,17 @@ namespace Adsisplus.Cotyrsa.DataAccess
                                         intSeleccionMarcoID = item.intSeleccionMarcoID,
                                         intNumeroNiveles = item.intNumeroNiveles,
                                         bitEstructural = item.bitEstructural,
-                                        bitRolado = item.bitRolado
+                                        bitRolado = item.bitRolado,
+                                        decFondoMarco = item.decFondoMarco,
+                                        decAlturaMarco = item.decAlturaMarco,
+                                        decAlturaPandeoRack = item.decAlturaPandeoRack
                                     },
                                     marco = new DatosMarco()
                                     {
                                         intDatoMarcoID = item.intDatoMarcoID,
                                         sintPinturaID = item.sintPinturaID,
                                         sintCantidad = item.sintCantidad,
+                                        decMedidaAlto = item.decMedidaAlto,
                                         decAlturaPandeo = item.decAlturaPandeo,
                                         decAltura = item.decAltura,
                                         decFondo = item.decFondo
