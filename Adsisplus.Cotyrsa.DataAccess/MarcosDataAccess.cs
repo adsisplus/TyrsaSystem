@@ -430,31 +430,40 @@ namespace Adsisplus.Cotyrsa.DataAccess
         {
             Resultado result = new Resultado();
             Resultado resultNivel = new Resultado();
+            int intNumeroNivelAnterior = 0;
+            int intNumeroNivelNuevo = 0;
             try
             {
-                using (TransactionScope transaction = new TransactionScope())
+            //using (TransactionScope transaction = new TransactionScope())
+            //{
+                using (MarcosDataContext dc = new MarcosDataContext(Helper.ConnectionString()))
                 {
-                    using (MarcosDataContext dc = new MarcosDataContext(Helper.ConnectionString()))
-                    {
-                        var query = from item in dc.stp_setSeleccionMarco(marco.intSeleccionMarcoID, marco.intRackID, marco.intDetCotizaID, marco.intConfiguraMarcoID,
-                            marco.decFondoMarco, marco.decAlturaMarco, marco.decAlturaPandeoRack, marco.vchSKU, marco.decPesoMarco,
-                            marco.decPrecioUnitario, marco.intTipoID, marco.intMaterialID, marco.decFondo, marco.decAltura,
-                            marco.decAlturaPandeo, marco.decCapacidadMarco, marco.bitEstructural, marco.bitRolado, marco.intNumeroNiveles,
-                            marco.bitActivo, (byte)tinOpcion)
-                                    select new Resultado
-                                    {
-                                        vchDescripcion = item.vchDescripcion,
-                                        vchResultado = item.vchResultado
-                                    };
-                        result = query.First();
-                    }
-                    if (result.vchResultado != "NOK")
-                        // Almacenamos los cambios para el procedimiento de nivel marco
+                    var query = from item in dc.stp_setSeleccionMarco(marco.intSeleccionMarcoID, marco.intRackID, marco.intDetCotizaID, marco.intConfiguraMarcoID,
+                        marco.decFondoMarco, marco.decAlturaMarco, marco.decAlturaPandeoRack, marco.vchSKU, marco.decPesoMarco,
+                        marco.decPrecioUnitario, marco.intTipoID, marco.intMaterialID, marco.decFondo, marco.decAltura,
+                        marco.decAlturaPandeo, marco.decCapacidadMarco, marco.bitEstructural, marco.bitRolado, marco.intNumeroNiveles, 
+                        marco.decCapacidadCargaTotal, marco.bitActivo, (byte)tinOpcion)
+                                select new Resultado
+                                {
+                                    vchDescripcion = item.vchDescripcion,
+                                    vchResultado = item.vchResultado
+                                };
+                    result = query.First();
+                }
+                // Obtenemos el número de niveles anterior
+                intNumeroNivelAnterior = (int) (new MarcosDataContext(Helper.ConnectionString())).fn_getNumeroNivelMarco(marco.intSeleccionMarcoID);
+                // Obtenemos el número de niveles nuevo
+                intNumeroNivelNuevo = (int)marco.intNumeroNiveles;
+                if (result.vchResultado != "NOK")
+                {
+                // Almacenamos los cambios para el procedimiento de nivel marco
+                // Registro Nuevo o Actualización
+                    if (tinOpcion == 1 || intNumeroNivelAnterior == intNumeroNivelNuevo)
                         foreach (NivelPorMarco nivel in listNivel)
                         {
                             using (MarcosDataContext dc = new MarcosDataContext(Helper.ConnectionString()))
                             {
-                                var query = from item in dc.stp_setNivelPorMarco(nivel.intNivelID, nivel.intSeleccionMarcoID, nivel.intNumeroTarima, nivel.decPeso, nivel.decTotal, nivel.bitActivo, (byte)tinOpcion)
+                                var query = from item in dc.stp_setNivelPorMarco(nivel.intNivelID, Convert.ToInt32(result.vchResultado), nivel.intNumeroTarima, nivel.decPeso, nivel.decTotal, nivel.bitActivo, (byte)tinOpcion)
                                             select new Resultado
                                             {
                                                 vchDescripcion = item.vchDescripcion,
@@ -462,16 +471,88 @@ namespace Adsisplus.Cotyrsa.DataAccess
                                             };
                                 resultNivel = query.First();
                             }
-                            if (resultNivel.vchResultado != "NOK")
+                            if (resultNivel.vchResultado == "NOK")
                                 break;
                         }
-                    // Concatenamos el resultado
-                    result.vchDescripcion += ". " + resultNivel.vchDescripcion;
-                    // The Complete method commits the transaction. If an exception has been thrown,
-                    // Complete is not  called and the transaction is rolled back.
-                    if (result.vchResultado == "OK" && resultNivel.vchResultado == "OK")
-                        transaction.Complete();
+                    else
+                    {
+                        // Validamos si son nuevos registros
+                        if (intNumeroNivelNuevo != intNumeroNivelAnterior)
+                        {
+                            // Recorremos la lista hasta llegar al número Nuevo
+                            for (int i = 0; i < intNumeroNivelNuevo; i++)
+                            {
+                                // Actualizamos los datos de la lista
+                                using (MarcosDataContext dc = new MarcosDataContext(Helper.ConnectionString()))
+                                {
+                                    var query = from item in dc.stp_setNivelPorMarco(listNivel[i].intNivelID, Convert.ToInt32(result.vchResultado), listNivel[i].intNumeroTarima,
+                                        listNivel[i].decPeso, listNivel[i].decTotal, listNivel[i].bitActivo, 2)
+                                                select new Resultado
+                                                {
+                                                    vchDescripcion = item.vchDescripcion,
+                                                    vchResultado = item.vchResultado
+                                                };
+                                    resultNivel = query.First();
+                                }
+                                if (resultNivel.vchDescripcion == "NOK")
+                                    break;
+                            }
+                            if (intNumeroNivelNuevo < intNumeroNivelAnterior)
+                                // Al terminar, recorremos la lista quitando hasta llegar el número de nivel anterior
+                                for (int i = intNumeroNivelNuevo; i < intNumeroNivelAnterior; i++)
+                                {
+                                    // Actualizamos los datos de la lista, dando baja a los registros
+                                    using (MarcosDataContext dc = new MarcosDataContext(Helper.ConnectionString()))
+                                    {
+                                        var query = from item in dc.stp_setNivelPorMarco(listNivel[i].intNivelID, Convert.ToInt32(result.vchResultado), listNivel[i].intNumeroTarima,
+                                            listNivel[i].decPeso, listNivel[i].decTotal, listNivel[i].bitActivo, 3) //Quitamos los registros
+                                                    select new Resultado
+                                                    {
+                                                        vchDescripcion = item.vchDescripcion,
+                                                        vchResultado = item.vchResultado
+                                                    };
+                                        resultNivel = query.First();
+                                    }
+                                    if (resultNivel.vchDescripcion == "NOK")
+                                        break;
+                                }
+                            else
+                            {
+                                // En caso contrario
+                                // Al terminar, recorremos la lista quitando hasta llegar el número de nivel anterior
+                                for (int i = intNumeroNivelAnterior; i < intNumeroNivelNuevo; i++)
+                                {
+                                    // Actualizamos los datos de la lista, dando baja a los registros
+                                    using (MarcosDataContext dc = new MarcosDataContext(Helper.ConnectionString()))
+                                    {
+                                        var query = from item in dc.stp_setNivelPorMarco(listNivel[i].intNivelID, Convert.ToInt32(result.vchResultado), listNivel[i].intNumeroTarima,
+                                            listNivel[i].decPeso, listNivel[i].decTotal, listNivel[i].bitActivo, 1) // Agregamos los nuevos
+                                                    select new Resultado
+                                                    {
+                                                        vchDescripcion = item.vchDescripcion,
+                                                        vchResultado = item.vchResultado
+                                                    };
+                                        resultNivel = query.First();
+                                    }
+                                    if (resultNivel.vchDescripcion == "NOK")
+                                        break;
+                                }
+                            }
+                        }
+                    }
                 }
+                //else
+                //{
+                //    // Para los que quedaron fuera, se establece el valor a 0
+
+                //}
+                // Concatenamos el resultado
+                result.vchDescripcion += ". " + resultNivel.vchDescripcion;
+                //// The Complete method commits the transaction. If an exception has been thrown,
+                //// Complete is not  called and the transaction is rolled back.
+                //if (result.vchResultado != "NOK" && resultNivel.vchResultado != "NOK")
+                //    transaction.Complete();
+            //}
             }
             catch (Exception ex)
             {
@@ -533,7 +614,19 @@ namespace Adsisplus.Cotyrsa.DataAccess
                                         bitRolado = item.bitRolado,
                                         decFondoMarco = item.decFondoMarco,
                                         decAlturaMarco = item.decAlturaMarco,
-                                        decAlturaPandeoRack = item.decAlturaPandeoRack
+                                        decAlturaPandeoRack = item.decAlturaPandeoRack,
+
+                                        // Datos del marco seleccionado
+                                        vchSKU = item.SKU,
+                                        decPesoMarco = item.decPesoMarco,
+                                        decPrecioUnitario = item.decPrecioUnitario,
+                                        intTipoID = item.intTipoID,
+                                        intMaterialID = item.intMaterialID,
+                                        decFondo = item.decFondo,
+                                        decAltura = item.decAltura,
+                                        decAlturaPandeo = item.decAlturaPandeo,
+                                        decCapacidadMarco = item.decCapacidadMarco
+
                                     },
                                     marco = new DatosMarco()
                                     {

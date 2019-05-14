@@ -150,6 +150,34 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 			return ((ISingleResult<stp_ListarFondoMarcoResult>)(result.ReturnValue));
 		}
 		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.stp_setNivelPorMarco")]
+		public ISingleResult<stp_setNivelPorMarcoResult> stp_setNivelPorMarco([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intNivelID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intSeleccionMarcoID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intNumeroTarima, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Decimal(8,3)")] System.Nullable<decimal> decPeso, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Decimal(8,3)")] System.Nullable<decimal> decTotal, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Bit")] System.Nullable<bool> bitActivo, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="TinyInt")] System.Nullable<byte> tinOpcion)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), intNivelID, intSeleccionMarcoID, intNumeroTarima, decPeso, decTotal, bitActivo, tinOpcion);
+			return ((ISingleResult<stp_setNivelPorMarcoResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.stp_ListarDatosMarco")]
+		public ISingleResult<stp_ListarDatosMarcoResult> stp_ListarDatosMarco([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intDatoMarcoID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intCotizacionID)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), intDatoMarcoID, intCotizacionID);
+			return ((ISingleResult<stp_ListarDatosMarcoResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.stp_ListarDatosNivelPorMarco")]
+		public ISingleResult<stp_ListarDatosNivelPorMarcoResult> stp_ListarDatosNivelPorMarco([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intSeleccionMarcoID)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), intSeleccionMarcoID);
+			return ((ISingleResult<stp_ListarDatosNivelPorMarcoResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.stp_ListarSeleccionMarco")]
+		public ISingleResult<entSeleccionMarco> stp_ListarSeleccionMarco([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Decimal(8,3)")] System.Nullable<decimal> decCapacidadCarga, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Decimal(8,3)")] System.Nullable<decimal> decAlturaPandeo, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Decimal(8,3)")] System.Nullable<decimal> decFondo, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Decimal(8,3)")] System.Nullable<decimal> decAlturaMarco, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Sistema", DbType="SmallInt")] System.Nullable<short> sistema, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Bit")] System.Nullable<bool> bitEstructural)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), decCapacidadCarga, decAlturaPandeo, decFondo, decAlturaMarco, sistema, bitEstructural);
+			return ((ISingleResult<entSeleccionMarco>)(result.ReturnValue));
+		}
+		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.stp_setSeleccionMarco")]
 		public ISingleResult<stp_setSeleccionMarcoResult> stp_setSeleccionMarco(
 					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intSeleccionMarcoID, 
@@ -171,25 +199,12 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Bit")] System.Nullable<bool> bitEstructural, 
 					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Bit")] System.Nullable<bool> bitRolado, 
 					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intNumeroNiveles, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Decimal(8,3)")] System.Nullable<decimal> decCapacidadCargaTotal, 
 					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Bit")] System.Nullable<bool> bitActivo, 
 					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="TinyInt")] System.Nullable<byte> tinOpcion)
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), intSeleccionMarcoID, intRackID, intDetCotizaID, intConfiguraMarcoID, decFondoMarco, decAlturaMarco, decAlturaPandeoRack, sKU, decPesoMarco, decPrecioUnitario, intTipoID, intMaterialID, decFondo, decAltura, decAlturaPandeo, decCapacidadMarco, bitEstructural, bitRolado, intNumeroNiveles, bitActivo, tinOpcion);
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), intSeleccionMarcoID, intRackID, intDetCotizaID, intConfiguraMarcoID, decFondoMarco, decAlturaMarco, decAlturaPandeoRack, sKU, decPesoMarco, decPrecioUnitario, intTipoID, intMaterialID, decFondo, decAltura, decAlturaPandeo, decCapacidadMarco, bitEstructural, bitRolado, intNumeroNiveles, decCapacidadCargaTotal, bitActivo, tinOpcion);
 			return ((ISingleResult<stp_setSeleccionMarcoResult>)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.stp_setNivelPorMarco")]
-		public ISingleResult<stp_setNivelPorMarcoResult> stp_setNivelPorMarco([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intNivelID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intSeleccionMarcoID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intNumeroTarima, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Decimal(8,3)")] System.Nullable<decimal> decPeso, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Decimal(8,3)")] System.Nullable<decimal> decTotal, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Bit")] System.Nullable<bool> bitActivo, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="TinyInt")] System.Nullable<byte> tinOpcion)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), intNivelID, intSeleccionMarcoID, intNumeroTarima, decPeso, decTotal, bitActivo, tinOpcion);
-			return ((ISingleResult<stp_setNivelPorMarcoResult>)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.stp_ListarDatosMarco")]
-		public ISingleResult<stp_ListarDatosMarcoResult> stp_ListarDatosMarco([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intDatoMarcoID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intCotizacionID)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), intDatoMarcoID, intCotizacionID);
-			return ((ISingleResult<stp_ListarDatosMarcoResult>)(result.ReturnValue));
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.stp_ListarDatosPantallaMarco")]
@@ -199,18 +214,10 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 			return ((ISingleResult<stp_ListarDatosPantallaMarcoResult>)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.stp_ListarDatosNivelPorMarco")]
-		public ISingleResult<stp_ListarDatosNivelPorMarcoResult> stp_ListarDatosNivelPorMarco([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intSeleccionMarcoID)
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.fn_getNumeroNivelMarco", IsComposable=true)]
+		public System.Nullable<int> fn_getNumeroNivelMarco([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intSeleccionMarcoID)
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), intSeleccionMarcoID);
-			return ((ISingleResult<stp_ListarDatosNivelPorMarcoResult>)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.stp_ListarSeleccionMarco")]
-		public ISingleResult<entSeleccionMarco> stp_ListarSeleccionMarco([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Decimal(8,3)")] System.Nullable<decimal> decCapacidadCarga, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Decimal(8,3)")] System.Nullable<decimal> decAlturaPandeo, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Decimal(8,3)")] System.Nullable<decimal> decFondo, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Decimal(8,3)")] System.Nullable<decimal> decAlturaMarco, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Sistema", DbType="SmallInt")] System.Nullable<short> sistema, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Bit")] System.Nullable<bool> bitEstructural)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), decCapacidadCarga, decAlturaPandeo, decFondo, decAlturaMarco, sistema, bitEstructural);
-			return ((ISingleResult<entSeleccionMarco>)(result.ReturnValue));
+			return ((System.Nullable<int>)(this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), intSeleccionMarcoID).ReturnValue));
 		}
 	}
 	
@@ -1802,50 +1809,6 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 		}
 	}
 	
-	public partial class stp_setSeleccionMarcoResult
-	{
-		
-		private string _vchResultado;
-		
-		private string _vchDescripcion;
-		
-		public stp_setSeleccionMarcoResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchResultado", DbType="VarChar(12)")]
-		public string vchResultado
-		{
-			get
-			{
-				return this._vchResultado;
-			}
-			set
-			{
-				if ((this._vchResultado != value))
-				{
-					this._vchResultado = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchDescripcion", DbType="VarChar(57) NOT NULL", CanBeNull=false)]
-		public string vchDescripcion
-		{
-			get
-			{
-				return this._vchDescripcion;
-			}
-			set
-			{
-				if ((this._vchDescripcion != value))
-				{
-					this._vchDescripcion = value;
-				}
-			}
-		}
-	}
-	
 	public partial class stp_setNivelPorMarcoResult
 	{
 		
@@ -2096,6 +2059,148 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 		}
 	}
 	
+	public partial class stp_ListarDatosNivelPorMarcoResult
+	{
+		
+		private int _intNivelID;
+		
+		private System.Nullable<int> _intSeleccionMarcoID;
+		
+		private System.Nullable<int> _intNumeroTarima;
+		
+		private System.Nullable<decimal> _decPeso;
+		
+		private System.Nullable<decimal> _decTotal;
+		
+		public stp_ListarDatosNivelPorMarcoResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intNivelID", DbType="Int NOT NULL")]
+		public int intNivelID
+		{
+			get
+			{
+				return this._intNivelID;
+			}
+			set
+			{
+				if ((this._intNivelID != value))
+				{
+					this._intNivelID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intSeleccionMarcoID", DbType="Int")]
+		public System.Nullable<int> intSeleccionMarcoID
+		{
+			get
+			{
+				return this._intSeleccionMarcoID;
+			}
+			set
+			{
+				if ((this._intSeleccionMarcoID != value))
+				{
+					this._intSeleccionMarcoID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intNumeroTarima", DbType="Int")]
+		public System.Nullable<int> intNumeroTarima
+		{
+			get
+			{
+				return this._intNumeroTarima;
+			}
+			set
+			{
+				if ((this._intNumeroTarima != value))
+				{
+					this._intNumeroTarima = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decPeso", DbType="Decimal(8,3)")]
+		public System.Nullable<decimal> decPeso
+		{
+			get
+			{
+				return this._decPeso;
+			}
+			set
+			{
+				if ((this._decPeso != value))
+				{
+					this._decPeso = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decTotal", DbType="Decimal(8,3)")]
+		public System.Nullable<decimal> decTotal
+		{
+			get
+			{
+				return this._decTotal;
+			}
+			set
+			{
+				if ((this._decTotal != value))
+				{
+					this._decTotal = value;
+				}
+			}
+		}
+	}
+	
+	public partial class stp_setSeleccionMarcoResult
+	{
+		
+		private string _vchResultado;
+		
+		private string _vchDescripcion;
+		
+		public stp_setSeleccionMarcoResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchResultado", DbType="VarChar(12)")]
+		public string vchResultado
+		{
+			get
+			{
+				return this._vchResultado;
+			}
+			set
+			{
+				if ((this._vchResultado != value))
+				{
+					this._vchResultado = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchDescripcion", DbType="VarChar(57) NOT NULL", CanBeNull=false)]
+		public string vchDescripcion
+		{
+			get
+			{
+				return this._vchDescripcion;
+			}
+			set
+			{
+				if ((this._vchDescripcion != value))
+				{
+					this._vchDescripcion = value;
+				}
+			}
+		}
+	}
+	
 	public partial class stp_ListarDatosPantallaMarcoResult
 	{
 		
@@ -2117,6 +2222,24 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 		
 		private System.Nullable<decimal> _decAlturaPandeoRack;
 		
+		private string _SKU;
+		
+		private System.Nullable<decimal> _decPesoMarco;
+		
+		private System.Nullable<decimal> _decPrecioUnitario;
+		
+		private System.Nullable<int> _intTipoID;
+		
+		private System.Nullable<int> _intMaterialID;
+		
+		private System.Nullable<decimal> _decFondo;
+		
+		private System.Nullable<decimal> _decAltura;
+		
+		private System.Nullable<decimal> _decAlturaPandeo;
+		
+		private System.Nullable<decimal> _decCapacidadMarco;
+		
 		private System.Nullable<int> _intDatoMarcoID;
 		
 		private System.Nullable<short> _sintPinturaID;
@@ -2125,11 +2248,11 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 		
 		private System.Nullable<decimal> _decMedidaAlto;
 		
-		private System.Nullable<decimal> _decAlturaPandeo;
+		private System.Nullable<decimal> _decAlturaPandeo1;
 		
-		private System.Nullable<decimal> _decAltura;
+		private System.Nullable<decimal> _decAltura1;
 		
-		private System.Nullable<decimal> _decFondo;
+		private System.Nullable<decimal> _decFondo1;
 		
 		public stp_ListarDatosPantallaMarcoResult()
 		{
@@ -2279,6 +2402,150 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SKU", DbType="VarChar(50)")]
+		public string SKU
+		{
+			get
+			{
+				return this._SKU;
+			}
+			set
+			{
+				if ((this._SKU != value))
+				{
+					this._SKU = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decPesoMarco", DbType="Decimal(8,3)")]
+		public System.Nullable<decimal> decPesoMarco
+		{
+			get
+			{
+				return this._decPesoMarco;
+			}
+			set
+			{
+				if ((this._decPesoMarco != value))
+				{
+					this._decPesoMarco = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decPrecioUnitario", DbType="Decimal(8,3)")]
+		public System.Nullable<decimal> decPrecioUnitario
+		{
+			get
+			{
+				return this._decPrecioUnitario;
+			}
+			set
+			{
+				if ((this._decPrecioUnitario != value))
+				{
+					this._decPrecioUnitario = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intTipoID", DbType="Int")]
+		public System.Nullable<int> intTipoID
+		{
+			get
+			{
+				return this._intTipoID;
+			}
+			set
+			{
+				if ((this._intTipoID != value))
+				{
+					this._intTipoID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intMaterialID", DbType="Int")]
+		public System.Nullable<int> intMaterialID
+		{
+			get
+			{
+				return this._intMaterialID;
+			}
+			set
+			{
+				if ((this._intMaterialID != value))
+				{
+					this._intMaterialID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decFondo", DbType="Decimal(8,3)")]
+		public System.Nullable<decimal> decFondo
+		{
+			get
+			{
+				return this._decFondo;
+			}
+			set
+			{
+				if ((this._decFondo != value))
+				{
+					this._decFondo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decAltura", DbType="Decimal(8,3)")]
+		public System.Nullable<decimal> decAltura
+		{
+			get
+			{
+				return this._decAltura;
+			}
+			set
+			{
+				if ((this._decAltura != value))
+				{
+					this._decAltura = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decAlturaPandeo", DbType="Decimal(8,3)")]
+		public System.Nullable<decimal> decAlturaPandeo
+		{
+			get
+			{
+				return this._decAlturaPandeo;
+			}
+			set
+			{
+				if ((this._decAlturaPandeo != value))
+				{
+					this._decAlturaPandeo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decCapacidadMarco", DbType="Decimal(8,3)")]
+		public System.Nullable<decimal> decCapacidadMarco
+		{
+			get
+			{
+				return this._decCapacidadMarco;
+			}
+			set
+			{
+				if ((this._decCapacidadMarco != value))
+				{
+					this._decCapacidadMarco = value;
+				}
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intDatoMarcoID", DbType="Int")]
 		public System.Nullable<int> intDatoMarcoID
 		{
@@ -2343,148 +2610,50 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decAlturaPandeo", DbType="Decimal(8,3)")]
-		public System.Nullable<decimal> decAlturaPandeo
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decAlturaPandeo1", DbType="Decimal(8,3)")]
+		public System.Nullable<decimal> decAlturaPandeo1
 		{
 			get
 			{
-				return this._decAlturaPandeo;
+				return this._decAlturaPandeo1;
 			}
 			set
 			{
-				if ((this._decAlturaPandeo != value))
+				if ((this._decAlturaPandeo1 != value))
 				{
-					this._decAlturaPandeo = value;
+					this._decAlturaPandeo1 = value;
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decAltura", DbType="Decimal(8,3)")]
-		public System.Nullable<decimal> decAltura
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decAltura1", DbType="Decimal(8,3)")]
+		public System.Nullable<decimal> decAltura1
 		{
 			get
 			{
-				return this._decAltura;
+				return this._decAltura1;
 			}
 			set
 			{
-				if ((this._decAltura != value))
+				if ((this._decAltura1 != value))
 				{
-					this._decAltura = value;
+					this._decAltura1 = value;
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decFondo", DbType="Decimal(8,3)")]
-		public System.Nullable<decimal> decFondo
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decFondo1", DbType="Decimal(8,3)")]
+		public System.Nullable<decimal> decFondo1
 		{
 			get
 			{
-				return this._decFondo;
+				return this._decFondo1;
 			}
 			set
 			{
-				if ((this._decFondo != value))
+				if ((this._decFondo1 != value))
 				{
-					this._decFondo = value;
-				}
-			}
-		}
-	}
-	
-	public partial class stp_ListarDatosNivelPorMarcoResult
-	{
-		
-		private int _intNivelID;
-		
-		private System.Nullable<int> _intSeleccionMarcoID;
-		
-		private System.Nullable<int> _intNumeroTarima;
-		
-		private System.Nullable<decimal> _decPeso;
-		
-		private System.Nullable<decimal> _decTotal;
-		
-		public stp_ListarDatosNivelPorMarcoResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intNivelID", DbType="Int NOT NULL")]
-		public int intNivelID
-		{
-			get
-			{
-				return this._intNivelID;
-			}
-			set
-			{
-				if ((this._intNivelID != value))
-				{
-					this._intNivelID = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intSeleccionMarcoID", DbType="Int")]
-		public System.Nullable<int> intSeleccionMarcoID
-		{
-			get
-			{
-				return this._intSeleccionMarcoID;
-			}
-			set
-			{
-				if ((this._intSeleccionMarcoID != value))
-				{
-					this._intSeleccionMarcoID = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intNumeroTarima", DbType="Int")]
-		public System.Nullable<int> intNumeroTarima
-		{
-			get
-			{
-				return this._intNumeroTarima;
-			}
-			set
-			{
-				if ((this._intNumeroTarima != value))
-				{
-					this._intNumeroTarima = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decPeso", DbType="Decimal(8,3)")]
-		public System.Nullable<decimal> decPeso
-		{
-			get
-			{
-				return this._decPeso;
-			}
-			set
-			{
-				if ((this._decPeso != value))
-				{
-					this._decPeso = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decTotal", DbType="Decimal(8,3)")]
-		public System.Nullable<decimal> decTotal
-		{
-			get
-			{
-				return this._decTotal;
-			}
-			set
-			{
-				if ((this._decTotal != value))
-				{
-					this._decTotal = value;
+					this._decFondo1 = value;
 				}
 			}
 		}

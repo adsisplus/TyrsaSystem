@@ -105,6 +105,9 @@ namespace Adsisplus.Cotyrsa.BusinessEntities
         public int? intNumeroNiveles { get; set; }
 
         [DataMember]
+        public decimal? decCapacidadCargaTotal { get; set; }
+
+        [DataMember]
         public bool? bitRolado { get; set; }
 
         [DataMember]

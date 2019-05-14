@@ -234,7 +234,7 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
         ///// <param name="decCapacidadCarga"></param>
         ///// <param name="decAlturaPandeo"></param>
         ///// <returns></returns>
-        //public List<SeleccionMarco> seleccionMarco(decimal decCapacidadCarga, decimal decAlturaPandeo, decimal decFondo, 
+        //public List<SeleccionMarco> seleccionMarco(decimal decCapacidadCarga, decimal decAlturaPandeo, decimal decFondo,
         //    decimal decAlturaMarco, short sintSistemaID, bool bitEstructural)
         //{
         //    List<SeleccionMarco> result = new List<SeleccionMarco>();

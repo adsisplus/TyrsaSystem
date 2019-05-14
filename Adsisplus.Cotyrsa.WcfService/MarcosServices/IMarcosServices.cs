@@ -123,17 +123,17 @@ namespace Adsisplus.Cotyrsa.WcfService.MarcosServices
         [OperationContract]
         [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "getAlturaMarco")]
         List<CatalogoDecimal> getAlturaMarco(decimal decDimensionClaro, int intNumNivelesSobreVigaClaro, decimal decAlturaPiso, int intNumNivelesSobreVigaPeralte);
-        /// <summary>
-        /// Procedimiento que permite listar los marcos en base a la capacidad
-        /// de carga y la altura de pandeo
-        /// </summary>
-        /// <param name="decCapacidadCarga"></param>
-        /// <param name="decAlturaPandeo"></param>
-        /// <returns></returns>
-        [OperationContract]
-        [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "seleccionMarco")]
-        List<SeleccionMarco> seleccionMarco(decimal decCapacidadCarga, decimal decAlturaPandeo, decimal decFondo,
-            decimal decAlturaMarco, short sintSistemaID, bool bitEstructural);
+        ///// <summary>
+        ///// Procedimiento que permite listar los marcos en base a la capacidad
+        ///// de carga y la altura de pandeo
+        ///// </summary>
+        ///// <param name="decCapacidadCarga"></param>
+        ///// <param name="decAlturaPandeo"></param>
+        ///// <returns></returns>
+        //[OperationContract]
+        //[WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "seleccionMarco")]
+        //List<SeleccionMarco> seleccionMarco(decimal decCapacidadCarga, decimal decAlturaPandeo, decimal decFondo,
+        //    decimal decAlturaMarco, short sintSistemaID, bool bitEstructural);
         /// <summary>
         /// Procedimiento que almacena toda la información de la pantalla de captura de Marco
         /// </summary>
