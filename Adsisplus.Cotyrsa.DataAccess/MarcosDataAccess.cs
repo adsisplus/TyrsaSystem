@@ -434,8 +434,10 @@ namespace Adsisplus.Cotyrsa.DataAccess
             int intNumeroNivelNuevo = 0;
             try
             {
-            //using (TransactionScope transaction = new TransactionScope())
-            //{
+                //using (TransactionScope transaction = new TransactionScope())
+                //{
+                // Obtenemos el número de niveles anterior
+                intNumeroNivelAnterior = (int)(new MarcosDataContext(Helper.ConnectionString())).fn_getNumeroNivelMarco(marco.intSeleccionMarcoID);
                 using (MarcosDataContext dc = new MarcosDataContext(Helper.ConnectionString()))
                 {
                     var query = from item in dc.stp_setSeleccionMarco(marco.intSeleccionMarcoID, marco.intRackID, marco.intDetCotizaID, marco.intConfiguraMarcoID,
@@ -450,8 +452,6 @@ namespace Adsisplus.Cotyrsa.DataAccess
                                 };
                     result = query.First();
                 }
-                // Obtenemos el número de niveles anterior
-                intNumeroNivelAnterior = (int) (new MarcosDataContext(Helper.ConnectionString())).fn_getNumeroNivelMarco(marco.intSeleccionMarcoID);
                 // Obtenemos el número de niveles nuevo
                 intNumeroNivelNuevo = (int)marco.intNumeroNiveles;
                 if (result.vchResultado != "NOK")
@@ -480,7 +480,7 @@ namespace Adsisplus.Cotyrsa.DataAccess
                         if (intNumeroNivelNuevo != intNumeroNivelAnterior)
                         {
                             // Recorremos la lista hasta llegar al número Nuevo
-                            for (int i = 0; i < intNumeroNivelNuevo; i++)
+                            for (int i = 0; i < intNumeroNivelAnterior; i++)
                             {
                                 // Actualizamos los datos de la lista
                                 using (MarcosDataContext dc = new MarcosDataContext(Helper.ConnectionString()))
