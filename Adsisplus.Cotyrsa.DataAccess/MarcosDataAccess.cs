@@ -615,6 +615,7 @@ namespace Adsisplus.Cotyrsa.DataAccess
                                         decFondoMarco = item.decFondoMarco,
                                         decAlturaMarco = item.decAlturaMarco,
                                         decAlturaPandeoRack = item.decAlturaPandeoRack,
+                                        decCapacidadCargaTotal = item.decCapacidadCargaTotal,
 
                                         // Datos del marco seleccionado
                                         vchSKU = item.SKU,
