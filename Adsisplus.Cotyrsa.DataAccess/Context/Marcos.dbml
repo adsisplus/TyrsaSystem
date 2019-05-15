@@ -276,4 +276,22 @@
     <Parameter Name="intSeleccionMarcoID" Type="System.Int32" DbType="Int" />
     <Return Type="System.Int32" />
   </Function>
+  <Function Name="dbo.stp_ListarDatosSeleccionMarco" Method="stp_ListarDatosSeleccionMarco">
+    <Parameter Name="intCotizacionID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="stp_ListarDatosSeleccionMarcoResult">
+      <Column Name="intSeleccionMarcoID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="SKU" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="decPesoMarco" Type="System.Decimal" DbType="Decimal(8,3)" CanBeNull="true" />
+      <Column Name="decPrecioUnitario" Type="System.Decimal" DbType="Decimal(8,3)" CanBeNull="true" />
+      <Column Name="intTipoID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="vchTipo" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
+      <Column Name="intMaterialID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="vchMaterialID" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="decFondo" Type="System.Decimal" DbType="Decimal(8,3)" CanBeNull="true" />
+      <Column Name="decAltura" Type="System.Decimal" DbType="Decimal(8,3)" CanBeNull="true" />
+      <Column Name="decAlturaPandeo" Type="System.Decimal" DbType="Decimal(8,3)" CanBeNull="true" />
+      <Column Name="decCapacidadMarco" Type="System.Decimal" DbType="Decimal(8,3)" CanBeNull="true" />
+      <Column Name="bitActivo" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </ElementType>
+  </Function>
 </Database>

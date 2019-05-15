@@ -693,27 +693,27 @@ namespace Adsisplus.Cotyrsa.DataAccess
             List<SeleccionMarco> result = new List<SeleccionMarco>();
             try
             {
-                //using (MarcosDataContext dc = new MarcosDataContext(Helper.ConnectionString()))
-                //{
-                //    var query = from item in dc.stp_ListarDatosSeleccionMarco(intCotizacionID)
-                //                select new SeleccionMarco
-                //                {
-                //                    intSeleccionMarcoID = item.intSeleccionMarcoID,
-                //                    SKU = item.SKU,
-                //                    decPesoMarco = item.decPesoMarco,
-                //                    decPrecioUnitario = item.decPrecioUnitario,
-                //                    intTipoID = item.intTipoID,
-                //                    vchTipo = item.vchTipo,
-                //                    intMaterialID = item.intMaterialID,
-                //                    vchMaterial = item.vchMaterialID,
-                //                    decFondo = item.decFondo,
-                //                    decAltura = item.decAltura,
-                //                    decAlturaPandeo = item.decAlturaPandeo,
-                //                    decCapacidadMarco = item.decCapacidadMarco,
-                //                    bitActivo = item.bitActivo
-                //                };
-                //    result.AddRange(query);
-                //}
+                using (MarcosDataContext dc = new MarcosDataContext(Helper.ConnectionString()))
+                {
+                    var query = from item in dc.stp_ListarDatosSeleccionMarco(intCotizacionID)
+                                select new SeleccionMarco
+                                {
+                                    intSeleccionMarcoID = item.intSeleccionMarcoID,
+                                    vchSKU = item.SKU,
+                                    decPesoMarco = item.decPesoMarco,
+                                    decPrecioUnitario = item.decPrecioUnitario,
+                                    intTipoID = item.intTipoID,
+                                    vchTipo = item.vchTipo,
+                                    intMaterialID = item.intMaterialID,
+                                    vchMaterial = item.vchMaterialID,
+                                    decFondo = item.decFondo,
+                                    decAltura = item.decAltura,
+                                    decAlturaPandeo = item.decAlturaPandeo,
+                                    decCapacidadMarco = item.decCapacidadMarco,
+                                    bitActivo = item.bitActivo
+                                };
+                    result.AddRange(query);
+                }
             }
             catch (Exception ex)
             {
