@@ -453,6 +453,7 @@ namespace Adsisplus.Cotyrsa.DataAccess
                                     decCapacidadParVigasRequerida = item.decCapViga,
                                     decCapacidadParVigasMaxima = item.decCapVigaMax,
                                     intCantidad = item.intCantidad,
+                                    decSubtotal = item.decSubtotal,
                                     bitActivo = item.bitActivo
                                 };
                     result.AddRange(query);

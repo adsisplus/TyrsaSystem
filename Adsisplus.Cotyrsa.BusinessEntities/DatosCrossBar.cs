@@ -35,6 +35,9 @@ namespace Adsisplus.Cotyrsa.BusinessEntities
         public Int32? intCantidadNivelCrossbar { get; set; }
 
         [DataMember]
+        public int? intCantidad { get; set; }
+
+        [DataMember]
         public Boolean? bitActivo { get; set; }
     }
 }

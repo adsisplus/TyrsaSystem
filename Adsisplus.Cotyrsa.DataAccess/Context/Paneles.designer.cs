@@ -1079,6 +1079,8 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 		
 		private System.Nullable<int> _intCantidad;
 		
+		private System.Nullable<decimal> _decSubtotal;
+		
 		private System.Nullable<bool> _bitActivo;
 		
 		public stp_ListarDatosSeleccionPanelResult()
@@ -1289,6 +1291,22 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 				if ((this._intCantidad != value))
 				{
 					this._intCantidad = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decSubtotal", DbType="Decimal(20,2)")]
+		public System.Nullable<decimal> decSubtotal
+		{
+			get
+			{
+				return this._decSubtotal;
+			}
+			set
+			{
+				if ((this._decSubtotal != value))
+				{
+					this._decSubtotal = value;
 				}
 			}
 		}

@@ -190,6 +190,7 @@ namespace Adsisplus.Cotyrsa.DataAccess
                                     decKgTyrsa = item.decKgTyrsa,
                                     decKgReferencia = item.decKgReferencia,
                                     intCantidad = item.intCantidad,
+                                    decSubtotal = item.decSubtotal,
                                     bitActivo = item.bitActivo
                                 };
                     result.AddRange(query);

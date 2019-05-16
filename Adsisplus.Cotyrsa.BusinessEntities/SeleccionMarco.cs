@@ -116,6 +116,9 @@ namespace Adsisplus.Cotyrsa.BusinessEntities
         [DataMember]
         public int? intCantidad { get; set; }
 
+        [DataMember]
+        public decimal? decSubtotal { get; set; }
+
         /// <summary>
         /// Estatus de la selección de Marco
         /// </summary>
