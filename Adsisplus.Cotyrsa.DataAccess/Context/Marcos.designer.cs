@@ -2697,6 +2697,8 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 		
 		private System.Nullable<int> _intTipoID;
 		
+		private System.Nullable<int> _intConfiguraMarcoID;
+		
 		private string _vchTipo;
 		
 		private System.Nullable<int> _intMaterialID;
@@ -2795,6 +2797,22 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 				if ((this._intTipoID != value))
 				{
 					this._intTipoID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intConfiguraMarcoID", DbType="Int")]
+		public System.Nullable<int> intConfiguraMarcoID
+		{
+			get
+			{
+				return this._intConfiguraMarcoID;
+			}
+			set
+			{
+				if ((this._intConfiguraMarcoID != value))
+				{
+					this._intConfiguraMarcoID = value;
 				}
 			}
 		}

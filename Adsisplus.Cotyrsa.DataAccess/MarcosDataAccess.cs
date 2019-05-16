@@ -701,6 +701,7 @@ namespace Adsisplus.Cotyrsa.DataAccess
                                 {
                                     intSeleccionMarcoID = item.intSeleccionMarcoID,
                                     vchSKU = item.SKU,
+                                    intConfiguraMarcoID = item.intConfiguraMarcoID,
                                     decPesoMarco = item.decPesoMarco,
                                     decPrecioUnitario = item.decPrecioUnitario,
                                     intTipoID = item.intTipoID,
