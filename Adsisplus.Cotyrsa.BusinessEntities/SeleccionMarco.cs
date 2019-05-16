@@ -113,6 +113,9 @@ namespace Adsisplus.Cotyrsa.BusinessEntities
         [DataMember]
         public bool? bitEstructural { get; set; }
 
+        [DataMember]
+        public int? intCantidad { get; set; }
+
         /// <summary>
         /// Estatus de la selección de Marco
         /// </summary>

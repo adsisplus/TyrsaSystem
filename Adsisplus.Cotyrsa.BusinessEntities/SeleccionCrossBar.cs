@@ -71,6 +71,9 @@ namespace Adsisplus.Cotyrsa.BusinessEntities
         public short? sintCara { get; set; }
 
         [DataMember]
+        public int? intCantidad { get; set; }
+
+        [DataMember]
         public bool? bitActivo { get; set; }
     }
 }

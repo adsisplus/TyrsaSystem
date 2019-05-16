@@ -228,6 +228,7 @@ namespace Adsisplus.Cotyrsa.DataAccess
                                     decTotalKiloUnitario = item.decTotalKiloUnitario,
                                     decAreaPintura = item.decAreaPintura,
                                     sintCara = item.sintCara,
+                                    intCantidad = item.intCantidad,
                                     bitActivo = item.bitActivo
                                 };
                     result.AddRange(query);

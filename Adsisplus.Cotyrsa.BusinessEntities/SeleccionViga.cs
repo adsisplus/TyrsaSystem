@@ -125,6 +125,9 @@ namespace Adsisplus.Cotyrsa.BusinessEntities
         public String vchLongitud { get; set; }
 
         [DataMember]
+        public int? intCantidad { get; set; }
+
+        [DataMember]
         public bool? bitActivo { get; set; }
     }
 }

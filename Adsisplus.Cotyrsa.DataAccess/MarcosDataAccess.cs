@@ -711,6 +711,7 @@ namespace Adsisplus.Cotyrsa.DataAccess
                                     decAltura = item.decAltura,
                                     decAlturaPandeo = item.decAlturaPandeo,
                                     decCapacidadMarco = item.decCapacidadMarco,
+                                    intCantidad = item.intCantidad,
                                     bitActivo = item.bitActivo
                                 };
                     result.AddRange(query);
