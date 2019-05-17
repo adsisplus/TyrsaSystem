@@ -75,6 +75,7 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
                     intDetCotizaID = Convert.ToInt32(result.vchResultado);
                     parrilla.intElementoID = 6;
                     parrilla.intDetCotizaID = intDetCotizaID;
+                    parrilla.sintPinturaID = parrilla.sintPinturaID;
                     // Procedeimos a realizar el almacenado de la información
                     result = (new SistemasTyrsaLogic()).setDatosParrilla(parrilla, tinOpcion);
                     if (result.vchResultado != "NOK")

@@ -182,6 +182,7 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
                         mstDistanciador.intDetCotizaID = intDetCotizaID;
                         mstDistanciador.intCotizacionID = intCotizacionID;
                         mstDistanciador.sintPinturaID = distanciador.sintPinturaID;
+                        mstDistanciador.intElementoID = 5;
                         mstDistanciador.intCantidadDistanciador = distanciador.intCantidadDistanciador;
                         mstDistanciador.decLargoDistanciador = distanciador.decLargoDistanciador;
 

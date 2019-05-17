@@ -202,7 +202,8 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
                         mstCrossBar.intDetCotizaID = intDetCotizaID;
                         mstCrossBar.decAnchoCrossBar = crossBar.decAncho;
                         mstCrossBar.bitConectorVigaCrossbar = dppCrossBar.bitConectorViga;
-                        mstCrossBar.intCantidadNivelCrossbar = intCantidad;
+                        mstCrossBar.intCantidadNivelCrossbar = dppCrossBar.intCantNivel;
+                        mstCrossBar.intCantidad = intCantidad;
 
                         // Realizamos el registro del panel
                         result = (new SistemasTyrsaLogic()).setDatosCrossBar(mstCrossBar, tinOpcion);
