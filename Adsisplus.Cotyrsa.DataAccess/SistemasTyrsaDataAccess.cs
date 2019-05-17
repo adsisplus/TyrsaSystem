@@ -188,7 +188,7 @@ namespace Adsisplus.Cotyrsa.DataAccess
                 using (SistemasTyrsaDataContext dc = new SistemasTyrsaDataContext(Helper.ConnectionString()))
                 {
                     var query = from item in dc.stp_setDatosDistanciador(datosDistanciador.intDistanciadorID, datosDistanciador.intCotizacionID, datosDistanciador.intDetCotizaID, datosDistanciador.intElementoID,
-                        datosDistanciador.sintPinturaID, datosDistanciador.intCantidadDistanciador, datosDistanciador.decLargoDistanciador, datosDistanciador.bitActivo, (byte)sintOpcion)
+                        datosDistanciador.sintPinturaID, datosDistanciador.intCantidad, datosDistanciador.decLargo, datosDistanciador.bitActivo, (byte)sintOpcion)
                                 select new Resultado
                                 {
                                     vchDescripcion = item.vchDescripcion,

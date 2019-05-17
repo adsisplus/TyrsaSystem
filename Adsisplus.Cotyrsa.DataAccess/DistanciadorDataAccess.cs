@@ -33,8 +33,8 @@ namespace Adsisplus.Cotyrsa.DataAccess
                                     vchElemento = item.vchElemento,
                                     sintPinturaID = item.sintPinturaID,
                                     vchPintura = item.vchPintura,
-                                    intCantidadDistanciador = item.intCantidadDistanciador,
-                                    decLargoDistanciador = item.decLargoDistanciador,
+                                    intCantidad = item.intCantidadDistanciador,
+                                    decLargo = item.decLargoDistanciador,
                                     bitActivo = item.bitActivo
                                 };
                     results.AddRange(query);

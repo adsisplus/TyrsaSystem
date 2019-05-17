@@ -137,9 +137,9 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
                 detCotizacion.intCotizacionID = intCotizacionID;
                 detCotizacion.intElementoID = 5; // ID correspondiente a Distanciador
                 detCotizacion.intPartida = 0;
-                detCotizacion.intCantidad = distanciador.intCantidadDistanciador;
+                detCotizacion.intCantidad = distanciador.intCantidad;
                 detCotizacion.decMonto = seleccionDistanciador.decPrecioTyrsa;
-                detCotizacion.decSubtotal = seleccionDistanciador.decPrecioTyrsa * distanciador.intCantidadDistanciador;
+                detCotizacion.decSubtotal = seleccionDistanciador.decPrecioTyrsa * distanciador.intCantidad;
 
                 // 1. Realizamos el alta de la cotización
                 result = (new CotizacionLogic()).setDetCotizacion(detCotizacion, (short)(distanciador.intDetCotizaID == 0 ? 1 : tinOpcion));
@@ -183,8 +183,8 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
                         mstDistanciador.intCotizacionID = intCotizacionID;
                         mstDistanciador.sintPinturaID = distanciador.sintPinturaID;
                         mstDistanciador.intElementoID = 5;
-                        mstDistanciador.intCantidadDistanciador = distanciador.intCantidadDistanciador;
-                        mstDistanciador.decLargoDistanciador = distanciador.decLargoDistanciador;
+                        mstDistanciador.intCantidad = distanciador.intCantidad;
+                        mstDistanciador.decLargo = distanciador.decLargo;
 
                         // Procedeimos a realizar el almacenado de la información
                         result = (new SistemasTyrsaLogic()).setDatosDistanciador(mstDistanciador, tinOpcion);
