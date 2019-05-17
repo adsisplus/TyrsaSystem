@@ -368,6 +368,7 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
                         mstViga.intElementoID = 2;
                         mstViga.decLargo = viga.decLongitud;
                         mstViga.intCantidad = intCantidad;
+                        mstViga.intDatoMarcoID = sistema.intDatoMarcoID;
                         
                         // Realizamos el alta / modificación de la viga
                         result = (new SistemasTyrsaLogic()).setDatosViga(mstViga, tinOpcion);
@@ -452,6 +453,7 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
                     intDetCotizaID = Convert.ToInt32(result.vchResultado);
                     vigaTope.intDetCotizaID = intDetCotizaID;
                     vigaTope.intDatosVigaID = sistema.intDatosVigaID;
+
                     vigaTope.intElementoID = 7;
                     // Procedeimos a realizar el almacenado de la información
                     result = (new SistemasTyrsaLogic()).setDatosVigaTope(vigaTope, tinOpcion);

@@ -81,8 +81,8 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
                 detCotizacion.intElementoID = 8; // ID correspondiente a Distanciador
                 detCotizacion.intPartida = 0;
                 detCotizacion.intCantidad = datosProtector.intCantidadProtectorPoste;
-                detCotizacion.decMonto = datosProtector.decPrecioUnitario;
-                detCotizacion.decSubtotal = datosProtector.decPrecioUnitario * datosProtector.intCantidadProtectorPoste;
+                detCotizacion.decMonto = datosProtector.decPrecioVentaUnitario;
+                detCotizacion.decSubtotal = datosProtector.decPrecioVentaUnitario * datosProtector.intCantidadProtectorPoste;
 
                 // 1. Realizamos el alta de la cotización
                 result = (new CotizacionLogic()).setDetCotizacion(detCotizacion, (short)(datosProtector.intDetCotizaID == 0 ? 1 : tinOpcion));
@@ -156,6 +156,7 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
                     // Almacenamos el ID del detalle de la cotización
                     intDetCotizaID = Convert.ToInt32(result.vchResultado);
                     datosProtectorBateria.intDetCotizaID = intDetCotizaID;
+                    datosProtectorBateria.intElementoID = 9;
                     // Procedeimos a realizar el almacenado de la información
                     result = (new SistemasTyrsaLogic()).setDatosProtectorBateria(datosProtectorBateria, tinOpcion);
                     if (result.vchResultado != "NOK")

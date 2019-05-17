@@ -108,7 +108,7 @@ namespace Adsisplus.Cotyrsa.DataAccess
                                     vchPintura = item.vchPintura,
                                     intElementoID = item.intElementoID,
                                     vchElemento = item.vchElemento,
-
+                                    intConfiguraMarcoID = item.intConfiguraMarcoID,
                                     sintCantidad = item.sintCantidad,
                                     decMedidaAlto = item.decMedidaAlto,
 

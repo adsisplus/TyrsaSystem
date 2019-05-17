@@ -325,7 +325,7 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
                         mstMarco.intDetCotizaID = intDetCotizaID;
                         mstMarco.intElementoID = 1;
                         mstMarco.sintPinturaID = sintPinturaID;
-                        //mstMarco.intConfiguraMarcoID = marco.intConfiguraMarcoID;
+                        mstMarco.intConfiguraMarcoID = marco.seleccion.intConfiguraMarcoID;
                         //mstMarco.decMedidaFondo = marco.decFondo;
                         //mstMarco.decMedidaAlto = marco.decAltura;
                         //mstMarco.bitDobleMonten = marco.bitDobleMontel;

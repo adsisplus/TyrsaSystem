@@ -128,7 +128,7 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
             try
             {
                 // Obtenemos la información del sistema Selectivo
-                RelSistemaSelectivo sistema = (new CotizacionLogic()).ListarDatosSistemaSelectivo((int)distanciador.intCotizacionID);
+                RelSistemaSelectivo sistema = (new CotizacionLogic()).ListarDatosSistemaSelectivo((int)intCotizacionID);
                 intDistanciadorID = null;
 
                 // Procedemos a llenar la entidad de la cotización

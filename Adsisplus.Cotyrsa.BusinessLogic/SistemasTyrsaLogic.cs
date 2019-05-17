@@ -223,8 +223,8 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
                 {
                     // Obtenemos los datos del marco
                     List<DatosMarco> lstMarco = (new MarcosLogic()).ListarDatosMarco((int)sistema.intDatoMarcoID, intCotizacionID);
-                    //if(lstMarco.Count > 0)
-                    //    result = CatalogosDA.ListarDatosTornilleria((int)lstMarco.First().intConfiguraMarcoID, intCotizacionID, bitEstructural, bitEsCuadruple);
+                    if (lstMarco.Count > 0)
+                        result = CatalogosDA.ListarDatosTornilleria((int)lstMarco.First().intConfiguraMarcoID, intCotizacionID, bitEstructural, bitEsCuadruple);
                 }
             }
             catch (Exception ex)
