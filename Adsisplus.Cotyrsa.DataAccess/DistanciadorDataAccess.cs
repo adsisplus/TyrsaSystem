@@ -200,6 +200,8 @@ namespace Adsisplus.Cotyrsa.DataAccess
                                         decPesoPlacaCobro = item.decPesoPlacaCobro,
                                         sintCantidadPzaAngulo = item.sintCantidadPzaAngulo,
                                         sintCantidadPzaPlaca = item.sintCantidadPzaPlaca,
+                                        intDetCotizaID = item.intDetCotizaID,
+                                        intRackID = item.intRackID,
                                         decPesoPorDistanciador = item.decPesoPorDistanciador,
                                         decAreaPinturaAngulo = item.decAreaPinturaAngulo,
                                         decAreaPinturaPlaca = item.decAreaPinturaPlaca,

@@ -33,7 +33,7 @@ namespace Adsisplus.Cotyrsa.DataAccess
                                     sintPinturaID = item.sintPinturaID,
                                     vchPintura = item.vchPintura,
                                     intCantidadProtectorPoste = item.intCantidadProtectorPoste,
-
+                                    intDetCotizaID = item.intDetCotizaID,
                                     decAltura = item.decAltura,
                                     sintLongitudID = item.sintLongitudID,
                                     vchLongitud = item.vchLongitud,
