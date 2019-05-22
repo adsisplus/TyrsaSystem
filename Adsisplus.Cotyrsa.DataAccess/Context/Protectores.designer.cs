@@ -69,13 +69,6 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 			return ((ISingleResult<stp_ListarSeleccionProtectorRackResult>)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.stp_ListarSeleccionBateriaSencilla")]
-		public ISingleResult<stp_ListarSeleccionBateriaSencillaResult> stp_ListarSeleccionBateriaSencilla()
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
-			return ((ISingleResult<stp_ListarSeleccionBateriaSencillaResult>)(result.ReturnValue));
-		}
-		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.stp_ListarSeleccionBateriaDoble")]
 		public ISingleResult<stp_ListarSeleccionBateriaDobleResult> stp_ListarSeleccionBateriaDoble()
 		{
@@ -102,6 +95,13 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), intCotizacionID);
 			return ((ISingleResult<stp_ListarDatosProtectorBateriaResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.stp_ListarSeleccionBateriaSencilla")]
+		public ISingleResult<stp_ListarSeleccionBateriaSencillaResult> stp_ListarSeleccionBateriaSencilla()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<stp_ListarSeleccionBateriaSencillaResult>)(result.ReturnValue));
 		}
 	}
 	
@@ -144,104 +144,6 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 				if ((this._decPrecioFinal != value))
 				{
 					this._decPrecioFinal = value;
-				}
-			}
-		}
-	}
-	
-	public partial class stp_ListarSeleccionBateriaSencillaResult
-	{
-		
-		private long _SKU;
-		
-		private int _intNumBotas;
-		
-		private int _intNumBarras;
-		
-		private System.Nullable<decimal> _TOTAL;
-		
-		private int _intAltura;
-		
-		public stp_ListarSeleccionBateriaSencillaResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SKU", DbType="BigInt NOT NULL")]
-		public long SKU
-		{
-			get
-			{
-				return this._SKU;
-			}
-			set
-			{
-				if ((this._SKU != value))
-				{
-					this._SKU = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intNumBotas", DbType="Int NOT NULL")]
-		public int intNumBotas
-		{
-			get
-			{
-				return this._intNumBotas;
-			}
-			set
-			{
-				if ((this._intNumBotas != value))
-				{
-					this._intNumBotas = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intNumBarras", DbType="Int NOT NULL")]
-		public int intNumBarras
-		{
-			get
-			{
-				return this._intNumBarras;
-			}
-			set
-			{
-				if ((this._intNumBarras != value))
-				{
-					this._intNumBarras = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TOTAL", DbType="Decimal(38,3)")]
-		public System.Nullable<decimal> TOTAL
-		{
-			get
-			{
-				return this._TOTAL;
-			}
-			set
-			{
-				if ((this._TOTAL != value))
-				{
-					this._TOTAL = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intAltura", DbType="Int NOT NULL")]
-		public int intAltura
-		{
-			get
-			{
-				return this._intAltura;
-			}
-			set
-			{
-				if ((this._intAltura != value))
-				{
-					this._intAltura = value;
 				}
 			}
 		}
@@ -1354,6 +1256,122 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 				if ((this._intBarrasCuadruple != value))
 				{
 					this._intBarrasCuadruple = value;
+				}
+			}
+		}
+	}
+	
+	public partial class stp_ListarSeleccionBateriaSencillaResult
+	{
+		
+		private long _SKU;
+		
+		private int _intNumBotas;
+		
+		private int _intNumBarras;
+		
+		private string _vchMaterial;
+		
+		private System.Nullable<decimal> _TOTAL;
+		
+		private int _intAltura;
+		
+		public stp_ListarSeleccionBateriaSencillaResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SKU", DbType="BigInt NOT NULL")]
+		public long SKU
+		{
+			get
+			{
+				return this._SKU;
+			}
+			set
+			{
+				if ((this._SKU != value))
+				{
+					this._SKU = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intNumBotas", DbType="Int NOT NULL")]
+		public int intNumBotas
+		{
+			get
+			{
+				return this._intNumBotas;
+			}
+			set
+			{
+				if ((this._intNumBotas != value))
+				{
+					this._intNumBotas = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intNumBarras", DbType="Int NOT NULL")]
+		public int intNumBarras
+		{
+			get
+			{
+				return this._intNumBarras;
+			}
+			set
+			{
+				if ((this._intNumBarras != value))
+				{
+					this._intNumBarras = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchMaterial", DbType="VarChar(17) NOT NULL", CanBeNull=false)]
+		public string vchMaterial
+		{
+			get
+			{
+				return this._vchMaterial;
+			}
+			set
+			{
+				if ((this._vchMaterial != value))
+				{
+					this._vchMaterial = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TOTAL", DbType="Decimal(38,3)")]
+		public System.Nullable<decimal> TOTAL
+		{
+			get
+			{
+				return this._TOTAL;
+			}
+			set
+			{
+				if ((this._TOTAL != value))
+				{
+					this._TOTAL = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intAltura", DbType="Int NOT NULL")]
+		public int intAltura
+		{
+			get
+			{
+				return this._intAltura;
+			}
+			set
+			{
+				if ((this._intAltura != value))
+				{
+					this._intAltura = value;
 				}
 			}
 		}

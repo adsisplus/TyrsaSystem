@@ -425,12 +425,6 @@
       <Column Name="bitActivo" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
     </ElementType>
   </Function>
-  <Function Name="dbo.stp_ListarCatAlturaMarco" Method="stp_ListarCatAlturaMarco">
-    <ElementType Name="stp_ListarCatAlturaMarcoResult">
-      <Column Name="decAlturaMarco" Type="System.Decimal" DbType="Decimal(8,2)" CanBeNull="true" />
-      <Column Name="intAlturaMarcoID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-    </ElementType>
-  </Function>
   <Function Name="dbo.stp_setDatosInsumoIndividual" Method="stp_setDatosInsumoIndividual">
     <Parameter Name="sintInsumoIndividualID" Type="System.Int16" DbType="SmallInt" />
     <Parameter Name="intSubProductoID" Type="System.Int32" DbType="Int" />
@@ -457,6 +451,11 @@
       <Column Name="decPesos" Type="System.Decimal" DbType="Decimal(12,2)" CanBeNull="true" />
       <Column Name="decUSA" Type="System.Decimal" DbType="Decimal(12,2)" CanBeNull="true" />
       <Column Name="bitActivo" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.stp_ListarCatAlturaMarco" Method="stp_ListarCatAlturaMarco">
+    <ElementType Name="stp_ListarCatAlturaMarcoResult">
+      <Column Name="decAlturaMarco" Type="System.Decimal" DbType="Decimal(8,2)" CanBeNull="true" />
     </ElementType>
   </Function>
 </Database>

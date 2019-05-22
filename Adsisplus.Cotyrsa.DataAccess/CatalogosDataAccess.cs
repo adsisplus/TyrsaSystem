@@ -20,7 +20,7 @@ namespace Adsisplus.Cotyrsa.DataAccess
                     var query = from item in dc.stp_ListarCatAlturaMarco()
                                 select new CatalogoDecimal()
                                 {
-                                    intCatalogoID = item.intAlturaMarcoID,
+                                    /*intCatalogoID = item.intAlturaMarcoID,*/
                                     decValor = item.decAlturaMarco/*,
                                     bitActivo = item.bitActivo*/
                                 };

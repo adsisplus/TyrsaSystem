@@ -377,13 +377,6 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 			return ((ISingleResult<stp_ListarCatSistemaResult>)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.stp_ListarCatAlturaMarco")]
-		public ISingleResult<stp_ListarCatAlturaMarcoResult> stp_ListarCatAlturaMarco()
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
-			return ((ISingleResult<stp_ListarCatAlturaMarcoResult>)(result.ReturnValue));
-		}
-		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.stp_setDatosInsumoIndividual")]
 		public ISingleResult<stp_setDatosInsumoIndividualResult> stp_setDatosInsumoIndividual([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="SmallInt")] System.Nullable<short> sintInsumoIndividualID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intSubProductoID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intUnidadMedicionID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(250)")] string vchDescripcion, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Decimal(8,2)")] System.Nullable<decimal> decFactor, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Decimal(12,2)")] System.Nullable<decimal> decPesos, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Decimal(12,2)")] System.Nullable<decimal> decUSA, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Bit")] System.Nullable<bool> bitActivo, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="TinyInt")] System.Nullable<byte> tinOpcion)
 		{
@@ -396,6 +389,13 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), intSubProductoID);
 			return ((ISingleResult<stp_ListarCatInsumoIndividualResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.stp_ListarCatAlturaMarco")]
+		public ISingleResult<stp_ListarCatAlturaMarcoResult> stp_ListarCatAlturaMarco()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<stp_ListarCatAlturaMarcoResult>)(result.ReturnValue));
 		}
 	}
 	
@@ -4683,50 +4683,6 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 		}
 	}
 	
-	public partial class stp_ListarCatAlturaMarcoResult
-	{
-		
-		private System.Nullable<decimal> _decAlturaMarco;
-		
-		private int _intAlturaMarcoID;
-		
-		public stp_ListarCatAlturaMarcoResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decAlturaMarco", DbType="Decimal(8,2)")]
-		public System.Nullable<decimal> decAlturaMarco
-		{
-			get
-			{
-				return this._decAlturaMarco;
-			}
-			set
-			{
-				if ((this._decAlturaMarco != value))
-				{
-					this._decAlturaMarco = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intAlturaMarcoID", DbType="Int NOT NULL")]
-		public int intAlturaMarcoID
-		{
-			get
-			{
-				return this._intAlturaMarcoID;
-			}
-			set
-			{
-				if ((this._intAlturaMarcoID != value))
-				{
-					this._intAlturaMarcoID = value;
-				}
-			}
-		}
-	}
-	
 	public partial class stp_setDatosInsumoIndividualResult
 	{
 		
@@ -4918,6 +4874,32 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 				if ((this._bitActivo != value))
 				{
 					this._bitActivo = value;
+				}
+			}
+		}
+	}
+	
+	public partial class stp_ListarCatAlturaMarcoResult
+	{
+		
+		private System.Nullable<decimal> _decAlturaMarco;
+		
+		public stp_ListarCatAlturaMarcoResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decAlturaMarco", DbType="Decimal(8,2)")]
+		public System.Nullable<decimal> decAlturaMarco
+		{
+			get
+			{
+				return this._decAlturaMarco;
+			}
+			set
+			{
+				if ((this._decAlturaMarco != value))
+				{
+					this._decAlturaMarco = value;
 				}
 			}
 		}

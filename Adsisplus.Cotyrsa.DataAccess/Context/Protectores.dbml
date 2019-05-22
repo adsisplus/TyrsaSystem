@@ -1,18 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="dbTyrsa" Class="ProtectoresDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=local;Initial Catalog=dbTyrsa;Persist Security Info=True;User ID=usrCotyrsa" SettingsObjectName="Adsisplus.Cotyrsa.DataAccess.Properties.Settings" SettingsPropertyName="dbTyrsaConnectionString" Provider="System.Data.SqlClient" />
+  <Connection Mode="AppSettings" ConnectionString="Data Source=(local);Initial Catalog=dbTyrsa;User ID=usrCotyrsa" SettingsObjectName="Adsisplus.Cotyrsa.DataAccess.Properties.Settings" SettingsPropertyName="dbTyrsaConnectionString1" Provider="System.Data.SqlClient" />
   <Function Name="dbo.stp_ListarSeleccionProtectorRack" Method="stp_ListarSeleccionProtectorRack">
     <ElementType Name="stp_ListarSeleccionProtectorRackResult">
       <Column Name="vchTipoProtector" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
       <Column Name="decPrecioFinal" Type="System.Decimal" DbType="Decimal(12,2)" CanBeNull="true" />
-    </ElementType>
-  </Function>
-  <Function Name="dbo.stp_ListarSeleccionBateriaSencilla" Method="stp_ListarSeleccionBateriaSencilla">
-    <ElementType Name="stp_ListarSeleccionBateriaSencillaResult">
-      <Column Name="SKU" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
-      <Column Name="intNumBotas" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="intNumBarras" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="TOTAL" Type="System.Decimal" DbType="Decimal(38,3)" CanBeNull="true" />
-      <Column Name="intAltura" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
     </ElementType>
   </Function>
   <Function Name="dbo.stp_ListarSeleccionBateriaDoble" Method="stp_ListarSeleccionBateriaDoble">
@@ -91,6 +82,16 @@
       <Column Name="intBarrasSencilla" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="intBarrasDoble" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="intBarrasCuadruple" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.stp_ListarSeleccionBateriaSencilla" Method="stp_ListarSeleccionBateriaSencilla">
+    <ElementType Name="stp_ListarSeleccionBateriaSencillaResult">
+      <Column Name="SKU" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="intNumBotas" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="intNumBarras" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="vchMaterial" Type="System.String" DbType="VarChar(17) NOT NULL" CanBeNull="false" />
+      <Column Name="TOTAL" Type="System.Decimal" DbType="Decimal(38,3)" CanBeNull="true" />
+      <Column Name="intAltura" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
     </ElementType>
   </Function>
 </Database>

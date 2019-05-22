@@ -61,8 +61,11 @@
     <Compile Include="DatosCrossBar.cs" />
     <Compile Include="DatosDistanciador.cs" />
     <Compile Include="DatosEntrepanio.cs" />
+    <Compile Include="DatosFlete.cs" />
     <Compile Include="DatosFreno.cs" />
+    <Compile Include="DatosGastos.cs" />
     <Compile Include="DatosGuiaEntrada.cs" />
+    <Compile Include="DatosInstalacion.cs" />
     <Compile Include="DatosMarco.cs" />
     <Compile Include="DatosPanel.cs" />
     <Compile Include="DatosPantallaCrossBar.cs" />
@@ -82,6 +85,7 @@
     <Compile Include="DatosRielTarima.cs" />
     <Compile Include="DatosSeleccionBateria.cs" />
     <Compile Include="DatosTornilleria.cs" />
+    <Compile Include="DatosViaticos.cs" />
     <Compile Include="DatosViga.cs" />
     <Compile Include="DatosVigaAtirantado.cs" />
     <Compile Include="DatosVigaEntrada.cs" />

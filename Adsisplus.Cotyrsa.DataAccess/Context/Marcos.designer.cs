@@ -219,7 +219,7 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Bit")] System.Nullable<bool> bitEstructural, 
 					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Bit")] System.Nullable<bool> bitRolado, 
 					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intNumeroNiveles, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Decimal(8,3)")] System.Nullable<decimal> decCapacidadCargaTotal, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Decimal(12,3)")] System.Nullable<decimal> decCapacidadCargaTotal, 
 					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Bit")] System.Nullable<bool> bitActivo, 
 					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="TinyInt")] System.Nullable<byte> tinOpcion)
 		{

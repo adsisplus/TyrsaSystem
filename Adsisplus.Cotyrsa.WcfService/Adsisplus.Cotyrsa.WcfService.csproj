@@ -68,6 +68,7 @@
     <Content Include="DireccionServices\DireccionServices.svc" />
     <Content Include="DistanciadorServices\DistanciadorServices.svc" />
     <Content Include="EmpresaServices\EmpresaServices.svc" />
+    <Content Include="GastosServices\GastosServices.svc" />
     <Content Include="Global.asax" />
     <Content Include="MarcosServices\MarcosServices.svc" />
     <Content Include="MateriaPrimaServices\MateriaPrimaServices.svc" />
@@ -111,6 +112,10 @@
       <DependentUpon>EmpresaServices.svc</DependentUpon>
     </Compile>
     <Compile Include="EmpresaServices\IEmpresaServices.cs" />
+    <Compile Include="GastosServices\GastosServices.svc.cs">
+      <DependentUpon>GastosServices.svc</DependentUpon>
+    </Compile>
+    <Compile Include="GastosServices\IGastosServices.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

@@ -161,6 +161,7 @@ namespace Adsisplus.Cotyrsa.DataAccess
                                     SKU = item.SKU,
                                     intNumBotas = item.intNumBotas,
                                     intNumBarras = item.intNumBarras,
+                                    vchMaterial = item.vchMaterial,
                                     TOTAL = item.TOTAL,
                                     intAltura = item.intAltura
                                 };
