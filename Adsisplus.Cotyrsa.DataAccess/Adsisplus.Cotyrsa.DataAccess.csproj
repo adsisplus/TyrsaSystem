@@ -74,6 +74,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Empresa.dbml</DependentUpon>
     </Compile>
+    <Compile Include="Context\Gastos.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Gastos.dbml</DependentUpon>
+    </Compile>
     <Compile Include="Context\Marcos.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -119,6 +124,7 @@
     <Compile Include="DireccionDataAccess.cs" />
     <Compile Include="DistanciadorDataAccess.cs" />
     <Compile Include="EmpresaDataAccess.cs" />
+    <Compile Include="GastosDataAccess.cs" />
     <Compile Include="Helper.cs" />
     <Compile Include="MarcosDataAccess.cs" />
     <Compile Include="MateriaPrimaDataAccess.cs" />
@@ -174,6 +180,14 @@
       <Generator>MSLinqToSQLGenerator</Generator>
       <LastGenOutput>Empresa.designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+    </None>
+    <None Include="Context\Gastos.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>Gastos.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Context\Gastos.dbml.layout">
+      <DependentUpon>Gastos.dbml</DependentUpon>
     </None>
     <None Include="Context\Marcos.dbml">
       <Generator>MSLinqToSQLGenerator</Generator>
