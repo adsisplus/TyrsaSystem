@@ -23,18 +23,45 @@ namespace Adsisplus.Cotyrsa.WcfService.GastosServices
         [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ListarDatosPantallaGastos")]
         List<DatosGastos> ListarDatosPantallaGastos(int intCotizacionID, int intDetCotizaID);
 
+        ///// <summary>
+        ///// Procedimiento que realiza el alta, modificación o baja de los datos de gastos
+        ///// </summary>
+        ///// <param name="flete"></param>
+        ///// <param name="instalacion"></param>
+        ///// <param name="viaticos"></param>
+        ///// <param name="intCotizacionID"></param>
+        ///// <param name="bitActivo"></param>
+        ///// <param name="tinOpcion"></param>
+        ///// <returns></returns>
+        //[OperationContract]
+        //[WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "setDatosGastos")]
+        //Resultado setDatosGastos(DatosFlete flete, DatosInstalacion instalacion, DatosViaticos viaticos, int intCotizacionID, bool bitActivo, short tinOpcion);
         /// <summary>
-        /// Procedimiento que realiza el alta, modificación o baja de los datos de gastos
+        /// Procedimiento que realiza el alta, modificación o baja de flete
         /// </summary>
         /// <param name="flete"></param>
-        /// <param name="instalacion"></param>
-        /// <param name="viaticos"></param>
-        /// <param name="intCotizacionID"></param>
-        /// <param name="bitActivo"></param>
         /// <param name="tinOpcion"></param>
         /// <returns></returns>
         [OperationContract]
-        [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "setDatosGastos")]
-        Resultado setDatosGastos(DatosFlete flete, DatosInstalacion instalacion, DatosViaticos viaticos, int intCotizacionID, bool bitActivo, short tinOpcion);
+        [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "setDatosFlete")]
+        Resultado setDatosFlete(List<DatosFlete> lstFlete, short tinOpcion);
+        /// <summary>
+        /// Procedimiento que realiza el alta, modificación y baja de instalación
+        /// </summary>
+        /// <param name="instalacion"></param>
+        /// <param name="tinOpcion"></param>
+        /// <returns></returns>
+        [OperationContract]
+        [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "setDatosInstalacion")]
+        Resultado setDatosInstalacion(List<DatosInstalacion> lstInstalacion, short tinOpcion);
+        /// <summary>
+        /// Procedimiento que realiza el alta, modificación y baja de viaticos
+        /// </summary>
+        /// <param name="viatico"></param>
+        /// <param name="tinOpcion"></param>
+        /// <returns></returns>
+        [OperationContract]
+        [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "setDatosViatico")]
+        Resultado setDatosViatico(List<DatosViaticos> lstViatico, short tinOpcion);
     }
 }

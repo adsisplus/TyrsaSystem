@@ -33,22 +33,79 @@ namespace Adsisplus.Cotyrsa.WcfService.GastosServices
             return result;
         }
 
+        ///// <summary>
+        ///// Procedimiento que realiza el alta, modificación o baja de los datos de gastos
+        ///// </summary>
+        ///// <param name="flete"></param>
+        ///// <param name="instalacion"></param>
+        ///// <param name="viaticos"></param>
+        ///// <param name="intCotizacionID"></param>
+        ///// <param name="bitActivo"></param>
+        ///// <param name="tinOpcion"></param>
+        ///// <returns></returns>
+        //public Resultado setDatosGastos(DatosFlete flete, DatosInstalacion instalacion, DatosViaticos viaticos, int intCotizacionID, bool bitActivo, short tinOpcion)
+        //{
+        //    Resultado result = new Resultado();
+        //    try
+        //    {
+        //        result = (new GastosLogic()).setDatosGastos(flete, instalacion, viaticos, intCotizacionID, bitActivo, tinOpcion);
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        Adsisplus.Cotyrsa.BusinessLogic.EventLogManager.LogErrorEntry(ex.Message);
+        //    }
+        //    return result;
+        //}
         /// <summary>
-        /// Procedimiento que realiza el alta, modificación o baja de los datos de gastos
+        /// Procedimiento que realiza el alta, modificación o baja de flete
         /// </summary>
         /// <param name="flete"></param>
-        /// <param name="instalacion"></param>
-        /// <param name="viaticos"></param>
-        /// <param name="intCotizacionID"></param>
-        /// <param name="bitActivo"></param>
         /// <param name="tinOpcion"></param>
         /// <returns></returns>
-        public Resultado setDatosGastos(DatosFlete flete, DatosInstalacion instalacion, DatosViaticos viaticos, int intCotizacionID, bool bitActivo, short tinOpcion)
+        public Resultado setDatosFlete(List<DatosFlete> lstFlete, short tinOpcion)
         {
             Resultado result = new Resultado();
             try
             {
-                result = (new GastosLogic()).setDatosGastos(flete, instalacion, viaticos, intCotizacionID, bitActivo, tinOpcion);
+                result = (new GastosLogic()).setDatosFlete(lstFlete, tinOpcion);
+            }
+            catch (Exception ex)
+            {
+                Adsisplus.Cotyrsa.BusinessLogic.EventLogManager.LogErrorEntry(ex.Message);
+            }
+            return result;
+        }
+        /// <summary>
+        /// Procedimiento que realiza el alta, modificación y baja de instalación
+        /// </summary>
+        /// <param name="instalacion"></param>
+        /// <param name="tinOpcion"></param>
+        /// <returns></returns>
+        public Resultado setDatosInstalacion(List<DatosInstalacion> lstInstalacion, short tinOpcion)
+        {
+            Resultado result = new Resultado();
+            try
+            {
+                result = (new GastosLogic()).setDatosInstalacion(lstInstalacion, tinOpcion);
+            }
+            catch (Exception ex)
+            {
+                Adsisplus.Cotyrsa.BusinessLogic.EventLogManager.LogErrorEntry(ex.Message);
+            }
+            return result;
+        }
+        /// <summary>
+        /// Procedimiento que realiza el alta, modificación y baja de viaticos
+        /// </summary>
+        /// <param name="viatico"></param>
+        /// <param name="tinOpcion"></param>
+        /// <returns></returns>
+        public Resultado setDatosViatico(List<DatosViaticos> lstViatico, short tinOpcion)
+        {
+            Resultado result = new Resultado();
+            try
+            {
+                result = (new GastosLogic()).setDatosViatico(lstViatico, tinOpcion);
             }
             catch (Exception ex)
             {

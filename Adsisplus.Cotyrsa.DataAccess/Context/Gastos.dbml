@@ -21,31 +21,49 @@
       <Column Name="datFechaViatico" Type="System.DateTime" DbType="Date" CanBeNull="true" />
     </ElementType>
   </Function>
-  <Function Name="dbo.stp_setDatosGasto" Method="stp_setDatosGasto">
+  <Function Name="dbo.stp_setDatosFlete" Method="stp_setDatosFlete">
     <Parameter Name="intCotizacionID" Type="System.Int32" DbType="Int" />
-    <Parameter Name="intDetCotizaFleteID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intDetCotizaID" Type="System.Int32" DbType="Int" />
     <Parameter Name="intDatoFleteID" Type="System.Int32" DbType="Int" />
-    <Parameter Name="intElementoFlete" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intElementoID" Type="System.Int32" DbType="Int" />
     <Parameter Name="sintFleteID" Type="System.Int32" DbType="Int" />
-    <Parameter Name="intCantidadFlete" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intCantidad" Type="System.Int32" DbType="Int" />
     <Parameter Name="datFechaCarga" Type="System.DateTime" DbType="Date" />
     <Parameter Name="datFechaDescarga" Type="System.DateTime" DbType="Date" />
-    <Parameter Name="intDetCotizaInstalacionID" Type="System.Int32" DbType="Int" />
-    <Parameter Name="intDatosInstalacionID" Type="System.Int32" DbType="Int" />
-    <Parameter Name="sintInstalacionID" Type="System.Int16" DbType="SmallInt" />
-    <Parameter Name="intElementoInstalacionID" Type="System.Int32" DbType="Int" />
-    <Parameter Name="intCantidadInstalacion" Type="System.Int32" DbType="Int" />
-    <Parameter Name="datFechaInstalacion" Type="System.DateTime" DbType="Date" />
-    <Parameter Name="intDetCotizaViaticosID" Type="System.Int32" DbType="Int" />
-    <Parameter Name="intDatoViaticoID" Type="System.Int32" DbType="Int" />
-    <Parameter Name="intElementoViaticoID" Type="System.Int32" DbType="Int" />
-    <Parameter Name="sintViaticoID" Type="System.Int16" DbType="SmallInt" />
-    <Parameter Name="intCantidadViatico" Type="System.Int32" DbType="Int" />
-    <Parameter Name="datFechaViatico" Type="System.DateTime" DbType="Date" />
     <Parameter Name="bitActivo" Type="System.Boolean" DbType="Bit" />
     <Parameter Name="tinOpcion" Type="System.Byte" DbType="TinyInt" />
-    <ElementType Name="stp_setDatosGastoResult">
-      <Column Name="vchResultado" Type="System.String" DbType="VarChar(93)" CanBeNull="true" />
+    <ElementType Name="stp_setDatosFleteResult">
+      <Column Name="vchResultado" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="vchDescripcion" Type="System.String" DbType="VarChar(45) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.stp_setDatosInstalacion" Method="stp_setDatosInstalacion">
+    <Parameter Name="intCotizacionID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intDetCotizaID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intDatosInstalacionID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="sintInstalacionID" Type="System.Int16" DbType="SmallInt" />
+    <Parameter Name="intElementoID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intCantidad" Type="System.Int32" DbType="Int" />
+    <Parameter Name="datFecha" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="bitActivo" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="tinOpcion" Type="System.Byte" DbType="TinyInt" />
+    <ElementType Name="stp_setDatosInstalacionResult">
+      <Column Name="vchResultado" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="vchDescripcion" Type="System.String" DbType="VarChar(45) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.stp_setDatosViatico" Method="stp_setDatosViatico">
+    <Parameter Name="intCotizacionID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intDetCotizaID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intDatoViaticoID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intElementoID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="sintViaticoID" Type="System.Int16" DbType="SmallInt" />
+    <Parameter Name="intCantidad" Type="System.Int32" DbType="Int" />
+    <Parameter Name="datFecha" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="bitActivo" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="tinOpcion" Type="System.Byte" DbType="TinyInt" />
+    <ElementType Name="stp_setDatosViaticoResult">
+      <Column Name="vchResultado" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
       <Column Name="vchDescripcion" Type="System.String" DbType="VarChar(45) NOT NULL" CanBeNull="false" />
     </ElementType>
   </Function>

@@ -71,5 +71,38 @@ namespace Adsisplus.Cotyrsa.WcfService.CatalogoGeneralServices
         [OperationContract]
         [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ListarCatTipoPersona")]
         List<Catalogo> ListarCatTipoPersona();
+
+        /// <summary>
+        /// Procedimiento que lista los datos de catálogos
+        /// </summary>
+        /// <param name="intUnidadMedicionID"></param>
+        /// <returns></returns>
+        [OperationContract]
+        [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ListarCatViatico")]
+        List<Catalogo> ListarCatViatico(int intUnidadMedicionID);
+        /// <summary>
+        /// Procedimiento que lista los datos de destino flete
+        /// </summary>
+        /// <returns></returns>
+        [OperationContract]
+        [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ListarCatDestinoFlete")]
+        List<Catalogo> ListarCatDestinoFlete();
+        /// <summary>
+        /// Procedimiento que obtiene la lista de catálogo flete
+        /// </summary>
+        /// <param name="sintDestinoFleteID"></param>
+        /// <param name="sintTipoUnidadFleteID"></param>
+        /// <returns></returns>
+        [OperationContract]
+        [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ListarCatFlete")]
+        List<Catalogo> ListarCatFlete(short sintDestinoFleteID, short sintTipoUnidadFleteID);
+        /// <summary>
+        /// Procedimiento que lista los datos de instalación
+        /// </summary>
+        /// <param name="intUnidadMedicionID"></param>
+        /// <returns></returns>
+        [OperationContract]
+        [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ListarCatInstalacion")]
+        List<Catalogo> ListarCatInstalacion(int intUnidadMedicionID);
     }
 }

@@ -58,30 +58,118 @@ namespace Adsisplus.Cotyrsa.DataAccess
             }
             return result;
         }
+        ///// <summary>
+        ///// Procedimiento que realiza el alta, modificación o baja de los datos de gastos
+        ///// </summary>
+        ///// <param name="flete"></param>
+        ///// <param name="instalacion"></param>
+        ///// <param name="viaticos"></param>
+        ///// <param name="intCotizacionID"></param>
+        ///// <param name="intDetCotizaID"></param>
+        ///// <param name="bitActivo"></param>
+        ///// <param name="tinOpcion"></param>
+        ///// <returns></returns>
+        //public Resultado setDatosGastos(DatosFlete flete, DatosInstalacion instalacion, DatosViaticos viaticos, int intCotizacionID, bool bitActivo, short tinOpcion)
+        //{
+        //    Resultado result = new Resultado();
+        //    try
+        //    {
+        //        //using (GastosDataContext dc = new GastosDataContext(Helper.ConnectionString()))
+        //        //{
+        //        //    var query = from item in dc.stp_setDatosGasto(intCotizacionID, flete.intDetCotizaID, flete.intDatoFleteID, flete.intElementoID,
+        //        //        flete.sintFleteID, flete.intCantidad, flete.datFechaCarga, flete.datFechaDescarga, 
+        //        //        instalacion.intDetCotizaID, instalacion.intDatosInstalacionID, instalacion.sintInstalacionID, instalacion.intElementoID,
+        //        //        instalacion.intCantidad, instalacion.datFecha, viaticos.intDetCotizaID, viaticos.intDatoViaticoID,
+        //        //        viaticos.intElementoID, viaticos.sintViaticoID, viaticos.intCantidad, viaticos.datFecha, bitActivo, 
+        //        //        (byte)tinOpcion)
+        //        //                select new Resultado
+        //        //                {
+        //        //                    vchDescripcion = item.vchDescripcion,
+        //        //                    vchResultado = item.vchResultado
+        //        //                };
+        //        //    result = query.First();
+        //        //}
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        throw ex;
+        //    }
+        //    return result;
+        //}
         /// <summary>
-        /// Procedimiento que realiza el alta, modificación o baja de los datos de gastos
+        /// Procedimiento que realiza el alta, modificación o baja de flete
         /// </summary>
         /// <param name="flete"></param>
-        /// <param name="instalacion"></param>
-        /// <param name="viaticos"></param>
-        /// <param name="intCotizacionID"></param>
-        /// <param name="intDetCotizaID"></param>
-        /// <param name="bitActivo"></param>
         /// <param name="tinOpcion"></param>
         /// <returns></returns>
-        public Resultado setDatosGastos(DatosFlete flete, DatosInstalacion instalacion, DatosViaticos viaticos, int intCotizacionID, bool bitActivo, short tinOpcion)
+        public Resultado setDatosFlete(DatosFlete flete, short tinOpcion)
         {
             Resultado result = new Resultado();
             try
             {
                 using (GastosDataContext dc = new GastosDataContext(Helper.ConnectionString()))
                 {
-                    var query = from item in dc.stp_setDatosGasto(intCotizacionID, flete.intDetCotizaID, flete.intDatoFleteID, flete.intElementoID,
-                        flete.sintFleteID, flete.intCantidad, flete.datFechaCarga, flete.datFechaDescarga, 
-                        instalacion.intDetCotizaID, instalacion.intDatosInstalacionID, instalacion.sintInstalacionID, instalacion.intElementoID,
-                        instalacion.intCantidad, instalacion.datFecha, viaticos.intDetCotizaID, viaticos.intDatoViaticoID,
-                        viaticos.intElementoID, viaticos.sintViaticoID, viaticos.intCantidad, viaticos.datFecha, bitActivo, 
-                        (byte)tinOpcion)
+                    var query = from item in dc.stp_setDatosFlete(flete.intCotizacionID, flete.intDetCotizaID, flete.intDatoFleteID, flete.intElementoID,
+                    flete.sintFleteID, flete.intCantidad, flete.datFechaCarga, flete.datFechaDescarga, flete.bitActivo,
+                    (byte)tinOpcion)
+                                select new Resultado
+                                {
+                                    vchDescripcion = item.vchDescripcion,
+                                    vchResultado = item.vchResultado
+                                };
+                    result = query.First();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
+        /// <summary>
+        /// Procedimiento que realiza el alta, modificación y baja de instalación
+        /// </summary>
+        /// <param name="instalacion"></param>
+        /// <param name="tinOpcion"></param>
+        /// <returns></returns>
+        public Resultado setDatosInstalacion(DatosInstalacion instalacion, short tinOpcion)
+        {
+            Resultado result = new Resultado();
+            try
+            {
+                using (GastosDataContext dc = new GastosDataContext(Helper.ConnectionString()))
+                {
+                    var query = from item in dc.stp_setDatosInstalacion(instalacion.intCotizacionID, instalacion.intDetCotizaID, instalacion.intDatosInstalacionID, instalacion.sintInstalacionID,
+                        instalacion.intElementoID, instalacion.intCantidad, instalacion.datFecha, instalacion.bitActivo, (byte)tinOpcion)
+                                select new Resultado
+                                {
+                                    vchDescripcion = item.vchDescripcion,
+                                    vchResultado = item.vchResultado
+                                };
+                    result = query.First();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
+        /// <summary>
+        /// Procedimiento que realiza el alta, modificación y baja de viaticos
+        /// </summary>
+        /// <param name="viatico"></param>
+        /// <param name="tinOpcion"></param>
+        /// <returns></returns>
+        public Resultado setDatosViatico(DatosViaticos viatico, short tinOpcion)
+        {
+            Resultado result = new Resultado();
+            try
+            {
+                using (GastosDataContext dc = new GastosDataContext(Helper.ConnectionString()))
+                {
+                    var query = from item in dc.stp_setDatosViatico(viatico.intDetCotizaID, viatico.intDetCotizaID, viatico.intDatoViaticoID, viatico.intElementoID,
+                        viatico.sintViaticoID, viatico.intCantidad, viatico.datFecha, viatico.bitActivo, (byte)tinOpcion)
                                 select new Resultado
                                 {
                                     vchDescripcion = item.vchDescripcion,

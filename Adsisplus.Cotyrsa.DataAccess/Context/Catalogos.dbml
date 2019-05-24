@@ -458,4 +458,32 @@
       <Column Name="decAlturaMarco" Type="System.Decimal" DbType="Decimal(8,2)" CanBeNull="true" />
     </ElementType>
   </Function>
+  <Function Name="dbo.stp_ListarCatViatico" Method="stp_ListarCatViatico">
+    <Parameter Name="intUnidadMedicionID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="stp_ListarCatViaticoResult">
+      <Column Name="sintViaticoID" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Column Name="vchDescripcion" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.stp_ListarCatDestinoFlete" Method="stp_ListarCatDestinoFlete">
+    <ElementType Name="stp_ListarCatDestinoFleteResult">
+      <Column Name="sintDestinoFleteID" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Column Name="vchDestinoFlete" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.stp_ListarCatFlete" Method="stp_ListarCatFlete">
+    <Parameter Name="sintDestinoFleteID" Type="System.Int16" DbType="SmallInt" />
+    <Parameter Name="sintTipoUnidadFleteID" Type="System.Int16" DbType="SmallInt" />
+    <ElementType Name="stp_ListarCatFleteResult">
+      <Column Name="sintFleteID" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Column Name="intCosto" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.stp_ListarCatInstalacion" Method="stp_ListarCatInstalacion">
+    <Parameter Name="intUnidadMedicionID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="stp_ListarCatInstalacionResult">
+      <Column Name="sintInstalacionID" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Column Name="vchDescripcion" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+    </ElementType>
+  </Function>
 </Database>

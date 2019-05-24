@@ -1280,6 +1280,114 @@ namespace Adsisplus.Cotyrsa.DataAccess
             return result;
         }
         /// <summary>
+        /// Procedimiento que lista los datos de catálogos
+        /// </summary>
+        /// <param name="intUnidadMedicionID"></param>
+        /// <returns></returns>
+        public List<Catalogo> ListarCatViatico(int intUnidadMedicionID)
+        {
+            List<Catalogo> result = new List<Catalogo>();
+            try
+            {
+                using (CatalogosDataContext dc = new CatalogosDataContext(Helper.ConnectionString()))
+                {
+                    var query = from item in dc.stp_ListarCatViatico(intUnidadMedicionID)
+                                select new Catalogo
+                                {
+                                    intCatalogoID = item.sintViaticoID,
+                                    vchDescripcion = item.vchDescripcion
+                                };
+                    result.AddRange(query);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
+        /// <summary>
+        /// Procedimiento que lista los datos de destino flete
+        /// </summary>
+        /// <returns></returns>
+        public List<Catalogo> ListarCatDestinoFlete()
+        {
+            List<Catalogo> result = new List<Catalogo>();
+            try
+            {
+                using (CatalogosDataContext dc = new CatalogosDataContext(Helper.ConnectionString()))
+                {
+                    var query = from item in dc.stp_ListarCatDestinoFlete()
+                                select new Catalogo
+                                {
+                                    intCatalogoID = item.sintDestinoFleteID,
+                                    vchDescripcion = item.vchDestinoFlete
+                                };
+                    result.AddRange(query);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
+        /// <summary>
+        /// Procedimiento que obtiene la lista de catálogo flete
+        /// </summary>
+        /// <param name="sintDestinoFleteID"></param>
+        /// <param name="sintTipoUnidadFleteID"></param>
+        /// <returns></returns>
+        public List<Catalogo> ListarCatFlete(short sintDestinoFleteID, short sintTipoUnidadFleteID)
+        {
+            List<Catalogo> result = new List<Catalogo>();
+            try
+            {
+                using (CatalogosDataContext dc = new CatalogosDataContext(Helper.ConnectionString()))
+                {
+                    var query = from item in dc.stp_ListarCatFlete(sintDestinoFleteID, sintTipoUnidadFleteID)
+                                select new Catalogo
+                                {
+                                    intCatalogoID = item.sintFleteID,
+                                    vchDescripcion = item.intCosto.ToString()
+                                };
+                    result.AddRange(query);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
+        /// <summary>
+        /// Procedimiento que lista los datos de instalación
+        /// </summary>
+        /// <param name="intUnidadMedicionID"></param>
+        /// <returns></returns>
+        public List<Catalogo> ListarCatInstalacion(int intUnidadMedicionID)
+        {
+            List<Catalogo> result = new List<Catalogo>();
+            try
+            {
+                using (CatalogosDataContext dc = new CatalogosDataContext(Helper.ConnectionString()))
+                {
+                    var query = from item in dc.stp_ListarCatInstalacion(intUnidadMedicionID)
+                                select new Catalogo
+                                {
+                                    intCatalogoID = item.sintInstalacionID,
+                                    vchDescripcion = item.vchDescripcion
+                                };
+                    result.AddRange(query);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
+        /// <summary>
         /// Procedimiento de alta, baja y modificación de los datos del insumo individual
         /// </summary>
         /// <param name="insumo"></param>

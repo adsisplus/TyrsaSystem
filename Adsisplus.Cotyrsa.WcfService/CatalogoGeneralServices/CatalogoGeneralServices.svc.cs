@@ -152,5 +152,77 @@ namespace Adsisplus.Cotyrsa.WcfService.CatalogoGeneralServices
             }
             return result;
         }
+        /// <summary>
+        /// Procedimiento que lista los datos de catálogos
+        /// </summary>
+        /// <param name="intUnidadMedicionID"></param>
+        /// <returns></returns>
+        public List<Catalogo> ListarCatViatico(int intUnidadMedicionID)
+        {
+            List<Catalogo> result = new List<Catalogo>();
+            try
+            {
+                result = (new CatalogoLogic()).ListarCatViatico(intUnidadMedicionID);
+            }
+            catch (Exception ex)
+            {
+                Adsisplus.Cotyrsa.BusinessLogic.EventLogManager.LogErrorEntry(ex.Message);
+            }
+            return result;
+        }
+        /// <summary>
+        /// Procedimiento que lista los datos de destino flete
+        /// </summary>
+        /// <returns></returns>
+        public List<Catalogo> ListarCatDestinoFlete()
+        {
+            List<Catalogo> result = new List<Catalogo>();
+            try
+            {
+                result = (new CatalogoLogic()).ListarCatDestinoFlete();
+            }
+            catch (Exception ex)
+            {
+                Adsisplus.Cotyrsa.BusinessLogic.EventLogManager.LogErrorEntry(ex.Message);
+            }
+            return result;
+        }
+        /// <summary>
+        /// Procedimiento que obtiene la lista de catálogo flete
+        /// </summary>
+        /// <param name="sintDestinoFleteID"></param>
+        /// <param name="sintTipoUnidadFleteID"></param>
+        /// <returns></returns>
+        public List<Catalogo> ListarCatFlete(short sintDestinoFleteID, short sintTipoUnidadFleteID)
+        {
+            List<Catalogo> result = new List<Catalogo>();
+            try
+            {
+                result = (new CatalogoLogic()).ListarCatFlete(sintDestinoFleteID, sintTipoUnidadFleteID);
+            }
+            catch (Exception ex)
+            {
+                Adsisplus.Cotyrsa.BusinessLogic.EventLogManager.LogErrorEntry(ex.Message);
+            }
+            return result;
+        }
+        /// <summary>
+        /// Procedimiento que lista los datos de instalación
+        /// </summary>
+        /// <param name="intUnidadMedicionID"></param>
+        /// <returns></returns>
+        public List<Catalogo> ListarCatInstalacion(int intUnidadMedicionID)
+        {
+            List<Catalogo> result = new List<Catalogo>();
+            try
+            {
+                result = (new CatalogoLogic()).ListarCatInstalacion(intUnidadMedicionID);
+            }
+            catch (Exception ex)
+            {
+                Adsisplus.Cotyrsa.BusinessLogic.EventLogManager.LogErrorEntry(ex.Message);
+            }
+            return result;
+        }
     }
 }
