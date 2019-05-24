@@ -40,16 +40,15 @@ namespace Adsisplus.Cotyrsa.WcfService.GastosServices
         /// <param name="instalacion"></param>
         /// <param name="viaticos"></param>
         /// <param name="intCotizacionID"></param>
-        /// <param name="intDetCotizaID"></param>
         /// <param name="bitActivo"></param>
         /// <param name="tinOpcion"></param>
         /// <returns></returns>
-        public Resultado setDatosGastos(DatosFlete flete, DatosInstalacion instalacion, DatosViaticos viaticos, int intCotizacionID, int intDetCotizaID, bool bitActivo, short tinOpcion)
+        public Resultado setDatosGastos(DatosFlete flete, DatosInstalacion instalacion, DatosViaticos viaticos, int intCotizacionID, bool bitActivo, short tinOpcion)
         {
             Resultado result = new Resultado();
             try
             {
-                result = (new GastosLogic()).setDatosGastos(flete, instalacion, viaticos, intCotizacionID, intDetCotizaID, bitActivo, tinOpcion);
+                result = (new GastosLogic()).setDatosGastos(flete, instalacion, viaticos, intCotizacionID, bitActivo, tinOpcion);
             }
             catch (Exception ex)
             {

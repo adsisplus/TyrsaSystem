@@ -69,16 +69,17 @@ namespace Adsisplus.Cotyrsa.DataAccess
         /// <param name="bitActivo"></param>
         /// <param name="tinOpcion"></param>
         /// <returns></returns>
-        public Resultado setDatosGastos(DatosFlete flete, DatosInstalacion instalacion, DatosViaticos viaticos, int intCotizacionID, int intDetCotizaID, bool bitActivo, short tinOpcion)
+        public Resultado setDatosGastos(DatosFlete flete, DatosInstalacion instalacion, DatosViaticos viaticos, int intCotizacionID, bool bitActivo, short tinOpcion)
         {
             Resultado result = new Resultado();
             try
             {
                 using (GastosDataContext dc = new GastosDataContext(Helper.ConnectionString()))
                 {
-                    var query = from item in dc.stp_setDatosGasto(intCotizacionID, intDetCotizaID, flete.intDatoFleteID, flete.sintFleteID,
-                        flete.intCantidad, flete.datFechaCarga, flete.datFechaDescarga, instalacion.intDatosInstalacionID,
-                        instalacion.sintInstalacionID, instalacion.intCantidad, instalacion.datFecha, viaticos.intDatoViaticoID,
+                    var query = from item in dc.stp_setDatosGasto(intCotizacionID, flete.intDetCotizaID, flete.intDatoFleteID, flete.sintFleteID,
+                        flete.intCantidad, flete.datFechaCarga, flete.datFechaDescarga, instalacion.intDetCotizaID,
+                        instalacion.intDatosInstalacionID, instalacion.sintInstalacionID, instalacion.intElementoID, instalacion.intCantidad,
+                        instalacion.datFecha, viaticos.intDetCotizaID, viaticos.intDatoViaticoID, viaticos.intElementoID,
                         viaticos.sintViaticoID, viaticos.intCantidad, viaticos.datFecha, bitActivo, (byte)tinOpcion)
                                 select new Resultado
                                 {

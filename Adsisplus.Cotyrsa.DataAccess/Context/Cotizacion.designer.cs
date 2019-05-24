@@ -69,37 +69,6 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 			return ((ISingleResult<stp_ListarRel_TipoElementoAlmacen_FactorCotizacionResult>)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.stp_setDatosRelSistemaSelectivo")]
-		public ISingleResult<stp_setDatosRelSistemaSelectivoResult> stp_setDatosRelSistemaSelectivo(
-					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intTipoElementoCoti_ProductoID, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intTipoElementoID, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intTipoElementoAlmacenID, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intDatoMarcoID, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intDatosVigaID, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intDatosPanelID, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intDatosCrossBarID, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intDistanciadorID, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intParrillaID, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intVigaTopeID, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intProtectorPosteID, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intProtectorBateriaID, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intCotizacionID, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="SmallInt")] System.Nullable<short> sintSistemaCargaMarcoID, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Date")] System.Nullable<System.DateTime> datFechaAlta, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Bit")] System.Nullable<bool> bitActivo, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="TinyInt")] System.Nullable<byte> tinOpcion)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), intTipoElementoCoti_ProductoID, intTipoElementoID, intTipoElementoAlmacenID, intDatoMarcoID, intDatosVigaID, intDatosPanelID, intDatosCrossBarID, intDistanciadorID, intParrillaID, intVigaTopeID, intProtectorPosteID, intProtectorBateriaID, intCotizacionID, sintSistemaCargaMarcoID, datFechaAlta, bitActivo, tinOpcion);
-			return ((ISingleResult<stp_setDatosRelSistemaSelectivoResult>)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.stp_ListarDatosSistemaSelectivo")]
-		public ISingleResult<stp_ListarDatosSistemaSelectivoResult> stp_ListarDatosSistemaSelectivo([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intCotizacionID)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), intCotizacionID);
-			return ((ISingleResult<stp_ListarDatosSistemaSelectivoResult>)(result.ReturnValue));
-		}
-		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.stp_ListarCotizacion")]
 		public ISingleResult<stp_ListarCotizacionResult> stp_ListarCotizacion([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intEmpresaID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intCotizacionID)
 		{
@@ -158,6 +127,41 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), intCotizacionID);
 			return ((ISingleResult<stp_ListarDetalleCotizacionResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.stp_ListarDatosSistemaSelectivo")]
+		public ISingleResult<stp_ListarDatosSistemaSelectivoResult> stp_ListarDatosSistemaSelectivo([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intCotizacionID)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), intCotizacionID);
+			return ((ISingleResult<stp_ListarDatosSistemaSelectivoResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.stp_setDatosRelSistemaSelectivo")]
+		public ISingleResult<stp_setDatosRelSistemaSelectivoResult> stp_setDatosRelSistemaSelectivo(
+					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intTipoElementoCoti_ProductoID, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intTipoElementoID, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intTipoElementoAlmacenID, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intDatoMarcoID, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intDatosVigaID, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intDatosPanelID, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intDatosCrossBarID, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intDistanciadorID, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intParrillaID, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intVigaTopeID, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intProtectorPosteID, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intProtectorBateriaID, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intCotizacionID, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="SmallInt")] System.Nullable<short> sintSistemaCargaMarcoID, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intDatoViaticoID, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intDatoTornilleriaID, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intDatosInstalacionID, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intDatoFleteID, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Date")] System.Nullable<System.DateTime> datFechaAlta, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Bit")] System.Nullable<bool> bitActivo, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="TinyInt")] System.Nullable<byte> tinOpcion)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), intTipoElementoCoti_ProductoID, intTipoElementoID, intTipoElementoAlmacenID, intDatoMarcoID, intDatosVigaID, intDatosPanelID, intDatosCrossBarID, intDistanciadorID, intParrillaID, intVigaTopeID, intProtectorPosteID, intProtectorBateriaID, intCotizacionID, sintSistemaCargaMarcoID, intDatoViaticoID, intDatoTornilleriaID, intDatosInstalacionID, intDatoFleteID, datFechaAlta, bitActivo, tinOpcion);
+			return ((ISingleResult<stp_setDatosRelSistemaSelectivoResult>)(result.ReturnValue));
 		}
 	}
 	
@@ -263,256 +267,6 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_datFechaAlta", DbType="Date")]
-		public System.Nullable<System.DateTime> datFechaAlta
-		{
-			get
-			{
-				return this._datFechaAlta;
-			}
-			set
-			{
-				if ((this._datFechaAlta != value))
-				{
-					this._datFechaAlta = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_bitActivo", DbType="Bit")]
-		public System.Nullable<bool> bitActivo
-		{
-			get
-			{
-				return this._bitActivo;
-			}
-			set
-			{
-				if ((this._bitActivo != value))
-				{
-					this._bitActivo = value;
-				}
-			}
-		}
-	}
-	
-	public partial class stp_setDatosRelSistemaSelectivoResult
-	{
-		
-		private string _vchResultado;
-		
-		private string _vchDescripcion;
-		
-		public stp_setDatosRelSistemaSelectivoResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchResultado", DbType="VarChar(30)")]
-		public string vchResultado
-		{
-			get
-			{
-				return this._vchResultado;
-			}
-			set
-			{
-				if ((this._vchResultado != value))
-				{
-					this._vchResultado = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchDescripcion", DbType="VarChar(52) NOT NULL", CanBeNull=false)]
-		public string vchDescripcion
-		{
-			get
-			{
-				return this._vchDescripcion;
-			}
-			set
-			{
-				if ((this._vchDescripcion != value))
-				{
-					this._vchDescripcion = value;
-				}
-			}
-		}
-	}
-	
-	public partial class stp_ListarDatosSistemaSelectivoResult
-	{
-		
-		private int _intTipoElementoCoti_Producto;
-		
-		private System.Nullable<int> _intCotizacionID;
-		
-		private System.Nullable<int> _intDatosVigaID;
-		
-		private System.Nullable<int> _intDatoMarcoID;
-		
-		private System.Nullable<int> _intDatosPanelID;
-		
-		private System.Nullable<int> _intDatosCrossBarID;
-		
-		private System.Nullable<int> _intDistanciadorID;
-		
-		private System.Nullable<int> _intTipoElementoID;
-		
-		private System.Nullable<int> _intTipoElementoAlmacenID;
-		
-		private System.Nullable<System.DateTime> _datFechaAlta;
-		
-		private System.Nullable<bool> _bitActivo;
-		
-		public stp_ListarDatosSistemaSelectivoResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intTipoElementoCoti_Producto", DbType="Int NOT NULL")]
-		public int intTipoElementoCoti_Producto
-		{
-			get
-			{
-				return this._intTipoElementoCoti_Producto;
-			}
-			set
-			{
-				if ((this._intTipoElementoCoti_Producto != value))
-				{
-					this._intTipoElementoCoti_Producto = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intCotizacionID", DbType="Int")]
-		public System.Nullable<int> intCotizacionID
-		{
-			get
-			{
-				return this._intCotizacionID;
-			}
-			set
-			{
-				if ((this._intCotizacionID != value))
-				{
-					this._intCotizacionID = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intDatosVigaID", DbType="Int")]
-		public System.Nullable<int> intDatosVigaID
-		{
-			get
-			{
-				return this._intDatosVigaID;
-			}
-			set
-			{
-				if ((this._intDatosVigaID != value))
-				{
-					this._intDatosVigaID = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intDatoMarcoID", DbType="Int")]
-		public System.Nullable<int> intDatoMarcoID
-		{
-			get
-			{
-				return this._intDatoMarcoID;
-			}
-			set
-			{
-				if ((this._intDatoMarcoID != value))
-				{
-					this._intDatoMarcoID = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intDatosPanelID", DbType="Int")]
-		public System.Nullable<int> intDatosPanelID
-		{
-			get
-			{
-				return this._intDatosPanelID;
-			}
-			set
-			{
-				if ((this._intDatosPanelID != value))
-				{
-					this._intDatosPanelID = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intDatosCrossBarID", DbType="Int")]
-		public System.Nullable<int> intDatosCrossBarID
-		{
-			get
-			{
-				return this._intDatosCrossBarID;
-			}
-			set
-			{
-				if ((this._intDatosCrossBarID != value))
-				{
-					this._intDatosCrossBarID = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intDistanciadorID", DbType="Int")]
-		public System.Nullable<int> intDistanciadorID
-		{
-			get
-			{
-				return this._intDistanciadorID;
-			}
-			set
-			{
-				if ((this._intDistanciadorID != value))
-				{
-					this._intDistanciadorID = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intTipoElementoID", DbType="Int")]
-		public System.Nullable<int> intTipoElementoID
-		{
-			get
-			{
-				return this._intTipoElementoID;
-			}
-			set
-			{
-				if ((this._intTipoElementoID != value))
-				{
-					this._intTipoElementoID = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intTipoElementoAlmacenID", DbType="Int")]
-		public System.Nullable<int> intTipoElementoAlmacenID
-		{
-			get
-			{
-				return this._intTipoElementoAlmacenID;
-			}
-			set
-			{
-				if ((this._intTipoElementoAlmacenID != value))
-				{
-					this._intTipoElementoAlmacenID = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_datFechaAlta", DbType="DateTime")]
 		public System.Nullable<System.DateTime> datFechaAlta
 		{
 			get
@@ -1974,6 +1728,418 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 				if ((this._bitActivo != value))
 				{
 					this._bitActivo = value;
+				}
+			}
+		}
+	}
+	
+	public partial class stp_ListarDatosSistemaSelectivoResult
+	{
+		
+		private int _intTipoElementoCoti_Producto;
+		
+		private System.Nullable<int> _intCotizacionID;
+		
+		private System.Nullable<int> _intDatosVigaID;
+		
+		private System.Nullable<int> _intDatoMarcoID;
+		
+		private System.Nullable<int> _intDatosPanelID;
+		
+		private System.Nullable<int> _intDatosCrossBarID;
+		
+		private System.Nullable<int> _intDistanciadorID;
+		
+		private System.Nullable<int> _intTipoElementoID;
+		
+		private System.Nullable<int> _intTipoElementoAlmacenID;
+		
+		private System.Nullable<int> _intParrillaID;
+		
+		private System.Nullable<int> _intVigaTopeID;
+		
+		private System.Nullable<int> _intProtectorPosteID;
+		
+		private System.Nullable<int> _intProtectorBateriaID;
+		
+		private System.Nullable<short> _sintSistemaCargaMarcoID;
+		
+		private System.Nullable<int> _intDatoTornilleriaID;
+		
+		private System.Nullable<int> _intDatoViaticoID;
+		
+		private System.Nullable<int> _intDatosInstalacionID;
+		
+		private System.Nullable<int> _intDatoFleteID;
+		
+		private System.Nullable<System.DateTime> _datFechaAlta;
+		
+		private System.Nullable<bool> _bitActivo;
+		
+		public stp_ListarDatosSistemaSelectivoResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intTipoElementoCoti_Producto", DbType="Int NOT NULL")]
+		public int intTipoElementoCoti_Producto
+		{
+			get
+			{
+				return this._intTipoElementoCoti_Producto;
+			}
+			set
+			{
+				if ((this._intTipoElementoCoti_Producto != value))
+				{
+					this._intTipoElementoCoti_Producto = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intCotizacionID", DbType="Int")]
+		public System.Nullable<int> intCotizacionID
+		{
+			get
+			{
+				return this._intCotizacionID;
+			}
+			set
+			{
+				if ((this._intCotizacionID != value))
+				{
+					this._intCotizacionID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intDatosVigaID", DbType="Int")]
+		public System.Nullable<int> intDatosVigaID
+		{
+			get
+			{
+				return this._intDatosVigaID;
+			}
+			set
+			{
+				if ((this._intDatosVigaID != value))
+				{
+					this._intDatosVigaID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intDatoMarcoID", DbType="Int")]
+		public System.Nullable<int> intDatoMarcoID
+		{
+			get
+			{
+				return this._intDatoMarcoID;
+			}
+			set
+			{
+				if ((this._intDatoMarcoID != value))
+				{
+					this._intDatoMarcoID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intDatosPanelID", DbType="Int")]
+		public System.Nullable<int> intDatosPanelID
+		{
+			get
+			{
+				return this._intDatosPanelID;
+			}
+			set
+			{
+				if ((this._intDatosPanelID != value))
+				{
+					this._intDatosPanelID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intDatosCrossBarID", DbType="Int")]
+		public System.Nullable<int> intDatosCrossBarID
+		{
+			get
+			{
+				return this._intDatosCrossBarID;
+			}
+			set
+			{
+				if ((this._intDatosCrossBarID != value))
+				{
+					this._intDatosCrossBarID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intDistanciadorID", DbType="Int")]
+		public System.Nullable<int> intDistanciadorID
+		{
+			get
+			{
+				return this._intDistanciadorID;
+			}
+			set
+			{
+				if ((this._intDistanciadorID != value))
+				{
+					this._intDistanciadorID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intTipoElementoID", DbType="Int")]
+		public System.Nullable<int> intTipoElementoID
+		{
+			get
+			{
+				return this._intTipoElementoID;
+			}
+			set
+			{
+				if ((this._intTipoElementoID != value))
+				{
+					this._intTipoElementoID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intTipoElementoAlmacenID", DbType="Int")]
+		public System.Nullable<int> intTipoElementoAlmacenID
+		{
+			get
+			{
+				return this._intTipoElementoAlmacenID;
+			}
+			set
+			{
+				if ((this._intTipoElementoAlmacenID != value))
+				{
+					this._intTipoElementoAlmacenID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intParrillaID", DbType="Int")]
+		public System.Nullable<int> intParrillaID
+		{
+			get
+			{
+				return this._intParrillaID;
+			}
+			set
+			{
+				if ((this._intParrillaID != value))
+				{
+					this._intParrillaID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intVigaTopeID", DbType="Int")]
+		public System.Nullable<int> intVigaTopeID
+		{
+			get
+			{
+				return this._intVigaTopeID;
+			}
+			set
+			{
+				if ((this._intVigaTopeID != value))
+				{
+					this._intVigaTopeID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intProtectorPosteID", DbType="Int")]
+		public System.Nullable<int> intProtectorPosteID
+		{
+			get
+			{
+				return this._intProtectorPosteID;
+			}
+			set
+			{
+				if ((this._intProtectorPosteID != value))
+				{
+					this._intProtectorPosteID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intProtectorBateriaID", DbType="Int")]
+		public System.Nullable<int> intProtectorBateriaID
+		{
+			get
+			{
+				return this._intProtectorBateriaID;
+			}
+			set
+			{
+				if ((this._intProtectorBateriaID != value))
+				{
+					this._intProtectorBateriaID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sintSistemaCargaMarcoID", DbType="SmallInt")]
+		public System.Nullable<short> sintSistemaCargaMarcoID
+		{
+			get
+			{
+				return this._sintSistemaCargaMarcoID;
+			}
+			set
+			{
+				if ((this._sintSistemaCargaMarcoID != value))
+				{
+					this._sintSistemaCargaMarcoID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intDatoTornilleriaID", DbType="Int")]
+		public System.Nullable<int> intDatoTornilleriaID
+		{
+			get
+			{
+				return this._intDatoTornilleriaID;
+			}
+			set
+			{
+				if ((this._intDatoTornilleriaID != value))
+				{
+					this._intDatoTornilleriaID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intDatoViaticoID", DbType="Int")]
+		public System.Nullable<int> intDatoViaticoID
+		{
+			get
+			{
+				return this._intDatoViaticoID;
+			}
+			set
+			{
+				if ((this._intDatoViaticoID != value))
+				{
+					this._intDatoViaticoID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intDatosInstalacionID", DbType="Int")]
+		public System.Nullable<int> intDatosInstalacionID
+		{
+			get
+			{
+				return this._intDatosInstalacionID;
+			}
+			set
+			{
+				if ((this._intDatosInstalacionID != value))
+				{
+					this._intDatosInstalacionID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intDatoFleteID", DbType="Int")]
+		public System.Nullable<int> intDatoFleteID
+		{
+			get
+			{
+				return this._intDatoFleteID;
+			}
+			set
+			{
+				if ((this._intDatoFleteID != value))
+				{
+					this._intDatoFleteID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_datFechaAlta", DbType="DateTime")]
+		public System.Nullable<System.DateTime> datFechaAlta
+		{
+			get
+			{
+				return this._datFechaAlta;
+			}
+			set
+			{
+				if ((this._datFechaAlta != value))
+				{
+					this._datFechaAlta = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_bitActivo", DbType="Bit")]
+		public System.Nullable<bool> bitActivo
+		{
+			get
+			{
+				return this._bitActivo;
+			}
+			set
+			{
+				if ((this._bitActivo != value))
+				{
+					this._bitActivo = value;
+				}
+			}
+		}
+	}
+	
+	public partial class stp_setDatosRelSistemaSelectivoResult
+	{
+		
+		private string _vchResultado;
+		
+		private string _vchDescripcion;
+		
+		public stp_setDatosRelSistemaSelectivoResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchResultado", DbType="VarChar(30)")]
+		public string vchResultado
+		{
+			get
+			{
+				return this._vchResultado;
+			}
+			set
+			{
+				if ((this._vchResultado != value))
+				{
+					this._vchResultado = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchDescripcion", DbType="VarChar(52) NOT NULL", CanBeNull=false)]
+		public string vchDescripcion
+		{
+			get
+			{
+				return this._vchDescripcion;
+			}
+			set
+			{
+				if ((this._vchDescripcion != value))
+				{
+					this._vchDescripcion = value;
 				}
 			}
 		}
