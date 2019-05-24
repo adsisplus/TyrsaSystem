@@ -74,6 +74,7 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intCotizacionID, 
 					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intDetCotizaFleteID, 
 					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intDatoFleteID, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intElementoFlete, 
 					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> sintFleteID, 
 					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intCantidadFlete, 
 					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Date")] System.Nullable<System.DateTime> datFechaCarga, 
@@ -93,7 +94,7 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Bit")] System.Nullable<bool> bitActivo, 
 					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="TinyInt")] System.Nullable<byte> tinOpcion)
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), intCotizacionID, intDetCotizaFleteID, intDatoFleteID, sintFleteID, intCantidadFlete, datFechaCarga, datFechaDescarga, intDetCotizaInstalacionID, intDatosInstalacionID, sintInstalacionID, intElementoInstalacionID, intCantidadInstalacion, datFechaInstalacion, intDetCotizaViaticosID, intDatoViaticoID, intElementoViaticoID, sintViaticoID, intCantidadViatico, datFechaViatico, bitActivo, tinOpcion);
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), intCotizacionID, intDetCotizaFleteID, intDatoFleteID, intElementoFlete, sintFleteID, intCantidadFlete, datFechaCarga, datFechaDescarga, intDetCotizaInstalacionID, intDatosInstalacionID, sintInstalacionID, intElementoInstalacionID, intCantidadInstalacion, datFechaInstalacion, intDetCotizaViaticosID, intDatoViaticoID, intElementoViaticoID, sintViaticoID, intCantidadViatico, datFechaViatico, bitActivo, tinOpcion);
 			return ((ISingleResult<stp_setDatosGastoResult>)(result.ReturnValue));
 		}
 	}

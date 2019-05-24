@@ -79,12 +79,13 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
                     // Almacenamos el ID del detalle de la cotización
                     intDetCotizaID = Convert.ToInt32(result.vchResultado);
                     flete.intDetCotizaID = intDetCotizaID;
+                    flete.intElementoID = 13;
 
                     // Almacenamos el siguiente detalle para instalación
                     detCotizacion = new Cotizacion();
                     detCotizacion.intDetCotizaID = instalacion.intDetCotizaID;
                     detCotizacion.intCotizacionID = intCotizacionID;
-                    detCotizacion.intElementoID = 12; // ID correspondiente a Distanciador
+                    detCotizacion.intElementoID = 12; // ID correspondiente a instalacion
                     detCotizacion.intPartida = 0;
                     detCotizacion.intCantidad = instalacion.intCantidad;
                     detCotizacion.decMonto = 0;

@@ -76,11 +76,12 @@ namespace Adsisplus.Cotyrsa.DataAccess
             {
                 using (GastosDataContext dc = new GastosDataContext(Helper.ConnectionString()))
                 {
-                    var query = from item in dc.stp_setDatosGasto(intCotizacionID, flete.intDetCotizaID, flete.intDatoFleteID, flete.sintFleteID,
-                        flete.intCantidad, flete.datFechaCarga, flete.datFechaDescarga, instalacion.intDetCotizaID,
-                        instalacion.intDatosInstalacionID, instalacion.sintInstalacionID, instalacion.intElementoID, instalacion.intCantidad,
-                        instalacion.datFecha, viaticos.intDetCotizaID, viaticos.intDatoViaticoID, viaticos.intElementoID,
-                        viaticos.sintViaticoID, viaticos.intCantidad, viaticos.datFecha, bitActivo, (byte)tinOpcion)
+                    var query = from item in dc.stp_setDatosGasto(intCotizacionID, flete.intDetCotizaID, flete.intDatoFleteID, flete.intElementoID,
+                        flete.sintFleteID, flete.intCantidad, flete.datFechaCarga, flete.datFechaDescarga, 
+                        instalacion.intDetCotizaID, instalacion.intDatosInstalacionID, instalacion.sintInstalacionID, instalacion.intElementoID,
+                        instalacion.intCantidad, instalacion.datFecha, viaticos.intDetCotizaID, viaticos.intDatoViaticoID,
+                        viaticos.intElementoID, viaticos.sintViaticoID, viaticos.intCantidad, viaticos.datFecha, bitActivo, 
+                        (byte)tinOpcion)
                                 select new Resultado
                                 {
                                     vchDescripcion = item.vchDescripcion,
