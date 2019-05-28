@@ -722,5 +722,22 @@ namespace Adsisplus.Cotyrsa.WcfService.CatalogoServices
             }
             return result;
         }
+        /// <summary>
+        /// Procedimiento que lista el valor de altura de pandeo
+        /// </summary>
+        /// <returns></returns>
+        public List<CatalogoDecimal> ListarCatAlturaPandeoMarco()
+        {
+            List<CatalogoDecimal> result = new List<CatalogoDecimal>();
+            try
+            {
+                result = (new CatalogoLogic()).ListarCatAlturaPandeoMarco();
+            }
+            catch (Exception ex)
+            {
+                Adsisplus.Cotyrsa.BusinessLogic.EventLogManager.LogErrorEntry(ex.Message);
+            }
+            return result;
+        }
     }
 }

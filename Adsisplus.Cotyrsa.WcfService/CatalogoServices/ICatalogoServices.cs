@@ -323,5 +323,13 @@ namespace Adsisplus.Cotyrsa.WcfService.CatalogoServices
         [OperationContract]
         [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "setDatosInsumoIndividual")]
         Resultado setDatosInsumoIndividual(InsumoIndividual insumo, short tinOpcion);
+
+        /// <summary>
+        /// Procedimiento que lista el valor de altura de pandeo
+        /// </summary>
+        /// <returns></returns>
+        [OperationContract]
+        [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ListarCatAlturaPandeoMarco")]
+        List<CatalogoDecimal> ListarCatAlturaPandeoMarco();
     }
 }

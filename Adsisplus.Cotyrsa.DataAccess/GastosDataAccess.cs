@@ -16,41 +16,75 @@ namespace Adsisplus.Cotyrsa.DataAccess
         /// <param name="intCotizacionID"></param>
         /// <param name="intDetCotizaID"></param>
         /// <returns></returns>
-        public List<DatosGastos> ListarDatosPantallaGastos(int intCotizacionID, int intDetCotizaID)
+        public DatosGastos ListarDatosPantallaGastos(int intCotizacionID, int intDetCotizaID)
         {
-            List<DatosGastos> result = new List<DatosGastos>();
+            DatosGastos result = new DatosGastos();
+            List<DatosFlete> fletes = new List<DatosFlete>();
+            List<DatosInstalacion> instalaciones = new List<DatosInstalacion>();
+            List<DatosViaticos> viaticos = new List<DatosViaticos>();
             try
             {
+                // Obtenemos la lista de datos de flete
                 using (GastosDataContext dc = new GastosDataContext(Helper.ConnectionString()))
                 {
-                    var query = from item in dc.stp_ListarDatosPantallaGasto(intCotizacionID, intDetCotizaID)
-                                select new DatosGastos
+                    var query = from item in dc.stp_ListarDatosFlete(intCotizacionID, intDetCotizaID)
+                                select new DatosFlete
                                 {
-                                    flete = new DatosFlete()
-                                    {
-                                        intDatoFleteID = item.intDatoFleteID,
-                                        sintFleteID = item.sintFleteID,
-                                        intCantidad = item.intCantidadFlete,
-                                        datFechaCarga = item.datFechaCarga,
-                                        datFechaDescarga = item.datFechaDescarga
-                                    },
-                                    instalacion = new DatosInstalacion()
-                                    {
-                                        intDatosInstalacionID = item.intDatosInstalacionID,
-                                        sintInstalacionID = item.sintInstalacionID,
-                                        intCantidad = item.intCantidadInstalacion,
-                                        datFecha = item.datFechaInstalacion
-                                    },
-                                    viatico = new DatosViaticos()
-                                    {
-                                        intDatoViaticoID = item.intDatoViaticoID,
-                                        sintViaticoID = item.sintViaticoID,
-                                        intCantidad = item.intCantidadViaticos,
-                                        datFecha = item.datFechaViatico
-                                    }
+                                    intDatoFleteID = item.intDatoFleteID,
+                                    sintFleteID = item.sintFleteID,
+                                    sintTipoUnidadFleteID = item.sintTipoUnidadFleteID,
+                                    vchTipoUnidad = item.vchTipoUnidad,
+                                    sintDestinoFleteID = item.sintDestinoFleteID,
+                                    vchDestinoFlete = item.vchDestinoFlete,
+                                    intElementoID = item.intElementoID,
+                                    intCantidad = item.intCantidad,
+                                    datFechaCarga = item.datFechaCarga,
+                                    datFechaDescarga = item.datFechaDescarga
                                 };
-                    result.AddRange(query);
+                    fletes.AddRange(query);
                 }
+                // Obtenemos la lista de datos de instalación
+                using (GastosDataContext dc = new GastosDataContext(Helper.ConnectionString()))
+                {
+                    var query = from item in dc.stp_ListarDatosInstalacion(intCotizacionID, intDetCotizaID)
+                                select new DatosInstalacion
+                                {
+                                    intDatosInstalacionID = item.intDatosInstalacionID,
+                                    sintInstalacionID = item.sintInstalacionID,
+                                    vchDescripcion = item.vchDescripcion,
+                                    intUnidadMedicionID = item.intUnidadMedicionID,
+                                    vchUnidadMedicion = item.vchUnidadMedicion,
+                                    intInstalacion = item.intInstalacion,
+                                    intDesinstalacion = item.intDesinstalacion,
+                                    intElementoID = item.intElementoID,
+                                    intCantidad = item.intCantidad
+                                };
+                    instalaciones.AddRange(query);
+                }
+                // Obtenemos la lista de datos de viáticos
+                using (GastosDataContext dc = new GastosDataContext(Helper.ConnectionString()))
+                {
+                    var query = from item in dc.stp_ListarDatosViatico(intCotizacionID, intDetCotizaID)
+                                select new DatosViaticos
+                                {
+                                    intDatoViaticoID = item.intDatoViaticoID,
+                                    sintViaticoID = item.sintViaticoID,
+                                    vchDescripcion = item.vchDescripcion,
+                                    intUnidadMedicionID = item.intUnidadMedicionID,
+                                    vchUnidadMedicion = item.vchUnidadMedicion,
+                                    intInstalacion = item.intInstalacion,
+                                    decFactor = item.decFactor,
+                                    intCantidad = item.intCantidad,
+                                    datFecha = item.datFecha
+                                };
+                    viaticos.AddRange(query);
+                }
+                // Establecemos los datos al resultado
+                result.intCotizacionID = intCotizacionID;
+                result.intDetCotizaID = intDetCotizaID;
+                result.flete = fletes;
+                result.instalacion = instalaciones;
+                result.viatico = viaticos;
             }
             catch (Exception ex)
             {

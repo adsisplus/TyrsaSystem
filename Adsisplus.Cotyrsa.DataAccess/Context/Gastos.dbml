@@ -1,26 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="dbTyrsa" Class="GastosDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
   <Connection Mode="AppSettings" ConnectionString="Data Source=local;Initial Catalog=dbTyrsa;Persist Security Info=True;User ID=usrCotyrsa" SettingsObjectName="Adsisplus.Cotyrsa.DataAccess.Properties.Settings" SettingsPropertyName="dbTyrsaConnectionString" Provider="System.Data.SqlClient" />
-  <Function Name="dbo.stp_ListarDatosPantallaGasto" Method="stp_ListarDatosPantallaGasto">
-    <Parameter Name="intCotizacionID" Type="System.Int32" DbType="Int" />
-    <Parameter Name="intDetCotizaID" Type="System.Int32" DbType="Int" />
-    <ElementType Name="stp_ListarDatosPantallaGastoResult">
-      <Column Name="intCotizacionID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="intDetCotizaID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="intDatoFleteID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="sintFleteID" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
-      <Column Name="intCantidadFlete" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="datFechaCarga" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Column Name="datFechaDescarga" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Column Name="intDatosInstalacionID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="sintInstalacionID" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
-      <Column Name="intCantidadInstalacion" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="datFechaInstalacion" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Column Name="intDatoViaticoID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="sintViaticoID" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
-      <Column Name="intCantidadViaticos" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="datFechaViatico" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-    </ElementType>
-  </Function>
   <Function Name="dbo.stp_setDatosFlete" Method="stp_setDatosFlete">
     <Parameter Name="intCotizacionID" Type="System.Int32" DbType="Int" />
     <Parameter Name="intDetCotizaID" Type="System.Int32" DbType="Int" />
@@ -65,6 +44,52 @@
     <ElementType Name="stp_setDatosViaticoResult">
       <Column Name="vchResultado" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
       <Column Name="vchDescripcion" Type="System.String" DbType="VarChar(45) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.stp_ListarDatosInstalacion" Method="stp_ListarDatosInstalacion">
+    <Parameter Name="intCotizacionID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intDetCotizaID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="stp_ListarDatosInstalacionResult">
+      <Column Name="intDatosInstalacionID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="sintInstalacionID" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="vchDescripcion" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="intUnidadMedicionID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="vchUnidadMedicion" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
+      <Column Name="intInstalacion" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="intDesinstalacion" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="intElementoID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="intCantidad" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.stp_ListarDatosViatico" Method="stp_ListarDatosViatico">
+    <Parameter Name="intCotizacionID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intDetCotizaID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="stp_ListarDatosViaticoResult">
+      <Column Name="intDatoViaticoID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="sintViaticoID" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="vchDescripcion" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="intUnidadMedicionID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="vchUnidadMedicion" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
+      <Column Name="intInstalacion" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="decFactor" Type="System.Decimal" DbType="Decimal(8,2)" CanBeNull="true" />
+      <Column Name="intCantidad" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="datFecha" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.stp_ListarDatosFlete" Method="stp_ListarDatosFlete">
+    <Parameter Name="intCotizacionID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intDetCotizaID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="stp_ListarDatosFleteResult">
+      <Column Name="intDatoFleteID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="sintFleteID" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="sintTipoUnidadFleteID" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="vchTipoUnidad" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="sintDestinoFleteID" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Column Name="vchDestinoFlete" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="intElementoID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="intCantidad" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="datFechaCarga" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="datFechaDescarga" Type="System.DateTime" DbType="Date" CanBeNull="true" />
     </ElementType>
   </Function>
 </Database>

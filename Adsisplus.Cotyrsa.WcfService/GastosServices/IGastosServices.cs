@@ -21,7 +21,7 @@ namespace Adsisplus.Cotyrsa.WcfService.GastosServices
         /// <returns></returns>
         [OperationContract]
         [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ListarDatosPantallaGastos")]
-        List<DatosGastos> ListarDatosPantallaGastos(int intCotizacionID, int intDetCotizaID);
+        DatosGastos ListarDatosPantallaGastos(int intCotizacionID, int intDetCotizaID);
 
         ///// <summary>
         ///// Procedimiento que realiza el alta, modificación o baja de los datos de gastos

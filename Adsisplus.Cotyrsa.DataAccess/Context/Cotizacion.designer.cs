@@ -152,15 +152,11 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intProtectorBateriaID, 
 					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intCotizacionID, 
 					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="SmallInt")] System.Nullable<short> sintSistemaCargaMarcoID, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intDatoViaticoID, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intDatoTornilleriaID, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intDatosInstalacionID, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intDatoFleteID, 
 					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Date")] System.Nullable<System.DateTime> datFechaAlta, 
 					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Bit")] System.Nullable<bool> bitActivo, 
 					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="TinyInt")] System.Nullable<byte> tinOpcion)
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), intTipoElementoCoti_ProductoID, intTipoElementoID, intTipoElementoAlmacenID, intDatoMarcoID, intDatosVigaID, intDatosPanelID, intDatosCrossBarID, intDistanciadorID, intParrillaID, intVigaTopeID, intProtectorPosteID, intProtectorBateriaID, intCotizacionID, sintSistemaCargaMarcoID, intDatoViaticoID, intDatoTornilleriaID, intDatosInstalacionID, intDatoFleteID, datFechaAlta, bitActivo, tinOpcion);
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), intTipoElementoCoti_ProductoID, intTipoElementoID, intTipoElementoAlmacenID, intDatoMarcoID, intDatosVigaID, intDatosPanelID, intDatosCrossBarID, intDistanciadorID, intParrillaID, intVigaTopeID, intProtectorPosteID, intProtectorBateriaID, intCotizacionID, sintSistemaCargaMarcoID, datFechaAlta, bitActivo, tinOpcion);
 			return ((ISingleResult<stp_setDatosRelSistemaSelectivoResult>)(result.ReturnValue));
 		}
 	}
@@ -1766,14 +1762,6 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 		
 		private System.Nullable<int> _intDatoTornilleriaID;
 		
-		private System.Nullable<int> _intDatoViaticoID;
-		
-		private System.Nullable<int> _intDatosInstalacionID;
-		
-		private System.Nullable<int> _intDatoFleteID;
-		
-		private System.Nullable<System.DateTime> _datFechaAlta;
-		
 		private System.Nullable<bool> _bitActivo;
 		
 		public stp_ListarDatosSistemaSelectivoResult()
@@ -2016,70 +2004,6 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 				if ((this._intDatoTornilleriaID != value))
 				{
 					this._intDatoTornilleriaID = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intDatoViaticoID", DbType="Int")]
-		public System.Nullable<int> intDatoViaticoID
-		{
-			get
-			{
-				return this._intDatoViaticoID;
-			}
-			set
-			{
-				if ((this._intDatoViaticoID != value))
-				{
-					this._intDatoViaticoID = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intDatosInstalacionID", DbType="Int")]
-		public System.Nullable<int> intDatosInstalacionID
-		{
-			get
-			{
-				return this._intDatosInstalacionID;
-			}
-			set
-			{
-				if ((this._intDatosInstalacionID != value))
-				{
-					this._intDatosInstalacionID = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intDatoFleteID", DbType="Int")]
-		public System.Nullable<int> intDatoFleteID
-		{
-			get
-			{
-				return this._intDatoFleteID;
-			}
-			set
-			{
-				if ((this._intDatoFleteID != value))
-				{
-					this._intDatoFleteID = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_datFechaAlta", DbType="DateTime")]
-		public System.Nullable<System.DateTime> datFechaAlta
-		{
-			get
-			{
-				return this._datFechaAlta;
-			}
-			set
-			{
-				if ((this._datFechaAlta != value))
-				{
-					this._datFechaAlta = value;
 				}
 			}
 		}

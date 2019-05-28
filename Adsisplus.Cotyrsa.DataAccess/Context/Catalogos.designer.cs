@@ -391,13 +391,6 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 			return ((ISingleResult<stp_ListarCatInsumoIndividualResult>)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.stp_ListarCatAlturaMarco")]
-		public ISingleResult<stp_ListarCatAlturaMarcoResult> stp_ListarCatAlturaMarco()
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
-			return ((ISingleResult<stp_ListarCatAlturaMarcoResult>)(result.ReturnValue));
-		}
-		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.stp_ListarCatViatico")]
 		public ISingleResult<stp_ListarCatViaticoResult> stp_ListarCatViatico([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intUnidadMedicionID)
 		{
@@ -424,6 +417,20 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), intUnidadMedicionID);
 			return ((ISingleResult<stp_ListarCatInstalacionResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.stp_ListarCatAlturaMarco")]
+		public ISingleResult<stp_ListarCatAlturaMarcoResult> stp_ListarCatAlturaMarco()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<stp_ListarCatAlturaMarcoResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.stp_ListarCatAlturaPandeoMarco")]
+		public ISingleResult<stp_ListarCatAlturaPandeoMarcoResult> stp_ListarCatAlturaPandeoMarco()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<stp_ListarCatAlturaPandeoMarcoResult>)(result.ReturnValue));
 		}
 	}
 	
@@ -4907,32 +4914,6 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 		}
 	}
 	
-	public partial class stp_ListarCatAlturaMarcoResult
-	{
-		
-		private System.Nullable<decimal> _decAlturaMarco;
-		
-		public stp_ListarCatAlturaMarcoResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decAlturaMarco", DbType="Decimal(8,2)")]
-		public System.Nullable<decimal> decAlturaMarco
-		{
-			get
-			{
-				return this._decAlturaMarco;
-			}
-			set
-			{
-				if ((this._decAlturaMarco != value))
-				{
-					this._decAlturaMarco = value;
-				}
-			}
-		}
-	}
-	
 	public partial class stp_ListarCatViaticoResult
 	{
 		
@@ -5104,6 +5085,58 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 				if ((this._vchDescripcion != value))
 				{
 					this._vchDescripcion = value;
+				}
+			}
+		}
+	}
+	
+	public partial class stp_ListarCatAlturaMarcoResult
+	{
+		
+		private System.Nullable<decimal> _decAlturaMarco;
+		
+		public stp_ListarCatAlturaMarcoResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decAlturaMarco", DbType="Decimal(8,2)")]
+		public System.Nullable<decimal> decAlturaMarco
+		{
+			get
+			{
+				return this._decAlturaMarco;
+			}
+			set
+			{
+				if ((this._decAlturaMarco != value))
+				{
+					this._decAlturaMarco = value;
+				}
+			}
+		}
+	}
+	
+	public partial class stp_ListarCatAlturaPandeoMarcoResult
+	{
+		
+		private System.Nullable<decimal> _decAlturaPandeoM;
+		
+		public stp_ListarCatAlturaPandeoMarcoResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decAlturaPandeoM", DbType="Decimal(8,2)")]
+		public System.Nullable<decimal> decAlturaPandeoM
+		{
+			get
+			{
+				return this._decAlturaPandeoM;
+			}
+			set
+			{
+				if ((this._decAlturaPandeoM != value))
+				{
+					this._decAlturaPandeoM = value;
 				}
 			}
 		}

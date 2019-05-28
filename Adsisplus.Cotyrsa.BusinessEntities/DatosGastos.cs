@@ -15,10 +15,10 @@ namespace Adsisplus.Cotyrsa.BusinessEntities
         [DataMember]
         public int? intDetCotizaID { get; set; }
         [DataMember]
-        public DatosFlete flete { get; set; }
+        public List<DatosFlete> flete { get; set; }
         [DataMember]
-        public DatosInstalacion instalacion { get; set; }
+        public List<DatosInstalacion> instalacion { get; set; }
         [DataMember]
-        public DatosViaticos viatico { get; set; }
+        public List<DatosViaticos> viatico { get; set; }
     }
 }

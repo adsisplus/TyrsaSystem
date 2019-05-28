@@ -1416,6 +1416,31 @@ namespace Adsisplus.Cotyrsa.DataAccess
             }
             return result;
         }
+        /// <summary>
+        /// Procedimiento que lista el valor de altura de pandeo
+        /// </summary>
+        /// <returns></returns>
+        public List<CatalogoDecimal> ListarCatAlturaPandeoMarco()
+        {
+            List<CatalogoDecimal> result = new List<CatalogoDecimal>();
+            try
+            {
+                using (CatalogosDataContext dc = new CatalogosDataContext(Helper.ConnectionString()))
+                {
+                    var query = from item in dc.stp_ListarCatAlturaPandeoMarco()
+                                select new CatalogoDecimal
+                                {
+                                    decValor = item.decAlturaPandeoM
+                                };
+                    result.AddRange(result);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
     }
 
 

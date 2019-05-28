@@ -171,7 +171,7 @@ namespace Adsisplus.Cotyrsa.DataAccess
                     var query = from item in dc.stp_setDatosRelSistemaSelectivo(sistema.intTipoElementoCoti_Producto, sistema.intTipoElementoID, sistema.intTipoElementoAlmacenID,
                         sistema.intDatoMarcoID, sistema.intDatosVigaID, sistema.intDatosPanelID, sistema.intDatosCrossBarID, sistema.intDistanciadorID,
                         sistema.intParrillaID, sistema.intVigaTopeID, sistema.intProtectorPosteID, sistema.intProtectorBateriaID, sistema.intCotizacionID,
-                        sistema.sintSistemaCargaMarcoID, sistema.intDatoViaticoID, sistema.intDatoTornilleriaID, sistema.intDatosInstalacionID, sistema.intDatoFleteID,
+                        sistema.sintSistemaCargaMarcoID,//sistema.intDatoViaticoID, sistema.intDatoTornilleriaID, sistema.intDatosInstalacionID, sistema.intDatoFleteID,
                         sistema.datFechaAlta, sistema.bitActivo, (byte)tinOpcion)
                                 select new Resultado
                                 {
@@ -261,12 +261,12 @@ namespace Adsisplus.Cotyrsa.DataAccess
                                     intProtectorBateriaID = item.intProtectorBateriaID,
                                     sintSistemaCargaMarcoID = item.sintSistemaCargaMarcoID,
                                     intDatoTornilleriaID = item.intDatoTornilleriaID,
-                                    // Datos de Gasto
-                                    intDatoViaticoID = item.intDatoViaticoID,
-                                    intDatosInstalacionID = item.intDatosInstalacionID,
-                                    intDatoFleteID = item.intDatoFleteID,
+                                    //// Datos de Gasto
+                                    //intDatoViaticoID = item.intDatoViaticoID,
+                                    //intDatosInstalacionID = item.intDatosInstalacionID,
+                                    //intDatoFleteID = item.intDatoFleteID,
 
-                                    datFechaAlta = item.datFechaAlta,
+                                    //datFechaAlta = item.datFechaAlta,
                                     bitActivo = item.bitActivo
                                 };
                     result = query.First();

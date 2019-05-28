@@ -783,18 +783,35 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
             }
             return result;
         }
-            /// <summary>
-            /// Procedimiento de alta, baja y modificación de los datos del insumo individual
-            /// </summary>
-            /// <param name="insumo"></param>
-            /// <param name="tinOpcion"></param>
-            /// <returns></returns>
-            public Resultado setDatosInsumoIndividual(InsumoIndividual insumo, short tinOpcion)
+        /// <summary>
+        /// Procedimiento de alta, baja y modificación de los datos del insumo individual
+        /// </summary>
+        /// <param name="insumo"></param>
+        /// <param name="tinOpcion"></param>
+        /// <returns></returns>
+        public Resultado setDatosInsumoIndividual(InsumoIndividual insumo, short tinOpcion)
         {
             Resultado result = new Resultado();
             try
             {
                 result = CatalogosDA.setDatosInsumoIndividual(insumo, tinOpcion);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
+        /// <summary>
+        /// Procedimiento que lista el valor de altura de pandeo
+        /// </summary>
+        /// <returns></returns>
+        public List<CatalogoDecimal> ListarCatAlturaPandeoMarco()
+        {
+            List<CatalogoDecimal> result = new List<CatalogoDecimal>();
+            try
+            {
+                result = CatalogosDA.ListarCatAlturaPandeoMarco();
             }
             catch (Exception ex)
             {

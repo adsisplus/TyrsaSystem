@@ -15,6 +15,16 @@ namespace Adsisplus.Cotyrsa.BusinessEntities
         [DataMember]
         public short? sintInstalacionID { get; set; }
         [DataMember]
+        public string vchDescripcion { get; set; }
+        [DataMember]
+        public int? intUnidadMedicionID { get; set; }
+        [DataMember]
+        public string vchUnidadMedicion { get; set; }
+        [DataMember]
+        public int? intInstalacion { get; set; }
+        [DataMember]
+        public int? intDesinstalacion { get; set; }
+        [DataMember]
         public int? intElementoID { get; set; }
         [DataMember]
         public int? intCotizacionID { get; set; }

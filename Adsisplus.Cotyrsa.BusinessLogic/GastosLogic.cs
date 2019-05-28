@@ -27,9 +27,9 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
         /// <param name="intCotizacionID"></param>
         /// <param name="intDetCotizaID"></param>
         /// <returns></returns>
-        public List<DatosGastos> ListarDatosPantallaGastos(int intCotizacionID, int intDetCotizaID)
+        public DatosGastos ListarDatosPantallaGastos(int intCotizacionID, int intDetCotizaID)
         {
-            List<DatosGastos> result = new List<DatosGastos>();
+            DatosGastos result = new DatosGastos();
             try
             {
                 result = GastosDA.ListarDatosPantallaGastos(intCotizacionID, intDetCotizaID);
