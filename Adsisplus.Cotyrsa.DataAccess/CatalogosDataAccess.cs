@@ -1349,6 +1349,7 @@ namespace Adsisplus.Cotyrsa.DataAccess
                                     sintInstalacionID = item.sintInstalacionID,
                                     intUnidadMedicionID = item.intUnidadMedicionID,
                                     vchUnidadMedicion = item.vchUnidadMedicion,
+                                    vchDescripcion = item.vchDescripcion,
                                     intInstalacion = item.intInstalacion,
                                     intDesinstalacion = item.intDesinstalacion,
                                     decFactor = item.decFactor,
