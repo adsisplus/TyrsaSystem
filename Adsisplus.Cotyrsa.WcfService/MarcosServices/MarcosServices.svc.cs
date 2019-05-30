@@ -59,18 +59,15 @@ namespace Adsisplus.Cotyrsa.WcfService.MarcosServices
             return result;
         }
         /// <summary>
-        /// Obtiene la lista de datos de un marco en particular
+        /// Procedimiento que lista el fondo de Marco
         /// </summary>
-        /// <param name="sintFondoMarcoID"></param>
-        /// <param name="sintTipoMarcoID"></param>
-        /// <param name="decFondoMarco"></param>
         /// <returns></returns>
-        public List<FondoMarco> ListarFondoMarco(int sintFondoMarcoID, int sintTipoMarcoID, decimal decFondoMarco, int intCalibreAceroID)
+        public List<FondoMarco> ListarFondoMarco()
         {
             List<FondoMarco> result = new List<FondoMarco>();
             try
             {
-                result = (new MarcosLogic()).ListarFondoMarco(sintFondoMarcoID, sintTipoMarcoID, decFondoMarco, intCalibreAceroID);
+                result = (new MarcosLogic()).ListarFondoMarco();
             }
             catch (Exception ex)
             {
@@ -239,27 +236,6 @@ namespace Adsisplus.Cotyrsa.WcfService.MarcosServices
             }
             return result;
         }
-        ///// <summary>
-        ///// Procedimiento que permite listar los marcos en base a la capacidad
-        ///// de carga y la altura de pandeo
-        ///// </summary>
-        ///// <param name="decCapacidadCarga"></param>
-        ///// <param name="decAlturaPandeo"></param>
-        ///// <returns></returns>
-        //public List<SeleccionMarco> seleccionMarco(decimal decCapacidadCarga, decimal decAlturaPandeo, decimal decFondo,
-        //    decimal decAlturaMarco, short sintSistemaID, bool bitEstructural)
-        //{
-        //    List<SeleccionMarco> result = new List<SeleccionMarco>();
-        //    try
-        //    {
-        //        result = (new MarcosLogic()).seleccionMarco(decCapacidadCarga, decAlturaPandeo, decFondo, decAlturaMarco, sintSistemaID, bitEstructural);
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        Adsisplus.Cotyrsa.BusinessLogic.EventLogManager.LogErrorEntry(ex.Message);
-        //    }
-        //    return result;
-        //}
         /// <summary>
         /// Procedimiento que almacena toda la información de la pantalla de captura de Marco
         /// </summary>

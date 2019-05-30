@@ -453,13 +453,6 @@
       <Column Name="bitActivo" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
     </ElementType>
   </Function>
-  <Function Name="dbo.stp_ListarCatViatico" Method="stp_ListarCatViatico">
-    <Parameter Name="intUnidadMedicionID" Type="System.Int32" DbType="Int" />
-    <ElementType Name="stp_ListarCatViaticoResult">
-      <Column Name="sintViaticoID" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
-      <Column Name="vchDescripcion" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
-    </ElementType>
-  </Function>
   <Function Name="dbo.stp_ListarCatDestinoFlete" Method="stp_ListarCatDestinoFlete">
     <ElementType Name="stp_ListarCatDestinoFleteResult">
       <Column Name="sintDestinoFleteID" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
@@ -474,13 +467,6 @@
       <Column Name="intCosto" Type="System.Int32" DbType="Int" CanBeNull="true" />
     </ElementType>
   </Function>
-  <Function Name="dbo.stp_ListarCatInstalacion" Method="stp_ListarCatInstalacion">
-    <Parameter Name="intUnidadMedicionID" Type="System.Int32" DbType="Int" />
-    <ElementType Name="stp_ListarCatInstalacionResult">
-      <Column Name="sintInstalacionID" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
-      <Column Name="vchDescripcion" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
-    </ElementType>
-  </Function>
   <Function Name="dbo.stp_ListarCatAlturaMarco" Method="stp_ListarCatAlturaMarco">
     <ElementType Name="stp_ListarCatAlturaMarcoResult">
       <Column Name="decAlturaMarco" Type="System.Decimal" DbType="Decimal(8,2)" CanBeNull="true" />
@@ -489,6 +475,30 @@
   <Function Name="dbo.stp_ListarCatAlturaPandeoMarco" Method="stp_ListarCatAlturaPandeoMarco">
     <ElementType Name="stp_ListarCatAlturaPandeoMarcoResult">
       <Column Name="decAlturaPandeoM" Type="System.Decimal" DbType="Decimal(8,2)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.stp_ListarViatico" Method="stp_ListarViatico">
+    <ElementType Name="stp_ListarViaticoResult">
+      <Column Name="sintViaticoID" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Column Name="intUnidadMedicionID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="vchUnidadMedicion" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
+      <Column Name="sintCantidad" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="vchDescripcion" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="intInstalacion" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="decFactor" Type="System.Decimal" DbType="Decimal(8,2)" CanBeNull="true" />
+      <Column Name="bitActivo" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.stp_ListarCatInstalacion" Method="stp_ListarCatInstalacion">
+    <ElementType Name="stp_ListarCatInstalacionResult">
+      <Column Name="sintInstalacionID" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Column Name="intUnidadMedicionID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="vchUnidadMedicion" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
+      <Column Name="vchDescripcion" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="intInstalacion" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="intDesinstalacion" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="decFactor" Type="System.Decimal" DbType="Decimal(8,2)" CanBeNull="true" />
+      <Column Name="bitActivo" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
     </ElementType>
   </Function>
 </Database>

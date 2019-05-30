@@ -1280,33 +1280,6 @@ namespace Adsisplus.Cotyrsa.DataAccess
             return result;
         }
         /// <summary>
-        /// Procedimiento que lista los datos de catálogos
-        /// </summary>
-        /// <param name="intUnidadMedicionID"></param>
-        /// <returns></returns>
-        public List<Catalogo> ListarCatViatico(int intUnidadMedicionID)
-        {
-            List<Catalogo> result = new List<Catalogo>();
-            try
-            {
-                using (CatalogosDataContext dc = new CatalogosDataContext(Helper.ConnectionString()))
-                {
-                    var query = from item in dc.stp_ListarCatViatico(intUnidadMedicionID)
-                                select new Catalogo
-                                {
-                                    intCatalogoID = item.sintViaticoID,
-                                    vchDescripcion = item.vchDescripcion
-                                };
-                    result.AddRange(query);
-                }
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-            return result;
-        }
-        /// <summary>
         /// Procedimiento que lista los datos de destino flete
         /// </summary>
         /// <returns></returns>
@@ -1363,20 +1336,56 @@ namespace Adsisplus.Cotyrsa.DataAccess
         /// <summary>
         /// Procedimiento que lista los datos de instalación
         /// </summary>
-        /// <param name="intUnidadMedicionID"></param>
         /// <returns></returns>
-        public List<Catalogo> ListarCatInstalacion(int intUnidadMedicionID)
+        public List<DatosInstalacion> ListarCatInstalacion()
         {
-            List<Catalogo> result = new List<Catalogo>();
+            List<DatosInstalacion> result = new List<DatosInstalacion>();
             try
             {
                 using (CatalogosDataContext dc = new CatalogosDataContext(Helper.ConnectionString()))
                 {
-                    var query = from item in dc.stp_ListarCatInstalacion(intUnidadMedicionID)
-                                select new Catalogo
+                    var query = from item in dc.stp_ListarCatInstalacion()
+                                select new DatosInstalacion
                                 {
-                                    intCatalogoID = item.sintInstalacionID,
-                                    vchDescripcion = item.vchDescripcion
+                                    sintInstalacionID = item.sintInstalacionID,
+                                    intUnidadMedicionID = item.intUnidadMedicionID,
+                                    vchUnidadMedicion = item.vchUnidadMedicion,
+                                    intInstalacion = item.intInstalacion,
+                                    intDesinstalacion = item.intDesinstalacion,
+                                    decFactor = item.decFactor,
+                                    bitActivo = item.bitActivo
+                                };
+                    result.AddRange(query);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
+        /// <summary>
+        /// Procedimiento que devuelve la información de los viaticos
+        /// </summary>
+        /// <returns></returns>
+        public List<DatosViaticos> ListarViatico()
+        {
+            List<DatosViaticos> result = new List<DatosViaticos>();
+            try
+            {
+                using (CatalogosDataContext dc = new CatalogosDataContext(Helper.ConnectionString()))
+                {
+                    var query = from item in dc.stp_ListarViatico()
+                                select new DatosViaticos
+                                {
+                                    sintViaticoID = item.sintViaticoID,
+                                    intUnidadMedicionID = item.intUnidadMedicionID,
+                                    vchUnidadMedicion = item.vchUnidadMedicion,
+                                    intCantidad = item.sintCantidad,
+                                    vchDescripcion = item.vchDescripcion,
+                                    intInstalacion = item.intInstalacion,
+                                    decFactor = item.decFactor,
+                                    bitActivo = item.bitActivo
                                 };
                     result.AddRange(query);
                 }
@@ -1432,7 +1441,7 @@ namespace Adsisplus.Cotyrsa.DataAccess
                                 {
                                     decValor = item.decAlturaPandeoM
                                 };
-                    result.AddRange(result);
+                    result.AddRange(query);
                 }
             }
             catch (Exception ex)

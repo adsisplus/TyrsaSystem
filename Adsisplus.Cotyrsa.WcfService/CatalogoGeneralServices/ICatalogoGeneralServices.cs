@@ -75,11 +75,10 @@ namespace Adsisplus.Cotyrsa.WcfService.CatalogoGeneralServices
         /// <summary>
         /// Procedimiento que lista los datos de catálogos
         /// </summary>
-        /// <param name="intUnidadMedicionID"></param>
         /// <returns></returns>
         [OperationContract]
-        [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ListarCatViatico")]
-        List<Catalogo> ListarCatViatico(int intUnidadMedicionID);
+        [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ListarViatico")]
+        List<DatosViaticos> ListarViatico();
         /// <summary>
         /// Procedimiento que lista los datos de destino flete
         /// </summary>
@@ -99,10 +98,9 @@ namespace Adsisplus.Cotyrsa.WcfService.CatalogoGeneralServices
         /// <summary>
         /// Procedimiento que lista los datos de instalación
         /// </summary>
-        /// <param name="intUnidadMedicionID"></param>
         /// <returns></returns>
         [OperationContract]
         [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ListarCatInstalacion")]
-        List<Catalogo> ListarCatInstalacion(int intUnidadMedicionID);
+        List<DatosInstalacion> ListarCatInstalacion();
     }
 }

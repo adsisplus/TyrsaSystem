@@ -126,94 +126,24 @@ namespace Adsisplus.Cotyrsa.DataAccess
             }
             return results;
         }
-
-        public List<FondoMarco> ListarFondoMarco(Int32 sintFondoMarcoID, Int32 sintTipoMarcoID, decimal decFondoMarco, int intCalibreAceroID)
+        /// <summary>
+        /// Procedimiento que lista el fondo de Marco
+        /// </summary>
+        /// <returns></returns>
+        public List<FondoMarco> ListarFondoMarco()
         {
             List<FondoMarco> results = new List<FondoMarco>();
             try
             {
                 using (MarcosDataContext dc = new MarcosDataContext(Helper.ConnectionString()))
                 {
-                    //var query = from item in dc.stp_ListarFondoMarco(sintFondoMarcoID, sintTipoMarcoID, intCalibreAceroID, decFondoMarco)
-                    //            select new FondoMarco()
-                    //            {
-                    //                sintFondoMarcoID = item.sintFondoMarcoID,
-                    //                vchTipoMarcoTyrsa = item.vchTipoMarcoTyrsa,
-                    //                vchFondoMarco = item.vchFondoMarco,
-                    //                decFondoMarco = item.decFondoMarco,
-                    //                vchParte1 = item.vchParte1,
-                    //                vchDescripcion1 = item.vchDescripcion1,
-                    //                decFactor1 = item.decFactor1,
-                    //                vchParte2 = item.vchParte2,
-                    //                vchDescripcion2 = item.vchDescripcion2,
-                    //                decFactor2 = item.decFactor2,
-                    //                vchParte3 = item.vchParte3,
-                    //                vchDescripcion3 = item.vchDescripcion3,
-                    //                decFactor3 = item.decFactor3,
-                    //                vchParte4 = item.vchParte4,
-                    //                vchDescripcion4 = item.vchDescripcion4,
-                    //                decFactor4 = item.decFactor4,
-                    //                vchParte5 = item.vchParte5,
-                    //                vchDescripcion5 = item.vchDescripcion5,
-                    //                decFactor5 = item.decFactor5,
-                    //                vchParte6 = item.vchParte6,
-                    //                vchDescripcion6 = item.vchDescripcion6,
-                    //                decFactor6 = item.decFactor6,
-                    //                vchParte7 = item.vchParte7,
-                    //                vchDescripcion7 = item.vchDescripcion7,
-                    //                decFactor7 = item.decFactor7,
-                    //                vchParte8 = item.vchParte8,
-                    //                vchDescripcion8 = item.vchDescripcion8,
-                    //                decFactor8 = item.decFactor8,
-                    //                vchParte9 = item.vchParte9,
-                    //                vchDescripcion9 = item.vchDescripcion9,
-                    //                decFactor9 = item.decFactor9,
-                    //                vchParte10 = item.vchParte10,
-                    //                vchDescripcion10 = item.vchDescripcion10,
-                    //                decFactor10 = item.decFactor10,
-                    //                vchParte11 = item.vchParte11,
-                    //                vchDescripcion11 = item.vchDescripcion11,
-                    //                decFactor11 = item.decFactor11,
-                    //                vchParte12 = item.vchParte12,
-                    //                vchDescripcion12 = item.vchDescripcion12,
-                    //                decFactor12 = item.decFactor12,
-                    //                vchParte13 = item.vchParte13,
-                    //                vchDescripcion13 = item.vchDescripcion13,
-                    //                decFactor13 = item.decFactor13,
-                    //                vchParte14 = item.vchParte14,
-                    //                vchDescripcion14 = item.vchDescripcion14,
-                    //                decFactor14 = item.decFactor14,
-                    //                vchParte15 = item.vchParte15,
-                    //                vchDescripcion15 = item.vchDescripcion15,
-                    //                decFactor15 = item.decFactor15,
-                    //                vchParte16 = item.vchParte16,
-                    //                vchDescripcion16 = item.vchDescripcion16,
-                    //                decFactor16 = item.decFactor16,
-                    //                vchParte17 = item.vchParte17,
-                    //                vchDescripcion17 = item.vchDescripcion17,
-                    //                decFactor17 = item.decFactor17,
-                    //                vchParte18 = item.vchParte18,
-                    //                vchDescripcion18 = item.vchDescripcion18,
-                    //                decFactor18 = item.decFactor18,
-                    //                vchParte19 = item.vchParte19,
-                    //                vchDescripcion19 = item.vchDescripcion19,
-                    //                decFactor19 = item.decFactor19,
-                    //                vchParaCostoLamina = item.vchParaCostoLamina,
-                    //                vchCostoLamina = item.vchCostoLamina,
-                    //                decCostoLamina = item.decCostoLamina,
-                    //                vchParaCostoSolera = item.vchParaCostoSolera,
-                    //                vchCostoSolera = item.vchCostoSolera,
-                    //                decCostoSolera = item.decCostoSolera,
-                    //                vchParaFactorAcero = item.vchParaFactorAcero,
-                    //                vchFactorAcero = item.vchFactorAcero,
-                    //                decFactorAcero = item.decFactorAcero,
-                                    
-                    //                intCalibreAceroID = item.intCalibreAceroID,
-                    //                vchCalibreAcero = item.vchCalibreAcero,
-
-                    //                bitActivo = item.bitActivo
-                    //            };
-                    //results.AddRange(query);
+                    var query = from item in dc.stp_ListarCatFondoMarco()
+                                select new FondoMarco()
+                                {
+                                    vchFondoMarco = item.vchFondoMarco,
+                                    decFondoMarco = item.decFondoMarco,
+                                };
+                    results.AddRange(query);
                 }
             }
             catch (Exception ex)
@@ -362,14 +292,14 @@ namespace Adsisplus.Cotyrsa.DataAccess
             {
                 using (MarcosDataContext dc = new MarcosDataContext(Helper.ConnectionString()))
                 {
-                    var query = from item in dc.stp_setFondoMarco(factor.sintFondoMarcoID, factor.decFactor1, factor.decFactor2, factor.decFactor3, factor.decFactor5,
-                        factor.decFactor7, factor.decFactor9, factor.decFactor11, factor.decFactor13, factor.decFactor15, factor.decFactor17, factor.decFactor18)
-                                select new Resultado
-                                {
-                                    vchDescripcion = item.vchDescripcion,
-                                    vchResultado = item.vchResultado
-                                };
-                    result = query.First();
+                    //var query = from item in dc.stp_setFondoMarco(factor.sintFondoMarcoID, factor.decFactor1, factor.decFactor2, factor.decFactor3, factor.decFactor5,
+                    //    factor.decFactor7, factor.decFactor9, factor.decFactor11, factor.decFactor13, factor.decFactor15, factor.decFactor17, factor.decFactor18)
+                    //            select new Resultado
+                    //            {
+                    //                vchDescripcion = item.vchDescripcion,
+                    //                vchResultado = item.vchResultado
+                    //            };
+                    //result = query.First();
                 }
             }
             catch(Exception ex)
@@ -717,28 +647,6 @@ namespace Adsisplus.Cotyrsa.DataAccess
                                     bitActivo = item.bitActivo
                                 };
                     result.AddRange(query);
-                }
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-            return result;
-        }
-
-        /// <summary>
-        /// Procedimiento para listar los fondos de marco
-        /// </summary>
-        /// <returns></returns>
-        public List<decimal> ListarFondoMarco()
-        {
-            List<decimal> result = new List<decimal>();
-            try
-            {
-                using (MarcosDataContext dc = new MarcosDataContext(Helper.ConnectionString()))
-                {
-                    var query = dc.stp_ListarFondoMarco();
-                    result = (List<decimal>)query;
                 }
             }
             catch (Exception ex)

@@ -70,13 +70,16 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
             }
             return results;
         }
-
-        public List<FondoMarco> ListarFondoMarco(Int32 sintFondoMarcoID, Int32 sintTipoMarcoID, decimal decFondoMarco, int intCalibreAceroID)
+        /// <summary>
+        /// Procedimiento que lista el fondo de Marco
+        /// </summary>
+        /// <returns></returns>
+        public List<FondoMarco> ListarFondoMarco()
         {
             List<FondoMarco> results = null;
             try
             {
-                results = CatalogosDA.ListarFondoMarco(sintFondoMarcoID, sintTipoMarcoID, decFondoMarco, intCalibreAceroID);
+                results = CatalogosDA.ListarFondoMarco();
             }
             catch (Exception ex)
             {
@@ -367,24 +370,6 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
             return result;
         }
         #endregion
-
-        /// <summary>
-        /// Procedimiento para listar los fondos de marco
-        /// </summary>
-        /// <returns></returns>
-        public List<decimal> ListarFondoMarco()
-        {
-            List<decimal> result = new List<decimal>();
-            try
-            {
-                result = CatalogosDA.ListarFondoMarco();
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-            return result;
-        }
 
         /// <summary>
         /// Procedimiento que permite listar los marcos en base a la capacidad

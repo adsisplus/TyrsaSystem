@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="dbTyrsa" Class="VigasDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=(local);Initial Catalog=dbTyrsa;User ID=usrCotyrsa" SettingsObjectName="Adsisplus.Cotyrsa.DataAccess.Properties.Settings" SettingsPropertyName="dbTyrsaConnectionString" Provider="System.Data.SqlClient" />
+  <Connection Mode="AppSettings" ConnectionString="Data Source=local;Initial Catalog=dbTyrsa;Persist Security Info=True;User ID=usrCotyrsa" SettingsObjectName="Adsisplus.Cotyrsa.DataAccess.Properties.Settings" SettingsPropertyName="dbTyrsaConnectionString" Provider="System.Data.SqlClient" />
   <Table Name="" Member="entSeleccionViga">
     <Type Name="entSeleccionViga" Id="ID1">
       <Column Name="SKU" Storage="_vchSKU" Type="System.Int32" CanBeNull="false" />
@@ -281,10 +281,18 @@
       <Column Name="vchDescripcion" Type="System.String" DbType="VarChar(58) NOT NULL" CanBeNull="false" />
     </ElementType>
   </Function>
+  <Function Name="dbo.stp_ListarSeleccionViga" Method="stp_ListarSeleccionViga">
+    <Parameter Name="CPPV" Parameter="cPPV" Type="System.Decimal" DbType="Decimal(8,2)" />
+    <Parameter Name="LV" Parameter="lV" Type="System.Decimal" DbType="Decimal(8,2)" />
+    <Parameter Name="Sistema" Parameter="sistema" Type="System.Int16" DbType="SmallInt" />
+    <Parameter Name="bitEstructural" Type="System.Boolean" DbType="Bit" />
+    <ElementType IdRef="ID1" />
+  </Function>
   <Function Name="dbo.stp_ListarDatosSeleccionViga" Method="stp_ListarDatosSeleccionViga">
     <Parameter Name="intCotizacionID" Type="System.Int32" DbType="Int" />
     <ElementType Name="stp_ListarDatosSeleccionVigaResult">
       <Column Name="intSeleccionVigaID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="intDetCotizaID" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="SKU" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Column Name="decPesoViga" Type="System.Decimal" DbType="Decimal(8,3)" CanBeNull="true" />
       <Column Name="decPrecioUnitario" Type="System.Decimal" DbType="Decimal(27,6)" CanBeNull="true" />
@@ -301,12 +309,5 @@
       <Column Name="decSubtotal" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
       <Column Name="bitActivo" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
     </ElementType>
-  </Function>
-  <Function Name="dbo.stp_ListarSeleccionViga" Method="stp_ListarSeleccionViga">
-    <Parameter Name="CPPV" Parameter="cPPV" Type="System.Decimal" DbType="Decimal(8,2)" />
-    <Parameter Name="LV" Parameter="lV" Type="System.Decimal" DbType="Decimal(8,2)" />
-    <Parameter Name="Sistema" Parameter="sistema" Type="System.Int16" DbType="SmallInt" />
-    <Parameter Name="bitEstructural" Type="System.Boolean" DbType="Bit" />
-    <ElementType IdRef="ID1" />
   </Function>
 </Database>

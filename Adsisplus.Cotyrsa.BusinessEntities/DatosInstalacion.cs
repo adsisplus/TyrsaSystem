@@ -35,6 +35,8 @@ namespace Adsisplus.Cotyrsa.BusinessEntities
         [DataMember]
         public DateTime? datFecha { get; set; }
         [DataMember]
+        public decimal? decFactor { get; set; }
+        [DataMember]
         public bool? bitActivo { get; set; }
     }
 }

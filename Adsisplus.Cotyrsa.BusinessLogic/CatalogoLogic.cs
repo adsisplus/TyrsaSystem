@@ -714,14 +714,13 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
         /// <summary>
         /// Procedimiento que lista los datos de catálogos
         /// </summary>
-        /// <param name="intUnidadMedicionID"></param>
         /// <returns></returns>
-        public List<Catalogo> ListarCatViatico(int intUnidadMedicionID)
+        public List<DatosViaticos> ListarViatico()
         {
-            List<Catalogo> result = new List<Catalogo>();
+            List<DatosViaticos> result = new List<DatosViaticos>();
             try
             {
-                result = CatalogosDA.ListarCatViatico(intUnidadMedicionID);
+                result = CatalogosDA.ListarViatico();
             }
             catch (Exception ex)
             {
@@ -768,14 +767,13 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
         /// <summary>
         /// Procedimiento que lista los datos de instalación
         /// </summary>
-        /// <param name="intUnidadMedicionID"></param>
         /// <returns></returns>
-        public List<Catalogo> ListarCatInstalacion(int intUnidadMedicionID)
+        public List<DatosInstalacion> ListarCatInstalacion()
         {
-            List<Catalogo> result = new List<Catalogo>();
+            List<DatosInstalacion> result = new List<DatosInstalacion>();
             try
             {
-                result = CatalogosDA.ListarCatInstalacion(intUnidadMedicionID);
+                result = CatalogosDA.ListarCatInstalacion();
             }
             catch (Exception ex)
             {

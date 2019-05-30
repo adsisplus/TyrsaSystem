@@ -226,6 +226,13 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), decCapacidadCarga, decAlturaPandeo, decFondo, decAlturaMarco, sistema, bitEstructural);
 			return ((ISingleResult<entSeleccionMarco>)(result.ReturnValue));
 		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.stp_ListarCatFondoMarco")]
+		public ISingleResult<stp_ListarCatFondoMarcoResult> stp_ListarCatFondoMarco()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<stp_ListarCatFondoMarcoResult>)(result.ReturnValue));
+		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="")]
@@ -2993,6 +3000,50 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 				if ((this._vchDescripcion != value))
 				{
 					this._vchDescripcion = value;
+				}
+			}
+		}
+	}
+	
+	public partial class stp_ListarCatFondoMarcoResult
+	{
+		
+		private System.Nullable<decimal> _decFondoMarco;
+		
+		private string _vchFondoMarco;
+		
+		public stp_ListarCatFondoMarcoResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decFondoMarco", DbType="Decimal(18,4)")]
+		public System.Nullable<decimal> decFondoMarco
+		{
+			get
+			{
+				return this._decFondoMarco;
+			}
+			set
+			{
+				if ((this._decFondoMarco != value))
+				{
+					this._decFondoMarco = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchFondoMarco", DbType="VarChar(250)")]
+		public string vchFondoMarco
+		{
+			get
+			{
+				return this._vchFondoMarco;
+			}
+			set
+			{
+				if ((this._vchFondoMarco != value))
+				{
+					this._vchFondoMarco = value;
 				}
 			}
 		}

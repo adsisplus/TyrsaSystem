@@ -440,6 +440,7 @@ namespace Adsisplus.Cotyrsa.DataAccess
                                 select new SeleccionViga
                                 {
                                     intSeleccionVigaID = item.intSeleccionVigaID,
+                                    intDetCotizaID = item.intDetCotizaID,
                                     SKU = int.Parse(item.SKU),
                                     decPesoViga = item.decPesoViga,
                                     decPrecioUnitarioSinIVA = item.decPrecioUnitario,
