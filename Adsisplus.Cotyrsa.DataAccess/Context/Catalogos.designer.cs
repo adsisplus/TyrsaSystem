@@ -398,13 +398,6 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 			return ((ISingleResult<stp_ListarCatDestinoFleteResult>)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.stp_ListarCatFlete")]
-		public ISingleResult<stp_ListarCatFleteResult> stp_ListarCatFlete([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="SmallInt")] System.Nullable<short> sintDestinoFleteID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="SmallInt")] System.Nullable<short> sintTipoUnidadFleteID)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), sintDestinoFleteID, sintTipoUnidadFleteID);
-			return ((ISingleResult<stp_ListarCatFleteResult>)(result.ReturnValue));
-		}
-		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.stp_ListarCatAlturaMarco")]
 		public ISingleResult<stp_ListarCatAlturaMarcoResult> stp_ListarCatAlturaMarco()
 		{
@@ -431,6 +424,20 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
 			return ((ISingleResult<stp_ListarCatInstalacionResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.stp_ListarCatTipoUnidadFlete")]
+		public ISingleResult<stp_ListarCatTipoUnidadFleteResult> stp_ListarCatTipoUnidadFlete()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<stp_ListarCatTipoUnidadFleteResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.stp_ListarCatFlete")]
+		public ISingleResult<stp_ListarCatFleteResult> stp_ListarCatFlete([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="SmallInt")] System.Nullable<short> sintDestinoFleteID)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), sintDestinoFleteID);
+			return ((ISingleResult<stp_ListarCatFleteResult>)(result.ReturnValue));
 		}
 	}
 	
@@ -4958,50 +4965,6 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 		}
 	}
 	
-	public partial class stp_ListarCatFleteResult
-	{
-		
-		private short _sintFleteID;
-		
-		private System.Nullable<int> _intCosto;
-		
-		public stp_ListarCatFleteResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sintFleteID", DbType="SmallInt NOT NULL")]
-		public short sintFleteID
-		{
-			get
-			{
-				return this._sintFleteID;
-			}
-			set
-			{
-				if ((this._sintFleteID != value))
-				{
-					this._sintFleteID = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intCosto", DbType="Int")]
-		public System.Nullable<int> intCosto
-		{
-			get
-			{
-				return this._intCosto;
-			}
-			set
-			{
-				if ((this._intCosto != value))
-				{
-					this._intCosto = value;
-				}
-			}
-		}
-	}
-	
 	public partial class stp_ListarCatAlturaMarcoResult
 	{
 		
@@ -5353,6 +5316,94 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 				if ((this._bitActivo != value))
 				{
 					this._bitActivo = value;
+				}
+			}
+		}
+	}
+	
+	public partial class stp_ListarCatTipoUnidadFleteResult
+	{
+		
+		private short _sintTipoUnidadFleteID;
+		
+		private string _vchTipoUnidad;
+		
+		public stp_ListarCatTipoUnidadFleteResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sintTipoUnidadFleteID", DbType="SmallInt NOT NULL")]
+		public short sintTipoUnidadFleteID
+		{
+			get
+			{
+				return this._sintTipoUnidadFleteID;
+			}
+			set
+			{
+				if ((this._sintTipoUnidadFleteID != value))
+				{
+					this._sintTipoUnidadFleteID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchTipoUnidad", DbType="VarChar(100)")]
+		public string vchTipoUnidad
+		{
+			get
+			{
+				return this._vchTipoUnidad;
+			}
+			set
+			{
+				if ((this._vchTipoUnidad != value))
+				{
+					this._vchTipoUnidad = value;
+				}
+			}
+		}
+	}
+	
+	public partial class stp_ListarCatFleteResult
+	{
+		
+		private System.Nullable<short> _sintTipoUnidadFleteID;
+		
+		private string _vchTipoUnidad;
+		
+		public stp_ListarCatFleteResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sintTipoUnidadFleteID", DbType="SmallInt")]
+		public System.Nullable<short> sintTipoUnidadFleteID
+		{
+			get
+			{
+				return this._sintTipoUnidadFleteID;
+			}
+			set
+			{
+				if ((this._sintTipoUnidadFleteID != value))
+				{
+					this._sintTipoUnidadFleteID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchTipoUnidad", DbType="VarChar(100)")]
+		public string vchTipoUnidad
+		{
+			get
+			{
+				return this._vchTipoUnidad;
+			}
+			set
+			{
+				if ((this._vchTipoUnidad != value))
+				{
+					this._vchTipoUnidad = value;
 				}
 			}
 		}

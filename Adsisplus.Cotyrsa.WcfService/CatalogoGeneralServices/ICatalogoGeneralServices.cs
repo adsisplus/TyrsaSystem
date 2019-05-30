@@ -94,7 +94,7 @@ namespace Adsisplus.Cotyrsa.WcfService.CatalogoGeneralServices
         /// <returns></returns>
         [OperationContract]
         [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ListarCatFlete")]
-        List<Catalogo> ListarCatFlete(short sintDestinoFleteID, short sintTipoUnidadFleteID);
+        List<Catalogo> ListarCatFlete(short sintDestinoFleteID);
         /// <summary>
         /// Procedimiento que lista los datos de instalación
         /// </summary>
@@ -102,5 +102,12 @@ namespace Adsisplus.Cotyrsa.WcfService.CatalogoGeneralServices
         [OperationContract]
         [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ListarCatInstalacion")]
         List<DatosInstalacion> ListarCatInstalacion();
+        /// <summary>
+        /// Procedimiento que lista el tipo de unidad flete
+        /// </summary>
+        /// <returns></returns>
+        [OperationContract]
+        [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ListarCatTipoUnidadFlete")]
+        List<Catalogo> ListarCatTipoUnidadFlete();
     }
 }

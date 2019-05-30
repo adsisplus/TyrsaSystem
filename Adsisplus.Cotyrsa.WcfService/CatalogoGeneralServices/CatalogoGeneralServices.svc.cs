@@ -190,14 +190,13 @@ namespace Adsisplus.Cotyrsa.WcfService.CatalogoGeneralServices
         /// Procedimiento que obtiene la lista de catálogo flete
         /// </summary>
         /// <param name="sintDestinoFleteID"></param>
-        /// <param name="sintTipoUnidadFleteID"></param>
         /// <returns></returns>
-        public List<Catalogo> ListarCatFlete(short sintDestinoFleteID, short sintTipoUnidadFleteID)
+        public List<Catalogo> ListarCatFlete(short sintDestinoFleteID)
         {
             List<Catalogo> result = new List<Catalogo>();
             try
             {
-                result = (new CatalogoLogic()).ListarCatFlete(sintDestinoFleteID, sintTipoUnidadFleteID);
+                result = (new CatalogoLogic()).ListarCatFlete(sintDestinoFleteID);
             }
             catch (Exception ex)
             {
@@ -215,6 +214,23 @@ namespace Adsisplus.Cotyrsa.WcfService.CatalogoGeneralServices
             try
             {
                 result = (new CatalogoLogic()).ListarCatInstalacion();
+            }
+            catch (Exception ex)
+            {
+                Adsisplus.Cotyrsa.BusinessLogic.EventLogManager.LogErrorEntry(ex.Message);
+            }
+            return result;
+        }
+        /// <summary>
+        /// Procedimiento que lista el tipo de unidad flete
+        /// </summary>
+        /// <returns></returns>
+        public List<Catalogo> ListarCatTipoUnidadFlete()
+        {
+            List<Catalogo> result = new List<Catalogo>();
+            try
+            {
+                result = (new CatalogoLogic()).ListarCatTipoUnidadFlete();
             }
             catch (Exception ex)
             {

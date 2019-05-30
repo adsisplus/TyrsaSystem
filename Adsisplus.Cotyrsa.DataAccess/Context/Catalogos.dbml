@@ -459,14 +459,6 @@
       <Column Name="vchDestinoFlete" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
     </ElementType>
   </Function>
-  <Function Name="dbo.stp_ListarCatFlete" Method="stp_ListarCatFlete">
-    <Parameter Name="sintDestinoFleteID" Type="System.Int16" DbType="SmallInt" />
-    <Parameter Name="sintTipoUnidadFleteID" Type="System.Int16" DbType="SmallInt" />
-    <ElementType Name="stp_ListarCatFleteResult">
-      <Column Name="sintFleteID" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
-      <Column Name="intCosto" Type="System.Int32" DbType="Int" CanBeNull="true" />
-    </ElementType>
-  </Function>
   <Function Name="dbo.stp_ListarCatAlturaMarco" Method="stp_ListarCatAlturaMarco">
     <ElementType Name="stp_ListarCatAlturaMarcoResult">
       <Column Name="decAlturaMarco" Type="System.Decimal" DbType="Decimal(8,2)" CanBeNull="true" />
@@ -499,6 +491,19 @@
       <Column Name="intDesinstalacion" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="decFactor" Type="System.Decimal" DbType="Decimal(8,2)" CanBeNull="true" />
       <Column Name="bitActivo" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.stp_ListarCatTipoUnidadFlete" Method="stp_ListarCatTipoUnidadFlete">
+    <ElementType Name="stp_ListarCatTipoUnidadFleteResult">
+      <Column Name="sintTipoUnidadFleteID" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Column Name="vchTipoUnidad" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.stp_ListarCatFlete" Method="stp_ListarCatFlete">
+    <Parameter Name="sintDestinoFleteID" Type="System.Int16" DbType="SmallInt" />
+    <ElementType Name="stp_ListarCatFleteResult">
+      <Column Name="sintTipoUnidadFleteID" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="vchTipoUnidad" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
     </ElementType>
   </Function>
 </Database>

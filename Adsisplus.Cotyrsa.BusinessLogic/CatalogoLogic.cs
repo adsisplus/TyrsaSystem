@@ -749,14 +749,13 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
         /// Procedimiento que obtiene la lista de catálogo flete
         /// </summary>
         /// <param name="sintDestinoFleteID"></param>
-        /// <param name="sintTipoUnidadFleteID"></param>
         /// <returns></returns>
-        public List<Catalogo> ListarCatFlete(short sintDestinoFleteID, short sintTipoUnidadFleteID)
+        public List<Catalogo> ListarCatFlete(short sintDestinoFleteID)
         {
             List<Catalogo> result = new List<Catalogo>();
             try
             {
-                result = CatalogosDA.ListarCatFlete(sintDestinoFleteID, sintTipoUnidadFleteID);
+                result = CatalogosDA.ListarCatFlete(sintDestinoFleteID);
             }
             catch (Exception ex)
             {
@@ -810,6 +809,23 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
             try
             {
                 result = CatalogosDA.ListarCatAlturaPandeoMarco();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
+        /// <summary>
+        /// Procedimiento que lista el tipo de unidad flete
+        /// </summary>
+        /// <returns></returns>
+        public List<Catalogo> ListarCatTipoUnidadFlete()
+        {
+            List<Catalogo> result = new List<Catalogo>();
+            try
+            {
+                result = CatalogosDA.ListarCatTipoUnidadFlete();
             }
             catch (Exception ex)
             {
