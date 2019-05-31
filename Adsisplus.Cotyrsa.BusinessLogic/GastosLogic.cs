@@ -25,14 +25,13 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
         /// Procedimiento que devuelve los datos de la pantalla de Gastos
         /// </summary>
         /// <param name="intCotizacionID"></param>
-        /// <param name="intDetCotizaID"></param>
         /// <returns></returns>
-        public DatosGastos ListarDatosPantallaGastos(int intCotizacionID, int intDetCotizaID)
+        public DatosGastos ListarDatosPantallaGastos(int intCotizacionID)
         {
             DatosGastos result = new DatosGastos();
             try
             {
-                result = GastosDA.ListarDatosPantallaGastos(intCotizacionID, intDetCotizaID);
+                result = GastosDA.ListarDatosPantallaGastos(intCotizacionID);
             }
             catch (Exception ex)
             {
@@ -195,6 +194,7 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
                     {
                         // Asignamos el ID del detalle
                         flete.intDetCotizaID = Convert.ToInt32(result.vchResultado);
+                        flete.intElementoID = 13;
                         // Almacenamos el dato de los fletes
                         result = GastosDA.setDatosFlete(flete, tinOpcion);
                     }
@@ -240,6 +240,7 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
                     {
                         // Asignamos el ID del detalle
                         instalacion.intDetCotizaID = Convert.ToInt32(result.vchResultado);
+                        instalacion.intElementoID = 12;
                         // Almacenamos los datos de la instalación
                         result = GastosDA.setDatosInstalacion(instalacion, tinOpcion);
                     }
@@ -284,6 +285,7 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
                     {
                         //Asignamos el ID del detalle de cotización
                         viaticos.intDetCotizaID = Convert.ToInt32(result.vchResultado);
+                        viaticos.intElementoID = 14;
                         // Almacenamos los datos del viático
                         result = GastosDA.setDatosViatico(viaticos, tinOpcion);
                     }

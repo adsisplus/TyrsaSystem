@@ -19,12 +19,12 @@ namespace Adsisplus.Cotyrsa.WcfService.GastosServices
         /// <param name="intCotizacionID"></param>
         /// <param name="intDetCotizaID"></param>
         /// <returns></returns>
-        public DatosGastos ListarDatosPantallaGastos(int intCotizacionID, int intDetCotizaID)
+        public DatosGastos ListarDatosPantallaGastos(int intCotizacionID)
         {
             DatosGastos result = new DatosGastos();
             try
             {
-                result = (new GastosLogic()).ListarDatosPantallaGastos(intCotizacionID, intDetCotizaID);
+                result = (new GastosLogic()).ListarDatosPantallaGastos(intCotizacionID);
             }
             catch (Exception ex)
             {

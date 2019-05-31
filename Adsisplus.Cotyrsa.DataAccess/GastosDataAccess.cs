@@ -16,7 +16,7 @@ namespace Adsisplus.Cotyrsa.DataAccess
         /// <param name="intCotizacionID"></param>
         /// <param name="intDetCotizaID"></param>
         /// <returns></returns>
-        public DatosGastos ListarDatosPantallaGastos(int intCotizacionID, int intDetCotizaID)
+        public DatosGastos ListarDatosPantallaGastos(int intCotizacionID)
         {
             DatosGastos result = new DatosGastos();
             List<DatosFlete> fletes = new List<DatosFlete>();
@@ -27,7 +27,7 @@ namespace Adsisplus.Cotyrsa.DataAccess
                 // Obtenemos la lista de datos de flete
                 using (GastosDataContext dc = new GastosDataContext(Helper.ConnectionString()))
                 {
-                    var query = from item in dc.stp_ListarDatosFlete(intCotizacionID, intDetCotizaID)
+                    var query = from item in dc.stp_ListarDatosFlete(intCotizacionID)
                                 select new DatosFlete
                                 {
                                     intDatoFleteID = item.intDatoFleteID,
@@ -46,7 +46,7 @@ namespace Adsisplus.Cotyrsa.DataAccess
                 // Obtenemos la lista de datos de instalación
                 using (GastosDataContext dc = new GastosDataContext(Helper.ConnectionString()))
                 {
-                    var query = from item in dc.stp_ListarDatosInstalacion(intCotizacionID, intDetCotizaID)
+                    var query = from item in dc.stp_ListarDatosInstalacion(intCotizacionID)
                                 select new DatosInstalacion
                                 {
                                     intDatosInstalacionID = item.intDatosInstalacionID,
@@ -64,7 +64,7 @@ namespace Adsisplus.Cotyrsa.DataAccess
                 // Obtenemos la lista de datos de viáticos
                 using (GastosDataContext dc = new GastosDataContext(Helper.ConnectionString()))
                 {
-                    var query = from item in dc.stp_ListarDatosViatico(intCotizacionID, intDetCotizaID)
+                    var query = from item in dc.stp_ListarDatosViatico(intCotizacionID)
                                 select new DatosViaticos
                                 {
                                     intDatoViaticoID = item.intDatoViaticoID,
@@ -81,7 +81,6 @@ namespace Adsisplus.Cotyrsa.DataAccess
                 }
                 // Establecemos los datos al resultado
                 result.intCotizacionID = intCotizacionID;
-                result.intDetCotizaID = intDetCotizaID;
                 result.flete = fletes;
                 result.instalacion = instalaciones;
                 result.viatico = viaticos;
@@ -202,7 +201,7 @@ namespace Adsisplus.Cotyrsa.DataAccess
             {
                 using (GastosDataContext dc = new GastosDataContext(Helper.ConnectionString()))
                 {
-                    var query = from item in dc.stp_setDatosViatico(viatico.intDetCotizaID, viatico.intDetCotizaID, viatico.intDatoViaticoID, viatico.intElementoID,
+                    var query = from item in dc.stp_setDatosViatico(viatico.intCotizacionID, viatico.intDetCotizaID, viatico.intDatoViaticoID, viatico.intElementoID,
                         viatico.sintViaticoID, viatico.intCantidad, viatico.datFecha, viatico.bitActivo, (byte)tinOpcion)
                                 select new Resultado
                                 {
