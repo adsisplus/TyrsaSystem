@@ -384,7 +384,9 @@ namespace Adsisplus.Cotyrsa.DataAccess
                                     decCapacidadParVigasMaxima = item.decPesoPartida,
                                     sintLongitudID = item.sintLongitudId,
                                     intMaterialID = item.intMaterialID,
-                                    intTipoID = item.intTipoID
+                                    intTipoID = item.intTipoID,
+                                    decConector = item.decConector,
+                                    decGranTotal = item.decGranTotal
                                 };
                     result.AddRange(query);
                 }

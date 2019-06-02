@@ -132,5 +132,11 @@ namespace Adsisplus.Cotyrsa.BusinessEntities
 
         [DataMember]
         public bool? bitActivo { get; set; }
+
+        [DataMember]
+        public decimal? decGranTotal { get; set; }
+
+        [DataMember]
+        public decimal? decConector { get; set; }
     }
 }
