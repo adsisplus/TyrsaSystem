@@ -35,7 +35,7 @@ namespace Adsisplus.Cotyrsa.DataAccess
                                     decFrenteParrilla = item.decFrenteParrilla,
                                     decFondoParrilla = item.decFondoParrilla,
                                     decCostoParrilla = item.decCostoParrilla,
-                                    decTamanioCuadroParrilla = item.decTamanioCuadroParrilla,
+                                    vchTamanioCuadroParrilla = item.vchTamanioCuadroParrilla,
                                     intCantidadParrilla = item.intCantidadParrilla,
                                     decPesoParrilla = item.decPesoParrilla,
                                     bitGalvanizado = item.bitGalvanizado,

@@ -113,8 +113,8 @@ namespace Adsisplus.Cotyrsa.DataAccess
                 using (SistemasTyrsaDataContext dc = new SistemasTyrsaDataContext(Helper.ConnectionString()))
                 {
                     var query = from item in dc.stp_setDatosCrossBar(datosCrossBar.intDatosCrossBarID, datosCrossBar.intDetCotizaID, datosCrossBar.intElementoID, datosCrossBar.intDatoMarcoID,
-                        datosCrossBar.decAnchoCrossBar, datosCrossBar.bitConectorVigaCrossbar, datosCrossBar.intCantidad, datosCrossBar.intCantidadNivelCrossbar, datosCrossBar.bitActivo,
-                        (byte)sintOpcion)
+                        datosCrossBar.decAnchoCrossBar, datosCrossBar.bitConectorVigaCrossbar, datosCrossBar.intCantidad, datosCrossBar.intCantidadNivelCrossbar,  
+                        datosCrossBar.intNumeroNivel, datosCrossBar.bitActivo, (byte)sintOpcion)
                                 select new Resultado
                                 {
                                     vchDescripcion = item.vchDescripcion,
@@ -173,7 +173,7 @@ namespace Adsisplus.Cotyrsa.DataAccess
                 {
                     var query = from item in dc.stp_setDatosParrilla(datosParrilla.intParrillaID, datosParrilla.intElementoID, datosParrilla.sintPinturaID,
                         datosParrilla.intCotizacionID, datosParrilla.intDetCotizaID, datosParrilla.decFrenteParrilla, datosParrilla.decFondoParrilla, datosParrilla.decCostoParrilla,
-                        datosParrilla.decTamanioCuadroParrilla, datosParrilla.intCantidadParrilla, datosParrilla.decPesoParrilla, datosParrilla.bitGalvanizado, 
+                        datosParrilla.vchTamanioCuadroParrilla, datosParrilla.intCantidadParrilla, datosParrilla.decPesoParrilla, datosParrilla.bitGalvanizado, 
                         datosParrilla.bitPintura, datosParrilla.decPrecioVentaUnitario, datosParrilla.decPrecioVentaTotal, datosParrilla.bitActivo, (byte)sintOpcion)
                                 select new Resultado
                                 {

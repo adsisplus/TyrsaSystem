@@ -36,7 +36,7 @@ namespace Adsisplus.Cotyrsa.BusinessEntities
         [DataMember]
         public Decimal? decCostoParrilla { get; set; }
         [DataMember]
-        public Decimal? decTamanioCuadroParrilla { get; set; }
+        public string vchTamanioCuadroParrilla { get; set; }
         [DataMember]
         public Int32? intCantidadParrilla { get; set; }
 
