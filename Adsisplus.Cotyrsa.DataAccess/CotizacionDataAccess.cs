@@ -17,15 +17,16 @@ namespace Adsisplus.Cotyrsa.DataAccess
         /// <param name="intEstatusID"></param>
         /// <param name="sintPrioridadID"></param>
         /// <param name="intEmpresaID"></param>
+        /// <param name="intUsuarioID"></param>
         /// <returns></returns>
-        public List<Cotizacion> ListarDatosCotizacion(Int32 intCotizacionID, Int32 intEstatusID, Int32 sintPrioridadID, Int32 intEmpresaID)
+        public List<Cotizacion> ListarDatosCotizacion(Int32 intCotizacionID, Int32 intEstatusID, Int32 sintPrioridadID, Int32 intEmpresaID, int intUsuarioID)
         {
             List<Cotizacion> result = new List<Cotizacion>();
             try
             {
                 using (CotizacionDataContext dc = new CotizacionDataContext(Helper.ConnectionString()))
                 {
-                    var query = from item in dc.stp_ListarDatosCotizacion(intCotizacionID, intEstatusID, sintPrioridadID, intEmpresaID)
+                    var query = from item in dc.stp_ListarDatosCotizacion(intCotizacionID, intEstatusID, sintPrioridadID, intEmpresaID, intUsuarioID)
                                 select new Cotizacion()
                                 {
                                     intCotizacionID = item.intCotizacionID,
@@ -109,7 +110,7 @@ namespace Adsisplus.Cotyrsa.DataAccess
                         rack.intRackID, //rack.bitMontacarga, rack.intNumeroTarimaPorNivel, 
                         //rack.decFrente, rack.decFondo, rack.decAltura, rack.decPeso,
                         /*rack.vchDimensionMontacarga, rack.intNumeroNivelSobreViga, rack.intPosicion,*/ rack.sintVisitas,
-                        rack.intRelCotizaProductoID, rack.intProductoGralID, rack.intSubProductoID, cotizacion.bitActivo, (byte)tinOpcion)
+                        rack.intRelCotizaProductoID, rack.intProductoGralID, rack.intSubProductoID, cotizacion.intUsuarioID, cotizacion.bitActivo, (byte)tinOpcion)
                                 select new Resultado
                                 {
                                     vchDescripcion = item.vchDescripcion,

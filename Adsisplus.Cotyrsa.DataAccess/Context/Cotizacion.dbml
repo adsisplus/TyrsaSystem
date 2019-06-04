@@ -79,49 +79,6 @@
       <Column Name="sintVisitas" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
     </ElementType>
   </Function>
-  <Function Name="dbo.stp_ListarDatosCotizacion" Method="stp_ListarDatosCotizacion">
-    <Parameter Name="intCotizacionID" Type="System.Int32" DbType="Int" />
-    <Parameter Name="intEstatusID" Type="System.Int32" DbType="Int" />
-    <Parameter Name="sintPrioridadID" Type="System.Int32" DbType="Int" />
-    <Parameter Name="intEmpresaID" Type="System.Int32" DbType="Int" />
-    <ElementType Name="stp_ListarDatosCotizacionResult">
-      <Column Name="intCotizacionID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="intRackID" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="vchNombreCliente" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
-      <Column Name="intEmpresaID" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="vchFolio" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
-      <Column Name="vchEstatus" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
-      <Column Name="vchPrioridad" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="datFechaCotizacion" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="datFechaAceptacion" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="datFechaRechazo" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="intProductoGralID" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="intSubProductoID" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="decMonto" Type="System.Decimal" DbType="Decimal(38,2)" CanBeNull="true" />
-      <Column Name="decIVA" Type="System.Decimal" DbType="Decimal(38,2)" CanBeNull="true" />
-      <Column Name="decTotal" Type="System.Decimal" DbType="Decimal(38,2)" CanBeNull="true" />
-    </ElementType>
-  </Function>
-  <Function Name="dbo.stp_setMstCotizacion" Method="stp_setMstCotizacion">
-    <Parameter Name="intCotizacionID" Type="System.Int32" DbType="Int" />
-    <Parameter Name="intEstatusID" Type="System.Int32" DbType="Int" />
-    <Parameter Name="sintPrioridadID" Type="System.Int16" DbType="SmallInt" />
-    <Parameter Name="intEmpresaID" Type="System.Int32" DbType="Int" />
-    <Parameter Name="vchFolio" Type="System.String" DbType="VarChar(250)" />
-    <Parameter Name="datFechaAceptacion" Type="System.DateTime" DbType="DateTime" />
-    <Parameter Name="datFechaRechazo" Type="System.DateTime" DbType="DateTime" />
-    <Parameter Name="intRack" Type="System.Int32" DbType="Int" />
-    <Parameter Name="sintVisitas" Type="System.Int16" DbType="SmallInt" />
-    <Parameter Name="intRelCotizaProductoID" Type="System.Int32" DbType="Int" />
-    <Parameter Name="intProductoGralID" Type="System.Int32" DbType="Int" />
-    <Parameter Name="intSubProductoID" Type="System.Int32" DbType="Int" />
-    <Parameter Name="bitActivo" Type="System.Boolean" DbType="Bit" />
-    <Parameter Name="tinOpcion" Type="System.Byte" DbType="TinyInt" />
-    <ElementType Name="stp_setMstCotizacionResult">
-      <Column Name="vchResultado" Type="System.String" DbType="VarChar(263)" CanBeNull="true" />
-      <Column Name="vchDescripcion" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-    </ElementType>
-  </Function>
   <Function Name="dbo.stp_ListarDetalleCotizacion" Method="stp_ListarDetalleCotizacion">
     <Parameter Name="intCotizacionID" Type="System.Int32" DbType="Int" />
     <ElementType Name="stp_ListarDetalleCotizacionResult">
@@ -197,6 +154,51 @@
     <ElementType Name="stp_setDatosRelSistemaSelectivoResult">
       <Column Name="vchResultado" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
       <Column Name="vchDescripcion" Type="System.String" DbType="VarChar(52) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.stp_setMstCotizacion" Method="stp_setMstCotizacion">
+    <Parameter Name="intCotizacionID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intEstatusID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="sintPrioridadID" Type="System.Int16" DbType="SmallInt" />
+    <Parameter Name="intEmpresaID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="vchFolio" Type="System.String" DbType="VarChar(250)" />
+    <Parameter Name="datFechaAceptacion" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="datFechaRechazo" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="intRack" Type="System.Int32" DbType="Int" />
+    <Parameter Name="sintVisitas" Type="System.Int16" DbType="SmallInt" />
+    <Parameter Name="intRelCotizaProductoID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intProductoGralID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intSubProductoID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intUsuarioID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="bitActivo" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="tinOpcion" Type="System.Byte" DbType="TinyInt" />
+    <ElementType Name="stp_setMstCotizacionResult">
+      <Column Name="vchResultado" Type="System.String" DbType="VarChar(263)" CanBeNull="true" />
+      <Column Name="vchDescripcion" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.stp_ListarDatosCotizacion" Method="stp_ListarDatosCotizacion">
+    <Parameter Name="intCotizacionID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intEstatusID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="sintPrioridadID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intEmpresaID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intUsuarioID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="stp_ListarDatosCotizacionResult">
+      <Column Name="intCotizacionID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="intRackID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="vchNombreCliente" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="intEmpresaID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="vchFolio" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="vchEstatus" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
+      <Column Name="vchPrioridad" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="datFechaCotizacion" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="datFechaAceptacion" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="datFechaRechazo" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="intProductoGralID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="intSubProductoID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="decMonto" Type="System.Decimal" DbType="Decimal(38,2)" CanBeNull="true" />
+      <Column Name="decIVA" Type="System.Decimal" DbType="Decimal(38,2)" CanBeNull="true" />
+      <Column Name="decTotal" Type="System.Decimal" DbType="Decimal(38,2)" CanBeNull="true" />
     </ElementType>
   </Function>
 </Database>
