@@ -29,13 +29,14 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
         /// <param name="intEstatusID"></param>
         /// <param name="sintPrioridadID"></param>
         /// <param name="intEmpresaID"></param>
+        /// <param name="intUsuarioID"></param>
         /// <returns></returns>
-        public List<Cotizacion> ListarDatosCotizacion(Int32 intCotizacionID, Int32 intEstatusID, Int32 sintPrioridadID, Int32 intEmpresaID)
+        public List<Cotizacion> ListarDatosCotizacion(Int32 intCotizacionID, Int32 intEstatusID, Int32 sintPrioridadID, Int32 intEmpresaID, int intUsuarioID)
         {
             List<Cotizacion> result = new List<Cotizacion>();
             try
             {
-                result = CatalogosDA.ListarDatosCotizacion(intCotizacionID, intEstatusID, sintPrioridadID, intEmpresaID);
+                result = CatalogosDA.ListarDatosCotizacion(intCotizacionID, intEstatusID, sintPrioridadID, intEmpresaID, intUsuarioID);
             }
             catch (Exception ex)
             {

@@ -186,22 +186,6 @@
       <Column Name="vchDescripcion" Type="System.String" DbType="VarChar(52) NOT NULL" CanBeNull="false" />
     </ElementType>
   </Function>
-  <Function Name="dbo.stp_setDatosCrossBar" Method="stp_setDatosCrossBar">
-    <Parameter Name="intDatosCrossBarID" Type="System.Int32" DbType="Int" />
-    <Parameter Name="intDetCotizaID" Type="System.Int32" DbType="Int" />
-    <Parameter Name="intElementoID" Type="System.Int32" DbType="Int" />
-    <Parameter Name="intDatoMarcoID" Type="System.Int32" DbType="Int" />
-    <Parameter Name="decAnchoCrossBar" Type="System.Decimal" DbType="Decimal(20,2)" />
-    <Parameter Name="bitConectorVigaCrossbar" Type="System.Boolean" DbType="Bit" />
-    <Parameter Name="intCantidad" Type="System.Int32" DbType="Int" />
-    <Parameter Name="intCantidadNivelCrossbar" Type="System.Int32" DbType="Int" />
-    <Parameter Name="bitActivo" Type="System.Boolean" DbType="Bit" />
-    <Parameter Name="tinOpcion" Type="System.Byte" DbType="TinyInt" />
-    <ElementType Name="stp_setDatosCrossBarResult">
-      <Column Name="vchResultado" Type="System.String" DbType="VarChar(12)" CanBeNull="true" />
-      <Column Name="vchDescripcion" Type="System.String" DbType="VarChar(52) NOT NULL" CanBeNull="false" />
-    </ElementType>
-  </Function>
   <Function Name="dbo.stp_setDatosParrilla" Method="stp_setDatosParrilla">
     <Parameter Name="intParrillaID" Type="System.Int32" DbType="Int" />
     <Parameter Name="intElementoID" Type="System.Int32" DbType="Int" />
@@ -211,7 +195,7 @@
     <Parameter Name="decFrenteParrilla" Type="System.Decimal" DbType="Decimal(20,2)" />
     <Parameter Name="decFondoParrilla" Type="System.Decimal" DbType="Decimal(20,2)" />
     <Parameter Name="decCostoParrilla" Type="System.Decimal" DbType="Decimal(20,2)" />
-    <Parameter Name="decTamanioCuadroParrilla" Type="System.Decimal" DbType="Decimal(20,2)" />
+    <Parameter Name="vchTamanioCuadroParrilla" Type="System.String" DbType="VarChar(10)" />
     <Parameter Name="intCantidadParrilla" Type="System.Int32" DbType="Int" />
     <Parameter Name="decPesoParrilla" Type="System.Decimal" DbType="Decimal(8,5)" />
     <Parameter Name="bitGalvanizado" Type="System.Boolean" DbType="Bit" />
@@ -223,6 +207,23 @@
     <ElementType Name="stp_setDatosParrillaResult">
       <Column Name="vchResultado" Type="System.String" DbType="VarChar(12)" CanBeNull="true" />
       <Column Name="vchDescripcion" Type="System.String" DbType="VarChar(51) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.stp_setDatosCrossBar" Method="stp_setDatosCrossBar">
+    <Parameter Name="intDatosCrossBarID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intDetCotizaID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intElementoID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intDatoMarcoID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="decAnchoCrossBar" Type="System.Decimal" DbType="Decimal(20,2)" />
+    <Parameter Name="bitConectorVigaCrossbar" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="intCantidad" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intCantidadNivelCrossbar" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intNumeroNivel" Type="System.Int32" DbType="Int" />
+    <Parameter Name="bitActivo" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="tinOpcion" Type="System.Byte" DbType="TinyInt" />
+    <ElementType Name="stp_setDatosCrossBarResult">
+      <Column Name="vchResultado" Type="System.String" DbType="VarChar(12)" CanBeNull="true" />
+      <Column Name="vchDescripcion" Type="System.String" DbType="VarChar(52) NOT NULL" CanBeNull="false" />
     </ElementType>
   </Function>
 </Database>

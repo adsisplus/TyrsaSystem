@@ -125,7 +125,8 @@ namespace Adsisplus.Cotyrsa.DataAccess
                                     decAnchoCrossBar = item.decAnchoCrossBar,
                                     intCantidadNivelCrossbar = item.intCantidadNivelCrossbar,
                                     intDatosCrossBarID = item.intDatosCrossBarID,
-                                    vchElemento = item.vchElemento
+                                    vchElemento = item.vchElemento,
+                                    intNumeroNivel = item.intNumeroNivel
                                 };
                     result.AddRange(query);
                 }

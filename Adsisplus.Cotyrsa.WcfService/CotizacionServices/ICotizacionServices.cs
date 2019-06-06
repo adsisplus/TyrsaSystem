@@ -20,10 +20,11 @@ namespace Adsisplus.Cotyrsa.WcfService.CotizacionServices
         /// <param name="intEstatusID"></param>
         /// <param name="sintPrioridadID"></param>
         /// <param name="intEmpresaID"></param>
+        /// <param name="intUsuarioID"></param>
         /// <returns></returns>
         [OperationContract]
         [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ListarDatosCotizacion")]
-        List<Cotizacion> ListarDatosCotizacion(Int32 intCotizacionID, Int32 intEstatusID, Int32 sintPrioridadID, Int32 intEmpresaID);
+        List<Cotizacion> ListarDatosCotizacion(Int32 intCotizacionID, Int32 intEstatusID, Int32 sintPrioridadID, Int32 intEmpresaID, int intUsuarioID);
         /// <summary>
         /// Obtiene la lista de la relación de tipo elemento almacen vs Factor de cotización
         /// </summary>

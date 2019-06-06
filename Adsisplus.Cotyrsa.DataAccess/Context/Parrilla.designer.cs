@@ -93,7 +93,7 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 		
 		private System.Nullable<decimal> _decCostoParrilla;
 		
-		private System.Nullable<decimal> _decTamanioCuadroParrilla;
+		private string _vchTamanioCuadroParrilla;
 		
 		private System.Nullable<int> _intCantidadParrilla;
 		
@@ -273,18 +273,18 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decTamanioCuadroParrilla", DbType="Decimal(20,2)")]
-		public System.Nullable<decimal> decTamanioCuadroParrilla
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchTamanioCuadroParrilla", DbType="VarChar(10)")]
+		public string vchTamanioCuadroParrilla
 		{
 			get
 			{
-				return this._decTamanioCuadroParrilla;
+				return this._vchTamanioCuadroParrilla;
 			}
 			set
 			{
-				if ((this._decTamanioCuadroParrilla != value))
+				if ((this._vchTamanioCuadroParrilla != value))
 				{
-					this._decTamanioCuadroParrilla = value;
+					this._vchTamanioCuadroParrilla = value;
 				}
 			}
 		}
@@ -353,7 +353,7 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decPrecioVentaUnitario", DbType="Decimal(8,3)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decPrecioVentaUnitario", DbType="Decimal(18,3)")]
 		public System.Nullable<decimal> decPrecioVentaUnitario
 		{
 			get
@@ -369,7 +369,7 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decPrecioVentaTotal", DbType="Decimal(8,3)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decPrecioVentaTotal", DbType="Decimal(18,3)")]
 		public System.Nullable<decimal> decPrecioVentaTotal
 		{
 			get
