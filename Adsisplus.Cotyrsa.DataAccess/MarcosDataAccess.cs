@@ -153,6 +153,12 @@ namespace Adsisplus.Cotyrsa.DataAccess
             return results;
         }
 
+        public List<FondoMarco> ListarFondoMarcoConfiguracion()
+        {
+            List<FondoMarco> result = new List<FondoMarco>();
+            return result;
+        }
+
         public Resultado ActualizaFactorMarco(Int16 sintFondoMarcoID, Decimal decCostoLamina, Decimal decCostoSolera, Decimal decFactorAcero, byte tinOpcion)
         {
             Resultado results = new Resultado();

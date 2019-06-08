@@ -159,11 +159,6 @@
       <Column Name="vchDescripcion" Type="System.String" DbType="VarChar(64) NOT NULL" CanBeNull="false" />
     </ElementType>
   </Function>
-  <Function Name="dbo.stp_ListarFondoMarco" Method="stp_ListarFondoMarco">
-    <ElementType Name="stp_ListarFondoMarcoResult">
-      <Column Name="decFondoMarco" Type="System.Decimal" DbType="Decimal(18,4)" CanBeNull="true" />
-    </ElementType>
-  </Function>
   <Function Name="dbo.stp_setNivelPorMarco" Method="stp_setNivelPorMarco">
     <Parameter Name="intNivelID" Type="System.Int32" DbType="Int" />
     <Parameter Name="intSeleccionMarcoID" Type="System.Int32" DbType="Int" />
