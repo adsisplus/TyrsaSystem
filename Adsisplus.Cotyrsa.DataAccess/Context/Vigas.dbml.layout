@@ -2,10 +2,10 @@
 <ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="Vigas">
   <DataContextMoniker Name="/VigasDataContext" />
   <nestedChildShapes>
-    <classShape Id="39cd805e-e210-428b-bf28-cd9170c7e8a6" absoluteBounds="4.125, 2.125, 2, 4.6554182942708326">
+    <classShape Id="39cd805e-e210-428b-bf28-cd9170c7e8a6" absoluteBounds="4.125, 2.125, 2, 5.0400211588541657">
       <DataClassMoniker Name="/VigasDataContext/entSeleccionViga" />
       <nestedChildShapes>
-        <elementListCompartment Id="18ab2a65-01db-41a2-9b48-038a170968aa" absoluteBounds="4.14, 2.585, 1.9700000000000002, 4.095418294270833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="18ab2a65-01db-41a2-9b48-038a170968aa" absoluteBounds="4.14, 2.585, 1.9700000000000002, 4.4800211588541661" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
   </nestedChildShapes>
