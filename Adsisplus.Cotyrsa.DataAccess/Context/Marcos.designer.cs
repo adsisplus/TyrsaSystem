@@ -177,13 +177,6 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 			return ((ISingleResult<stp_ListarDatosSeleccionMarcoResult>)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.stp_ListarDatosMarco")]
-		public ISingleResult<stp_ListarDatosMarcoResult> stp_ListarDatosMarco([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intDatoMarcoID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intCotizacionID)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), intDatoMarcoID, intCotizacionID);
-			return ((ISingleResult<stp_ListarDatosMarcoResult>)(result.ReturnValue));
-		}
-		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.stp_setSeleccionMarco")]
 		public ISingleResult<stp_setSeleccionMarcoResult> stp_setSeleccionMarco(
 					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intSeleccionMarcoID, 
@@ -225,6 +218,13 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
 			return ((ISingleResult<stp_ListarCatFondoMarcoResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.stp_ListarDatosMarco")]
+		public ISingleResult<stp_ListarDatosMarcoResult> stp_ListarDatosMarco([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intDatoMarcoID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intCotizacionID)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), intDatoMarcoID, intCotizacionID);
+			return ((ISingleResult<stp_ListarDatosMarcoResult>)(result.ReturnValue));
 		}
 	}
 	
@@ -2704,6 +2704,94 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 		}
 	}
 	
+	public partial class stp_setSeleccionMarcoResult
+	{
+		
+		private string _vchResultado;
+		
+		private string _vchDescripcion;
+		
+		public stp_setSeleccionMarcoResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchResultado", DbType="VarChar(12)")]
+		public string vchResultado
+		{
+			get
+			{
+				return this._vchResultado;
+			}
+			set
+			{
+				if ((this._vchResultado != value))
+				{
+					this._vchResultado = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchDescripcion", DbType="VarChar(57) NOT NULL", CanBeNull=false)]
+		public string vchDescripcion
+		{
+			get
+			{
+				return this._vchDescripcion;
+			}
+			set
+			{
+				if ((this._vchDescripcion != value))
+				{
+					this._vchDescripcion = value;
+				}
+			}
+		}
+	}
+	
+	public partial class stp_ListarCatFondoMarcoResult
+	{
+		
+		private System.Nullable<decimal> _decFondoMarco;
+		
+		private string _vchFondoMarco;
+		
+		public stp_ListarCatFondoMarcoResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decFondoMarco", DbType="Decimal(18,4)")]
+		public System.Nullable<decimal> decFondoMarco
+		{
+			get
+			{
+				return this._decFondoMarco;
+			}
+			set
+			{
+				if ((this._decFondoMarco != value))
+				{
+					this._decFondoMarco = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchFondoMarco", DbType="VarChar(250)")]
+		public string vchFondoMarco
+		{
+			get
+			{
+				return this._vchFondoMarco;
+			}
+			set
+			{
+				if ((this._vchFondoMarco != value))
+				{
+					this._vchFondoMarco = value;
+				}
+			}
+		}
+	}
+	
 	public partial class stp_ListarDatosMarcoResult
 	{
 		
@@ -2730,6 +2818,8 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 		private System.Nullable<bool> _bitActivo;
 		
 		private System.Nullable<int> _intConfiguraMarcoID;
+		
+		private System.Nullable<bool> _bitSobreViga;
 		
 		public stp_ListarDatosMarcoResult()
 		{
@@ -2926,91 +3016,19 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 				}
 			}
 		}
-	}
-	
-	public partial class stp_setSeleccionMarcoResult
-	{
 		
-		private string _vchResultado;
-		
-		private string _vchDescripcion;
-		
-		public stp_setSeleccionMarcoResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchResultado", DbType="VarChar(12)")]
-		public string vchResultado
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_bitSobreViga", DbType="Bit")]
+		public System.Nullable<bool> bitSobreViga
 		{
 			get
 			{
-				return this._vchResultado;
+				return this._bitSobreViga;
 			}
 			set
 			{
-				if ((this._vchResultado != value))
+				if ((this._bitSobreViga != value))
 				{
-					this._vchResultado = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchDescripcion", DbType="VarChar(57) NOT NULL", CanBeNull=false)]
-		public string vchDescripcion
-		{
-			get
-			{
-				return this._vchDescripcion;
-			}
-			set
-			{
-				if ((this._vchDescripcion != value))
-				{
-					this._vchDescripcion = value;
-				}
-			}
-		}
-	}
-	
-	public partial class stp_ListarCatFondoMarcoResult
-	{
-		
-		private System.Nullable<decimal> _decFondoMarco;
-		
-		private string _vchFondoMarco;
-		
-		public stp_ListarCatFondoMarcoResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decFondoMarco", DbType="Decimal(18,4)")]
-		public System.Nullable<decimal> decFondoMarco
-		{
-			get
-			{
-				return this._decFondoMarco;
-			}
-			set
-			{
-				if ((this._decFondoMarco != value))
-				{
-					this._decFondoMarco = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchFondoMarco", DbType="VarChar(250)")]
-		public string vchFondoMarco
-		{
-			get
-			{
-				return this._vchFondoMarco;
-			}
-			set
-			{
-				if ((this._vchFondoMarco != value))
-				{
-					this._vchFondoMarco = value;
+					this._bitSobreViga = value;
 				}
 			}
 		}

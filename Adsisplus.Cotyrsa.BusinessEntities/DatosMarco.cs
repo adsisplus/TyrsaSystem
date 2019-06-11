@@ -65,5 +65,8 @@ namespace Adsisplus.Cotyrsa.BusinessEntities
         [DataMember]
         public int? intConfiguraMarcoID { get; set; }
 
+        [DataMember]
+        public bool? bitSobreViga { get; set; }
+
     }
 }

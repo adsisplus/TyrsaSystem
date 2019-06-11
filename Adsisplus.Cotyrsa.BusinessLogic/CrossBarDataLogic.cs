@@ -23,19 +23,19 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
 
         #endregion
 
-        public List<DatosCrossBar> ListarDatosPanel(Int32 intDatosCrossBarID, Int32 intElementoID, Int32 intDatoMarcoID)
-        {
-            List<DatosCrossBar> results = null;
-            try
-            {
-                results = CatalogosDA.ListarDatosPanel(intDatosCrossBarID, intElementoID, intDatoMarcoID);
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-            return results;
-        }
+        //public List<DatosCrossBar> ListarDatosPanel(Int32 intDatosCrossBarID, Int32 intElementoID, Int32 intDatoMarcoID)
+        //{
+        //    List<DatosCrossBar> results = null;
+        //    try
+        //    {
+        //        results = CatalogosDA.ListarDatosPanel(intDatosCrossBarID, intElementoID, intDatoMarcoID);
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        throw ex;
+        //    }
+        //    return results;
+        //}
         /// <summary>
         /// Procedimiento que nos muestra la lista de ancho páneles para cotizaciones
         /// </summary>
@@ -204,6 +204,7 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
                         mstCrossBar.bitConectorVigaCrossbar = dppCrossBar.bitConectorViga;
                         mstCrossBar.intCantidadNivelCrossbar = dppCrossBar.intCantNivel;
                         mstCrossBar.intCantidad = intCantidad;
+                        mstCrossBar.intNumeroNivel = dppCrossBar.intNumeroNivel;
 
                         // Realizamos el registro del panel
                         result = (new SistemasTyrsaLogic()).setDatosCrossBar(mstCrossBar, tinOpcion);

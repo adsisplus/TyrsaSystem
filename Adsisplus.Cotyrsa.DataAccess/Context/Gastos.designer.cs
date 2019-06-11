@@ -76,32 +76,32 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 			return ((ISingleResult<stp_setDatosInstalacionResult>)(result.ReturnValue));
 		}
 		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.stp_ListarDatosInstalacion")]
+		public ISingleResult<stp_ListarDatosInstalacionResult> stp_ListarDatosInstalacion([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intCotizacionID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> sintInstalacionID)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), intCotizacionID, sintInstalacionID);
+			return ((ISingleResult<stp_ListarDatosInstalacionResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.stp_ListarDatosFlete")]
+		public ISingleResult<stp_ListarDatosFleteResult> stp_ListarDatosFlete([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intCotizacionID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> sintFleteID)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), intCotizacionID, sintFleteID);
+			return ((ISingleResult<stp_ListarDatosFleteResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.stp_ListarDatosViatico")]
+		public ISingleResult<stp_ListarDatosViaticoResult> stp_ListarDatosViatico([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intCotizacionID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> sintViaticoID)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), intCotizacionID, sintViaticoID);
+			return ((ISingleResult<stp_ListarDatosViaticoResult>)(result.ReturnValue));
+		}
+		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.stp_setDatosViatico")]
 		public ISingleResult<stp_setDatosViaticoResult> stp_setDatosViatico([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intCotizacionID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intDetCotizaID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intDatoViaticoID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intElementoID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="SmallInt")] System.Nullable<short> sintViaticoID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intCantidad, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Date")] System.Nullable<System.DateTime> datFecha, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Bit")] System.Nullable<bool> bitActivo, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="TinyInt")] System.Nullable<byte> tinOpcion)
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), intCotizacionID, intDetCotizaID, intDatoViaticoID, intElementoID, sintViaticoID, intCantidad, datFecha, bitActivo, tinOpcion);
 			return ((ISingleResult<stp_setDatosViaticoResult>)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.stp_ListarDatosFlete")]
-		public ISingleResult<stp_ListarDatosFleteResult> stp_ListarDatosFlete([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intCotizacionID)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), intCotizacionID);
-			return ((ISingleResult<stp_ListarDatosFleteResult>)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.stp_ListarDatosInstalacion")]
-		public ISingleResult<stp_ListarDatosInstalacionResult> stp_ListarDatosInstalacion([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intCotizacionID)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), intCotizacionID);
-			return ((ISingleResult<stp_ListarDatosInstalacionResult>)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.stp_ListarDatosViatico")]
-		public ISingleResult<stp_ListarDatosViaticoResult> stp_ListarDatosViatico([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intCotizacionID)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), intCotizacionID);
-			return ((ISingleResult<stp_ListarDatosViaticoResult>)(result.ReturnValue));
 		}
 	}
 	
@@ -193,34 +193,64 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 		}
 	}
 	
-	public partial class stp_setDatosViaticoResult
+	public partial class stp_ListarDatosInstalacionResult
 	{
 		
-		private string _vchResultado;
+		private int _intDatosInstalacionID;
+		
+		private System.Nullable<short> _sintInstalacionID;
 		
 		private string _vchDescripcion;
 		
-		public stp_setDatosViaticoResult()
+		private System.Nullable<int> _intUnidadMedicionID;
+		
+		private string _vchUnidadMedicion;
+		
+		private System.Nullable<int> _intInstalacion;
+		
+		private System.Nullable<int> _intDesinstalacion;
+		
+		private System.Nullable<int> _intElementoID;
+		
+		private System.Nullable<int> _intCantidad;
+		
+		public stp_ListarDatosInstalacionResult()
 		{
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchResultado", DbType="VarChar(30)")]
-		public string vchResultado
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intDatosInstalacionID", DbType="Int NOT NULL")]
+		public int intDatosInstalacionID
 		{
 			get
 			{
-				return this._vchResultado;
+				return this._intDatosInstalacionID;
 			}
 			set
 			{
-				if ((this._vchResultado != value))
+				if ((this._intDatosInstalacionID != value))
 				{
-					this._vchResultado = value;
+					this._intDatosInstalacionID = value;
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchDescripcion", DbType="VarChar(45) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sintInstalacionID", DbType="SmallInt")]
+		public System.Nullable<short> sintInstalacionID
+		{
+			get
+			{
+				return this._sintInstalacionID;
+			}
+			set
+			{
+				if ((this._sintInstalacionID != value))
+				{
+					this._sintInstalacionID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchDescripcion", DbType="VarChar(250)")]
 		public string vchDescripcion
 		{
 			get
@@ -232,6 +262,102 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 				if ((this._vchDescripcion != value))
 				{
 					this._vchDescripcion = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intUnidadMedicionID", DbType="Int")]
+		public System.Nullable<int> intUnidadMedicionID
+		{
+			get
+			{
+				return this._intUnidadMedicionID;
+			}
+			set
+			{
+				if ((this._intUnidadMedicionID != value))
+				{
+					this._intUnidadMedicionID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchUnidadMedicion", DbType="VarChar(25)")]
+		public string vchUnidadMedicion
+		{
+			get
+			{
+				return this._vchUnidadMedicion;
+			}
+			set
+			{
+				if ((this._vchUnidadMedicion != value))
+				{
+					this._vchUnidadMedicion = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intInstalacion", DbType="Int")]
+		public System.Nullable<int> intInstalacion
+		{
+			get
+			{
+				return this._intInstalacion;
+			}
+			set
+			{
+				if ((this._intInstalacion != value))
+				{
+					this._intInstalacion = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intDesinstalacion", DbType="Int")]
+		public System.Nullable<int> intDesinstalacion
+		{
+			get
+			{
+				return this._intDesinstalacion;
+			}
+			set
+			{
+				if ((this._intDesinstalacion != value))
+				{
+					this._intDesinstalacion = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intElementoID", DbType="Int")]
+		public System.Nullable<int> intElementoID
+		{
+			get
+			{
+				return this._intElementoID;
+			}
+			set
+			{
+				if ((this._intElementoID != value))
+				{
+					this._intElementoID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intCantidad", DbType="Int")]
+		public System.Nullable<int> intCantidad
+		{
+			get
+			{
+				return this._intCantidad;
+			}
+			set
+			{
+				if ((this._intCantidad != value))
+				{
+					this._intCantidad = value;
 				}
 			}
 		}
@@ -425,176 +551,6 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 		}
 	}
 	
-	public partial class stp_ListarDatosInstalacionResult
-	{
-		
-		private int _intDatosInstalacionID;
-		
-		private System.Nullable<short> _sintInstalacionID;
-		
-		private string _vchDescripcion;
-		
-		private System.Nullable<int> _intUnidadMedicionID;
-		
-		private string _vchUnidadMedicion;
-		
-		private System.Nullable<int> _intInstalacion;
-		
-		private System.Nullable<int> _intDesinstalacion;
-		
-		private System.Nullable<int> _intElementoID;
-		
-		private System.Nullable<int> _intCantidad;
-		
-		public stp_ListarDatosInstalacionResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intDatosInstalacionID", DbType="Int NOT NULL")]
-		public int intDatosInstalacionID
-		{
-			get
-			{
-				return this._intDatosInstalacionID;
-			}
-			set
-			{
-				if ((this._intDatosInstalacionID != value))
-				{
-					this._intDatosInstalacionID = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sintInstalacionID", DbType="SmallInt")]
-		public System.Nullable<short> sintInstalacionID
-		{
-			get
-			{
-				return this._sintInstalacionID;
-			}
-			set
-			{
-				if ((this._sintInstalacionID != value))
-				{
-					this._sintInstalacionID = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchDescripcion", DbType="VarChar(250)")]
-		public string vchDescripcion
-		{
-			get
-			{
-				return this._vchDescripcion;
-			}
-			set
-			{
-				if ((this._vchDescripcion != value))
-				{
-					this._vchDescripcion = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intUnidadMedicionID", DbType="Int")]
-		public System.Nullable<int> intUnidadMedicionID
-		{
-			get
-			{
-				return this._intUnidadMedicionID;
-			}
-			set
-			{
-				if ((this._intUnidadMedicionID != value))
-				{
-					this._intUnidadMedicionID = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchUnidadMedicion", DbType="VarChar(25)")]
-		public string vchUnidadMedicion
-		{
-			get
-			{
-				return this._vchUnidadMedicion;
-			}
-			set
-			{
-				if ((this._vchUnidadMedicion != value))
-				{
-					this._vchUnidadMedicion = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intInstalacion", DbType="Int")]
-		public System.Nullable<int> intInstalacion
-		{
-			get
-			{
-				return this._intInstalacion;
-			}
-			set
-			{
-				if ((this._intInstalacion != value))
-				{
-					this._intInstalacion = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intDesinstalacion", DbType="Int")]
-		public System.Nullable<int> intDesinstalacion
-		{
-			get
-			{
-				return this._intDesinstalacion;
-			}
-			set
-			{
-				if ((this._intDesinstalacion != value))
-				{
-					this._intDesinstalacion = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intElementoID", DbType="Int")]
-		public System.Nullable<int> intElementoID
-		{
-			get
-			{
-				return this._intElementoID;
-			}
-			set
-			{
-				if ((this._intElementoID != value))
-				{
-					this._intElementoID = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intCantidad", DbType="Int")]
-		public System.Nullable<int> intCantidad
-		{
-			get
-			{
-				return this._intCantidad;
-			}
-			set
-			{
-				if ((this._intCantidad != value))
-				{
-					this._intCantidad = value;
-				}
-			}
-		}
-	}
-	
 	public partial class stp_ListarDatosViaticoResult
 	{
 		
@@ -760,6 +716,50 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 				if ((this._datFecha != value))
 				{
 					this._datFecha = value;
+				}
+			}
+		}
+	}
+	
+	public partial class stp_setDatosViaticoResult
+	{
+		
+		private string _vchResultado;
+		
+		private string _vchDescripcion;
+		
+		public stp_setDatosViaticoResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchResultado", DbType="VarChar(30)")]
+		public string vchResultado
+		{
+			get
+			{
+				return this._vchResultado;
+			}
+			set
+			{
+				if ((this._vchResultado != value))
+				{
+					this._vchResultado = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchDescripcion", DbType="VarChar(45) NOT NULL", CanBeNull=false)]
+		public string vchDescripcion
+		{
+			get
+			{
+				return this._vchDescripcion;
+			}
+			set
+			{
+				if ((this._vchDescripcion != value))
+				{
+					this._vchDescripcion = value;
 				}
 			}
 		}

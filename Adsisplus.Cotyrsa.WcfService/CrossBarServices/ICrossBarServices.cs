@@ -13,16 +13,16 @@ namespace Adsisplus.Cotyrsa.WcfService.CrossBarServices
     [ServiceContract]
     public interface ICrossBarServices
     {
-        /// <summary>
-        /// Obtiene la lista de datos del panel
-        /// </summary>
-        /// <param name="intDatosCrossBarID"></param>
-        /// <param name="intElementoID"></param>
-        /// <param name="intDatoMarcoID"></param>
-        /// <returns></returns>
-        [OperationContract]
-        [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ListarDatosPanel")]
-        List<DatosCrossBar> ListarDatosPanel(Int32 intDatosCrossBarID, Int32 intElementoID, Int32 intDatoMarcoID);
+        ///// <summary>
+        ///// Obtiene la lista de datos del panel
+        ///// </summary>
+        ///// <param name="intDatosCrossBarID"></param>
+        ///// <param name="intElementoID"></param>
+        ///// <param name="intDatoMarcoID"></param>
+        ///// <returns></returns>
+        //[OperationContract]
+        //[WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ListarDatosPanel")]
+        //List<DatosCrossBar> ListarDatosPanel(Int32 intDatosCrossBarID, Int32 intElementoID, Int32 intDatoMarcoID);
 
         /// <summary>
         /// Procedimiento que nos muestra la lista de ancho páneles para cotizaciones

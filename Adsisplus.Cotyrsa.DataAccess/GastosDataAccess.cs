@@ -27,7 +27,7 @@ namespace Adsisplus.Cotyrsa.DataAccess
                 // Obtenemos la lista de datos de flete
                 using (GastosDataContext dc = new GastosDataContext(Helper.ConnectionString()))
                 {
-                    var query = from item in dc.stp_ListarDatosFlete(intCotizacionID)
+                    var query = from item in dc.stp_ListarDatosFlete(intCotizacionID, 0)
                                 select new DatosFlete
                                 {
                                     intDatoFleteID = item.intDatoFleteID,
@@ -46,7 +46,7 @@ namespace Adsisplus.Cotyrsa.DataAccess
                 // Obtenemos la lista de datos de instalación
                 using (GastosDataContext dc = new GastosDataContext(Helper.ConnectionString()))
                 {
-                    var query = from item in dc.stp_ListarDatosInstalacion(intCotizacionID)
+                    var query = from item in dc.stp_ListarDatosInstalacion(intCotizacionID, 0)
                                 select new DatosInstalacion
                                 {
                                     intDatosInstalacionID = item.intDatosInstalacionID,
@@ -64,7 +64,7 @@ namespace Adsisplus.Cotyrsa.DataAccess
                 // Obtenemos la lista de datos de viáticos
                 using (GastosDataContext dc = new GastosDataContext(Helper.ConnectionString()))
                 {
-                    var query = from item in dc.stp_ListarDatosViatico(intCotizacionID)
+                    var query = from item in dc.stp_ListarDatosViatico(intCotizacionID, 0)
                                 select new DatosViaticos
                                 {
                                     intDatoViaticoID = item.intDatoViaticoID,
@@ -91,44 +91,113 @@ namespace Adsisplus.Cotyrsa.DataAccess
             }
             return result;
         }
-        ///// <summary>
-        ///// Procedimiento que realiza el alta, modificación o baja de los datos de gastos
-        ///// </summary>
-        ///// <param name="flete"></param>
-        ///// <param name="instalacion"></param>
-        ///// <param name="viaticos"></param>
-        ///// <param name="intCotizacionID"></param>
-        ///// <param name="intDetCotizaID"></param>
-        ///// <param name="bitActivo"></param>
-        ///// <param name="tinOpcion"></param>
-        ///// <returns></returns>
-        //public Resultado setDatosGastos(DatosFlete flete, DatosInstalacion instalacion, DatosViaticos viaticos, int intCotizacionID, bool bitActivo, short tinOpcion)
-        //{
-        //    Resultado result = new Resultado();
-        //    try
-        //    {
-        //        //using (GastosDataContext dc = new GastosDataContext(Helper.ConnectionString()))
-        //        //{
-        //        //    var query = from item in dc.stp_setDatosGasto(intCotizacionID, flete.intDetCotizaID, flete.intDatoFleteID, flete.intElementoID,
-        //        //        flete.sintFleteID, flete.intCantidad, flete.datFechaCarga, flete.datFechaDescarga, 
-        //        //        instalacion.intDetCotizaID, instalacion.intDatosInstalacionID, instalacion.sintInstalacionID, instalacion.intElementoID,
-        //        //        instalacion.intCantidad, instalacion.datFecha, viaticos.intDetCotizaID, viaticos.intDatoViaticoID,
-        //        //        viaticos.intElementoID, viaticos.sintViaticoID, viaticos.intCantidad, viaticos.datFecha, bitActivo, 
-        //        //        (byte)tinOpcion)
-        //        //                select new Resultado
-        //        //                {
-        //        //                    vchDescripcion = item.vchDescripcion,
-        //        //                    vchResultado = item.vchResultado
-        //        //                };
-        //        //    result = query.First();
-        //        //}
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        throw ex;
-        //    }
-        //    return result;
-        //}
+        /// <summary>
+        /// Procedimiento que obtiene la lista de datos instalación en base al ID de
+        /// la instalación
+        /// </summary>
+        /// <param name="intCotizacionID"></param>
+        /// <param name="sintInstalacionID"></param>
+        /// <returns></returns>
+        public List<DatosInstalacion> ListarDatosInstalacion(int intCotizacionID, short sintInstalacionID)
+        {
+            List<DatosInstalacion> result = new List<DatosInstalacion>();
+            try
+            {
+                using (GastosDataContext dc = new GastosDataContext(Helper.ConnectionString()))
+                {
+                    var query = from item in dc.stp_ListarDatosInstalacion(intCotizacionID, sintInstalacionID)
+                                select new DatosInstalacion
+                                {
+                                    intDatosInstalacionID = item.intDatosInstalacionID,
+                                    sintInstalacionID = item.sintInstalacionID,
+                                    vchDescripcion = item.vchDescripcion,
+                                    intUnidadMedicionID = item.intUnidadMedicionID,
+                                    vchUnidadMedicion = item.vchUnidadMedicion,
+                                    intInstalacion = item.intInstalacion,
+                                    intDesinstalacion = item.intDesinstalacion,
+                                    intElementoID = item.intElementoID,
+                                    intCantidad = item.intCantidad
+                                };
+                    result.AddRange(query);
+                }
+            }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
+        /// <summary>
+        /// Procedimiento que obtiene los datos de flete
+        /// </summary>
+        /// <param name="intCotizacionID"></param>
+        /// <param name="sintFleteID"></param>
+        /// <returns></returns>
+        public List<DatosFlete> ListarDatosFlete(int intCotizacionID, short sintFleteID)
+        {
+            List<DatosFlete> result = new List<DatosFlete>();
+            try
+            {
+                using (GastosDataContext dc = new GastosDataContext(Helper.ConnectionString()))
+                {
+                    var query = from item in dc.stp_ListarDatosFlete(intCotizacionID, sintFleteID)
+                                select new DatosFlete
+                                {
+                                    intDatoFleteID = item.intDatoFleteID,
+                                    sintFleteID = item.sintFleteID,
+                                    sintTipoUnidadFleteID = item.sintTipoUnidadFleteID,
+                                    vchTipoUnidad = item.vchTipoUnidad,
+                                    sintDestinoFleteID = item.sintDestinoFleteID,
+                                    vchDestinoFlete = item.vchDestinoFlete,
+                                    intElementoID = item.intElementoID,
+                                    intCantidad = item.intCantidad,
+                                    datFechaCarga = item.datFechaCarga,
+                                    datFechaDescarga = item.datFechaDescarga
+                                };
+                    result.AddRange(query);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
+        /// <summary>
+        /// Procedimiento que obtiene la lista de viaticos
+        /// </summary>
+        /// <param name="intCotizacionID"></param>
+        /// <param name="sintViaticoID"></param>
+        /// <returns></returns>
+        public List<DatosViaticos> ListarDatosViatico(int intCotizacionID, short sintViaticoID)
+        {
+            List<DatosViaticos> result = new List<DatosViaticos>();
+            try
+            {
+                using (GastosDataContext dc = new GastosDataContext(Helper.ConnectionString()))
+                {
+                    var query = from item in dc.stp_ListarDatosViatico(intCotizacionID, sintViaticoID)
+                                select new DatosViaticos
+                                {
+                                    intDatoViaticoID = item.intDatoViaticoID,
+                                    sintViaticoID = item.sintViaticoID,
+                                    vchDescripcion = item.vchDescripcion,
+                                    intUnidadMedicionID = item.intUnidadMedicionID,
+                                    vchUnidadMedicion = item.vchUnidadMedicion,
+                                    intInstalacion = item.intInstalacion,
+                                    decFactor = item.decFactor,
+                                    intCantidad = item.intCantidad,
+                                    datFecha = item.datFecha
+                                };
+                    result.AddRange(query);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
         /// <summary>
         /// Procedimiento que realiza el alta, modificación o baja de flete
         /// </summary>

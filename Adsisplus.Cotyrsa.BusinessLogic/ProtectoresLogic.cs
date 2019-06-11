@@ -235,8 +235,6 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
                 throw ex;
             }
             return result;
-
-            return result;
         }
         /// <summary>
         /// Procedimiento que lista los datos de batería cuadruple

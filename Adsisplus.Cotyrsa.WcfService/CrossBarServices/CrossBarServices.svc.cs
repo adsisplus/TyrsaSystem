@@ -13,26 +13,26 @@ namespace Adsisplus.Cotyrsa.WcfService.CrossBarServices
     // NOTA: para iniciar el Cliente de prueba WCF para probar este servicio, seleccione CrossBarServices.svc o CrossBarServices.svc.cs en el Explorador de soluciones e inicie la depuración.
     public class CrossBarServices : ICrossBarServices
     {
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="intDatosCrossBarID"></param>
-        /// <param name="intElementoID"></param>
-        /// <param name="intDatoMarcoID"></param>
-        /// <returns></returns>
-        public List<DatosCrossBar> ListarDatosPanel(int intDatosCrossBarID, int intElementoID, int intDatoMarcoID)
-        {
-            List<DatosCrossBar> result = new List<DatosCrossBar>();
-            try
-            {
-                result = (new CrossBarDataLogic()).ListarDatosPanel(intDatosCrossBarID, intElementoID, intDatoMarcoID);
-            }
-            catch (Exception ex)
-            {
-                Adsisplus.Cotyrsa.BusinessLogic.EventLogManager.LogErrorEntry(ex.Message);
-            }
-            return result;
-        }
+        ///// <summary>
+        ///// 
+        ///// </summary>
+        ///// <param name="intDatosCrossBarID"></param>
+        ///// <param name="intElementoID"></param>
+        ///// <param name="intDatoMarcoID"></param>
+        ///// <returns></returns>
+        //public List<DatosCrossBar> ListarDatosPanel(int intDatosCrossBarID, int intElementoID, int intDatoMarcoID)
+        //{
+        //    List<DatosCrossBar> result = new List<DatosCrossBar>();
+        //    try
+        //    {
+        //        result = (new CrossBarDataLogic()).ListarDatosPanel(intDatosCrossBarID, intElementoID, intDatoMarcoID);
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        Adsisplus.Cotyrsa.BusinessLogic.EventLogManager.LogErrorEntry(ex.Message);
+        //    }
+        //    return result;
+        //}
         /// <summary>
         /// Procedimiento que nos muestra la lista de ancho páneles para cotizaciones
         /// </summary>
