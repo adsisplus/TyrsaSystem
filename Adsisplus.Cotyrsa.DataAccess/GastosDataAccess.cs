@@ -133,14 +133,14 @@ namespace Adsisplus.Cotyrsa.DataAccess
         /// <param name="intCotizacionID"></param>
         /// <param name="sintFleteID"></param>
         /// <returns></returns>
-        public List<DatosFlete> ListarDatosFlete(int intCotizacionID, short sintFleteID)
+        public List<DatosFlete> ListarDatosFlete(int intCotizacionID, int intDatoFleteID)
         {
             List<DatosFlete> result = new List<DatosFlete>();
             try
             {
                 using (GastosDataContext dc = new GastosDataContext(Helper.ConnectionString()))
                 {
-                    var query = from item in dc.stp_ListarDatosFlete(intCotizacionID, sintFleteID)
+                    var query = from item in dc.stp_ListarDatosFlete(intCotizacionID, intDatoFleteID)
                                 select new DatosFlete
                                 {
                                     intDatoFleteID = item.intDatoFleteID,

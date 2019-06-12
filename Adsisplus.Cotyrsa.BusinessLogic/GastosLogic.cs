@@ -74,7 +74,7 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
                         flete.intDetCotizaID = Convert.ToInt32(result.vchResultado);
                         flete.intElementoID = 13;
                         // Realizamos la búsqueda de fletes
-                        List<DatosFlete> lstBusFlete = GastosDA.ListarDatosFlete((int)flete.intCotizacionID, (short)(flete.sintFleteID == null ? 0 : flete.sintFleteID));
+                        List<DatosFlete> lstBusFlete = GastosDA.ListarDatosFlete((int)flete.intCotizacionID, (int)flete.intDatoFleteID);
                         
                         if(lstBusFlete.Count > 0)
                         {
