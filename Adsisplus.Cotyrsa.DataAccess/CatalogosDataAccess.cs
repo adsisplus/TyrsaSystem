@@ -1310,18 +1310,20 @@ namespace Adsisplus.Cotyrsa.DataAccess
         /// </summary>
         /// <param name="sintDestinoFleteID"></param>
         /// <returns></returns>
-        public List<Catalogo> ListarCatFlete(short sintDestinoFleteID)
+        public List<DatosFlete> ListarCatFlete(short sintDestinoFleteID)
         {
-            List<Catalogo> result = new List<Catalogo>();
+            List<DatosFlete> result = new List<DatosFlete>();
             try
             {
                 using (CatalogosDataContext dc = new CatalogosDataContext(Helper.ConnectionString()))
                 {
                     var query = from item in dc.stp_ListarCatFlete(sintDestinoFleteID)
-                                select new Catalogo
+                                select new DatosFlete
                                 {
-                                    intCatalogoID = item.sintTipoUnidadFleteID,
-                                    vchDescripcion = item.vchTipoUnidad
+                                    sintTipoUnidadFleteID = item.sintTipoUnidadFleteID,
+                                    vchTipoUnidad = item.vchTipoUnidad,
+                                    sintFleteID = item.sintFleteID
+
                                 };
                     result.AddRange(query);
                 }

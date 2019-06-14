@@ -94,7 +94,7 @@ namespace Adsisplus.Cotyrsa.WcfService.CatalogoGeneralServices
         /// <returns></returns>
         [OperationContract]
         [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ListarCatFlete")]
-        List<Catalogo> ListarCatFlete(short sintDestinoFleteID);
+        List<DatosFlete> ListarCatFlete(short sintDestinoFleteID);
         /// <summary>
         /// Procedimiento que lista los datos de instalación
         /// </summary>

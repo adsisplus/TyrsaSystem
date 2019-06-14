@@ -5372,6 +5372,8 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 		
 		private string _vchTipoUnidad;
 		
+		private short _sintFleteID;
+		
 		public stp_ListarCatFleteResult()
 		{
 		}
@@ -5404,6 +5406,22 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 				if ((this._vchTipoUnidad != value))
 				{
 					this._vchTipoUnidad = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sintFleteID", DbType="SmallInt NOT NULL")]
+		public short sintFleteID
+		{
+			get
+			{
+				return this._sintFleteID;
+			}
+			set
+			{
+				if ((this._sintFleteID != value))
+				{
+					this._sintFleteID = value;
 				}
 			}
 		}

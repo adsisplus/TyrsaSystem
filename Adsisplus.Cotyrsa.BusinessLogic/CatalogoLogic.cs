@@ -750,9 +750,9 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
         /// </summary>
         /// <param name="sintDestinoFleteID"></param>
         /// <returns></returns>
-        public List<Catalogo> ListarCatFlete(short sintDestinoFleteID)
+        public List<DatosFlete> ListarCatFlete(short sintDestinoFleteID)
         {
-            List<Catalogo> result = new List<Catalogo>();
+            List<DatosFlete> result = new List<DatosFlete>();
             try
             {
                 result = CatalogosDA.ListarCatFlete(sintDestinoFleteID);

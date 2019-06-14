@@ -133,7 +133,7 @@ namespace Adsisplus.Cotyrsa.DataAccess
         /// <param name="intCotizacionID"></param>
         /// <param name="sintFleteID"></param>
         /// <returns></returns>
-        public List<DatosFlete> ListarDatosFlete(int intCotizacionID, int intDatoFleteID)
+        public List<DatosFlete> ListarDatosFlete(int intCotizacionID, int? intDatoFleteID)
         {
             List<DatosFlete> result = new List<DatosFlete>();
             try

@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="dbTyrsa" Class="CatalogosDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=local;Initial Catalog=dbTyrsa;Persist Security Info=True;User ID=usrCotyrsa" SettingsObjectName="Adsisplus.Cotyrsa.DataAccess.Properties.Settings" SettingsPropertyName="dbTyrsaConnectionString" Provider="System.Data.SqlClient" />
+  <Connection Mode="AppSettings" ConnectionString="Data Source=local;Initial Catalog=dbTyrsa;User ID=usrCotyrsa" SettingsObjectName="Adsisplus.Cotyrsa.DataAccess.Properties.Settings" SettingsPropertyName="dbTyrsaConnectionString" Provider="System.Data.SqlClient" />
   <Function Name="dbo.stp_ListarCatCalibreAcero" Method="stp_ListarCatCalibreAcero">
     <ElementType Name="stp_ListarCatCalibreAceroResult">
       <Column Name="intCalibreAceroID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
@@ -504,6 +504,7 @@
     <ElementType Name="stp_ListarCatFleteResult">
       <Column Name="sintTipoUnidadFleteID" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
       <Column Name="vchTipoUnidad" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="sintFleteID" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
     </ElementType>
   </Function>
 </Database>
