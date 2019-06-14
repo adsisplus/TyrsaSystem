@@ -507,4 +507,15 @@
       <Column Name="sintFleteID" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
     </ElementType>
   </Function>
+  <Function Name="dbo.stp_ListarCatCalibre" Method="stp_ListarCatCalibre">
+    <ElementType Name="stp_ListarCatCalibreResult">
+      <Column Name="intCalibreAceroID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="vchCalibreAcero" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.stp_ListarLargoCrossBar" Method="stp_ListarLargoCrossBar">
+    <ElementType Name="stp_ListarLargoCrossBarResult">
+      <Column Name="decLargo" Type="System.Decimal" DbType="Decimal(12,3)" CanBeNull="true" />
+    </ElementType>
+  </Function>
 </Database>

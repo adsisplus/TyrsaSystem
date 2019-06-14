@@ -1478,6 +1478,57 @@ namespace Adsisplus.Cotyrsa.DataAccess
             }
             return result;
         }
+        /// <summary>
+        /// Procedimiento que lista el catálogo de calibres
+        /// </summary>
+        /// <returns></returns>
+        public List<Catalogo> ListarCatCalibre()
+        {
+            List<Catalogo> result = new List<Catalogo>();
+            try
+            {
+                using (CatalogosDataContext dc = new CatalogosDataContext(Helper.ConnectionString()))
+                {
+                    var query = from item in dc.stp_ListarCatCalibre()
+                                select new Catalogo
+                                {
+                                    intCatalogoID = item.intCalibreAceroID,
+                                    vchDescripcion = item.vchCalibreAcero
+                                };
+                    result.AddRange(query);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
+        /// <summary>
+        /// Procedimiento que lista el catálogo de largo de crossbar
+        /// </summary>
+        /// <returns></returns>
+        public List<CatalogoDecimal> ListarCatLargoCrossBar()
+        {
+            List<CatalogoDecimal> result = new List<CatalogoDecimal>();
+            try
+            {
+                using (CatalogosDataContext dc = new CatalogosDataContext(Helper.ConnectionString()))
+                {
+                    var query = from item in dc.stp_ListarLargoCrossBar()
+                                select new CatalogoDecimal
+                                {
+                                    decValor = item.decLargo
+                                };
+                    result.AddRange(query);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
     }
 
 

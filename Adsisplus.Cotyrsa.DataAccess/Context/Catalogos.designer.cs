@@ -439,6 +439,20 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), sintDestinoFleteID);
 			return ((ISingleResult<stp_ListarCatFleteResult>)(result.ReturnValue));
 		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.stp_ListarCatCalibre")]
+		public ISingleResult<stp_ListarCatCalibreResult> stp_ListarCatCalibre()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<stp_ListarCatCalibreResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.stp_ListarLargoCrossBar")]
+		public ISingleResult<stp_ListarLargoCrossBarResult> stp_ListarLargoCrossBar()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<stp_ListarLargoCrossBarResult>)(result.ReturnValue));
+		}
 	}
 	
 	public partial class stp_ListarCatCalibreAceroResult
@@ -5422,6 +5436,76 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 				if ((this._sintFleteID != value))
 				{
 					this._sintFleteID = value;
+				}
+			}
+		}
+	}
+	
+	public partial class stp_ListarCatCalibreResult
+	{
+		
+		private System.Nullable<int> _intCalibreAceroID;
+		
+		private string _vchCalibreAcero;
+		
+		public stp_ListarCatCalibreResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intCalibreAceroID", DbType="Int")]
+		public System.Nullable<int> intCalibreAceroID
+		{
+			get
+			{
+				return this._intCalibreAceroID;
+			}
+			set
+			{
+				if ((this._intCalibreAceroID != value))
+				{
+					this._intCalibreAceroID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchCalibreAcero", DbType="VarChar(50)")]
+		public string vchCalibreAcero
+		{
+			get
+			{
+				return this._vchCalibreAcero;
+			}
+			set
+			{
+				if ((this._vchCalibreAcero != value))
+				{
+					this._vchCalibreAcero = value;
+				}
+			}
+		}
+	}
+	
+	public partial class stp_ListarLargoCrossBarResult
+	{
+		
+		private System.Nullable<decimal> _decLargo;
+		
+		public stp_ListarLargoCrossBarResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decLargo", DbType="Decimal(12,3)")]
+		public System.Nullable<decimal> decLargo
+		{
+			get
+			{
+				return this._decLargo;
+			}
+			set
+			{
+				if ((this._decLargo != value))
+				{
+					this._decLargo = value;
 				}
 			}
 		}

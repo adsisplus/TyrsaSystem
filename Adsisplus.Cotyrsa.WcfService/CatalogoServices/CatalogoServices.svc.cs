@@ -739,5 +739,39 @@ namespace Adsisplus.Cotyrsa.WcfService.CatalogoServices
             }
             return result;
         }
+        /// <summary>
+        /// Procedimiento que lista el catálogo de calibres
+        /// </summary>
+        /// <returns></returns>
+        public List<Catalogo> ListarCatCalibre()
+        {
+            List<Catalogo> result = new List<Catalogo>();
+            try
+            {
+                result = (new CatalogoLogic()).ListarCatCalibre();
+            }
+            catch (Exception ex)
+            {
+                Adsisplus.Cotyrsa.BusinessLogic.EventLogManager.LogErrorEntry(ex.Message);
+            }
+            return result;
+        }
+        /// <summary>
+        /// Procedimiento que lista el catálogo de largo de crossbar
+        /// </summary>
+        /// <returns></returns>
+        public List<CatalogoDecimal> ListarCatLargoCrossBar()
+        {
+            List<CatalogoDecimal> result = new List<CatalogoDecimal>();
+            try
+            {
+                result = (new CatalogoLogic()).ListarCatLargoCrossBar();
+            }
+            catch (Exception ex)
+            {
+                Adsisplus.Cotyrsa.BusinessLogic.EventLogManager.LogErrorEntry(ex.Message);
+            }
+            return result;
+        }
     }
 }
