@@ -30,7 +30,7 @@ namespace Adsisplus.Cotyrsa.WcfService.PanelServices
         /// <returns></returns>
         [OperationContract]
         [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ListarAnchoPanel")]
-        List<decimal> ListarAnchoPanel();
+        List<CatalogoDecimal> ListarAnchoPanel();
 
         /// <summary>
         /// Procedimiento que nos muestra la lista de páneles para cotizaciones

@@ -39,9 +39,9 @@ namespace Adsisplus.Cotyrsa.WcfService.PanelServices
         /// Procedimiento que obtiene la lista de anchos del panel
         /// </summary>
         /// <returns></returns>
-        public List<decimal> ListarAnchoPanel()
+        public List<CatalogoDecimal> ListarAnchoPanel()
         {
-            List<decimal> result = new List<decimal>();
+            List<CatalogoDecimal> result = new List<CatalogoDecimal>();
             try
             {
                 result = (new PanelLogic()).ListarAnchoPanel();

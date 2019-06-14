@@ -44,15 +44,19 @@ namespace Adsisplus.Cotyrsa.DataAccess
         /// Procedimiento que obtiene la lista de anchos del panel
         /// </summary>
         /// <returns></returns>
-        public List<decimal> ListarAnchoPanel()
+        public List<CatalogoDecimal> ListarAnchoPanel()
         {
-            List<decimal> result = new List<decimal>();
+            List<CatalogoDecimal> result = new List<CatalogoDecimal>();
             try
             {
                 using (PanelesDataContext dc = new PanelesDataContext(Helper.ConnectionString()))
                 {
-                    var query = dc.stp_ListarAnchoPanel();
-                    result = (List<decimal>)query;
+                    var query = from item in dc.stp_ListarAnchoPanel()
+                                select new CatalogoDecimal
+                                {
+                                    decValor = item.decAncho
+                                };
+                    result.AddRange(query);
                 }
             }
             catch (Exception ex)
