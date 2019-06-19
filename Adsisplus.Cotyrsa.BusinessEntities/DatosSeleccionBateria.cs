@@ -11,7 +11,7 @@ namespace Adsisplus.Cotyrsa.BusinessEntities
     public class DatosSeleccionBateria
     {
         [DataMember]
-        public long? SKU { get; set; }
+        public int? SKU { get; set; }
 
         [DataMember]
         public int? intNumBotas { get; set; }
