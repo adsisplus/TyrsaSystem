@@ -187,7 +187,8 @@ namespace Adsisplus.Cotyrsa.DataAccess
                                     intInstalacion = item.intInstalacion,
                                     decFactor = item.decFactor,
                                     intCantidad = item.intCantidad,
-                                    datFecha = item.datFecha
+                                    datFecha = item.datFecha,
+                                    decCostoGolpe = item.decCostoGolpe
                                 };
                     result.AddRange(query);
                 }
@@ -271,7 +272,7 @@ namespace Adsisplus.Cotyrsa.DataAccess
                 using (GastosDataContext dc = new GastosDataContext(Helper.ConnectionString()))
                 {
                     var query = from item in dc.stp_setDatosViatico(viatico.intCotizacionID, viatico.intDetCotizaID, viatico.intDatoViaticoID, viatico.intElementoID,
-                        viatico.sintViaticoID, viatico.intCantidad, viatico.datFecha, viatico.bitActivo, (byte)tinOpcion)
+                        viatico.sintViaticoID, viatico.intCantidad, viatico.datFecha, viatico.decCostoGolpe, viatico.bitActivo, (byte)tinOpcion)
                                 select new Resultado
                                 {
                                     vchDescripcion = item.vchDescripcion,
