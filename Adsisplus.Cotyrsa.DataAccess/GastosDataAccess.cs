@@ -75,6 +75,8 @@ namespace Adsisplus.Cotyrsa.DataAccess
                                     intInstalacion = item.intInstalacion,
                                     decFactor = item.decFactor,
                                     intCantidad = item.intCantidad,
+                                    decCostoGolpe = item.decCostoGolpe,
+                                    bitTieneCosto = item.bitTieneCosto,
                                     datFecha = item.datFecha
                                 };
                     viaticos.AddRange(query);
@@ -188,7 +190,8 @@ namespace Adsisplus.Cotyrsa.DataAccess
                                     decFactor = item.decFactor,
                                     intCantidad = item.intCantidad,
                                     datFecha = item.datFecha,
-                                    decCostoGolpe = item.decCostoGolpe
+                                    decCostoGolpe = item.decCostoGolpe,
+                                    bitTieneCosto = item.bitTieneCosto
                                 };
                     result.AddRange(query);
                 }

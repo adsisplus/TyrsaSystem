@@ -618,6 +618,8 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 		
 		private System.Nullable<decimal> _decCostoGolpe;
 		
+		private System.Nullable<bool> _bitTieneCosto;
+		
 		public stp_ListarDatosViaticoResult()
 		{
 		}
@@ -778,6 +780,22 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 				if ((this._decCostoGolpe != value))
 				{
 					this._decCostoGolpe = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_bitTieneCosto", DbType="Bit")]
+		public System.Nullable<bool> bitTieneCosto
+		{
+			get
+			{
+				return this._bitTieneCosto;
+			}
+			set
+			{
+				if ((this._bitTieneCosto != value))
+				{
+					this._bitTieneCosto = value;
 				}
 			}
 		}

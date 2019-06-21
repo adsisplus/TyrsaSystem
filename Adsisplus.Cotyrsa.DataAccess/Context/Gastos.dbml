@@ -92,6 +92,7 @@
       <Column Name="intCantidad" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="datFecha" Type="System.DateTime" DbType="Date" CanBeNull="true" />
       <Column Name="decCostoGolpe" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="bitTieneCosto" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
     </ElementType>
   </Function>
 </Database>
