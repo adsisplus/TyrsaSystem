@@ -64,8 +64,8 @@
       <Column Name="intBarrasCuadruple" Type="System.Int32" DbType="Int" CanBeNull="true" />
     </ElementType>
   </Function>
-  <Function Name="dbo.stp_ListarSeleccionBateriaCuadruple" Method="stp_ListarSeleccionBateriaCuadruple">
-    <ElementType Name="stp_ListarSeleccionBateriaCuadrupleResult">
+  <Function Name="dbo.stp_ListarSeleccionBateriaSencilla" Method="stp_ListarSeleccionBateriaSencilla">
+    <ElementType Name="stp_ListarSeleccionBateriaSencillaResult">
       <Column Name="SKU" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
       <Column Name="intNumBotas" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="intNumBarras" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
@@ -84,8 +84,8 @@
       <Column Name="intAltura" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
     </ElementType>
   </Function>
-  <Function Name="dbo.stp_ListarSeleccionBateriaSencilla" Method="stp_ListarSeleccionBateriaSencilla">
-    <ElementType Name="stp_ListarSeleccionBateriaSencillaResult">
+  <Function Name="dbo.stp_ListarSeleccionBateriaCuadruple" Method="stp_ListarSeleccionBateriaCuadruple">
+    <ElementType Name="stp_ListarSeleccionBateriaCuadrupleResult">
       <Column Name="SKU" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
       <Column Name="intNumBotas" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="intNumBarras" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />

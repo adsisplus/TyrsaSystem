@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="dbTyrsa" Class="GastosDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=local;Initial Catalog=dbTyrsa;Persist Security Info=True;User ID=usrCotyrsa" SettingsObjectName="Adsisplus.Cotyrsa.DataAccess.Properties.Settings" SettingsPropertyName="dbTyrsaConnectionString" Provider="System.Data.SqlClient" />
+  <Connection Mode="AppSettings" ConnectionString="Data Source=local;Initial Catalog=dbTyrsa;User ID=usrCotyrsa" SettingsObjectName="Adsisplus.Cotyrsa.DataAccess.Properties.Settings" SettingsPropertyName="dbTyrsaConnectionString" Provider="System.Data.SqlClient" />
   <Function Name="dbo.stp_setDatosFlete" Method="stp_setDatosFlete">
     <Parameter Name="intCotizacionID" Type="System.Int32" DbType="Int" />
     <Parameter Name="intDetCotizaID" Type="System.Int32" DbType="Int" />
@@ -46,21 +46,6 @@
       <Column Name="intCantidad" Type="System.Int32" DbType="Int" CanBeNull="true" />
     </ElementType>
   </Function>
-  <Function Name="dbo.stp_setDatosViatico" Method="stp_setDatosViatico">
-    <Parameter Name="intCotizacionID" Type="System.Int32" DbType="Int" />
-    <Parameter Name="intDetCotizaID" Type="System.Int32" DbType="Int" />
-    <Parameter Name="intDatoViaticoID" Type="System.Int32" DbType="Int" />
-    <Parameter Name="intElementoID" Type="System.Int32" DbType="Int" />
-    <Parameter Name="sintViaticoID" Type="System.Int16" DbType="SmallInt" />
-    <Parameter Name="intCantidad" Type="System.Int32" DbType="Int" />
-    <Parameter Name="datFecha" Type="System.DateTime" DbType="Date" />
-    <Parameter Name="bitActivo" Type="System.Boolean" DbType="Bit" />
-    <Parameter Name="tinOpcion" Type="System.Byte" DbType="TinyInt" />
-    <ElementType Name="stp_setDatosViaticoResult">
-      <Column Name="vchResultado" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
-      <Column Name="vchDescripcion" Type="System.String" DbType="VarChar(45) NOT NULL" CanBeNull="false" />
-    </ElementType>
-  </Function>
   <Function Name="dbo.stp_ListarDatosFlete" Method="stp_ListarDatosFlete">
     <Parameter Name="intCotizacionID" Type="System.Int32" DbType="Int" />
     <Parameter Name="intDatoFleteID" Type="System.Int32" DbType="Int" />
@@ -77,6 +62,22 @@
       <Column Name="datFechaDescarga" Type="System.DateTime" DbType="Date" CanBeNull="true" />
     </ElementType>
   </Function>
+  <Function Name="dbo.stp_setDatosViatico" Method="stp_setDatosViatico">
+    <Parameter Name="intCotizacionID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intDetCotizaID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intDatoViaticoID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intElementoID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="sintViaticoID" Type="System.Int16" DbType="SmallInt" />
+    <Parameter Name="intCantidad" Type="System.Int32" DbType="Int" />
+    <Parameter Name="datFecha" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="decCostoGolpe" Type="System.Decimal" DbType="Decimal(18,2)" />
+    <Parameter Name="bitActivo" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="tinOpcion" Type="System.Byte" DbType="TinyInt" />
+    <ElementType Name="stp_setDatosViaticoResult">
+      <Column Name="vchResultado" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="vchDescripcion" Type="System.String" DbType="VarChar(45) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
   <Function Name="dbo.stp_ListarDatosViatico" Method="stp_ListarDatosViatico">
     <Parameter Name="intCotizacionID" Type="System.Int32" DbType="Int" />
     <Parameter Name="sintViaticoID" Type="System.Int32" DbType="Int" />
@@ -90,6 +91,8 @@
       <Column Name="decFactor" Type="System.Decimal" DbType="Decimal(8,2)" CanBeNull="true" />
       <Column Name="intCantidad" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="datFecha" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="decCostoGolpe" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="bitTieneCosto" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
     </ElementType>
   </Function>
 </Database>

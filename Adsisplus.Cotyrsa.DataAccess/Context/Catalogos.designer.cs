@@ -412,13 +412,6 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 			return ((ISingleResult<stp_ListarCatAlturaPandeoMarcoResult>)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.stp_ListarViatico")]
-		public ISingleResult<stp_ListarViaticoResult> stp_ListarViatico()
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
-			return ((ISingleResult<stp_ListarViaticoResult>)(result.ReturnValue));
-		}
-		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.stp_ListarCatInstalacion")]
 		public ISingleResult<stp_ListarCatInstalacionResult> stp_ListarCatInstalacion()
 		{
@@ -452,6 +445,13 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
 			return ((ISingleResult<stp_ListarLargoCrossBarResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.stp_ListarViatico")]
+		public ISingleResult<stp_ListarViaticoResult> stp_ListarViatico()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<stp_ListarViaticoResult>)(result.ReturnValue));
 		}
 	}
 	
@@ -5031,158 +5031,6 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 		}
 	}
 	
-	public partial class stp_ListarViaticoResult
-	{
-		
-		private short _sintViaticoID;
-		
-		private System.Nullable<int> _intUnidadMedicionID;
-		
-		private string _vchUnidadMedicion;
-		
-		private System.Nullable<short> _sintCantidad;
-		
-		private string _vchDescripcion;
-		
-		private System.Nullable<int> _intInstalacion;
-		
-		private System.Nullable<decimal> _decFactor;
-		
-		private System.Nullable<bool> _bitActivo;
-		
-		public stp_ListarViaticoResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sintViaticoID", DbType="SmallInt NOT NULL")]
-		public short sintViaticoID
-		{
-			get
-			{
-				return this._sintViaticoID;
-			}
-			set
-			{
-				if ((this._sintViaticoID != value))
-				{
-					this._sintViaticoID = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intUnidadMedicionID", DbType="Int")]
-		public System.Nullable<int> intUnidadMedicionID
-		{
-			get
-			{
-				return this._intUnidadMedicionID;
-			}
-			set
-			{
-				if ((this._intUnidadMedicionID != value))
-				{
-					this._intUnidadMedicionID = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchUnidadMedicion", DbType="VarChar(25)")]
-		public string vchUnidadMedicion
-		{
-			get
-			{
-				return this._vchUnidadMedicion;
-			}
-			set
-			{
-				if ((this._vchUnidadMedicion != value))
-				{
-					this._vchUnidadMedicion = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sintCantidad", DbType="SmallInt")]
-		public System.Nullable<short> sintCantidad
-		{
-			get
-			{
-				return this._sintCantidad;
-			}
-			set
-			{
-				if ((this._sintCantidad != value))
-				{
-					this._sintCantidad = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchDescripcion", DbType="VarChar(250)")]
-		public string vchDescripcion
-		{
-			get
-			{
-				return this._vchDescripcion;
-			}
-			set
-			{
-				if ((this._vchDescripcion != value))
-				{
-					this._vchDescripcion = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intInstalacion", DbType="Int")]
-		public System.Nullable<int> intInstalacion
-		{
-			get
-			{
-				return this._intInstalacion;
-			}
-			set
-			{
-				if ((this._intInstalacion != value))
-				{
-					this._intInstalacion = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decFactor", DbType="Decimal(8,2)")]
-		public System.Nullable<decimal> decFactor
-		{
-			get
-			{
-				return this._decFactor;
-			}
-			set
-			{
-				if ((this._decFactor != value))
-				{
-					this._decFactor = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_bitActivo", DbType="Bit")]
-		public System.Nullable<bool> bitActivo
-		{
-			get
-			{
-				return this._bitActivo;
-			}
-			set
-			{
-				if ((this._bitActivo != value))
-				{
-					this._bitActivo = value;
-				}
-			}
-		}
-	}
-	
 	public partial class stp_ListarCatInstalacionResult
 	{
 		
@@ -5506,6 +5354,176 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 				if ((this._decLargo != value))
 				{
 					this._decLargo = value;
+				}
+			}
+		}
+	}
+	
+	public partial class stp_ListarViaticoResult
+	{
+		
+		private short _sintViaticoID;
+		
+		private System.Nullable<int> _intUnidadMedicionID;
+		
+		private string _vchUnidadMedicion;
+		
+		private System.Nullable<short> _sintCantidad;
+		
+		private string _vchDescripcion;
+		
+		private System.Nullable<int> _intInstalacion;
+		
+		private System.Nullable<decimal> _decFactor;
+		
+		private System.Nullable<bool> _bitActivo;
+		
+		private System.Nullable<bool> _bitTieneCosto;
+		
+		public stp_ListarViaticoResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sintViaticoID", DbType="SmallInt NOT NULL")]
+		public short sintViaticoID
+		{
+			get
+			{
+				return this._sintViaticoID;
+			}
+			set
+			{
+				if ((this._sintViaticoID != value))
+				{
+					this._sintViaticoID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intUnidadMedicionID", DbType="Int")]
+		public System.Nullable<int> intUnidadMedicionID
+		{
+			get
+			{
+				return this._intUnidadMedicionID;
+			}
+			set
+			{
+				if ((this._intUnidadMedicionID != value))
+				{
+					this._intUnidadMedicionID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchUnidadMedicion", DbType="VarChar(25)")]
+		public string vchUnidadMedicion
+		{
+			get
+			{
+				return this._vchUnidadMedicion;
+			}
+			set
+			{
+				if ((this._vchUnidadMedicion != value))
+				{
+					this._vchUnidadMedicion = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sintCantidad", DbType="SmallInt")]
+		public System.Nullable<short> sintCantidad
+		{
+			get
+			{
+				return this._sintCantidad;
+			}
+			set
+			{
+				if ((this._sintCantidad != value))
+				{
+					this._sintCantidad = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchDescripcion", DbType="VarChar(250)")]
+		public string vchDescripcion
+		{
+			get
+			{
+				return this._vchDescripcion;
+			}
+			set
+			{
+				if ((this._vchDescripcion != value))
+				{
+					this._vchDescripcion = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intInstalacion", DbType="Int")]
+		public System.Nullable<int> intInstalacion
+		{
+			get
+			{
+				return this._intInstalacion;
+			}
+			set
+			{
+				if ((this._intInstalacion != value))
+				{
+					this._intInstalacion = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decFactor", DbType="Decimal(8,2)")]
+		public System.Nullable<decimal> decFactor
+		{
+			get
+			{
+				return this._decFactor;
+			}
+			set
+			{
+				if ((this._decFactor != value))
+				{
+					this._decFactor = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_bitActivo", DbType="Bit")]
+		public System.Nullable<bool> bitActivo
+		{
+			get
+			{
+				return this._bitActivo;
+			}
+			set
+			{
+				if ((this._bitActivo != value))
+				{
+					this._bitActivo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_bitTieneCosto", DbType="Bit")]
+		public System.Nullable<bool> bitTieneCosto
+		{
+			get
+			{
+				return this._bitTieneCosto;
+			}
+			set
+			{
+				if ((this._bitTieneCosto != value))
+				{
+					this._bitTieneCosto = value;
 				}
 			}
 		}

@@ -1387,7 +1387,8 @@ namespace Adsisplus.Cotyrsa.DataAccess
                                     vchDescripcion = item.vchDescripcion,
                                     intInstalacion = item.intInstalacion,
                                     decFactor = item.decFactor,
-                                    bitActivo = item.bitActivo
+                                    bitActivo = item.bitActivo,
+                                    bitTieneCosto = item.bitTieneCosto
                                 };
                     result.AddRange(query);
                 }

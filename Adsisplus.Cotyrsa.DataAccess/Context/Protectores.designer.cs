@@ -83,11 +83,11 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 			return ((ISingleResult<stp_ListarDatosProtectorBateriaResult>)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.stp_ListarSeleccionBateriaCuadruple")]
-		public ISingleResult<stp_ListarSeleccionBateriaCuadrupleResult> stp_ListarSeleccionBateriaCuadruple()
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.stp_ListarSeleccionBateriaSencilla")]
+		public ISingleResult<stp_ListarSeleccionBateriaSencillaResult> stp_ListarSeleccionBateriaSencilla()
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
-			return ((ISingleResult<stp_ListarSeleccionBateriaCuadrupleResult>)(result.ReturnValue));
+			return ((ISingleResult<stp_ListarSeleccionBateriaSencillaResult>)(result.ReturnValue));
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.stp_ListarSeleccionBateriaDoble")]
@@ -97,11 +97,11 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 			return ((ISingleResult<stp_ListarSeleccionBateriaDobleResult>)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.stp_ListarSeleccionBateriaSencilla")]
-		public ISingleResult<stp_ListarSeleccionBateriaSencillaResult> stp_ListarSeleccionBateriaSencilla()
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.stp_ListarSeleccionBateriaCuadruple")]
+		public ISingleResult<stp_ListarSeleccionBateriaCuadrupleResult> stp_ListarSeleccionBateriaCuadruple()
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
-			return ((ISingleResult<stp_ListarSeleccionBateriaSencillaResult>)(result.ReturnValue));
+			return ((ISingleResult<stp_ListarSeleccionBateriaCuadrupleResult>)(result.ReturnValue));
 		}
 	}
 	
@@ -1029,7 +1029,7 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 		}
 	}
 	
-	public partial class stp_ListarSeleccionBateriaCuadrupleResult
+	public partial class stp_ListarSeleccionBateriaSencillaResult
 	{
 		
 		private short _SKU;
@@ -1044,7 +1044,7 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 		
 		private int _intAltura;
 		
-		public stp_ListarSeleccionBateriaCuadrupleResult()
+		public stp_ListarSeleccionBateriaSencillaResult()
 		{
 		}
 		
@@ -1261,7 +1261,7 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 		}
 	}
 	
-	public partial class stp_ListarSeleccionBateriaSencillaResult
+	public partial class stp_ListarSeleccionBateriaCuadrupleResult
 	{
 		
 		private short _SKU;
@@ -1276,7 +1276,7 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 		
 		private int _intAltura;
 		
-		public stp_ListarSeleccionBateriaSencillaResult()
+		public stp_ListarSeleccionBateriaCuadrupleResult()
 		{
 		}
 		
