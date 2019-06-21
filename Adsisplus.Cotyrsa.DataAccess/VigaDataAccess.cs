@@ -445,7 +445,7 @@ namespace Adsisplus.Cotyrsa.DataAccess
                                     intDetCotizaID = item.intDetCotizaID,
                                     SKU = int.Parse(item.SKU),
                                     decPesoViga = item.decPesoViga,
-                                    decPrecioUnitarioSinIVA = item.decPrecioUnitario,
+                                    decGranTotal = item.decPrecioUnitario,
                                     intTipoID = item.intTipoID,
                                     vchTipo = item.vchTipo,
                                     intMaterialID = item.intMaterialID,
@@ -485,7 +485,7 @@ namespace Adsisplus.Cotyrsa.DataAccess
                     var query = from item in dc.stp_setSeleccionViga(viga.intRackID, viga.intSeleccionVigaID, viga.intCotizacionID, viga.intDetCotizaID,
                         rack.decFrente, rack.decFondo, rack.decAltura, rack.decPeso, rack.decLongitudViga, 
                         rack.decCapCargaReqViga, rack.bitEstructural, rack.bitSobresale, Convert.ToByte(rack.tinOpcionViga), rack.decDistanciaLargoProducto, 
-                        Convert.ToString(viga.SKU), viga.decPesoViga, viga.decPrecioUnitarioSinIVA, viga.intTipoID, viga.intMaterialID, 
+                        Convert.ToString(viga.SKU), viga.decPesoViga, viga.decGranTotal, viga.intTipoID, viga.intMaterialID, 
                         viga.decPatin, viga.decPeralte, viga.decLongitud, viga.decCapacidadParVigasRequerida, viga.decCapacidadParVigasMaxima, 
                         rack.intNumeroTarimaPorNivel,
                         // DATOS DEL RACK SELECTIVO
