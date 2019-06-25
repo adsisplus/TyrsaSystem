@@ -31,6 +31,8 @@ namespace Adsisplus.Cotyrsa.DataAccess
                                 select new DatosFlete
                                 {
                                     intDatoFleteID = item.intDatoFleteID,
+                                    intCotizacionID = item.intCotizacionID,
+                                    intDetCotizaID = item.intDetCotizaID,
                                     sintFleteID = item.sintFleteID,
                                     sintTipoUnidadFleteID = item.sintTipoUnidadFleteID,
                                     vchTipoUnidad = item.vchTipoUnidad,
@@ -50,6 +52,8 @@ namespace Adsisplus.Cotyrsa.DataAccess
                                 select new DatosInstalacion
                                 {
                                     intDatosInstalacionID = item.intDatosInstalacionID,
+                                    intCotizacionID = item.intCotizacionID,
+                                    intDetCotizaID = item.intDetCotizaID,
                                     sintInstalacionID = item.sintInstalacionID,
                                     vchDescripcion = item.vchDescripcion,
                                     intUnidadMedicionID = item.intUnidadMedicionID,
@@ -68,6 +72,8 @@ namespace Adsisplus.Cotyrsa.DataAccess
                                 select new DatosViaticos
                                 {
                                     intDatoViaticoID = item.intDatoViaticoID,
+                                    intCotizacionID = item.intCotizacionID,
+                                    intDetCotizaID = item.intDetCotizaID,
                                     sintViaticoID = item.sintViaticoID,
                                     vchDescripcion = item.vchDescripcion,
                                     intUnidadMedicionID = item.intUnidadMedicionID,
@@ -111,6 +117,8 @@ namespace Adsisplus.Cotyrsa.DataAccess
                                 select new DatosInstalacion
                                 {
                                     intDatosInstalacionID = item.intDatosInstalacionID,
+                                    intCotizacionID = item.intCotizacionID,
+                                    intDetCotizaID = item.intDetCotizaID,
                                     sintInstalacionID = item.sintInstalacionID,
                                     vchDescripcion = item.vchDescripcion,
                                     intUnidadMedicionID = item.intUnidadMedicionID,
@@ -146,6 +154,8 @@ namespace Adsisplus.Cotyrsa.DataAccess
                                 select new DatosFlete
                                 {
                                     intDatoFleteID = item.intDatoFleteID,
+                                    intCotizacionID = item.intCotizacionID,
+                                    intDetCotizaID = item.intDetCotizaID,
                                     sintFleteID = item.sintFleteID,
                                     sintTipoUnidadFleteID = item.sintTipoUnidadFleteID,
                                     vchTipoUnidad = item.vchTipoUnidad,
@@ -182,6 +192,8 @@ namespace Adsisplus.Cotyrsa.DataAccess
                                 select new DatosViaticos
                                 {
                                     intDatoViaticoID = item.intDatoViaticoID,
+                                    intCotizacionID = item.intCotizacionID,
+                                    intDetCotizaID = item.intDetCotizaID,
                                     sintViaticoID = item.sintViaticoID,
                                     vchDescripcion = item.vchDescripcion,
                                     intUnidadMedicionID = item.intUnidadMedicionID,
