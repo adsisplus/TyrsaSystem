@@ -457,6 +457,7 @@ namespace Adsisplus.Cotyrsa.DataAccess
                                     decCapacidadParVigasMaxima = item.decCapVigaMax,
                                     intCantidad = item.intCantidad,
                                     decSubtotal = item.decSubtotal,
+                                    decConector = item.decConector,
                                     bitActivo = item.bitActivo
                                 };
                     result.AddRange(query);
@@ -489,7 +490,7 @@ namespace Adsisplus.Cotyrsa.DataAccess
                         viga.decPatin, viga.decPeralte, viga.decLongitud, viga.decCapacidadParVigasRequerida, viga.decCapacidadParVigasMaxima, 
                         rack.intNumeroTarimaPorNivel,
                         // DATOS DEL RACK SELECTIVO
-                        rack.bitMontacarga, rack.bitManual, rack.vchDimensionMontacarga,
+                        rack.bitMontacarga, rack.bitManual, rack.vchDimensionMontacarga, viga.decConector,
                         viga.bitActivo, (byte)tinOpcion)
                                   select new Resultado
                                   {
