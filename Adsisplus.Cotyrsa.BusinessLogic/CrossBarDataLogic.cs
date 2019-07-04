@@ -40,9 +40,9 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
         /// Procedimiento que nos muestra la lista de ancho páneles para cotizaciones
         /// </summary>
         /// <returns></returns>
-        public List<decimal> ListarAnchoCrossBar()
+        public List<CatalogoDecimal> ListarAnchoCrossBar()
         {
-            List<decimal> result = new List<decimal>();
+            List<CatalogoDecimal> result = new List<CatalogoDecimal>();
             try
             {
                 result = CatalogosDA.ListarAnchoCrossBar();

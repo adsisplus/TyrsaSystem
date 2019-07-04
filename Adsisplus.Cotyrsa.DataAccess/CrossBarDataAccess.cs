@@ -41,15 +41,20 @@ namespace Adsisplus.Cotyrsa.DataAccess
         /// Procedimiento que nos muestra la lista de ancho páneles para cotizaciones
         /// </summary>
         /// <returns></returns>
-        public List<decimal> ListarAnchoCrossBar()
+        public List<CatalogoDecimal> ListarAnchoCrossBar()
         {
-            List<decimal> result = new List<decimal>();
+            List<CatalogoDecimal> result = new List<CatalogoDecimal>();
             try
             {
                 using (CrossBarDataContext dc = new CrossBarDataContext(Helper.ConnectionString()))
                 {
-                    var query = dc.stp_ListarAnchoCrossBar();
-                    result = (List<decimal>) query;
+                    var query = from item in dc.stp_ListarAnchoCrossBar()
+                                select new CatalogoDecimal
+                                {
+                                    decValor = item.decAncho
+                                };
+                    result.AddRange(query);
+      
                 }
             }
             catch(Exception ex)

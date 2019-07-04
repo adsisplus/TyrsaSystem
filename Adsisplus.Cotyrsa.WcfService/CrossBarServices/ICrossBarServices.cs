@@ -30,7 +30,7 @@ namespace Adsisplus.Cotyrsa.WcfService.CrossBarServices
         /// <returns></returns>
         [OperationContract]
         [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ListarAnchoCrossBar")]
-        List<decimal> ListarAnchoCrossBar();
+        List<CatalogoDecimal> ListarAnchoCrossBar();
 
         /// <summary>
         /// Procedimiento que nos muestra la lista de ancho páneles para cotizaciones
