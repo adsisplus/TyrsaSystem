@@ -355,7 +355,7 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
                         // Validamos si es un nuevo registro
                         if(tinOpcion != 1)
                             //Buscamos la viga en base al detalle de la cotización
-                            ListMstViga = (new VigaLogic()).ListarDatosViga((int)sistema.intDatosVigaID, 0, 2, 0, intDetCotizaID);
+                            ListMstViga = (new VigaLogic()).ListarDatosViga(0, 0, 2, 0, intDetCotizaID);
                         // En caso de existir, asignamos el resultado
                         if (ListMstViga.Count > 0)
                             mstViga = ListMstViga.First();
@@ -366,7 +366,7 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
                         mstViga.SKU = viga.SKU;
                         mstViga.sintPinturaID = sintPinturaID;
                         mstViga.intElementoID = 2;
-                        mstViga.decLargo = viga.decLongitud;
+                        mstViga.decLargo = rack.decLongitudViga;
                         mstViga.intCantidad = intCantidad;
                         mstViga.intDatoMarcoID = sistema.intDatoMarcoID;
                         
