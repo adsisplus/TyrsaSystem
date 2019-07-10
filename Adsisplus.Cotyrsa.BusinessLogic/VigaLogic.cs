@@ -111,28 +111,6 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
             return results;
         }
         /// <summary>
-        /// Permite realizar la actualización de las vigas en factores y número de viga y piezas
-        /// </summary>
-        /// <param name="decFactorAcero"></param>
-        /// <param name="decFactorRemache"></param>
-        /// <param name="decFactorKgMt"></param>
-        /// <param name="intNumeroViga"></param>
-        /// <param name="intNumeroPza"></param>
-        /// <returns></returns>
-        public Resultado setConfiguracionViga(decimal decFactorAcero, decimal decFactorRemache, decimal decFactorKgMt, int intNumeroViga, int intNumeroPza)
-        {
-            Resultado result = new Resultado();
-            try
-            {
-                result = CatalogosDA.setConfiguracionViga(decFactorAcero, decFactorRemache, decFactorKgMt, intNumeroViga, intNumeroPza);
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-            return result;
-        }
-        /// <summary>
         /// Obtiene la lista de conector por viga
         /// </summary>
         /// <param name="intCalibreID"></param>
@@ -146,31 +124,6 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
             try
             {
                 result = CatalogosDA.ListarConectorViga(intCalibreID, sintInsumoViga, sintTipoConectorID, sintFamiliaVigaID);
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-            return result;
-        }
-        /// <summary>
-        /// Alta de factor de viga
-        /// </summary>
-        /// <param name="intCalibreID"></param>
-        /// <param name="decAcero"></param>
-        /// <param name="decRemache"></param>
-        /// <param name="decKgMetroCuadrado"></param>
-        /// <param name="decFactorVenta"></param>
-        /// <param name="decFactorDespiste"></param>
-        /// <param name="decFactorDescuento"></param>
-        /// <returns></returns>
-        public Resultado setFactorViga(int intCalibreID, decimal decAcero, decimal decRemache, decimal decKgMetroCuadrado,
-            decimal decFactorVenta, decimal decFactorDespiste, decimal decFactorDescuento)
-        {
-            Resultado result = new Resultado();
-            try
-            {
-                result = CatalogosDA.setFactorViga(intCalibreID, decAcero, decRemache, decKgMetroCuadrado, decFactorVenta, decFactorDespiste, decFactorDescuento);
             }
             catch (Exception ex)
             {
@@ -231,32 +184,6 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
             return result;
         }
         /// <summary>
-        /// Procedimiento que nos devuelve la lista de vigas en base a la longitud de la viga (LV),
-        /// Capacidad de carga requerida por par de vigas (CPPV)
-        /// </summary>
-        /// <param name="decLongitudViga"></param>
-        /// <param name="intNumeroTarimasPorNivel"></param>
-        /// <param name="decTarimaProductoPeso"></param>
-        /// <returns></returns>
-        public List<SeleccionViga> seleccionVigas(decimal decLongitudViga, int intNumeroTarimasPorNivel, decimal decTarimaProductoPeso,
-            short sintSistemaID, bool bitEstructural)
-        {
-            List<SeleccionViga> result = new List<SeleccionViga>();
-            decimal decCapacidadCarga = 0;
-            try
-            {
-                // Obtenemos la capacidad de carga requerida para la viga
-                decCapacidadCarga = getCapacidadCargaRequerridaViga(intNumeroTarimasPorNivel, decTarimaProductoPeso);
-                // obtenemos la lista de vigas que cumplen las longitudes de viga y la capacidad de carga
-                result = CatalogosDA.ListarSeleccionVigas(decLongitudViga, decCapacidadCarga, sintSistemaID, bitEstructural);
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-            return result;
-        }
-        /// <summary>
         /// Procedimiento que obtiene la lista de vigas tipo C
         /// </summary>
         /// <param name="decLongitudViga"></param>
@@ -285,6 +212,98 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
             try
             {
                 result = CatalogosDA.ListaDatosSeleccionViga(iintCotizacionID);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
+        /// <summary>
+        /// Procedimiento que obtiene los datos de la pantalla de la viga a mostrar
+        /// </summary>
+        /// <param name="intCotizacionID"></param>
+        /// <returns></returns>
+        public List<RackSelectivo> ListarDatosPantallaViga(int intCotizacionID, int intSeleccionVigaID)
+        {
+            List<RackSelectivo> result = new List<RackSelectivo>();
+            try
+            {
+                result = CatalogosDA.ListarDatosPantallaViga(intCotizacionID, intSeleccionVigaID);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
+        /// <summary>
+        /// Procedimiento que nos devuelve la lista de vigas en base a la longitud de la viga (LV),
+        /// Capacidad de carga requerida por par de vigas (CPPV)
+        /// </summary>
+        /// <param name="decLongitudViga"></param>
+        /// <param name="intNumeroTarimasPorNivel"></param>
+        /// <param name="decTarimaProductoPeso"></param>
+        /// <returns></returns>
+        public List<SeleccionViga> seleccionVigas(decimal decLongitudViga, int intNumeroTarimasPorNivel, decimal decTarimaProductoPeso,
+            short sintSistemaID, bool bitEstructural)
+        {
+            List<SeleccionViga> result = new List<SeleccionViga>();
+            decimal decCapacidadCarga = 0;
+            try
+            {
+                // Obtenemos la capacidad de carga requerida para la viga
+                decCapacidadCarga = getCapacidadCargaRequerridaViga(intNumeroTarimasPorNivel, decTarimaProductoPeso);
+                // obtenemos la lista de vigas que cumplen las longitudes de viga y la capacidad de carga
+                result = CatalogosDA.ListarSeleccionVigas(decLongitudViga, decCapacidadCarga, sintSistemaID, bitEstructural);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
+
+        /// <summary>
+        /// Alta de factor de viga
+        /// </summary>
+        /// <param name="intCalibreID"></param>
+        /// <param name="decAcero"></param>
+        /// <param name="decRemache"></param>
+        /// <param name="decKgMetroCuadrado"></param>
+        /// <param name="decFactorVenta"></param>
+        /// <param name="decFactorDespiste"></param>
+        /// <param name="decFactorDescuento"></param>
+        /// <returns></returns>
+        public Resultado setFactorViga(int intCalibreID, decimal decAcero, decimal decRemache, decimal decKgMetroCuadrado,
+            decimal decFactorVenta, decimal decFactorDespiste, decimal decFactorDescuento)
+        {
+            Resultado result = new Resultado();
+            try
+            {
+                result = CatalogosDA.setFactorViga(intCalibreID, decAcero, decRemache, decKgMetroCuadrado, decFactorVenta, decFactorDespiste, decFactorDescuento);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
+        /// <summary>
+        /// Permite realizar la actualización de las vigas en factores y número de viga y piezas
+        /// </summary>
+        /// <param name="decFactorAcero"></param>
+        /// <param name="decFactorRemache"></param>
+        /// <param name="decFactorKgMt"></param>
+        /// <param name="intNumeroViga"></param>
+        /// <param name="intNumeroPza"></param>
+        /// <returns></returns>
+        public Resultado setConfiguracionViga(decimal decFactorAcero, decimal decFactorRemache, decimal decFactorKgMt, int intNumeroViga, int intNumeroPza)
+        {
+            Resultado result = new Resultado();
+            try
+            {
+                result = CatalogosDA.setConfiguracionViga(decFactorAcero, decFactorRemache, decFactorKgMt, intNumeroViga, intNumeroPza);
             }
             catch (Exception ex)
             {
@@ -409,24 +428,6 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
             return result;
         }
         /// <summary>
-        /// Procedimiento que obtiene los datos de la pantalla de la viga a mostrar
-        /// </summary>
-        /// <param name="intCotizacionID"></param>
-        /// <returns></returns>
-        public List<RackSelectivo> ListarDatosPantallaViga(int intCotizacionID, int intSeleccionVigaID)
-        {
-            List <RackSelectivo> result = new List<RackSelectivo>();
-            try
-            {
-                result = CatalogosDA.ListarDatosPantallaViga(intCotizacionID, intSeleccionVigaID);
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-            return result;
-        }
-        /// <summary>
         /// Procedimiento que almacena los datos de Viga Tope
         /// </summary>
         /// <param name="vigaTope"></param>
@@ -484,6 +485,47 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
                         }
                     }
                 }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
+        /// <summary>
+        /// Procedimiento que realiza el borrado lógico o físico(en caso de error) de los datos de la viga
+        /// capturada
+        /// </summary>
+        /// <param name="intDetCotizaID"></param>
+        /// <param name="bitRollback">1 = Realiza el borrado físico de las tablas <br /> 
+        ///                             0 = Realiza el borrado lógico</param>
+        /// <returns></returns>
+        public Resultado setBajaViga(int intDetCotizaID, bool bitRollBack)
+        {
+            Resultado result = new Resultado();
+            try
+            {
+                result = CatalogosDA.setBajaViga(intDetCotizaID, bitRollBack);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
+        /// <summary>
+        /// Procedimiento que realiza el borrado lógico o físico (en caso de error) de los datos de la Viga Tope
+        /// </summary>
+        /// <param name="intDetCotizaID"></param>
+        /// <param name="bitRollback">1 = Realiza el borrado físico de las tablas <br /> 
+        ///                             0 = Realiza el borrado lógico</param>
+        /// <returns></returns>
+        public Resultado setBajaVigaTope(int intDetCotizaID, bool bitRollBack)
+        {
+            Resultado result = new Resultado();
+            try
+            {
+                result = CatalogosDA.setBajaVigaTope(intDetCotizaID, bitRollBack);
             }
             catch (Exception ex)
             {

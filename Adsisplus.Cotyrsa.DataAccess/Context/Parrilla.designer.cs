@@ -62,11 +62,62 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 			OnCreated();
 		}
 		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.stp_setBajaParrilla")]
+		public ISingleResult<stp_setBajaParrillaResult> stp_setBajaParrilla([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intDetCotizaID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Bit")] System.Nullable<bool> bitRollback)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), intDetCotizaID, bitRollback);
+			return ((ISingleResult<stp_setBajaParrillaResult>)(result.ReturnValue));
+		}
+		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.stp_ListarDatosParrilla")]
 		public ISingleResult<stp_ListarDatosParrillaResult> stp_ListarDatosParrilla([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intCotizacionID)
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), intCotizacionID);
 			return ((ISingleResult<stp_ListarDatosParrillaResult>)(result.ReturnValue));
+		}
+	}
+	
+	public partial class stp_setBajaParrillaResult
+	{
+		
+		private string _vchResultado;
+		
+		private string _vchDescripcion;
+		
+		public stp_setBajaParrillaResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchResultado", DbType="VarChar(12)")]
+		public string vchResultado
+		{
+			get
+			{
+				return this._vchResultado;
+			}
+			set
+			{
+				if ((this._vchResultado != value))
+				{
+					this._vchResultado = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchDescripcion", DbType="VarChar(59) NOT NULL", CanBeNull=false)]
+		public string vchDescripcion
+		{
+			get
+			{
+				return this._vchDescripcion;
+			}
+			set
+			{
+				if ((this._vchDescripcion != value))
+				{
+					this._vchDescripcion = value;
+				}
+			}
 		}
 	}
 	
@@ -102,6 +153,8 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 		private System.Nullable<bool> _bitGalvanizado;
 		
 		private System.Nullable<bool> _bitPintura;
+		
+		private System.Nullable<decimal> _decCapacidadCarga;
 		
 		private System.Nullable<decimal> _decPrecioVentaUnitario;
 		
@@ -305,7 +358,7 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decPesoParrilla", DbType="Decimal(8,5)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decPesoParrilla", DbType="Decimal(18,5)")]
 		public System.Nullable<decimal> decPesoParrilla
 		{
 			get
@@ -349,6 +402,22 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 				if ((this._bitPintura != value))
 				{
 					this._bitPintura = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decCapacidadCarga", DbType="Decimal(12,2)")]
+		public System.Nullable<decimal> decCapacidadCarga
+		{
+			get
+			{
+				return this._decCapacidadCarga;
+			}
+			set
+			{
+				if ((this._decCapacidadCarga != value))
+				{
+					this._decCapacidadCarga = value;
 				}
 			}
 		}

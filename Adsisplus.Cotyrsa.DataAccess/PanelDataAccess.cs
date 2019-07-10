@@ -240,5 +240,34 @@ namespace Adsisplus.Cotyrsa.DataAccess
             }
             return result;
         }
+        /// <summary>
+        /// Procedimiento que realiza la baja de los 
+        /// </summary>
+        /// <param name="intDetCotizaID"></param>
+        /// <param name="bitRollBack">1 = Realiza el borrado físico de las tablas <br /> 
+        ///                             0 = Realiza el borrado lógico</param>
+        /// <returns></returns>
+        public Resultado setBajaPanel(int intDetCotizaID, bool bitRollBack)
+        {
+            Resultado result = new Resultado();
+            try
+            {
+                using (PanelesDataContext dc = new PanelesDataContext(Helper.ConnectionString()))
+                {
+                    var query = from item in dc.stp_setBajaPanel(intDetCotizaID, bitRollBack)
+                                select new Resultado
+                                {
+                                    vchDescripcion = item.vchDescripcion,
+                                    vchResultado = item.vchResultado
+                                };
+                    result = query.First();
+                }
+            }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
     }
 }

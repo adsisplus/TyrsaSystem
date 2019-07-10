@@ -56,6 +56,81 @@ namespace Adsisplus.Cotyrsa.WcfService.CotizacionServices
             return result;
         }
         /// <summary>
+        /// Procedimeinto que lista los datos de la cotización
+        /// </summary>
+        /// <param name="intEmpresaID"></param>
+        /// <param name="intCotizacionID"></param>
+        /// <returns></returns>
+        public List<Cotizacion> ListarCotizacion(int intEmpresaID, int intCotizacionID)
+        {
+            List<Cotizacion> result = new List<Cotizacion>();
+            try
+            {
+                result = (new CotizacionLogic()).ListarCotizacion(intEmpresaID, intCotizacionID);
+            }
+            catch (Exception ex)
+            {
+                Adsisplus.Cotyrsa.BusinessLogic.EventLogManager.LogErrorEntry(ex.Message);
+            }
+            return result;
+        }
+        /// <summary>
+        /// Procedimiento que nos devuelve los ID's de los elementos ligados a la cotización
+        /// y al sistema selectivo
+        /// </summary>
+        /// <param name="intCotizacionID"></param>
+        /// <returns></returns>
+        public RelSistemaSelectivo ListarDatosSistemaSelectivo(int intCotizacionID)
+        {
+            RelSistemaSelectivo result = new RelSistemaSelectivo();
+            try
+            {
+                result = (new CotizacionLogic()).ListarDatosSistemaSelectivo(intCotizacionID);
+            }
+            catch (Exception ex)
+            {
+                Adsisplus.Cotyrsa.BusinessLogic.EventLogManager.LogErrorEntry(ex.Message);
+            }
+            return result;
+        }
+        /// <summary>
+        /// Procedimiento que lista el detalle de cotización
+        /// </summary>
+        /// <param name="intCotizacionID"></param>
+        /// <returns></returns>
+        public List<Cotizacion> ListarDetalleCotizacion(int intCotizacionID)
+        {
+            List<Cotizacion> result = new List<Cotizacion>();
+            try
+            {
+                result = (new CotizacionLogic()).ListarDetalleCotizacion(intCotizacionID);
+            }
+            catch (Exception ex)
+            {
+                Adsisplus.Cotyrsa.BusinessLogic.EventLogManager.LogErrorEntry(ex.Message);
+            }
+            return result;
+        }
+        /// <summary>
+        /// Procedimiento que nos devuelve la información capturada/mostrada en cotización
+        /// </summary>
+        /// <param name="intCotizacionID"></param>
+        /// <returns></returns>
+        public Cotizacion ListarDatosPantallaCotizacion(int intCotizacionID)
+        {
+            Cotizacion result = new Cotizacion();
+            try
+            {
+                result = (new CotizacionLogic()).ListarDatosPantallaCotizacion(intCotizacionID);
+            }
+            catch (Exception ex)
+            {
+                Adsisplus.Cotyrsa.BusinessLogic.EventLogManager.LogErrorEntry(ex.Message);
+            }
+            return result;
+        }
+
+        /// <summary>
         /// Procedimiento que realiza el alta, modificación o baja de los datos de la tabla mst_Cotizacion
         /// </summary>
         /// <param name="cotizacion"></param>
@@ -113,86 +188,6 @@ namespace Adsisplus.Cotyrsa.WcfService.CotizacionServices
             }
             return result;
         }
-        /// <summary>
-        /// Procedimeinto que lista los datos de la cotización
-        /// </summary>
-        /// <param name="intEmpresaID"></param>
-        /// <param name="intCotizacionID"></param>
-        /// <returns></returns>
-        public List<Cotizacion> ListarCotizacion(int intEmpresaID, int intCotizacionID)
-        {
-            List<Cotizacion> result = new List<Cotizacion>();
-            try
-            {
-                result = (new CotizacionLogic()).ListarCotizacion(intEmpresaID, intCotizacionID);
-            }
-            catch (Exception ex)
-            {
-                Adsisplus.Cotyrsa.BusinessLogic.EventLogManager.LogErrorEntry(ex.Message);
-            }
-            return result;
-        }
-        /// <summary>
-        /// Procedimiento que nos devuelve los ID's de los elementos ligados a la cotización
-        /// y al sistema selectivo
-        /// </summary>
-        /// <param name="intCotizacionID"></param>
-        /// <returns></returns>
-        public RelSistemaSelectivo ListarDatosSistemaSelectivo(int intCotizacionID)
-        {
-            RelSistemaSelectivo result = new RelSistemaSelectivo();
-            try
-            {
-                result = (new CotizacionLogic()).ListarDatosSistemaSelectivo(intCotizacionID);
-            }
-            catch (Exception ex)
-            {
-                Adsisplus.Cotyrsa.BusinessLogic.EventLogManager.LogErrorEntry(ex.Message);
-            }
-            return result;
-        }
-            /// <summary>
-            /// Procedimiento que lista el detalle de cotización
-            /// </summary>
-            /// <param name="intCotizacionID"></param>
-            /// <returns></returns>
-            public List<Cotizacion> ListarDetalleCotizacion(int intCotizacionID)
-        {
-            List<Cotizacion> result = new List<Cotizacion>();
-            try
-            {
-                result = (new CotizacionLogic()).ListarDetalleCotizacion(intCotizacionID);
-            }
-            catch (Exception ex)
-            {
-                Adsisplus.Cotyrsa.BusinessLogic.EventLogManager.LogErrorEntry(ex.Message);
-            }
-            return result;
-        }
-
-        /// <summary>
-        /// Procedimiento que nos devuelve la información capturada/mostrada en cotización
-        /// </summary>
-        /// <param name="intCotizacionID"></param>
-        /// <returns></returns>
-        public Cotizacion ListarDatosPantallaCotizacion(int intCotizacionID)
-        {
-            Cotizacion result = new Cotizacion();
-            try
-            {
-                result = (new CotizacionLogic()).ListarDatosPantallaCotizacion(intCotizacionID);
-            }
-            catch (Exception ex)
-            {
-                Adsisplus.Cotyrsa.BusinessLogic.EventLogManager.LogErrorEntry(ex.Message);
-            }
-            return result;
-        }
-
-
-        #region SELECCIÓN DE VIGAS
-
-        #endregion
 
 
     }

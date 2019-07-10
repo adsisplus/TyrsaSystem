@@ -315,4 +315,20 @@
       <Column Name="decConector" Type="System.Decimal" DbType="Decimal(18,6)" CanBeNull="true" />
     </ElementType>
   </Function>
+  <Function Name="dbo.stp_setBajaViga" Method="stp_setBajaViga">
+    <Parameter Name="intDetCotizaID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="bitRollBack" Type="System.Boolean" DbType="Bit" />
+    <ElementType Name="stp_setBajaVigaResult">
+      <Column Name="vchResultado" Type="System.String" DbType="VarChar(12)" CanBeNull="true" />
+      <Column Name="vchDescripcion" Type="System.String" DbType="VarChar(55) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.stp_setBajaVigaTope" Method="stp_setBajaVigaTope">
+    <Parameter Name="intDetCotizaID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="bitRollBack" Type="System.Boolean" DbType="Bit" />
+    <ElementType Name="stp_setBajaVigaTopeResult">
+      <Column Name="vchResultado" Type="System.String" DbType="VarChar(12)" CanBeNull="true" />
+      <Column Name="vchDescripcion" Type="System.String" DbType="VarChar(60) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
 </Database>

@@ -69,18 +69,6 @@ namespace Adsisplus.Cotyrsa.WcfService.VigaServices
         [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ListarDatosVigaTope")]
         List<DatosVigaTope> ListarDatosVigaTope(Int32 intCotizacionID);
         /// <summary>
-        /// Permite realizar la actualización de las vigas en factores y número de viga y piezas
-        /// </summary>
-        /// <param name="decFactorAcero"></param>
-        /// <param name="decFactorRemache"></param>
-        /// <param name="decFactorKgMt"></param>
-        /// <param name="intNumeroViga"></param>
-        /// <param name="intNumeroPza"></param>
-        /// <returns></returns>
-        [OperationContract]
-        [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "setConfiguracionViga")]
-        Resultado setConfiguracionViga(decimal decFactorAcero, decimal decFactorRemache, decimal decFactorKgMt, int intNumeroViga, int intNumeroPza);
-        /// <summary>
         /// Obtiene la lista de conector por viga
         /// </summary>
         /// <param name="intCalibreID"></param>
@@ -91,21 +79,6 @@ namespace Adsisplus.Cotyrsa.WcfService.VigaServices
         [OperationContract]
         [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ListarConectorViga")]
         List<ConectorViga> ListarConectorViga(int intCalibreID, short sintInsumoViga, short sintTipoConectorID, short sintFamiliaVigaID);
-        /// <summary>
-        /// Alta de factor de viga
-        /// </summary>
-        /// <param name="intCalibreID"></param>
-        /// <param name="decAcero"></param>
-        /// <param name="decRemache"></param>
-        /// <param name="decKgMetroCuadrado"></param>
-        /// <param name="decFactorVenta"></param>
-        /// <param name="decFactorDespiste"></param>
-        /// <param name="decFactorDescuento"></param>
-        /// <returns></returns>
-        [OperationContract]
-        [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "setFactorViga")]
-        Resultado setFactorViga(int intCalibreID, decimal decAcero, decimal decRemache, decimal decKgMetroCuadrado,
-            decimal decFactorVenta, decimal decFactorDespiste, decimal decFactorDescuento);
         /// <summary>
         /// Obtiene la lista de longitud de Viga
         /// </summary>
@@ -143,7 +116,43 @@ namespace Adsisplus.Cotyrsa.WcfService.VigaServices
         [OperationContract]
         [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ListaDatosSeleccionViga")]
         List<SeleccionViga> ListaDatosSeleccionViga(int intCotizacionID);
+        /// <summary>
+        /// Procedimiento que obtiene los datos de la pantalla de la viga a mostrar
+        /// </summary>
+        /// <param name="intDetCotizacionID"></param>
+        /// <returns></returns>
+        [OperationContract]
+        [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ListarDatosPantallaViga")]
+        List<RackSelectivo> ListarDatosPantallaViga(int intDetCotizacionID, int intSeleccionVigaID);
 
+
+        /// <summary>
+        /// Permite realizar la actualización de las vigas en factores y número de viga y piezas
+        /// </summary>
+        /// <param name="decFactorAcero"></param>
+        /// <param name="decFactorRemache"></param>
+        /// <param name="decFactorKgMt"></param>
+        /// <param name="intNumeroViga"></param>
+        /// <param name="intNumeroPza"></param>
+        /// <returns></returns>
+        [OperationContract]
+        [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "setConfiguracionViga")]
+        Resultado setConfiguracionViga(decimal decFactorAcero, decimal decFactorRemache, decimal decFactorKgMt, int intNumeroViga, int intNumeroPza);
+        /// <summary>
+        /// Alta de factor de viga
+        /// </summary>
+        /// <param name="intCalibreID"></param>
+        /// <param name="decAcero"></param>
+        /// <param name="decRemache"></param>
+        /// <param name="decKgMetroCuadrado"></param>
+        /// <param name="decFactorVenta"></param>
+        /// <param name="decFactorDespiste"></param>
+        /// <param name="decFactorDescuento"></param>
+        /// <returns></returns>
+        [OperationContract]
+        [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "setFactorViga")]
+        Resultado setFactorViga(int intCalibreID, decimal decAcero, decimal decRemache, decimal decKgMetroCuadrado,
+            decimal decFactorVenta, decimal decFactorDespiste, decimal decFactorDescuento);
         /// <summary>
         /// Procedimiento que almacena toda la información de la pantalla de captura de Viga
         /// </summary>
@@ -158,16 +167,6 @@ namespace Adsisplus.Cotyrsa.WcfService.VigaServices
         [OperationContract]
         [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "setDatosViga")]
         Resultado setDatosViga(SeleccionViga viga, RackSelectivo rack, short sintPinturaID, int intCotizacionID, int intDetCotizacionID, int intCantidad, short tinOpcion);
-
-        /// <summary>
-        /// Procedimiento que obtiene los datos de la pantalla de la viga a mostrar
-        /// </summary>
-        /// <param name="intDetCotizacionID"></param>
-        /// <returns></returns>
-        [OperationContract]
-        [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ListarDatosPantallaViga")]
-        List<RackSelectivo> ListarDatosPantallaViga(int intDetCotizacionID, int intSeleccionVigaID);
-
         /// <summary>
         /// Procedimiento que almacena los datos de Viga Tope
         /// </summary>
@@ -177,5 +176,27 @@ namespace Adsisplus.Cotyrsa.WcfService.VigaServices
         [OperationContract]
         [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "setDatosVigaTope")]
         Resultado setDatosVigaTope(DatosVigaTope vigaTope, short tinOpcion);
+        /// <summary>
+        /// Procedimiento que realiza el borrado lógico o físico(en caso de error) de los datos de la viga
+        /// capturada
+        /// </summary>
+        /// <param name="intDetCotizaID"></param>
+        /// <param name="bitRollback">1 = Realiza el borrado físico de las tablas <br /> 
+        ///                             0 = Realiza el borrado lógico</param>
+        /// <returns></returns>
+        [OperationContract]
+        [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "setBajaViga")]
+        Resultado setBajaViga(int intDetCotizaID, bool bitRollBack);
+
+        /// <summary>
+        /// Procedimiento que realiza el borrado lógico o físico (en caso de error) de los datos de la Viga Tope
+        /// </summary>
+        /// <param name="intDetCotizaID"></param>
+        /// <param name="bitRollback">1 = Realiza el borrado físico de las tablas <br /> 
+        ///                             0 = Realiza el borrado lógico</param>
+        /// <returns></returns>
+        [OperationContract]
+        [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "setBajaVigaTope")]
+        Resultado setBajaVigaTope(int intDetCotizaID, bool bitRollBack);
     }
 }

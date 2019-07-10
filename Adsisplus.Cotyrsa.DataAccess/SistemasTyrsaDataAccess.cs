@@ -174,7 +174,7 @@ namespace Adsisplus.Cotyrsa.DataAccess
                     var query = from item in dc.stp_setDatosParrilla(datosParrilla.intParrillaID, datosParrilla.intElementoID, datosParrilla.sintPinturaID,
                         datosParrilla.intCotizacionID, datosParrilla.intDetCotizaID, datosParrilla.decFrenteParrilla, datosParrilla.decFondoParrilla, datosParrilla.decCostoParrilla,
                         datosParrilla.vchTamanioCuadroParrilla, datosParrilla.intCantidadParrilla, datosParrilla.decPesoParrilla, datosParrilla.bitGalvanizado, 
-                        datosParrilla.bitPintura, datosParrilla.decPrecioVentaUnitario, datosParrilla.decPrecioVentaTotal, datosParrilla.bitActivo, (byte)sintOpcion)
+                        datosParrilla.bitPintura, datosParrilla.decPrecioVentaUnitario, datosParrilla.decPrecioVentaTotal, datosParrilla.decCapacidadCarga, datosParrilla.bitActivo, (byte)sintOpcion)
                                 select new Resultado
                                 {
                                     vchDescripcion = item.vchDescripcion,

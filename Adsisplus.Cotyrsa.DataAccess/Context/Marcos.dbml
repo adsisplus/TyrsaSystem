@@ -303,4 +303,12 @@
       <Column Name="bitActivo" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
     </ElementType>
   </Function>
+  <Function Name="dbo.stp_setBajaMarco" Method="stp_setBajaMarco">
+    <Parameter Name="intDetCotizaID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="bitRollBack" Type="System.Boolean" DbType="Bit" />
+    <ElementType Name="stp_setBajaMarcoResult">
+      <Column Name="vchResultado" Type="System.String" DbType="VarChar(12)" CanBeNull="true" />
+      <Column Name="vchDescripcion" Type="System.String" DbType="VarChar(56) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
 </Database>

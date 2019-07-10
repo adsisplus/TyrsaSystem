@@ -236,29 +236,7 @@ namespace Adsisplus.Cotyrsa.WcfService.MarcosServices
             }
             return result;
         }
-        /// <summary>
-        /// Procedimiento que almacena toda la información de la pantalla de captura de Marco
-        /// </summary>
-        /// <param name="marco"></param>
-        /// <param name="intCotizacionID"></param>
-        /// <param name="intDetCotizacionID"></param>
-        /// <param name="sintPinturaID"></param>
-        /// <param name="intCantidad"></param>
-        /// <param name="tinOpcion"></param>
-        /// <returns></returns>
-        public Resultado setSeleccionMarco(DatosPantallaMarco marco, int intCotizacionID, int intDetCotizacionID, short sintPinturaID, int intCantidad, short tinOpcion)
-        {
-            Resultado result = new Resultado();
-            try
-            {
-                result = (new MarcosLogic()).setSeleccionMarco(marco, intCotizacionID, intDetCotizacionID, sintPinturaID, intCantidad, tinOpcion);
-            }
-            catch (Exception ex)
-            {
-                Adsisplus.Cotyrsa.BusinessLogic.EventLogManager.LogErrorEntry(ex.Message);
-            }
-            return result;
-        }
+
         #endregion
 
         /// <summary>
@@ -315,6 +293,53 @@ namespace Adsisplus.Cotyrsa.WcfService.MarcosServices
                 result = (new MarcosLogic()).ListarDatosPantallaMarco(intDetCotizacionID, intSeleccionMarcoID);
             }
             catch (Exception ex)
+            {
+                Adsisplus.Cotyrsa.BusinessLogic.EventLogManager.LogErrorEntry(ex.Message);
+            }
+            return result;
+        }
+
+
+        /// <summary>
+        /// Procedimiento que almacena toda la información de la pantalla de captura de Marco
+        /// </summary>
+        /// <param name="marco"></param>
+        /// <param name="intCotizacionID"></param>
+        /// <param name="intDetCotizacionID"></param>
+        /// <param name="sintPinturaID"></param>
+        /// <param name="intCantidad"></param>
+        /// <param name="tinOpcion"></param>
+        /// <returns></returns>
+        public Resultado setSeleccionMarco(DatosPantallaMarco marco, int intCotizacionID, int intDetCotizacionID, short sintPinturaID, int intCantidad, short tinOpcion)
+        {
+            Resultado result = new Resultado();
+            try
+            {
+                result = (new MarcosLogic()).setSeleccionMarco(marco, intCotizacionID, intDetCotizacionID, sintPinturaID, intCantidad, tinOpcion);
+            }
+            catch (Exception ex)
+            {
+                Adsisplus.Cotyrsa.BusinessLogic.EventLogManager.LogErrorEntry(ex.Message);
+            }
+            return result;
+        }
+
+        /// <summary>
+        /// Procedimiento que realiza la baja lógica o física(en caso de existir un error) de los
+        /// datos de Marco
+        /// </summary>
+        /// <param name="intDetCotizaID"></param>
+        /// <param name="bitRollBack">1 = Borrado físico de la información </br>
+        ///                         0 = Borrado lógico de la información</param>
+        /// <returns></returns>
+        public Resultado setBajaMarco(int intDetCotizaID, bool bitRollBack)
+        {
+            Resultado result = new Resultado();
+            try
+            {
+                result = (new MarcosLogic()).setBajaMarco(intDetCotizaID, bitRollBack);
+            }
+            catch(Exception ex)
             {
                 Adsisplus.Cotyrsa.BusinessLogic.EventLogManager.LogErrorEntry(ex.Message);
             }

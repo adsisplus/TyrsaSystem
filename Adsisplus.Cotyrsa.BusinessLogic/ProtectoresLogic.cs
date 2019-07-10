@@ -56,6 +56,75 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
             }
             return results;
         }
+        /// <summary>
+        /// Procedimiento que permite obtener la lista de protectores rack
+        /// </summary>
+        /// <returns></returns>
+        public List<DatosProtectorRack> ListarDatosSeleccionProtectorRack()
+        {
+            List<DatosProtectorRack> result = new List<DatosProtectorRack>();
+            try
+            {
+                result = CatalogosDA.ListarDatosSeleccionProtectorRack();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
+        /// <summary>
+        /// Procedimiento que devuelve la lista de baterias sencillas
+        /// </summary>
+        /// <returns></returns>
+        public List<DatosSeleccionBateria> ListarSeleccionBateriaSencilla()
+        {
+            List<DatosSeleccionBateria> result = new List<DatosSeleccionBateria>();
+            try
+            {
+                result = CatalogosDA.ListarSeleccionBateriaSencilla();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
+        /// <summary>
+        /// Procedimiento que lista los datos de batería doble
+        /// </summary>
+        /// <returns></returns>
+        public List<DatosSeleccionBateria> ListarSeleccionBateriaDoble()
+        {
+            List<DatosSeleccionBateria> result = new List<DatosSeleccionBateria>();
+            try
+            {
+                result = CatalogosDA.ListarSeleccionBateriaDoble();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
+        /// <summary>
+        /// Procedimiento que lista los datos de batería cuadruple
+        /// </summary>
+        /// <returns></returns>
+        public List<DatosSeleccionBateria> ListarSeleccionBateriaCuadruple()
+        {
+            List<DatosSeleccionBateria> result = new List<DatosSeleccionBateria>();
+            try
+            {
+                result = CatalogosDA.ListarSeleccionBateriaCuadruple();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
+
 
         /// <summary>
         /// Realiza el alta, modificación o baja a los datos protector poste
@@ -120,7 +189,6 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
             }
             return result;
         }
-
         /// <summary>
         /// Realiza el alta, baja o modificación a los datos de Protector Batería
         /// </summary>
@@ -184,17 +252,19 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
             }
             return result;
         }
-
         /// <summary>
-        /// Procedimiento que permite obtener la lista de protectores rack
+        /// Procedimiento que realiza la baja lógica o física (en caso de existir error) de los
+        /// datos de protector poste
         /// </summary>
+        /// <param name="intDetCotizaID"></param>
+        /// <param name="bitRollBack"></param>
         /// <returns></returns>
-        public List<DatosProtectorRack> ListarDatosSeleccionProtectorRack()
+        public Resultado setBajaProtectorPoste(int intDetCotizaID, bool bitRollBack)
         {
-            List<DatosProtectorRack> result = new List<DatosProtectorRack>();
+            Resultado result = new Resultado();
             try
             {
-                result = CatalogosDA.ListarDatosSeleccionProtectorRack();
+                result = CatalogosDA.setBajaProtectorPoste(intDetCotizaID, bitRollBack);
             }
             catch (Exception ex)
             {
@@ -203,49 +273,18 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
             return result;
         }
         /// <summary>
-        /// Procedimiento que devuelve la lista de baterias sencillas
+        /// Procedimiento que realiza la baja lógica o física (en caso de existir error) de los
+        /// datos de protector batería
         /// </summary>
+        /// <param name="intDetCotizaID"></param>
+        /// <param name="bitRollBack"></param>
         /// <returns></returns>
-        public List<DatosSeleccionBateria> ListarSeleccionBateriaSencilla()
+        public Resultado setBajaProtectorBateria(int intDetCotizaID, bool bitRollBack)
         {
-            List<DatosSeleccionBateria> result = new List<DatosSeleccionBateria>();
+            Resultado result = new Resultado();
             try
             {
-                result = CatalogosDA.ListarSeleccionBateriaSencilla();
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-            return result;
-        }
-        /// <summary>
-        /// Procedimiento que lista los datos de batería doble
-        /// </summary>
-        /// <returns></returns>
-        public List<DatosSeleccionBateria> ListarSeleccionBateriaDoble()
-        {
-            List<DatosSeleccionBateria> result = new List<DatosSeleccionBateria>();
-            try
-            {
-                result = CatalogosDA.ListarSeleccionBateriaDoble();
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-            return result;
-        }
-        /// <summary>
-        /// Procedimiento que lista los datos de batería cuadruple
-        /// </summary>
-        /// <returns></returns>
-        public List<DatosSeleccionBateria> ListarSeleccionBateriaCuadruple()
-        {
-            List<DatosSeleccionBateria> result = new List<DatosSeleccionBateria>();
-            try
-            {
-                result = CatalogosDA.ListarSeleccionBateriaCuadruple();
+                result = CatalogosDA.setBajaProtectorBateria(intDetCotizaID, bitRollBack);
             }
             catch (Exception ex)
             {

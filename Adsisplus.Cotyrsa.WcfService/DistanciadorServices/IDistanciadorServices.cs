@@ -68,5 +68,17 @@ namespace Adsisplus.Cotyrsa.WcfService.DistanciadorServices
         [OperationContract]
         [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "setDatosDistanciador")]
         Resultado setDatosDistanciador(DatosDistanciador distanciador, SeleccionDistanciador seleccionDistanciador, int intCotizacionID, int intDetCotizaID, short tinOpcion);
+
+        /// <summary>
+        /// Procedimiento que realiza la baja lógica y física(en caso de existir error) en la captura de los
+        /// datos de distanciador
+        /// </summary>
+        /// <param name="intDetCotizaID"></param>
+        /// <param name="bitRollBack">1 = se realiza borrado físico de la información
+        ///                         0 = se realiza borrado lógico de la información</param>
+        /// <returns></returns>
+        [OperationContract]
+        [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "setBajaDistanciador")]
+        Resultado setBajaDistanciador(int intDetCotizaID, bool bitRollBack);
     }
 }

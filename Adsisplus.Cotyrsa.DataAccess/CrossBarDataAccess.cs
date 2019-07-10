@@ -282,5 +282,35 @@ namespace Adsisplus.Cotyrsa.DataAccess
             }
             return result;
         }
+        /// <summary>
+        /// Procedimiento que realiza la baja lógica y física (en caso de existir un error) de los registros
+        /// de CrossBar
+        /// </summary>
+        /// <param name="intDetCotizaID"></param>
+        /// <param name="bitRollBack">1 = realiza el borrado físico del registro
+        ///                         0 = realiza el borrado lógido del registro</param>
+        /// <returns></returns>
+        public Resultado setBajaCrossBar(int intDetCotizaID, bool bitRollBack)
+        {
+            Resultado result = new Resultado();
+            try
+            {
+                using (CrossBarDataContext dc = new CrossBarDataContext(Helper.ConnectionString()))
+                {
+                    var query = from item in dc.stp_setBajaCrossBar(intDetCotizaID, bitRollBack)
+                                select new Resultado
+                                {
+                                    vchDescripcion = item.vchDescripcion,
+                                    vchResultado = item.vchResultado
+                                };
+                    result = query.First();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
     }
 }

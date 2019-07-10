@@ -232,5 +232,26 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
             }
             return result;
         }
+        /// <summary>
+        /// Procedimiento que realiza la baja lógica y física(en caso de existir error) en la captura de los
+        /// datos de distanciador
+        /// </summary>
+        /// <param name="intDetCotizaID"></param>
+        /// <param name="bitRollBack">1 = se realiza borrado físico de la información
+        ///                         0 = se realiza borrado lógico de la información</param>
+        /// <returns></returns>
+        public Resultado setBajaDistanciador(int intDetCotizaID, bool bitRollBack)
+        {
+            Resultado result = new Resultado();
+            try
+            {
+                result = CatalogosDA.setBajaDistanciador(intDetCotizaID, bitRollBack);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
     }
 }

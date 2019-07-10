@@ -84,7 +84,6 @@ namespace Adsisplus.Cotyrsa.WcfService.DistanciadorServices
             }
             return result;
         }
-
         /// <summary>
         /// Lista los datos de la pantalla Distanciador
         /// </summary>
@@ -120,6 +119,27 @@ namespace Adsisplus.Cotyrsa.WcfService.DistanciadorServices
             try
             {
                 result = (new DistanciadorLogic()).setDatosDistanciador(distanciador, seleccionDistanciador, intCotizacionID, intDetCotizaID, tinOpcion);
+            }
+            catch (Exception ex)
+            {
+                Adsisplus.Cotyrsa.BusinessLogic.EventLogManager.LogErrorEntry(ex.Message);
+            }
+            return result;
+        }
+        /// <summary>
+        /// Procedimiento que realiza la baja lógica y física(en caso de existir error) en la captura de los
+        /// datos de distanciador
+        /// </summary>
+        /// <param name="intDetCotizaID"></param>
+        /// <param name="bitRollBack">1 = se realiza borrado físico de la información
+        ///                         0 = se realiza borrado lógico de la información</param>
+        /// <returns></returns>
+        public Resultado setBajaDistanciador(int intDetCotizaID, bool bitRollBack)
+        {
+            Resultado result = new Resultado();
+            try
+            {
+                result = (new DistanciadorLogic()).setBajaDistanciador(intDetCotizaID, bitRollBack);
             }
             catch (Exception ex)
             {

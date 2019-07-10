@@ -13,17 +13,6 @@ namespace Adsisplus.Cotyrsa.WcfService.CrossBarServices
     [ServiceContract]
     public interface ICrossBarServices
     {
-        ///// <summary>
-        ///// Obtiene la lista de datos del panel
-        ///// </summary>
-        ///// <param name="intDatosCrossBarID"></param>
-        ///// <param name="intElementoID"></param>
-        ///// <param name="intDatoMarcoID"></param>
-        ///// <returns></returns>
-        //[OperationContract]
-        //[WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ListarDatosPanel")]
-        //List<DatosCrossBar> ListarDatosPanel(Int32 intDatosCrossBarID, Int32 intElementoID, Int32 intDatoMarcoID);
-
         /// <summary>
         /// Procedimiento que nos muestra la lista de ancho páneles para cotizaciones
         /// </summary>
@@ -71,5 +60,16 @@ namespace Adsisplus.Cotyrsa.WcfService.CrossBarServices
         [OperationContract]
         [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "setSeleccionCrossBar")]
         Resultado setSeleccionCrossBar(DatosPantallaCrossBar dppCrossBar, SeleccionCrossBar crossBar, int intCotizacionID, int intDetCotizaID, int intCantidad, short tinOpcion);
+        /// <summary>
+        /// Procedimiento que realiza la baja lógica y física (en caso de existir un error) de los registros
+        /// de CrossBar
+        /// </summary>
+        /// <param name="intDetCotizaID"></param>
+        /// <param name="bitRollBack">1 = realiza el borrado físico del registro
+        ///                         0 = realiza el borrado lógido del registro</param>
+        /// <returns></returns>
+        [OperationContract]
+        [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "setBajaCrossBar")]
+        Resultado setBajaCrossBar(int intDetCotizaID, bool bitRollBack);
     }
 }

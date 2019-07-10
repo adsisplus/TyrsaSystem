@@ -23,19 +23,6 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
 
         #endregion
 
-        //public List<DatosCrossBar> ListarDatosPanel(Int32 intDatosCrossBarID, Int32 intElementoID, Int32 intDatoMarcoID)
-        //{
-        //    List<DatosCrossBar> results = null;
-        //    try
-        //    {
-        //        results = CatalogosDA.ListarDatosPanel(intDatosCrossBarID, intElementoID, intDatoMarcoID);
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        throw ex;
-        //    }
-        //    return results;
-        //}
         /// <summary>
         /// Procedimiento que nos muestra la lista de ancho páneles para cotizaciones
         /// </summary>
@@ -229,6 +216,27 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
                         }
                     }
                 }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
+        /// <summary>
+        /// Procedimiento que realiza la baja lógica y física (en caso de existir un error) de los registros
+        /// de CrossBar
+        /// </summary>
+        /// <param name="intDetCotizaID"></param>
+        /// <param name="bitRollBack">1 = realiza el borrado físico del registro
+        ///                         0 = realiza el borrado lógido del registro</param>
+        /// <returns></returns>
+        public Resultado setBajaCrossBar(int intDetCotizaID, bool bitRollBack)
+        {
+            Resultado result = new Resultado();
+            try
+            {
+                result = CatalogosDA.setBajaCrossBar(intDetCotizaID, bitRollBack);
             }
             catch (Exception ex)
             {

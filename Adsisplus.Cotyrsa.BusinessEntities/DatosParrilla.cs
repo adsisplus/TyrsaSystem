@@ -55,6 +55,8 @@ namespace Adsisplus.Cotyrsa.BusinessEntities
 
         [DataMember]
         public decimal? decPrecioVentaTotal { get; set; }
+        [DataMember]
+        public decimal? decCapacidadCarga { get; set; }
 
     }
 }

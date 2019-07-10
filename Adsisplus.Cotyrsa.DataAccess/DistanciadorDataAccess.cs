@@ -253,5 +253,35 @@ namespace Adsisplus.Cotyrsa.DataAccess
             }
             return result;
         }
+        /// <summary>
+        /// Procedimiento que realiza la baja lógica y física(en caso de existir error) en la captura de los
+        /// datos de distanciador
+        /// </summary>
+        /// <param name="intDetCotizaID"></param>
+        /// <param name="bitRollBack">1 = se realiza borrado físico de la información
+        ///                         0 = se realiza borrado lógico de la información</param>
+        /// <returns></returns>
+        public Resultado setBajaDistanciador(int intDetCotizaID, bool bitRollBack)
+        {
+            Resultado result = new Resultado();
+            try
+            {
+                using (DistanciadorDataContext dc = new DistanciadorDataContext(Helper.ConnectionString()))
+                {
+                    var query = from item in dc.stp_setBajaDistanciador(intDetCotizaID, bitRollBack)
+                                select new Resultado
+                                {
+                                    vchDescripcion = item.vchDescripcion,
+                                    vchResultado = item.vchResultado
+                                };
+                    result = query.First();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
     }
 }

@@ -232,37 +232,6 @@ namespace Adsisplus.Cotyrsa.DataAccess
             return results;
         }
         /// <summary>
-        /// Permite realizar la actualización de las vigas en factores y número de viga y piezas
-        /// </summary>
-        /// <param name="decFactorAcero"></param>
-        /// <param name="decFactorRemache"></param>
-        /// <param name="decFactorKgMt"></param>
-        /// <param name="intNumeroViga"></param>
-        /// <param name="intNumeroPza"></param>
-        /// <returns></returns>
-        public Resultado setConfiguracionViga(decimal decFactorAcero, decimal decFactorRemache, decimal decFactorKgMt, int intNumeroViga, int intNumeroPza)
-        {
-            Resultado result = new Resultado();
-            try
-            {
-                using (VigasDataContext dc = new VigasDataContext(Helper.ConnectionString()))
-                {
-                    var query = from item in dc.stp_setConfiguracionViga(decFactorAcero, decFactorRemache, decFactorKgMt, intNumeroViga, intNumeroPza)
-                                select new Resultado
-                                {
-                                    vchDescripcion = item.vchDescripcion,
-                                    vchResultado = item.vchResultado
-                                };
-                    result = query.First();
-                }
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-            return result;
-        }
-        /// <summary>
         /// Obtiene la lista de conector por viga
         /// </summary>
         /// <param name="intCalibreID"></param>
@@ -307,40 +276,6 @@ namespace Adsisplus.Cotyrsa.DataAccess
                                     vchTipoConector = item.vchTipoConector
                                 };
                     result.AddRange(query);
-                }
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-            return result;
-        }
-        /// <summary>
-        /// Alta de factor de viga
-        /// </summary>
-        /// <param name="intCalibreID"></param>
-        /// <param name="decAcero"></param>
-        /// <param name="decRemache"></param>
-        /// <param name="decKgMetroCuadrado"></param>
-        /// <param name="decFactorVenta"></param>
-        /// <param name="decFactorDespiste"></param>
-        /// <param name="decFactorDescuento"></param>
-        /// <returns></returns>
-        public Resultado setFactorViga(int intCalibreID, decimal decAcero, decimal decRemache, decimal decKgMetroCuadrado,
-            decimal decFactorVenta, decimal decFactorDespiste, decimal decFactorDescuento)
-        {
-            Resultado result = new Resultado();
-            try
-            {
-                using (VigasDataContext dc = new VigasDataContext(Helper.ConnectionString()))
-                {
-                    var query = from item in dc.stp_setFactorViga(intCalibreID, decAcero, decRemache, decKgMetroCuadrado, decFactorVenta, decFactorDespiste, decFactorDescuento)
-                                select new Resultado
-                                {
-                                    vchDescripcion = item.vchDescripcion,
-                                    vchResultado = item.vchResultado
-                                };
-                    result = query.First();
                 }
             }
             catch (Exception ex)
@@ -471,50 +406,13 @@ namespace Adsisplus.Cotyrsa.DataAccess
             return result;
         }
         /// <summary>
-        /// Procedimiento que almacena toda la información de la pantalla de captura de Viga
-        /// </summary>
-        /// <param name="viga"></param>
-        /// <param name="rack"></param>
-        /// <param name="tinOpcion"></param>
-        /// <returns></returns>
-        public Resultado setDatosViga(SeleccionViga viga, RackSelectivo rack, short tinOpcion)
-        {
-            Resultado result = new Resultado();
-            try
-            {
-                using (VigasDataContext dc = new VigasDataContext(Helper.ConnectionString()))
-                {
-                    var query = from item in dc.stp_setSeleccionViga(viga.intRackID, viga.intSeleccionVigaID, viga.intCotizacionID, viga.intDetCotizaID,
-                        rack.decFrente, rack.decFondo, rack.decAltura, rack.decPeso, rack.decLongitudViga, 
-                        rack.decCapCargaReqViga, rack.bitEstructural, rack.bitSobresale, Convert.ToByte(rack.tinOpcionViga), rack.decDistanciaLargoProducto, 
-                        Convert.ToString(viga.SKU), viga.decPesoViga, viga.decGranTotal, viga.intTipoID, viga.intMaterialID, 
-                        viga.decPatin, viga.decPeralte, Convert.ToDecimal(viga.vchLongitud), viga.decCapacidadParVigasRequerida, viga.decCapacidadParVigasMaxima, 
-                        rack.intNumeroTarimaPorNivel,
-                        // DATOS DEL RACK SELECTIVO
-                        rack.bitMontacarga, rack.bitManual, rack.vchDimensionMontacarga, viga.decConector,
-                        viga.bitActivo, (byte)tinOpcion)
-                                  select new Resultado
-                                  {
-                                      vchDescripcion = item.vchDescripcion,
-                                      vchResultado = item.vchResultado
-                                  };
-                    result = query.First();
-                }
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-            return result;
-        }
-        /// <summary>
         /// Procedimiento que obtiene los datos de la pantalla de la viga a mostrar
         /// </summary>
         /// <param name="intDetCotizacionID"></param>
         /// <returns></returns>
         public List<RackSelectivo> ListarDatosPantallaViga(int intCotizacionID, int intSeleccionVigaID)
         {
-            List <RackSelectivo> result = new List <RackSelectivo>();
+            List<RackSelectivo> result = new List<RackSelectivo>();
             try
             {
                 using (VigasDataContext dc = new VigasDataContext(Helper.ConnectionString()))
@@ -557,5 +455,166 @@ namespace Adsisplus.Cotyrsa.DataAccess
             return result;
         }
 
+        /// <summary>
+        /// Permite realizar la actualización de las vigas en factores y número de viga y piezas
+        /// </summary>
+        /// <param name="decFactorAcero"></param>
+        /// <param name="decFactorRemache"></param>
+        /// <param name="decFactorKgMt"></param>
+        /// <param name="intNumeroViga"></param>
+        /// <param name="intNumeroPza"></param>
+        /// <returns></returns>
+        public Resultado setConfiguracionViga(decimal decFactorAcero, decimal decFactorRemache, decimal decFactorKgMt, int intNumeroViga, int intNumeroPza)
+        {
+            Resultado result = new Resultado();
+            try
+            {
+                using (VigasDataContext dc = new VigasDataContext(Helper.ConnectionString()))
+                {
+                    var query = from item in dc.stp_setConfiguracionViga(decFactorAcero, decFactorRemache, decFactorKgMt, intNumeroViga, intNumeroPza)
+                                select new Resultado
+                                {
+                                    vchDescripcion = item.vchDescripcion,
+                                    vchResultado = item.vchResultado
+                                };
+                    result = query.First();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
+        /// <summary>
+        /// Alta de factor de viga
+        /// </summary>
+        /// <param name="intCalibreID"></param>
+        /// <param name="decAcero"></param>
+        /// <param name="decRemache"></param>
+        /// <param name="decKgMetroCuadrado"></param>
+        /// <param name="decFactorVenta"></param>
+        /// <param name="decFactorDespiste"></param>
+        /// <param name="decFactorDescuento"></param>
+        /// <returns></returns>
+        public Resultado setFactorViga(int intCalibreID, decimal decAcero, decimal decRemache, decimal decKgMetroCuadrado,
+            decimal decFactorVenta, decimal decFactorDespiste, decimal decFactorDescuento)
+        {
+            Resultado result = new Resultado();
+            try
+            {
+                using (VigasDataContext dc = new VigasDataContext(Helper.ConnectionString()))
+                {
+                    var query = from item in dc.stp_setFactorViga(intCalibreID, decAcero, decRemache, decKgMetroCuadrado, decFactorVenta, decFactorDespiste, decFactorDescuento)
+                                select new Resultado
+                                {
+                                    vchDescripcion = item.vchDescripcion,
+                                    vchResultado = item.vchResultado
+                                };
+                    result = query.First();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
+        /// <summary>
+        /// Procedimiento que almacena toda la información de la pantalla de captura de Viga
+        /// </summary>
+        /// <param name="viga"></param>
+        /// <param name="rack"></param>
+        /// <param name="tinOpcion"></param>
+        /// <returns></returns>
+        public Resultado setDatosViga(SeleccionViga viga, RackSelectivo rack, short tinOpcion)
+        {
+            Resultado result = new Resultado();
+            try
+            {
+                using (VigasDataContext dc = new VigasDataContext(Helper.ConnectionString()))
+                {
+                    var query = from item in dc.stp_setSeleccionViga(viga.intRackID, viga.intSeleccionVigaID, viga.intCotizacionID, viga.intDetCotizaID,
+                        rack.decFrente, rack.decFondo, rack.decAltura, rack.decPeso, rack.decLongitudViga,
+                        rack.decCapCargaReqViga, rack.bitEstructural, rack.bitSobresale, Convert.ToByte(rack.tinOpcionViga), rack.decDistanciaLargoProducto,
+                        Convert.ToString(viga.SKU), viga.decPesoViga, viga.decGranTotal, viga.intTipoID, viga.intMaterialID,
+                        viga.decPatin, viga.decPeralte, Convert.ToDecimal(viga.vchLongitud), viga.decCapacidadParVigasRequerida, viga.decCapacidadParVigasMaxima,
+                        rack.intNumeroTarimaPorNivel,
+                        // DATOS DEL RACK SELECTIVO
+                        rack.bitMontacarga, rack.bitManual, rack.vchDimensionMontacarga, viga.decConector,
+                        viga.bitActivo, (byte)tinOpcion)
+                                select new Resultado
+                                {
+                                    vchDescripcion = item.vchDescripcion,
+                                    vchResultado = item.vchResultado
+                                };
+                    result = query.First();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
+        /// <summary>
+        /// Procedimiento que realiza el borrado lógico o físico(en caso de error) de los datos de la viga
+        /// capturada
+        /// </summary>
+        /// <param name="intDetCotizaID"></param>
+        /// <param name="bitRollback">1 = Realiza el borrado físico de las tablas <br /> 
+        ///                             0 = Realiza el borrado lógico</param>
+        /// <returns></returns>
+        public Resultado setBajaViga(int intDetCotizaID, bool bitRollBack)
+        {
+            Resultado result = new Resultado();
+            try
+            {
+                using (VigasDataContext dc = new VigasDataContext(Helper.ConnectionString()))
+                {
+                    var query = from item in dc.stp_setBajaViga(intDetCotizaID, bitRollBack)
+                                select new Resultado
+                                {
+                                    vchDescripcion = item.vchDescripcion,
+                                    vchResultado = item.vchResultado
+                                };
+                    result = query.First();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
+        /// <summary>
+        /// Procedimiento que realiza el borrado lógico o físico (en caso de error) de los datos de la Viga Tope
+        /// </summary>
+        /// <param name="intDetCotizaID"></param>
+        /// <param name="bitRollback">1 = Realiza el borrado físico de las tablas <br /> 
+        ///                             0 = Realiza el borrado lógico</param>
+        /// <returns></returns>
+        public Resultado setBajaVigaTope(int intDetCotizaID, bool bitRollBack)
+        {
+            Resultado result = new Resultado();
+            try
+            {
+                using (VigasDataContext dc = new VigasDataContext(Helper.ConnectionString()))
+                {
+                    var query = from item in dc.stp_setBajaVigaTope(intDetCotizaID, bitRollBack)
+                                select new Resultado
+                                {
+                                    vchDescripcion = item.vchDescripcion,
+                                    vchResultado = item.vchResultado
+                                };
+                    result = query.First();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
     }
 }

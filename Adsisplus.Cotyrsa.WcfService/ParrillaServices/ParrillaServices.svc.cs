@@ -50,5 +50,27 @@ namespace Adsisplus.Cotyrsa.WcfService.ParrillaServices
             }
             return result;
         }
+
+        /// <summary>
+        /// Procedimiento que realiza la baja lógica y física (en caso de existir error) en los 
+        /// datos de la parrilla
+        /// </summary>
+        /// <param name="intDetCotizaID"></param>
+        /// <param name="bitRollBack">1 = realiza el borrado físico de los datos
+        ///                         0 = realiza el borrado lógico de los datos</param>
+        /// <returns></returns>
+        public Resultado setBajaParrilla(int intDetCotizaID, bool bitRollBack)
+        {
+            Resultado result = new Resultado();
+            try
+            {
+                result = (new ParrillaLogic()).setBajaParrilla(intDetCotizaID, bitRollBack);
+            }
+            catch(Exception ex)
+            {
+                Adsisplus.Cotyrsa.BusinessLogic.EventLogManager.LogErrorEntry(ex.Message);
+            }
+            return result;
+        }
     }
 }

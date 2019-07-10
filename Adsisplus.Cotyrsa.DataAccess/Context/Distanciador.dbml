@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="dbTyrsa" Class="DistanciadorDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=local;Initial Catalog=dbTyrsa;Persist Security Info=True;User ID=usrCotyrsa" SettingsObjectName="Adsisplus.Cotyrsa.DataAccess.Properties.Settings" SettingsPropertyName="dbTyrsaConnectionString" Provider="System.Data.SqlClient" />
+  <Connection Mode="AppSettings" ConnectionString="Data Source=local;Initial Catalog=dbTyrsa;User ID=usrCotyrsa" SettingsObjectName="Adsisplus.Cotyrsa.DataAccess.Properties.Settings" SettingsPropertyName="dbTyrsaConnectionString" Provider="System.Data.SqlClient" />
   <Function Name="dbo.stp_ListarSeleccionDistanciador" Method="stp_ListarSeleccionDistanciador">
     <Parameter Name="decAltura" Type="System.Decimal" DbType="Decimal(8,3)" />
     <ElementType Name="stp_ListarSeleccionDistanciadorResult">
@@ -133,6 +133,14 @@
       <Column Name="decPinturaTotal" Type="System.Decimal" DbType="Decimal(8,3)" CanBeNull="true" />
       <Column Name="decTotalKgTotal" Type="System.Decimal" DbType="Decimal(18,3)" CanBeNull="true" />
       <Column Name="bitActivo" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.stp_setBajaDistanciador" Method="stp_setBajaDistanciador">
+    <Parameter Name="intDetCotizaID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="bitRollback" Type="System.Boolean" DbType="Bit" />
+    <ElementType Name="stp_setBajaDistanciadorResult">
+      <Column Name="vchResultado" Type="System.String" DbType="VarChar(12)" CanBeNull="true" />
+      <Column Name="vchDescripcion" Type="System.String" DbType="VarChar(63) NOT NULL" CanBeNull="false" />
     </ElementType>
   </Function>
 </Database>

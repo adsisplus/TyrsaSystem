@@ -43,7 +43,8 @@ namespace Adsisplus.Cotyrsa.DataAccess
 
                                     decPrecioVentaUnitario = item.decPrecioVentaUnitario,
                                     decPrecioVentaTotal = item.decPrecioVentaTotal,
-
+                                    
+                                    decCapacidadCarga = item.decCapacidadCarga,
 
                                     bitActivo = item.bitActivo
                                 };
@@ -55,6 +56,36 @@ namespace Adsisplus.Cotyrsa.DataAccess
                 throw ex;
             }
             return results;
+        }
+        /// <summary>
+        /// Procedimiento que realiza la baja lógica y física (en caso de existir error) en los 
+        /// datos de la parrilla
+        /// </summary>
+        /// <param name="intDetCotizaID"></param>
+        /// <param name="bitRollBack">1 = realiza el borrado físico de los datos
+        ///                         0 = realiza el borrado lógico de los datos</param>
+        /// <returns></returns>
+        public Resultado setBajaParrilla(int intDetCotizaID, bool bitRollBack)
+        {
+            Resultado result = new Resultado();
+            try
+            {
+                using (ParrillaDataContext dc = new ParrillaDataContext(Helper.ConnectionString()))
+                {
+                    var query = from item in dc.stp_setBajaParrilla(intDetCotizaID, bitRollBack)
+                                select new Resultado
+                                {
+                                    vchDescripcion = item.vchDescripcion,
+                                    vchResultado = item.vchResultado
+                                };
+                    result = query.First();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
         }
     }
 }

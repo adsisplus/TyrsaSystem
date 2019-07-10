@@ -206,10 +206,11 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Bit")] System.Nullable<bool> bitPintura, 
 					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Decimal(18,3)")] System.Nullable<decimal> decPrecioVentaUnitario, 
 					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Decimal(18,3)")] System.Nullable<decimal> decPrecioVentaTotal, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Decimal(12,2)")] System.Nullable<decimal> decCapacidadCarga, 
 					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Bit")] System.Nullable<bool> bitActivo, 
 					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="TinyInt")] System.Nullable<byte> tinOpcion)
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), intParrillaID, intElementoID, sintPinturaID, intCotizacionID, intDetCotizaID, decFrenteParrilla, decFondoParrilla, decCostoParrilla, vchTamanioCuadroParrilla, intCantidadParrilla, decPesoParrilla, bitGalvanizado, bitPintura, decPrecioVentaUnitario, decPrecioVentaTotal, bitActivo, tinOpcion);
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), intParrillaID, intElementoID, sintPinturaID, intCotizacionID, intDetCotizaID, decFrenteParrilla, decFondoParrilla, decCostoParrilla, vchTamanioCuadroParrilla, intCantidadParrilla, decPesoParrilla, bitGalvanizado, bitPintura, decPrecioVentaUnitario, decPrecioVentaTotal, decCapacidadCarga, bitActivo, tinOpcion);
 			return ((ISingleResult<stp_setDatosParrillaResult>)(result.ReturnValue));
 		}
 	}

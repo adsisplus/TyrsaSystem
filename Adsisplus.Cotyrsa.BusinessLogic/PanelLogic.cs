@@ -218,5 +218,25 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
             }
             return result;
         }
+        /// <summary>
+        /// Procedimiento que realiza la baja de los 
+        /// </summary>
+        /// <param name="intDetCotizaID"></param>
+        /// <param name="bitRollBack">1 = Realiza el borrado físico de las tablas <br /> 
+        ///                             0 = Realiza el borrado lógico</param>
+        /// <returns></returns>
+        public Resultado setBajaPanel(int intDetCotizaID, bool bitRollBack)
+        {
+            Resultado result = new Resultado();
+            try
+            {
+                result = CatalogosDA.setBajaPanel(intDetCotizaID, bitRollBack);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
     }
 }

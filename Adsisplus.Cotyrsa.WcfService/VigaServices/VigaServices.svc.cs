@@ -118,28 +118,6 @@ namespace Adsisplus.Cotyrsa.WcfService.VigaServices
             return result;
         }
         /// <summary>
-        /// Permite realizar la actualización de las vigas en factores y número de viga y piezas
-        /// </summary>
-        /// <param name="decFactorAcero"></param>
-        /// <param name="decFactorRemache"></param>
-        /// <param name="decFactorKgMt"></param>
-        /// <param name="intNumeroViga"></param>
-        /// <param name="intNumeroPza"></param>
-        /// <returns></returns>
-        public Resultado setConfiguracionViga(decimal decFactorAcero, decimal decFactorRemache, decimal decFactorKgMt, int intNumeroViga, int intNumeroPza)
-        {
-            Resultado result = new Resultado();
-            try
-            {
-                result = (new VigaLogic()).setConfiguracionViga(decFactorAcero, decFactorRemache, decFactorKgMt, intNumeroViga, intNumeroPza);
-            }
-            catch (Exception ex)
-            {
-                Adsisplus.Cotyrsa.BusinessLogic.EventLogManager.LogErrorEntry(ex.Message);
-            }
-            return result;
-        }
-        /// <summary>
         /// Obtiene la lista de conector por viga
         /// </summary>
         /// <param name="intCalibreID"></param>
@@ -153,31 +131,6 @@ namespace Adsisplus.Cotyrsa.WcfService.VigaServices
             try
             {
                 result = (new VigaLogic()).ListarConectorViga(intCalibreID, sintInsumoViga, sintTipoConectorID, sintFamiliaVigaID);
-            }
-            catch (Exception ex)
-            {
-                Adsisplus.Cotyrsa.BusinessLogic.EventLogManager.LogErrorEntry(ex.Message);
-            }
-            return result;
-        }
-        /// <summary>
-        /// Alta de factor de viga
-        /// </summary>
-        /// <param name="intCalibreID"></param>
-        /// <param name="decAcero"></param>
-        /// <param name="decRemache"></param>
-        /// <param name="decKgMetroCuadrado"></param>
-        /// <param name="decFactorVenta"></param>
-        /// <param name="decFactorDespiste"></param>
-        /// <param name="decFactorDescuento"></param>
-        /// <returns></returns>
-        public Resultado setFactorViga(int intCalibreID, decimal decAcero, decimal decRemache, decimal decKgMetroCuadrado,
-            decimal decFactorVenta, decimal decFactorDespiste, decimal decFactorDescuento)
-        {
-            Resultado result = new Resultado();
-            try
-            {
-                result = (new VigaLogic()).setFactorViga(intCalibreID, decAcero, decRemache, decKgMetroCuadrado, decFactorVenta, decFactorDespiste, decFactorDescuento);
             }
             catch (Exception ex)
             {
@@ -263,6 +216,72 @@ namespace Adsisplus.Cotyrsa.WcfService.VigaServices
             return result;
         }
         /// <summary>
+        /// Procedimiento que obtiene los datos de la pantalla de la viga a mostrar
+        /// </summary>
+        /// <param name="intDetCotizacionID"></param>
+        /// <returns></returns>
+        public List<RackSelectivo> ListarDatosPantallaViga(int intDetCotizacionID, int intSeleccionVigaID)
+        {
+            List<RackSelectivo> result = new List<RackSelectivo>();
+            try
+            {
+                result = (new VigaLogic()).ListarDatosPantallaViga(intDetCotizacionID, intSeleccionVigaID);
+            }
+            catch (Exception ex)
+            {
+                Adsisplus.Cotyrsa.BusinessLogic.EventLogManager.LogErrorEntry(ex.Message);
+            }
+            return result;
+        }
+
+        /// <summary>
+        /// Permite realizar la actualización de las vigas en factores y número de viga y piezas
+        /// </summary>
+        /// <param name="decFactorAcero"></param>
+        /// <param name="decFactorRemache"></param>
+        /// <param name="decFactorKgMt"></param>
+        /// <param name="intNumeroViga"></param>
+        /// <param name="intNumeroPza"></param>
+        /// <returns></returns>
+        public Resultado setConfiguracionViga(decimal decFactorAcero, decimal decFactorRemache, decimal decFactorKgMt, int intNumeroViga, int intNumeroPza)
+        {
+            Resultado result = new Resultado();
+            try
+            {
+                result = (new VigaLogic()).setConfiguracionViga(decFactorAcero, decFactorRemache, decFactorKgMt, intNumeroViga, intNumeroPza);
+            }
+            catch (Exception ex)
+            {
+                Adsisplus.Cotyrsa.BusinessLogic.EventLogManager.LogErrorEntry(ex.Message);
+            }
+            return result;
+        }
+        /// <summary>
+        /// Alta de factor de viga
+        /// </summary>
+        /// <param name="intCalibreID"></param>
+        /// <param name="decAcero"></param>
+        /// <param name="decRemache"></param>
+        /// <param name="decKgMetroCuadrado"></param>
+        /// <param name="decFactorVenta"></param>
+        /// <param name="decFactorDespiste"></param>
+        /// <param name="decFactorDescuento"></param>
+        /// <returns></returns>
+        public Resultado setFactorViga(int intCalibreID, decimal decAcero, decimal decRemache, decimal decKgMetroCuadrado,
+            decimal decFactorVenta, decimal decFactorDespiste, decimal decFactorDescuento)
+        {
+            Resultado result = new Resultado();
+            try
+            {
+                result = (new VigaLogic()).setFactorViga(intCalibreID, decAcero, decRemache, decKgMetroCuadrado, decFactorVenta, decFactorDespiste, decFactorDescuento);
+            }
+            catch (Exception ex)
+            {
+                Adsisplus.Cotyrsa.BusinessLogic.EventLogManager.LogErrorEntry(ex.Message);
+            }
+            return result;
+        }
+        /// <summary>
         /// Procedimiento que almacena toda la información de la pantalla de captura de Viga
         /// </summary>
         /// <param name="viga"></param>
@@ -287,25 +306,6 @@ namespace Adsisplus.Cotyrsa.WcfService.VigaServices
             return result;
         }
         /// <summary>
-        /// Procedimiento que obtiene los datos de la pantalla de la viga a mostrar
-        /// </summary>
-        /// <param name="intDetCotizacionID"></param>
-        /// <returns></returns>
-        public List<RackSelectivo> ListarDatosPantallaViga(int intDetCotizacionID, int intSeleccionVigaID)
-        {
-            List<RackSelectivo> result = new List<RackSelectivo>();
-            try
-            {
-                result = (new VigaLogic()).ListarDatosPantallaViga(intDetCotizacionID, intSeleccionVigaID);
-            }
-            catch (Exception ex)
-            {
-                Adsisplus.Cotyrsa.BusinessLogic.EventLogManager.LogErrorEntry(ex.Message);
-            }
-            return result;
-        }
-
-        /// <summary>
         /// Procedimiento que almacena los datos de Viga Tope
         /// </summary>
         /// <param name="vigaTope"></param>
@@ -317,6 +317,48 @@ namespace Adsisplus.Cotyrsa.WcfService.VigaServices
             try
             {
                 result = (new VigaLogic()).setDatosVigaTope(vigaTope, tinOpcion);
+            }
+            catch (Exception ex)
+            {
+                Adsisplus.Cotyrsa.BusinessLogic.EventLogManager.LogErrorEntry(ex.Message);
+            }
+            return result;
+        }
+
+        /// <summary>
+        /// Procedimiento que realiza el borrado lógico o físico(en caso de error) de los datos de la viga
+        /// capturada
+        /// </summary>
+        /// <param name="intDetCotizaID"></param>
+        /// <param name="bitRollback">1 = Realiza el borrado físico de las tablas <br /> 
+        ///                             0 = Realiza el borrado lógico</param>
+        /// <returns></returns>
+        public Resultado setBajaViga(int intDetCotizaID, bool bitRollBack)
+        {
+            Resultado result = new Resultado();
+            try
+            {
+                result = (new VigaLogic()).setBajaViga(intDetCotizaID, bitRollBack);
+            }
+            catch (Exception ex)
+            {
+                Adsisplus.Cotyrsa.BusinessLogic.EventLogManager.LogErrorEntry(ex.Message);
+            }
+            return result;
+        }
+        /// <summary>
+        /// Procedimiento que realiza el borrado lógico o físico (en caso de error) de los datos de la Viga Tope
+        /// </summary>
+        /// <param name="intDetCotizaID"></param>
+        /// <param name="bitRollback">1 = Realiza el borrado físico de las tablas <br /> 
+        ///                             0 = Realiza el borrado lógico</param>
+        /// <returns></returns>
+        public Resultado setBajaVigaTope(int intDetCotizaID, bool bitRollBack)
+        {
+            Resultado result = new Resultado();
+            try
+            {
+                result = (new VigaLogic()).setBajaVigaTope(intDetCotizaID, bitRollBack);
             }
             catch (Exception ex)
             {

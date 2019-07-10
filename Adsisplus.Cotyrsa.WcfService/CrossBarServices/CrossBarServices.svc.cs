@@ -13,26 +13,6 @@ namespace Adsisplus.Cotyrsa.WcfService.CrossBarServices
     // NOTA: para iniciar el Cliente de prueba WCF para probar este servicio, seleccione CrossBarServices.svc o CrossBarServices.svc.cs en el Explorador de soluciones e inicie la depuración.
     public class CrossBarServices : ICrossBarServices
     {
-        ///// <summary>
-        ///// 
-        ///// </summary>
-        ///// <param name="intDatosCrossBarID"></param>
-        ///// <param name="intElementoID"></param>
-        ///// <param name="intDatoMarcoID"></param>
-        ///// <returns></returns>
-        //public List<DatosCrossBar> ListarDatosPanel(int intDatosCrossBarID, int intElementoID, int intDatoMarcoID)
-        //{
-        //    List<DatosCrossBar> result = new List<DatosCrossBar>();
-        //    try
-        //    {
-        //        result = (new CrossBarDataLogic()).ListarDatosPanel(intDatosCrossBarID, intElementoID, intDatoMarcoID);
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        Adsisplus.Cotyrsa.BusinessLogic.EventLogManager.LogErrorEntry(ex.Message);
-        //    }
-        //    return result;
-        //}
         /// <summary>
         /// Procedimiento que nos muestra la lista de ancho páneles para cotizaciones
         /// </summary>
@@ -121,6 +101,27 @@ namespace Adsisplus.Cotyrsa.WcfService.CrossBarServices
             try
             {
                 result = (new CrossBarDataLogic()).setSeleccionCrossBar(dppCrossBar, crossBar, intCotizacionID, intDetCotizaID, intCantidad, tinOpcion);
+            }
+            catch (Exception ex)
+            {
+                Adsisplus.Cotyrsa.BusinessLogic.EventLogManager.LogErrorEntry(ex.Message);
+            }
+            return result;
+        }
+        /// <summary>
+        /// Procedimiento que realiza la baja lógica y física (en caso de existir un error) de los registros
+        /// de CrossBar
+        /// </summary>
+        /// <param name="intDetCotizaID"></param>
+        /// <param name="bitRollBack">1 = realiza el borrado físico del registro
+        ///                         0 = realiza el borrado lógido del registro</param>
+        /// <returns></returns>
+        public Resultado setBajaCrossBar(int intDetCotizaID, bool bitRollBack)
+        {
+            Resultado result = new Resultado();
+            try
+            {
+                result = (new CrossBarDataLogic()).setBajaCrossBar(intDetCotizaID, bitRollBack);
             }
             catch (Exception ex)
             {

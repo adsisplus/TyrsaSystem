@@ -234,5 +234,63 @@ namespace Adsisplus.Cotyrsa.DataAccess
             }
             return result;
         }
+        /// <summary>
+        /// Procedimiento que realiza la baja lógica o física (en caso de existir error) de los
+        /// datos de protector poste
+        /// </summary>
+        /// <param name="intDetCotizaID"></param>
+        /// <param name="bitRollBack"></param>
+        /// <returns></returns>
+        public Resultado setBajaProtectorPoste(int intDetCotizaID, bool bitRollBack)
+        {
+            Resultado result = new Resultado();
+            try
+            {
+                using (ProtectoresDataContext dc = new ProtectoresDataContext(Helper.ConnectionString()))
+                {
+                    var query = from item in dc.stp_setBajaProtectorPoste(intDetCotizaID, bitRollBack)
+                                select new Resultado
+                                {
+                                    vchDescripcion = item.vchDescripcion,
+                                    vchResultado = item.vchResultado
+                                };
+                    result = query.First();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
+        /// <summary>
+        /// Procedimiento que realiza la baja lógica o física (en caso de existir error) de los
+        /// datos de protector batería
+        /// </summary>
+        /// <param name="intDetCotizaID"></param>
+        /// <param name="bitRollBack"></param>
+        /// <returns></returns>
+        public Resultado setBajaProtectorBateria(int intDetCotizaID, bool bitRollBack)
+        {
+            Resultado result = new Resultado();
+            try
+            {
+                using (ProtectoresDataContext dc = new ProtectoresDataContext(Helper.ConnectionString()))
+                {
+                    var query = from item in dc.stp_setBajaProtectorBateria(intDetCotizaID, bitRollBack)
+                                select new Resultado
+                                {
+                                    vchDescripcion = item.vchDescripcion,
+                                    vchResultado = item.vchResultado
+                                };
+                    result = query.First();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
     }
 }

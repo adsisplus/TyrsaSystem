@@ -56,7 +56,6 @@ namespace Adsisplus.Cotyrsa.WcfService.MarcosServices
         [OperationContract]
         [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ListarFondoMarco")]
         List<FondoMarco> ListarFondoMarco();
-
         /// <summary>
         /// Cambia los factores de configuración para los marcos
         /// </summary>
@@ -94,16 +93,6 @@ namespace Adsisplus.Cotyrsa.WcfService.MarcosServices
         [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ListarCatCargaPoste")]
         List<CargaPoste> ListarCatCargaPoste(int intCargaPosteID, short sintTipoMarcoID, int intCalibreAceroID);
         /// <summary>
-        /// Permite actualizar los factores del marco
-        /// </summary>
-        /// <param name="factor"></param>
-        /// <returns></returns>
-        [OperationContract]
-        [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "setFondoMarco")]
-        Resultado setFondoMarco(FondoMarco factor);
-
-
-        /// <summary>
         /// Obtiene el valor del fonde del marco
         /// </summary>
         /// <param name="decFondoTarimaVacia"></param>
@@ -123,19 +112,6 @@ namespace Adsisplus.Cotyrsa.WcfService.MarcosServices
         [OperationContract]
         [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "getAlturaMarco")]
         List<CatalogoDecimal> getAlturaMarco(decimal decDimensionClaro, int intNumNivelesSobreVigaClaro, decimal decAlturaPiso, int intNumNivelesSobreVigaPeralte);
-        /// <summary>
-        /// Procedimiento que almacena toda la información de la pantalla de captura de Marco
-        /// </summary>
-        /// <param name="marco"></param>
-        /// <param name="intCotizacionID"></param>
-        /// <param name="intDetCotizacionID"></param>
-        /// <param name="sintPinturaID"></param>
-        /// <param name="intCantidad"></param>
-        /// <param name="tinOpcion"></param>
-        /// <returns></returns>
-        [OperationContract]
-        [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "setSeleccionMarco")]
-        Resultado setSeleccionMarco(DatosPantallaMarco marco, int intCotizacionID, int intDetCotizacionID, short sintPinturaID, int intCantidad, short tinOpcion);
         /// <summary>
         /// Procedimiento que permite listar los marcos en base a la capacidad
         /// de carga y la altura de pandeo
@@ -163,5 +139,39 @@ namespace Adsisplus.Cotyrsa.WcfService.MarcosServices
         [OperationContract]
         [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ListarDatosPantallaMarco")]
         List<DatosPantallaMarco> ListarDatosPantallaMarco(int intDetCotizacionID, int intSeleccionMarcoID);
+
+        /// <summary>
+        /// Permite actualizar los factores del marco
+        /// </summary>
+        /// <param name="factor"></param>
+        /// <returns></returns>
+        [OperationContract]
+        [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "setFondoMarco")]
+        Resultado setFondoMarco(FondoMarco factor);
+        /// <summary>
+        /// Procedimiento que almacena toda la información de la pantalla de captura de Marco
+        /// </summary>
+        /// <param name="marco"></param>
+        /// <param name="intCotizacionID"></param>
+        /// <param name="intDetCotizacionID"></param>
+        /// <param name="sintPinturaID"></param>
+        /// <param name="intCantidad"></param>
+        /// <param name="tinOpcion"></param>
+        /// <returns></returns>
+        [OperationContract]
+        [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "setSeleccionMarco")]
+        Resultado setSeleccionMarco(DatosPantallaMarco marco, int intCotizacionID, int intDetCotizacionID, short sintPinturaID, int intCantidad, short tinOpcion);
+
+        /// <summary>
+        /// Procedimiento que realiza la baja lógica o física(en caso de existir un error) de los
+        /// datos de Marco
+        /// </summary>
+        /// <param name="intDetCotizaID"></param>
+        /// <param name="bitRollBack">1 = Borrado físico de la información </br>
+        ///                         0 = Borrado lógico de la información</param>
+        /// <returns></returns>
+        [OperationContract]
+        [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "setBajaMarco")]
+        Resultado setBajaMarco(int intDetCotizaID, bool bitRollBack);
     }
 }

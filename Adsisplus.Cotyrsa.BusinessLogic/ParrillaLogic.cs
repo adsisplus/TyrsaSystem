@@ -103,5 +103,26 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
             }
             return result;
         }
+        /// <summary>
+        /// Procedimiento que realiza la baja lógica y física (en caso de existir error) en los 
+        /// datos de la parrilla
+        /// </summary>
+        /// <param name="intDetCotizaID"></param>
+        /// <param name="bitRollBack">1 = realiza el borrado físico de los datos
+        ///                         0 = realiza el borrado lógico de los datos</param>
+        /// <returns></returns>
+        public Resultado setBajaParrilla(int intDetCotizaID, bool bitRollBack)
+        {
+            Resultado result = new Resultado();
+            try
+            {
+                result = CatalogosDA.setBajaParrilla(intDetCotizaID, bitRollBack);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
     }
 }
