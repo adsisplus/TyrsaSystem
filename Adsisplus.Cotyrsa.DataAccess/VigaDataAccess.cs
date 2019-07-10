@@ -442,6 +442,7 @@ namespace Adsisplus.Cotyrsa.DataAccess
                                 select new SeleccionViga
                                 {
                                     intSeleccionVigaID = item.intSeleccionVigaID,
+                                    intDatosVigaID = item.intDatosVigaID,
                                     intDetCotizaID = item.intDetCotizaID,
                                     SKU = int.Parse(item.SKU),
                                     decPesoViga = item.decPesoViga,
@@ -487,7 +488,7 @@ namespace Adsisplus.Cotyrsa.DataAccess
                         rack.decFrente, rack.decFondo, rack.decAltura, rack.decPeso, rack.decLongitudViga, 
                         rack.decCapCargaReqViga, rack.bitEstructural, rack.bitSobresale, Convert.ToByte(rack.tinOpcionViga), rack.decDistanciaLargoProducto, 
                         Convert.ToString(viga.SKU), viga.decPesoViga, viga.decGranTotal, viga.intTipoID, viga.intMaterialID, 
-                        viga.decPatin, viga.decPeralte, viga.decLongitud, viga.decCapacidadParVigasRequerida, viga.decCapacidadParVigasMaxima, 
+                        viga.decPatin, viga.decPeralte, Convert.ToDecimal(viga.vchLongitud), viga.decCapacidadParVigasRequerida, viga.decCapacidadParVigasMaxima, 
                         rack.intNumeroTarimaPorNivel,
                         // DATOS DEL RACK SELECTIVO
                         rack.bitMontacarga, rack.bitManual, rack.vchDimensionMontacarga, viga.decConector,

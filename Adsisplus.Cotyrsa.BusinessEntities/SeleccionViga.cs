@@ -17,6 +17,9 @@ namespace Adsisplus.Cotyrsa.BusinessEntities
         public int? intSeleccionVigaID { get; set; }
 
         [DataMember]
+        public int? intDatosVigaID { get; set; }
+
+        [DataMember]
         public int? intConfiguraVigaID { get; set; }
         /// <summary>
         /// ID de la tabla tbl_RackSelectivo

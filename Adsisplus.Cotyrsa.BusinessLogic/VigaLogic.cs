@@ -379,9 +379,18 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
                             intDatosViga = Convert.ToInt32(result.vchResultado);
                             if ((sistema.intDatosVigaID == 0 || sistema.intDatosVigaID == null) || tinOpcion == 3)
                             {
-                                // En caso de realizar la baja, establecemos el valor a 0
-                                if (tinOpcion == 3)
-                                    sistema.intDatosVigaID = 0;
+                                // En caso de realizar la baja, establecemos el valor a 0 en caso de coincidir la baja con el registrado
+                                // en el sistema selectivo
+                                if (tinOpcion == 3 && sistema.intDatosVigaID == mstViga.intDatosVigaID)
+                                {
+                                    // Obtenemos la lista de las vigas registradas activas en base a la cotización
+                                    List<SeleccionViga> listViga = new List<SeleccionViga>();
+                                    listViga = ListaDatosSeleccionViga(intCotizacionID);
+                                    if (listViga.Count > 0)
+                                        sistema.intDatosVigaID = listViga.First().intDatosVigaID;
+                                    else
+                                        sistema.intDatosVigaID = 0;
+                                }
                                 else
                                     sistema.intDatosVigaID = intDatosViga;
                                 sistema.intTipoElementoAlmacenID = 17; // Valor por default

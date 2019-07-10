@@ -3303,6 +3303,8 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 		
 		private System.Nullable<int> _intDetCotizaID;
 		
+		private int _intDatosVigaID;
+		
 		private string _SKU;
 		
 		private System.Nullable<decimal> _decPesoViga;
@@ -3367,6 +3369,22 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 				if ((this._intDetCotizaID != value))
 				{
 					this._intDetCotizaID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intDatosVigaID", DbType="Int NOT NULL")]
+		public int intDatosVigaID
+		{
+			get
+			{
+				return this._intDatosVigaID;
+			}
+			set
+			{
+				if ((this._intDatosVigaID != value))
+				{
+					this._intDatosVigaID = value;
 				}
 			}
 		}

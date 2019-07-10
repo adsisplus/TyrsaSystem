@@ -26,7 +26,8 @@ namespace Adsisplus.Cotyrsa.BusinessEntities
         [DataMember]
         public int? intDetCotizaID { get; set; }
 
-
+        [DataMember]
+        public int? intDatoMarcoID { get; set; }
         /// <summary>
         /// Valor del SKU
         /// </summary>

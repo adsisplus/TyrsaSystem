@@ -638,6 +638,9 @@ namespace Adsisplus.Cotyrsa.DataAccess
                                 select new SeleccionMarco
                                 {
                                     intSeleccionMarcoID = item.intSeleccionMarcoID,
+                                    intDetCotizaID = item.intDetCotizaID,
+                                    intDatoMarcoID = item.intDatoMarcoID,
+
                                     vchSKU = item.SKU,
                                     intConfiguraMarcoID = item.intConfiguraMarcoID,
                                     decPesoMarco = item.decPesoMarco,
