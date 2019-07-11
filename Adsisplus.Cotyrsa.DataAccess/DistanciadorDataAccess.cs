@@ -132,6 +132,7 @@ namespace Adsisplus.Cotyrsa.DataAccess
                                 select new SeleccionDistanciador
                                 {
                                     intSeleccionDistanciadorID = item.intSeleccionDistanciadorID,
+                                    intDetCotizaID = item.intDetCotizaID,
                                     vchSKU = item.vchSKU,
                                     decAltura = item.decAltura,
                                     decPesoKg = item.decPesoKg,

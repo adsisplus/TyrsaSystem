@@ -182,6 +182,7 @@ namespace Adsisplus.Cotyrsa.DataAccess
                                 select new SeleccionPanel
                                 {
                                     intSeleccionPanelID = item.intSeleccionPanelID,
+                                    intDetCotizaID = item.intDetCotizaID,
                                     sintSKU = item.sintSKU,
                                     vchCalibreAcero = item.vchCalibreAcero,
                                     decAncho = item.decAncho,

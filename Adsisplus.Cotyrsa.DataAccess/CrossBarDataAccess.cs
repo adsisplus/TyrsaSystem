@@ -216,6 +216,7 @@ namespace Adsisplus.Cotyrsa.DataAccess
                                 select new SeleccionCrossBar
                                 {
                                     intSeleccionCrossBarID = item.intSeleccionCrossBarID,
+                                    intDetCotizaID = item.intDetCotizaID,
                                     sintCrossBarID = item.sintCrossBarID,
                                     vchTipoCrossBar = item.vchTipoCrossBar,
                                     decPrecioFinal = item.decPrecioFinal,

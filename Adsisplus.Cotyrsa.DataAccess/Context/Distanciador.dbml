@@ -75,34 +75,6 @@
       <Column Name="vchDescripcion" Type="System.String" DbType="VarChar(63) NOT NULL" CanBeNull="false" />
     </ElementType>
   </Function>
-  <Function Name="dbo.stp_ListarDatosSeleccionDistanciador" Method="stp_ListarDatosSeleccionDistanciador">
-    <Parameter Name="intCotizacionID" Type="System.Int32" DbType="Int" />
-    <ElementType Name="stp_ListarDatosSeleccionDistanciadorResult">
-      <Column Name="intSeleccionDistanciadorID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="vchSKU" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="decAltura" Type="System.Decimal" DbType="Decimal(8,3)" CanBeNull="true" />
-      <Column Name="decPesoKg" Type="System.Decimal" DbType="Decimal(8,3)" CanBeNull="true" />
-      <Column Name="decPrecioTyrsa" Type="System.Decimal" DbType="Decimal(18,3)" CanBeNull="true" />
-      <Column Name="decPrecioReferencia" Type="System.Decimal" DbType="Decimal(18,3)" CanBeNull="true" />
-      <Column Name="decRelacionPrecio" Type="System.Decimal" DbType="Decimal(18,3)" CanBeNull="true" />
-      <Column Name="decPrecioMetroTyrsa" Type="System.Decimal" DbType="Decimal(18,3)" CanBeNull="true" />
-      <Column Name="decPrecioMetroRef" Type="System.Decimal" DbType="Decimal(18,3)" CanBeNull="true" />
-      <Column Name="decPrecioKgTyrsa" Type="System.Decimal" DbType="Decimal(18,3)" CanBeNull="true" />
-      <Column Name="decPrecioKgRef" Type="System.Decimal" DbType="Decimal(18,3)" CanBeNull="true" />
-      <Column Name="decPesoAnguloCobro" Type="System.Decimal" DbType="Decimal(8,3)" CanBeNull="true" />
-      <Column Name="decPesoPlacaCobro" Type="System.Decimal" DbType="Decimal(8,3)" CanBeNull="true" />
-      <Column Name="sintCantidadPzaAngulo" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
-      <Column Name="sintCantidadPzaPlaca" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
-      <Column Name="decPesoPorDistanciador" Type="System.Decimal" DbType="Decimal(8,3)" CanBeNull="true" />
-      <Column Name="decAreaPinturaAngulo" Type="System.Decimal" DbType="Decimal(8,3)" CanBeNull="true" />
-      <Column Name="decAreaPinturaPlaca" Type="System.Decimal" DbType="Decimal(8,3)" CanBeNull="true" />
-      <Column Name="decPinturaTotal" Type="System.Decimal" DbType="Decimal(8,3)" CanBeNull="true" />
-      <Column Name="decTotalKgTotal" Type="System.Decimal" DbType="Decimal(18,3)" CanBeNull="true" />
-      <Column Name="intCantidad" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="decSubtotal" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
-      <Column Name="bitActivo" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-    </ElementType>
-  </Function>
   <Function Name="dbo.stp_ListarDatosPantallaDistanciador" Method="stp_ListarDatosPantallaDistanciador">
     <Parameter Name="intSeleccionDistanciadorID" Type="System.Int32" DbType="Int" />
     <Parameter Name="intCotizacionID" Type="System.Int32" DbType="Int" />
@@ -141,6 +113,35 @@
     <ElementType Name="stp_setBajaDistanciadorResult">
       <Column Name="vchResultado" Type="System.String" DbType="VarChar(12)" CanBeNull="true" />
       <Column Name="vchDescripcion" Type="System.String" DbType="VarChar(63) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.stp_ListarDatosSeleccionDistanciador" Method="stp_ListarDatosSeleccionDistanciador">
+    <Parameter Name="intCotizacionID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="stp_ListarDatosSeleccionDistanciadorResult">
+      <Column Name="intSeleccionDistanciadorID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="intDetCotizaID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="vchSKU" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="decAltura" Type="System.Decimal" DbType="Decimal(8,3)" CanBeNull="true" />
+      <Column Name="decPesoKg" Type="System.Decimal" DbType="Decimal(8,3)" CanBeNull="true" />
+      <Column Name="decPrecioTyrsa" Type="System.Decimal" DbType="Decimal(18,3)" CanBeNull="true" />
+      <Column Name="decPrecioReferencia" Type="System.Decimal" DbType="Decimal(18,3)" CanBeNull="true" />
+      <Column Name="decRelacionPrecio" Type="System.Decimal" DbType="Decimal(18,3)" CanBeNull="true" />
+      <Column Name="decPrecioMetroTyrsa" Type="System.Decimal" DbType="Decimal(18,3)" CanBeNull="true" />
+      <Column Name="decPrecioMetroRef" Type="System.Decimal" DbType="Decimal(18,3)" CanBeNull="true" />
+      <Column Name="decPrecioKgTyrsa" Type="System.Decimal" DbType="Decimal(18,3)" CanBeNull="true" />
+      <Column Name="decPrecioKgRef" Type="System.Decimal" DbType="Decimal(18,3)" CanBeNull="true" />
+      <Column Name="decPesoAnguloCobro" Type="System.Decimal" DbType="Decimal(8,3)" CanBeNull="true" />
+      <Column Name="decPesoPlacaCobro" Type="System.Decimal" DbType="Decimal(8,3)" CanBeNull="true" />
+      <Column Name="sintCantidadPzaAngulo" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="sintCantidadPzaPlaca" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="decPesoPorDistanciador" Type="System.Decimal" DbType="Decimal(8,3)" CanBeNull="true" />
+      <Column Name="decAreaPinturaAngulo" Type="System.Decimal" DbType="Decimal(8,3)" CanBeNull="true" />
+      <Column Name="decAreaPinturaPlaca" Type="System.Decimal" DbType="Decimal(8,3)" CanBeNull="true" />
+      <Column Name="decPinturaTotal" Type="System.Decimal" DbType="Decimal(8,3)" CanBeNull="true" />
+      <Column Name="decTotalKgTotal" Type="System.Decimal" DbType="Decimal(18,3)" CanBeNull="true" />
+      <Column Name="intCantidad" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="decSubtotal" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
+      <Column Name="bitActivo" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
     </ElementType>
   </Function>
 </Database>
