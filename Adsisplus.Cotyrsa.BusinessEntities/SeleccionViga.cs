@@ -141,5 +141,9 @@ namespace Adsisplus.Cotyrsa.BusinessEntities
 
         [DataMember]
         public decimal? decConector { get; set; }
+
+        [DataMember]
+        public decimal? decLargoViga { get; set; }
+
     }
 }

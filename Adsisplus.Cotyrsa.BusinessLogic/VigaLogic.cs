@@ -345,7 +345,7 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
                 detCotizacion.intPartida = 0;
                 detCotizacion.intCantidad = intCantidad;
                 detCotizacion.decMonto = viga.decPrecioUnitarioSinIVA;
-                detCotizacion.decSubtotal = viga.decPrecioUnitarioSinIVA * intCantidad;
+                detCotizacion.decSubtotal = (Math.Truncate(100 * viga.decGranTotal.Value) / 100) * intCantidad;
 
                 result = (new CotizacionLogic()).setDetCotizacion(detCotizacion, (short)(intDetCotizaID == 0 ? 1 : tinOpcion));
 
