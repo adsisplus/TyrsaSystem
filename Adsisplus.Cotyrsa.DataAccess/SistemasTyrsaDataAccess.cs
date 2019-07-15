@@ -105,30 +105,30 @@ namespace Adsisplus.Cotyrsa.DataAccess
         /// <param name="datosCrossBar"></param>
         /// <param name="sintOpcion"></param>
         /// <returns></returns>
-        public Resultado setDatosCrossBar(DatosCrossBar datosCrossBar, short sintOpcion)
-        {
-            Resultado result = new Resultado();
-            try
-            {
-                using (SistemasTyrsaDataContext dc = new SistemasTyrsaDataContext(Helper.ConnectionString()))
-                {
-                    var query = from item in dc.stp_setDatosCrossBar(datosCrossBar.intDatosCrossBarID, datosCrossBar.intDetCotizaID, datosCrossBar.intElementoID, datosCrossBar.intDatoMarcoID,
-                        datosCrossBar.decAnchoCrossBar, datosCrossBar.bitConectorVigaCrossbar, datosCrossBar.intCantidad, datosCrossBar.intCantidadNivelCrossbar,  
-                        datosCrossBar.intNumeroNivel, datosCrossBar.bitActivo, (byte)sintOpcion)
-                                select new Resultado
-                                {
-                                    vchDescripcion = item.vchDescripcion,
-                                    vchResultado = item.vchResultado
-                                };
-                    result = query.First();
-                }
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-            return result;
-        }
+        //public Resultado setDatosCrossBar(DatosCrossBar datosCrossBar, short sintOpcion)
+        //{
+        //    Resultado result = new Resultado();
+        //    try
+        //    {
+        //        using (SistemasTyrsaDataContext dc = new SistemasTyrsaDataContext(Helper.ConnectionString()))
+        //        {
+        //            var query = from item in dc.stp_setDatosCrossBar(datosCrossBar.intDatosCrossBarID, datosCrossBar.intDetCotizaID, datosCrossBar.intElementoID, datosCrossBar.intDatoMarcoID,
+        //                datosCrossBar.decAnchoCrossBar, datosCrossBar.bitConectorVigaCrossbar, datosCrossBar.intCantidad, datosCrossBar.intCantidadNivelCrossbar,  
+        //                datosCrossBar.intNumeroNivel, datosCrossBar.bitActivo, (byte)sintOpcion)
+        //                        select new Resultado
+        //                        {
+        //                            vchDescripcion = item.vchDescripcion,
+        //                            vchResultado = item.vchResultado
+        //                        };
+        //            result = query.First();
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        throw ex;
+        //    }
+        //    return result;
+        //}
         /// <summary>
         /// Realiza el alta, modificación o baja a los datos de distanciador
         /// </summary>

@@ -188,7 +188,9 @@ namespace Adsisplus.Cotyrsa.DataAccess
                                         sintNumPieza = item.sintNumPieza,
                                         sintPesoPieza = item.sintPesoPieza,
                                         vchMaterial = item.vchMaterial,
-                                        vchTipoCrossBar = item.vchTipoCrossBar
+                                        vchTipoCrossBar = item.vchTipoCrossBar,
+                                        decPesoPartidaTotal = item.decPesoPartidaTotal
+
                                     }
                                 };
                     result.AddRange(query);
@@ -235,6 +237,7 @@ namespace Adsisplus.Cotyrsa.DataAccess
                                     decTotal = item.decTotal,
                                     decTotalKiloUnitario = item.decTotalKiloUnitario,
                                     decAreaPintura = item.decAreaPintura,
+                                    decPesoPartidaTotal = item.decPesoPartidaTotal,
                                     sintCara = item.sintCara,
                                     intCantidad = item.intCantidad,
                                     decSubtotal = item.decSubtotal,
@@ -268,7 +271,7 @@ namespace Adsisplus.Cotyrsa.DataAccess
                         crossBar.sintFactorCrossBarID, crossBar.sintNumPieza, crossBar.decDesarrollo, crossBar.decLongitud, crossBar.vchMaterial,
                         crossBar.decAncho, crossBar.decLargo, crossBar.intPiezaLamina, crossBar.intNumPiezas, crossBar.sintPesoPieza,
                         crossBar.decPesoPartida, crossBar.decPrecioAcero, crossBar.decTotal, crossBar.decTotalKiloUnitario, crossBar.decAreaPintura,
-                        crossBar.sintCara, crossBar.bitActivo, (byte) tinOpcion)
+                        crossBar.sintCara, crossBar.decPesoPartidaTotal, crossBar.bitActivo, (byte) tinOpcion)
                                 select new Resultado
                                 {
                                     vchResultado = item.vchResultado,

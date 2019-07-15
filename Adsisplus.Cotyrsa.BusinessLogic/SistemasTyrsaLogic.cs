@@ -102,7 +102,7 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
             Resultado result = new Resultado();
             try
             {
-                result = CatalogosDA.setDatosCrossBar(datosCrossBar, sintOpcion);
+                //result = CatalogosDA.setDatosCrossBar(datosCrossBar, sintOpcion);
             }
             catch (Exception ex)
             {
