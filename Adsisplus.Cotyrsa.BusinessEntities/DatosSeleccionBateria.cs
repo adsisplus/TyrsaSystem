@@ -27,5 +27,8 @@ namespace Adsisplus.Cotyrsa.BusinessEntities
 
         [DataMember]
         public int? intAltura { get; set; }
+
+        [DataMember]
+        public decimal? decPesoUnitario { get; set; }
     }
 }

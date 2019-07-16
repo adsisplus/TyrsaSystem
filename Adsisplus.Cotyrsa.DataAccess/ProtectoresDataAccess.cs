@@ -163,7 +163,8 @@ namespace Adsisplus.Cotyrsa.DataAccess
                                     intNumBarras = item.intNumBarras,
                                     vchMaterial = item.vchMaterial,
                                     TOTAL = item.TOTAL,
-                                    intAltura = item.intAltura
+                                    intAltura = item.intAltura,
+                                    decPesoUnitario = item.decPesoUnitario
                                 };
                     result.AddRange(query);
                 }
@@ -193,7 +194,8 @@ namespace Adsisplus.Cotyrsa.DataAccess
                                     intNumBarras = item.intNumBarras,
                                     vchMaterial = item.vchMaterial,
                                     TOTAL = item.TOTAL,
-                                    intAltura = item.intAltura
+                                    intAltura = item.intAltura,
+                                    decPesoUnitario = item.decPesoUnitario
                                 };
                     result.AddRange(query);
                 }
@@ -223,7 +225,8 @@ namespace Adsisplus.Cotyrsa.DataAccess
                                     intNumBarras = item.intNumBarras,
                                     vchMaterial = item.vchMaterial,
                                     TOTAL = item.TOTAL,
-                                    intAltura = item.intAltura
+                                    intAltura = item.intAltura,
+                                    decPesoUnitario = item.decPesoUnitario
                                 };
                     result.AddRange(query);
                 }
