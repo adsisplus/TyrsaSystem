@@ -6,26 +6,6 @@
       <Column Name="decPrecioFinal" Type="System.Decimal" DbType="Decimal(12,2)" CanBeNull="true" />
     </ElementType>
   </Function>
-  <Function Name="dbo.stp_ListarDatosProtectorPoste" Method="stp_ListarDatosProtectorPoste">
-    <Parameter Name="intCotizacionID" Type="System.Int32" DbType="Int" />
-    <ElementType Name="stp_ListarDatosProtectorPosteResult">
-      <Column Name="intProtectorPosteID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="vchElemento" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
-      <Column Name="intCotizacionID" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="intDetCotizaID" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="vchFolio" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
-      <Column Name="sintPinturaID" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
-      <Column Name="vchPintura" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
-      <Column Name="intCantidadProtectorPoste" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="decPrecioUnitario" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
-      <Column Name="decAltura" Type="System.Decimal" DbType="Decimal(8,3)" CanBeNull="true" />
-      <Column Name="sintLongitudID" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
-      <Column Name="vchLongitud" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="decPrecioVentaTotal" Type="System.Decimal" DbType="Decimal(8,3)" CanBeNull="true" />
-      <Column Name="decPrecioVentaUnitario" Type="System.Decimal" DbType="Decimal(8,3)" CanBeNull="true" />
-      <Column Name="bitActivo" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-    </ElementType>
-  </Function>
   <Function Name="dbo.stp_setBajaProtectorBateria" Method="stp_setBajaProtectorBateria">
     <Parameter Name="intDetCotizaID" Type="System.Int32" DbType="Int" />
     <Parameter Name="bitRollBack" Type="System.Boolean" DbType="Bit" />
@@ -117,6 +97,28 @@
       <Column Name="decPesoTotalSencilla" Type="System.Decimal" DbType="Decimal(12,2)" CanBeNull="true" />
       <Column Name="decPesoTotalDoble" Type="System.Decimal" DbType="Decimal(12,2)" CanBeNull="true" />
       <Column Name="decPesoTotalCuadruple" Type="System.Decimal" DbType="Decimal(12,2)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.stp_ListarDatosProtectorPoste" Method="stp_ListarDatosProtectorPoste">
+    <Parameter Name="intCotizacionID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="stp_ListarDatosProtectorPosteResult">
+      <Column Name="intProtectorPosteID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="vchElemento" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
+      <Column Name="intCotizacionID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="intDetCotizaID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="vchFolio" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="sintPinturaID" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="vchPintura" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
+      <Column Name="intCantidadProtectorPoste" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="decPrecioUnitario" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="decAltura" Type="System.Decimal" DbType="Decimal(8,3)" CanBeNull="true" />
+      <Column Name="sintLongitudID" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="vchLongitud" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="decPrecioVentaTotal" Type="System.Decimal" DbType="Decimal(18,3)" CanBeNull="true" />
+      <Column Name="decPrecioVentaUnitario" Type="System.Decimal" DbType="Decimal(18,3)" CanBeNull="true" />
+      <Column Name="decPesoUnitario" Type="System.Decimal" DbType="Decimal(12,2)" CanBeNull="true" />
+      <Column Name="decPesoTotal" Type="System.Decimal" DbType="Decimal(12,2)" CanBeNull="true" />
+      <Column Name="bitActivo" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
     </ElementType>
   </Function>
 </Database>

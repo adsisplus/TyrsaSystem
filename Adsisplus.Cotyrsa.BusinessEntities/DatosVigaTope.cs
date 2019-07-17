@@ -70,6 +70,9 @@ namespace Adsisplus.Cotyrsa.BusinessEntities
         public decimal? decLargo { get; set; }
 
         [DataMember]
+        public decimal? decPesoUnitario { get; set; }
+
+        [DataMember]
         public Boolean? bitActivo { get; set; }
     }
 }

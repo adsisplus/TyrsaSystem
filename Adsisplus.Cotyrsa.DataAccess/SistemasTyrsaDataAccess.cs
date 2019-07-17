@@ -205,7 +205,7 @@ namespace Adsisplus.Cotyrsa.DataAccess
                     var query = from item in dc.stp_setDatosVigaTope(datosVigaTope.intVigaTopeID, datosVigaTope.intElementoID, datosVigaTope.intDatosVigaID, datosVigaTope.intCotizacionID,
                         datosVigaTope.intDetCotizaID, datosVigaTope.sintPinturaID, datosVigaTope.intCantidad, datosVigaTope.decPrecioUnitario, 
                         datosVigaTope.decPrecioVentaUnitario, datosVigaTope.decPrecioVentaTotal, datosVigaTope.decPeso, datosVigaTope.sintLongitudID, datosVigaTope.intCalibreID,
-                        datosVigaTope.decLargo, datosVigaTope.bitActivo, (byte)sintOpcion)
+                        datosVigaTope.decLargo, datosVigaTope.decPesoUnitario, datosVigaTope.bitActivo, (byte)sintOpcion)
                                 select new Resultado
                                 {
                                     vchDescripcion = item.vchDescripcion,
@@ -235,7 +235,8 @@ namespace Adsisplus.Cotyrsa.DataAccess
                 {
                     var query = from item in dc.stp_setDatosProtectorPoste(datosProtector.intProtectorPosteID, datosProtector.intElementoID, datosProtector.intCotizacionID, datosProtector.intDetCotizaID,
                         datosProtector.decPrecioUnitario, datosProtector.sintPinturaID, datosProtector.intCantidadProtectorPoste, datosProtector.bitActivo, datosProtector.decAltura,
-                        datosProtector.sintLongitudID, datosProtector.decPrecioVentaTotal, datosProtector.decPrecioVentaUnitario, (byte)sintOpcion)
+                        datosProtector.sintLongitudID, datosProtector.decPrecioVentaTotal, datosProtector.decPrecioVentaUnitario, datosProtector.decPesoUnitario,
+                        datosProtector.decPesoTotal, (byte)sintOpcion)
                                 select new Resultado
                                 {
                                     vchDescripcion = item.vchDescripcion,

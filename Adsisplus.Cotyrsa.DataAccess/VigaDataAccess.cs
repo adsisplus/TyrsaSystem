@@ -220,6 +220,8 @@ namespace Adsisplus.Cotyrsa.DataAccess
                                     vchCalibre = item.vchCalibre,
                                     decLargo = item.decLargo,
 
+                                    decPesoUnitario = item.decPesoUnitario,
+
                                     bitActivo = item.bitActivo
                                 };
                     results.AddRange(query);
