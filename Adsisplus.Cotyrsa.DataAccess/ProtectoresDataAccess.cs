@@ -106,6 +106,13 @@ namespace Adsisplus.Cotyrsa.DataAccess
 						            intBarrasSencilla = item.intBarrasSencilla,
 						            intBarrasDoble = item.intBarrasDoble,
                                     intBarrasCuadruple = item.intBarrasCuadruple,
+                                                                       
+                                    decPesoUnitarioSencilla = item.decPesoUnitarioSencilla,
+                                    decPesoUnitarioDoble = item.decPesoUnitarioDoble,
+                                    decPesoUnitarioCuadruple = item.decPesoUnitarioCuadruple,
+                                    decPesoTotalSencilla = item.decPesoTotalSencilla,
+                                    decPesoTotalDoble = item.decPesoTotalDoble,
+                                    decPesoTotalCuadruple = item.decPesoTotalCuadruple,
 
                                     bitActivo = item.bitActivo
                                 };

@@ -120,5 +120,23 @@ namespace Adsisplus.Cotyrsa.BusinessEntities
 
         [DataMember]
         public int? intBarrasCuadruple { get; set; }
+
+        [DataMember]
+        public decimal? decPesoUnitarioSencilla { get; set; }
+
+        [DataMember]
+        public decimal? decPesoUnitarioDoble { get; set; }
+
+        [DataMember]
+        public decimal? decPesoUnitarioCuadruple { get; set; }
+
+        [DataMember]
+        public decimal? decPesoTotalSencilla { get; set; }
+
+        [DataMember]
+        public decimal? decPesoTotalDoble { get; set; }
+
+        [DataMember]
+        public decimal? decPesoTotalCuadruple { get; set; }
     }
 }
