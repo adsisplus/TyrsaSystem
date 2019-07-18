@@ -45,6 +45,7 @@ namespace Adsisplus.Cotyrsa.DataAccess
                                     decPrecioVentaTotal = item.decPrecioVentaTotal,
                                     
                                     decCapacidadCarga = item.decCapacidadCarga,
+                                    decCargaTotal = item.decCargaTotal,
 
                                     bitActivo = item.bitActivo
                                 };

@@ -44,6 +44,8 @@ namespace Adsisplus.Cotyrsa.DataAccess
                                     decPesoUnitario = item.decPesoUnitario,
                                     decPesoTotal = item.decPesoTotal,
 
+                                    decPesoxPieza = item.decPesoxPieza,
+
                                     bitActivo = item.bitActivo
                                 };
                     results.AddRange(query);
@@ -143,7 +145,8 @@ namespace Adsisplus.Cotyrsa.DataAccess
                                 select new DatosProtectorRack
                                 {
                                     decPrecioFinal = item.decPrecioFinal,
-                                    vchTipoProtector = item.vchTipoProtector
+                                    vchTipoProtector = item.vchTipoProtector,
+                                    decPesoxPieza = item.decPesoxPieza
                                 };
                     result.AddRange(query);
                 }

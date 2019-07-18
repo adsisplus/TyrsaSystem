@@ -174,7 +174,8 @@ namespace Adsisplus.Cotyrsa.DataAccess
                     var query = from item in dc.stp_setDatosParrilla(datosParrilla.intParrillaID, datosParrilla.intElementoID, datosParrilla.sintPinturaID,
                         datosParrilla.intCotizacionID, datosParrilla.intDetCotizaID, datosParrilla.decFrenteParrilla, datosParrilla.decFondoParrilla, datosParrilla.decCostoParrilla,
                         datosParrilla.vchTamanioCuadroParrilla, datosParrilla.intCantidadParrilla, datosParrilla.decPesoParrilla, datosParrilla.bitGalvanizado, 
-                        datosParrilla.bitPintura, datosParrilla.decPrecioVentaUnitario, datosParrilla.decPrecioVentaTotal, datosParrilla.decCapacidadCarga, datosParrilla.bitActivo, (byte)sintOpcion)
+                        datosParrilla.bitPintura, datosParrilla.decPrecioVentaUnitario, datosParrilla.decPrecioVentaTotal, datosParrilla.decCapacidadCarga, datosParrilla.decCargaTotal,
+                        datosParrilla.bitActivo, (byte)sintOpcion)
                                 select new Resultado
                                 {
                                     vchDescripcion = item.vchDescripcion,
@@ -235,8 +236,8 @@ namespace Adsisplus.Cotyrsa.DataAccess
                 {
                     var query = from item in dc.stp_setDatosProtectorPoste(datosProtector.intProtectorPosteID, datosProtector.intElementoID, datosProtector.intCotizacionID, datosProtector.intDetCotizaID,
                         datosProtector.decPrecioUnitario, datosProtector.sintPinturaID, datosProtector.intCantidadProtectorPoste, datosProtector.bitActivo, datosProtector.decAltura,
-                        datosProtector.sintLongitudID, datosProtector.decPrecioVentaTotal, datosProtector.decPrecioVentaUnitario, datosProtector.decPesoUnitario,
-                        datosProtector.decPesoTotal, (byte)sintOpcion)
+                        datosProtector.sintLongitudID, datosProtector.decPrecioVentaTotal, datosProtector.decPrecioVentaUnitario, datosProtector.decPesoUnitario, 
+                        datosProtector.decPesoTotal, datosProtector.decPesoTotal, (byte)sintOpcion)
                                 select new Resultado
                                 {
                                     vchDescripcion = item.vchDescripcion,

@@ -16,5 +16,7 @@ namespace Adsisplus.Cotyrsa.BusinessEntities
         [DataMember]
         public decimal? decPrecioFinal { get; set; }
 
+        [DataMember]
+        public decimal? decPesoxPieza { get; set; }
     }
 }

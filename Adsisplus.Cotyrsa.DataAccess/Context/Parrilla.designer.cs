@@ -160,6 +160,8 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 		
 		private System.Nullable<decimal> _decPrecioVentaTotal;
 		
+		private System.Nullable<decimal> _decCargaTotal;
+		
 		private System.Nullable<bool> _bitActivo;
 		
 		public stp_ListarDatosParrillaResult()
@@ -450,6 +452,22 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 				if ((this._decPrecioVentaTotal != value))
 				{
 					this._decPrecioVentaTotal = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decCargaTotal", DbType="Decimal(18,2)")]
+		public System.Nullable<decimal> decCargaTotal
+		{
+			get
+			{
+				return this._decCargaTotal;
+			}
+			set
+			{
+				if ((this._decCargaTotal != value))
+				{
+					this._decCargaTotal = value;
 				}
 			}
 		}

@@ -62,13 +62,6 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.stp_ListarSeleccionProtectorRack")]
-		public ISingleResult<stp_ListarSeleccionProtectorRackResult> stp_ListarSeleccionProtectorRack()
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
-			return ((ISingleResult<stp_ListarSeleccionProtectorRackResult>)(result.ReturnValue));
-		}
-		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.stp_setBajaProtectorBateria")]
 		public ISingleResult<stp_setBajaProtectorBateriaResult> stp_setBajaProtectorBateria([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intDetCotizaID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Bit")] System.Nullable<bool> bitRollBack)
 		{
@@ -111,55 +104,18 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 			return ((ISingleResult<stp_ListarDatosProtectorBateriaResult>)(result.ReturnValue));
 		}
 		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.stp_ListarSeleccionProtectorRack")]
+		public ISingleResult<stp_ListarSeleccionProtectorRackResult> stp_ListarSeleccionProtectorRack()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<stp_ListarSeleccionProtectorRackResult>)(result.ReturnValue));
+		}
+		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.stp_ListarDatosProtectorPoste")]
 		public ISingleResult<stp_ListarDatosProtectorPosteResult> stp_ListarDatosProtectorPoste([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intCotizacionID)
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), intCotizacionID);
 			return ((ISingleResult<stp_ListarDatosProtectorPosteResult>)(result.ReturnValue));
-		}
-	}
-	
-	public partial class stp_ListarSeleccionProtectorRackResult
-	{
-		
-		private string _vchTipoProtector;
-		
-		private System.Nullable<decimal> _decPrecioFinal;
-		
-		public stp_ListarSeleccionProtectorRackResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchTipoProtector", DbType="VarChar(100)")]
-		public string vchTipoProtector
-		{
-			get
-			{
-				return this._vchTipoProtector;
-			}
-			set
-			{
-				if ((this._vchTipoProtector != value))
-				{
-					this._vchTipoProtector = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decPrecioFinal", DbType="Decimal(12,2)")]
-		public System.Nullable<decimal> decPrecioFinal
-		{
-			get
-			{
-				return this._decPrecioFinal;
-			}
-			set
-			{
-				if ((this._decPrecioFinal != value))
-				{
-					this._decPrecioFinal = value;
-				}
-			}
 		}
 	}
 	
@@ -1363,6 +1319,68 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 		}
 	}
 	
+	public partial class stp_ListarSeleccionProtectorRackResult
+	{
+		
+		private string _vchTipoProtector;
+		
+		private System.Nullable<decimal> _decPrecioFinal;
+		
+		private System.Nullable<decimal> _decPesoxPieza;
+		
+		public stp_ListarSeleccionProtectorRackResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchTipoProtector", DbType="VarChar(100)")]
+		public string vchTipoProtector
+		{
+			get
+			{
+				return this._vchTipoProtector;
+			}
+			set
+			{
+				if ((this._vchTipoProtector != value))
+				{
+					this._vchTipoProtector = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decPrecioFinal", DbType="Decimal(12,2)")]
+		public System.Nullable<decimal> decPrecioFinal
+		{
+			get
+			{
+				return this._decPrecioFinal;
+			}
+			set
+			{
+				if ((this._decPrecioFinal != value))
+				{
+					this._decPrecioFinal = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decPesoxPieza", DbType="Decimal(12,2)")]
+		public System.Nullable<decimal> decPesoxPieza
+		{
+			get
+			{
+				return this._decPesoxPieza;
+			}
+			set
+			{
+				if ((this._decPesoxPieza != value))
+				{
+					this._decPesoxPieza = value;
+				}
+			}
+		}
+	}
+	
 	public partial class stp_ListarDatosProtectorPosteResult
 	{
 		
@@ -1397,6 +1415,8 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 		private System.Nullable<decimal> _decPesoUnitario;
 		
 		private System.Nullable<decimal> _decPesoTotal;
+		
+		private System.Nullable<decimal> _decPesoxPieza;
 		
 		private System.Nullable<bool> _bitActivo;
 		
@@ -1656,6 +1676,22 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 				if ((this._decPesoTotal != value))
 				{
 					this._decPesoTotal = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decPesoxPieza", DbType="Decimal(18,2)")]
+		public System.Nullable<decimal> decPesoxPieza
+		{
+			get
+			{
+				return this._decPesoxPieza;
+			}
+			set
+			{
+				if ((this._decPesoxPieza != value))
+				{
+					this._decPesoxPieza = value;
 				}
 			}
 		}
