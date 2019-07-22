@@ -139,6 +139,14 @@ namespace Adsisplus.Cotyrsa.WcfService.MarcosServices
         [OperationContract]
         [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ListarDatosPantallaMarco")]
         List<DatosPantallaMarco> ListarDatosPantallaMarco(int intDetCotizacionID, int intSeleccionMarcoID);
+        /// <summary>
+        /// Procedimiento que revisa si el marco está ligado con otros elementos de la cotización
+        /// </summary>
+        /// <param name="intDetCotizaID"></param>
+        /// <returns></returns>
+        [OperationContract]
+        [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "hayElementosVinculadosAlMarco")]
+        bool hayElementosVinculadosAlMarco(int intDetCotizaID);
 
         /// <summary>
         /// Permite actualizar los factores del marco

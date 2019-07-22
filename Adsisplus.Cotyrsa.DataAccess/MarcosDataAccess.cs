@@ -469,7 +469,27 @@ namespace Adsisplus.Cotyrsa.DataAccess
             }
             return result;
         }
-
+        /// <summary>
+        /// Procedimiento que revisa si el marco está ligado con otros elementos de la cotización
+        /// </summary>
+        /// <param name="intDetCotizaID"></param>
+        /// <returns></returns>
+        public bool hayElementosVinculadosAlMarco(int intDetCotizaID)
+        {
+            bool result = false;
+            try
+            {
+                using (MarcosDataContext dc = new MarcosDataContext(Helper.ConnectionString()))
+                {
+                    result = (bool) dc.fn_getHayElementosVinculadosAlMarco(intDetCotizaID);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
         /// <summary>
         /// Permite actualizar los factores del marco
         /// </summary>

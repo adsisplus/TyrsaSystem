@@ -231,7 +231,6 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
             return result;
         }
         #endregion
-
         /// <summary>
         /// Procedimiento que permite listar los marcos en base a la capacidad
         /// de carga y la altura de pandeo
@@ -291,6 +290,24 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
             return result;
         }
 
+        /// <summary>
+        /// Procedimiento que revisa si el marco está ligado con otros elementos de la cotización
+        /// </summary>
+        /// <param name="intDetCotizaID"></param>
+        /// <returns></returns>
+        public bool hayElementosVinculadosAlMarco(int intDetCotizaID)
+        {
+            bool result = false;
+            try
+            {
+                result = CatalogosDA.hayElementosVinculadosAlMarco(intDetCotizaID);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
         /// <summary>
         /// Procedimiento que almacena toda la información de la pantalla de captura de Marco
         /// </summary>
@@ -409,7 +426,6 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
             }
             return result;
         }
-
         /// <summary>
         /// Procedimiento que realiza la baja lógica o física(en caso de existir un error) de los
         /// datos de Marco

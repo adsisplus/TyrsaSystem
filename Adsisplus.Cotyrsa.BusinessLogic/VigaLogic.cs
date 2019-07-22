@@ -265,6 +265,25 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
         }
 
         /// <summary>
+        /// Procedimiento que nos indica si existen elementos vinculados a la Viga seleccionada al borrado
+        /// </summary>
+        /// <param name="intDetCotizaID"></param>
+        /// <returns></returns>
+        public bool hayElementosVinculadosAlaViga(int intDetCotizaID)
+        {
+            bool result = false;
+            try
+            {
+                result = CatalogosDA.hayElementosVinculadosAlaViga(intDetCotizaID);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
+
+        /// <summary>
         /// Alta de factor de viga
         /// </summary>
         /// <param name="intCalibreID"></param>

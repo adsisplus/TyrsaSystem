@@ -298,7 +298,24 @@ namespace Adsisplus.Cotyrsa.WcfService.MarcosServices
             }
             return result;
         }
-
+        /// <summary>
+        /// Procedimiento que revisa si el marco está ligado con otros elementos de la cotización
+        /// </summary>
+        /// <param name="intDetCotizaID"></param>
+        /// <returns></returns>
+        public bool hayElementosVinculadosAlMarco(int intDetCotizaID)
+        {
+            bool result = false;
+            try
+            {
+                result = (new MarcosLogic()).hayElementosVinculadosAlMarco(intDetCotizaID);
+            }
+            catch (Exception ex)
+            {
+                Adsisplus.Cotyrsa.BusinessLogic.EventLogManager.LogErrorEntry(ex.Message);
+            }
+            return result;
+        }
 
         /// <summary>
         /// Procedimiento que almacena toda la información de la pantalla de captura de Marco

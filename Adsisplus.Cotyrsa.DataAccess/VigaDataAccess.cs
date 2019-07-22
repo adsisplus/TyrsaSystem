@@ -457,6 +457,27 @@ namespace Adsisplus.Cotyrsa.DataAccess
             }
             return result;
         }
+        /// <summary>
+        /// Procedimiento que nos indica si existen elementos vinculados a la Viga seleccionada al borrado
+        /// </summary>
+        /// <param name="intDetCotizaID"></param>
+        /// <returns></returns>
+        public bool hayElementosVinculadosAlaViga(int intDetCotizaID)
+        {
+            bool result = false;
+            try
+            {
+                using (VigasDataContext dc = new VigasDataContext(Helper.ConnectionString()))
+                {
+                    result = (bool)dc.fn_getHayElementosVinculadosAlaViga(intDetCotizaID);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
 
         /// <summary>
         /// Permite realizar la actualización de las vigas en factores y número de viga y piezas

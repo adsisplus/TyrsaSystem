@@ -333,4 +333,8 @@
       <Column Name="bitActivo" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
     </ElementType>
   </Function>
+  <Function Name="dbo.fn_getHayElementosVinculadosAlaViga" Method="fn_getHayElementosVinculadosAlaViga" IsComposable="true">
+    <Parameter Name="intDetCotizaID" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Boolean" />
+  </Function>
 </Database>

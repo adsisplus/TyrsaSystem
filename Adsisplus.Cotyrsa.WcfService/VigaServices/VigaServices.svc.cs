@@ -235,6 +235,25 @@ namespace Adsisplus.Cotyrsa.WcfService.VigaServices
         }
 
         /// <summary>
+        /// Procedimiento que nos indica si existen elementos vinculados a la Viga seleccionada al borrado
+        /// </summary>
+        /// <param name="intDetCotizaID"></param>
+        /// <returns></returns>
+        public bool hayElementosVinculadosAlaViga(int intDetCotizaID)
+        {
+            bool result = false;
+            try
+            {
+                result = (new VigaLogic()).hayElementosVinculadosAlaViga(intDetCotizaID);
+            }
+            catch (Exception ex)
+            {
+                Adsisplus.Cotyrsa.BusinessLogic.EventLogManager.LogErrorEntry(ex.Message);
+            }
+            return result;
+        }
+
+        /// <summary>
         /// Permite realizar la actualización de las vigas en factores y número de viga y piezas
         /// </summary>
         /// <param name="decFactorAcero"></param>

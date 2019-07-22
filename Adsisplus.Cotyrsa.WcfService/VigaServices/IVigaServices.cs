@@ -124,7 +124,14 @@ namespace Adsisplus.Cotyrsa.WcfService.VigaServices
         [OperationContract]
         [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ListarDatosPantallaViga")]
         List<RackSelectivo> ListarDatosPantallaViga(int intDetCotizacionID, int intSeleccionVigaID);
-
+        /// <summary>
+        /// Procedimiento que nos indica si existen elementos vinculados a la Viga seleccionada al borrado
+        /// </summary>
+        /// <param name="intDetCotizaID"></param>
+        /// <returns></returns>
+        [OperationContract]
+        [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "hayElementosVinculadosAlaViga")]
+        bool hayElementosVinculadosAlaViga(int intDetCotizaID);
 
         /// <summary>
         /// Permite realizar la actualización de las vigas en factores y número de viga y piezas
