@@ -24,7 +24,7 @@ namespace Adsisplus.Cotyrsa.WcfService.CotizacionServices
         /// <returns></returns>
         [OperationContract]
         [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ListarDatosCotizacion")]
-        List<Cotizacion> ListarDatosCotizacion(Int32 intCotizacionID, Int32 intEstatusID, Int32 sintPrioridadID, Int32 intEmpresaID, int intUsuarioID);
+        List<Cotizacion> ListarDatosCotizacion(Int32 intCotizacionID, Int32 intEstatusID, Int32 sintPrioridadID, Int32 intEmpresaID, int intUsuarioID, bool bitMuestraDatos);
         /// <summary>
         /// Obtiene la lista de la relación de tipo elemento almacen vs Factor de cotización
         /// </summary>
@@ -100,5 +100,14 @@ namespace Adsisplus.Cotyrsa.WcfService.CotizacionServices
         [OperationContract]
         [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "setDatosRelSistemaSelectivo")]
         Resultado setDatosRelSistemaSelectivo(RelSistemaSelectivo sistema, short tinOpcion);
+
+        /// <summary>
+        /// Procedimiento que realiza la cancelación de la cotización
+        /// </summary>
+        /// <param name="intCotizacionID"></param>
+        /// <returns></returns>
+        [OperationContract]
+        [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "setCancelacionCotizacion")]
+        Resultado setCancelacionCotizacion(int intCotizacionID);
     }
 }

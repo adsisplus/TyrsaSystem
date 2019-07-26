@@ -30,12 +30,15 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
         /// <param name="sintPrioridadID"></param>
         /// <param name="intEmpresaID"></param>
         /// <param name="intUsuarioID"></param>
+        /// /// <param name="bitMuestraDatos">1 para muestrar toda la información de las cotizaciones, 0 para mostrar solo la información del usuario</param>
         /// <returns></returns>
-        public List<Cotizacion> ListarDatosCotizacion(Int32 intCotizacionID, Int32 intEstatusID, Int32 sintPrioridadID, Int32 intEmpresaID, int intUsuarioID)
+        public List<Cotizacion> ListarDatosCotizacion(Int32 intCotizacionID, Int32 intEstatusID, Int32 sintPrioridadID, Int32 intEmpresaID, int intUsuarioID, bool bitMuestraDatos)
         {
             List<Cotizacion> result = new List<Cotizacion>();
             try
             {
+                // Validamos si se mostrará toda la información
+                intUsuarioID = bitMuestraDatos == true ? 0 : intUsuarioID;
                 result = CatalogosDA.ListarDatosCotizacion(intCotizacionID, intEstatusID, sintPrioridadID, intEmpresaID, intUsuarioID);
             }
             catch (Exception ex)
@@ -190,6 +193,27 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
             try
             {
                 result = CatalogosDA.ListarDatosPantallaCotizacion(intCotizacionID);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
+        /// <summary>
+        /// Procedimiento que realiza la cancelación de la cotización
+        /// </summary>
+        /// <param name="intCotizacionID"></param>
+        /// <returns></returns>
+        public Resultado setCancelacionCotizacion(int intCotizacionID)
+        {
+            Resultado result = new Resultado();
+            Cotizacion cotizacion = new Cotizacion();
+            try
+            {
+                cotizacion.intCotizacionID = intCotizacionID;
+                //  Obtenemos los datos de la cotización seleccionada
+                result = CatalogosDA.setMstCotizacion(cotizacion, null, 3);
             }
             catch (Exception ex)
             {

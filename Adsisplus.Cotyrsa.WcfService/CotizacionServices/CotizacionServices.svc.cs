@@ -20,13 +20,14 @@ namespace Adsisplus.Cotyrsa.WcfService.CotizacionServices
         /// <param name="intEstatusID"></param>
         /// <param name="sintPrioridadID"></param>
         /// <param name="intEmpresaID"></param>
+        /// <param name="bitMuestraDatos">1 para muestrar toda la información de las cotizaciones, 0 para mostrar solo la información del usuario</param>
         /// <returns></returns>
-        public List<Cotizacion> ListarDatosCotizacion(Int32 intCotizacionID, Int32 intEstatusID, Int32 sintPrioridadID, Int32 intEmpresaID, int intUsuarioID)
+        public List<Cotizacion> ListarDatosCotizacion(Int32 intCotizacionID, Int32 intEstatusID, Int32 sintPrioridadID, Int32 intEmpresaID, int intUsuarioID, bool @bitMuestraDatos)
         {
             List<Cotizacion> result = new List<Cotizacion>();
             try
             {
-                result = (new CotizacionLogic()).ListarDatosCotizacion(intCotizacionID, intEstatusID, sintPrioridadID, intEmpresaID, intUsuarioID);
+                result = (new CotizacionLogic()).ListarDatosCotizacion(intCotizacionID, intEstatusID, sintPrioridadID, intEmpresaID, intUsuarioID, bitMuestraDatos);
             }
             catch (Exception ex)
             {
@@ -188,7 +189,23 @@ namespace Adsisplus.Cotyrsa.WcfService.CotizacionServices
             }
             return result;
         }
-
-
+        /// <summary>
+        /// Procedimiento que realiza la cancelación de la cotización
+        /// </summary>
+        /// <param name="intCotizacionID"></param>
+        /// <returns></returns>
+        public Resultado setCancelacionCotizacion(int intCotizacionID)
+        {
+            Resultado result = new Resultado();
+            try
+            {
+                result = (new CotizacionLogic()).setCancelacionCotizacion(intCotizacionID);
+            }
+            catch (Exception ex)
+            {
+                Adsisplus.Cotyrsa.BusinessLogic.EventLogManager.LogErrorEntry(ex.Message);
+            }
+            return result;
+        }
     }
 }
