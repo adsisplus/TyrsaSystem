@@ -364,7 +364,7 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
                 detCotizacion.intPartida = 0;
                 detCotizacion.intCantidad = intCantidad;
                 detCotizacion.decMonto = viga.decPrecioUnitarioSinIVA;
-                detCotizacion.decSubtotal = (Math.Truncate(100 * viga.decGranTotal.Value) / 100) * intCantidad;
+                detCotizacion.decSubtotal =Decimal.Round((Math.Truncate(100 * viga.decGranTotal.Value) / 100) * intCantidad);
 
                 result = (new CotizacionLogic()).setDetCotizacion(detCotizacion, (short)(intDetCotizaID == 0 ? 1 : tinOpcion));
 
@@ -471,7 +471,7 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
                 detCotizacion.intPartida = 0;
                 detCotizacion.intCantidad = vigaTope.intCantidadVigaTope;
                 detCotizacion.decMonto = vigaTope.decPrecioUnitario;
-                detCotizacion.decSubtotal = vigaTope.decPrecioUnitario * vigaTope.intCantidadVigaTope;
+                detCotizacion.decSubtotal = Decimal.Round((decimal)(vigaTope.decPrecioUnitario * vigaTope.intCantidadVigaTope));
 
                 // 1. Realizamos el alta de la cotización
                 result = (new CotizacionLogic()).setDetCotizacion(detCotizacion, (short)(vigaTope.intDetCotizaID == 0 ? 1 : tinOpcion));

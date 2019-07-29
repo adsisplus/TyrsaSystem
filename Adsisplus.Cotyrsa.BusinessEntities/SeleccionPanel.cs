@@ -53,6 +53,9 @@ namespace Adsisplus.Cotyrsa.BusinessEntities
         public decimal? decPrecioEfectivoRef { get; set; }
 
         [DataMember]
+        public decimal? decPrecioLista { get; set; }
+
+        [DataMember]
         public decimal? decRelPrecioTyrsa { get; set; }
 
         [DataMember]

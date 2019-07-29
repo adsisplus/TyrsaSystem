@@ -55,17 +55,18 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
         /// <summary>
         /// Procedimiento que nos muestra la lista de páneles para cotizaciones
         /// </summary>
-        /// <param name="decCapacidadCarga"></param>
         /// <param name="decAncho"></param>
+        /// <param name="sintCalibre"></param>
+        /// <param name="decFondo"></param>
         /// <param name="sintSistemaID"></param>
         /// <param name="bitGalvanizado"></param>
         /// <returns></returns>
-        public List<SeleccionPanel> ListarSeleccionPanel(decimal decCapacidadCarga, decimal decAncho, short sintSistemaID, bool bitGalvanizado)
+        public List<SeleccionPanel> ListarSeleccionPanel (decimal decAncho, short sintCalibre, decimal decFondo, short sintSistemaID, bool bitGalvanizado)
         {
             List<SeleccionPanel> result = new List<SeleccionPanel>();
             try
             {
-                result = CatalogosDA.ListarSeleccionPanel(decCapacidadCarga, decAncho, sintSistemaID, bitGalvanizado);
+                result = CatalogosDA.ListarSeleccionPanel(decAncho, sintCalibre, decFondo, sintSistemaID, bitGalvanizado);
             }
             catch (Exception ex)
             {
@@ -139,7 +140,7 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
                 detCotizacion.intPartida = 0;
                 detCotizacion.intCantidad = intCantidad;
                 detCotizacion.decMonto = panel.decTotal;
-                detCotizacion.decSubtotal = panel.decTotal * intCantidad;
+                detCotizacion.decSubtotal = Decimal.Round((decimal)panel.decTotal * intCantidad);
 
                 // 1. Realizamos el alta de la cotización
                 result = (new CotizacionLogic()).setDetCotizacion(detCotizacion, (short)(intDetCotizaID == 0 ? 1 : tinOpcion));

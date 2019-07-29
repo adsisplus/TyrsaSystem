@@ -151,7 +151,7 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
                 detCotizacion.intPartida = 0;
                 detCotizacion.intCantidad = datosProtector.intCantidadProtectorPoste;
                 detCotizacion.decMonto = datosProtector.decPrecioVentaUnitario;
-                detCotizacion.decSubtotal = datosProtector.decPrecioVentaUnitario * datosProtector.intCantidadProtectorPoste;
+                detCotizacion.decSubtotal = Decimal.Round((decimal)(datosProtector.decPrecioVentaUnitario * datosProtector.intCantidadProtectorPoste));
 
                 // 1. Realizamos el alta de la cotización
                 result = (new CotizacionLogic()).setDetCotizacion(detCotizacion, (short)(datosProtector.intDetCotizaID == 0 ? 1 : tinOpcion));

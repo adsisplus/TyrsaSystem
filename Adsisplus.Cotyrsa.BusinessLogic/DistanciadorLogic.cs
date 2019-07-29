@@ -139,7 +139,7 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
                 detCotizacion.intPartida = 0;
                 detCotizacion.intCantidad = distanciador.intCantidad;
                 detCotizacion.decMonto = seleccionDistanciador.decPrecioTyrsa;
-                detCotizacion.decSubtotal = seleccionDistanciador.decPrecioTyrsa * distanciador.intCantidad;
+                detCotizacion.decSubtotal =  Decimal.Round((decimal)(seleccionDistanciador.decPrecioTyrsa * distanciador.intCantidad));
 
                 // 1. Realizamos el alta de la cotización
                 result = (new CotizacionLogic()).setDetCotizacion(detCotizacion, (short)(distanciador.intDetCotizaID == 0 ? 1 : tinOpcion));

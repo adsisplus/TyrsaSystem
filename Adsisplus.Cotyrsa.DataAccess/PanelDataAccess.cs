@@ -73,14 +73,14 @@ namespace Adsisplus.Cotyrsa.DataAccess
         /// <param name="sintSistemaID"></param>
         /// <param name="bitGalvanizado"></param>
         /// <returns></returns>
-        public List<SeleccionPanel> ListarSeleccionPanel(decimal decCapacidadCarga, decimal decAncho, short sintSistemaID, bool bitGalvanizado)
+        public List<SeleccionPanel> ListarSeleccionPanel(decimal decAncho, short sintCalibre, decimal decFondo, short sintSistemaID, bool bitGalvanizado)
         {
             List<SeleccionPanel> result = new List<SeleccionPanel>();
             try
             {
                 using (PanelesDataContext dc = new PanelesDataContext(Helper.ConnectionString()))
                 {
-                    var query = from item in dc.stp_ListarSeleccionPanel(decCapacidadCarga, decAncho, sintSistemaID, bitGalvanizado)
+                    var query = from item in dc.stp_ListarSeleccionPanel(decAncho, sintCalibre, decFondo, sintSistemaID, bitGalvanizado)
                                 select new SeleccionPanel
                                 {
                                     intPanelID = item.intPanelID,
@@ -92,7 +92,7 @@ namespace Adsisplus.Cotyrsa.DataAccess
                                     sintCorreccion = item.sintCorreccion,
                                     decTotal = item.decTotal,
                                     decPrecioEfectivoRef = item.decPrecioEfectivoRef,
-                                    decRelPrecioTyrsa = item.decRelPrecioTyrsa,
+                                    decPrecioLista = item.decPrecioLista,
                                     decKgTyrsa = item.decKgTyrsa,
                                     decKgReferencia = item.decKgReferencia,
                                     bitActivo = item.bitActivo

@@ -64,7 +64,7 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
                 detCotizacion.intPartida = 0;
                 detCotizacion.intCantidad = parrilla.intCantidadParrilla;
                 detCotizacion.decMonto = parrilla.decCostoParrilla;
-                detCotizacion.decSubtotal = parrilla.decCostoParrilla * parrilla.intCantidadParrilla;
+                detCotizacion.decSubtotal = Decimal.Round((decimal)(parrilla.decCostoParrilla * parrilla.intCantidadParrilla));
 
                 // 1. Realizamos el alta de la cotización
                 result = (new CotizacionLogic()).setDetCotizacion(detCotizacion, (short)(parrilla.intDetCotizaID == 0 ? 1 : tinOpcion));
