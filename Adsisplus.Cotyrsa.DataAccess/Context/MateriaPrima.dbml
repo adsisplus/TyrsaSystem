@@ -1,9 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="dbTyrsa" Class="MateriaPrimaDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
   <Connection Mode="AppSettings" ConnectionString="Data Source=local;Initial Catalog=dbTyrsa;Persist Security Info=True;User ID=usrCotyrsa" SettingsObjectName="Adsisplus.Cotyrsa.DataAccess.Properties.Settings" SettingsPropertyName="dbTyrsaConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="" Member="tmpResultado">
+    <Type Name="tmpResultado" Id="ID1">
+      <Column Member="vchResultado" Type="System.String" CanBeNull="false" />
+      <Column Member="vchDescripcion" Type="System.String" CanBeNull="false" />
+    </Type>
+  </Table>
   <Function Name="dbo.stp_setProductoAcero" Method="stp_setProductoAcero">
     <Parameter Name="intTipoElementoAlmacenID" Type="System.Int32" DbType="Int" />
     <Parameter Name="intCalibreID" Type="System.Int32" DbType="Int" />
     <Parameter Name="decCostoNegra" Type="System.Decimal" DbType="Decimal(20,2)" />
+    <Parameter Name="decCostoSolera" Type="System.Decimal" DbType="Decimal(8,2)" />
     <Parameter Name="decCostoGalvanizada" Type="System.Decimal" DbType="Decimal(20,2)" />
     <Parameter Name="decCapacidadAcero" Type="System.Decimal" DbType="Decimal(8,2)" />
     <Parameter Name="decFactorNegra" Type="System.Decimal" DbType="Decimal(8,2)" />
@@ -11,9 +18,6 @@
     <Parameter Name="intVigencia" Type="System.Int32" DbType="Int" />
     <Parameter Name="vchUsuario" Type="System.String" DbType="VarChar(250)" />
     <Parameter Name="tinOpcion" Type="System.Byte" DbType="TinyInt" />
-    <ElementType Name="stp_setProductoAceroResult">
-      <Column Name="vchResultado" Type="System.String" DbType="VarChar(2) NOT NULL" CanBeNull="false" />
-      <Column Name="vchDescripcion" Type="System.String" DbType="VarChar(67) NOT NULL" CanBeNull="false" />
-    </ElementType>
+    <ElementType IdRef="ID1" />
   </Function>
 </Database>

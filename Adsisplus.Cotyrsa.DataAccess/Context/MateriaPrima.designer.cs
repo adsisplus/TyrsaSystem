@@ -62,26 +62,35 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.stp_setProductoAcero")]
-		public ISingleResult<stp_setProductoAceroResult> stp_setProductoAcero([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intTipoElementoAlmacenID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intCalibreID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Decimal(20,2)")] System.Nullable<decimal> decCostoNegra, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Decimal(20,2)")] System.Nullable<decimal> decCostoGalvanizada, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Decimal(8,2)")] System.Nullable<decimal> decCapacidadAcero, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Decimal(8,2)")] System.Nullable<decimal> decFactorNegra, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Decimal(8,2)")] System.Nullable<decimal> decFactorGalvanizado, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intVigencia, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(250)")] string vchUsuario, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="TinyInt")] System.Nullable<byte> tinOpcion)
+		public System.Data.Linq.Table<tmpResultado> tmpResultado
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), intTipoElementoAlmacenID, intCalibreID, decCostoNegra, decCostoGalvanizada, decCapacidadAcero, decFactorNegra, decFactorGalvanizado, intVigencia, vchUsuario, tinOpcion);
-			return ((ISingleResult<stp_setProductoAceroResult>)(result.ReturnValue));
+			get
+			{
+				return this.GetTable<tmpResultado>();
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.stp_setProductoAcero")]
+		public ISingleResult<tmpResultado> stp_setProductoAcero([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intTipoElementoAlmacenID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intCalibreID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Decimal(20,2)")] System.Nullable<decimal> decCostoNegra, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Decimal(8,2)")] System.Nullable<decimal> decCostoSolera, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Decimal(20,2)")] System.Nullable<decimal> decCostoGalvanizada, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Decimal(8,2)")] System.Nullable<decimal> decCapacidadAcero, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Decimal(8,2)")] System.Nullable<decimal> decFactorNegra, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Decimal(8,2)")] System.Nullable<decimal> decFactorGalvanizado, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intVigencia, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(250)")] string vchUsuario, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="TinyInt")] System.Nullable<byte> tinOpcion)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), intTipoElementoAlmacenID, intCalibreID, decCostoNegra, decCostoSolera, decCostoGalvanizada, decCapacidadAcero, decFactorNegra, decFactorGalvanizado, intVigencia, vchUsuario, tinOpcion);
+			return ((ISingleResult<tmpResultado>)(result.ReturnValue));
 		}
 	}
 	
-	public partial class stp_setProductoAceroResult
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="")]
+	public partial class tmpResultado
 	{
 		
 		private string _vchResultado;
 		
 		private string _vchDescripcion;
 		
-		public stp_setProductoAceroResult()
+		public tmpResultado()
 		{
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchResultado", DbType="VarChar(2) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchResultado", CanBeNull=false)]
 		public string vchResultado
 		{
 			get
@@ -97,7 +106,7 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchDescripcion", DbType="VarChar(67) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchDescripcion", CanBeNull=false)]
 		public string vchDescripcion
 		{
 			get

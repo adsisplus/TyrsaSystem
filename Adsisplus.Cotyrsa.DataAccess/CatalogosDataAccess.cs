@@ -1123,6 +1123,7 @@ namespace Adsisplus.Cotyrsa.DataAccess
                                     datFechaAlta = item.datFechaAlta,
                                     datFechaActualizacion = item.datFechaActualizacion,
                                     intVigencia = item.intVigencia,
+                                    decCostoSolera = item.decCostoSolera,
                                     bitActivo = item.bitActivo
                                 };
                     results.AddRange(query);

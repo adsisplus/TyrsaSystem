@@ -19,18 +19,23 @@ namespace Adsisplus.Cotyrsa.DataAccess
         public Resultado setProductoAcero(ProductoAcero producto, short sintOpcion)
         {
             Resultado result = new Resultado();
+            tmpResultado _result = new tmpResultado();
             try
             {
                 using (MateriaPrimaDataContext dc = new MateriaPrimaDataContext(Helper.ConnectionString()))
                 {
-                    var query = from item in dc.stp_setProductoAcero(producto.intTipoElementoAlmacenID, producto.intCalibreAceroID, producto.decCostoNegra, producto.decCostoGalvanizada, 
-                        producto.decCapacidadAcero, producto.decFactorNegra, producto.decFactorGalvanizado, producto.intVigencia, producto.vchUsuario, (byte)sintOpcion)
-                                select new Resultado
+                    var query = from item in dc.stp_setProductoAcero(producto.intTipoElementoAlmacenID, producto.intCalibreAceroID, producto.decCostoNegra, producto.decCostoSolera,
+                        producto.decCostoGalvanizada, producto.decCapacidadAcero, producto.decFactorNegra, producto.decFactorGalvanizado, 
+                        producto.intVigencia, producto.vchUsuario, (byte)sintOpcion)
+                                select new tmpResultado
                                 {
                                     vchDescripcion = item.vchDescripcion,
                                     vchResultado = item.vchResultado
                                 };
-                    result = query.First();
+                    _result = query.First();
+                    // vaciamos la información
+                    result.vchDescripcion = _result.vchDescripcion;
+                    result.vchResultado = _result.vchResultado;
                 }
             }
             catch (Exception ex)
