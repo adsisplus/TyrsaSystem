@@ -257,8 +257,9 @@ namespace Adsisplus.Cotyrsa.DataAccess
         /// </summary>
         /// <param name="datosProtectorBateria"></param>
         /// <param name="sintOpcion"></param>
+        /// <param name="sintTipoBateria"> 1 Sencillo, 2 doble y 3 cuadruple</param>
         /// <returns></returns>
-        public Resultado setDatosProtectorBateria(DatosProtectorBateria datosProtectorBateria, short sintOpcion)
+        public Resultado setDatosProtectorBateria(DatosProtectorBateria datosProtectorBateria, short sintTipoBateria, short sintOpcion)
         {
             Resultado result = new Resultado();
             try
@@ -274,7 +275,7 @@ namespace Adsisplus.Cotyrsa.DataAccess
                         datosProtectorBateria.sintPinturaIDSencilla, datosProtectorBateria.sintPinturaIDDoble, datosProtectorBateria.sintPinturaIDCuadruple, datosProtectorBateria.intBotasSencilla,
                         datosProtectorBateria.intBotasDoble, datosProtectorBateria.intBotasCuadruple, datosProtectorBateria.intBarrasSencilla, datosProtectorBateria.intBarrasDoble, datosProtectorBateria.intBotasCuadruple,
                         datosProtectorBateria.decPesoUnitarioSencilla, datosProtectorBateria.decPesoUnitarioDoble, datosProtectorBateria.decPesoUnitarioCuadruple, datosProtectorBateria.decPesoTotalSencilla,
-                        datosProtectorBateria.decPesoTotalDoble, datosProtectorBateria.decPesoTotalCuadruple, datosProtectorBateria.bitActivo, (byte)sintOpcion)
+                        datosProtectorBateria.decPesoTotalDoble, datosProtectorBateria.decPesoTotalCuadruple, (byte)sintTipoBateria, datosProtectorBateria.bitActivo, (byte)sintOpcion)
                                 select new Resultado
                                 {
                                     vchDescripcion = item.vchDescripcion,

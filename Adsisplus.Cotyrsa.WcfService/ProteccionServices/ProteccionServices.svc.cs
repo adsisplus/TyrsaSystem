@@ -142,12 +142,12 @@ namespace Adsisplus.Cotyrsa.WcfService.ProteccionServices
         /// <param name="datosProtectorBateria"></param>
         /// <param name="sintOpcion"></param>
         /// <returns></returns>
-        public Resultado setDatosProtectorBateria(DatosProtectorBateria datosProtectorBateria, short tinOpcion)
+        public Resultado setDatosProtectorBateria(DatosProtectorBateria datosProtectorBateria, short sintTipoBateria, short tinOpcion)
         {
             Resultado result = new Resultado();
             try
             {
-                result = (new ProtectoresLogic()).setDatosProtectorBateria(datosProtectorBateria, tinOpcion);
+                result = (new ProtectoresLogic()).setDatosProtectorBateria(datosProtectorBateria, sintTipoBateria, tinOpcion);
             }
             catch (Exception ex)
             {

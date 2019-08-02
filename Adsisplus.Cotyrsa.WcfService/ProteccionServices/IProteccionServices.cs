@@ -74,7 +74,7 @@ namespace Adsisplus.Cotyrsa.WcfService.ProteccionServices
         /// <returns></returns>
         [OperationContract]
         [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "setDatosProtectorBateria")]
-        Resultado setDatosProtectorBateria(DatosProtectorBateria datosProtectorBateria, short tinOpcion);
+        Resultado setDatosProtectorBateria(DatosProtectorBateria datosProtectorBateria, short sintTipoBateria, short tinOpcion);
         /// <summary>
         /// Procedimiento que realiza la baja lógica o física (en caso de existir error) de los
         /// datos de protector poste

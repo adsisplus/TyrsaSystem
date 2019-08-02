@@ -195,7 +195,7 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
         /// <param name="datosProtectorBateria"></param>
         /// <param name="sintOpcion"></param>
         /// <returns></returns>
-        public Resultado setDatosProtectorBateria(DatosProtectorBateria datosProtectorBateria, short tinOpcion)
+        public Resultado setDatosProtectorBateria(DatosProtectorBateria datosProtectorBateria, short sintTipoBateria, short tinOpcion)
         {
             Resultado result = new Resultado();
             int? intProtectorBateriaID;
@@ -226,7 +226,7 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
                     datosProtectorBateria.intDetCotizaID = intDetCotizaID;
                     datosProtectorBateria.intElementoID = 9;
                     // Procedeimos a realizar el almacenado de la información
-                    result = (new SistemasTyrsaLogic()).setDatosProtectorBateria(datosProtectorBateria, tinOpcion);
+                    result = (new SistemasTyrsaLogic()).setDatosProtectorBateria(datosProtectorBateria, sintTipoBateria,  tinOpcion);
                     if (result.vchResultado != "NOK")
                     {
                         intProtectorBateriaID = Convert.ToInt32(result.vchResultado);

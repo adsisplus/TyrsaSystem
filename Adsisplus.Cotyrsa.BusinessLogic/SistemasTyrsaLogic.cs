@@ -191,13 +191,14 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
         /// </summary>
         /// <param name="datosProtectorBateria"></param>
         /// <param name="sintOpcion"></param>
+        /// <param name="sintTipoBateria"> 1 Sencillo, 2 doble y 3 cuadruple</param>
         /// <returns></returns>
-        public Resultado setDatosProtectorBateria(DatosProtectorBateria datosProtectorBateria, short sintOpcion)
+        public Resultado setDatosProtectorBateria(DatosProtectorBateria datosProtectorBateria, short sintTipoBateria, short sintOpcion)
         {
             Resultado result = new Resultado();
             try
             {
-                result = CatalogosDA.setDatosProtectorBateria(datosProtectorBateria, sintOpcion);
+                result = CatalogosDA.setDatosProtectorBateria(datosProtectorBateria, sintTipoBateria, sintOpcion);
             }
             catch (Exception ex)
             {
