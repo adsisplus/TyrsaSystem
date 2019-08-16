@@ -95,6 +95,7 @@ namespace Adsisplus.Cotyrsa.DataAccess
                                     decPrecioLista = item.decPrecioLista,
                                     decKgTyrsa = item.decKgTyrsa,
                                     decKgReferencia = item.decKgReferencia,
+                                    decCapacidadCarga = item.decCapacidadCarga,
                                     bitActivo = item.bitActivo
                                 };
                     result.AddRange(query);

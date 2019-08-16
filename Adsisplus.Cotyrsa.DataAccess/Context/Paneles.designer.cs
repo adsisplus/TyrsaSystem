@@ -1184,6 +1184,8 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 		
 		private System.Nullable<bool> _bitActivo;
 		
+		private System.Nullable<decimal> _decCapacidadCarga;
+		
 		public stp_ListarSeleccionPanelResult()
 		{
 		}
@@ -1392,6 +1394,22 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 				if ((this._bitActivo != value))
 				{
 					this._bitActivo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decCapacidadCarga", DbType="Decimal(10,0)")]
+		public System.Nullable<decimal> decCapacidadCarga
+		{
+			get
+			{
+				return this._decCapacidadCarga;
+			}
+			set
+			{
+				if ((this._decCapacidadCarga != value))
+				{
+					this._decCapacidadCarga = value;
 				}
 			}
 		}
