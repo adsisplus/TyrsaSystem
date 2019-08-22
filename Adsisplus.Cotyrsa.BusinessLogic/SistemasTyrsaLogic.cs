@@ -21,19 +21,7 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
 
         #endregion
 
-        //public List<RelSistemaSelectivo> ListarRelSistemaSelectivo(Int32 intCotizacionID, Int32 intTipoElementoCoti_Producto, Int32 intTipoElementoID, Int32 intTipoElementoAlmacenID, Int32 intConfiguraMarcoID, Int32 intConfiguraVigaID, Int32 intDatoMarcoID, Int32 intDatosVigaID, Int32 intDatosPanelID, Int32 intDatosCrossBarID, Int32 intDistanciadorID, Int32 intParrillaID, Int32 intVigaTopeID, Int32 intProtectorPosteID, Int32 intProtectorBateriaID, Int16 sintSistemaCargaMarcoID, DateTime datFechaAlta)
-        //{
-        //    List<RelSistemaSelectivo> results = null;
-        //    try
-        //    {
-        //        results = CatalogosDA.ListarRelSistemaSelectivo(intCotizacionID, intTipoElementoCoti_Producto, intTipoElementoID, intTipoElementoAlmacenID, intConfiguraMarcoID, intConfiguraVigaID, intDatoMarcoID, intDatosVigaID, intDatosPanelID, intDatosCrossBarID, intDistanciadorID, intParrillaID, intVigaTopeID, intProtectorPosteID, intProtectorBateriaID, sintSistemaCargaMarcoID, datFechaAlta);
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        throw ex;
-        //    }
-        //    return results;
-        //}
+        #region SISTEMA SELECTIVO
         /// <summary>
         /// Realiza el alta, modificación o baja a los datos Viga
         /// </summary>
@@ -252,5 +240,47 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
             }
             return result;
         }
+        #endregion
+
+        #region SISTEMA DRIVE IN
+        /// <summary>
+        /// Procedimiento que realiza el alta, modificación y baja de los datos Drive In
+        /// </summary>
+        /// <param name="driveIn"></param>
+        /// <param name="tinOpcion"></param>
+        /// <returns></returns>
+        public Resultado setDatosDriveIn(DatosDriveIn driveIn, byte tinOpcion)
+        {
+            Resultado result = new Resultado();
+            try
+            {
+                result = CatalogosDA.setDatosDriveIn(driveIn, tinOpcion);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
+        /// <summary>
+        /// Procedimiento que realiza el alta, modificación o baja de los datos Atirantado
+        /// </summary>
+        /// <param name="atirantado"></param>
+        /// <param name="tinOpcion"></param>
+        /// <returns></returns>
+        public Resultado setDatosAtirantado(DatosAtirantado atirantado, byte tinOpcion)
+        {
+            Resultado result = new Resultado();
+            try
+            {
+                result = CatalogosDA.setDatosAtirantado(atirantado, tinOpcion);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
+        #endregion
     }
 }

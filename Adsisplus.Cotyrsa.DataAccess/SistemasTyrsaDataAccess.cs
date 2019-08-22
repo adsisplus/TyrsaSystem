@@ -10,6 +10,7 @@ namespace Adsisplus.Cotyrsa.DataAccess
 {
     public class SistemasTyrsaDataAccess
     {
+        #region SISTEMA SELECTIVO
         /// <summary>
         /// Realiza el alta, modificación o baja a los datos Viga
         /// </summary>
@@ -99,36 +100,6 @@ namespace Adsisplus.Cotyrsa.DataAccess
             }
             return result;
         }
-        /// <summary>
-        /// Realiza el alta, modificación o baja a los datos de Cross Bar
-        /// </summary>
-        /// <param name="datosCrossBar"></param>
-        /// <param name="sintOpcion"></param>
-        /// <returns></returns>
-        //public Resultado setDatosCrossBar(DatosCrossBar datosCrossBar, short sintOpcion)
-        //{
-        //    Resultado result = new Resultado();
-        //    try
-        //    {
-        //        using (SistemasTyrsaDataContext dc = new SistemasTyrsaDataContext(Helper.ConnectionString()))
-        //        {
-        //            var query = from item in dc.stp_setDatosCrossBar(datosCrossBar.intDatosCrossBarID, datosCrossBar.intDetCotizaID, datosCrossBar.intElementoID, datosCrossBar.intDatoMarcoID,
-        //                datosCrossBar.decAnchoCrossBar, datosCrossBar.bitConectorVigaCrossbar, datosCrossBar.intCantidad, datosCrossBar.intCantidadNivelCrossbar,  
-        //                datosCrossBar.intNumeroNivel, datosCrossBar.bitActivo, (byte)sintOpcion)
-        //                        select new Resultado
-        //                        {
-        //                            vchDescripcion = item.vchDescripcion,
-        //                            vchResultado = item.vchResultado
-        //                        };
-        //            result = query.First();
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        throw ex;
-        //    }
-        //    return result;
-        //}
         /// <summary>
         /// Realiza el alta, modificación o baja a los datos de distanciador
         /// </summary>
@@ -365,5 +336,72 @@ namespace Adsisplus.Cotyrsa.DataAccess
             }
             return result;
         }
+
+        #endregion
+
+        #region SISTEMA DRIVE IN
+        /// <summary>
+        /// Procedimiento que realiza el alta, modificación y baja de los datos Drive In
+        /// </summary>
+        /// <param name="driveIn"></param>
+        /// <param name="tinOpcion"></param>
+        /// <returns></returns>
+        public Resultado setDatosDriveIn(DatosDriveIn driveIn, byte tinOpcion)
+        {
+            Resultado result = new Resultado();
+            try
+            {
+                using (SistemasTyrsaDataContext dc = new SistemasTyrsaDataContext(Helper.ConnectionString()))
+                {
+                    var query = from item in dc.stp_setDatosDriveIn(driveIn.intDatosDriveInID, driveIn.intDetCotizaID, driveIn.sintPinturaID, driveIn.intElementoID,
+                        driveIn.bitEsEstructural, driveIn.bitDobleMonten, driveIn.decFrente, driveIn.decFondo, driveIn.decAltura, driveIn.decPeso,
+                        driveIn.decAnchoMonta, driveIn.decAlturaMaxima, driveIn.decAlturaCanastilla, driveIn.decCapacidadMaxima,
+                        driveIn.bitActivo, tinOpcion)
+                                select new Resultado
+                                {
+                                    vchDescripcion = item.vchDescripcion,
+                                    vchResultado = item.vchResultado
+                                };
+                    result = query.First();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
+        /// <summary>
+        /// Procedimiento que realiza el alta, modificación o baja de los datos Atirantado
+        /// </summary>
+        /// <param name="atirantado"></param>
+        /// <param name="tinOpcion"></param>
+        /// <returns></returns>
+        public Resultado setDatosAtirantado(DatosAtirantado atirantado, byte tinOpcion)
+        {
+            Resultado result = new Resultado();
+            try
+            {
+                using (SistemasTyrsaDataContext dc = new SistemasTyrsaDataContext(Helper.ConnectionString()))
+                {
+                    var query = from item in dc.stp_setDatosAtirantado(atirantado.intAtirantadoID, atirantado.intElementoID, atirantado.intCotizacionID, atirantado.sintPinturaID,
+                        atirantado.intCantidad, atirantado.bitActivo, atirantado.intDetCotizaID, atirantado.decLargo, atirantado.decPrecioVentaUnitario,
+                        atirantado.decPrecioVentaTotal, atirantado.decPesoUnitario, atirantado.decPesoTotal, atirantado.decLongitud, atirantado.intCalibreID,
+                        tinOpcion)
+                                select new Resultado
+                                {
+                                    vchDescripcion = item.vchDescripcion,
+                                    vchResultado = item.vchResultado
+                                };
+                    result = query.First();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
+        #endregion
     }
 }

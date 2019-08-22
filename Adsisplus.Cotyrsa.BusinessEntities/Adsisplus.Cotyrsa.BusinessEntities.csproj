@@ -60,6 +60,7 @@
     <Compile Include="DatosCarro.cs" />
     <Compile Include="DatosCrossBar.cs" />
     <Compile Include="DatosDistanciador.cs" />
+    <Compile Include="DatosDriveIn.cs" />
     <Compile Include="DatosEntrepanio.cs" />
     <Compile Include="DatosFlete.cs" />
     <Compile Include="DatosFreno.cs" />
