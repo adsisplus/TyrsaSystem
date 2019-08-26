@@ -40,21 +40,28 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AtirantadoLogic.cs" />
+    <Compile Include="BarandalLogic.cs" />
+    <Compile Include="BrazoLogic.cs" />
     <Compile Include="CatalogoLogic.cs" />
     <Compile Include="CotizacionLogic.cs" />
     <Compile Include="CrossBarDataLogic.cs" />
     <Compile Include="DireccionLogic.cs" />
     <Compile Include="DistanciadorLogic.cs" />
+    <Compile Include="DriveInLogic.cs" />
     <Compile Include="EmpresaLogic.cs" />
     <Compile Include="EventLogManager.cs" />
     <Compile Include="GastosLogic.cs" />
+    <Compile Include="GuiaEntradaLogic.cs" />
     <Compile Include="MarcosLogic.cs" />
     <Compile Include="MateriaPrimaLogic.cs" />
     <Compile Include="PanelLogic.cs" />
     <Compile Include="ParrillaLogic.cs" />
     <Compile Include="PersonaLogic.cs" />
+    <Compile Include="PisoLogic.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ProtectoresLogic.cs" />
+    <Compile Include="RielTarimaLogic.cs" />
     <Compile Include="SistemasTyrsaLogic.cs" />
     <Compile Include="VigaLogic.cs" />
   </ItemGroup>

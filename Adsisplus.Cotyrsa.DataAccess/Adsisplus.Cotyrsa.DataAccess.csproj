@@ -43,7 +43,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AtirantadoDataAccess.cs" />
+    <Compile Include="BarandalDataAccess.cs" />
+    <Compile Include="BrazoDataAccess.cs" />
     <Compile Include="CatalogosDataAccess.cs" />
+    <Compile Include="Context\Atirantado.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Atirantado.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="Context\Barandal.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Barandal.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="Context\Brazo.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Brazo.dbml</DependentUpon>
+    </Compile>
     <Compile Include="Context\Catalogos.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -79,6 +97,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Gastos.dbml</DependentUpon>
     </Compile>
+    <Compile Include="Context\GuiaEntrada.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GuiaEntrada.dbml</DependentUpon>
+    </Compile>
     <Compile Include="Context\Marcos.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -104,10 +127,25 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Persona.dbml</DependentUpon>
     </Compile>
+    <Compile Include="Context\Piso.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Piso.dbml</DependentUpon>
+    </Compile>
     <Compile Include="Context\Protectores.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Protectores.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="Context\RielTarima.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RielTarima.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="Context\SistemaDriveIn.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SistemaDriveIn.dbml</DependentUpon>
     </Compile>
     <Compile Include="Context\SistemasTyrsa.designer.cs">
       <AutoGen>True</AutoGen>
@@ -123,14 +161,17 @@
     <Compile Include="CrossBarDataAccess.cs" />
     <Compile Include="DireccionDataAccess.cs" />
     <Compile Include="DistanciadorDataAccess.cs" />
+    <Compile Include="DriveInDataAccess.cs" />
     <Compile Include="EmpresaDataAccess.cs" />
     <Compile Include="GastosDataAccess.cs" />
+    <Compile Include="GuiaEntradaDataAccess.cs" />
     <Compile Include="Helper.cs" />
     <Compile Include="MarcosDataAccess.cs" />
     <Compile Include="MateriaPrimaDataAccess.cs" />
     <Compile Include="PanelDataAccess.cs" />
     <Compile Include="ParrillaDataAccess.cs" />
     <Compile Include="PersonaDataAccess.cs" />
+    <Compile Include="PisoDataAccess.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -138,6 +179,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
     <Compile Include="ProtectoresDataAccess.cs" />
+    <Compile Include="RielTarimaDataAccess.cs" />
     <Compile Include="SistemasTyrsaDataAccess.cs" />
     <Compile Include="VigaDataAccess.cs" />
   </ItemGroup>
@@ -150,6 +192,30 @@
   <ItemGroup>
     <None Include="App.config">
       <SubType>Designer</SubType>
+    </None>
+    <None Include="Context\Atirantado.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>Atirantado.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Context\Atirantado.dbml.layout">
+      <DependentUpon>Atirantado.dbml</DependentUpon>
+    </None>
+    <None Include="Context\Barandal.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>Barandal.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Context\Barandal.dbml.layout">
+      <DependentUpon>Barandal.dbml</DependentUpon>
+    </None>
+    <None Include="Context\Brazo.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>Brazo.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Context\Brazo.dbml.layout">
+      <DependentUpon>Brazo.dbml</DependentUpon>
     </None>
     <None Include="Context\Catalogos.dbml">
       <Generator>MSLinqToSQLGenerator</Generator>
@@ -189,6 +255,14 @@
     <None Include="Context\Gastos.dbml.layout">
       <DependentUpon>Gastos.dbml</DependentUpon>
     </None>
+    <None Include="Context\GuiaEntrada.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>GuiaEntrada.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Context\GuiaEntrada.dbml.layout">
+      <DependentUpon>GuiaEntrada.dbml</DependentUpon>
+    </None>
     <None Include="Context\Marcos.dbml">
       <Generator>MSLinqToSQLGenerator</Generator>
       <LastGenOutput>Marcos.designer.cs</LastGenOutput>
@@ -217,10 +291,34 @@
       <LastGenOutput>Persona.designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
+    <None Include="Context\Piso.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>Piso.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Context\Piso.dbml.layout">
+      <DependentUpon>Piso.dbml</DependentUpon>
+    </None>
     <None Include="Context\Protectores.dbml">
       <Generator>MSLinqToSQLGenerator</Generator>
       <LastGenOutput>Protectores.designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+    </None>
+    <None Include="Context\RielTarima.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>RielTarima.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Context\RielTarima.dbml.layout">
+      <DependentUpon>RielTarima.dbml</DependentUpon>
+    </None>
+    <None Include="Context\SistemaDriveIn.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>SistemaDriveIn.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Context\SistemaDriveIn.dbml.layout">
+      <DependentUpon>SistemaDriveIn.dbml</DependentUpon>
     </None>
     <None Include="Context\SistemasTyrsa.dbml">
       <Generator>MSLinqToSQLGenerator</Generator>

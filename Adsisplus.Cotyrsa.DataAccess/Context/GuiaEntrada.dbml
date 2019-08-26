@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="dbTyrsa" Class="GuiaEntradaDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=local;Initial Catalog=dbTyrsa;User ID=usrCotyrsa" SettingsObjectName="Adsisplus.Cotyrsa.DataAccess.Properties.Settings" SettingsPropertyName="dbTyrsaConnectionString1" Provider="System.Data.SqlClient" />
+  <Function Name="dbo.stp_ListarDatosGuiaEntrada" Method="stp_ListarDatosGuiaEntrada">
+    <Parameter Name="intGuiaEntradaID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intDetCotizaID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="stp_ListarDatosGuiaEntradaResult">
+      <Column Name="intGuiaEntradaID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="intElementoID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="intCotizacionID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="sintPinturaID" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="decLargo" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
+      <Column Name="intCantidad" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="bitActivo" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="intDetCotizaID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="decPrecioUnitario" Type="System.Decimal" DbType="Decimal(12,2)" CanBeNull="true" />
+      <Column Name="decPrecioTotal" Type="System.Decimal" DbType="Decimal(12,2)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+</Database>

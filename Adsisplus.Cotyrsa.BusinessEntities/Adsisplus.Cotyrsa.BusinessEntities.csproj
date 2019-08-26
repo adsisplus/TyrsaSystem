@@ -55,6 +55,7 @@
     <Compile Include="CotizaProducto.cs" />
     <Compile Include="DatosAnguloRanurado.cs" />
     <Compile Include="DatosAtirantado.cs" />
+    <Compile Include="DatosBarandal.cs" />
     <Compile Include="DatosBrazo.cs" />
     <Compile Include="DatosCarril.cs" />
     <Compile Include="DatosCarro.cs" />

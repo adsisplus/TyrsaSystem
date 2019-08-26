@@ -22,6 +22,7 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
 
         #endregion
 
+        #region SISTEMA SELECTIVO
         public List<TotalViga> ListarTotalViga(Int32 intTotalViga, Int32 intConfiguraVigaID)
         {
             List<TotalViga> results = null;
@@ -552,5 +553,95 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
             }
             return result;
         }
+#endregion
+
+        #region SISTEMA DRIVE IN
+        /// <summary>
+        /// Procedimiento que lista los datos de Viga atirantado
+        /// </summary>
+        /// <param name="intVigaAtirantadoID"></param>
+        /// <param name="intDetCotizaID"></param>
+        /// <returns></returns>
+        public List<DatosVigaAtirantado> ListarDatosVigaAtirantado(int intVigaAtirantadoID, int intDetCotizaID)
+        {
+            List<DatosVigaAtirantado> result = new List<DatosVigaAtirantado>();
+            try
+            {
+                result = CatalogosDA.ListarDatosVigaAtirantado(intVigaAtirantadoID, intDetCotizaID);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
+        /// <summary>
+        /// Procedimiento que realiza el alta, modificación de los datos Viga Atirantado
+        /// </summary>
+        /// <param name="viga"></param>
+        /// <param name="intCotizacionID"></param>
+        /// <param name="intDetCotizaID"></param>
+        /// <param name="tinOpcion"></param>
+        /// <returns></returns>
+        public Resultado setDatosVigaAtirantado(DatosVigaAtirantado viga, int intCotizacionID, int intDetCotizaID, short tinOpcion)
+        {
+            Resultado result = new Resultado();
+            try
+            {
+                Cotizacion detCotizacion = new Cotizacion();
+                detCotizacion.intCotizacionID = intCotizacionID;
+                detCotizacion.intDetCotizaID = intDetCotizaID;
+                detCotizacion.intElementoID = 2; // Falta definir el ID
+                detCotizacion.intPartida = 0;
+                detCotizacion.intCantidad = viga.intCantidad;
+                detCotizacion.decMonto = viga.decPrecioVentaTotal;
+                detCotizacion.decSubtotal = 0;
+
+                // Almacenamos el registro
+                result = (new CotizacionLogic()).setDetCotizacion(detCotizacion, (short)(intDetCotizaID == 0 ? 1 : tinOpcion));
+                if (result.vchResultado != "NOK")
+                {
+                    intDetCotizaID = Convert.ToInt32(result.vchResultado);
+                    viga.intDetCotizaID = intDetCotizaID;
+
+                    List<DatosVigaAtirantado> ListViga = new List<DatosVigaAtirantado>();
+                    DatosVigaAtirantado _viga = new DatosVigaAtirantado();
+
+                    // Validamos si es un nuevo registro
+                    if (tinOpcion != 1)
+                        ListViga = ListarDatosVigaAtirantado((int)viga.intVigaAtirantadoID, intDetCotizaID);
+                    // Validamos si existe registro
+                    if (ListViga.Count() > 0)
+                        _viga = ListViga.First();
+                    else
+                        _viga.intVigaAtirantadoID = 0;
+                    // Actualizamos la información
+                    _viga.bitActivo = viga.bitActivo;
+                    _viga.decLargo = viga.decLargo;
+                    _viga.decLongitud = viga.decLongitud;
+                    _viga.decPeso = viga.decPeso;
+                    _viga.decPesoTotal = viga.decPesoTotal;
+                    _viga.decPesoUnitario = viga.decPesoUnitario;
+                    _viga.decPrecioVentaTotal = viga.decPrecioVentaTotal;
+                    _viga.decPrecioVentaUnitario = viga.decPrecioVentaUnitario;
+                    _viga.intCalibreID = viga.intCalibreID;
+                    _viga.intCantidad = viga.intCantidad;
+                    _viga.intCotizacionID = intCotizacionID;
+                    _viga.intDetCotizaID = intDetCotizaID;
+                    _viga.intElementoID = 0; // FALTA ID DEL ELEMENTO
+                    _viga.sintPinturaID = viga.sintPinturaID;
+
+
+                    //Realizamos el registro de los datos
+                    result = (new DriveInLogic()).setDatosVigaAtirantado(_viga, tinOpcion);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
+        #endregion
     }
 }

@@ -11,7 +11,7 @@ namespace Adsisplus.Cotyrsa.BusinessEntities
     public class DatosDriveIn
     {
         [DataMember]
-        public int intDatosDriveInID { get; set; }
+        public int? intDatosDriveInID { get; set; }
         [DataMember]
         public int? intDetCotizaID { get; set; }
         [DataMember]

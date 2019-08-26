@@ -15,7 +15,7 @@
     <AssemblyName>Adsisplus.Cotyrsa.WcfService</AssemblyName>
     <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
     <WcfConfigValidationEnabled>True</WcfConfigValidationEnabled>
-    <UseIISExpress>true</UseIISExpress>
+    <UseIISExpress>false</UseIISExpress>
     <Use64BitIISExpress />
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
@@ -85,6 +85,12 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AtirantadoServices\AtirantadoServices.cs" />
+    <Compile Include="AtirantadoServices\IAtirantadoServices.cs" />
+    <Compile Include="BarandalServices\BarandalServices.cs" />
+    <Compile Include="BarandalServices\IBarandalServices.cs" />
+    <Compile Include="BrazoServices\BrazoServices.cs" />
+    <Compile Include="BrazoServices\IBrazoServices.cs" />
     <Compile Include="CatalogoGeneralServices\CatalogoGeneralServices.svc.cs">
       <DependentUpon>CatalogoGeneralServices.svc</DependentUpon>
     </Compile>
@@ -109,6 +115,8 @@
       <DependentUpon>DistanciadorServices.svc</DependentUpon>
     </Compile>
     <Compile Include="DistanciadorServices\IDistanciadorServices.cs" />
+    <Compile Include="DriveInServices\DriveInServices.cs" />
+    <Compile Include="DriveInServices\IDriveInServices.cs" />
     <Compile Include="EmpresaServices\EmpresaServices.svc.cs">
       <DependentUpon>EmpresaServices.svc</DependentUpon>
     </Compile>
@@ -120,6 +128,8 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="GuiaEntradaServices\GuiaEntradaServices.cs" />
+    <Compile Include="GuiaEntradaServices\IGuiaEntradaServices.cs" />
     <Compile Include="IService1.cs" />
     <Compile Include="MarcosServices\IMarcosServices.cs" />
     <Compile Include="MarcosServices\MarcosServices.svc.cs">
@@ -141,11 +151,15 @@
     <Compile Include="PersonaServices\PersonaServices.svc.cs">
       <DependentUpon>PersonaServices.svc</DependentUpon>
     </Compile>
+    <Compile Include="PisoServices\IPisoServices.cs" />
+    <Compile Include="PisoServices\PisoServices.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ProteccionServices\IProteccionServices.cs" />
     <Compile Include="ProteccionServices\ProteccionServices.svc.cs">
       <DependentUpon>ProteccionServices.svc</DependentUpon>
     </Compile>
+    <Compile Include="RielTarimaServices\IRielTarimaServices.cs" />
+    <Compile Include="RielTarimaServices\RielTarimaServices.cs" />
     <Compile Include="Service1.svc.cs">
       <DependentUpon>Service1.svc</DependentUpon>
     </Compile>
@@ -196,7 +210,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>51079</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:51079/</IISUrl>
+          <IISUrl>http://localhost/Adsisplus.Cotyrsa.WcfService</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

@@ -224,46 +224,5 @@ namespace Adsisplus.Cotyrsa.WcfService.SistemasTyrsaServices
             return result;
         }
         #endregion
-
-        #region SISTEMA DRIVE IN
-        /// <summary>
-        /// Procedimiento que realiza el alta, modificación y baja de los datos Drive In
-        /// </summary>
-        /// <param name="driveIn"></param>
-        /// <param name="tinOpcion"></param>
-        /// <returns></returns>
-        public Resultado setDatosDriveIn(DatosDriveIn driveIn, byte tinOpcion)
-        {
-            Resultado result = new Resultado();
-            try
-            {
-                result = (new SistemasTyrsaLogic()).setDatosDriveIn(driveIn, tinOpcion);
-            }
-            catch (Exception ex)
-            {
-                Adsisplus.Cotyrsa.BusinessLogic.EventLogManager.LogErrorEntry(ex.Message);
-            }
-            return result;
-        }
-        /// <summary>
-        /// Procedimiento que realiza el alta, modificación o baja de los datos Atirantado
-        /// </summary>
-        /// <param name="atirantado"></param>
-        /// <param name="tinOpcion"></param>
-        /// <returns></returns>
-        public Resultado setDatosAtirantado(DatosAtirantado atirantado, byte tinOpcion)
-        {
-            Resultado result = new Resultado();
-            try
-            {
-                result = (new SistemasTyrsaLogic()).setDatosAtirantado(atirantado, tinOpcion);
-            }
-            catch (Exception ex)
-            {
-                Adsisplus.Cotyrsa.BusinessLogic.EventLogManager.LogErrorEntry(ex.Message);
-            }
-            return result;
-        }
-        #endregion
     }
 }

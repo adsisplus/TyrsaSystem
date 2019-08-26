@@ -205,5 +205,26 @@ namespace Adsisplus.Cotyrsa.WcfService.VigaServices
         [OperationContract]
         [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "setBajaVigaTope")]
         Resultado setBajaVigaTope(int intDetCotizaID, bool bitRollBack);
+        /// <summary>
+        /// Procedimiento que lista los datos de Viga atirantado
+        /// </summary>
+        /// <param name="intVigaAtirantadoID"></param>
+        /// <param name="intDetCotizaID"></param>
+        /// <returns></returns>
+        [OperationContract]
+        [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ListarDatosVigaAtirantado")]
+        List<DatosVigaAtirantado> ListarDatosVigaAtirantado(int intVigaAtirantadoID, int intDetCotizaID);
+
+        /// <summary>
+        /// Procedimiento que realiza el alta, modificación de los datos Viga Atirantado
+        /// </summary>
+        /// <param name="viga"></param>
+        /// <param name="intCotizacionID"></param>
+        /// <param name="intDetCotizaID"></param>
+        /// <param name="tinOpcion"></param>
+        /// <returns></returns>
+        [OperationContract]
+        [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "setDatosVigaAtirantado")]
+        Resultado setDatosVigaAtirantado(DatosVigaAtirantado viga, int intCotizacionID, int intDetCotizaID, short tinOpcion);
     }
 }

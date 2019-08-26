@@ -117,26 +117,5 @@ namespace Adsisplus.Cotyrsa.WcfService.SistemasTyrsaServices
         List<DatosTornilleria> ListarTornillosSelectivoCotizacion(int intCotizacionID);
 
         #endregion
-
-        #region SISTEMA DRIVE IN
-        /// <summary>
-        /// Procedimiento que realiza el alta, modificación y baja de los datos Drive In
-        /// </summary>
-        /// <param name="driveIn"></param>
-        /// <param name="tinOpcion"></param>
-        /// <returns></returns>
-        [OperationContract]
-        [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "setDatosDriveIn")]
-        Resultado setDatosDriveIn(DatosDriveIn driveIn, byte tinOpcion);
-        /// <summary>
-        /// Procedimiento que realiza el alta, modificación o baja de los datos Atirantado
-        /// </summary>
-        /// <param name="atirantado"></param>
-        /// <param name="tinOpcion"></param>
-        /// <returns></returns>
-        [OperationContract]
-        [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "setDatosAtirantado")]
-        Resultado setDatosAtirantado(DatosAtirantado atirantado, byte tinOpcion);
-        #endregion
     }
 }

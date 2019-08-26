@@ -30,5 +30,21 @@ namespace Adsisplus.Cotyrsa.BusinessEntities
 
         [DataMember]
         public Boolean? bitActivo { get; set; }
+        [DataMember]
+        public int? intDetCotizaID { get; set; }
+        [DataMember]
+        public decimal? decPrecioVentaUnitario { get; set; }
+        [DataMember]
+        public decimal? decPrecioVentaTotal { get; set; }
+        [DataMember]
+        public decimal? decPesoUnitario { get; set; }
+        [DataMember]
+        public decimal? decPesoTotal { get; set; }
+        [DataMember]
+        public decimal? decLongitud { get; set; }
+        [DataMember]
+        public int? intCalibreID { get; set; }
+        [DataMember]
+        public decimal? decPeso { get; set; }
     }
 }

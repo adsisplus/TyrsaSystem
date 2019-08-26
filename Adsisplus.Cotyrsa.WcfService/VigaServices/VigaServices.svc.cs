@@ -385,5 +385,45 @@ namespace Adsisplus.Cotyrsa.WcfService.VigaServices
             }
             return result;
         }
+        /// <summary>
+        /// Procedimiento que lista los datos de Viga atirantado
+        /// </summary>
+        /// <param name="intVigaAtirantadoID"></param>
+        /// <param name="intDetCotizaID"></param>
+        /// <returns></returns>
+        public List<DatosVigaAtirantado> ListarDatosVigaAtirantado(int intVigaAtirantadoID, int intDetCotizaID)
+        {
+            List<DatosVigaAtirantado> result = new List<DatosVigaAtirantado>();
+            try
+            {
+                result = (new VigaLogic()).ListarDatosVigaAtirantado(intVigaAtirantadoID, intDetCotizaID);
+            }
+            catch (Exception ex)
+            {
+                Adsisplus.Cotyrsa.BusinessLogic.EventLogManager.LogErrorEntry(ex.Message);
+            }
+            return result;
+        }
+        /// <summary>
+        /// Procedimiento que realiza el alta, modificación de los datos Viga Atirantado
+        /// </summary>
+        /// <param name="viga"></param>
+        /// <param name="intCotizacionID"></param>
+        /// <param name="intDetCotizaID"></param>
+        /// <param name="tinOpcion"></param>
+        /// <returns></returns>
+        public Resultado setDatosVigaAtirantado(DatosVigaAtirantado viga, int intCotizacionID, int intDetCotizaID, short tinOpcion)
+        {
+            Resultado result = new Resultado();
+            try
+            {
+                result = (new VigaLogic()).setDatosVigaAtirantado(viga, intCotizacionID, intDetCotizaID, tinOpcion);
+            }
+            catch (Exception ex)
+            {
+                Adsisplus.Cotyrsa.BusinessLogic.EventLogManager.LogErrorEntry(ex.Message);
+            }
+            return result;
+        }
     }
 }

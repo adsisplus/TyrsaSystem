@@ -640,5 +640,45 @@ namespace Adsisplus.Cotyrsa.DataAccess
             }
             return result;
         }
+        /// <summary>
+        /// Procedimiento que lista los datos de Viga atirantado
+        /// </summary>
+        /// <param name="intVigaAtirantadoID"></param>
+        /// <param name="intDetCotizaID"></param>
+        /// <returns></returns>
+        public List<DatosVigaAtirantado> ListarDatosVigaAtirantado(int intVigaAtirantadoID, int intDetCotizaID)
+        {
+            List<DatosVigaAtirantado> result = new List<DatosVigaAtirantado>();
+            try
+            {
+                using (VigasDataContext dc = new VigasDataContext(Helper.ConnectionString()))
+                {
+                    var query = from item in dc.stp_ListarDatosVigaAtirantado(intVigaAtirantadoID, intDetCotizaID)
+                                select new DatosVigaAtirantado
+                                {
+                                    intVigaAtirantadoID = item.intVigaAtirantadoID,
+                                    intElementoID = item.intElementoID,
+                                    intCotizacionID = item.intCotizacionID,
+                                    sintPinturaID = item.sintPinturaID,
+                                    decLargo = item.decLargo,
+                                    intCantidad = item.intCantidad,
+                                    bitActivo = item.bitActivo,
+                                    intDetCotizaID = item.intDetCotizaID,
+                                    decPrecioVentaUnitario = item.decPrecioVentaUnitario,
+                                    decPrecioVentaTotal = item.decPrecioVentaTotal,
+                                    decPeso = item.decPeso,
+                                    decLongitud = item.decLongitud,
+                                    intCalibreID = item.intCalibreID,
+                                    decPesoUnitario = item.decPesoUnitario
+                                };
+                    result.AddRange(query);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
     }
 }
