@@ -53,7 +53,7 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
                 Cotizacion detCotizacion = new Cotizacion();
                 detCotizacion.intCotizacionID = intCotizacionID;
                 detCotizacion.intDetCotizaID = intDetCotizaID;
-                detCotizacion.intElementoID = 2; // Falta definir el ID
+                detCotizacion.intElementoID = 22;
                 detCotizacion.intPartida = 0;
                 detCotizacion.intCantidad = Convert.ToInt32(barandal.decCantidad);
                 detCotizacion.decMonto = barandal.decPrecioTotal;
@@ -80,7 +80,7 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
                     // Actualizamos la información
                     _barandal.intCotizacionID = intCotizacionID;
                     _barandal.intDetCotizaID = intDetCotizaID;
-                    _barandal.intElementoID = 0; // Hace falta definir el id del elemento
+                    _barandal.intElementoID = 22;
                     _barandal.sintPinturaID = barandal.sintPinturaID;
                     _barandal.bitActivo = barandal.bitActivo;
                     _barandal.decCantidad = barandal.decCantidad;

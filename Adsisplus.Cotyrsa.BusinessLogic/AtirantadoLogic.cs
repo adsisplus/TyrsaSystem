@@ -53,7 +53,7 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
                 Cotizacion detCotizacion = new Cotizacion();
                 detCotizacion.intCotizacionID = intCotizacionID;
                 detCotizacion.intDetCotizaID = intDetCotizaID;
-                detCotizacion.intElementoID = 2; // Falta definir el ID
+                detCotizacion.intElementoID = 19;
                 detCotizacion.intPartida = 0;
                 detCotizacion.intCantidad = atirantado.intCantidad;
                 detCotizacion.decMonto = atirantado.decPrecioVentaTotal;
@@ -91,7 +91,7 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
                     _atirantado.intCantidad = atirantado.intCantidad;
                     _atirantado.intCotizacionID = intCotizacionID;
                     _atirantado.intDetCotizaID = intDetCotizaID;
-                    _atirantado.intElementoID = 0; // Falta deficinar el ID del elemento
+                    _atirantado.intElementoID = 19;
                     _atirantado.sintPinturaID = atirantado.sintPinturaID;
 
                     // Realizamos el registro del atirantado
