@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="Adsisplus.Cotyrsa.WcfService.BrazoServices.BrazoServices" CodeBehind="BrazoServices.svc.cs" %>

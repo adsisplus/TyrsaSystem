@@ -62,21 +62,28 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AtirantadoServices\AtirantadoServices.svc" />
+    <Content Include="BarandalServices\BarandalServices.svc" />
+    <Content Include="BrazoServices\BrazoServices.svc" />
     <Content Include="CatalogoGeneralServices\CatalogoGeneralServices.svc" />
     <Content Include="CatalogoServices\CatalogoServices.svc" />
     <Content Include="CotizacionServices\CotizacionServices.svc" />
     <Content Include="CrossBarServices\CrossBarServices.svc" />
     <Content Include="DireccionServices\DireccionServices.svc" />
     <Content Include="DistanciadorServices\DistanciadorServices.svc" />
+    <Content Include="DriveInServices\DriveInServices.svc" />
     <Content Include="EmpresaServices\EmpresaServices.svc" />
     <Content Include="GastosServices\GastosServices.svc" />
     <Content Include="Global.asax" />
+    <Content Include="GuiaEntradaServices\GuiaEntradaServices.svc" />
     <Content Include="MarcosServices\MarcosServices.svc" />
     <Content Include="MateriaPrimaServices\MateriaPrimaServices.svc" />
     <Content Include="PanelServices\PanelServices.svc" />
     <Content Include="ParrillaServices\ParrillaServices.svc" />
     <Content Include="PersonaServices\PersonaServices.svc" />
+    <Content Include="PisoServices\PisoServices.svc" />
     <Content Include="ProteccionServices\ProteccionServices.svc" />
+    <Content Include="RielTarimaServices\RielTarimaServices.svc" />
     <Content Include="Service1.svc" />
     <Content Include="SistemasTyrsaServices\SistemaTyrsaServices.svc" />
     <Content Include="VigaServices\VigaServices.svc" />
@@ -85,11 +92,17 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AtirantadoServices\AtirantadoServices.cs" />
+    <Compile Include="AtirantadoServices\AtirantadoServices.svc.cs">
+      <DependentUpon>AtirantadoServices.svc</DependentUpon>
+    </Compile>
     <Compile Include="AtirantadoServices\IAtirantadoServices.cs" />
-    <Compile Include="BarandalServices\BarandalServices.cs" />
+    <Compile Include="BarandalServices\BarandalServices.svc.cs">
+      <DependentUpon>BarandalServices.svc</DependentUpon>
+    </Compile>
     <Compile Include="BarandalServices\IBarandalServices.cs" />
-    <Compile Include="BrazoServices\BrazoServices.cs" />
+    <Compile Include="BrazoServices\BrazoServices.svc.cs">
+      <DependentUpon>BrazoServices.svc</DependentUpon>
+    </Compile>
     <Compile Include="BrazoServices\IBrazoServices.cs" />
     <Compile Include="CatalogoGeneralServices\CatalogoGeneralServices.svc.cs">
       <DependentUpon>CatalogoGeneralServices.svc</DependentUpon>
@@ -115,7 +128,9 @@
       <DependentUpon>DistanciadorServices.svc</DependentUpon>
     </Compile>
     <Compile Include="DistanciadorServices\IDistanciadorServices.cs" />
-    <Compile Include="DriveInServices\DriveInServices.cs" />
+    <Compile Include="DriveInServices\DriveInServices.svc.cs">
+      <DependentUpon>DriveInServices.svc</DependentUpon>
+    </Compile>
     <Compile Include="DriveInServices\IDriveInServices.cs" />
     <Compile Include="EmpresaServices\EmpresaServices.svc.cs">
       <DependentUpon>EmpresaServices.svc</DependentUpon>
@@ -128,7 +143,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="GuiaEntradaServices\GuiaEntradaServices.cs" />
+    <Compile Include="GuiaEntradaServices\GuiaEntradaServices.svc.cs">
+      <DependentUpon>GuiaEntradaServices.svc</DependentUpon>
+    </Compile>
     <Compile Include="GuiaEntradaServices\IGuiaEntradaServices.cs" />
     <Compile Include="IService1.cs" />
     <Compile Include="MarcosServices\IMarcosServices.cs" />
@@ -152,14 +169,18 @@
       <DependentUpon>PersonaServices.svc</DependentUpon>
     </Compile>
     <Compile Include="PisoServices\IPisoServices.cs" />
-    <Compile Include="PisoServices\PisoServices.cs" />
+    <Compile Include="PisoServices\PisoServices.svc.cs">
+      <DependentUpon>PisoServices.svc</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ProteccionServices\IProteccionServices.cs" />
     <Compile Include="ProteccionServices\ProteccionServices.svc.cs">
       <DependentUpon>ProteccionServices.svc</DependentUpon>
     </Compile>
     <Compile Include="RielTarimaServices\IRielTarimaServices.cs" />
-    <Compile Include="RielTarimaServices\RielTarimaServices.cs" />
+    <Compile Include="RielTarimaServices\RielTarimaServices.svc.cs">
+      <DependentUpon>RielTarimaServices.svc</DependentUpon>
+    </Compile>
     <Compile Include="Service1.svc.cs">
       <DependentUpon>Service1.svc</DependentUpon>
     </Compile>

@@ -3,10 +3,14 @@ using Adsisplus.Cotyrsa.BusinessLogic;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
+using System.Runtime.Serialization;
+using System.ServiceModel;
+using System.Text;
 
 namespace Adsisplus.Cotyrsa.WcfService.DriveInServices
 {
+    // NOTA: puede usar el comando "Rename" del menú "Refactorizar" para cambiar el nombre de clase "DriveInServices" en el código, en svc y en el archivo de configuración a la vez.
+    // NOTA: para iniciar el Cliente de prueba WCF para probar este servicio, seleccione DriveInServices.svc o DriveInServices.svc.cs en el Explorador de soluciones e inicie la depuración.
     public class DriveInServices : IDriveInServices
     {
         /// <summary>
@@ -28,14 +32,14 @@ namespace Adsisplus.Cotyrsa.WcfService.DriveInServices
             }
             return result;
         }
-         /// <summary>
-         /// Procedimiento que realiza el alta, modificación o baja de los datos Drive In
-         /// </summary>
-         /// <param name="drive"></param>
-         /// <param name="intCotizacionID"></param>
-         /// <param name="intDetCotizaID"></param>
-         /// <param name="tinOpcion"></param>
-         /// <returns></returns>
+        /// <summary>
+        /// Procedimiento que realiza el alta, modificación o baja de los datos Drive In
+        /// </summary>
+        /// <param name="drive"></param>
+        /// <param name="intCotizacionID"></param>
+        /// <param name="intDetCotizaID"></param>
+        /// <param name="tinOpcion"></param>
+        /// <returns></returns>
         public Resultado setDatosDriveIn(DatosDriveIn drive, int intCotizacionID, int intDetCotizaID, short tinOpcion)
         {
             Resultado result = new Resultado();
