@@ -219,6 +219,25 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
             return result;
         }
         /// <summary>
+        /// Procedimiento que realiza el alta, baja y modificación de los datos poste
+        /// </summary>
+        /// <param name="poste"></param>
+        /// <param name="tinOpcion"></param>
+        /// <returns></returns>
+        public Resultado setDatosPosteDriveIn(DatosPosteDriveIn poste, short tinOpcion)
+        {
+            Resultado result = new Resultado();
+            try
+            {
+                result = DriveInDA.setDatosPosteDriveIn(poste, tinOpcion);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
+        /// <summary>
         /// Procedimiento que lista los datos de DriveIn
         /// </summary>
         /// <param name="intDatosDriveInID"></param>

@@ -33,7 +33,7 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
     #endregion
 		
 		public BrazoDataContext() : 
-				base(global::Adsisplus.Cotyrsa.DataAccess.Properties.Settings.Default.dbTyrsaConnectionString1, mappingSource)
+				base(global::Adsisplus.Cotyrsa.DataAccess.Properties.Settings.Default.dbTyrsaConnectionString, mappingSource)
 		{
 			OnCreated();
 		}
@@ -62,62 +62,11 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.stp_ListarCatLargoBrazo")]
-		public ISingleResult<stp_ListarCatLargoBrazoResult> stp_ListarCatLargoBrazo()
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
-			return ((ISingleResult<stp_ListarCatLargoBrazoResult>)(result.ReturnValue));
-		}
-		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.stp_ListarDatosBrazo")]
 		public ISingleResult<stp_ListarDatosBrazoResult> stp_ListarDatosBrazo([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intBrazoID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intDetCotizaID)
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), intBrazoID, intDetCotizaID);
 			return ((ISingleResult<stp_ListarDatosBrazoResult>)(result.ReturnValue));
-		}
-	}
-	
-	public partial class stp_ListarCatLargoBrazoResult
-	{
-		
-		private short _sintLargoBrazoID;
-		
-		private System.Nullable<decimal> _decLargoBrazo;
-		
-		public stp_ListarCatLargoBrazoResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sintLargoBrazoID", DbType="SmallInt NOT NULL")]
-		public short sintLargoBrazoID
-		{
-			get
-			{
-				return this._sintLargoBrazoID;
-			}
-			set
-			{
-				if ((this._sintLargoBrazoID != value))
-				{
-					this._sintLargoBrazoID = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decLargoBrazo", DbType="Decimal(8,2)")]
-		public System.Nullable<decimal> decLargoBrazo
-		{
-			get
-			{
-				return this._decLargoBrazo;
-			}
-			set
-			{
-				if ((this._decLargoBrazo != value))
-				{
-					this._decLargoBrazo = value;
-				}
-			}
 		}
 	}
 	

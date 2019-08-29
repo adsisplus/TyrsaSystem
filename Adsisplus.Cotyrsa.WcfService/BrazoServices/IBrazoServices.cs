@@ -13,13 +13,6 @@ namespace Adsisplus.Cotyrsa.WcfService.BrazoServices
     [ServiceContract]
     public interface IBrazoServices
     {
-        /// <summary>
-        /// Procedimiento que lista el catálogo de largo de Brazo
-        /// </summary>
-        /// <returns></returns>
-        [OperationContract]
-        [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ListarCatLargoBrazo")]
-        List<CatalogoDecimal> ListarCatLargoBrazo();
 
         /// <summary>
         /// Procedimiento que lista los datos de brazo

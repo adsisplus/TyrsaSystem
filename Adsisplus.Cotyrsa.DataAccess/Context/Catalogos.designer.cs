@@ -453,6 +453,20 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), intTipoElementoAlmacenID, intUnidadMedicionID, intCalibreAceroID);
 			return ((ISingleResult<stp_ListarCatProductoAceroResult>)(result.ReturnValue));
 		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.stp_ListarCatMaterialDriveIn")]
+		public ISingleResult<stp_ListarCatMaterialDriveInResult> stp_ListarCatMaterialDriveIn()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<stp_ListarCatMaterialDriveInResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.stp_ListarCatLargoBrazo")]
+		public ISingleResult<stp_ListarCatLargoBrazoResult> stp_ListarCatLargoBrazo()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<stp_ListarCatLargoBrazoResult>)(result.ReturnValue));
+		}
 	}
 	
 	public partial class stp_ListarCatCalibreAceroResult
@@ -5542,6 +5556,94 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 				if ((this._bitActivo != value))
 				{
 					this._bitActivo = value;
+				}
+			}
+		}
+	}
+	
+	public partial class stp_ListarCatMaterialDriveInResult
+	{
+		
+		private short _sintMaterialDriveInID;
+		
+		private string _vchTipoMaterialDriveIn;
+		
+		public stp_ListarCatMaterialDriveInResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sintMaterialDriveInID", DbType="SmallInt NOT NULL")]
+		public short sintMaterialDriveInID
+		{
+			get
+			{
+				return this._sintMaterialDriveInID;
+			}
+			set
+			{
+				if ((this._sintMaterialDriveInID != value))
+				{
+					this._sintMaterialDriveInID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchTipoMaterialDriveIn", DbType="VarChar(25)")]
+		public string vchTipoMaterialDriveIn
+		{
+			get
+			{
+				return this._vchTipoMaterialDriveIn;
+			}
+			set
+			{
+				if ((this._vchTipoMaterialDriveIn != value))
+				{
+					this._vchTipoMaterialDriveIn = value;
+				}
+			}
+		}
+	}
+	
+	public partial class stp_ListarCatLargoBrazoResult
+	{
+		
+		private short _sintLargoBrazoID;
+		
+		private System.Nullable<decimal> _decLargoBrazo;
+		
+		public stp_ListarCatLargoBrazoResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sintLargoBrazoID", DbType="SmallInt NOT NULL")]
+		public short sintLargoBrazoID
+		{
+			get
+			{
+				return this._sintLargoBrazoID;
+			}
+			set
+			{
+				if ((this._sintLargoBrazoID != value))
+				{
+					this._sintLargoBrazoID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decLargoBrazo", DbType="Decimal(8,2)")]
+		public System.Nullable<decimal> decLargoBrazo
+		{
+			get
+			{
+				return this._decLargoBrazo;
+			}
+			set
+			{
+				if ((this._decLargoBrazo != value))
+				{
+					this._decLargoBrazo = value;
 				}
 			}
 		}

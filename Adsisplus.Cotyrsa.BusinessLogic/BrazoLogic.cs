@@ -19,23 +19,6 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
             BrazoDA = new BrazoDataAccess();
         }
         /// <summary>
-        /// Procedimiento que lista el catálogo de largo de Brazo
-        /// </summary>
-        /// <returns></returns>
-        public List<CatalogoDecimal> ListarCatLargoBrazo()
-        {
-            List<CatalogoDecimal> result = new List<CatalogoDecimal>();
-            try
-            {
-                result = BrazoDA.ListarCatLargoBrazo();
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-            return result;
-        }
-        /// <summary>
         /// Procedimiento que lista los datos de brazo
         /// </summary>
         /// <param name="intBrazoID"></param>

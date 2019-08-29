@@ -11,32 +11,6 @@ namespace Adsisplus.Cotyrsa.DataAccess
     public class BrazoDataAccess
     {
         /// <summary>
-        /// Procedimiento que lista el catálogo de largo de Brazo
-        /// </summary>
-        /// <returns></returns>
-        public List<CatalogoDecimal> ListarCatLargoBrazo()
-        {
-            List<CatalogoDecimal> result = new List<CatalogoDecimal>();
-            try
-            {
-                using (BrazoDataContext dc = new BrazoDataContext(Helper.ConnectionString()))
-                {
-                    var query = from item in dc.stp_ListarCatLargoBrazo()
-                                select new CatalogoDecimal
-                                {
-                                    intCatalogoID = item.sintLargoBrazoID,
-                                    decValor = item.decLargoBrazo
-                                };
-                    result.AddRange(query);
-                }
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-            return result;
-        }
-        /// <summary>
         /// Procedimiento que lista los datos de brazo
         /// </summary>
         /// <param name="intBrazoID"></param>

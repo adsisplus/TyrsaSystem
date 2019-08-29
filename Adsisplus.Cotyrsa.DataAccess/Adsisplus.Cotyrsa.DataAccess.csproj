@@ -132,6 +132,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Piso.dbml</DependentUpon>
     </Compile>
+    <Compile Include="Context\PosteDriveIn.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PosteDriveIn.dbml</DependentUpon>
+    </Compile>
     <Compile Include="Context\Protectores.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -172,6 +177,7 @@
     <Compile Include="ParrillaDataAccess.cs" />
     <Compile Include="PersonaDataAccess.cs" />
     <Compile Include="PisoDataAccess.cs" />
+    <Compile Include="PosteDriveInDataAccess.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -298,6 +304,14 @@
     </None>
     <None Include="Context\Piso.dbml.layout">
       <DependentUpon>Piso.dbml</DependentUpon>
+    </None>
+    <None Include="Context\PosteDriveIn.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>PosteDriveIn.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Context\PosteDriveIn.dbml.layout">
+      <DependentUpon>PosteDriveIn.dbml</DependentUpon>
     </None>
     <None Include="Context\Protectores.dbml">
       <Generator>MSLinqToSQLGenerator</Generator>

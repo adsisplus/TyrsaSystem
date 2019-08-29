@@ -14,23 +14,6 @@ namespace Adsisplus.Cotyrsa.WcfService.BrazoServices
     public class BrazoServices : IBrazoServices
     {
         /// <summary>
-        /// Procedimiento que lista el catálogo de largo de Brazo
-        /// </summary>
-        /// <returns></returns>
-        public List<CatalogoDecimal> ListarCatLargoBrazo()
-        {
-            List<CatalogoDecimal> result = new List<CatalogoDecimal>();
-            try
-            {
-                result = (new BrazoLogic()).ListarCatLargoBrazo();
-            }
-            catch (Exception ex)
-            {
-                Adsisplus.Cotyrsa.BusinessLogic.EventLogManager.LogErrorEntry(ex.Message);
-            }
-            return result;
-        }
-        /// <summary>
         /// Procedimiento que lista los datos de brazo
         /// </summary>
         /// <param name="intBrazoID"></param>
