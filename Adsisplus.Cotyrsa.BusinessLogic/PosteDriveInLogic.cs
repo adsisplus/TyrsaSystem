@@ -19,6 +19,25 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
             posteDA = new PosteDriveInDataAccess();
         }
         /// <summary>
+        /// Procedimiento que lista el precio poste TC 2
+        /// </summary>
+        /// <param name="intAlturaMarcoID"></param>
+        /// <param name="decFondoMarco"></param>
+        /// <returns></returns>
+        public List<DatosPrecioPoste> ListarPrecioPosteTC2(int intAlturaMarcoID, decimal decFondoMarco)
+        {
+            List<DatosPrecioPoste> result = new List<DatosPrecioPoste>();
+            try
+            {
+                result = posteDA.ListarPrecioPosteTC2(intAlturaMarcoID, decFondoMarco);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
+        /// <summary>
         /// Procedimiento que lista los datos de piso DriveIn
         /// </summary>
         /// <param name="intDatosPisoID"></param>

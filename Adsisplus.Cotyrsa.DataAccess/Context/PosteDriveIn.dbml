@@ -21,4 +21,21 @@
       <Column Name="bitActivo" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
     </ElementType>
   </Function>
+  <Function Name="dbo.stp_ListarPrecioPosteTC2" Method="stp_ListarPrecioPosteTC2">
+    <Parameter Name="intAlturaMarcoID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="decFondoMarco" Type="System.Decimal" DbType="Decimal(18,4)" />
+    <ElementType Name="stp_ListarPrecioPosteTC2Result">
+      <Column Name="intConfiguraMarcoID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="intSKUID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="decCalibre" Type="System.Decimal" DbType="Decimal(10,6)" CanBeNull="true" />
+      <Column Name="decSolera" Type="System.Decimal" DbType="Decimal(10,6)" CanBeNull="true" />
+      <Column Name="decTotalKilo" Type="System.Decimal" DbType="Decimal(8,4)" CanBeNull="true" />
+      <Column Name="decPrecioTyrsa" Type="System.Decimal" DbType="Decimal(8,3)" CanBeNull="true" />
+      <Column Name="decRelacionPrecios" Type="System.Decimal" DbType="Decimal(8,2)" CanBeNull="true" />
+      <Column Name="decPrecioTyrsaMetro" Type="System.Decimal" DbType="Decimal(8,2)" CanBeNull="true" />
+      <Column Name="decPrecioTyrsaKg" Type="System.Decimal" DbType="Decimal(8,2)" CanBeNull="true" />
+      <Column Name="sintNumPosteReq" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="sintNumTravesanio" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+    </ElementType>
+  </Function>
 </Database>

@@ -78,6 +78,7 @@
     <Compile Include="DatosPerfil.cs" />
     <Compile Include="DatosPiso.cs" />
     <Compile Include="DatosPosteDriveIn.cs" />
+    <Compile Include="DatosPrecioPoste.cs" />
     <Compile Include="DatosProtectorBase.cs" />
     <Compile Include="DatosProtectorBateria.cs" />
     <Compile Include="DatosProtectorRack.cs" />

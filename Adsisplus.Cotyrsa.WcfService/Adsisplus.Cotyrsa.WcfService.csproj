@@ -82,6 +82,7 @@
     <Content Include="ParrillaServices\ParrillaServices.svc" />
     <Content Include="PersonaServices\PersonaServices.svc" />
     <Content Include="PisoServices\PisoServices.svc" />
+    <Content Include="PosteDriveInServices\PosteDriveInServices.svc" />
     <Content Include="ProteccionServices\ProteccionServices.svc" />
     <Content Include="RielTarimaServices\RielTarimaServices.svc" />
     <Content Include="Service1.svc" />
@@ -171,6 +172,10 @@
     <Compile Include="PisoServices\IPisoServices.cs" />
     <Compile Include="PisoServices\PisoServices.svc.cs">
       <DependentUpon>PisoServices.svc</DependentUpon>
+    </Compile>
+    <Compile Include="PosteDriveInServices\IPosteDriveInServices.cs" />
+    <Compile Include="PosteDriveInServices\PosteDriveInServices.svc.cs">
+      <DependentUpon>PosteDriveInServices.svc</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ProteccionServices\IProteccionServices.cs" />
