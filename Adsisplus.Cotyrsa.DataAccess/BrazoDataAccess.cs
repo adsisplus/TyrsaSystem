@@ -49,5 +49,36 @@ namespace Adsisplus.Cotyrsa.DataAccess
             }
             return result;
         }
+        /// <summary>
+        /// Procedimiento que lista datos Drive In Brazo
+        /// </summary>
+        /// <param name="bitEsEstructural"></param>
+        /// <returns></returns>
+        public List<DatosDriveInBrazo> ListarDatosBrazoDriveIn(bool bitEsEstructural)
+        {
+            List<DatosDriveInBrazo> result = new List<DatosDriveInBrazo>();
+            try
+            {
+                using (BrazoDataContext dc = new BrazoDataContext(Helper.ConnectionString()))
+                {
+                    var query = from item in dc.stp_ListarDriveInBrazo(bitEsEstructural)
+                                select new DatosDriveInBrazo
+                                {
+                                    sintDriveInID = item.sintDriveInID,
+                                    decLargo = item.decLargo,
+                                    decLongitud = item.decLongitud,
+                                    decAncho = item.decAncho,
+                                    decTotalKiloUnitario = item.decTotalKiloUnitario,
+                                    decPrecioFinal = item.decPrecioFinal
+                                };
+                    result.AddRange(query);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
     }
 }

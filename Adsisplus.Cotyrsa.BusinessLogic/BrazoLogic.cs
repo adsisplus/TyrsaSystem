@@ -38,6 +38,24 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
             return result;
         }
         /// <summary>
+        /// Procedimiento que lista datos Drive In Brazo
+        /// </summary>
+        /// <param name="bitEsEstructural"></param>
+        /// <returns></returns>
+        public List<DatosDriveInBrazo> ListarDatosBrazoDriveIn(bool bitEsEstructural)
+        {
+            List<DatosDriveInBrazo> result = new List<DatosDriveInBrazo>();
+            try
+            {
+                result = BrazoDA.ListarDatosBrazoDriveIn(bitEsEstructural);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
+        /// <summary>
         /// Procedimiento que realiza el alta, modificación de los datos de brazo
         /// </summary>
         /// <param name="brazo"></param>
