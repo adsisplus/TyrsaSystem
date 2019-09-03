@@ -53,7 +53,7 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
                 Cotizacion detCotizacion = new Cotizacion();
                 detCotizacion.intCotizacionID = intCotizacionID;
                 detCotizacion.intDetCotizaID = intDetCotizaID;
-                detCotizacion.intElementoID = 2; // Falta definir el ID
+                detCotizacion.intElementoID = 17;
                 detCotizacion.intPartida = 0;
                 detCotizacion.intCantidad = riel.intCantidad;
                 detCotizacion.decMonto = 0;
@@ -84,7 +84,7 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
                     _riel.intCantidad = riel.intCantidad;
                     _riel.intCotizacionID = intCotizacionID;
                     _riel.intDetCotizaID = intDetCotizaID;
-                    _riel.intElementoID = 0; // Falta ID del catálogo
+                    _riel.intElementoID = 17;
                     _riel.intRielTarimaID = riel.intRielTarimaID;
                     _riel.sintPinturaID = riel.sintPinturaID;
                     _riel.sintRielTarimaID = riel.sintRielTarimaID;

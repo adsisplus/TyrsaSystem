@@ -1,0 +1,99 @@
+﻿using Adsisplus.Cotyrsa.BusinessEntities;
+using Adsisplus.Cotyrsa.BusinessLogic;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Runtime.Serialization;
+using System.ServiceModel;
+using System.Text;
+
+namespace Adsisplus.Cotyrsa.WcfService.BarandalServices
+{
+    // NOTA: puede usar el comando "Rename" del menú "Refactorizar" para cambiar el nombre de clase "BarandalServices" en el código, en svc y en el archivo de configuración a la vez.
+    // NOTA: para iniciar el Cliente de prueba WCF para probar este servicio, seleccione BarandalServices.svc o BarandalServices.svc.cs en el Explorador de soluciones e inicie la depuración.
+    public class BarandalServices : IBarandalServices
+    {
+        /// <summary>
+        /// Procedimiento que lista los datos Atirantado
+        /// </summary>
+        /// <param name="intAtirantadoID"></param>
+        /// <param name="intDetCotizaID"></param>
+        /// <returns></returns>
+        public List<DatosAtirantado> ListarDatosAtirantado(int intAtirantadoID, int intDetCotizaID)
+        {
+            List<DatosAtirantado> result = new List<DatosAtirantado>();
+            try
+            {
+                result = (new AtirantadoLogic()).ListarDatosAtirantado(intAtirantadoID, intDetCotizaID);
+            }
+            catch (Exception ex)
+            {
+                Adsisplus.Cotyrsa.BusinessLogic.EventLogManager.LogErrorEntry(ex.Message);
+            }
+            return result;
+        }
+        /// <summary>
+        /// Procedimiento que realiza el alta, modificación de los datos atirantado
+        /// </summary>
+        /// <param name="atirantado"></param>
+        /// <param name="intCotizacionID"></param>
+        /// <param name="intDetCotizaID"></param>
+        /// <param name="tinOpcion"></param>
+        /// <returns></returns>
+        public Resultado setDatosAtirantado(DatosAtirantado atirantado, int intCotizacionID, int intDetCotizaID, short tinOpcion)
+        {
+            Resultado result = new Resultado();
+            try
+            {
+                result = (new AtirantadoLogic()).setDatosAtirantado(atirantado, intCotizacionID, intDetCotizaID, tinOpcion);
+            }
+            catch (Exception ex)
+            {
+                Adsisplus.Cotyrsa.BusinessLogic.EventLogManager.LogErrorEntry(ex.Message);
+            }
+            return result;
+        }
+
+
+        /// <summary>
+        /// Procedimiento que lista los datos Barandal
+        /// </summary>
+        /// <param name="intDatosBarandalID"></param>
+        /// <param name="intDetCotizaID"></param>
+        /// <returns></returns>
+        public List<DatosBarandal> ListarDatosBarandal(int intDatosBarandalID, int intDetCotizaID)
+        {
+            List<DatosBarandal> result = new List<DatosBarandal>();
+            try
+            {
+                result = (new BarandalLogic()).ListarDatosBarandal(intDatosBarandalID, intDetCotizaID);
+            }
+            catch (Exception ex)
+            {
+                Adsisplus.Cotyrsa.BusinessLogic.EventLogManager.LogErrorEntry(ex.Message);
+            }
+            return result;
+        }
+        /// <summary>
+        /// Procedimiento que realiza el alta, baja o modificación de los datos de barandal
+        /// </summary>
+        /// <param name="barandal"></param>
+        /// <param name="intCotizacionID"></param>
+        /// <param name="intDetCotizaID"></param>
+        /// <param name="tinOpcion"></param>
+        /// <returns></returns>
+        public Resultado setDatosBarandal(DatosBarandal barandal, int intCotizacionID, int intDetCotizaID, short tinOpcion)
+        {
+            Resultado result = new Resultado();
+            try
+            {
+                result = (new BarandalLogic()).setDatosBarandal(barandal, intCotizacionID, intDetCotizaID, tinOpcion);
+            }
+            catch (Exception ex)
+            {
+                Adsisplus.Cotyrsa.BusinessLogic.EventLogManager.LogErrorEntry(ex.Message);
+            }
+            return result;
+        }
+    }
+}

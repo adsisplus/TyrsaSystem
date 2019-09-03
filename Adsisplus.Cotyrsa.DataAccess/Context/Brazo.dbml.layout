@@ -1,4 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="Brazo">
   <DataContextMoniker Name="/BrazoDataContext" />
+  <nestedChildShapes>
+    <classShape Id="cc8879bf-5a36-4077-950f-9a752cfc427e" absoluteBounds="3.25, 1.5, 2, 1.9631982421875">
+      <DataClassMoniker Name="/BrazoDataContext/tmp_BrazoDriveIn" />
+      <nestedChildShapes>
+        <elementListCompartment Id="59d976d4-43b2-496e-a235-14c766e73442" absoluteBounds="3.265, 1.96, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
 </ordesignerObjectsDiagram>

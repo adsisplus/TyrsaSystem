@@ -520,4 +520,16 @@
       <Column Name="bitActivo" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
     </ElementType>
   </Function>
+  <Function Name="dbo.stp_ListarCatMaterialDriveIn" Method="stp_ListarCatMaterialDriveIn">
+    <ElementType Name="stp_ListarCatMaterialDriveInResult">
+      <Column Name="sintMaterialDriveInID" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Column Name="vchTipoMaterialDriveIn" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.stp_ListarCatLargoBrazo" Method="stp_ListarCatLargoBrazo">
+    <ElementType Name="stp_ListarCatLargoBrazoResult">
+      <Column Name="sintLargoBrazoID" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Column Name="decLargoBrazo" Type="System.Decimal" DbType="Decimal(8,2)" CanBeNull="true" />
+    </ElementType>
+  </Function>
 </Database>

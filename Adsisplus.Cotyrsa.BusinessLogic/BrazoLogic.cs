@@ -19,23 +19,6 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
             BrazoDA = new BrazoDataAccess();
         }
         /// <summary>
-        /// Procedimiento que lista el catálogo de largo de Brazo
-        /// </summary>
-        /// <returns></returns>
-        public List<CatalogoDecimal> ListarCatLargoBrazo()
-        {
-            List<CatalogoDecimal> result = new List<CatalogoDecimal>();
-            try
-            {
-                result = BrazoDA.ListarCatLargoBrazo();
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-            return result;
-        }
-        /// <summary>
         /// Procedimiento que lista los datos de brazo
         /// </summary>
         /// <param name="intBrazoID"></param>
@@ -47,6 +30,24 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
             try
             {
                 result = BrazoDA.ListarDatosBrazo(intBrazoID, intDetCotizaID);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
+        /// <summary>
+        /// Procedimiento que lista datos Drive In Brazo
+        /// </summary>
+        /// <param name="bitEsEstructural"></param>
+        /// <returns></returns>
+        public List<DatosDriveInBrazo> ListarDatosBrazoDriveIn(bool bitEsEstructural)
+        {
+            List<DatosDriveInBrazo> result = new List<DatosDriveInBrazo>();
+            try
+            {
+                result = BrazoDA.ListarDatosBrazoDriveIn(bitEsEstructural);
             }
             catch (Exception ex)
             {

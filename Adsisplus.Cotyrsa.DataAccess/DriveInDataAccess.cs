@@ -255,6 +255,37 @@ namespace Adsisplus.Cotyrsa.DataAccess
             }
             return result;
         }
+        /// <summary>
+        /// Procedimiento que realiza el alta, baja y modificación de los datos poste
+        /// </summary>
+        /// <param name="poste"></param>
+        /// <param name="tinOpcion"></param>
+        /// <returns></returns>
+        public Resultado setDatosPosteDriveIn(DatosPosteDriveIn poste, short tinOpcion)
+        {
+            Resultado result = new Resultado();
+            try
+            {
+                using (SistemaDriveInDataContext dc = new SistemaDriveInDataContext(Helper.ConnectionString()))
+                {
+                    var query = from item in dc.stp_setDatosPosteDriveIn(poste.intDatoPosteDriveInID, poste.intElementoID, poste.intDetCotizaID, poste.intSKUID,
+                        poste.intCantidad, poste.decCalibre, poste.decSolera, poste.decTotalKilo, poste.decPrecioTyrsa,
+                        poste.decRelacionPrecios, poste.decPrecioTyrsaMetro, poste.decPrecioTyrsaKg, poste.sintNumPosteReq,
+                        poste.sintNumTravesanio, poste.bitActivo, (byte)tinOpcion)
+                                select new Resultado
+                                {
+                                    vchDescripcion = item.vchDescripcion,
+                                    vchResultado = item.vchResultado
+                                };
+                    result = query.First();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
         #endregion
         /// <summary>
         /// Procedimiento que lista los datos Drive In

@@ -33,7 +33,7 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
     #endregion
 		
 		public BarandalDataContext() : 
-				base(global::Adsisplus.Cotyrsa.DataAccess.Properties.Settings.Default.dbTyrsaConnectionString1, mappingSource)
+				base(global::Adsisplus.Cotyrsa.DataAccess.Properties.Settings.Default.dbTyrsaConnectionString, mappingSource)
 		{
 			OnCreated();
 		}

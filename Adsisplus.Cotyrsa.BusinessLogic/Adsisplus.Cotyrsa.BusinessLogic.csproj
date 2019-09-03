@@ -59,6 +59,7 @@
     <Compile Include="ParrillaLogic.cs" />
     <Compile Include="PersonaLogic.cs" />
     <Compile Include="PisoLogic.cs" />
+    <Compile Include="PosteDriveInLogic.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ProtectoresLogic.cs" />
     <Compile Include="RielTarimaLogic.cs" />

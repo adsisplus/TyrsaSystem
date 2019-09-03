@@ -2,22 +2,17 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.ServiceModel.Web;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace Adsisplus.Cotyrsa.WcfService.BrazoServices
 {
+    // NOTA: puede usar el comando "Rename" del menú "Refactorizar" para cambiar el nombre de interfaz "IBrazoServices" en el código y en el archivo de configuración a la vez.
+    [ServiceContract]
     public interface IBrazoServices
     {
-        /// <summary>
-        /// Procedimiento que lista el catálogo de largo de Brazo
-        /// </summary>
-        /// <returns></returns>
-        [OperationContract]
-        [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ListarCatLargoBrazo")]
-        List<CatalogoDecimal> ListarCatLargoBrazo();
 
         /// <summary>
         /// Procedimiento que lista los datos de brazo
@@ -29,6 +24,14 @@ namespace Adsisplus.Cotyrsa.WcfService.BrazoServices
         [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ListarDatosBrazo")]
         List<DatosBrazo> ListarDatosBrazo(int intBrazoID, int intDetCotizaID);
         /// <summary>
+        /// Procedimiento que lista datos Drive In Brazo
+        /// </summary>
+        /// <param name="bitEsEstructural"></param>
+        /// <returns></returns>
+        [OperationContract]
+        [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ListarDatosBrazoDriveIn")]
+        List<DatosDriveInBrazo> ListarDatosBrazoDriveIn(bool bitEsEstructural);
+        /// <summary>
         /// Procedimiento que realiza el alta, modificación de los datos de brazo
         /// </summary>
         /// <param name="brazo"></param>
@@ -39,5 +42,6 @@ namespace Adsisplus.Cotyrsa.WcfService.BrazoServices
         [OperationContract]
         [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "setDatosBrazo")]
         Resultado setDatosBrazo(DatosBrazo brazo, int intCotizacionID, int intDetCotizaID, short tinOpcion);
+
     }
 }

@@ -33,7 +33,7 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
     #endregion
 		
 		public BrazoDataContext() : 
-				base(global::Adsisplus.Cotyrsa.DataAccess.Properties.Settings.Default.dbTyrsaConnectionString1, mappingSource)
+				base(global::Adsisplus.Cotyrsa.DataAccess.Properties.Settings.Default.dbTyrsaConnectionString, mappingSource)
 		{
 			OnCreated();
 		}
@@ -62,11 +62,12 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.stp_ListarCatLargoBrazo")]
-		public ISingleResult<stp_ListarCatLargoBrazoResult> stp_ListarCatLargoBrazo()
+		public System.Data.Linq.Table<tmp_BrazoDriveIn> tmp_BrazoDriveIn
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
-			return ((ISingleResult<stp_ListarCatLargoBrazoResult>)(result.ReturnValue));
+			get
+			{
+				return this.GetTable<tmp_BrazoDriveIn>();
+			}
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.stp_ListarDatosBrazo")]
@@ -75,47 +76,127 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), intBrazoID, intDetCotizaID);
 			return ((ISingleResult<stp_ListarDatosBrazoResult>)(result.ReturnValue));
 		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.stp_ListarDriveInBrazo")]
+		public ISingleResult<tmp_BrazoDriveIn> stp_ListarDriveInBrazo([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Bit")] System.Nullable<bool> bitEsEstructural)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), bitEsEstructural);
+			return ((ISingleResult<tmp_BrazoDriveIn>)(result.ReturnValue));
+		}
 	}
 	
-	public partial class stp_ListarCatLargoBrazoResult
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="")]
+	public partial class tmp_BrazoDriveIn
 	{
 		
-		private short _sintLargoBrazoID;
+		private short _sintDriveInID;
 		
-		private System.Nullable<decimal> _decLargoBrazo;
+		private decimal _decLargo;
 		
-		public stp_ListarCatLargoBrazoResult()
+		private decimal _decLongitud;
+		
+		private decimal _decAncho;
+		
+		private decimal _decTotalKiloUnitario;
+		
+		private decimal _decPrecioFinal;
+		
+		public tmp_BrazoDriveIn()
 		{
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sintLargoBrazoID", DbType="SmallInt NOT NULL")]
-		public short sintLargoBrazoID
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sintDriveInID")]
+		public short sintDriveInID
 		{
 			get
 			{
-				return this._sintLargoBrazoID;
+				return this._sintDriveInID;
 			}
 			set
 			{
-				if ((this._sintLargoBrazoID != value))
+				if ((this._sintDriveInID != value))
 				{
-					this._sintLargoBrazoID = value;
+					this._sintDriveInID = value;
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decLargoBrazo", DbType="Decimal(8,2)")]
-		public System.Nullable<decimal> decLargoBrazo
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decLargo")]
+		public decimal decLargo
 		{
 			get
 			{
-				return this._decLargoBrazo;
+				return this._decLargo;
 			}
 			set
 			{
-				if ((this._decLargoBrazo != value))
+				if ((this._decLargo != value))
 				{
-					this._decLargoBrazo = value;
+					this._decLargo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decLongitud")]
+		public decimal decLongitud
+		{
+			get
+			{
+				return this._decLongitud;
+			}
+			set
+			{
+				if ((this._decLongitud != value))
+				{
+					this._decLongitud = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decAncho")]
+		public decimal decAncho
+		{
+			get
+			{
+				return this._decAncho;
+			}
+			set
+			{
+				if ((this._decAncho != value))
+				{
+					this._decAncho = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decTotalKiloUnitario")]
+		public decimal decTotalKiloUnitario
+		{
+			get
+			{
+				return this._decTotalKiloUnitario;
+			}
+			set
+			{
+				if ((this._decTotalKiloUnitario != value))
+				{
+					this._decTotalKiloUnitario = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decPrecioFinal")]
+		public decimal decPrecioFinal
+		{
+			get
+			{
+				return this._decPrecioFinal;
+			}
+			set
+			{
+				if ((this._decPrecioFinal != value))
+				{
+					this._decPrecioFinal = value;
 				}
 			}
 		}

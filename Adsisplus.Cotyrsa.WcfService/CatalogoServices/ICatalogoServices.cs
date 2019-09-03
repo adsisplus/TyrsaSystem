@@ -346,5 +346,19 @@ namespace Adsisplus.Cotyrsa.WcfService.CatalogoServices
         [OperationContract]
         [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ListarCatLargoCrossBar")]
         List<CatalogoDecimal> ListarCatLargoCrossBar();
+        /// <summary>
+        /// Procedimiento que lista el catálogo de largo de Brazo
+        /// </summary>
+        /// <returns></returns>
+        [OperationContract]
+        [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ListarCatLargoBrazo")]
+        List<CatalogoDecimal> ListarCatLargoBrazo();
+        /// <summary>
+        /// Procedimiento que lista el catálogo de material DriveIn
+        /// </summary>
+        /// <returns></returns>
+        [OperationContract]
+        [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ListarCatMaterialDriveIn")]
+        List<Catalogo> ListarCatMaterialDriveIn();
     }
 }

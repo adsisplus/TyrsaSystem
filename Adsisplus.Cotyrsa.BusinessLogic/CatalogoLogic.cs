@@ -867,5 +867,39 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
             }
             return result;
         }
+        /// <summary>
+        /// Procedimiento que lista el catálogo de largo de Brazo
+        /// </summary>
+        /// <returns></returns>
+        public List<CatalogoDecimal> ListarCatLargoBrazo()
+        {
+            List<CatalogoDecimal> result = new List<CatalogoDecimal>();
+            try
+            {
+                result = CatalogosDA.ListarCatLargoBrazo();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
+        /// <summary>
+        /// Procedimiento que lista el catálogo de material DriveIn
+        /// </summary>
+        /// <returns></returns>
+        public List<Catalogo> ListarCatMaterialDriveIn()
+        {
+            List<Catalogo> result = new List<Catalogo>();
+            try
+            {
+                result = CatalogosDA.ListarCatMaterialDriveIn();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
     }
 }
