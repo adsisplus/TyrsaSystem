@@ -642,6 +642,23 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
             }
             return result;
         }
+        /// <summary>
+        /// Procedimiento que lista las vigas tipo caja
+        /// </summary>
+        /// <returns></returns>
+        public List<DatosVigaTipoCaja> ListarSeleccionVigaTipoCaja()
+        {
+            List<DatosVigaTipoCaja> result = new List<DatosVigaTipoCaja>();
+            try
+            {
+                result = CatalogosDA.ListarSeleccionVigaTipoCaja();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
         #endregion
     }
 }

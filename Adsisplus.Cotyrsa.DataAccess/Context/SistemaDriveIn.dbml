@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="dbTyrsa" Class="SistemaDriveInDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=local;Initial Catalog=dbTyrsa;User ID=usrCotyrsa" SettingsObjectName="Adsisplus.Cotyrsa.DataAccess.Properties.Settings" SettingsPropertyName="dbTyrsaConnectionString1" Provider="System.Data.SqlClient" />
+  <Connection Mode="AppSettings" ConnectionString="Data Source=local;Initial Catalog=dbTyrsa;Persist Security Info=True;User ID=usrCotyrsa" SettingsObjectName="Adsisplus.Cotyrsa.DataAccess.Properties.Settings" SettingsPropertyName="dbTyrsaConnectionString" Provider="System.Data.SqlClient" />
   <Function Name="dbo.stp_setDatosAtirantado" Method="stp_setDatosAtirantado">
     <Parameter Name="intAtirantadoID" Type="System.Int32" DbType="Int" />
     <Parameter Name="intElementoID" Type="System.Int32" DbType="Int" />
@@ -198,6 +198,24 @@
     <ElementType Name="stp_setDatosPosteDriveInResult">
       <Column Name="vchResultado" Type="System.String" DbType="VarChar(12)" CanBeNull="true" />
       <Column Name="vchDescripcion" Type="System.String" DbType="VarChar(54) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.stp_ListarMstDiveIn" Method="stp_ListarMstDiveIn">
+    <Parameter Name="sintTipoVigaID" Type="System.Int16" DbType="SmallInt" />
+    <Parameter Name="sintLongitudID" Type="System.Int16" DbType="SmallInt" />
+    <Parameter Name="intCalibreID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="sintLargoID" Type="System.Int16" DbType="SmallInt" />
+    <ElementType Name="stp_ListarMstDiveInResult">
+      <Column Name="intCapacidadVigaID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="vchTipoViga" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="vchLongitud" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="vchCalibre" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="intLargo" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="decCargaKg" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
+      <Column Name="decCargaLbs" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
+      <Column Name="decCoeficienteSeguridad" Type="System.Decimal" DbType="Decimal(8,2)" CanBeNull="true" />
+      <Column Name="datFechaAlta" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="bitActivo" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
     </ElementType>
   </Function>
 </Database>

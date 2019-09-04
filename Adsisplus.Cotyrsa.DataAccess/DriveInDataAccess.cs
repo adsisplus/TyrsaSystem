@@ -328,5 +328,42 @@ namespace Adsisplus.Cotyrsa.DataAccess
             }
             return result;
         }
+        /// <summary>
+        /// Procedimiento que lista los datos Drive In en base al tipo de viga
+        /// </summary>
+        /// <param name="sintTipoVigaID"></param>
+        /// <param name="sintLongitudID"></param>
+        /// <param name="intCalibreID"></param>
+        /// <param name="sintLargoID"></param>
+        /// <returns></returns>
+        public List<DriveIn> ListarDatosMstDriveIn(short sintTipoVigaID, short sintLongitudID, int intCalibreID, short sintLargoID)
+        {
+            List<DriveIn> result = new List<DriveIn>();
+            try
+            {
+                using (SistemaDriveInDataContext dc = new SistemaDriveInDataContext(Helper.ConnectionString()))
+                {
+                    var query = from item in dc.stp_ListarMstDiveIn(sintTipoVigaID, sintLongitudID, intCalibreID, sintLargoID)
+                                select new DriveIn
+                                {
+                                    vchTipoViga = item.vchTipoViga,
+                                    vchLongitud = item.vchLongitud,
+                                    vchCalibre = item.vchCalibre,
+                                    intLargo = item.intLargo,
+                                    decCargaKg = item.decCargaKg,
+                                    decCargaLbs = item.decCargaLbs,
+                                    decCoeficienteSeguridad = item.decCoeficienteSeguridad,
+                                    datFechaAlta = item.datFechaAlta,
+                                    bitActivo = item.bitActivo
+                                };
+                    result.AddRange(query);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
     }
 }

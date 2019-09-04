@@ -680,5 +680,33 @@ namespace Adsisplus.Cotyrsa.DataAccess
             }
             return result;
         }
+        /// <summary>
+        /// Procedimiento que lista las vigas tipo caja
+        /// </summary>
+        /// <returns></returns>
+        public List<DatosVigaTipoCaja> ListarSeleccionVigaTipoCaja()
+        {
+            List<DatosVigaTipoCaja> result = new List<DatosVigaTipoCaja>();
+            try
+            {
+                using (VigasDataContext dc = new VigasDataContext(Helper.ConnectionString()))
+                {
+                    var query = from item in dc.stp_ListarSeleccionViga_Tipo_Caja()
+                                select new DatosVigaTipoCaja
+                                {
+                                    SKU = Convert.ToInt32(item.SKU),
+                                    decPesoPieza = item.decPesoPieza,
+                                    TOTAL = item.TOTAL,
+                                    decTotal = item.decTotal
+                                };
+                    result.AddRange(query);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
     }
 }

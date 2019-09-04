@@ -256,5 +256,26 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
             }
             return result;
         }
+        /// <summary>
+        /// Procedimiento que lista los datos Drive In en base al tipo de viga
+        /// </summary>
+        /// <param name="sintTipoVigaID"></param>
+        /// <param name="sintLongitudID"></param>
+        /// <param name="intCalibreID"></param>
+        /// <param name="sintLargoID"></param>
+        /// <returns></returns>
+        public List<DriveIn> ListarDatosMstDriveIn(short sintTipoVigaID, short sintLongitudID, int intCalibreID, short sintLargoID)
+        {
+            List<DriveIn> result = new List<DriveIn>();
+            try
+            {
+                result = DriveInDA.ListarDatosMstDriveIn(sintTipoVigaID, sintLongitudID, intCalibreID, sintLargoID);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
     }
 }

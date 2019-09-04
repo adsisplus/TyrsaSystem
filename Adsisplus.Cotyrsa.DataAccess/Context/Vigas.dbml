@@ -357,4 +357,12 @@
       <Column Name="decPesoUnitario" Type="System.Decimal" DbType="Decimal(20,3)" CanBeNull="true" />
     </ElementType>
   </Function>
+  <Function Name="dbo.stp_ListarSeleccionViga_Tipo_Caja" Method="stp_ListarSeleccionViga_Tipo_Caja">
+    <ElementType Name="stp_ListarSeleccionViga_Tipo_CajaResult">
+      <Column Name="SKU" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="decPesoPieza" Type="System.Decimal" DbType="Decimal(38,6)" CanBeNull="true" />
+      <Column Name="TOTAL" Type="System.Decimal" DbType="Decimal(38,3)" CanBeNull="true" />
+      <Column Name="decTotal" Type="System.Decimal" DbType="Decimal(38,6)" CanBeNull="true" />
+    </ElementType>
+  </Function>
 </Database>

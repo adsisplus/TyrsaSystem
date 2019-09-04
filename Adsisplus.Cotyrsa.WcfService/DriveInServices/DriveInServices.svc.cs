@@ -14,25 +14,6 @@ namespace Adsisplus.Cotyrsa.WcfService.DriveInServices
     public class DriveInServices : IDriveInServices
     {
         /// <summary>
-        /// Procedimiento que lista los datos de DriveIn
-        /// </summary>
-        /// <param name="intDatosDriveInID"></param>
-        /// <param name="intDetCotizaID"></param>
-        /// <returns></returns>
-        public List<DatosDriveIn> ListarDatosDriveIn(int intDatosDriveInID, int intDetCotizaID)
-        {
-            List<DatosDriveIn> result = new List<DatosDriveIn>();
-            try
-            {
-                result = (new DriveInLogic()).ListarDatosDriveIn(intDatosDriveInID, intDetCotizaID);
-            }
-            catch (Exception ex)
-            {
-                Adsisplus.Cotyrsa.BusinessLogic.EventLogManager.LogErrorEntry(ex.Message);
-            }
-            return result;
-        }
-        /// <summary>
         /// Procedimiento que realiza el alta, modificación o baja de los datos Drive In
         /// </summary>
         /// <param name="drive"></param>
@@ -53,26 +34,45 @@ namespace Adsisplus.Cotyrsa.WcfService.DriveInServices
             }
             return result;
         }
-        ///// <summary>
-        ///// Procedimiento que realiza el alta, modificación o baja de los datos Poste Drive In
-        ///// </summary>
-        ///// <param name="poste"></param>
-        ///// <param name="intCotizacionID"></param>
-        ///// <param name="intDetCotizaID"></param>
-        ///// <param name="tinOpcion"></param>
-        ///// <returns></returns>
-        //public Resultado setDatosPosteDriveIn(DatosPosteDriveIn poste, int intCotizacionID, int intDetCotizaID, short tinOpcion)
-        //{
-        //    Resultado result = new Resultado();
-        //    try
-        //    {
-        //        result = (new DriveInLogic()).setDatosPosteDriveIn(poste, intCotizacionID, intDetCotizaID, tinOpcion);
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        Adsisplus.Cotyrsa.BusinessLogic.EventLogManager.LogErrorEntry(ex.Message);
-        //    }
-        //    return result;
-        //}
+        /// <summary>
+        /// Procedimiento que lista los datos de DriveIn
+        /// </summary>
+        /// <param name="intDatosDriveInID"></param>
+        /// <param name="intDetCotizaID"></param>
+        /// <returns></returns>
+        public List<DatosDriveIn> ListarDatosDriveIn(int intDatosDriveInID, int intDetCotizaID)
+        {
+            List<DatosDriveIn> result = new List<DatosDriveIn>();
+            try
+            {
+                result = (new DriveInLogic()).ListarDatosDriveIn(intDatosDriveInID, intDetCotizaID);
+            }
+            catch (Exception ex)
+            {
+                Adsisplus.Cotyrsa.BusinessLogic.EventLogManager.LogErrorEntry(ex.Message);
+            }
+            return result;
+        }
+        /// <summary>
+        /// Procedimiento que lista los datos Drive In en base al tipo de viga
+        /// </summary>
+        /// <param name="sintTipoVigaID"></param>
+        /// <param name="sintLongitudID"></param>
+        /// <param name="intCalibreID"></param>
+        /// <param name="sintLargoID"></param>
+        /// <returns></returns>
+        public List<DriveIn> ListarDatosMstDriveIn(short sintTipoVigaID, short sintLongitudID, int intCalibreID, short sintLargoID)
+        {
+            List<DriveIn> result = new List<DriveIn>();
+            try
+            {
+                result = (new DriveInLogic()).ListarDatosMstDriveIn(sintTipoVigaID, sintLargoID, intCalibreID, sintLargoID);
+            }
+            catch (Exception ex)
+            {
+                Adsisplus.Cotyrsa.BusinessLogic.EventLogManager.LogErrorEntry(ex.Message);
+            }
+            return result;
+        }
     }
 }

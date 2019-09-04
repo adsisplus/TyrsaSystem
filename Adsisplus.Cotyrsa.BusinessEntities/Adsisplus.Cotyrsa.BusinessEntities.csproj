@@ -95,10 +95,12 @@
     <Compile Include="DatosVigaAtirantado.cs" />
     <Compile Include="DatosVigaEntrada.cs" />
     <Compile Include="DatosVigaItermedia.cs" />
+    <Compile Include="DatosVigaTipoCaja.cs" />
     <Compile Include="DatosVigaTope.cs" />
     <Compile Include="DatosTopeDeEneopreno.cs" />
     <Compile Include="Direccion.cs" />
     <Compile Include="DiversosElementoCotizar.cs" />
+    <Compile Include="DriveIn.cs" />
     <Compile Include="Elemento.cs" />
     <Compile Include="Empresa.cs" />
     <Compile Include="FactorCotizacion.cs" />

@@ -425,5 +425,22 @@ namespace Adsisplus.Cotyrsa.WcfService.VigaServices
             }
             return result;
         }
+        /// <summary>
+        /// Procedimiento que lista las vigas tipo caja
+        /// </summary>
+        /// <returns></returns>
+        public List<DatosVigaTipoCaja> ListarSeleccionVigaTipoCaja()
+        {
+            List<DatosVigaTipoCaja> result = new List<DatosVigaTipoCaja>();
+            try
+            {
+                result = (new VigaLogic()).ListarSeleccionVigaTipoCaja();
+            }
+            catch (Exception ex)
+            {
+                Adsisplus.Cotyrsa.BusinessLogic.EventLogManager.LogErrorEntry(ex.Message);
+            }
+            return result;
+        }
     }
 }
