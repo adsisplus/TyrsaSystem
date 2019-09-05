@@ -53,5 +53,23 @@ namespace Adsisplus.Cotyrsa.WcfService.GuiaEntradaServices
             }
             return result;
         }
+        /// <summary>
+        /// Procedimiento que lista los datos de guia monta carga en base al largo
+        /// </summary>
+        /// <param name="sintLargoID"></param>
+        /// <returns></returns>
+        public List<DatosMontaCargaDriveIn> ListarDatosGuiaMontaCargaDriveIn(short sintLargoID)
+        {
+            List<DatosMontaCargaDriveIn> result = new List<DatosMontaCargaDriveIn>();
+            try
+            {
+                result = (new GuiaEntradaLogic()).ListarDatosGuiaMontaCargaDriveIn(sintLargoID);
+            }
+            catch (Exception ex)
+            {
+                Adsisplus.Cotyrsa.BusinessLogic.EventLogManager.LogErrorEntry(ex.Message);
+            }
+            return result;
+        }
     }
 }

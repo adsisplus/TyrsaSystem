@@ -70,6 +70,7 @@
     <Compile Include="DatosGuiaEntrada.cs" />
     <Compile Include="DatosInstalacion.cs" />
     <Compile Include="DatosMarco.cs" />
+    <Compile Include="DatosMontaCargaDriveIn.cs" />
     <Compile Include="DatosPanel.cs" />
     <Compile Include="DatosPantallaCrossBar.cs" />
     <Compile Include="DatosPantallaDistanciador.cs" />

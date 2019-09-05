@@ -46,5 +46,36 @@ namespace Adsisplus.Cotyrsa.DataAccess
             }
             return result;
         }
+        /// <summary>
+        /// Procedimiento que lista los datos de guia monta carga en base al largo
+        /// </summary>
+        /// <param name="sintLargoID"></param>
+        /// <returns></returns>
+        public List<DatosMontaCargaDriveIn> ListarDatosGuiaMontaCargaDriveIn(short sintLargoID)
+        {
+            List<DatosMontaCargaDriveIn> result = new List<DatosMontaCargaDriveIn>();
+            try
+            {
+                using (GuiaEntradaDataContext dc = new GuiaEntradaDataContext(Helper.ConnectionString()))
+                {
+                    var query = from item in dc.stp_ListarGuiaMontacargaDiveIn(sintLargoID)
+                                select new DatosMontaCargaDriveIn
+                                {
+                                    sintDriveInID = item.sintDriveInID,
+                                    decTotal = item.decTotal,
+                                    decTotalKiloUnitario = item.decTotalKiloUnitario,
+                                    vchMedida = item.vchMedida,
+                                    decPrecioFinal = item.decPrecioFinal,
+                                    decPrecioMasLargoTotal = item.decPrecioMasLargoTotal
+                                };
+                    result.AddRange(query);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
     }
 }

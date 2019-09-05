@@ -33,5 +33,13 @@ namespace Adsisplus.Cotyrsa.WcfService.GuiaEntradaServices
         [OperationContract]
         [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "setDatosGuiaEntrada")]
         Resultado setDatosGuiaEntrada(DatosGuiaEntrada guia, int intCotizacionID, int intDetCotizaID, short tinOpcion);
+        /// <summary>
+        /// Procedimiento que lista los datos de guia monta carga en base al largo
+        /// </summary>
+        /// <param name="sintLargoID"></param>
+        /// <returns></returns>
+        [OperationContract]
+        [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ListarDatosGuiaMontaCargaDriveIn")]
+        List<DatosMontaCargaDriveIn> ListarDatosGuiaMontaCargaDriveIn(short sintLargoID);
     }
 }
