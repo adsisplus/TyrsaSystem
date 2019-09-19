@@ -39,7 +39,49 @@ namespace Adsisplus.Cotyrsa.DataAccess
                                     decPesoUnitario = item.decPesoUnitario,
                                     decPesoTotal = item.decPesoTotal,
                                     decLongitud = item.decLongitud,
-                                    intCalibreID = item.intCalibreID
+                                    intCalibreID = item.intCalibreID,
+                                    seleccion = new SeleccionArriestrado()
+                                    {
+                                        intSeleccionArriestradoID = item.intSeleccionArriestradoID,
+                                        sintDriveInID = item.sintDriveInID,
+                                        intAtirantadoID = item.intAtirantadoID,
+                                        decLargo = item.decLargo,
+                                        decLongitud = item.decLongitud,
+                                        decAncho = item.decAncho,
+                                        decTotalKiloUnitario = item.decTotalKiloUnitario,
+                                        decPrecioFinal = item.decPrecioFinal
+                                    }
+                                };
+                    result.AddRange(query);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
+        /// <summary>
+        /// Procedimiento que lista los datos de selección Arriestrado
+        /// </summary>
+        /// <param name="bitEsEstructural"></param>
+        /// <returns></returns>
+        public List<SeleccionArriestrado> ListarDriveInArriestrado(bool bitEsEstructural)
+        {
+            List<SeleccionArriestrado> result = new List<SeleccionArriestrado>();
+            try
+            {
+                using (AtirantadoDataContext dc = new AtirantadoDataContext(Helper.ConnectionString()))
+                {
+                    var query = from item in dc.stp_ListarDriveInArriestrado(bitEsEstructural)
+                                select new SeleccionArriestrado
+                                {
+                                    sintDriveInID = item.sintDriveInID,
+                                    decLargo = item.decLargo,
+                                    decLongitud = item.decLongitud,
+                                    decAncho = item.decAncho,
+                                    decTotalKiloUnitario = item.decTotalKiloUnitario,
+                                    decPrecioFinal = item.decPrecioFinal
                                 };
                     result.AddRange(query);
                 }

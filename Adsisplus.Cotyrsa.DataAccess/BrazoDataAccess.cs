@@ -38,7 +38,19 @@ namespace Adsisplus.Cotyrsa.DataAccess
                                     decPrecioVentaUnitario = item.decPrecioVentaUnitario,
                                     decPrecioVentaTotal = item.decPrecioVentaTotal,
                                     decPesoUnitario = item.decPesoUnitario,
-                                    decPesoTotal = item.decPesoTotal
+                                    decPesoTotal = item.decPesoTotal,
+                                    // Agregamos la entidad que almacenará los datos de la seleccion
+                                    seleccion = new SeleccionBrazo()
+                                    {
+                                        intSeleccionBrazoID = item.intSeleccionBrazoID,
+                                        intBrazo = item.intBrazoID,
+                                        sintDriveInID = item.sintDriveInID,
+                                        decLargo = item.decLargo,
+                                        decLongitud = item.decLongitud,
+                                        decAncho = item.decAncho,
+                                        decTotalKiloUnitario = item.decTotalKiloUnitario,
+                                        decPrecioFinal = item.decPrecioFinal
+                                    }
                                 };
                     result.AddRange(query);
                 }
@@ -54,15 +66,15 @@ namespace Adsisplus.Cotyrsa.DataAccess
         /// </summary>
         /// <param name="bitEsEstructural"></param>
         /// <returns></returns>
-        public List<DatosDriveInBrazo> ListarDatosBrazoDriveIn(bool bitEsEstructural)
+        public List<SeleccionBrazo> ListarDatosBrazoDriveIn(bool bitEsEstructural)
         {
-            List<DatosDriveInBrazo> result = new List<DatosDriveInBrazo>();
+            List<SeleccionBrazo> result = new List<SeleccionBrazo>();
             try
             {
                 using (BrazoDataContext dc = new BrazoDataContext(Helper.ConnectionString()))
                 {
                     var query = from item in dc.stp_ListarDriveInBrazo(bitEsEstructural)
-                                select new DatosDriveInBrazo
+                                select new SeleccionBrazo
                                 {
                                     sintDriveInID = item.sintDriveInID,
                                     decLargo = item.decLargo,

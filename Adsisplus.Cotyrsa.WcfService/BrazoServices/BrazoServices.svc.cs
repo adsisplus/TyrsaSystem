@@ -37,9 +37,9 @@ namespace Adsisplus.Cotyrsa.WcfService.BrazoServices
         /// </summary>
         /// <param name="bitEsEstructural"></param>
         /// <returns></returns>
-        public List<DatosDriveInBrazo> ListarDatosBrazoDriveIn(bool bitEsEstructural)
+        public List<SeleccionBrazo> ListarDatosBrazoDriveIn(bool bitEsEstructural)
         {
-            List<DatosDriveInBrazo> result = new List<DatosDriveInBrazo>();
+            List<SeleccionBrazo> result = new List<SeleccionBrazo>();
             try
             {
                 result = (new BrazoLogic()).ListarDatosBrazoDriveIn(bitEsEstructural);

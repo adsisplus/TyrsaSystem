@@ -43,5 +43,7 @@ namespace Adsisplus.Cotyrsa.BusinessEntities
         public decimal? decLongitud { get; set; }
         [DataMember]
         public int? intCalibreID { get; set; }
+        [DataMember]
+        public SeleccionArriestrado seleccion { get; set; }
     }
 }

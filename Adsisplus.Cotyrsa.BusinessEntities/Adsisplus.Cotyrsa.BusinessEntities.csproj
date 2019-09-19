@@ -62,7 +62,6 @@
     <Compile Include="DatosCrossBar.cs" />
     <Compile Include="DatosDistanciador.cs" />
     <Compile Include="DatosDriveIn.cs" />
-    <Compile Include="DatosDriveInBrazo.cs" />
     <Compile Include="DatosEntrepanio.cs" />
     <Compile Include="DatosFlete.cs" />
     <Compile Include="DatosFreno.cs" />
@@ -125,10 +124,13 @@
     <Compile Include="RelSistemaSelectivo.cs" />
     <Compile Include="RelTipoElementoAlmacenFactorCotizacion.cs" />
     <Compile Include="Resultado.cs" />
+    <Compile Include="SeleccionArriestrado.cs" />
+    <Compile Include="SeleccionBrazo.cs" />
     <Compile Include="SeleccionCrossBar.cs" />
     <Compile Include="SeleccionDistanciador.cs" />
     <Compile Include="SeleccionMarco.cs" />
     <Compile Include="SeleccionPanel.cs" />
+    <Compile Include="SeleccionRielDeCarga.cs" />
     <Compile Include="SeleccionViga.cs" />
     <Compile Include="SeleccionViga_TipoC.cs" />
     <Compile Include="SubFamiliaMarco.cs" />

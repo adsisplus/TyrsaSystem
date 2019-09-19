@@ -41,5 +41,8 @@ namespace Adsisplus.Cotyrsa.BusinessEntities
         public decimal? decPesoUnitario { get; set; }
         [DataMember]
         public decimal? decPesoTotal { get; set; }
+        // Agregamos la entidad seleccion Brazo
+        [DataMember]
+        public SeleccionBrazo seleccion { get; set; }
     }
 }

@@ -23,6 +23,15 @@ namespace Adsisplus.Cotyrsa.WcfService.RielTarimaServices
         [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ListarDatosRielTarima")]
         List<DatosRielTarima> ListarDatosRielTarima(int intRielTarimaID, int intDetCotizaID);
         /// <summary>
+        /// Procedimiento que lista los datos de seleccion riel de carga
+        /// </summary>
+        /// <param name="decPeso"></param>
+        /// <param name="bitEsEstructural"></param>
+        /// <returns></returns>
+        [OperationContract]
+        [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ListarDriveInRielDeCarga")]
+        List<SeleccionRielDeCarga> ListarDriveInRielDeCarga(decimal decPeso, bool bitEsEstructural);
+        /// <summary>
         /// Procedimiento que realiza el alta o modificación de los datos Riel Tarima
         /// </summary>
         /// <param name="riel"></param>

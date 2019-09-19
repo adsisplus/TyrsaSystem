@@ -22,7 +22,14 @@ namespace Adsisplus.Cotyrsa.WcfService.AtirantadoServices
         [OperationContract]
         [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ListarDatosAtirantado")]
         List<DatosAtirantado> ListarDatosAtirantado(int intAtirantadoID, int intDetCotizaID);
-
+        /// <summary>
+        /// Procedimiento que lista los datos de selección Arriestrado
+        /// </summary>
+        /// <param name="bitEsEstructural"></param>
+        /// <returns></returns>
+        [OperationContract]
+        [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ListarDriveInArriestrado")]
+        List<SeleccionArriestrado> ListarDriveInArriestrado(bool bitEsEstructural);
         /// <summary>
         /// Procedimiento que realiza el alta, modificación de los datos atirantado
         /// </summary>

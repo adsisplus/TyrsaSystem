@@ -2,14 +2,18 @@
   <Connection Mode="AppSettings" ConnectionString="Data Source=local;Initial Catalog=dbTyrsa;Persist Security Info=True;User ID=usrCotyrsa" SettingsObjectName="Adsisplus.Cotyrsa.DataAccess.Properties.Settings" SettingsPropertyName="dbTyrsaConnectionString" Provider="System.Data.SqlClient" />
   <Table Name="" Member="tmp_BrazoDriveIn">
     <Type Name="tmp_BrazoDriveIn" Id="ID1">
-      <Column Member="sintDriveInID" Type="System.Int16" CanBeNull="false" />
-      <Column Member="decLargo" Type="System.Decimal" CanBeNull="false" />
-      <Column Member="decLongitud" Type="System.Decimal" CanBeNull="false" />
-      <Column Member="decAncho" Type="System.Decimal" CanBeNull="false" />
-      <Column Member="decTotalKiloUnitario" Type="System.Decimal" CanBeNull="false" />
-      <Column Member="decPrecioFinal" Type="System.Decimal" CanBeNull="false" />
+      <Column Name="sintDriveInID" Type="System.Int16" CanBeNull="false" />
+      <Column Name="decLargo" Type="System.Decimal" CanBeNull="false" />
+      <Column Name="decLongitud" Type="System.Decimal" CanBeNull="false" />
+      <Column Name="decAncho" Type="System.Decimal" CanBeNull="false" />
+      <Column Name="decTotalKiloUnitario" Type="System.Decimal" CanBeNull="false" />
+      <Column Name="decPrecioFinal" Type="System.Decimal" CanBeNull="false" />
     </Type>
   </Table>
+  <Function Name="dbo.stp_ListarDriveInBrazo" Method="stp_ListarDriveInBrazo">
+    <Parameter Name="bitEsEstructural" Type="System.Boolean" DbType="Bit" />
+    <ElementType IdRef="ID1" />
+  </Function>
   <Function Name="dbo.stp_ListarDatosBrazo" Method="stp_ListarDatosBrazo">
     <Parameter Name="intBrazoID" Type="System.Int32" DbType="Int" />
     <Parameter Name="intDetCotizaID" Type="System.Int32" DbType="Int" />
@@ -27,10 +31,13 @@
       <Column Name="decPrecioVentaTotal" Type="System.Decimal" DbType="Decimal(18,3)" CanBeNull="true" />
       <Column Name="decPesoUnitario" Type="System.Decimal" DbType="Decimal(20,3)" CanBeNull="true" />
       <Column Name="decPesoTotal" Type="System.Decimal" DbType="Decimal(8,3)" CanBeNull="true" />
+      <Column Name="intSeleccionBrazoID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="sintDriveInID" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="decLargo1" Type="System.Decimal" DbType="Decimal(8,2)" CanBeNull="true" />
+      <Column Name="decLongitud" Type="System.Decimal" DbType="Decimal(8,2)" CanBeNull="true" />
+      <Column Name="decAncho" Type="System.Decimal" DbType="Decimal(8,2)" CanBeNull="true" />
+      <Column Name="decTotalKiloUnitario" Type="System.Decimal" DbType="Decimal(8,2)" CanBeNull="true" />
+      <Column Name="decPrecioFinal" Type="System.Decimal" DbType="Decimal(8,2)" CanBeNull="true" />
     </ElementType>
-  </Function>
-  <Function Name="dbo.stp_ListarDriveInBrazo" Method="stp_ListarDriveInBrazo">
-    <Parameter Name="bitEsEstructural" Type="System.Boolean" DbType="Bit" />
-    <ElementType IdRef="ID1" />
   </Function>
 </Database>

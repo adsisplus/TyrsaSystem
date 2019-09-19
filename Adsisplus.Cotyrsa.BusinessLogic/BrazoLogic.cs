@@ -42,9 +42,9 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
         /// </summary>
         /// <param name="bitEsEstructural"></param>
         /// <returns></returns>
-        public List<DatosDriveInBrazo> ListarDatosBrazoDriveIn(bool bitEsEstructural)
+        public List<SeleccionBrazo> ListarDatosBrazoDriveIn(bool bitEsEstructural)
         {
-            List<DatosDriveInBrazo> result = new List<DatosDriveInBrazo>();
+            List<SeleccionBrazo> result = new List<SeleccionBrazo>();
             try
             {
                 result = BrazoDA.ListarDatosBrazoDriveIn(bitEsEstructural);
@@ -71,11 +71,11 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
                 Cotizacion detCotizacion = new Cotizacion();
                 detCotizacion.intCotizacionID = intCotizacionID;
                 detCotizacion.intDetCotizaID = intDetCotizaID;
-                detCotizacion.intElementoID = 2; // Falta definir el ID
+                detCotizacion.intElementoID = 30;
                 detCotizacion.intPartida = 0;
                 detCotizacion.intCantidad = brazo.intCantidad;
-                detCotizacion.decMonto = brazo.decPrecioVentaTotal;
-                detCotizacion.decSubtotal = Decimal.Round((Math.Truncate(100 * brazo.decPrecioVentaTotal.Value) / 100) * brazo.intCantidad.Value);
+                detCotizacion.decMonto = brazo.decPrecioVentaUnitario;
+                detCotizacion.decSubtotal = Decimal.Round((Math.Truncate(100 * brazo.decPrecioVentaUnitario.Value) / 100) * brazo.intCantidad.Value);
 
                 // Almacenamos el registro
                 result = (new CotizacionLogic()).setDetCotizacion(detCotizacion, (short)(intDetCotizaID == 0 ? 1 : tinOpcion));
@@ -105,9 +105,20 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
                     _brazo.intCantidad = brazo.intCantidad;
                     _brazo.intDetCotizaID = intDetCotizaID;
                     _brazo.intCotizacionID = intCotizacionID;
-                    _brazo.intElementoID = 0;
+                    _brazo.intElementoID = 30;
                     _brazo.sintLargoBrazoID = brazo.sintLargoBrazoID;
                     _brazo.sintPinturaID = brazo.sintPinturaID;
+                    
+                    // Insertamos los datos de la seleccion
+                    _brazo.seleccion = new SeleccionBrazo();
+                    _brazo.seleccion.intBrazo = brazo.seleccion.intBrazo;
+                    _brazo.seleccion.intSeleccionBrazoID = brazo.seleccion.intSeleccionBrazoID;
+                    _brazo.seleccion.sintDriveInID = brazo.seleccion.sintDriveInID;
+                    _brazo.seleccion.decAncho = brazo.seleccion.decAncho;
+                    _brazo.seleccion.decLargo = brazo.seleccion.decLargo;
+                    _brazo.seleccion.decLongitud = brazo.seleccion.decLongitud;
+                    _brazo.seleccion.decPrecioFinal = brazo.seleccion.decPrecioFinal;
+                    _brazo.seleccion.decTotalKiloUnitario = brazo.seleccion.decTotalKiloUnitario;
 
                     //Realizamos el registro del brazo
                     result = (new DriveInLogic()).setDatosBrazo(_brazo, tinOpcion);

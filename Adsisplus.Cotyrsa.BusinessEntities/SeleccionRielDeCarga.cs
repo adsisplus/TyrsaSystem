@@ -8,10 +8,14 @@ using System.Threading.Tasks;
 namespace Adsisplus.Cotyrsa.BusinessEntities
 {
     [DataContract]
-    public class DatosDriveInBrazo
+    public class SeleccionRielDeCarga
     {
         [DataMember]
+        public int? intSeleccionRielCargaID { get; set; }
+        [DataMember]
         public short? sintDriveInID { get; set; }
+        [DataMember]
+        public int? intRielTarimaID { get; set; }
         [DataMember]
         public decimal? decLargo { get; set; }
         [DataMember]

@@ -33,6 +33,24 @@ namespace Adsisplus.Cotyrsa.WcfService.AtirantadoServices
             return result;
         }
         /// <summary>
+        /// Procedimiento que lista los datos de selección Arriestrado
+        /// </summary>
+        /// <param name="bitEsEstructural"></param>
+        /// <returns></returns>
+        public List<SeleccionArriestrado> ListarDriveInArriestrado(bool bitEsEstructural)
+        {
+            List<SeleccionArriestrado> result = new List<SeleccionArriestrado>();
+            try
+            {
+                result = (new AtirantadoLogic()).ListarDriveInArriestrado(bitEsEstructural);
+            }
+            catch (Exception ex)
+            {
+                Adsisplus.Cotyrsa.BusinessLogic.EventLogManager.LogErrorEntry(ex.Message);
+            }
+            return result;
+        }
+        /// <summary>
         /// Procedimiento que realiza el alta, modificación de los datos atirantado
         /// </summary>
         /// <param name="atirantado"></param>

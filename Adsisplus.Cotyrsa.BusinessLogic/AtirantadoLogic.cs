@@ -38,6 +38,24 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
             return result;
         }
         /// <summary>
+        /// Procedimiento que lista los datos de selección Arriestrado
+        /// </summary>
+        /// <param name="bitEsEstructural"></param>
+        /// <returns></returns>
+        public List<SeleccionArriestrado> ListarDriveInArriestrado(bool bitEsEstructural)
+        {
+            List<SeleccionArriestrado> result = new List<SeleccionArriestrado>();
+            try
+            {
+                result = AtirantadoDA.ListarDriveInArriestrado(bitEsEstructural);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
+        /// <summary>
         /// Procedimiento que realiza el alta, modificación de los datos atirantado
         /// </summary>
         /// <param name="atirantado"></param>
@@ -53,11 +71,11 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
                 Cotizacion detCotizacion = new Cotizacion();
                 detCotizacion.intCotizacionID = intCotizacionID;
                 detCotizacion.intDetCotizaID = intDetCotizaID;
-                detCotizacion.intElementoID = 19;
+                detCotizacion.intElementoID = 18;
                 detCotizacion.intPartida = 0;
                 detCotizacion.intCantidad = atirantado.intCantidad;
-                detCotizacion.decMonto = atirantado.decPrecioVentaTotal;
-                detCotizacion.decSubtotal = Decimal.Round((Math.Truncate(100 * atirantado.decPrecioVentaTotal.Value) / 100) * atirantado.intCantidad.Value);
+                detCotizacion.decMonto = atirantado.decPrecioVentaUnitario;
+                detCotizacion.decSubtotal = Decimal.Round((Math.Truncate(100 * atirantado.decPrecioVentaUnitario.Value) / 100) * atirantado.intCantidad.Value);
 
                 // Almacenamos el registro
                 result = (new CotizacionLogic()).setDetCotizacion(detCotizacion, (short)(intDetCotizaID == 0 ? 1 : tinOpcion));
@@ -91,8 +109,12 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
                     _atirantado.intCantidad = atirantado.intCantidad;
                     _atirantado.intCotizacionID = intCotizacionID;
                     _atirantado.intDetCotizaID = intDetCotizaID;
-                    _atirantado.intElementoID = 19;
+                    _atirantado.intElementoID = 18;
                     _atirantado.sintPinturaID = atirantado.sintPinturaID;
+
+                    // Almacenamos los datos de la selección
+                    _atirantado.seleccion = new SeleccionArriestrado();
+                    _atirantado.seleccion = atirantado.seleccion;
 
                     // Realizamos el registro del atirantado
                     result = (new DriveInLogic()).setDatosAtirantado(_atirantado, tinOpcion);

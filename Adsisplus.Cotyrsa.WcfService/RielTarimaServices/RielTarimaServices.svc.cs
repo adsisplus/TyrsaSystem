@@ -33,6 +33,25 @@ namespace Adsisplus.Cotyrsa.WcfService.RielTarimaServices
             return result;
         }
         /// <summary>
+        /// Procedimiento que lista los datos de seleccion riel de carga
+        /// </summary>
+        /// <param name="decPeso"></param>
+        /// <param name="bitEsEstructural"></param>
+        /// <returns></returns>
+        public List<SeleccionRielDeCarga> ListarDriveInRielDeCarga(decimal decPeso, bool bitEsEstructural)
+        {
+            List<SeleccionRielDeCarga> result = new List<SeleccionRielDeCarga>();
+            try
+            {
+                result = (new RielTarimaLogic()).ListarDriveInRielDeCarga(decPeso, bitEsEstructural);
+            }
+            catch(Exception ex)
+            {
+                Adsisplus.Cotyrsa.BusinessLogic.EventLogManager.LogErrorEntry(ex.Message);
+            }
+            return result;
+        }
+        /// <summary>
         /// Procedimiento que realiza el alta o modificación de los datos Riel Tarima
         /// </summary>
         /// <param name="riel"></param>

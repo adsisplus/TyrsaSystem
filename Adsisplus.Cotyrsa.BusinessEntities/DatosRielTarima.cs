@@ -38,5 +38,7 @@ namespace Adsisplus.Cotyrsa.BusinessEntities
         public decimal? decCarga { get; set; }
         [DataMember]
         public decimal? decLargo { get; set; }
+        [DataMember]
+        public SeleccionRielDeCarga seleccion { get; set; }
     }
 }

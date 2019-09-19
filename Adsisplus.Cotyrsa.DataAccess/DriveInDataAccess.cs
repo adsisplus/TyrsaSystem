@@ -58,6 +58,7 @@ namespace Adsisplus.Cotyrsa.DataAccess
                     var query = from item in dc.stp_setDatosAtirantado(atirantado.intAtirantadoID, atirantado.intElementoID, atirantado.intCotizacionID, atirantado.sintPinturaID,
                         atirantado.intCantidad, atirantado.bitActivo, atirantado.intDetCotizaID, atirantado.decLargo, atirantado.decPrecioVentaUnitario,
                         atirantado.decPrecioVentaTotal, atirantado.decPesoUnitario, atirantado.decPesoTotal, atirantado.decLongitud, atirantado.intCalibreID,
+                        atirantado.seleccion.intSeleccionArriestradoID, atirantado.seleccion.sintDriveInID, atirantado.seleccion.decAncho, atirantado.seleccion.decTotalKiloUnitario, atirantado.seleccion.decPrecioFinal,
                         (byte)tinOpcion)
                                 select new Resultado
                                 {
@@ -119,7 +120,8 @@ namespace Adsisplus.Cotyrsa.DataAccess
                 {
                     var query = from item in dc.stp_setDatosBrazo(brazo.intBrazoID, brazo.intElementoID, brazo.intCotizacionID, brazo.sintPinturaID, brazo.intCantidad,
                         brazo.bitActivo, brazo.sintLargoBrazoID, brazo.intDetCotizaID, brazo.decLargo, brazo.decPrecioVentaUnitario,
-                        brazo.decPrecioVentaTotal, brazo.decPesoUnitario, brazo.decPesoTotal, (byte)tinOpcion)
+                        brazo.decPrecioVentaTotal, brazo.decPesoUnitario, brazo.decPesoTotal, brazo.seleccion.intSeleccionBrazoID,brazo.seleccion.sintDriveInID,
+                        brazo.seleccion.decLongitud, brazo.seleccion.decAncho, brazo.seleccion.decTotalKiloUnitario, brazo.seleccion.decPrecioFinal, (byte)tinOpcion)
                                 select new Resultado
                                 {
                                     vchDescripcion = item.vchDescripcion,
@@ -148,8 +150,9 @@ namespace Adsisplus.Cotyrsa.DataAccess
                 using (SistemaDriveInDataContext dc = new SistemaDriveInDataContext(Helper.ConnectionString()))
                 {
                     var query = from item in dc.stp_setDatosRielTarima(riel.intRielTarimaID, riel.intElementoID, riel.intCotizacionID, riel.intDetCotizaID,
-                        riel.sintTipoRielTarimaID, riel.sintPinturaID, riel.intCantidad, riel.decCarga, riel.decLargo, riel.bitActivo,
-                        (byte)tinOpcion)
+                        riel.sintTipoRielTarimaID, riel.sintPinturaID, riel.intCantidad, riel.decCarga, riel.decLargo, riel.bitActivo, 
+                        riel.seleccion.intSeleccionRielCargaID, riel.seleccion.sintDriveInID, riel.seleccion.decLongitud, riel.seleccion.decAncho, riel.seleccion.decTotalKiloUnitario,
+                        riel.seleccion.decPrecioFinal, (byte)tinOpcion)
                                 select new Resultado
                                 {
                                     vchDescripcion = item.vchDescripcion,
@@ -346,6 +349,7 @@ namespace Adsisplus.Cotyrsa.DataAccess
                     var query = from item in dc.stp_ListarMstDiveIn(sintTipoVigaID, sintLongitudID, intCalibreID, sintLargoID)
                                 select new DriveIn
                                 {
+                                    intCapacidadVigaID = item.intCapacidadVigaID,
                                     vchTipoViga = item.vchTipoViga,
                                     vchLongitud = item.vchLongitud,
                                     vchCalibre = item.vchCalibre,
