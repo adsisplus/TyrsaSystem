@@ -62,18 +62,134 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 			OnCreated();
 		}
 		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.stp_ListarGuiaMontacargaDiveIn")]
+		public ISingleResult<stp_ListarGuiaMontacargaDiveInResult> stp_ListarGuiaMontacargaDiveIn([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="SmallInt")] System.Nullable<short> sintLargoID)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), sintLargoID);
+			return ((ISingleResult<stp_ListarGuiaMontacargaDiveInResult>)(result.ReturnValue));
+		}
+		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.stp_ListarDatosGuiaEntrada")]
 		public ISingleResult<stp_ListarDatosGuiaEntradaResult> stp_ListarDatosGuiaEntrada([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intGuiaEntradaID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intDetCotizaID)
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), intGuiaEntradaID, intDetCotizaID);
 			return ((ISingleResult<stp_ListarDatosGuiaEntradaResult>)(result.ReturnValue));
 		}
+	}
+	
+	public partial class stp_ListarGuiaMontacargaDiveInResult
+	{
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.stp_ListarGuiaMontacargaDiveIn")]
-		public ISingleResult<stp_ListarGuiaMontacargaDiveInResult> stp_ListarGuiaMontacargaDiveIn([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="SmallInt")] System.Nullable<short> sintLargoID)
+		private short _sintDriveInID;
+		
+		private System.Nullable<decimal> _decTotal;
+		
+		private System.Nullable<decimal> _decTotalKiloUnitario;
+		
+		private string _vchMedida;
+		
+		private System.Nullable<decimal> _decPrecioFinal;
+		
+		private System.Nullable<decimal> _decPrecioMasLargoTotal;
+		
+		public stp_ListarGuiaMontacargaDiveInResult()
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), sintLargoID);
-			return ((ISingleResult<stp_ListarGuiaMontacargaDiveInResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sintDriveInID", DbType="SmallInt NOT NULL")]
+		public short sintDriveInID
+		{
+			get
+			{
+				return this._sintDriveInID;
+			}
+			set
+			{
+				if ((this._sintDriveInID != value))
+				{
+					this._sintDriveInID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decTotal", DbType="Decimal(20,2)")]
+		public System.Nullable<decimal> decTotal
+		{
+			get
+			{
+				return this._decTotal;
+			}
+			set
+			{
+				if ((this._decTotal != value))
+				{
+					this._decTotal = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decTotalKiloUnitario", DbType="Decimal(12,3)")]
+		public System.Nullable<decimal> decTotalKiloUnitario
+		{
+			get
+			{
+				return this._decTotalKiloUnitario;
+			}
+			set
+			{
+				if ((this._decTotalKiloUnitario != value))
+				{
+					this._decTotalKiloUnitario = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchMedida", DbType="VarChar(20)")]
+		public string vchMedida
+		{
+			get
+			{
+				return this._vchMedida;
+			}
+			set
+			{
+				if ((this._vchMedida != value))
+				{
+					this._vchMedida = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decPrecioFinal", DbType="Decimal(12,2)")]
+		public System.Nullable<decimal> decPrecioFinal
+		{
+			get
+			{
+				return this._decPrecioFinal;
+			}
+			set
+			{
+				if ((this._decPrecioFinal != value))
+				{
+					this._decPrecioFinal = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decPrecioMasLargoTotal", DbType="Decimal(18,2)")]
+		public System.Nullable<decimal> decPrecioMasLargoTotal
+		{
+			get
+			{
+				return this._decPrecioMasLargoTotal;
+			}
+			set
+			{
+				if ((this._decPrecioMasLargoTotal != value))
+				{
+					this._decPrecioMasLargoTotal = value;
+				}
+			}
 		}
 	}
 	
@@ -99,6 +215,18 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 		private System.Nullable<decimal> _decPrecioUnitario;
 		
 		private System.Nullable<decimal> _decPrecioTotal;
+		
+		private int _intSeleccionGuiaMontaCargaID;
+		
+		private System.Nullable<decimal> _decTotal;
+		
+		private System.Nullable<decimal> _decTotalKiloUnitario;
+		
+		private string _vchMedida;
+		
+		private System.Nullable<decimal> _decPrecioFinal;
+		
+		private System.Nullable<decimal> _decPrecioMasLargoTotal;
 		
 		public stp_ListarDatosGuiaEntradaResult()
 		{
@@ -263,39 +391,19 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 				}
 			}
 		}
-	}
-	
-	public partial class stp_ListarGuiaMontacargaDiveInResult
-	{
 		
-		private short _sintDriveInID;
-		
-		private System.Nullable<decimal> _decTotal;
-		
-		private System.Nullable<decimal> _decTotalKiloUnitario;
-		
-		private string _vchMedida;
-		
-		private System.Nullable<decimal> _decPrecioFinal;
-		
-		private System.Nullable<decimal> _decPrecioMasLargoTotal;
-		
-		public stp_ListarGuiaMontacargaDiveInResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sintDriveInID", DbType="SmallInt NOT NULL")]
-		public short sintDriveInID
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intSeleccionGuiaMontaCargaID", DbType="Int NOT NULL")]
+		public int intSeleccionGuiaMontaCargaID
 		{
 			get
 			{
-				return this._sintDriveInID;
+				return this._intSeleccionGuiaMontaCargaID;
 			}
 			set
 			{
-				if ((this._sintDriveInID != value))
+				if ((this._intSeleccionGuiaMontaCargaID != value))
 				{
-					this._sintDriveInID = value;
+					this._intSeleccionGuiaMontaCargaID = value;
 				}
 			}
 		}
@@ -316,7 +424,7 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decTotalKiloUnitario", DbType="Decimal(12,3)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decTotalKiloUnitario", DbType="Decimal(12,2)")]
 		public System.Nullable<decimal> decTotalKiloUnitario
 		{
 			get
@@ -332,7 +440,7 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchMedida", DbType="VarChar(20)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchMedida", DbType="VarChar(10)")]
 		public string vchMedida
 		{
 			get
@@ -364,7 +472,7 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decPrecioMasLargoTotal", DbType="Decimal(18,2)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decPrecioMasLargoTotal", DbType="Decimal(12,2)")]
 		public System.Nullable<decimal> decPrecioMasLargoTotal
 		{
 			get

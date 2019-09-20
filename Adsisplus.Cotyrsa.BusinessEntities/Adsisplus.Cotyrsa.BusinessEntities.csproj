@@ -128,6 +128,7 @@
     <Compile Include="SeleccionBrazo.cs" />
     <Compile Include="SeleccionCrossBar.cs" />
     <Compile Include="SeleccionDistanciador.cs" />
+    <Compile Include="SeleccionGuiaMonteCarga.cs" />
     <Compile Include="SeleccionMarco.cs" />
     <Compile Include="SeleccionPanel.cs" />
     <Compile Include="SeleccionRielDeCarga.cs" />

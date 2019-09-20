@@ -56,8 +56,8 @@ namespace Adsisplus.Cotyrsa.DataAccess
                 using (SistemaDriveInDataContext dc = new SistemaDriveInDataContext(Helper.ConnectionString()))
                 {
                     var query = from item in dc.stp_setDatosAtirantado(atirantado.intAtirantadoID, atirantado.intElementoID, atirantado.intCotizacionID, atirantado.sintPinturaID,
-                        atirantado.intCantidad, atirantado.bitActivo, atirantado.intDetCotizaID, atirantado.decLargo, atirantado.decPrecioVentaUnitario,
-                        atirantado.decPrecioVentaTotal, atirantado.decPesoUnitario, atirantado.decPesoTotal, atirantado.decLongitud, atirantado.intCalibreID,
+                        atirantado.intCantidad, atirantado.bitActivo, atirantado.intDetCotizaID, atirantado.decLargo, atirantado.seleccion.decPrecioVentaUnitario,
+                        atirantado.seleccion.decPrecioVentaTotal, atirantado.seleccion.decPesoUnitario, atirantado.seleccion.decPesoTotal, atirantado.decLongitud, atirantado.intCalibreID,
                         atirantado.seleccion.intSeleccionArriestradoID, atirantado.seleccion.sintDriveInID, atirantado.seleccion.decAncho, atirantado.seleccion.decTotalKiloUnitario, atirantado.seleccion.decPrecioFinal,
                         (byte)tinOpcion)
                                 select new Resultado
@@ -119,8 +119,8 @@ namespace Adsisplus.Cotyrsa.DataAccess
                 using (SistemaDriveInDataContext dc = new SistemaDriveInDataContext(Helper.ConnectionString()))
                 {
                     var query = from item in dc.stp_setDatosBrazo(brazo.intBrazoID, brazo.intElementoID, brazo.intCotizacionID, brazo.sintPinturaID, brazo.intCantidad,
-                        brazo.bitActivo, brazo.sintLargoBrazoID, brazo.intDetCotizaID, brazo.decLargo, brazo.decPrecioVentaUnitario,
-                        brazo.decPrecioVentaTotal, brazo.decPesoUnitario, brazo.decPesoTotal, brazo.seleccion.intSeleccionBrazoID,brazo.seleccion.sintDriveInID,
+                        brazo.bitActivo, brazo.sintLargoBrazoID, brazo.intDetCotizaID, brazo.decLargo, brazo.seleccion.decPrecioVentaUnitario,
+                        brazo.seleccion.decPrecioVentaTotal, brazo.seleccion.decPesoUnitario, brazo.seleccion.decPesoTotal, brazo.seleccion.intSeleccionBrazoID,brazo.seleccion.sintDriveInID,
                         brazo.seleccion.decLongitud, brazo.seleccion.decAncho, brazo.seleccion.decTotalKiloUnitario, brazo.seleccion.decPrecioFinal, (byte)tinOpcion)
                                 select new Resultado
                                 {
@@ -182,7 +182,9 @@ namespace Adsisplus.Cotyrsa.DataAccess
                 {
                     var query = from item in dc.stp_setDatosGuiaEntrada(guia.intGuiaEntradaID, guia.intElementoID, guia.intCotizacionID, guia.sintPinturaID,
                         guia.decLargo, guia.intCantidad, guia.bitActivo, guia.intDetCotizaID, guia.decPrecioUnitario,
-                        guia.decPrecioTotal, (byte)tinOpcion)
+                        guia.decPrecioTotal, guia.seleccion.intSeleccionGuiaMontaCargaID, guia.seleccion.decTotal, guia.seleccion.decTotalKiloUnitario,
+                        guia.seleccion.vchMedida, guia.seleccion.decPrecioFinal, guia.seleccion.decPrecioMasLargoTotal,
+                        (byte)tinOpcion)
                                 select new Resultado
                                 {
                                     vchDescripcion = item.vchDescripcion,

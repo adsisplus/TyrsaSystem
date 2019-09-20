@@ -35,10 +35,10 @@ namespace Adsisplus.Cotyrsa.DataAccess
                                     sintLargoBrazoID = item.sintLargoBrazoID,
                                     intDetCotizaID = item.intDetCotizaID,
                                     decLargo = item.decLargo,
-                                    decPrecioVentaUnitario = item.decPrecioVentaUnitario,
-                                    decPrecioVentaTotal = item.decPrecioVentaTotal,
-                                    decPesoUnitario = item.decPesoUnitario,
-                                    decPesoTotal = item.decPesoTotal,
+                                    //decPrecioVentaUnitario = item.decPrecioVentaUnitario,
+                                    //decPrecioVentaTotal = item.decPrecioVentaTotal,
+                                    //decPesoUnitario = item.decPesoUnitario,
+                                    //decPesoTotal = item.decPesoTotal,
                                     // Agregamos la entidad que almacenará los datos de la seleccion
                                     seleccion = new SeleccionBrazo()
                                     {
@@ -49,7 +49,11 @@ namespace Adsisplus.Cotyrsa.DataAccess
                                         decLongitud = item.decLongitud,
                                         decAncho = item.decAncho,
                                         decTotalKiloUnitario = item.decTotalKiloUnitario,
-                                        decPrecioFinal = item.decPrecioFinal
+                                        decPrecioFinal = item.decPrecioFinal,
+                                        decPrecioVentaUnitario = item.decPrecioVentaUnitario,
+                                        decPrecioVentaTotal = item.decPrecioVentaTotal,
+                                        decPesoUnitario = item.decPesoUnitario,
+                                        decPesoTotal = item.decPesoTotal
                                     }
                                 };
                     result.AddRange(query);

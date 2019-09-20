@@ -31,14 +31,14 @@ namespace Adsisplus.Cotyrsa.BusinessEntities
         public int? intDetCotizaID { get; set; }
         [DataMember]
         public decimal? decLargo { get; set; }
-        [DataMember]
-        public decimal? decPrecioVentaUnitario { get; set; }
-        [DataMember]
-        public decimal? decPrecioVentaTotal { get; set; }
-        [DataMember]
-        public decimal? decPesoUnitario { get; set; }
-        [DataMember]
-        public decimal? decPesoTotal { get; set; }
+        //[DataMember]
+        //public decimal? decPrecioVentaUnitario { get; set; }
+        //[DataMember]
+        //public decimal? decPrecioVentaTotal { get; set; }
+        //[DataMember]
+        //public decimal? decPesoUnitario { get; set; }
+        //[DataMember]
+        //public decimal? decPesoTotal { get; set; }
         [DataMember]
         public decimal? decLongitud { get; set; }
         [DataMember]

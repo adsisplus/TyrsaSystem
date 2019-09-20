@@ -74,8 +74,8 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
                 detCotizacion.intElementoID = 30;
                 detCotizacion.intPartida = 0;
                 detCotizacion.intCantidad = brazo.intCantidad;
-                detCotizacion.decMonto = brazo.decPrecioVentaUnitario;
-                detCotizacion.decSubtotal = Decimal.Round((Math.Truncate(100 * brazo.decPrecioVentaUnitario.Value) / 100) * brazo.intCantidad.Value);
+                detCotizacion.decMonto = brazo.seleccion.decPrecioVentaUnitario;
+                detCotizacion.decSubtotal = Decimal.Round((Math.Truncate(100 * brazo.seleccion.decPrecioVentaUnitario.Value) / 100) * brazo.intCantidad.Value);
 
                 // Almacenamos el registro
                 result = (new CotizacionLogic()).setDetCotizacion(detCotizacion, (short)(intDetCotizaID == 0 ? 1 : tinOpcion));
@@ -96,29 +96,30 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
                     else
                         _brazo.intBrazoID = 0;
                     // Actualizamos la información
+                    _brazo.seleccion = new SeleccionBrazo();
                     _brazo.bitActivo = brazo.bitActivo;
                     _brazo.decLargo = brazo.decLargo;
-                    _brazo.decPesoTotal = brazo.decPesoTotal;
-                    _brazo.decPesoUnitario = brazo.decPesoUnitario;
-                    _brazo.decPrecioVentaTotal = brazo.decPrecioVentaTotal;
-                    _brazo.decPrecioVentaUnitario = brazo.decPrecioVentaUnitario;
+                    //_brazo.decPesoTotal = brazo.decPesoTotal;
+                    //_brazo.decPesoUnitario = brazo.decPesoUnitario;
+                    //_brazo.decPrecioVentaTotal = brazo.decPrecioVentaTotal;
+                    //_brazo.decPrecioVentaUnitario = brazo.decPrecioVentaUnitario;
                     _brazo.intCantidad = brazo.intCantidad;
                     _brazo.intDetCotizaID = intDetCotizaID;
                     _brazo.intCotizacionID = intCotizacionID;
                     _brazo.intElementoID = 30;
                     _brazo.sintLargoBrazoID = brazo.sintLargoBrazoID;
                     _brazo.sintPinturaID = brazo.sintPinturaID;
-                    
+
                     // Insertamos los datos de la seleccion
-                    _brazo.seleccion = new SeleccionBrazo();
-                    _brazo.seleccion.intBrazo = brazo.seleccion.intBrazo;
-                    _brazo.seleccion.intSeleccionBrazoID = brazo.seleccion.intSeleccionBrazoID;
-                    _brazo.seleccion.sintDriveInID = brazo.seleccion.sintDriveInID;
-                    _brazo.seleccion.decAncho = brazo.seleccion.decAncho;
-                    _brazo.seleccion.decLargo = brazo.seleccion.decLargo;
-                    _brazo.seleccion.decLongitud = brazo.seleccion.decLongitud;
-                    _brazo.seleccion.decPrecioFinal = brazo.seleccion.decPrecioFinal;
-                    _brazo.seleccion.decTotalKiloUnitario = brazo.seleccion.decTotalKiloUnitario;
+                    _brazo.seleccion = brazo.seleccion;
+                    //_brazo.seleccion.intBrazo = brazo.seleccion.intBrazo;
+                    //_brazo.seleccion.intSeleccionBrazoID = brazo.seleccion.intSeleccionBrazoID;
+                    //_brazo.seleccion.sintDriveInID = brazo.seleccion.sintDriveInID;
+                    //_brazo.seleccion.decAncho = brazo.seleccion.decAncho;
+                    //_brazo.seleccion.decLargo = brazo.seleccion.decLargo;
+                    //_brazo.seleccion.decLongitud = brazo.seleccion.decLongitud;
+                    //_brazo.seleccion.decPrecioFinal = brazo.seleccion.decPrecioFinal;
+                    //_brazo.seleccion.decTotalKiloUnitario = brazo.seleccion.decTotalKiloUnitario;
 
                     //Realizamos el registro del brazo
                     result = (new DriveInLogic()).setDatosBrazo(_brazo, tinOpcion);

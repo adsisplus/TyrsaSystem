@@ -35,7 +35,17 @@ namespace Adsisplus.Cotyrsa.DataAccess
                                     bitActivo = item.bitActivo,
                                     intDetCotizaID = item.intDetCotizaID,
                                     decPrecioUnitario = item.decPrecioUnitario,
-                                    decPrecioTotal = item.decPrecioTotal
+                                    decPrecioTotal = item.decPrecioTotal,
+                                    seleccion = new SeleccionGuiaMonteCarga()
+                                    {
+                                        intSeleccionGuiaMontaCargaID = item.intSeleccionGuiaMontaCargaID,
+                                        intGuiaEntradaID = item.intGuiaEntradaID,
+                                        decTotal = item.decTotal,
+                                        decTotalKiloUnitario = item.decTotalKiloUnitario,
+                                        vchMedida = item.vchMedida,
+                                        decPrecioFinal = item.decPrecioFinal,
+                                        decPrecioMasLargoTotal = item.decPrecioMasLargoTotal
+                                    }
                                 };
                     result.AddRange(query);
                 }

@@ -74,8 +74,8 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
                 detCotizacion.intElementoID = 18;
                 detCotizacion.intPartida = 0;
                 detCotizacion.intCantidad = atirantado.intCantidad;
-                detCotizacion.decMonto = atirantado.decPrecioVentaUnitario;
-                detCotizacion.decSubtotal = Decimal.Round((Math.Truncate(100 * atirantado.decPrecioVentaUnitario.Value) / 100) * atirantado.intCantidad.Value);
+                detCotizacion.decMonto = atirantado.seleccion.decPrecioVentaUnitario;
+                detCotizacion.decSubtotal = Decimal.Round((Math.Truncate(100 * atirantado.seleccion.decPrecioVentaUnitario.Value) / 100) * atirantado.intCantidad.Value);
 
                 // Almacenamos el registro
                 result = (new CotizacionLogic()).setDetCotizacion(detCotizacion, (short)(intDetCotizaID == 0 ? 1 : tinOpcion));
@@ -101,10 +101,10 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
                     _atirantado.bitActivo = atirantado.bitActivo;
                     _atirantado.decLargo = atirantado.decLargo;
                     _atirantado.decLongitud = atirantado.decLongitud;
-                    _atirantado.decPesoTotal = atirantado.decPesoTotal;
-                    _atirantado.decPesoUnitario = atirantado.decPesoUnitario;
-                    _atirantado.decPrecioVentaTotal = atirantado.decPrecioVentaTotal;
-                    _atirantado.decPrecioVentaUnitario = atirantado.decPrecioVentaUnitario;
+                    //_atirantado.decPesoTotal = atirantado.decPesoTotal;
+                    //_atirantado.decPesoUnitario = atirantado.decPesoUnitario;
+                    //_atirantado.decPrecioVentaTotal = atirantado.decPrecioVentaTotal;
+                    //_atirantado.decPrecioVentaUnitario = atirantado.decPrecioVentaUnitario;
                     _atirantado.intCalibreID = atirantado.intCalibreID;
                     _atirantado.intCantidad = atirantado.intCantidad;
                     _atirantado.intCotizacionID = intCotizacionID;

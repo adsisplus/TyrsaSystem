@@ -87,6 +87,10 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
                     _guia.intDetCotizaID = intDetCotizaID;
                     _guia.intElementoID = 23; // id pendiente
                     _guia.sintPinturaID = guia.sintPinturaID;
+                    // Insertamos los datos de la selección
+                    _guia.seleccion = new SeleccionGuiaMonteCarga();
+                    _guia.seleccion = guia.seleccion;
+
 
                     //Realizamos el registro de los datos
                     result = (new DriveInLogic()).setDatosGuiaEntrado(_guia, tinOpcion);
