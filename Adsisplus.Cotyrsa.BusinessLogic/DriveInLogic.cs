@@ -167,7 +167,7 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
                 Cotizacion detCotizacion = new Cotizacion();
                 detCotizacion.intCotizacionID = intCotizacionID;
                 detCotizacion.intDetCotizaID = intDetCotizaID;
-                detCotizacion.intElementoID = 2; // Falta definir el ID
+                detCotizacion.intElementoID = 32;
                 detCotizacion.intPartida = 0;
                 detCotizacion.intCantidad = 0;
                 detCotizacion.decMonto = 0;
@@ -185,7 +185,7 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
 
                     // Validamos si es un nuevo registro
                     if (tinOpcion != 1)
-                        ListDrive = ListarDatosDriveIn((int)drive.intDatosDriveInID, intDetCotizaID);
+                        ListDrive = ListarDatosDriveIn((int)drive.intDatosDriveInID, intCotizacionID);
                     // Validamos si existe registro
                     if (ListDrive.Count() > 0)
                         _drive = ListDrive.First();
@@ -204,8 +204,9 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
                     _drive.decFrente = drive.decFrente;
                     _drive.decPeso = drive.decPeso;
                     _drive.intDetCotizaID = intDetCotizaID;
-                    _drive.intElementoID = 0; // FALTA DEFINIR EL ID
+                    _drive.intElementoID = 32;
                     _drive.sintPinturaID = drive.sintPinturaID;
+                    _drive.sintMaterialDriveInID = drive.sintMaterialDriveInID;
 
                     //Realizamos el registro del DRIVEIN
                     result = DriveInDA.setDatosDriveIn(_drive, tinOpcion);
@@ -241,14 +242,14 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
         /// Procedimiento que lista los datos de DriveIn
         /// </summary>
         /// <param name="intDatosDriveInID"></param>
-        /// <param name="intDetCotizaID"></param>
+        /// <param name="intCotizacionID"></param>
         /// <returns></returns>
-        public List<DatosDriveIn> ListarDatosDriveIn(int intDatosDriveInID, int intDetCotizaID)
+        public List<DatosDriveIn> ListarDatosDriveIn(int intDatosDriveInID, int intCotizacionID)
         {
             List<DatosDriveIn> result = new List<DatosDriveIn>();
             try
             {
-                result = DriveInDA.ListarDatosDriveIn(intDatosDriveInID, intDetCotizaID);
+                result = DriveInDA.ListarDatosDriveIn(intDatosDriveInID, intCotizacionID);
             }
             catch (Exception ex)
             {

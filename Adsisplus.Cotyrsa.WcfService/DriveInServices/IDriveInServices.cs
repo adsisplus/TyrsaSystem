@@ -28,11 +28,11 @@ namespace Adsisplus.Cotyrsa.WcfService.DriveInServices
         /// Procedimiento que lista los datos de DriveIn
         /// </summary>
         /// <param name="intDatosDriveInID"></param>
-        /// <param name="intDetCotizaID"></param>
+        /// <param name="intCotizacionID"></param>
         /// <returns></returns>
         [OperationContract]
         [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ListarDatosDriveIn")]
-        List<DatosDriveIn> ListarDatosDriveIn(int intDatosDriveInID, int intDetCotizaID);
+        List<DatosDriveIn> ListarDatosDriveIn(int intDatosDriveInID, int intCotizacionID);
         /// <summary>
         /// Procedimiento que lista los datos Drive In en base al tipo de viga
         /// </summary>

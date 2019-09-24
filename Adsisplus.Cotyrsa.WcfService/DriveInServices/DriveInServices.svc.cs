@@ -38,14 +38,14 @@ namespace Adsisplus.Cotyrsa.WcfService.DriveInServices
         /// Procedimiento que lista los datos de DriveIn
         /// </summary>
         /// <param name="intDatosDriveInID"></param>
-        /// <param name="intDetCotizaID"></param>
+        /// <param name="intCotizacionID"></param>
         /// <returns></returns>
-        public List<DatosDriveIn> ListarDatosDriveIn(int intDatosDriveInID, int intDetCotizaID)
+        public List<DatosDriveIn> ListarDatosDriveIn(int intDatosDriveInID, int intCotizacionID)
         {
             List<DatosDriveIn> result = new List<DatosDriveIn>();
             try
             {
-                result = (new DriveInLogic()).ListarDatosDriveIn(intDatosDriveInID, intDetCotizaID);
+                result = (new DriveInLogic()).ListarDatosDriveIn(intDatosDriveInID, intCotizacionID);
             }
             catch (Exception ex)
             {

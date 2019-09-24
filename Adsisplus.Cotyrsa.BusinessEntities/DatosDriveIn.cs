@@ -15,6 +15,8 @@ namespace Adsisplus.Cotyrsa.BusinessEntities
         [DataMember]
         public int? intDetCotizaID { get; set; }
         [DataMember]
+        public int? intCotizacionID { get; set; }
+        [DataMember]
         public short? sintPinturaID { get; set; }
         [DataMember]
         public int? intElementoID { get; set; }
@@ -38,6 +40,10 @@ namespace Adsisplus.Cotyrsa.BusinessEntities
         public decimal? decAlturaCanastilla { get; set; }
         [DataMember]
         public decimal? decCapacidadMaxima { get; set; }
+        [DataMember]
+        public short? sintMaterialDriveInID { get; set; }
+        [DataMember]
+        public decimal? decAlturaDobleMonten { get; set; }
         [DataMember]
         public bool? bitActivo { get; set; }
     }

@@ -48,13 +48,13 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
         public Resultado setDatosParrilla(DatosParrilla parrilla, short tinOpcion)
         {
             Resultado result = new Resultado();
-            int? intParrillaID;
+            //int? intParrillaID;
             int? intDetCotizaID;
             try
             {
                 // Obtenemos la información del sistema Selectivo
-                RelSistemaSelectivo sistema = (new CotizacionLogic()).ListarDatosSistemaSelectivo((int)parrilla.intCotizacionID);
-                intParrillaID = null;
+                //RelSistemaSelectivo sistema = (new CotizacionLogic()).ListarDatosSistemaSelectivo((int)parrilla.intCotizacionID);
+                //intParrillaID = null;
 
                 // Procedemos a llenar la entidad de la cotización
                 Cotizacion detCotizacion = new Cotizacion();
@@ -78,23 +78,23 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
                     parrilla.sintPinturaID = parrilla.sintPinturaID;
                     // Procedeimos a realizar el almacenado de la información
                     result = (new SistemasTyrsaLogic()).setDatosParrilla(parrilla, tinOpcion);
-                    if (result.vchResultado != "NOK")
-                    {
-                        intParrillaID = Convert.ToInt32(result.vchResultado);
-                        if ((sistema.intParrillaID == null || sistema.intParrillaID == 0) || tinOpcion == 3)
-                        {
-                            // En caso de realizar la baja, establecemos el valor a 0
-                            if (tinOpcion == 3)
-                                sistema.intParrillaID = 0;
-                            else
-                                sistema.intParrillaID = intParrillaID;
+                    //if (result.vchResultado != "NOK")
+                    //{
+                    //    intParrillaID = Convert.ToInt32(result.vchResultado);
+                    //    if ((sistema.intParrillaID == null || sistema.intParrillaID == 0) || tinOpcion == 3)
+                    //    {
+                    //        // En caso de realizar la baja, establecemos el valor a 0
+                    //        if (tinOpcion == 3)
+                    //            sistema.intParrillaID = 0;
+                    //        else
+                    //            sistema.intParrillaID = intParrillaID;
 
-                            sistema.intTipoElementoAlmacenID = 17;
-                            sistema.intCotizacionID = parrilla.intCotizacionID;
+                    //        sistema.intTipoElementoAlmacenID = 17;
+                    //        sistema.intCotizacionID = parrilla.intCotizacionID;
 
-                            result = (new CotizacionLogic()).setDatosRelSistemaSelectivo(sistema, 2);
-                        }
-                    }
+                    //        result = (new CotizacionLogic()).setDatosRelSistemaSelectivo(sistema, 2);
+                    //    }
+                    //}
                 }
             }
             catch (Exception ex)

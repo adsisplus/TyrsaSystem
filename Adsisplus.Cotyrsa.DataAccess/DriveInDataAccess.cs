@@ -26,8 +26,8 @@ namespace Adsisplus.Cotyrsa.DataAccess
                 {
                     var query = from item in dc.stp_setDatosDriveIn(driveIn.intDatosDriveInID, driveIn.intDetCotizaID, driveIn.sintPinturaID, driveIn.intElementoID,
                         driveIn.bitEsEstructural, driveIn.bitDobleMonten, driveIn.decFrente, driveIn.decFondo, driveIn.decAltura, driveIn.decPeso,
-                        driveIn.decAnchoMonta, driveIn.decAlturaMaxima, driveIn.decAlturaCanastilla, driveIn.decCapacidadMaxima,
-                        driveIn.bitActivo, (byte)tinOpcion)
+                        driveIn.decAnchoMonta, driveIn.decAlturaMaxima, driveIn.decAlturaCanastilla, driveIn.decCapacidadMaxima, 
+                        driveIn.sintMaterialDriveInID, driveIn.decAlturaDobleMonten, driveIn.bitActivo, (byte)tinOpcion)
                                 select new Resultado
                                 {
                                     vchDescripcion = item.vchDescripcion,
@@ -296,19 +296,20 @@ namespace Adsisplus.Cotyrsa.DataAccess
         /// Procedimiento que lista los datos Drive In
         /// </summary>
         /// <param name="intDatosDriveInID"></param>
-        /// <param name="intDetCotizaID"></param>
+        /// <param name="intCotizacionID"></param>
         /// <returns></returns>
-        public List<DatosDriveIn> ListarDatosDriveIn(int intDatosDriveInID, int intDetCotizaID)
+        public List<DatosDriveIn> ListarDatosDriveIn(int intDatosDriveInID, int intCotizacionID)
         {
             List<DatosDriveIn> result = new List<DatosDriveIn>();
             try
             {
                 using (SistemaDriveInDataContext dc = new SistemaDriveInDataContext(Helper.ConnectionString()))
                 {
-                    var query = from item in dc.stp_ListarDatosDriveIn(intDatosDriveInID, intDetCotizaID)
+                    var query = from item in dc.stp_ListarDatosDriveIn(intDatosDriveInID, intCotizacionID)
                                 select new DatosDriveIn
                                 {
                                     intDatosDriveInID = item.intDatosDriveInID,
+                                    intCotizacionID = item.intCotizacionID,
                                     intDetCotizaID = item.intDetCotizaID,
                                     sintPinturaID = item.sintPinturaID,
                                     intElementoID = item.intElementoID,
@@ -322,6 +323,7 @@ namespace Adsisplus.Cotyrsa.DataAccess
                                     decAlturaMaxima = item.decAlturaMaxima,
                                     decAlturaCanastilla = item.decAlturaCanastilla,
                                     decCapacidadMaxima = item.decCapacidadMaxima,
+                                    decAlturaDobleMonten = item.decAlturaDobleMonten,
                                     bitActivo = item.bitActivo
                                 };
                     result.AddRange(query);

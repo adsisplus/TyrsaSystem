@@ -38,6 +38,16 @@ namespace Adsisplus.Cotyrsa.BusinessEntities
         public short? sintNumPosteReq { get; set; }
         [DataMember]
         public short? sintNumTravesanio { get; set; }
+
+        [DataMember]
+        public bool? bitDobleMonten { get; set; }
+        [DataMember]
+        public decimal? decAlturaDobleMonten { get; set; }
+        [DataMember]
+        public int? intDatosDriveInID { get; set; }
+        [DataMember]
+        public int? intCotizacionID { get; set; }
+
         [DataMember]
         public bool? bitActivo { get; set; }
     }

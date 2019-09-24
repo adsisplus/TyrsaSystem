@@ -26,6 +26,7 @@ namespace Adsisplus.Cotyrsa.DataAccess
                     var query = from item in dc.stp_ListarDatosPosteDriveIn(intDatoPosteDriveInID, intDetCotizaID)
                                 select new DatosPosteDriveIn
                                 {
+                                    // Datos Poste
                                     intDatoPosteDriveInID = item.intDatoPosteDriveInID,
                                     intElementoID = item.intElementoID,
                                     intDetCotizaID = item.intDetCotizaID,
@@ -40,7 +41,12 @@ namespace Adsisplus.Cotyrsa.DataAccess
                                     decPrecioTyrsaKg = item.decPrecioTyrsaKg,
                                     sintNumPosteReq = item.sintNumPosteReq,
                                     sintNumTravesanio = item.sintNumTravesanio,
-                                    bitActivo = item.bitActivo
+                                    bitActivo = item.bitActivo,
+                                    // Datos DriveInd
+                                    bitDobleMonten = item.bitDobleMonten,
+                                    intDatosDriveInID = item.intDatosDriveInID,
+                                    intCotizacionID = item.intCotizacionID,
+                                    decAlturaDobleMonten = item.decAlturaDobleMonten
                                 };
                     result.AddRange(query);
                 }

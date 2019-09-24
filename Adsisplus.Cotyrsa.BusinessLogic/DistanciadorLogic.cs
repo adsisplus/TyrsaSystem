@@ -128,7 +128,7 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
             try
             {
                 // Obtenemos la información del sistema Selectivo
-                RelSistemaSelectivo sistema = (new CotizacionLogic()).ListarDatosSistemaSelectivo((int)intCotizacionID);
+                //RelSistemaSelectivo sistema = (new CotizacionLogic()).ListarDatosSistemaSelectivo((int)intCotizacionID);
                 intDistanciadorID = null;
 
                 // Procedemos a llenar la entidad de la cotización
@@ -190,19 +190,19 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
                         result = (new SistemasTyrsaLogic()).setDatosDistanciador(mstDistanciador, tinOpcion);
 
                         intDistanciadorID = Convert.ToInt32(result.vchResultado);
-                        if ((sistema.intDistanciadorID == null || sistema.intDistanciadorID == 0) || tinOpcion == 3)
-                        {
-                            // En caso de realizar la baja, establecemos el valor a 0
-                            if (tinOpcion == 3)
-                                sistema.intDistanciadorID = 0;
-                            else
-                                sistema.intDistanciadorID = intDistanciadorID;
+                        //if ((sistema.intDistanciadorID == null || sistema.intDistanciadorID == 0) || tinOpcion == 3)
+                        //{
+                        //    // En caso de realizar la baja, establecemos el valor a 0
+                        //    if (tinOpcion == 3)
+                        //        sistema.intDistanciadorID = 0;
+                        //    else
+                        //        sistema.intDistanciadorID = intDistanciadorID;
 
-                            sistema.intTipoElementoAlmacenID = 17;
-                            sistema.intCotizacionID = distanciador.intCotizacionID;
+                        //    sistema.intTipoElementoAlmacenID = 17;
+                        //    sistema.intCotizacionID = distanciador.intCotizacionID;
 
-                            result = (new CotizacionLogic()).setDatosRelSistemaSelectivo(sistema, 2);
-                        }
+                        //    result = (new CotizacionLogic()).setDatosRelSistemaSelectivo(sistema, 2);
+                        //}
                     }
                 }
             }

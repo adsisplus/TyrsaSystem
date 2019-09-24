@@ -72,7 +72,7 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
                 Cotizacion detCotizacion = new Cotizacion();
                 detCotizacion.intCotizacionID = intCotizacionID;
                 detCotizacion.intDetCotizaID = intDetCotizaID;
-                detCotizacion.intElementoID = 2; // Falta definir el ID
+                detCotizacion.intElementoID = 31;
                 detCotizacion.intPartida = 0;
                 detCotizacion.intCantidad = poste.intCantidad;
                 detCotizacion.decMonto = poste.decPrecioTyrsa;
@@ -88,32 +88,56 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
                     List<DatosPosteDriveIn> ListPoste = new List<DatosPosteDriveIn>();
                     DatosPosteDriveIn _poste = new DatosPosteDriveIn();
 
-                    // Validamos si es un nuevo registro
-                    if (tinOpcion != 1)
-                        ListPoste = ListarDatosPosteDriveIn((int)poste.intDatoPosteDriveInID, intDetCotizaID);
-                    // Validamos si existe registro
-                    if (ListPoste.Count() > 0)
-                        _poste = ListPoste.First();
-                    else
-                        _poste.intDatoPosteDriveInID = 0;
-                    // Actualizamos la información
-                    _poste.bitActivo = poste.bitActivo;
-                    _poste.decCalibre = poste.decCalibre;
-                    _poste.decPrecioTyrsa = poste.decPrecioTyrsa;
-                    _poste.decPrecioTyrsaKg = poste.decPrecioTyrsaKg;
-                    _poste.decPrecioTyrsaMetro = poste.decPrecioTyrsaMetro;
-                    _poste.decRelacionPrecios = poste.decRelacionPrecios;
-                    _poste.decSolera = poste.decSolera;
-                    _poste.decTotalKilo = poste.decTotalKilo;
-                    _poste.intCantidad = poste.intCantidad;
-                    _poste.intDetCotizaID = intDetCotizaID;
-                    _poste.intElementoID = 0;
-                    _poste.intSKUID = poste.intSKUID;
-                    _poste.sintNumPosteReq = poste.sintNumPosteReq;
-                    _poste.sintNumTravesanio = poste.sintNumTravesanio;
 
-                    //Realizamos el registro del DRIVEIN
-                    result = (new DriveInLogic()).setDatosPosteDriveIn(_poste, tinOpcion);
+                    // Buscamos los datos del DriveIn
+                    List<DatosDriveIn> ListDriveIn = new List<DatosDriveIn>();
+                    DatosDriveIn _driveIn = new DatosDriveIn();
+                    ListDriveIn = (new DriveInLogic()).ListarDatosDriveIn(0, intCotizacionID);
+
+                    // Revisamos si existe los datos
+                    if (ListDriveIn.Count() > 0)
+                    {
+                        _driveIn = ListDriveIn.First();
+                        // Actualizamos los datos de doble monten
+                        _driveIn.bitDobleMonten = poste.bitDobleMonten;
+                        _driveIn.decAlturaDobleMonten = poste.decAlturaDobleMonten;
+
+                        // Actualizamos los datos de DriveIn
+                        result = (new DriveInLogic()).setDatosDriveIn(_driveIn, intCotizacionID, intDetCotizaID, 2);
+
+                        // Validamos si es un nuevo registro
+                        if (tinOpcion != 1)
+                            ListPoste = ListarDatosPosteDriveIn((int)poste.intDatoPosteDriveInID, intDetCotizaID);
+                        // Validamos si existe registro
+                        if (ListPoste.Count() > 0)
+                            _poste = ListPoste.First();
+                        else
+                            _poste.intDatoPosteDriveInID = 0;
+                        // Actualizamos la información
+                        _poste.bitActivo = poste.bitActivo;
+                        _poste.decCalibre = poste.decCalibre;
+                        _poste.decPrecioTyrsa = poste.decPrecioTyrsa;
+                        _poste.decPrecioTyrsaKg = poste.decPrecioTyrsaKg;
+                        _poste.decPrecioTyrsaMetro = poste.decPrecioTyrsaMetro;
+                        _poste.decRelacionPrecios = poste.decRelacionPrecios;
+                        _poste.decSolera = poste.decSolera;
+                        _poste.decTotalKilo = poste.decTotalKilo;
+                        _poste.intCantidad = poste.intCantidad;
+                        _poste.intDetCotizaID = intDetCotizaID;
+                        _poste.intElementoID = 31;
+                        _poste.intSKUID = poste.intSKUID;
+                        _poste.sintNumPosteReq = poste.sintNumPosteReq;
+                        _poste.sintNumTravesanio = poste.sintNumTravesanio;
+
+                        //Realizamos el registro del DRIVEIN
+                        result = (new DriveInLogic()).setDatosPosteDriveIn(_poste, tinOpcion);
+                    }
+                    else
+                    {
+                        result = new Resultado();
+                        result.vchResultado = "NOK";
+                        result.vchDescripcion = "NO EXISTE DATOS DE DRIVE IN. CAPTURAR PRIMERO DICHOS DATOS";
+                    }
                 }
             }
             catch (Exception ex)
