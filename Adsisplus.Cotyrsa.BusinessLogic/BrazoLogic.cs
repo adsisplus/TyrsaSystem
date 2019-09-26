@@ -22,14 +22,14 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
         /// Procedimiento que lista los datos de brazo
         /// </summary>
         /// <param name="intBrazoID"></param>
-        /// <param name="intDetCotizaID"></param>
+        /// <param name="intCotizacionID"></param>
         /// <returns></returns>
-        public List<DatosBrazo> ListarDatosBrazo(int intBrazoID, int intDetCotizaID)
+        public List<DatosBrazo> ListarDatosBrazo(int intBrazoID, int intCotizacionID)
         {
             List<DatosBrazo> result = new List<DatosBrazo>();
             try
             {
-                result = BrazoDA.ListarDatosBrazo(intBrazoID, intDetCotizaID);
+                result = BrazoDA.ListarDatosBrazo(intBrazoID, intCotizacionID);
             }
             catch (Exception ex)
             {
@@ -89,7 +89,7 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
 
                     // Validamos si es un nuevo registro
                     if (tinOpcion != 1)
-                        ListBrazo = ListarDatosBrazo((int)brazo.intBrazoID, intDetCotizaID);
+                        ListBrazo = ListarDatosBrazo((int)brazo.intBrazoID, intCotizacionID);
                     // Validamos si existe registro
                     if (ListBrazo.Count() > 0)
                         _brazo = ListBrazo.First();

@@ -17,14 +17,14 @@ namespace Adsisplus.Cotyrsa.WcfService.BrazoServices
         /// Procedimiento que lista los datos de brazo
         /// </summary>
         /// <param name="intBrazoID"></param>
-        /// <param name="intDetCotizaID"></param>
+        /// <param name="intCotizacionID"></param>
         /// <returns></returns>
-        public List<DatosBrazo> ListarDatosBrazo(int intBrazoID, int intDetCotizaID)
+        public List<DatosBrazo> ListarDatosBrazo(int intBrazoID, int intCotizacionID)
         {
             List<DatosBrazo> result = new List<DatosBrazo>();
             try
             {
-                result = (new BrazoLogic()).ListarDatosBrazo(intBrazoID, intDetCotizaID);
+                result = (new BrazoLogic()).ListarDatosBrazo(intBrazoID, intCotizacionID);
             }
             catch (Exception ex)
             {

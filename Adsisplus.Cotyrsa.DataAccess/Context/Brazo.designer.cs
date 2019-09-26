@@ -78,9 +78,9 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.stp_ListarDatosBrazo")]
-		public ISingleResult<stp_ListarDatosBrazoResult> stp_ListarDatosBrazo([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intBrazoID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intDetCotizaID)
+		public ISingleResult<stp_ListarDatosBrazoResult> stp_ListarDatosBrazo([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intBrazoID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intCotizacionID)
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), intBrazoID, intDetCotizaID);
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), intBrazoID, intCotizacionID);
 			return ((ISingleResult<stp_ListarDatosBrazoResult>)(result.ReturnValue));
 		}
 	}

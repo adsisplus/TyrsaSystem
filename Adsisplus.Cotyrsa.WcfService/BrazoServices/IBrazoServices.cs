@@ -18,11 +18,11 @@ namespace Adsisplus.Cotyrsa.WcfService.BrazoServices
         /// Procedimiento que lista los datos de brazo
         /// </summary>
         /// <param name="intBrazoID"></param>
-        /// <param name="intDetCotizaID"></param>
+        /// <param name="intCotizacionID"></param>
         /// <returns></returns>
         [OperationContract]
         [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ListarDatosBrazo")]
-        List<DatosBrazo> ListarDatosBrazo(int intBrazoID, int intDetCotizaID);
+        List<DatosBrazo> ListarDatosBrazo(int intBrazoID, int intCotizacionID);
         /// <summary>
         /// Procedimiento que lista datos Drive In Brazo
         /// </summary>

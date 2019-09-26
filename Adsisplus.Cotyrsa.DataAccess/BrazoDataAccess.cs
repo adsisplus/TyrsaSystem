@@ -14,16 +14,16 @@ namespace Adsisplus.Cotyrsa.DataAccess
         /// Procedimiento que lista los datos de brazo
         /// </summary>
         /// <param name="intBrazoID"></param>
-        /// <param name="intDetCotizaID"></param>
+        /// <param name="intCotizacionID"></param>
         /// <returns></returns>
-        public List<DatosBrazo> ListarDatosBrazo(int intBrazoID, int intDetCotizaID)
+        public List<DatosBrazo> ListarDatosBrazo(int intBrazoID, int intCotizacionID)
         {
             List<DatosBrazo> result = new List<DatosBrazo>();
             try
             {
                 using (BrazoDataContext dc = new BrazoDataContext(Helper.ConnectionString()))
                 {
-                    var query = from item in dc.stp_ListarDatosBrazo(intBrazoID, intDetCotizaID)
+                    var query = from item in dc.stp_ListarDatosBrazo(intBrazoID, intCotizacionID)
                                 select new DatosBrazo
                                 {
                                     intBrazoID = item.intBrazoID,
