@@ -322,6 +322,10 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 		
 		private System.Nullable<int> _intCotizacionID;
 		
+		private System.Nullable<int> _intAlturaMarcoID;
+		
+		private System.Nullable<decimal> _decFondo;
+		
 		private System.Nullable<bool> _bitActivo;
 		
 		public stp_ListarDatosPosteDriveInResult()
@@ -612,6 +616,38 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 				if ((this._intCotizacionID != value))
 				{
 					this._intCotizacionID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intAlturaMarcoID", DbType="Int")]
+		public System.Nullable<int> intAlturaMarcoID
+		{
+			get
+			{
+				return this._intAlturaMarcoID;
+			}
+			set
+			{
+				if ((this._intAlturaMarcoID != value))
+				{
+					this._intAlturaMarcoID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decFondo", DbType="Decimal(8,3)")]
+		public System.Nullable<decimal> decFondo
+		{
+			get
+			{
+				return this._decFondo;
+			}
+			set
+			{
+				if ((this._decFondo != value))
+				{
+					this._decFondo = value;
 				}
 			}
 		}

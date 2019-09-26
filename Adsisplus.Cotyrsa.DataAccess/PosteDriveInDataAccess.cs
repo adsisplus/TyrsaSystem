@@ -46,7 +46,10 @@ namespace Adsisplus.Cotyrsa.DataAccess
                                     bitDobleMonten = item.bitDobleMonten,
                                     intDatosDriveInID = item.intDatosDriveInID,
                                     intCotizacionID = item.intCotizacionID,
-                                    decAlturaDobleMonten = item.decAlturaDobleMonten
+                                    decAlturaDobleMonten = item.decAlturaDobleMonten,
+                                    // Datos de Marco
+                                    intAlturaMarcoID = item.intAlturaMarcoID,
+                                    decFondo = item.decFondo
                                 };
                     result.AddRange(query);
                 }

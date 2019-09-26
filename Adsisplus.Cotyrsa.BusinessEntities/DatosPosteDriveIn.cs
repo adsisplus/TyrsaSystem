@@ -47,6 +47,10 @@ namespace Adsisplus.Cotyrsa.BusinessEntities
         public int? intDatosDriveInID { get; set; }
         [DataMember]
         public int? intCotizacionID { get; set; }
+        [DataMember]
+        public int? intAlturaMarcoID { get; set; }
+        [DataMember]
+        public decimal? decFondo { get; set; }
 
         [DataMember]
         public bool? bitActivo { get; set; }
