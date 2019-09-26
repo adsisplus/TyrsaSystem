@@ -70,9 +70,9 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.stp_ListarDatosAtirantado")]
-		public ISingleResult<stp_ListarDatosAtirantadoResult> stp_ListarDatosAtirantado([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intAtirantadoID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intDetCotizaID)
+		public ISingleResult<stp_ListarDatosAtirantadoResult> stp_ListarDatosAtirantado([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intAtirantadoID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intCotizacionID)
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), intAtirantadoID, intDetCotizaID);
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), intAtirantadoID, intCotizacionID);
 			return ((ISingleResult<stp_ListarDatosAtirantadoResult>)(result.ReturnValue));
 		}
 	}

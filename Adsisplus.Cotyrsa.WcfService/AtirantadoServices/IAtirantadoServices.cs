@@ -17,11 +17,11 @@ namespace Adsisplus.Cotyrsa.WcfService.AtirantadoServices
         /// Procedimiento que lista los datos Atirantado
         /// </summary>
         /// <param name="intAtirantadoID"></param>
-        /// <param name="intDetCotizaID"></param>
+        /// <param name="intCotizacionID"></param>
         /// <returns></returns>
         [OperationContract]
         [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ListarDatosAtirantado")]
-        List<DatosAtirantado> ListarDatosAtirantado(int intAtirantadoID, int intDetCotizaID);
+        List<DatosAtirantado> ListarDatosAtirantado(int intAtirantadoID, int intCotizacionID);
         /// <summary>
         /// Procedimiento que lista los datos de selección Arriestrado
         /// </summary>

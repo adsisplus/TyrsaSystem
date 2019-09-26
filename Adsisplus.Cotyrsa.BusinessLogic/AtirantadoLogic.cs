@@ -22,14 +22,14 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
         /// Procedimiento que lista los datos Atirantado
         /// </summary>
         /// <param name="intAtirantadoID"></param>
-        /// <param name="intDetCotizaID"></param>
+        /// <param name="intCotizacionID"></param>
         /// <returns></returns>
-        public List<DatosAtirantado> ListarDatosAtirantado(int intAtirantadoID, int intDetCotizaID)
+        public List<DatosAtirantado> ListarDatosAtirantado(int intAtirantadoID, int intCotizacionID)
         {
             List<DatosAtirantado> result = new List<DatosAtirantado>();
             try
             {
-                result = AtirantadoDA.ListarDatosAtirantado(intAtirantadoID, intDetCotizaID);
+                result = AtirantadoDA.ListarDatosAtirantado(intAtirantadoID, intCotizacionID);
             }
             catch (Exception ex)
             {
@@ -90,7 +90,7 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
                     DatosAtirantado _atirantado = new DatosAtirantado();
                     // Validamos si es un nuevo registro
                     if (tinOpcion != 1)
-                        ListAtirantado = ListarDatosAtirantado((int)atirantado.intAtirantadoID, intDetCotizaID);
+                        ListAtirantado = ListarDatosAtirantado((int)atirantado.intAtirantadoID, intCotizacionID);
                     //Validamos si existe registro
                     if (ListAtirantado.Count > 0)
                         _atirantado = ListAtirantado.First();

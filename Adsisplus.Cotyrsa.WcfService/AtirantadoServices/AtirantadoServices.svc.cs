@@ -17,14 +17,14 @@ namespace Adsisplus.Cotyrsa.WcfService.AtirantadoServices
         /// Procedimiento que lista los datos Atirantado
         /// </summary>
         /// <param name="intAtirantadoID"></param>
-        /// <param name="intDetCotizaID"></param>
+        /// <param name="intCotizacionID"></param>
         /// <returns></returns>
-        public List<DatosAtirantado> ListarDatosAtirantado(int intAtirantadoID, int intDetCotizaID)
+        public List<DatosAtirantado> ListarDatosAtirantado(int intAtirantadoID, int intCotizacionID)
         {
             List<DatosAtirantado> result = new List<DatosAtirantado>();
             try
             {
-                result = (new AtirantadoLogic()).ListarDatosAtirantado(intAtirantadoID, intDetCotizaID);
+                result = (new AtirantadoLogic()).ListarDatosAtirantado(intAtirantadoID, intCotizacionID);
             }
             catch (Exception ex)
             {

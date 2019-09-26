@@ -14,16 +14,16 @@ namespace Adsisplus.Cotyrsa.DataAccess
         /// Procedimiento que lista los datos Atirantado
         /// </summary>
         /// <param name="intAtirantadoID"></param>
-        /// <param name="intDetCotizaID"></param>
+        /// <param name="intCotizacionID"></param>
         /// <returns></returns>
-        public List<DatosAtirantado> ListarDatosAtirantado(int intAtirantadoID, int intDetCotizaID)
+        public List<DatosAtirantado> ListarDatosAtirantado(int intAtirantadoID, int intCotizacionID)
         {
             List<DatosAtirantado> result = new List<DatosAtirantado>();
             try
             {
                 using (AtirantadoDataContext dc = new AtirantadoDataContext(Helper.ConnectionString()))
                 {
-                    var query = from item in dc.stp_ListarDatosAtirantado(intAtirantadoID, intDetCotizaID)
+                    var query = from item in dc.stp_ListarDatosAtirantado(intAtirantadoID, intCotizacionID)
                                 select new DatosAtirantado
                                 {
                                     intAtirantadoID = item.intAtirantadoID,
