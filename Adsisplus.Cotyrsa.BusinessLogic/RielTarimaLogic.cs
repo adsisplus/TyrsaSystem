@@ -22,14 +22,14 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
         /// Procedimiento que lista los datos Riel Tarima
         /// </summary>
         /// <param name="intRielTarimaID"></param>
-        /// <param name="intDetCotizaID"></param>
+        /// <param name="intCotizacionID"></param>
         /// <returns></returns>
-        public List<DatosRielTarima> ListarDatosRielTarima(int intRielTarimaID, int intDetCotizaID)
+        public List<DatosRielTarima> ListarDatosRielTarima(int intRielTarimaID, int intCotizacionID)
         {
             List<DatosRielTarima> result = new List<DatosRielTarima>();
             try
             {
-                result = RielTarimaDA.ListarDatosRielTarima(intRielTarimaID, intDetCotizaID);
+                result = RielTarimaDA.ListarDatosRielTarima(intRielTarimaID, intCotizacionID);
             }
             catch (Exception ex)
             {
@@ -90,7 +90,7 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
 
                     // Validamos si es un nuevo registro
                     if (tinOpcion != 1)
-                        ListRiel = ListarDatosRielTarima((int)riel.intRielTarimaID, intDetCotizaID);
+                        ListRiel = ListarDatosRielTarima((int)riel.intRielTarimaID, intCotizacionID);
                     // Validamos si existe registro
                     if (ListRiel.Count() > 0)
                         _riel = ListRiel.First();

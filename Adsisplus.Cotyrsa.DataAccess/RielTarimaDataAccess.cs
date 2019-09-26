@@ -14,14 +14,14 @@ namespace Adsisplus.Cotyrsa.DataAccess
         /// Procedimiento que lista los datos Riel Tarima
         /// </summary>
         /// <param name="intRielTarimaID"></param>
-        /// <param name="intDetCotizaID"></param>
+        /// <param name="intCotizacionID"></param>
         /// <returns></returns>
-        public List<DatosRielTarima> ListarDatosRielTarima(int intRielTarimaID, int intDetCotizaID)
+        public List<DatosRielTarima> ListarDatosRielTarima(int intRielTarimaID, int intCotizacionID)
         {
             List<DatosRielTarima> result = new List<DatosRielTarima>();
             using (RielTarimaDataContext dc = new RielTarimaDataContext(Helper.ConnectionString()))
             {
-                var query = from item in dc.stp_ListarDatosRielTarima(intRielTarimaID, intDetCotizaID)
+                var query = from item in dc.stp_ListarDatosRielTarima(intRielTarimaID, intCotizacionID)
                             select new DatosRielTarima
                             {
                                 intRielTarimaID = item.intRielTarimaID,

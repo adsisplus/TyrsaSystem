@@ -17,14 +17,14 @@ namespace Adsisplus.Cotyrsa.WcfService.RielTarimaServices
         /// Procedimiento que lista los datos Riel Tarima
         /// </summary>
         /// <param name="intRielTarimaID"></param>
-        /// <param name="intDetCotizaID"></param>
+        /// <param name="intCotizacionID"></param>
         /// <returns></returns>
-        public List<DatosRielTarima> ListarDatosRielTarima(int intRielTarimaID, int intDetCotizaID)
+        public List<DatosRielTarima> ListarDatosRielTarima(int intRielTarimaID, int intCotizacionID)
         {
             List<DatosRielTarima> result = new List<DatosRielTarima>();
             try
             {
-                result = (new RielTarimaLogic()).ListarDatosRielTarima(intRielTarimaID, intDetCotizaID);
+                result = (new RielTarimaLogic()).ListarDatosRielTarima(intRielTarimaID, intCotizacionID);
             }
             catch (Exception ex)
             {
