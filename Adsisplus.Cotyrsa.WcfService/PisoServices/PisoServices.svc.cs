@@ -17,14 +17,14 @@ namespace Adsisplus.Cotyrsa.WcfService.PisoServices
         /// Procedimiento que lista los datos de piso
         /// </summary>
         /// <param name="intDatosPisoID"></param>
-        /// <param name="intDetCotizaID"></param>
+        /// <param name="intCotizacionID"></param>
         /// <returns></returns>
-        public List<DatosPiso> ListarDatosPiso(int intDatosPisoID, int intDetCotizaID)
+        public List<DatosPiso> ListarDatosPiso(int intDatosPisoID, int intCotizacionID)
         {
             List<DatosPiso> result = new List<DatosPiso>();
             try
             {
-                result = (new PisoLogic()).ListarDatosPiso(intDatosPisoID, intDetCotizaID);
+                result = (new PisoLogic()).ListarDatosPiso(intDatosPisoID, intCotizacionID);
             }
             catch (Exception ex)
             {

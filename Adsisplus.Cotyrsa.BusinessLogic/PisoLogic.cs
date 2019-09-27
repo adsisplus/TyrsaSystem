@@ -22,14 +22,14 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
         /// Procedimiento que lista los datos de piso
         /// </summary>
         /// <param name="intDatosPisoID"></param>
-        /// <param name="intDetCotizaID"></param>
+        /// <param name="intCotizacionID"></param>
         /// <returns></returns>
-        public List<DatosPiso> ListarDatosPiso(int intDatosPisoID, int intDetCotizaID)
+        public List<DatosPiso> ListarDatosPiso(int intDatosPisoID, int intCotizacionID)
         {
             List<DatosPiso> result = new List<DatosPiso>();
             try
             {
-                result = PisoDA.ListarDatosPiso(intDatosPisoID, intDetCotizaID);
+                result = PisoDA.ListarDatosPiso(intDatosPisoID, intCotizacionID);
             }
             catch (Exception ex)
             {
@@ -71,7 +71,7 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
 
                     // Validamos si es un nuevo registro
                     if (tinOpcion != 1)
-                        ListPiso = ListarDatosPiso((int)piso.intDatoPisoID, intDetCotizaID);
+                        ListPiso = ListarDatosPiso((int)piso.intDatoPisoID, intCotizacionID);
                     // Validamos si existe registro
                     if (ListPiso.Count() > 0)
                         _piso = ListPiso.First();

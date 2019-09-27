@@ -14,16 +14,16 @@ namespace Adsisplus.Cotyrsa.DataAccess
         /// Procedimiento que lista los datos de piso
         /// </summary>
         /// <param name="intDatosPisoID"></param>
-        /// <param name="intDetCotizaID"></param>
+        /// <param name="intCotizacionID"></param>
         /// <returns></returns>
-        public List<DatosPiso> ListarDatosPiso(int intDatosPisoID, int intDetCotizaID)
+        public List<DatosPiso> ListarDatosPiso(int intDatosPisoID, int intCotizacionID)
         {
             List<DatosPiso> result = new List<DatosPiso>();
             try
             {
                 using (PisoDataContext dc = new PisoDataContext())
                 {
-                    var query = from item in dc.stp_ListarDatosPiso(intDatosPisoID, intDetCotizaID)
+                    var query = from item in dc.stp_ListarDatosPiso(intDatosPisoID, intCotizacionID)
                                 select new DatosPiso
                                 {
                                     intDatoPisoID = item.intDatoPisoID,

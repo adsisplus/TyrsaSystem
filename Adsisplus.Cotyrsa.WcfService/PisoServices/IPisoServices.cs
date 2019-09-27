@@ -17,11 +17,11 @@ namespace Adsisplus.Cotyrsa.WcfService.PisoServices
         /// Procedimiento que lista los datos de piso
         /// </summary>
         /// <param name="intDatosPisoID"></param>
-        /// <param name="intDetCotizaID"></param>
+        /// <param name="intCotizacionID"></param>
         /// <returns></returns>
         [OperationContract]
         [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ListarDatosPiso")]
-        List<DatosPiso> ListarDatosPiso(int intDatosPisoID, int intDetCotizaID);
+        List<DatosPiso> ListarDatosPiso(int intDatosPisoID, int intCotizacionID);
         /// <summary>
         /// Procedimiento que realiza el alta, modificación de los datos piso
         /// </summary>
