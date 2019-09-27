@@ -22,14 +22,14 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
         /// Procedimiento que lista los datos Guia Entrada
         /// </summary>
         /// <param name="intGuiaEntradaID"></param>
-        /// <param name="intDetCotizaID"></param>
+        /// <param name="intCotizacionID"></param>
         /// <returns></returns>
-        public List<DatosGuiaEntrada> ListarDatosGuiaEntrada(int intGuiaEntradaID, int intDetCotizaID)
+        public List<DatosGuiaEntrada> ListarDatosGuiaEntrada(int intGuiaEntradaID, int intCotizacionID)
         {
             List<DatosGuiaEntrada> result = new List<DatosGuiaEntrada>();
             try
             {
-                result = GuiaEntradaDA.ListarDatosGuiaEntrada(intGuiaEntradaID, intDetCotizaID);
+                result = GuiaEntradaDA.ListarDatosGuiaEntrada(intGuiaEntradaID, intCotizacionID);
             }
             catch (Exception ex)
             {
@@ -57,7 +57,7 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
                 detCotizacion.intPartida = 0;
                 detCotizacion.intCantidad = guia.intCantidad;
                 detCotizacion.decMonto = guia.decPrecioTotal;
-                detCotizacion.decSubtotal = Decimal.Round((Math.Truncate(100 * guia.decPrecioTotal.Value) / 100) * guia.intCantidad.Value);
+                //detCotizacion.decSubtotal = Decimal.Round((Math.Truncate(100 * guia.decPrecioTotal.Value) / 100) * guia.intCantidad.Value);
 
                 // Almacenamos el registro
                 result = (new CotizacionLogic()).setDetCotizacion(detCotizacion, (short)(intDetCotizaID == 0 ? 1 : tinOpcion));
@@ -71,7 +71,7 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
 
                     // Validamos si es un nuevo registro
                     if (tinOpcion != 1)
-                        ListGuia = ListarDatosGuiaEntrada((int)guia.intGuiaEntradaID, intDetCotizaID);
+                        ListGuia = ListarDatosGuiaEntrada((int)guia.intGuiaEntradaID, intCotizacionID);
                     // Validamos si existe registro
                     if (ListGuia.Count() > 0)
                         _guia = ListGuia.First();

@@ -17,11 +17,11 @@ namespace Adsisplus.Cotyrsa.WcfService.GuiaEntradaServices
         /// Procedimiento que lista los datos Guia Entrada
         /// </summary>
         /// <param name="intGuiaEntradaID"></param>
-        /// <param name="intDetCotizaID"></param>
+        /// <param name="intCotizacionID"></param>
         /// <returns></returns>
         [OperationContract]
         [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ListarDatosGuiaEntrada")]
-        List<DatosGuiaEntrada> ListarDatosGuiaEntrada(int intGuiaEntradaID, int intDetCotizaID);
+        List<DatosGuiaEntrada> ListarDatosGuiaEntrada(int intGuiaEntradaID, int intCotizacionID);
         /// <summary>
         /// Procedimiento que realiza el alta, modificación de los datos Guia Entrada
         /// </summary>

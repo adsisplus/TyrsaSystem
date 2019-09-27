@@ -14,16 +14,16 @@ namespace Adsisplus.Cotyrsa.DataAccess
         /// Procedimiento que lista los datos Guia Entrada
         /// </summary>
         /// <param name="intGuiaEntradaID"></param>
-        /// <param name="intDetCotizaID"></param>
+        /// <param name="intCotizacionID"></param>
         /// <returns></returns>
-        public List<DatosGuiaEntrada> ListarDatosGuiaEntrada(int intGuiaEntradaID, int intDetCotizaID)
+        public List<DatosGuiaEntrada> ListarDatosGuiaEntrada(int intGuiaEntradaID, int intCotizacionID)
         {
             List<DatosGuiaEntrada> result = new List<DatosGuiaEntrada>();
             try
             {
                 using (GuiaEntradaDataContext dc = new GuiaEntradaDataContext(Helper.ConnectionString()))
                 {
-                    var query = from item in dc.stp_ListarDatosGuiaEntrada(intGuiaEntradaID, intDetCotizaID)
+                    var query = from item in dc.stp_ListarDatosGuiaEntrada(intGuiaEntradaID, intCotizacionID)
                                 select new DatosGuiaEntrada
                                 {
                                     intGuiaEntradaID = item.intGuiaEntradaID,

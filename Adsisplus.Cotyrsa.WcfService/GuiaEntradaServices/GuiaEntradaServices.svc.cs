@@ -17,14 +17,14 @@ namespace Adsisplus.Cotyrsa.WcfService.GuiaEntradaServices
         /// Procedimiento que lista los datos Guia Entrada
         /// </summary>
         /// <param name="intGuiaEntradaID"></param>
-        /// <param name="intDetCotizaID"></param>
+        /// <param name="intCotizacionID"></param>
         /// <returns></returns>
-        public List<DatosGuiaEntrada> ListarDatosGuiaEntrada(int intGuiaEntradaID, int intDetCotizaID)
+        public List<DatosGuiaEntrada> ListarDatosGuiaEntrada(int intGuiaEntradaID, int intCotizacionID)
         {
             List<DatosGuiaEntrada> result = new List<DatosGuiaEntrada>();
             try
             {
-                result = (new GuiaEntradaLogic()).ListarDatosGuiaEntrada(intGuiaEntradaID, intDetCotizaID);
+                result = (new GuiaEntradaLogic()).ListarDatosGuiaEntrada(intGuiaEntradaID, intCotizacionID);
             }
             catch (Exception ex)
             {
