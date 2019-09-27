@@ -14,6 +14,15 @@ namespace Adsisplus.Cotyrsa.WcfService.PosteDriveInServices
     public interface IPosteDriveInServices
     {
         /// <summary>
+        /// Procedimiento que realiza el alta, modificación o baja de los datos Poste Drive In
+        /// </summary>
+        /// <param name="poste"></param>
+        /// <param name="intCotizacionID"></param>
+        /// <param name="intDetCotizaID"></param>
+        /// <param name="tinOpcion"></param>
+        /// <returns></returns>
+        Resultado setDatosPosteDriveIn(DatosPosteDriveIn poste, int intCotizacionID, int intDetCotizaID, short tinOpcion);
+        /// <summary>
         /// Procedimiento que lista el precio poste TC 2
         /// </summary>
         /// <param name="intAlturaMarcoID"></param>
