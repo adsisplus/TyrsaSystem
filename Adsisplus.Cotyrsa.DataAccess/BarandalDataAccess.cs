@@ -14,16 +14,16 @@ namespace Adsisplus.Cotyrsa.DataAccess
         /// Procedimiento que lista los datos Barandal
         /// </summary>
         /// <param name="intDatosBarandalID"></param>
-        /// <param name="intDetCotizaID"></param>
+        /// <param name="intCotizacionID"></param>
         /// <returns></returns>
-        public List<DatosBarandal> ListarDatosBarandal(int intDatosBarandalID, int intDetCotizaID)
+        public List<DatosBarandal> ListarDatosBarandal(int intDatosBarandalID, int intCotizacionID)
         {
             List<DatosBarandal> result = new List<DatosBarandal>();
             try
             {
                 using (BarandalDataContext dc = new BarandalDataContext(Helper.ConnectionString()))
                 {
-                    var query = from item in dc.stp_ListarDatosBarandal(intDatosBarandalID, intDetCotizaID)
+                    var query = from item in dc.stp_ListarDatosBarandal(intDatosBarandalID, intCotizacionID)
                                 select new DatosBarandal
                                 {
                                     intDatosBarandalID = item.intDatosBarandalID,

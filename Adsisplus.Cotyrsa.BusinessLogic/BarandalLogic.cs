@@ -22,14 +22,14 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
         /// Procedimiento que lista los datos Barandal
         /// </summary>
         /// <param name="intDatosBarandalID"></param>
-        /// <param name="intDetCotizaID"></param>
+        /// <param name="intCotizacionID"></param>
         /// <returns></returns>
-        public List<DatosBarandal> ListarDatosBarandal(int intDatosBarandalID, int intDetCotizaID)
+        public List<DatosBarandal> ListarDatosBarandal(int intDatosBarandalID, int intCotizacionID)
         {
             List<DatosBarandal> result = new List<DatosBarandal>();
             try
             {
-                result = BarandalDA.ListarDatosBarandal(intDatosBarandalID, intDetCotizaID);
+                result = BarandalDA.ListarDatosBarandal(intDatosBarandalID, intCotizacionID);
             }
             catch (Exception ex)
             {
@@ -71,7 +71,7 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
 
                     //Validamos si es un nuevo registro
                     if (tinOpcion != 1)
-                        ListBarandal = ListarDatosBarandal((int)barandal.intDatosBarandalID, intDetCotizaID);
+                        ListBarandal = ListarDatosBarandal((int)barandal.intDatosBarandalID, intCotizacionID);
                     //Validamos si existe registro
                     if (ListBarandal.Count > 0)
                         _barandal = ListBarandal.First();

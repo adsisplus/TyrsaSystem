@@ -37,11 +37,11 @@ namespace Adsisplus.Cotyrsa.WcfService.BarandalServices
         /// Procedimiento que lista los datos Barandal
         /// </summary>
         /// <param name="intDatosBarandalID"></param>
-        /// <param name="intDetCotizaID"></param>
+        /// <param name="intCotizacionID"></param>
         /// <returns></returns>
         [OperationContract]
         [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ListarDatosBarandal")]
-        List<DatosBarandal> ListarDatosBarandal(int intDatosBarandalID, int intDetCotizaID);
+        List<DatosBarandal> ListarDatosBarandal(int intDatosBarandalID, int intCotizacionID);
         /// <summary>
         /// Procedimiento que realiza el alta, baja o modificación de los datos de barandal
         /// </summary>

@@ -74,8 +74,8 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
                 detCotizacion.intElementoID = 30;
                 detCotizacion.intPartida = 0;
                 detCotizacion.intCantidad = brazo.intCantidad;
-                detCotizacion.decMonto = brazo.seleccion.decPrecioVentaUnitario;
-                detCotizacion.decSubtotal = Decimal.Round((Math.Truncate(100 * brazo.seleccion.decPrecioVentaUnitario.Value) / 100) * brazo.intCantidad.Value);
+                //detCotizacion.decMonto = brazo.seleccion.decPrecioVentaUnitario;
+                //detCotizacion.decSubtotal = Decimal.Round((Math.Truncate(100 * brazo.seleccion.decPrecioVentaUnitario.Value) / 100) * brazo.intCantidad.Value);
 
                 // Almacenamos el registro
                 result = (new CotizacionLogic()).setDetCotizacion(detCotizacion, (short)(intDetCotizaID == 0 ? 1 : tinOpcion));

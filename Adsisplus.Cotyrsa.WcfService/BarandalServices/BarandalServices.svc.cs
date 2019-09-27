@@ -59,14 +59,14 @@ namespace Adsisplus.Cotyrsa.WcfService.BarandalServices
         /// Procedimiento que lista los datos Barandal
         /// </summary>
         /// <param name="intDatosBarandalID"></param>
-        /// <param name="intDetCotizaID"></param>
+        /// <param name="intCotizacionID"></param>
         /// <returns></returns>
-        public List<DatosBarandal> ListarDatosBarandal(int intDatosBarandalID, int intDetCotizaID)
+        public List<DatosBarandal> ListarDatosBarandal(int intDatosBarandalID, int intCotizacionID)
         {
             List<DatosBarandal> result = new List<DatosBarandal>();
             try
             {
-                result = (new BarandalLogic()).ListarDatosBarandal(intDatosBarandalID, intDetCotizaID);
+                result = (new BarandalLogic()).ListarDatosBarandal(intDatosBarandalID, intCotizacionID);
             }
             catch (Exception ex)
             {
