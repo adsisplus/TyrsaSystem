@@ -57,7 +57,7 @@ namespace Adsisplus.Cotyrsa.DataAccess
                 {
                     var query = from item in dc.stp_setDatosAtirantado(atirantado.intAtirantadoID, atirantado.intElementoID, atirantado.intCotizacionID, atirantado.sintPinturaID,
                         atirantado.intCantidad, atirantado.bitActivo, atirantado.intDetCotizaID, atirantado.decLargo, atirantado.seleccion.decPrecioVentaUnitario,
-                        atirantado.seleccion.decPrecioVentaTotal, atirantado.seleccion.decPesoUnitario, atirantado.seleccion.decPesoTotal, atirantado.decLongitud, atirantado.intCalibreID,
+                        atirantado.seleccion.decPrecioVentaTotal, atirantado.seleccion.decPesoUnitario, atirantado.seleccion.decPesoTotal, atirantado.seleccion.decLongitud, atirantado.intCalibreID,
                         atirantado.seleccion.intSeleccionArriestradoID, atirantado.seleccion.sintDriveInID, atirantado.seleccion.decAncho, atirantado.seleccion.decTotalKiloUnitario, atirantado.seleccion.decPrecioFinal,
                         (byte)tinOpcion)
                                 select new Resultado

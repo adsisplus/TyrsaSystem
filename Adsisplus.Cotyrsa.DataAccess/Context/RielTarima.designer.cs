@@ -70,9 +70,9 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.stp_ListarDatosRielTarima")]
-		public ISingleResult<stp_ListarDatosRielTarimaResult> stp_ListarDatosRielTarima([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intRielTarimaID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intDetCotizaID)
+		public ISingleResult<stp_ListarDatosRielTarimaResult> stp_ListarDatosRielTarima([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intRielTarimaID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intCotizacionID)
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), intRielTarimaID, intDetCotizaID);
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), intRielTarimaID, intCotizacionID);
 			return ((ISingleResult<stp_ListarDatosRielTarimaResult>)(result.ReturnValue));
 		}
 	}
