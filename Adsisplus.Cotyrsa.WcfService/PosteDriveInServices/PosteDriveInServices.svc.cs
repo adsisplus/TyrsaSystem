@@ -36,14 +36,14 @@ namespace Adsisplus.Cotyrsa.WcfService.PosteDriveInServices
         /// Procedimiento que lista los datos poste drive in
         /// </summary>
         /// <param name="intDatoPosteDriveInID"></param>
-        /// <param name="intDetCotizaID"></param>
+        /// <param name="intCotizacionID"></param>
         /// <returns></returns>
-        public List<DatosPosteDriveIn> ListarDatosPosteDriveIn(int intDatoPosteDriveInID, int intDetCotizaID)
+        public List<DatosPosteDriveIn> ListarDatosPosteDriveIn(int intDatoPosteDriveInID, int intCotizacionID)
         {
             List<DatosPosteDriveIn> result = new List<DatosPosteDriveIn>();
             try
             {
-                result = (new PosteDriveInLogic()).ListarDatosPosteDriveIn(intDatoPosteDriveInID, intDetCotizaID);
+                result = (new PosteDriveInLogic()).ListarDatosPosteDriveIn(intDatoPosteDriveInID, intCotizacionID);
             }
             catch (Exception ex)
             {

@@ -14,16 +14,16 @@ namespace Adsisplus.Cotyrsa.DataAccess
         /// Procedimiento que lista los datos poste drive in
         /// </summary>
         /// <param name="intDatoPosteDriveInID"></param>
-        /// <param name="intDetCotizaID"></param>
+        /// <param name="intCotizacionID"></param>
         /// <returns></returns>
-        public List<DatosPosteDriveIn> ListarDatosPosteDriveIn(int intDatoPosteDriveInID, int intDetCotizaID)
+        public List<DatosPosteDriveIn> ListarDatosPosteDriveIn(int intDatoPosteDriveInID, int intCotizacionID)
         {
             List<DatosPosteDriveIn> result = new List<DatosPosteDriveIn>();
             try
             {
                 using (PosteDriveInDataContext dc = new PosteDriveInDataContext(Helper.ConnectionString()))
                 {
-                    var query = from item in dc.stp_ListarDatosPosteDriveIn(intDatoPosteDriveInID, intDetCotizaID)
+                    var query = from item in dc.stp_ListarDatosPosteDriveIn(intDatoPosteDriveInID, intCotizacionID)
                                 select new DatosPosteDriveIn
                                 {
                                     // Datos Poste

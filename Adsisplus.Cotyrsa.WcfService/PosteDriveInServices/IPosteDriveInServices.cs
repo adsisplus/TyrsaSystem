@@ -26,10 +26,10 @@ namespace Adsisplus.Cotyrsa.WcfService.PosteDriveInServices
         /// Procedimiento que lista los datos poste drive in
         /// </summary>
         /// <param name="intDatoPosteDriveInID"></param>
-        /// <param name="intDetCotizaID"></param>
+        /// <param name="intCotizacionID"></param>
         /// <returns></returns>
         [OperationContract]
         [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ListarDatosPosteDriveIn")]
-        List<DatosPosteDriveIn> ListarDatosPosteDriveIn(int intDatoPosteDriveInID, int intDetCotizaID);
+        List<DatosPosteDriveIn> ListarDatosPosteDriveIn(int intDatoPosteDriveInID, int intCotizacionID);
     }
 }

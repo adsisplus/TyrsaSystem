@@ -70,9 +70,9 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.stp_ListarDatosPosteDriveIn")]
-		public ISingleResult<stp_ListarDatosPosteDriveInResult> stp_ListarDatosPosteDriveIn([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intDatoPosteDriveInID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intDetCotizaID)
+		public ISingleResult<stp_ListarDatosPosteDriveInResult> stp_ListarDatosPosteDriveIn([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intDatoPosteDriveInID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intCotizacionID)
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), intDatoPosteDriveInID, intDetCotizaID);
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), intDatoPosteDriveInID, intCotizacionID);
 			return ((ISingleResult<stp_ListarDatosPosteDriveInResult>)(result.ReturnValue));
 		}
 	}
@@ -286,7 +286,7 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 	public partial class stp_ListarDatosPosteDriveInResult
 	{
 		
-		private int _intDatoPosteDriveInID;
+		private System.Nullable<int> _intDatoPosteDriveInID;
 		
 		private System.Nullable<int> _intElementoID;
 		
@@ -332,8 +332,8 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 		{
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intDatoPosteDriveInID", DbType="Int NOT NULL")]
-		public int intDatoPosteDriveInID
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intDatoPosteDriveInID", DbType="Int")]
+		public System.Nullable<int> intDatoPosteDriveInID
 		{
 			get
 			{
