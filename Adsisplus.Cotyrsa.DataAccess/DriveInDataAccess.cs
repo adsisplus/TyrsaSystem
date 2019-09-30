@@ -245,7 +245,8 @@ namespace Adsisplus.Cotyrsa.DataAccess
                 {
                     var query = from item in dc.stp_setDatosBarandal(barandal.intDatosBarandalID, barandal.intElementoID, barandal.intCotizacionID, barandal.intDetCotizaID,
                         barandal.sintPinturaID, barandal.decLargo, barandal.decCantidad, barandal.decPrecioUnitario, barandal.decPrecioTotal,
-                        barandal.bitActivo, (byte)tinOpcion)
+                        barandal.seleccion.decPesoUnitario, barandal.decPesoTotal, barandal.seleccion.intSeleccionBarandalID, barandal.seleccion.sintTipoVigaBarandalID, barandal.bitActivo, 
+                        (byte)tinOpcion)
                                 select new Resultado
                                 {
                                     vchDescripcion = item.vchDescripcion,

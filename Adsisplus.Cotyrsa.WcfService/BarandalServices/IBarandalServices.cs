@@ -14,25 +14,13 @@ namespace Adsisplus.Cotyrsa.WcfService.BarandalServices
     public interface IBarandalServices
     {
         /// <summary>
-        /// Procedimiento que lista los datos Atirantado
+        /// Procedimiento que lista los datos de precio DriveIn Barandal en base al largo
         /// </summary>
-        /// <param name="intAtirantadoID"></param>
-        /// <param name="intDetCotizaID"></param>
+        /// <param name="decLargo"></param>
         /// <returns></returns>
         [OperationContract]
-        [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ListarDatosAtirantado")]
-        List<DatosAtirantado> ListarDatosAtirantado(int intAtirantadoID, int intDetCotizaID);
-        /// <summary>
-        /// Procedimiento que realiza el alta, modificación de los datos atirantado
-        /// </summary>
-        /// <param name="atirantado"></param>
-        /// <param name="intCotizacionID"></param>
-        /// <param name="intDetCotizaID"></param>
-        /// <param name="tinOpcion"></param>
-        /// <returns></returns>
-        [OperationContract]
-        [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "setDatosAtirantado")]
-        Resultado setDatosAtirantado(DatosAtirantado atirantado, int intCotizacionID, int intDetCotizaID, short tinOpcion);
+        [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ListarDriveInBarandal")]
+        List<SeleccionBarandal> ListarDriveInBarandal(decimal decLargo);
         /// <summary>
         /// Procedimiento que lista los datos Barandal
         /// </summary>

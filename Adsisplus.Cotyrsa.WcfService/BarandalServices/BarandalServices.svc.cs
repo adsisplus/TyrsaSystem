@@ -14,48 +14,6 @@ namespace Adsisplus.Cotyrsa.WcfService.BarandalServices
     public class BarandalServices : IBarandalServices
     {
         /// <summary>
-        /// Procedimiento que lista los datos Atirantado
-        /// </summary>
-        /// <param name="intAtirantadoID"></param>
-        /// <param name="intDetCotizaID"></param>
-        /// <returns></returns>
-        public List<DatosAtirantado> ListarDatosAtirantado(int intAtirantadoID, int intDetCotizaID)
-        {
-            List<DatosAtirantado> result = new List<DatosAtirantado>();
-            try
-            {
-                result = (new AtirantadoLogic()).ListarDatosAtirantado(intAtirantadoID, intDetCotizaID);
-            }
-            catch (Exception ex)
-            {
-                Adsisplus.Cotyrsa.BusinessLogic.EventLogManager.LogErrorEntry(ex.Message);
-            }
-            return result;
-        }
-        /// <summary>
-        /// Procedimiento que realiza el alta, modificación de los datos atirantado
-        /// </summary>
-        /// <param name="atirantado"></param>
-        /// <param name="intCotizacionID"></param>
-        /// <param name="intDetCotizaID"></param>
-        /// <param name="tinOpcion"></param>
-        /// <returns></returns>
-        public Resultado setDatosAtirantado(DatosAtirantado atirantado, int intCotizacionID, int intDetCotizaID, short tinOpcion)
-        {
-            Resultado result = new Resultado();
-            try
-            {
-                result = (new AtirantadoLogic()).setDatosAtirantado(atirantado, intCotizacionID, intDetCotizaID, tinOpcion);
-            }
-            catch (Exception ex)
-            {
-                Adsisplus.Cotyrsa.BusinessLogic.EventLogManager.LogErrorEntry(ex.Message);
-            }
-            return result;
-        }
-
-
-        /// <summary>
         /// Procedimiento que lista los datos Barandal
         /// </summary>
         /// <param name="intDatosBarandalID"></param>
@@ -67,6 +25,24 @@ namespace Adsisplus.Cotyrsa.WcfService.BarandalServices
             try
             {
                 result = (new BarandalLogic()).ListarDatosBarandal(intDatosBarandalID, intCotizacionID);
+            }
+            catch (Exception ex)
+            {
+                Adsisplus.Cotyrsa.BusinessLogic.EventLogManager.LogErrorEntry(ex.Message);
+            }
+            return result;
+        }
+        /// <summary>
+        /// Procedimiento que lista los datos de precio DriveIn Barandal en base al largo
+        /// </summary>
+        /// <param name="decLargo"></param>
+        /// <returns></returns>
+        public List<SeleccionBarandal> ListarDriveInBarandal(decimal decLargo)
+        {
+            List<SeleccionBarandal> result = new List<SeleccionBarandal>();
+            try
+            {
+                result = (new BarandalLogic()).ListarDriveInBarandal(decLargo);
             }
             catch (Exception ex)
             {

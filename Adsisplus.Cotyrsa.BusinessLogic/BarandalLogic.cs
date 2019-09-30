@@ -38,6 +38,24 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
             return result;
         }
         /// <summary>
+        /// Procedimiento que lista los datos de precio DriveIn Barandal en base al largo
+        /// </summary>
+        /// <param name="decLargo"></param>
+        /// <returns></returns>
+        public List<SeleccionBarandal> ListarDriveInBarandal(decimal decLargo)
+        {
+            List<SeleccionBarandal> result = new List<SeleccionBarandal>();
+            try
+            {
+                result = BarandalDA.ListarDriveInBarandal(decLargo);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
+        /// <summary>
         /// Procedimiento que realiza el alta, baja o modificación de los datos de barandal
         /// </summary>
         /// <param name="barandal"></param>

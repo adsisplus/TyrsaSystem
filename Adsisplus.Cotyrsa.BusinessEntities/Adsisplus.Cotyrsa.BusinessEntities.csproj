@@ -125,6 +125,7 @@
     <Compile Include="RelTipoElementoAlmacenFactorCotizacion.cs" />
     <Compile Include="Resultado.cs" />
     <Compile Include="SeleccionArriestrado.cs" />
+    <Compile Include="SeleccionBarandal.cs" />
     <Compile Include="SeleccionBrazo.cs" />
     <Compile Include="SeleccionCrossBar.cs" />
     <Compile Include="SeleccionDistanciador.cs" />
