@@ -51,5 +51,36 @@ namespace Adsisplus.Cotyrsa.DataAccess
             }
             return result;
         }
+        /// <summary>
+        /// Procedimiento que lista los datos de los pisos registrados
+        /// </summary>
+        /// <param name="intDatoPisoID"></param>
+        /// <returns></returns>
+        public List<SeleccionPiso> ListarDatosSeleccionPiso(int intDatoPisoID)
+        {
+            List<SeleccionPiso> result = new List<SeleccionPiso>();
+            try
+            {
+                using (PisoDataContext dc = new PisoDataContext(Helper.ConnectionString()))
+                {
+                    var query = from item in dc.stp_ListarDatosSeleccionPiso(intDatoPisoID)
+                                select new SeleccionPiso
+                                {
+                                    intSeleccionPisoID = item.intSeleccionPisoID,
+                                    intDatoPisoID = item.intDatoPisoID,
+                                    intDetCotizaID = item.intDetCotizaID,
+                                    decPrecioUnitario = item.decPrecioUnitario,
+                                    decPrecioTotal = item.decPrecioTotal,
+                                    bitActivo = item.bitActivo
+                                };
+                    result.AddRange(query);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
     }
 }

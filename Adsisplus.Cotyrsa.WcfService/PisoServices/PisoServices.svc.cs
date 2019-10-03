@@ -33,6 +33,24 @@ namespace Adsisplus.Cotyrsa.WcfService.PisoServices
             return result;
         }
         /// <summary>
+        /// Procedimiento que lista los datos de los pisos registrados
+        /// </summary>
+        /// <param name="intDatoPisoID"></param>
+        /// <returns></returns>
+        public List<SeleccionPiso> ListarDatosSeleccionPiso(int intDatoPisoID)
+        {
+            List<SeleccionPiso> result = new List<SeleccionPiso>();
+            try
+            {
+                result = (new PisoLogic()).ListarDatosSeleccionPiso(intDatoPisoID);
+            }
+            catch (Exception ex)
+            {
+                Adsisplus.Cotyrsa.BusinessLogic.EventLogManager.LogErrorEntry(ex.Message);
+            }
+            return result;
+        }
+        /// <summary>
         /// Procedimiento que realiza el alta, modificación de los datos piso
         /// </summary>
         /// <param name="piso"></param>

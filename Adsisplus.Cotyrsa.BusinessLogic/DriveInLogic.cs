@@ -133,6 +133,26 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
             return result;
         }
         /// <summary>
+        /// Procedimiento que realiza el alta de la selección piso
+        /// </summary>
+        /// <param name="seleccion"></param>
+        /// <param name="intDatoPisoID"></param>
+        /// <param name="tinOpcion"></param>
+        /// <returns></returns>
+        public Resultado setSeleccionPiso(List<SeleccionPiso> seleccion, int? intDatoPisoID, short tinOpcion)
+        {
+            Resultado result = new Resultado();
+            try
+            {
+                result = DriveInDA.setSeleccionPiso(seleccion, intDatoPisoID, tinOpcion);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
+        /// <summary>
         /// Procedimiento que realiza el alta, baja y modificación de los datos barandal
         /// </summary>
         /// <param name="barandal"></param>

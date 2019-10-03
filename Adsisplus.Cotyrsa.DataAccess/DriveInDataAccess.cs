@@ -231,6 +231,110 @@ namespace Adsisplus.Cotyrsa.DataAccess
             return result;
         }
         /// <summary>
+        /// Procedimiento que realiza el alta de la selección piso
+        /// </summary>
+        /// <param name="seleccion"></param>
+        /// <param name="intDatoPisoID"></param>
+        /// <param name="tinOpcion"></param>
+        /// <returns></returns>
+        public Resultado setSeleccionPiso(List<SeleccionPiso> seleccion, int? intDatoPisoID, short tinOpcion)
+        {
+            Resultado result = new Resultado();
+            try
+            {
+                int intNumeroPisoAnterior = (int)(new PisoDataContext(Helper.ConnectionString())).fn_getNumeroPiso(intDatoPisoID);
+                int intNumeroPisoNuevo = seleccion.Count();
+
+                if (tinOpcion == 1 || intNumeroPisoAnterior == intNumeroPisoNuevo)
+                    foreach (SeleccionPiso piso in seleccion)
+                    {
+                        using (PisoDataContext dc = new PisoDataContext(Helper.ConnectionString()))
+                        {
+                            var query = from item in dc.stp_setSeleccionPiso(piso.intSeleccionPisoID, piso.intDatoPisoID, piso.intDetCotizaID, piso.decPrecioUnitario, piso.decPrecioTotal, piso.bitActivo, (byte)tinOpcion)
+                                        select new Resultado
+                                        {
+                                            vchDescripcion = item.vchDescripcion,
+                                            vchResultado = item.vchResultado
+                                        };
+                            result = query.First();
+                        }
+                        if (result.vchResultado == "NOK")
+                            break;
+                    }
+                else
+                {
+                    // Validamos si son nuevos registros
+                    if (intNumeroPisoAnterior != intNumeroPisoNuevo)
+                    {
+                        // Recorremos la lista
+                        for (int i = 0; i < intNumeroPisoAnterior; i++)
+                        {
+                            // Actualizamos los datos de la lista
+                            using (PisoDataContext dc = new PisoDataContext(Helper.ConnectionString()))
+                            {
+                                var query = from item in dc.stp_setSeleccionPiso(seleccion[i].intSeleccionPisoID, seleccion[i].intDatoPisoID, seleccion[i].intDetCotizaID, seleccion[i].decPrecioUnitario,
+                                    seleccion[i].decPrecioTotal, seleccion[i].bitActivo, 2)
+                                            select new Resultado
+                                            {
+                                                vchDescripcion = item.vchDescripcion,
+                                                vchResultado = item.vchResultado
+                                            };
+                                result = query.First();
+                            }
+                            if (result.vchResultado == "NOK")
+                                break;
+                        }
+                        if (intNumeroPisoNuevo < intNumeroPisoAnterior)
+                            // Al terminar, recorremos la lista quitando hasta llegar el número de nivel anterior
+                            for (int i = intNumeroPisoNuevo; i < intNumeroPisoAnterior; i++)
+                            {
+                                // Actualizamos los datos de la lista, dando de baja los registros
+                                using (PisoDataContext dc = new PisoDataContext(Helper.ConnectionString()))
+                                {
+                                    var query = from item in dc.stp_setSeleccionPiso(seleccion[i].intSeleccionPisoID, seleccion[i].intDatoPisoID, seleccion[i].intDetCotizaID, seleccion[i].decPrecioUnitario,
+                                        seleccion[i].decPrecioTotal, seleccion[i].bitActivo, 3) // Quitamos los registros
+                                                select new Resultado
+                                                {
+                                                    vchDescripcion = item.vchDescripcion,
+                                                    vchResultado = item.vchResultado
+                                                };
+                                    result = query.First();
+                                }
+                                if (result.vchDescripcion == "NOK")
+                                    break;
+                            }
+                        else
+                        {
+                            // En caso contrario
+                            // Al terminar, recorremos la lista quitando hasta llegar el número anterior
+                            for (int i = intNumeroPisoAnterior; i < intNumeroPisoNuevo; i++)
+                            {
+                                // Actualizamos los datos de la lista, dando de baja los registros
+                                using (PisoDataContext dc = new PisoDataContext(Helper.ConnectionString()))
+                                {
+                                    var query = from item in dc.stp_setSeleccionPiso(seleccion[i].intSeleccionPisoID, seleccion[i].intDatoPisoID, seleccion[i].intDetCotizaID, seleccion[i].decPrecioUnitario,
+                                        seleccion[i].decPrecioTotal, seleccion[i].bitActivo, 1) // Agregamos los registros
+                                                select new Resultado
+                                                {
+                                                    vchDescripcion = item.vchDescripcion,
+                                                    vchResultado = item.vchResultado
+                                                };
+                                    result = query.First();
+                                }
+                                if (result.vchDescripcion == "NOK")
+                                    break;
+                            }
+                        }
+                    }
+                }
+            }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
+        /// <summary>
         /// Procedimiento que realiza el alta, baja y modificación de los datos barandal
         /// </summary>
         /// <param name="barandal"></param>
