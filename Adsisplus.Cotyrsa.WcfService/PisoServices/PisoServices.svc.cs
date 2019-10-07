@@ -51,6 +51,26 @@ namespace Adsisplus.Cotyrsa.WcfService.PisoServices
             return result;
         }
         /// <summary>
+        /// Procedimiento que lista los datos de seleccion Piso Drive In
+        /// </summary>
+        /// <param name="intCantidad"></param>
+        /// <param name="decLargo"></param>
+        /// <param name="bitGalvanizado"></param>
+        /// <returns></returns>
+        public List<SeleccionPisoDriveIn> ListarPisoDriveIn(int? intCantidad, decimal? decLargo, bool? bitGalvanizado)
+        {
+            List<SeleccionPisoDriveIn> result = new List<SeleccionPisoDriveIn>();
+            try
+            {
+                result = (new PisoLogic()).ListarPisoDriveIn(intCantidad, decLargo, bitGalvanizado);
+            }
+            catch (Exception ex)
+            {
+                Adsisplus.Cotyrsa.BusinessLogic.EventLogManager.LogErrorEntry(ex.Message);
+            }
+            return result;
+        }
+        /// <summary>
         /// Procedimiento que realiza el alta, modificación de los datos piso
         /// </summary>
         /// <param name="piso"></param>

@@ -31,6 +31,16 @@ namespace Adsisplus.Cotyrsa.WcfService.PisoServices
         [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ListarDatosSeleccionPiso")]
         List<SeleccionPiso> ListarDatosSeleccionPiso(int intDatoPisoID);
         /// <summary>
+        /// Procedimiento que lista los datos de seleccion Piso Drive In
+        /// </summary>
+        /// <param name="intCantidad"></param>
+        /// <param name="decLargo"></param>
+        /// <param name="bitGalvanizado"></param>
+        /// <returns></returns>
+        [OperationContract]
+        [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ListarPisoDriveIn")]
+        List<SeleccionPisoDriveIn> ListarPisoDriveIn(int? intCantidad, decimal? decLargo, bool? bitGalvanizado);
+        /// <summary>
         /// Procedimiento que realiza el alta, modificación de los datos piso
         /// </summary>
         /// <param name="piso"></param>
