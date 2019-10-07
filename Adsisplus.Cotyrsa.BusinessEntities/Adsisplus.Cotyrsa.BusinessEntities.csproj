@@ -133,6 +133,7 @@
     <Compile Include="SeleccionMarco.cs" />
     <Compile Include="SeleccionPanel.cs" />
     <Compile Include="SeleccionPiso.cs" />
+    <Compile Include="SeleccionPisoDriveIn.cs" />
     <Compile Include="SeleccionRielDeCarga.cs" />
     <Compile Include="SeleccionViga.cs" />
     <Compile Include="SeleccionViga_TipoC.cs" />

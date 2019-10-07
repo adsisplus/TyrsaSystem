@@ -1583,6 +1583,34 @@ namespace Adsisplus.Cotyrsa.DataAccess
             }
             return result;
         }
+        /// <summary>
+        /// Procedimiento que lista los datos del catálogo de Tipo Piso
+        /// </summary>
+        /// <param name="decLargo"></param>
+        /// <returns></returns>
+        public List<Catalogo> ListarCatTipoPiso(decimal decLargo)
+        {
+            List<Catalogo> result = new List<Catalogo>();
+            try
+            {
+                using (CatalogosDataContext dc = new CatalogosDataContext(Helper.ConnectionString()))
+                {
+                    var query = from item in dc.stp_ListarCatTipoPiso(decLargo)
+                                select new Catalogo
+                                {
+                                    intCatalogoID = item.sintTipoPisoID,
+                                    vchDescripcion = item.vchTipoPiso,
+                                    bitActivo = item.bitActivo
+                                };
+                    result.AddRange(query);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
     }
 
 

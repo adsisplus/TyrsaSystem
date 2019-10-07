@@ -360,5 +360,13 @@ namespace Adsisplus.Cotyrsa.WcfService.CatalogoServices
         [OperationContract]
         [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ListarCatMaterialDriveIn")]
         List<Catalogo> ListarCatMaterialDriveIn();
+        /// <summary>
+        /// Procedimiento que lista los datos del catálogo de Tipo Piso
+        /// </summary>
+        /// <param name="decLargo"></param>
+        /// <returns></returns>
+        [OperationContract]
+        [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ListarCatTipoPiso")]
+        List<Catalogo> ListarCatTipoPiso(decimal decLargo);
     }
 }

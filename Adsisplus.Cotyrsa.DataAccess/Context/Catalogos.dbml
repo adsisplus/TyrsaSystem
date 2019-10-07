@@ -532,4 +532,14 @@
       <Column Name="decLargoBrazo" Type="System.Decimal" DbType="Decimal(8,2)" CanBeNull="true" />
     </ElementType>
   </Function>
+  <Function Name="dbo.stp_ListarCatTipoPiso" Method="stp_ListarCatTipoPiso">
+    <Parameter Name="decLargo" Type="System.Decimal" DbType="Decimal(8,2)" />
+    <ElementType Name="stp_ListarCatTipoPisoResult">
+      <Column Name="sintTipoPisoID" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Column Name="vchTipoPiso" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="decFactor" Type="System.Decimal" DbType="Decimal(8,2)" CanBeNull="true" />
+      <Column Name="decLargo" Type="System.Decimal" DbType="Decimal(8,2)" CanBeNull="true" />
+      <Column Name="bitActivo" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </ElementType>
+  </Function>
 </Database>

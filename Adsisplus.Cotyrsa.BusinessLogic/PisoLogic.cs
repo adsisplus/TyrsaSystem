@@ -56,6 +56,26 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
             return result;
         }
         /// <summary>
+        /// Procedimiento que lista los datos de seleccion Piso Drive In
+        /// </summary>
+        /// <param name="intCantidad"></param>
+        /// <param name="decLargo"></param>
+        /// <param name="bitGalvanizado"></param>
+        /// <returns></returns>
+        public List<SeleccionPisoDriveIn> ListarPisoDriveIn(int? intCantidad, decimal? decLargo, bool? bitGalvanizado)
+        {
+            List<SeleccionPisoDriveIn> result = new List<SeleccionPisoDriveIn>();
+            try
+            {
+                result = PisoDA.ListarPisoDriveIn(intCantidad, decLargo, bitGalvanizado);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
+        /// <summary>
         /// Procedimiento que realiza el alta, modificación de los datos piso
         /// </summary>
         /// <param name="piso"></param>

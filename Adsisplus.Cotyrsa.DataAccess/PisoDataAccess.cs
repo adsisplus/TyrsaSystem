@@ -82,5 +82,37 @@ namespace Adsisplus.Cotyrsa.DataAccess
             }
             return result;
         }
+        /// <summary>
+        /// Procedimiento que lista los datos de seleccion Piso Drive In
+        /// </summary>
+        /// <param name="intCantidad"></param>
+        /// <param name="decLargo"></param>
+        /// <param name="bitGalvanizado"></param>
+        /// <returns></returns>
+        public List<SeleccionPisoDriveIn> ListarPisoDriveIn(int? intCantidad, decimal? decLargo, bool? bitGalvanizado)
+        {
+            List<SeleccionPisoDriveIn> result = new List<SeleccionPisoDriveIn>();
+            try
+            {
+                using (PisoDataContext dc = new PisoDataContext(Helper.ConnectionString()))
+                {
+                    var query = from item in dc.stp_ListarPisoDriveIn(intCantidad, decLargo, bitGalvanizado)
+                                select new SeleccionPisoDriveIn
+                                {
+                                    sintPisoID = item.sintPisoID,
+                                    decLongitud = item.decLongitud,
+                                    vchMaterial = item.vchMaterial,
+                                    decPesoPartida = item.decPesoPartida,
+                                    decPrecioFinal = item.decPrecioFinal
+                                };
+                    result.AddRange(query);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
     }
 }

@@ -901,5 +901,23 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
             }
             return result;
         }
+        /// <summary>
+        /// Procedimiento que lista los datos del catálogo de Tipo Piso
+        /// </summary>
+        /// <param name="decLargo"></param>
+        /// <returns></returns>
+        public List<Catalogo> ListarCatTipoPiso(decimal decLargo)
+        {
+            List<Catalogo> result = new List<Catalogo>();
+            try
+            {
+                result = CatalogosDA.ListarCatTipoPiso(decLargo);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
     }
 }

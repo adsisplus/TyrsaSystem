@@ -467,6 +467,13 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
 			return ((ISingleResult<stp_ListarCatLargoBrazoResult>)(result.ReturnValue));
 		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.stp_ListarCatTipoPiso")]
+		public ISingleResult<stp_ListarCatTipoPisoResult> stp_ListarCatTipoPiso([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Decimal(8,2)")] System.Nullable<decimal> decLargo)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), decLargo);
+			return ((ISingleResult<stp_ListarCatTipoPisoResult>)(result.ReturnValue));
+		}
 	}
 	
 	public partial class stp_ListarCatCalibreAceroResult
@@ -5644,6 +5651,104 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 				if ((this._decLargoBrazo != value))
 				{
 					this._decLargoBrazo = value;
+				}
+			}
+		}
+	}
+	
+	public partial class stp_ListarCatTipoPisoResult
+	{
+		
+		private short _sintTipoPisoID;
+		
+		private string _vchTipoPiso;
+		
+		private System.Nullable<decimal> _decFactor;
+		
+		private System.Nullable<decimal> _decLargo;
+		
+		private System.Nullable<bool> _bitActivo;
+		
+		public stp_ListarCatTipoPisoResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sintTipoPisoID", DbType="SmallInt NOT NULL")]
+		public short sintTipoPisoID
+		{
+			get
+			{
+				return this._sintTipoPisoID;
+			}
+			set
+			{
+				if ((this._sintTipoPisoID != value))
+				{
+					this._sintTipoPisoID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchTipoPiso", DbType="VarChar(200)")]
+		public string vchTipoPiso
+		{
+			get
+			{
+				return this._vchTipoPiso;
+			}
+			set
+			{
+				if ((this._vchTipoPiso != value))
+				{
+					this._vchTipoPiso = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decFactor", DbType="Decimal(8,2)")]
+		public System.Nullable<decimal> decFactor
+		{
+			get
+			{
+				return this._decFactor;
+			}
+			set
+			{
+				if ((this._decFactor != value))
+				{
+					this._decFactor = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decLargo", DbType="Decimal(8,2)")]
+		public System.Nullable<decimal> decLargo
+		{
+			get
+			{
+				return this._decLargo;
+			}
+			set
+			{
+				if ((this._decLargo != value))
+				{
+					this._decLargo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_bitActivo", DbType="Bit")]
+		public System.Nullable<bool> bitActivo
+		{
+			get
+			{
+				return this._bitActivo;
+			}
+			set
+			{
+				if ((this._bitActivo != value))
+				{
+					this._bitActivo = value;
 				}
 			}
 		}

@@ -62,6 +62,14 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 			OnCreated();
 		}
 		
+		public System.Data.Linq.Table<entSeleccionPiso> entSeleccionPiso
+		{
+			get
+			{
+				return this.GetTable<entSeleccionPiso>();
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.stp_ListarDatosPiso")]
 		public ISingleResult<stp_ListarDatosPisoResult> stp_ListarDatosPiso([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intDatoPisoID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intCotizacionID)
 		{
@@ -87,6 +95,111 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 		public System.Nullable<int> fn_getNumeroPiso([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intDatoPisoID)
 		{
 			return ((System.Nullable<int>)(this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), intDatoPisoID).ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.stp_ListarPisoDriveIn", IsComposable=true)]
+		public IQueryable<entSeleccionPiso> stp_ListarPisoDriveIn([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intCantidad, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Decimal(8,2)")] System.Nullable<decimal> decLargo, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Bit")] System.Nullable<bool> bitGalvanizado)
+		{
+			return this.CreateMethodCallQuery<entSeleccionPiso>(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), intCantidad, decLargo, bitGalvanizado);
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="")]
+	public partial class entSeleccionPiso
+	{
+		
+		private short _sintPisoID;
+		
+		private decimal _decLongitud;
+		
+		private string _vchMaterial;
+		
+		private decimal _decPesoPartida;
+		
+		private decimal _decPrecioFinal;
+		
+		public entSeleccionPiso()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sintPisoID")]
+		public short sintPisoID
+		{
+			get
+			{
+				return this._sintPisoID;
+			}
+			set
+			{
+				if ((this._sintPisoID != value))
+				{
+					this._sintPisoID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decLongitud")]
+		public decimal decLongitud
+		{
+			get
+			{
+				return this._decLongitud;
+			}
+			set
+			{
+				if ((this._decLongitud != value))
+				{
+					this._decLongitud = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchMaterial", CanBeNull=false)]
+		public string vchMaterial
+		{
+			get
+			{
+				return this._vchMaterial;
+			}
+			set
+			{
+				if ((this._vchMaterial != value))
+				{
+					this._vchMaterial = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decPesoPartida")]
+		public decimal decPesoPartida
+		{
+			get
+			{
+				return this._decPesoPartida;
+			}
+			set
+			{
+				if ((this._decPesoPartida != value))
+				{
+					this._decPesoPartida = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decPrecioFinal")]
+		public decimal decPrecioFinal
+		{
+			get
+			{
+				return this._decPrecioFinal;
+			}
+			set
+			{
+				if ((this._decPrecioFinal != value))
+				{
+					this._decPrecioFinal = value;
+				}
+			}
 		}
 	}
 	

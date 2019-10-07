@@ -807,5 +807,23 @@ namespace Adsisplus.Cotyrsa.WcfService.CatalogoServices
             }
             return result;
         }
+        /// <summary>
+        /// Procedimiento que lista los datos del catálogo de Tipo Piso
+        /// </summary>
+        /// <param name="decLargo"></param>
+        /// <returns></returns>
+        public List<Catalogo> ListarCatTipoPiso(decimal decLargo)
+        {
+            List<Catalogo> result = new List<Catalogo>();
+            try
+            {
+                result = (new CatalogoLogic()).ListarCatTipoPiso(decLargo);
+            }
+            catch (Exception ex)
+            {
+                Adsisplus.Cotyrsa.BusinessLogic.EventLogManager.LogErrorEntry(ex.Message);
+            }
+            return result;
+        }
     }
 }
