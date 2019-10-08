@@ -13,6 +13,7 @@ namespace Adsisplus.Cotyrsa.WcfService.VigaServices
     // NOTA: para iniciar el Cliente de prueba WCF para probar este servicio, seleccione VigaServices.svc o VigaServices.svc.cs en el Explorador de soluciones e inicie la depuración.
     public class VigaServices : IVigaServices
     {
+        #region PROCEDIMIENTOS QUE SON USADOS EN EL SISTEMA SELECTIVO
         /// <summary>
         /// Obtiene la lista del total por viga
         /// </summary>
@@ -385,6 +386,9 @@ namespace Adsisplus.Cotyrsa.WcfService.VigaServices
             }
             return result;
         }
+        #endregion
+
+        #region PROCEDIMIENTO QUE SON USADOS EN EL SISTEMA DRIVE IN
         /// <summary>
         /// Procedimiento que lista los datos de Viga atirantado
         /// </summary>
@@ -442,5 +446,24 @@ namespace Adsisplus.Cotyrsa.WcfService.VigaServices
             }
             return result;
         }
+        /// <summary>
+        /// Procedimiento que lista los datos de angulo ranurado en base a la capacidad de carga
+        /// </summary>
+        /// <param name="decCapacidadCarga"></param>
+        /// <returns></returns>
+        public List<DatosAnguloRanurado> ListarAnguloRanurado(decimal decCapacidadCarga)
+        {
+            List<DatosAnguloRanurado> result = new List<DatosAnguloRanurado>();
+            try
+            {
+                result = (new VigaLogic()).ListarAnguloRanurado(decCapacidadCarga);
+            }
+            catch (Exception ex)
+            {
+                Adsisplus.Cotyrsa.BusinessLogic.EventLogManager.LogErrorEntry(ex.Message);
+            }
+            return result;
+        }
+        #endregion
     }
 }

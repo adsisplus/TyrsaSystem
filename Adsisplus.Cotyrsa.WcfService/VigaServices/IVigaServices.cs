@@ -13,6 +13,7 @@ namespace Adsisplus.Cotyrsa.WcfService.VigaServices
     [ServiceContract]
     public interface IVigaServices
     {
+        #region PROCEDIMIENTO QUE SON USADOS EN EL SISTEMA SELECTIVO
         /// <summary>
         /// Obtiene la lista del total por viga
         /// </summary>
@@ -205,6 +206,10 @@ namespace Adsisplus.Cotyrsa.WcfService.VigaServices
         [OperationContract]
         [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "setBajaVigaTope")]
         Resultado setBajaVigaTope(int intDetCotizaID, bool bitRollBack);
+        #endregion
+
+
+        #region PROCEDIMIENTO UTILIZADOS EN EL SISTEMA DRIVE IN
         /// <summary>
         /// Procedimiento que lista los datos de Viga atirantado
         /// </summary>
@@ -233,5 +238,15 @@ namespace Adsisplus.Cotyrsa.WcfService.VigaServices
         [OperationContract]
         [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ListarSeleccionVigaTipoCaja")]
         List<DatosVigaTipoCaja> ListarSeleccionVigaTipoCaja();
+
+        /// <summary>
+        /// Procedimiento que lista los datos de angulo ranurado en base a la capacidad de carga
+        /// </summary>
+        /// <param name="decCapacidadCarga"></param>
+        /// <returns></returns>
+        [OperationContract]
+        [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ListarAnguloRanurado")]
+        List<DatosAnguloRanurado> ListarAnguloRanurado(decimal decCapacidadCarga);
+        #endregion
     }
 }

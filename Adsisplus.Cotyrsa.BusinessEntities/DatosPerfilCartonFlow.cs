@@ -1,37 +1,32 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
-using System.Runtime.Serialization;
 
 namespace Adsisplus.Cotyrsa.BusinessEntities
 {
     [DataContract]
-    public class DatosAnguloRanurado
+    public class DatosPerfilCartonFlow
     {
         [DataMember]
-        public short? sintMstAnguloRanuradoID { get; set; }
-
+        public short? sintTipoCartonFlowID { get; set; }
         [DataMember]
-        public decimal? decDesarrollo { get; set; }
-
+        public short? sintCalibre { get; set; }
         [DataMember]
-        public decimal? decLongitud { get; set; }
-
+        public string vchTipoCartonFlow { get; set; }
         [DataMember]
         public decimal? decAncho { get; set; }
-
         [DataMember]
-        public string vchMaterial { get; set; }
-
+        public decimal? decLargo { get; set; }
         [DataMember]
-        public decimal? decPesoUnitario { get; set; }
-
+        public short? sintPesoPieza { get; set; }
+        [DataMember]
+        public decimal? decTotalKiloUnitario { get; set; }
         [DataMember]
         public decimal? decPrecioUnitario { get; set; }
-
         [DataMember]
-        public Boolean? bitActivo { get; set; }
+        public string vchLeyenda { get; set; }
     }
 }

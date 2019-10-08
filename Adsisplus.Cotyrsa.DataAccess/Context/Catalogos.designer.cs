@@ -474,6 +474,13 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), decLargo);
 			return ((ISingleResult<stp_ListarCatTipoPisoResult>)(result.ReturnValue));
 		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.stp_ListarCatLargoAngulo")]
+		public ISingleResult<stp_ListarCatLargoAnguloResult> stp_ListarCatLargoAngulo()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<stp_ListarCatLargoAnguloResult>)(result.ReturnValue));
+		}
 	}
 	
 	public partial class stp_ListarCatCalibreAceroResult
@@ -5749,6 +5756,50 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 				if ((this._bitActivo != value))
 				{
 					this._bitActivo = value;
+				}
+			}
+		}
+	}
+	
+	public partial class stp_ListarCatLargoAnguloResult
+	{
+		
+		private short _sintLargoID;
+		
+		private System.Nullable<decimal> _decLargo;
+		
+		public stp_ListarCatLargoAnguloResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sintLargoID", DbType="SmallInt NOT NULL")]
+		public short sintLargoID
+		{
+			get
+			{
+				return this._sintLargoID;
+			}
+			set
+			{
+				if ((this._sintLargoID != value))
+				{
+					this._sintLargoID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decLargo", DbType="Decimal(12,3)")]
+		public System.Nullable<decimal> decLargo
+		{
+			get
+			{
+				return this._decLargo;
+			}
+			set
+			{
+				if ((this._decLargo != value))
+				{
+					this._decLargo = value;
 				}
 			}
 		}

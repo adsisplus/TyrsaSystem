@@ -368,5 +368,12 @@ namespace Adsisplus.Cotyrsa.WcfService.CatalogoServices
         [OperationContract]
         [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ListarCatTipoPiso")]
         List<Catalogo> ListarCatTipoPiso(decimal decLargo);
+        /// <summary>
+        /// Procedimiento que lista el largo del angulo
+        /// </summary>
+        /// <returns></returns>
+        [OperationContract]
+        [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ListarCatLargoAngulo")]
+        List<CatalogoDecimal> ListarCatLargoAngulo();
     }
 }

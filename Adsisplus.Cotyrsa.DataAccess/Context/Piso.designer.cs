@@ -97,10 +97,11 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 			return ((System.Nullable<int>)(this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), intDatoPisoID).ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.stp_ListarPisoDriveIn", IsComposable=true)]
-		public IQueryable<entSeleccionPiso> stp_ListarPisoDriveIn([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intCantidad, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Decimal(8,2)")] System.Nullable<decimal> decLargo, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Bit")] System.Nullable<bool> bitGalvanizado)
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.stp_ListarPisoDriveIn")]
+		public ISingleResult<entSeleccionPiso> stp_ListarPisoDriveIn([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intCantidad, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Decimal(8,2)")] System.Nullable<decimal> decLargo, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Bit")] System.Nullable<bool> bitGalvanizado)
 		{
-			return this.CreateMethodCallQuery<entSeleccionPiso>(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), intCantidad, decLargo, bitGalvanizado);
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), intCantidad, decLargo, bitGalvanizado);
+			return ((ISingleResult<entSeleccionPiso>)(result.ReturnValue));
 		}
 	}
 	

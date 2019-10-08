@@ -5,8 +5,8 @@
       <Column Name="sintPisoID" Type="System.Int16" CanBeNull="false" />
       <Column Name="decLongitud" Type="System.Decimal" CanBeNull="false" />
       <Column Name="vchMaterial" Type="System.String" CanBeNull="false" />
-      <Column Name="decPesoPartida" Type="System.Decimal" CanBeNull="false" />
-      <Column Name="decPrecioFinal" Type="System.Decimal" CanBeNull="false" />
+      <Column Member="decPesoPartida" Type="System.Decimal" CanBeNull="false" />
+      <Column Member="decPrecioFinal" Type="System.Decimal" CanBeNull="false" />
     </Type>
   </Table>
   <Function Name="dbo.stp_ListarDatosPiso" Method="stp_ListarDatosPiso">
@@ -58,7 +58,7 @@
     <Parameter Name="intDatoPisoID" Type="System.Int32" DbType="Int" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Name="dbo.stp_ListarPisoDriveIn" Method="stp_ListarPisoDriveIn" IsComposable="true">
+  <Function Name="dbo.stp_ListarPisoDriveIn" Method="stp_ListarPisoDriveIn">
     <Parameter Name="intCantidad" Type="System.Int32" DbType="Int" />
     <Parameter Name="decLargo" Type="System.Decimal" DbType="Decimal(8,2)" />
     <Parameter Name="bitGalvanizado" Type="System.Boolean" DbType="Bit" />

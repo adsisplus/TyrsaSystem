@@ -825,5 +825,22 @@ namespace Adsisplus.Cotyrsa.WcfService.CatalogoServices
             }
             return result;
         }
+        /// <summary>
+        /// Procedimiento que lista el largo del angulo
+        /// </summary>
+        /// <returns></returns>
+        public List<CatalogoDecimal> ListarCatLargoAngulo()
+        {
+            List<CatalogoDecimal> result = new List<CatalogoDecimal>();
+            try
+            {
+                result = (new CatalogoLogic()).ListarCatLargoAngulo();
+            }
+            catch (Exception ex)
+            {
+                Adsisplus.Cotyrsa.BusinessLogic.EventLogManager.LogErrorEntry(ex.Message);
+            }
+            return result;
+        }
     }
 }

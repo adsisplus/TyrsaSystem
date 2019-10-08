@@ -10,6 +10,7 @@ namespace Adsisplus.Cotyrsa.DataAccess
 {
    public class VigaDataAccess
     {
+        #region PROCEDIMIENTO PARA EL SISTEMA SELECTIVO
         public List<TotalViga> ListarTotalViga(Int32 intTotalViga, Int32 intConfiguraVigaID)
         {
             List<TotalViga> results = new List<TotalViga>();
@@ -640,6 +641,9 @@ namespace Adsisplus.Cotyrsa.DataAccess
             }
             return result;
         }
+        #endregion
+
+        #region PROCEDIMIENTO PARA EL SISTEMA DRIVE IN
         /// <summary>
         /// Procedimiento que lista los datos de Viga atirantado
         /// </summary>
@@ -708,5 +712,38 @@ namespace Adsisplus.Cotyrsa.DataAccess
             }
             return result;
         }
+        /// <summary>
+        /// Procedimiento que lista los datos de angulo ranurado en base a la capacidad de carga
+        /// </summary>
+        /// <param name="decCapacidadCarga"></param>
+        /// <returns></returns>
+        public List<DatosAnguloRanurado> ListarAnguloRanurado(decimal decCapacidadCarga)
+        {
+            List<DatosAnguloRanurado> result = new List<DatosAnguloRanurado>();
+            try
+            {
+                using (VigasDataContext dc = new VigasDataContext(Helper.ConnectionString()))
+                {
+                    var query = from item in dc.stp_ListarAnguloRanurado(decCapacidadCarga)
+                                select new DatosAnguloRanurado
+                                {
+                                    sintMstAnguloRanuradoID = item.sintMstAnguloRanuradoID,
+                                    decDesarrollo = item.decDesarrollo,
+                                    decLongitud = item.decLongitud,
+                                    decAncho = item.decAncho,
+                                    vchMaterial = item.vchMaterial,
+                                    decPesoUnitario = item.decPesoUnitario,
+                                    decPrecioUnitario = item.decPrecioUnitario
+                                };
+                    result.AddRange(query);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
+        #endregion
     }
 }

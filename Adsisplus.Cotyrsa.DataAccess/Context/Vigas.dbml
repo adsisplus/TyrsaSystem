@@ -365,4 +365,16 @@
       <Column Name="decTotal" Type="System.Decimal" DbType="Decimal(38,6)" CanBeNull="true" />
     </ElementType>
   </Function>
+  <Function Name="dbo.stp_ListarAnguloRanurado" Method="stp_ListarAnguloRanurado">
+    <Parameter Name="decCapacidadCarga" Type="System.Decimal" DbType="Decimal(12,2)" />
+    <ElementType Name="stp_ListarAnguloRanuradoResult">
+      <Column Name="sintMstAnguloRanuradoID" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Column Name="decDesarrollo" Type="System.Decimal" DbType="Decimal(8,3)" CanBeNull="true" />
+      <Column Name="decLongitud" Type="System.Decimal" DbType="Decimal(8,3)" CanBeNull="true" />
+      <Column Name="decAncho" Type="System.Decimal" DbType="Decimal(8,3)" CanBeNull="true" />
+      <Column Name="vchMaterial" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="decPesoUnitario" Type="System.Decimal" DbType="Decimal(12,2)" CanBeNull="true" />
+      <Column Name="decPrecioUnitario" Type="System.Decimal" DbType="Decimal(12,2)" CanBeNull="true" />
+    </ElementType>
+  </Function>
 </Database>

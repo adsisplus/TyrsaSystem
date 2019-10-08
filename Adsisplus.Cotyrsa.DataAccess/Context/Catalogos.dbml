@@ -542,4 +542,10 @@
       <Column Name="bitActivo" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
     </ElementType>
   </Function>
+  <Function Name="dbo.stp_ListarCatLargoAngulo" Method="stp_ListarCatLargoAngulo">
+    <ElementType Name="stp_ListarCatLargoAnguloResult">
+      <Column Name="sintLargoID" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Column Name="decLargo" Type="System.Decimal" DbType="Decimal(12,3)" CanBeNull="true" />
+    </ElementType>
+  </Function>
 </Database>

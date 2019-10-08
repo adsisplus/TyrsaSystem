@@ -43,6 +43,7 @@
     <Compile Include="AtirantadoLogic.cs" />
     <Compile Include="BarandalLogic.cs" />
     <Compile Include="BrazoLogic.cs" />
+    <Compile Include="CartonFlowLogic.cs" />
     <Compile Include="CatalogoLogic.cs" />
     <Compile Include="CotizacionLogic.cs" />
     <Compile Include="CrossBarDataLogic.cs" />

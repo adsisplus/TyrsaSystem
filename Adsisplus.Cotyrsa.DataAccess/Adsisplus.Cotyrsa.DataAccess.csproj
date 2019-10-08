@@ -46,6 +46,7 @@
     <Compile Include="AtirantadoDataAccess.cs" />
     <Compile Include="BarandalDataAccess.cs" />
     <Compile Include="BrazoDataAccess.cs" />
+    <Compile Include="CartonFlowDataAccess.cs" />
     <Compile Include="CatalogosDataAccess.cs" />
     <Compile Include="Context\Atirantado.designer.cs">
       <AutoGen>True</AutoGen>
@@ -151,6 +152,11 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>SistemaDriveIn.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="Context\SistemasCartonFlow.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SistemasCartonFlow.dbml</DependentUpon>
     </Compile>
     <Compile Include="Context\SistemasTyrsa.designer.cs">
       <AutoGen>True</AutoGen>
@@ -333,6 +339,14 @@
     </None>
     <None Include="Context\SistemaDriveIn.dbml.layout">
       <DependentUpon>SistemaDriveIn.dbml</DependentUpon>
+    </None>
+    <None Include="Context\SistemasCartonFlow.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>SistemasCartonFlow.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Context\SistemasCartonFlow.dbml.layout">
+      <DependentUpon>SistemasCartonFlow.dbml</DependentUpon>
     </None>
     <None Include="Context\SistemasTyrsa.dbml">
       <Generator>MSLinqToSQLGenerator</Generator>
