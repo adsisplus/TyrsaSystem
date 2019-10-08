@@ -21,6 +21,8 @@ namespace Adsisplus.Cotyrsa.WcfService.PosteDriveInServices
         /// <param name="intDetCotizaID"></param>
         /// <param name="tinOpcion"></param>
         /// <returns></returns>
+        [OperationContract]
+        [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "setDatosPosteDriveIn")]
         Resultado setDatosPosteDriveIn(DatosPosteDriveIn poste, int intCotizacionID, int intDetCotizaID, short tinOpcion);
         /// <summary>
         /// Procedimiento que lista el precio poste TC 2
