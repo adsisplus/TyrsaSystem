@@ -83,6 +83,13 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), intBrazoID, intCotizacionID);
 			return ((ISingleResult<stp_ListarDatosBrazoResult>)(result.ReturnValue));
 		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.stp_ListarSeleccionBrazo")]
+		public ISingleResult<stp_ListarSeleccionBrazoResult> stp_ListarSeleccionBrazo([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intCotizacionID)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), intCotizacionID);
+			return ((ISingleResult<stp_ListarSeleccionBrazoResult>)(result.ReturnValue));
+		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="")]
@@ -501,6 +508,140 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 				if ((this._decLargo1 != value))
 				{
 					this._decLargo1 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decLongitud", DbType="Decimal(8,2)")]
+		public System.Nullable<decimal> decLongitud
+		{
+			get
+			{
+				return this._decLongitud;
+			}
+			set
+			{
+				if ((this._decLongitud != value))
+				{
+					this._decLongitud = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decAncho", DbType="Decimal(8,2)")]
+		public System.Nullable<decimal> decAncho
+		{
+			get
+			{
+				return this._decAncho;
+			}
+			set
+			{
+				if ((this._decAncho != value))
+				{
+					this._decAncho = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decTotalKiloUnitario", DbType="Decimal(8,2)")]
+		public System.Nullable<decimal> decTotalKiloUnitario
+		{
+			get
+			{
+				return this._decTotalKiloUnitario;
+			}
+			set
+			{
+				if ((this._decTotalKiloUnitario != value))
+				{
+					this._decTotalKiloUnitario = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decPrecioFinal", DbType="Decimal(8,2)")]
+		public System.Nullable<decimal> decPrecioFinal
+		{
+			get
+			{
+				return this._decPrecioFinal;
+			}
+			set
+			{
+				if ((this._decPrecioFinal != value))
+				{
+					this._decPrecioFinal = value;
+				}
+			}
+		}
+	}
+	
+	public partial class stp_ListarSeleccionBrazoResult
+	{
+		
+		private int _intSeleccionBrazoID;
+		
+		private System.Nullable<int> _intBrazoID;
+		
+		private System.Nullable<decimal> _decLargo;
+		
+		private System.Nullable<decimal> _decLongitud;
+		
+		private System.Nullable<decimal> _decAncho;
+		
+		private System.Nullable<decimal> _decTotalKiloUnitario;
+		
+		private System.Nullable<decimal> _decPrecioFinal;
+		
+		public stp_ListarSeleccionBrazoResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intSeleccionBrazoID", DbType="Int NOT NULL")]
+		public int intSeleccionBrazoID
+		{
+			get
+			{
+				return this._intSeleccionBrazoID;
+			}
+			set
+			{
+				if ((this._intSeleccionBrazoID != value))
+				{
+					this._intSeleccionBrazoID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intBrazoID", DbType="Int")]
+		public System.Nullable<int> intBrazoID
+		{
+			get
+			{
+				return this._intBrazoID;
+			}
+			set
+			{
+				if ((this._intBrazoID != value))
+				{
+					this._intBrazoID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decLargo", DbType="Decimal(8,2)")]
+		public System.Nullable<decimal> decLargo
+		{
+			get
+			{
+				return this._decLargo;
+			}
+			set
+			{
+				if ((this._decLargo != value))
+				{
+					this._decLargo = value;
 				}
 			}
 		}

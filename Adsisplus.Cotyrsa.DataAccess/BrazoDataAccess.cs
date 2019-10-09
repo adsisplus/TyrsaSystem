@@ -97,5 +97,37 @@ namespace Adsisplus.Cotyrsa.DataAccess
             }
             return result;
         }
+        /// <summary>
+        /// Procedimiento que lista los datos de seleccion brazo en base al ID de la cotización
+        /// </summary>
+        /// <param name="intCotizacionID"></param>
+        /// <returns></returns>
+        public List<SeleccionBrazo> ListarSeleccionBrazo(int intCotizacionID)
+        {
+            List<SeleccionBrazo> result = new List<SeleccionBrazo>();
+            try
+            {
+                using (BrazoDataContext dc = new BrazoDataContext(Helper.ConnectionString()))
+                {
+                    var query = from item in dc.stp_ListarSeleccionBrazo(intCotizacionID)
+                                select new SeleccionBrazo
+                                {
+                                    intSeleccionBrazoID = item.intSeleccionBrazoID,
+                                    intBrazo = item.intBrazoID,
+                                    decLargo = item.decLargo,
+                                    decLongitud = item.decLongitud,
+                                    decAncho = item.decAncho,
+                                    decTotalKiloUnitario = item.decTotalKiloUnitario,
+                                    decPrecioFinal = item.decPrecioFinal
+                                };
+                    result.AddRange(query);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
     }
 }

@@ -32,6 +32,14 @@ namespace Adsisplus.Cotyrsa.WcfService.BrazoServices
         [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ListarDatosBrazoDriveIn")]
         List<SeleccionBrazo> ListarDatosBrazoDriveIn(bool bitEsEstructural);
         /// <summary>
+        /// Procedimiento que lista los datos de seleccion brazo en base al ID de la cotización
+        /// </summary>
+        /// <param name="intCotizacionID"></param>
+        /// <returns></returns>
+        [OperationContract]
+        [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ListarSeleccionBrazo")]
+        List<SeleccionBrazo> ListarSeleccionBrazo(int intCotizacionID);
+        /// <summary>
         /// Procedimiento que realiza el alta, modificación de los datos de brazo
         /// </summary>
         /// <param name="brazo"></param>

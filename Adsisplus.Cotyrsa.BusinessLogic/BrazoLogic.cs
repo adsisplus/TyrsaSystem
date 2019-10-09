@@ -56,6 +56,24 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
             return result;
         }
         /// <summary>
+        /// Procedimiento que lista los datos de seleccion brazo en base al ID de la cotización
+        /// </summary>
+        /// <param name="intCotizacionID"></param>
+        /// <returns></returns>
+        public List<SeleccionBrazo> ListarSeleccionBrazo(int intCotizacionID)
+        {
+            List<SeleccionBrazo> result = new List<SeleccionBrazo>();
+            try
+            {
+                result = BrazoDA.ListarSeleccionBrazo(intCotizacionID);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
+        /// <summary>
         /// Procedimiento que realiza el alta, modificación de los datos de brazo
         /// </summary>
         /// <param name="brazo"></param>
