@@ -21,28 +21,6 @@
       <Column Name="vchDescripcion" Type="System.String" DbType="VarChar(55) NOT NULL" CanBeNull="false" />
     </ElementType>
   </Function>
-  <Function Name="dbo.stp_setDatosPiso" Method="stp_setDatosPiso">
-    <Parameter Name="intDatoPisoID" Type="System.Int32" DbType="Int" />
-    <Parameter Name="intElementoID" Type="System.Int32" DbType="Int" />
-    <Parameter Name="intCotizacionID" Type="System.Int32" DbType="Int" />
-    <Parameter Name="sintPinturaID" Type="System.Int16" DbType="SmallInt" />
-    <Parameter Name="intCantidad" Type="System.Int32" DbType="Int" />
-    <Parameter Name="decLargoPiso" Type="System.Decimal" DbType="Decimal(20,2)" />
-    <Parameter Name="bitUsoPatin" Type="System.Boolean" DbType="Bit" />
-    <Parameter Name="bitActivo" Type="System.Boolean" DbType="Bit" />
-    <Parameter Name="intDetCotizaID" Type="System.Int32" DbType="Int" />
-    <Parameter Name="decAncho" Type="System.Decimal" DbType="Decimal(8,2)" />
-    <Parameter Name="bitTipoPisoAbierto" Type="System.Boolean" DbType="Bit" />
-    <Parameter Name="decPesoUnitario" Type="System.Decimal" DbType="Decimal(12,2)" />
-    <Parameter Name="decPesoTotal" Type="System.Decimal" DbType="Decimal(12,2)" />
-    <Parameter Name="decPrecioUnitario" Type="System.Decimal" DbType="Decimal(12,2)" />
-    <Parameter Name="decPrecioTotal" Type="System.Decimal" DbType="Decimal(12,2)" />
-    <Parameter Name="tinOpcion" Type="System.Byte" DbType="TinyInt" />
-    <ElementType Name="stp_setDatosPisoResult">
-      <Column Name="vchResultado" Type="System.String" DbType="VarChar(12)" CanBeNull="true" />
-      <Column Name="vchDescripcion" Type="System.String" DbType="VarChar(44) NOT NULL" CanBeNull="false" />
-    </ElementType>
-  </Function>
   <Function Name="dbo.stp_setDatosPosteDriveIn" Method="stp_setDatosPosteDriveIn">
     <Parameter Name="intDatoPosteDriveInID" Type="System.Int32" DbType="Int" />
     <Parameter Name="intElementoID" Type="System.Int32" DbType="Int" />
@@ -247,6 +225,29 @@
     <ElementType Name="stp_setDatosBarandalResult">
       <Column Name="vchResultado" Type="System.String" DbType="VarChar(12)" CanBeNull="true" />
       <Column Name="vchDescripcion" Type="System.String" DbType="VarChar(48) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.stp_setDatosPiso" Method="stp_setDatosPiso">
+    <Parameter Name="intDatoPisoID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intElementoID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intCotizacionID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="sintPinturaID" Type="System.Int16" DbType="SmallInt" />
+    <Parameter Name="intCantidad" Type="System.Int32" DbType="Int" />
+    <Parameter Name="decLargoPiso" Type="System.Decimal" DbType="Decimal(20,2)" />
+    <Parameter Name="bitUsoPatin" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="bitActivo" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="intDetCotizaID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="decAncho" Type="System.Decimal" DbType="Decimal(8,2)" />
+    <Parameter Name="bitTipoPisoAbierto" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="decPesoUnitario" Type="System.Decimal" DbType="Decimal(12,2)" />
+    <Parameter Name="decPesoTotal" Type="System.Decimal" DbType="Decimal(12,2)" />
+    <Parameter Name="decPrecioUnitario" Type="System.Decimal" DbType="Decimal(12,2)" />
+    <Parameter Name="decPrecioTotal" Type="System.Decimal" DbType="Decimal(12,2)" />
+    <Parameter Name="bitGalvanizado" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="tinOpcion" Type="System.Byte" DbType="TinyInt" />
+    <ElementType Name="stp_setDatosPisoResult">
+      <Column Name="vchResultado" Type="System.String" DbType="VarChar(12)" CanBeNull="true" />
+      <Column Name="vchDescripcion" Type="System.String" DbType="VarChar(44) NOT NULL" CanBeNull="false" />
     </ElementType>
   </Function>
 </Database>

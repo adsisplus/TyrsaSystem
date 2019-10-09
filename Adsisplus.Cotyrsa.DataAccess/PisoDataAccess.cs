@@ -40,7 +40,8 @@ namespace Adsisplus.Cotyrsa.DataAccess
                                     decPesoUnitario = item.decPesoUnitario,
                                     decPesoTotal = item.decPesoTotal,
                                     decPrecioUnitario = item.decPrecioUnitario,
-                                    decPrecioTotal = item.decPrecioTotal
+                                    decPrecioTotal = item.decPrecioTotal,
+                                    bitGalvanizado = item.bitGalvanizado
                                 };
                     result.AddRange(query);
                 }
@@ -69,8 +70,12 @@ namespace Adsisplus.Cotyrsa.DataAccess
                                     intSeleccionPisoID = item.intSeleccionPisoID,
                                     intDatoPisoID = item.intDatoPisoID,
                                     intDetCotizaID = item.intDetCotizaID,
+                                    sintTipoPisoID = item.sintTipoPisoID,
                                     decPrecioUnitario = item.decPrecioUnitario,
                                     decPrecioTotal = item.decPrecioTotal,
+                                    decPesoUnitario = item.decPesoUnitario,
+                                    decPesoTotal = item.decPesoTotal,
+                                    vchMaterial = item.vchMaterial,
                                     bitActivo = item.bitActivo
                                 };
                     result.AddRange(query);

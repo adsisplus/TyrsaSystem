@@ -215,7 +215,7 @@ namespace Adsisplus.Cotyrsa.DataAccess
                     var query = from item in dc.stp_setDatosPiso(piso.intDatoPisoID, piso.intElementoID, piso.intCotizacionID, piso.sintPinturaID,
                     piso.intCantidad, piso.decLargoPiso, piso.bitUsoPatin, piso.bitActivo, piso.intDetCotizaID, piso.decAncho,
                     piso.bitTipoPisoAbierto, piso.decPesoUnitario, piso.decPesoTotal, piso.decPrecioUnitario,
-                    piso.decPrecioTotal, (byte)tinOpcion)
+                    piso.decPrecioTotal, piso.bitGalvanizado, (byte)tinOpcion)
                                 select new Resultado
                                 {
                                     vchDescripcion = item.vchDescripcion,
@@ -250,7 +250,9 @@ namespace Adsisplus.Cotyrsa.DataAccess
                     {
                         using (PisoDataContext dc = new PisoDataContext(Helper.ConnectionString()))
                         {
-                            var query = from item in dc.stp_setSeleccionPiso(piso.intSeleccionPisoID, piso.intDatoPisoID, piso.intDetCotizaID, piso.decPrecioUnitario, piso.decPrecioTotal, piso.bitActivo, (byte)tinOpcion)
+                            var query = from item in dc.stp_setSeleccionPiso(piso.intSeleccionPisoID, piso.intDatoPisoID, piso.intDetCotizaID, piso.sintTipoPisoID,
+                                piso.decLongitud, piso.decPrecioUnitario, piso.decPrecioTotal, piso.decPesoUnitario,
+                                piso.decPesoTotal, piso.bitActivo, (byte)tinOpcion)
                                         select new Resultado
                                         {
                                             vchDescripcion = item.vchDescripcion,
@@ -272,8 +274,9 @@ namespace Adsisplus.Cotyrsa.DataAccess
                             // Actualizamos los datos de la lista
                             using (PisoDataContext dc = new PisoDataContext(Helper.ConnectionString()))
                             {
-                                var query = from item in dc.stp_setSeleccionPiso(seleccion[i].intSeleccionPisoID, seleccion[i].intDatoPisoID, seleccion[i].intDetCotizaID, seleccion[i].decPrecioUnitario,
-                                    seleccion[i].decPrecioTotal, seleccion[i].bitActivo, 2)
+                                var query = from item in dc.stp_setSeleccionPiso(seleccion[i].intSeleccionPisoID, seleccion[i].intDatoPisoID, seleccion[i].intDetCotizaID, seleccion[i].sintTipoPisoID,
+                                    seleccion[i].decLongitud, seleccion[i].decPrecioUnitario, seleccion[i].decPrecioTotal, seleccion[i].decPesoUnitario,
+                                    seleccion[i].decPesoTotal, seleccion[i].bitActivo, 2)
                                             select new Resultado
                                             {
                                                 vchDescripcion = item.vchDescripcion,
@@ -291,8 +294,9 @@ namespace Adsisplus.Cotyrsa.DataAccess
                                 // Actualizamos los datos de la lista, dando de baja los registros
                                 using (PisoDataContext dc = new PisoDataContext(Helper.ConnectionString()))
                                 {
-                                    var query = from item in dc.stp_setSeleccionPiso(seleccion[i].intSeleccionPisoID, seleccion[i].intDatoPisoID, seleccion[i].intDetCotizaID, seleccion[i].decPrecioUnitario,
-                                        seleccion[i].decPrecioTotal, seleccion[i].bitActivo, 3) // Quitamos los registros
+                                    var query = from item in dc.stp_setSeleccionPiso(seleccion[i].intSeleccionPisoID, seleccion[i].intDatoPisoID, seleccion[i].intDetCotizaID, seleccion[i].sintTipoPisoID,
+                                    seleccion[i].decLongitud, seleccion[i].decPrecioUnitario, seleccion[i].decPrecioTotal, seleccion[i].decPesoUnitario,
+                                    seleccion[i].decPesoTotal, seleccion[i].bitActivo, 3) // Quitamos los registros
                                                 select new Resultado
                                                 {
                                                     vchDescripcion = item.vchDescripcion,
@@ -312,8 +316,9 @@ namespace Adsisplus.Cotyrsa.DataAccess
                                 // Actualizamos los datos de la lista, dando de baja los registros
                                 using (PisoDataContext dc = new PisoDataContext(Helper.ConnectionString()))
                                 {
-                                    var query = from item in dc.stp_setSeleccionPiso(seleccion[i].intSeleccionPisoID, seleccion[i].intDatoPisoID, seleccion[i].intDetCotizaID, seleccion[i].decPrecioUnitario,
-                                        seleccion[i].decPrecioTotal, seleccion[i].bitActivo, 1) // Agregamos los registros
+                                    var query = from item in dc.stp_setSeleccionPiso(seleccion[i].intSeleccionPisoID, seleccion[i].intDatoPisoID, seleccion[i].intDetCotizaID, seleccion[i].sintTipoPisoID,
+                                    seleccion[i].decLongitud, seleccion[i].decPrecioUnitario, seleccion[i].decPrecioTotal, seleccion[i].decPesoUnitario,
+                                    seleccion[i].decPesoTotal, seleccion[i].bitActivo, 1) // Agregamos los registros
                                                 select new Resultado
                                                 {
                                                     vchDescripcion = item.vchDescripcion,
