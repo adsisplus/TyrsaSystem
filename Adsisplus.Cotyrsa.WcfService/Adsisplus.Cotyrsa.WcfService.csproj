@@ -65,6 +65,7 @@
     <Content Include="AtirantadoServices\AtirantadoServices.svc" />
     <Content Include="BarandalServices\BarandalServices.svc" />
     <Content Include="BrazoServices\BrazoServices.svc" />
+    <Content Include="CartonFlowServices\CartonFlowServices.svc" />
     <Content Include="CatalogoGeneralServices\CatalogoGeneralServices.svc" />
     <Content Include="CatalogoServices\CatalogoServices.svc" />
     <Content Include="CotizacionServices\CotizacionServices.svc" />
@@ -105,6 +106,10 @@
       <DependentUpon>BrazoServices.svc</DependentUpon>
     </Compile>
     <Compile Include="BrazoServices\IBrazoServices.cs" />
+    <Compile Include="CartonFlowServices\CartonFlowServices.svc.cs">
+      <DependentUpon>CartonFlowServices.svc</DependentUpon>
+    </Compile>
+    <Compile Include="CartonFlowServices\ICartonFlowServices.cs" />
     <Compile Include="CatalogoGeneralServices\CatalogoGeneralServices.svc.cs">
       <DependentUpon>CatalogoGeneralServices.svc</DependentUpon>
     </Compile>
