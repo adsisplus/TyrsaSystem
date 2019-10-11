@@ -584,6 +584,8 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 		
 		private System.Nullable<int> _intBrazoID;
 		
+		private System.Nullable<int> _intDetCotizaID;
+		
 		private System.Nullable<decimal> _decLargo;
 		
 		private System.Nullable<decimal> _decLongitud;
@@ -626,6 +628,22 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 				if ((this._intBrazoID != value))
 				{
 					this._intBrazoID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intDetCotizaID", DbType="Int")]
+		public System.Nullable<int> intDetCotizaID
+		{
+			get
+			{
+				return this._intDetCotizaID;
+			}
+			set
+			{
+				if ((this._intDetCotizaID != value))
+				{
+					this._intDetCotizaID = value;
 				}
 			}
 		}

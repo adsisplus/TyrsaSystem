@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="dbTyrsa" Class="BrazoDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=local;Initial Catalog=dbTyrsa;Persist Security Info=True;User ID=usrCotyrsa" SettingsObjectName="Adsisplus.Cotyrsa.DataAccess.Properties.Settings" SettingsPropertyName="dbTyrsaConnectionString" Provider="System.Data.SqlClient" />
+  <Connection Mode="AppSettings" ConnectionString="Data Source=local;Initial Catalog=dbTyrsa;User ID=usrCotyrsa" SettingsObjectName="Adsisplus.Cotyrsa.DataAccess.Properties.Settings" SettingsPropertyName="dbTyrsaConnectionString" Provider="System.Data.SqlClient" />
   <Table Name="" Member="tmp_BrazoDriveIn">
     <Type Name="tmp_BrazoDriveIn" Id="ID1">
       <Column Name="sintDriveInID" Type="System.Int16" CanBeNull="false" />
@@ -45,6 +45,7 @@
     <ElementType Name="stp_ListarSeleccionBrazoResult">
       <Column Name="intSeleccionBrazoID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="intBrazoID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="intDetCotizaID" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="decLargo" Type="System.Decimal" DbType="Decimal(8,2)" CanBeNull="true" />
       <Column Name="decLongitud" Type="System.Decimal" DbType="Decimal(8,2)" CanBeNull="true" />
       <Column Name="decAncho" Type="System.Decimal" DbType="Decimal(8,2)" CanBeNull="true" />

@@ -17,8 +17,8 @@ namespace Adsisplus.Cotyrsa.BusinessEntities
         [DataMember]
         public string vchMaterial { get; set; }
         [DataMember]
-        public decimal? decPesoPartida { get; set; }
+        public decimal? decPesoUnitario { get; set; }
         [DataMember]
-        public decimal? decPrecioFinal { get; set; }
+        public decimal? decPrecioUnitario { get; set; }
     }
 }

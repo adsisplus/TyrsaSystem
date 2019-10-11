@@ -107,8 +107,8 @@ namespace Adsisplus.Cotyrsa.DataAccess
                                     sintPisoID = item.sintPisoID,
                                     decLongitud = item.decLongitud,
                                     vchMaterial = item.vchMaterial,
-                                    decPesoPartida = item.decPesoPartida,
-                                    decPrecioFinal = item.decPrecioFinal
+                                    decPesoUnitario = item.decPesoUnitario,
+                                    decPrecioUnitario = item.decPrecioUnitario
                                 };
                     result.AddRange(query);
                 }

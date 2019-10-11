@@ -114,6 +114,7 @@ namespace Adsisplus.Cotyrsa.DataAccess
                                 {
                                     intSeleccionBrazoID = item.intSeleccionBrazoID,
                                     intBrazo = item.intBrazoID,
+                                    intDetCotizaID = item.intDetCotizaID,
                                     decLargo = item.decLargo,
                                     decLongitud = item.decLongitud,
                                     decAncho = item.decAncho,

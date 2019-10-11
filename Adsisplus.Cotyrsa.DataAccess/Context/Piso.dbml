@@ -1,23 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="dbTyrsa" Class="PisoDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=local;Initial Catalog=dbTyrsa;Persist Security Info=True;User ID=usrCotyrsa" SettingsObjectName="Adsisplus.Cotyrsa.DataAccess.Properties.Settings" SettingsPropertyName="dbTyrsaConnectionString" Provider="System.Data.SqlClient" />
+  <Connection Mode="AppSettings" ConnectionString="Data Source=local;Initial Catalog=dbTyrsa;User ID=usrCotyrsa" SettingsObjectName="Adsisplus.Cotyrsa.DataAccess.Properties.Settings" SettingsPropertyName="dbTyrsaConnectionString1" Provider="System.Data.SqlClient" />
   <Table Name="" Member="entSeleccionPiso">
     <Type Name="entSeleccionPiso" Id="ID1">
       <Column Name="sintPisoID" Type="System.Int16" CanBeNull="false" />
       <Column Name="decLongitud" Type="System.Decimal" CanBeNull="false" />
       <Column Name="vchMaterial" Type="System.String" CanBeNull="false" />
-      <Column Name="decPesoPartida" Type="System.Decimal" CanBeNull="false" />
-      <Column Name="decPrecioFinal" Type="System.Decimal" CanBeNull="false" />
+      <Column Name="decPesoPartida" Member="decPesoUnitario" Storage="_decPesoPartida" Type="System.Decimal" CanBeNull="false" />
+      <Column Name="decPrecioFinal" Member="decPrecioUnitario" Storage="_decPrecioFinal" Type="System.Decimal" CanBeNull="false" />
     </Type>
   </Table>
   <Function Name="dbo.fn_getNumeroPiso" Method="fn_getNumeroPiso" IsComposable="true">
     <Parameter Name="intDatoPisoID" Type="System.Int32" DbType="Int" />
     <Return Type="System.Int32" />
-  </Function>
-  <Function Name="dbo.stp_ListarPisoDriveIn" Method="stp_ListarPisoDriveIn">
-    <Parameter Name="intCantidad" Type="System.Int32" DbType="Int" />
-    <Parameter Name="decLargo" Type="System.Decimal" DbType="Decimal(8,2)" />
-    <Parameter Name="bitGalvanizado" Type="System.Boolean" DbType="Bit" />
-    <ElementType IdRef="ID1" />
   </Function>
   <Function Name="dbo.stp_setSeleccionPiso" Method="stp_setSeleccionPiso">
     <Parameter Name="intSeleccionPisoID" Type="System.Int32" DbType="Int" />
@@ -72,5 +66,11 @@
       <Column Name="decPrecioTotal" Type="System.Decimal" DbType="Decimal(12,2)" CanBeNull="true" />
       <Column Name="bitGalvanizado" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
     </ElementType>
+  </Function>
+  <Function Name="dbo.stp_ListarPisoDriveIn" Method="stp_ListarPisoDriveIn">
+    <Parameter Name="intCantidad" Type="System.Int32" DbType="Int" />
+    <Parameter Name="decLargo" Type="System.Decimal" DbType="Decimal(8,2)" />
+    <Parameter Name="bitGalvanizado" Type="System.Boolean" DbType="Bit" />
+    <ElementType IdRef="ID1" />
   </Function>
 </Database>
