@@ -185,9 +185,9 @@ namespace Adsisplus.Cotyrsa.WcfService.VigaServices
         /// </summary>
         /// <param name="decLongitudViga"></param>
         /// <returns></returns>
-        public List<SeleccionViga_TipoC> ListarSeleccionVigas_TipoC(decimal decLongitudViga)
+        public List<SeleccionVigaTipoCaja> ListarSeleccionVigas_TipoC(decimal decLongitudViga)
         {
-            List<SeleccionViga_TipoC> result = new List<SeleccionViga_TipoC>();
+            List<SeleccionVigaTipoCaja> result = new List<SeleccionVigaTipoCaja>();
             try
             {
                 result = (new VigaLogic()).ListarSeleccionVigas_TipoC(decLongitudViga);
@@ -433,9 +433,9 @@ namespace Adsisplus.Cotyrsa.WcfService.VigaServices
         /// Procedimiento que lista las vigas tipo caja
         /// </summary>
         /// <returns></returns>
-        public List<DatosVigaTipoCaja> ListarSeleccionVigaTipoCaja()
+        public List<SeleccionVigaTipoCaja> ListarSeleccionVigaTipoCaja()
         {
-            List<DatosVigaTipoCaja> result = new List<DatosVigaTipoCaja>();
+            List<SeleccionVigaTipoCaja> result = new List<SeleccionVigaTipoCaja>();
             try
             {
                 result = (new VigaLogic()).ListarSeleccionVigaTipoCaja();

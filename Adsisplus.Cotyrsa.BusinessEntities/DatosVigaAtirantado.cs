@@ -46,5 +46,8 @@ namespace Adsisplus.Cotyrsa.BusinessEntities
         public int? intCalibreID { get; set; }
         [DataMember]
         public decimal? decPeso { get; set; }
+
+        [DataMember]
+        public SeleccionVigaTipoCaja seleccion { get; set; }
     }
 }

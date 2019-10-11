@@ -1,26 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="dbTyrsa" Class="SistemaDriveInDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
   <Connection Mode="AppSettings" ConnectionString="Data Source=local;Initial Catalog=dbTyrsa;Persist Security Info=True;User ID=usrCotyrsa" SettingsObjectName="Adsisplus.Cotyrsa.DataAccess.Properties.Settings" SettingsPropertyName="dbTyrsaConnectionString" Provider="System.Data.SqlClient" />
-  <Function Name="dbo.stp_setDatosVigaAtirantado" Method="stp_setDatosVigaAtirantado">
-    <Parameter Name="intVigaAtirantadoID" Type="System.Int32" DbType="Int" />
-    <Parameter Name="intElementoID" Type="System.Int32" DbType="Int" />
-    <Parameter Name="intCotizacionID" Type="System.Int32" DbType="Int" />
-    <Parameter Name="sintPinturaID" Type="System.Int16" DbType="SmallInt" />
-    <Parameter Name="intCantidad" Type="System.Int32" DbType="Int" />
-    <Parameter Name="bitActivo" Type="System.Boolean" DbType="Bit" />
-    <Parameter Name="intDetCotizaID" Type="System.Int32" DbType="Int" />
-    <Parameter Name="decLargo" Type="System.Decimal" DbType="Decimal(8,2)" />
-    <Parameter Name="decPrecioVentaUnitario" Type="System.Decimal" DbType="Decimal(18,3)" />
-    <Parameter Name="decPrecioVentaTotal" Type="System.Decimal" DbType="Decimal(18,3)" />
-    <Parameter Name="decPesoUnitario" Type="System.Decimal" DbType="Decimal(20,3)" />
-    <Parameter Name="decPesoTotal" Type="System.Decimal" DbType="Decimal(8,3)" />
-    <Parameter Name="decLongitud" Type="System.Decimal" DbType="Decimal(8,3)" />
-    <Parameter Name="intCalibreID" Type="System.Int32" DbType="Int" />
-    <Parameter Name="tinOpcion" Type="System.Byte" DbType="TinyInt" />
-    <ElementType Name="stp_setDatosVigaAtirantadoResult">
-      <Column Name="vchResultado" Type="System.String" DbType="VarChar(12)" CanBeNull="true" />
-      <Column Name="vchDescripcion" Type="System.String" DbType="VarChar(55) NOT NULL" CanBeNull="false" />
-    </ElementType>
-  </Function>
   <Function Name="dbo.stp_setDatosPosteDriveIn" Method="stp_setDatosPosteDriveIn">
     <Parameter Name="intDatoPosteDriveInID" Type="System.Int32" DbType="Int" />
     <Parameter Name="intElementoID" Type="System.Int32" DbType="Int" />
@@ -248,6 +227,33 @@
     <ElementType Name="stp_setDatosPisoResult">
       <Column Name="vchResultado" Type="System.String" DbType="VarChar(12)" CanBeNull="true" />
       <Column Name="vchDescripcion" Type="System.String" DbType="VarChar(44) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.stp_setDatosVigaAtirantado" Method="stp_setDatosVigaAtirantado">
+    <Parameter Name="intVigaAtirantadoID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intElementoID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intCotizacionID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="sintPinturaID" Type="System.Int16" DbType="SmallInt" />
+    <Parameter Name="intCantidad" Type="System.Int32" DbType="Int" />
+    <Parameter Name="bitActivo" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="intDetCotizaID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="decLargo" Type="System.Decimal" DbType="Decimal(8,2)" />
+    <Parameter Name="decPrecioVentaUnitario" Type="System.Decimal" DbType="Decimal(18,3)" />
+    <Parameter Name="decPrecioVentaTotal" Type="System.Decimal" DbType="Decimal(18,3)" />
+    <Parameter Name="decPesoUnitario" Type="System.Decimal" DbType="Decimal(20,3)" />
+    <Parameter Name="decPeso" Type="System.Decimal" DbType="Decimal(8,3)" />
+    <Parameter Name="decLongitud" Type="System.Decimal" DbType="Decimal(8,3)" />
+    <Parameter Name="intCalibreID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intSeleccionVigaCajaID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="SKU" Parameter="sKU" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="decPesoPieza" Type="System.Decimal" DbType="Decimal(38,3)" />
+    <Parameter Name="TOTAL" Parameter="tOTAL" Type="System.Decimal" DbType="Decimal(38,6)" />
+    <Parameter Name="decTotal" Type="System.Decimal" DbType="Decimal(38,6)" />
+    <Parameter Name="bitVigaTipoCaja" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="tinOpcion" Type="System.Byte" DbType="TinyInt" />
+    <ElementType Name="stp_setDatosVigaAtirantadoResult">
+      <Column Name="vchResultado" Type="System.String" DbType="VarChar(12)" CanBeNull="true" />
+      <Column Name="vchDescripcion" Type="System.String" DbType="VarChar(55) NOT NULL" CanBeNull="false" />
     </ElementType>
   </Function>
 </Database>

@@ -340,15 +340,15 @@ namespace Adsisplus.Cotyrsa.DataAccess
         /// </summary>
         /// <param name="decLongitudViga"></param>
         /// <returns></returns>
-        public List<SeleccionViga_TipoC> ListarSeleccionVigas_TipoC(decimal decLongitudViga)
+        public List<SeleccionVigaTipoCaja> ListarSeleccionVigas_TipoC(decimal decLongitudViga)
         {
-            List<SeleccionViga_TipoC> result = new List<SeleccionViga_TipoC>();
+            List<SeleccionVigaTipoCaja> result = new List<SeleccionVigaTipoCaja>();
             try
             {
                 using (VigasDataContext dc = new VigasDataContext(Helper.ConnectionString()))
                 {
                     var query = from item in dc.stp_ListarSeleccionViga_Tipo_C(decLongitudViga)
-                                select new SeleccionViga_TipoC
+                                select new SeleccionVigaTipoCaja
                                 {
                                     SKU = item.SKU,
                                     decPesoPieza = item.decPesoPieza,
@@ -688,15 +688,15 @@ namespace Adsisplus.Cotyrsa.DataAccess
         /// Procedimiento que lista las vigas tipo caja
         /// </summary>
         /// <returns></returns>
-        public List<DatosVigaTipoCaja> ListarSeleccionVigaTipoCaja()
+        public List<SeleccionVigaTipoCaja> ListarSeleccionVigaTipoCaja()
         {
-            List<DatosVigaTipoCaja> result = new List<DatosVigaTipoCaja>();
+            List<SeleccionVigaTipoCaja> result = new List<SeleccionVigaTipoCaja>();
             try
             {
                 using (VigasDataContext dc = new VigasDataContext(Helper.ConnectionString()))
                 {
                     var query = from item in dc.stp_ListarSeleccionViga_Tipo_Caja()
-                                select new DatosVigaTipoCaja
+                                select new SeleccionVigaTipoCaja
                                 {
                                     SKU = Convert.ToInt32(item.SKU),
                                     decPesoPieza = item.decPesoPieza,

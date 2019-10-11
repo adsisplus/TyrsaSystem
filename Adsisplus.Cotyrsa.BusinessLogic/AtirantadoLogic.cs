@@ -56,6 +56,24 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
             return result;
         }
         /// <summary>
+        /// Procedimiento que lista los datos de seleccion Atirantado en base al ID de la cotización
+        /// </summary>
+        /// <param name="intCotizacionID"></param>
+        /// <returns></returns>
+        public List<SeleccionArriestrado> ListarSeleccionAtirantado(int intCotizacionID)
+        {
+            List<SeleccionArriestrado> result = new List<SeleccionArriestrado>();
+            try
+            {
+                result = AtirantadoDA.ListarSeleccionAtirantado(intCotizacionID);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
+        /// <summary>
         /// Procedimiento que realiza el alta, modificación de los datos atirantado
         /// </summary>
         /// <param name="atirantado"></param>

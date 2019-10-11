@@ -17,6 +17,10 @@ namespace Adsisplus.Cotyrsa.BusinessEntities
         [DataMember]
         public int? intAtirantadoID { get; set; }
         [DataMember]
+        public int? intCotizacionID { get; set; }
+        [DataMember]
+        public int? intDetCotizaID { get; set; }
+        [DataMember]
         public decimal? decLargo { get; set; }
         [DataMember]
         public decimal? decLongitud { get; set; }

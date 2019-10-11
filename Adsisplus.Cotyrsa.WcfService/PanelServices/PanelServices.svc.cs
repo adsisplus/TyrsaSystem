@@ -18,15 +18,15 @@ namespace Adsisplus.Cotyrsa.WcfService.PanelServices
         /// </summary>
         /// <param name="intDatosPanelID"></param>
         /// <param name="intElementoID"></param>
-        /// <param name="intDatoMarcoID"></param>
+        /// <param name="intDetCotizaID"></param>
         /// <param name="sintPinturaID"></param>
         /// <returns></returns>
-        public List<DatosPanel> ListarDatosPanel(int intDatosPanelID, int intElementoID, int intDatoMarcoID, short sintPinturaID)
+        public List<DatosPanel> ListarDatosPanel(int intDatosPanelID, int intElementoID, int intDetCotizaID, short sintPinturaID)
         {
             List<DatosPanel> result = new List<DatosPanel>();
             try
             {
-                result = (new PanelLogic()).ListarDatosPanel(intDatosPanelID, intElementoID, intDatoMarcoID, sintPinturaID);
+                result = (new PanelLogic()).ListarDatosPanel(intDatosPanelID, intElementoID, intDetCotizaID, sintPinturaID);
             }
             catch (Exception ex)
             {

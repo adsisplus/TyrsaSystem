@@ -51,6 +51,24 @@ namespace Adsisplus.Cotyrsa.WcfService.AtirantadoServices
             return result;
         }
         /// <summary>
+        /// Procedimiento que lista los datos de seleccion Atirantado en base al ID de la cotización
+        /// </summary>
+        /// <param name="intCotizacionID"></param>
+        /// <returns></returns>
+        public List<SeleccionArriestrado> ListarSeleccionAtirantado(int intCotizacionID)
+        {
+            List<SeleccionArriestrado> result = new List<SeleccionArriestrado>();
+            try
+            {
+                result = (new AtirantadoLogic()).ListarSeleccionAtirantado(intCotizacionID);
+            }
+            catch (Exception ex)
+            {
+                Adsisplus.Cotyrsa.BusinessLogic.EventLogManager.LogErrorEntry(ex.Message);
+            }
+            return result;
+        }
+        /// <summary>
         /// Procedimiento que realiza el alta, modificación de los datos atirantado
         /// </summary>
         /// <param name="atirantado"></param>

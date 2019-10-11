@@ -108,7 +108,7 @@ namespace Adsisplus.Cotyrsa.WcfService.VigaServices
         /// <returns></returns>
         [OperationContract]
         [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ListarSeleccionVigas_TipoC")]
-        List<SeleccionViga_TipoC> ListarSeleccionVigas_TipoC(decimal decLongitudViga);
+        List<SeleccionVigaTipoCaja> ListarSeleccionVigas_TipoC(decimal decLongitudViga);
         /// <summary>
         /// Procedimiento que muestra la lista de las vigas ligadas a la cotización
         /// </summary>
@@ -237,7 +237,7 @@ namespace Adsisplus.Cotyrsa.WcfService.VigaServices
         /// <returns></returns>
         [OperationContract]
         [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ListarSeleccionVigaTipoCaja")]
-        List<DatosVigaTipoCaja> ListarSeleccionVigaTipoCaja();
+        List<SeleccionVigaTipoCaja> ListarSeleccionVigaTipoCaja();
 
         /// <summary>
         /// Procedimiento que lista los datos de angulo ranurado en base a la capacidad de carga

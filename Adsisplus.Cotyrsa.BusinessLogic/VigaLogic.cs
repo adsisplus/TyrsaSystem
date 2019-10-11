@@ -189,9 +189,9 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
         /// </summary>
         /// <param name="decLongitudViga"></param>
         /// <returns></returns>
-        public List<SeleccionViga_TipoC> ListarSeleccionVigas_TipoC(decimal decLongitudViga)
+        public List<SeleccionVigaTipoCaja> ListarSeleccionVigas_TipoC(decimal decLongitudViga)
         {
-            List<SeleccionViga_TipoC> result = new List<SeleccionViga_TipoC>();
+            List<SeleccionVigaTipoCaja> result = new List<SeleccionVigaTipoCaja>();
             try
             {
                 result = CatalogosDA.ListarSeleccionVigas_TipoC(decLongitudViga);
@@ -630,6 +630,7 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
                     _viga.intDetCotizaID = intDetCotizaID;
                     _viga.intElementoID = 19;
                     _viga.sintPinturaID = viga.sintPinturaID;
+                    _viga.seleccion = viga.seleccion;
 
 
                     //Realizamos el registro de los datos
@@ -646,9 +647,9 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
         /// Procedimiento que lista las vigas tipo caja
         /// </summary>
         /// <returns></returns>
-        public List<DatosVigaTipoCaja> ListarSeleccionVigaTipoCaja()
+        public List<SeleccionVigaTipoCaja> ListarSeleccionVigaTipoCaja()
         {
-            List<DatosVigaTipoCaja> result = new List<DatosVigaTipoCaja>();
+            List<SeleccionVigaTipoCaja> result = new List<SeleccionVigaTipoCaja>();
             try
             {
                 result = CatalogosDA.ListarSeleccionVigaTipoCaja();

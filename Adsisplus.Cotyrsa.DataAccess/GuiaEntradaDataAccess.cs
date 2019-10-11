@@ -88,5 +88,39 @@ namespace Adsisplus.Cotyrsa.DataAccess
             }
             return result;
         }
+        /// <summary>
+        /// Procedimiento que lista los datos de seleccion de guia monta carga en base al id de la cotización
+        /// </summary>
+        /// <param name="intCotizacionID"></param>
+        /// <returns></returns>
+        public List<SeleccionGuiaMonteCarga> ListarSeleccionGuiaMontaCarga(int intCotizacionID)
+        {
+            List<SeleccionGuiaMonteCarga> result = new List<SeleccionGuiaMonteCarga>();
+            try
+            {
+                using (GuiaEntradaDataContext dc = new GuiaEntradaDataContext(Helper.ConnectionString()))
+                {
+                    var query = from item in dc.stp_ListarSeleccionGuiaMontaCarga(intCotizacionID)
+                                select new SeleccionGuiaMonteCarga
+                                {
+                                    intSeleccionGuiaMontaCargaID = item.intSeleccionGuiaMontaCargaID,
+                                    intGuiaEntradaID = item.intGuiaEntradaID,
+                                    intCotizacionID = item.intCotizacionID,
+                                    intDetCotizaID = item.intDetCotizaID,
+                                    decTotal = item.decTotal,
+                                    decTotalKiloUnitario = item.decTotalKiloUnitario,
+                                    vchMedida = item.vchMedida,
+                                    decPrecioFinal = item.decPrecioFinal,
+                                    decPrecioMasLargoTotal = item.decPrecioMasLargoTotal
+                                };
+                    result.AddRange(query);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
     }
 }

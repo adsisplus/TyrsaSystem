@@ -33,6 +33,42 @@ namespace Adsisplus.Cotyrsa.WcfService.GuiaEntradaServices
             return result;
         }
         /// <summary>
+        /// Procedimiento que lista los datos de guia monta carga en base al largo
+        /// </summary>
+        /// <param name="sintLargoID"></param>
+        /// <returns></returns>
+        public List<DatosMontaCargaDriveIn> ListarDatosGuiaMontaCargaDriveIn(short sintLargoID)
+        {
+            List<DatosMontaCargaDriveIn> result = new List<DatosMontaCargaDriveIn>();
+            try
+            {
+                result = (new GuiaEntradaLogic()).ListarDatosGuiaMontaCargaDriveIn(sintLargoID);
+            }
+            catch (Exception ex)
+            {
+                Adsisplus.Cotyrsa.BusinessLogic.EventLogManager.LogErrorEntry(ex.Message);
+            }
+            return result;
+        }
+        /// <summary>
+        /// Procedimiento que lista los datos de seleccion de guia monta carga en base al id de la cotización
+        /// </summary>
+        /// <param name="intCotizacionID"></param>
+        /// <returns></returns>
+        public List<SeleccionGuiaMonteCarga> ListarSeleccionGuiaMontaCarga(int intCotizacionID)
+        {
+            List<SeleccionGuiaMonteCarga> result = new List<SeleccionGuiaMonteCarga>();
+            try
+            {
+                result = (new GuiaEntradaLogic()).ListarSeleccionGuiaMontaCarga(intCotizacionID);
+            }
+            catch (Exception ex)
+            {
+                Adsisplus.Cotyrsa.BusinessLogic.EventLogManager.LogErrorEntry(ex.Message);
+            }
+            return result;
+        }
+        /// <summary>
         /// Procedimiento que realiza el alta, modificación de los datos Guia Entrada
         /// </summary>
         /// <param name="guia"></param>
@@ -53,23 +89,6 @@ namespace Adsisplus.Cotyrsa.WcfService.GuiaEntradaServices
             }
             return result;
         }
-        /// <summary>
-        /// Procedimiento que lista los datos de guia monta carga en base al largo
-        /// </summary>
-        /// <param name="sintLargoID"></param>
-        /// <returns></returns>
-        public List<DatosMontaCargaDriveIn> ListarDatosGuiaMontaCargaDriveIn(short sintLargoID)
-        {
-            List<DatosMontaCargaDriveIn> result = new List<DatosMontaCargaDriveIn>();
-            try
-            {
-                result = (new GuiaEntradaLogic()).ListarDatosGuiaMontaCargaDriveIn(sintLargoID);
-            }
-            catch (Exception ex)
-            {
-                Adsisplus.Cotyrsa.BusinessLogic.EventLogManager.LogErrorEntry(ex.Message);
-            }
-            return result;
-        }
+
     }
 }

@@ -75,6 +75,13 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), intGuiaEntradaID, intCotizacionID);
 			return ((ISingleResult<stp_ListarDatosGuiaEntradaResult>)(result.ReturnValue));
 		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.stp_ListarSeleccionGuiaMontaCarga")]
+		public ISingleResult<stp_ListarSeleccionGuiaMontaCargaResult> stp_ListarSeleccionGuiaMontaCarga([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intCotizacionID)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), intCotizacionID);
+			return ((ISingleResult<stp_ListarSeleccionGuiaMontaCargaResult>)(result.ReturnValue));
+		}
 	}
 	
 	public partial class stp_ListarGuiaMontacargaDiveInResult
@@ -404,6 +411,176 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 				if ((this._intSeleccionGuiaMontaCargaID != value))
 				{
 					this._intSeleccionGuiaMontaCargaID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decTotal", DbType="Decimal(20,2)")]
+		public System.Nullable<decimal> decTotal
+		{
+			get
+			{
+				return this._decTotal;
+			}
+			set
+			{
+				if ((this._decTotal != value))
+				{
+					this._decTotal = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decTotalKiloUnitario", DbType="Decimal(12,2)")]
+		public System.Nullable<decimal> decTotalKiloUnitario
+		{
+			get
+			{
+				return this._decTotalKiloUnitario;
+			}
+			set
+			{
+				if ((this._decTotalKiloUnitario != value))
+				{
+					this._decTotalKiloUnitario = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchMedida", DbType="VarChar(10)")]
+		public string vchMedida
+		{
+			get
+			{
+				return this._vchMedida;
+			}
+			set
+			{
+				if ((this._vchMedida != value))
+				{
+					this._vchMedida = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decPrecioFinal", DbType="Decimal(12,2)")]
+		public System.Nullable<decimal> decPrecioFinal
+		{
+			get
+			{
+				return this._decPrecioFinal;
+			}
+			set
+			{
+				if ((this._decPrecioFinal != value))
+				{
+					this._decPrecioFinal = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decPrecioMasLargoTotal", DbType="Decimal(12,2)")]
+		public System.Nullable<decimal> decPrecioMasLargoTotal
+		{
+			get
+			{
+				return this._decPrecioMasLargoTotal;
+			}
+			set
+			{
+				if ((this._decPrecioMasLargoTotal != value))
+				{
+					this._decPrecioMasLargoTotal = value;
+				}
+			}
+		}
+	}
+	
+	public partial class stp_ListarSeleccionGuiaMontaCargaResult
+	{
+		
+		private int _intSeleccionGuiaMontaCargaID;
+		
+		private System.Nullable<int> _intGuiaEntradaID;
+		
+		private System.Nullable<int> _intCotizacionID;
+		
+		private System.Nullable<int> _intDetCotizaID;
+		
+		private System.Nullable<decimal> _decTotal;
+		
+		private System.Nullable<decimal> _decTotalKiloUnitario;
+		
+		private string _vchMedida;
+		
+		private System.Nullable<decimal> _decPrecioFinal;
+		
+		private System.Nullable<decimal> _decPrecioMasLargoTotal;
+		
+		public stp_ListarSeleccionGuiaMontaCargaResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intSeleccionGuiaMontaCargaID", DbType="Int NOT NULL")]
+		public int intSeleccionGuiaMontaCargaID
+		{
+			get
+			{
+				return this._intSeleccionGuiaMontaCargaID;
+			}
+			set
+			{
+				if ((this._intSeleccionGuiaMontaCargaID != value))
+				{
+					this._intSeleccionGuiaMontaCargaID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intGuiaEntradaID", DbType="Int")]
+		public System.Nullable<int> intGuiaEntradaID
+		{
+			get
+			{
+				return this._intGuiaEntradaID;
+			}
+			set
+			{
+				if ((this._intGuiaEntradaID != value))
+				{
+					this._intGuiaEntradaID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intCotizacionID", DbType="Int")]
+		public System.Nullable<int> intCotizacionID
+		{
+			get
+			{
+				return this._intCotizacionID;
+			}
+			set
+			{
+				if ((this._intCotizacionID != value))
+				{
+					this._intCotizacionID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intDetCotizaID", DbType="Int")]
+		public System.Nullable<int> intDetCotizaID
+		{
+			get
+			{
+				return this._intDetCotizaID;
+			}
+			set
+			{
+				if ((this._intDetCotizaID != value))
+				{
+					this._intDetCotizaID = value;
 				}
 			}
 		}

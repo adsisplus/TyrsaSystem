@@ -97,5 +97,40 @@ namespace Adsisplus.Cotyrsa.DataAccess
             }
             return result;
         }
+        /// <summary>
+        /// Procedimiento que lista los datos de seleccion Atirantado en base al ID de la cotización
+        /// </summary>
+        /// <param name="intCotizacionID"></param>
+        /// <returns></returns>
+        public List<SeleccionArriestrado> ListarSeleccionAtirantado(int intCotizacionID)
+        {
+            List<SeleccionArriestrado> result = new List<SeleccionArriestrado>();
+            try
+            {
+                using (AtirantadoDataContext dc = new AtirantadoDataContext(Helper.ConnectionString()))
+                {
+                    var query = from item in dc.stp_ListarSeleccionAtirantado(intCotizacionID)
+                                select new SeleccionArriestrado
+                                {
+                                    intSeleccionArriestradoID = item.intSeleccionArriestradoID,
+                                    intAtirantadoID = item.intAtirantadoID,
+                                    sintDriveInID = item.sintDriveInID,
+                                    decLargo = item.decLargo,
+                                    decLongitud = item.decLongitud,
+                                    decAncho = item.decAncho,
+                                    decTotalKiloUnitario = item.decTotalKiloUnitario,
+                                    decPrecioFinal = item.decPrecioFinal,
+                                    intCotizacionID = item.intCotizacionID,
+                                    intDetCotizaID = item.intDetCotizaID
+                                };
+                    result.AddRange(query);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
     }
 }

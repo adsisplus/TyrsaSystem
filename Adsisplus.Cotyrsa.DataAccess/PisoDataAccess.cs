@@ -44,6 +44,11 @@ namespace Adsisplus.Cotyrsa.DataAccess
                                     bitGalvanizado = item.bitGalvanizado
                                 };
                     result.AddRange(query);
+
+                    // Realizamos el barrido de la lista
+                    for (int i = 0; i < result.Count(); i++)
+                        result[i].seleccion = ListarDatosSeleccionPiso((int)result[i].intDatoPisoID);
+
                 }
             }
             catch (Exception ex)

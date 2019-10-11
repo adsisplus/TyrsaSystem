@@ -8,15 +8,23 @@ using System.Threading.Tasks;
 namespace Adsisplus.Cotyrsa.BusinessEntities
 {
     [DataContract]
-    public class DatosVigaTipoCaja
+    public class SeleccionVigaTipoCaja
     {
         [DataMember]
-        public int? SKU { get; set; }
+        public int? intSeleccionVigaCajaID { get; set; }
+        [DataMember]
+        public int? intVigaAtirantadoID { get; set; }
+        [DataMember]
+        public long? SKU { get; set; }
         [DataMember]
         public decimal? decPesoPieza { get; set; }
         [DataMember]
         public decimal? TOTAL { get; set; }
         [DataMember]
         public decimal? decTotal { get; set; }
+        [DataMember]
+        public bool? bitVigaTipoCaja { get; set; }
+        [DataMember]
+        public bool? bitActivo { get; set; }
     }
 }
