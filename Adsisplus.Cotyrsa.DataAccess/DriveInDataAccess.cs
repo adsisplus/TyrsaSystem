@@ -384,7 +384,7 @@ namespace Adsisplus.Cotyrsa.DataAccess
             {
                 using (SistemaDriveInDataContext dc = new SistemaDriveInDataContext(Helper.ConnectionString()))
                 {
-                    var query = from item in dc.stp_setDatosPosteDriveIn(poste.intDatoPosteDriveInID, poste.intElementoID, poste.intDetCotizaID, poste.intSKUID,
+                    var query = from item in dc.stp_setDatosPosteDriveIn(poste.intDatoPosteDriveInID, poste.intElementoID, poste.intCotizacionID, poste.intDetCotizaID, poste.intSKUID,
                         poste.intCantidad, poste.decCalibre, poste.decSolera, poste.decTotalKilo, poste.decPrecioTyrsa,
                         poste.decRelacionPrecios, poste.decPrecioTyrsaMetro, poste.decPrecioTyrsaKg, poste.sintNumPosteReq,
                         poste.sintNumTravesanio, poste.bitActivo, (byte)tinOpcion)

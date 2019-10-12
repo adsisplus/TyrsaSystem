@@ -112,7 +112,10 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
                         if (ListPoste.Count() > 0)
                             _poste = ListPoste.First();
                         else
+                        {
                             _poste.intDatoPosteDriveInID = 0;
+                            tinOpcion = 1;
+                        }
                         // Actualizamos la información
                         _poste.bitActivo = poste.bitActivo;
                         _poste.decCalibre = poste.decCalibre;
