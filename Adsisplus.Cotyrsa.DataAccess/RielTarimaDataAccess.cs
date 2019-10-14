@@ -43,7 +43,9 @@ namespace Adsisplus.Cotyrsa.DataAccess
                                     decLongitud = item.decLongitud,
                                     decAncho = item.decAncho,
                                     decTotalKiloUnitario = item.decTotalKiloUnitario,
+                                    decPesoTotal = item.decPesoTotal,
                                     decPrecioFinal = item.decPrecioFinal,
+                                    decPrecioVentaTotal = item.decPrecioVentaTotal,
                                     intCantidad = item.intCantidad
                                 }
                             };
@@ -51,6 +53,37 @@ namespace Adsisplus.Cotyrsa.DataAccess
             }
                 return result;
         }
+        /// <summary>
+        /// Procedimiento que lista los datos de Riel Tarima en base al ID de la cotización
+        /// </summary>
+        /// <param name="intCotizacionID"></param>
+        /// <returns></returns>
+        public List<SeleccionRielDeCarga> ListarSeleccionRielTarima(int intCotizacionID)
+        {
+            List<SeleccionRielDeCarga> result = new List<SeleccionRielDeCarga>();
+            using (RielTarimaDataContext dc = new RielTarimaDataContext(Helper.ConnectionString()))
+            {
+                var query = from item in dc.stp_ListarDatosRielTarima(0, intCotizacionID)
+                            select new SeleccionRielDeCarga
+                            {
+                                intSeleccionRielCargaID = item.intSeleccionRielCargaID,
+                                intDetCotizaID = item.intDetCotizaID,
+                                intRielTarimaID = item.intRielTarimaID,
+                                sintDriveInID = item.sintDriveInID,
+                                decLargo = item.decLargo,
+                                decLongitud = item.decLongitud,
+                                decAncho = item.decAncho,
+                                decTotalKiloUnitario = item.decTotalKiloUnitario,
+                                decPesoTotal = item.decPesoTotal,
+                                decPrecioFinal = item.decPrecioFinal,
+                                decPrecioVentaTotal = item.decPrecioVentaTotal,
+                                intCantidad = item.intCantidad
+                            };
+                result.AddRange(query);
+            }
+            return result;
+        }
+
         /// <summary>
         /// Procedimiento que lista los datos de seleccion riel de carga
         /// </summary>

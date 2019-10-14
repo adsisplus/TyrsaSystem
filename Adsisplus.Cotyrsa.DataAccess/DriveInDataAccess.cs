@@ -56,10 +56,9 @@ namespace Adsisplus.Cotyrsa.DataAccess
                 using (SistemaDriveInDataContext dc = new SistemaDriveInDataContext(Helper.ConnectionString()))
                 {
                     var query = from item in dc.stp_setDatosAtirantado(atirantado.intAtirantadoID, atirantado.intElementoID, atirantado.intCotizacionID, atirantado.sintPinturaID,
-                        atirantado.intCantidad, atirantado.bitActivo, atirantado.intDetCotizaID, atirantado.decLargo, atirantado.seleccion.decPrecioVentaUnitario,
-                        atirantado.seleccion.decPrecioVentaTotal, atirantado.seleccion.decPesoUnitario, atirantado.seleccion.decPesoTotal, atirantado.seleccion.decLongitud, atirantado.intCalibreID,
+                        atirantado.intCantidad, atirantado.bitActivo, atirantado.intDetCotizaID, atirantado.decLargo, atirantado.seleccion.decLongitud, atirantado.intCalibreID,
                         atirantado.seleccion.intSeleccionArriestradoID, atirantado.seleccion.sintDriveInID, atirantado.seleccion.decAncho, atirantado.seleccion.decTotalKiloUnitario, atirantado.seleccion.decPrecioFinal,
-                        (byte)tinOpcion)
+                        atirantado.seleccion.decPesoTotal, atirantado.seleccion.decPrecioVentaTotal, (byte)tinOpcion)
                                 select new Resultado
                                 {
                                     vchDescripcion = item.vchDescripcion,
@@ -120,8 +119,8 @@ namespace Adsisplus.Cotyrsa.DataAccess
                 using (SistemaDriveInDataContext dc = new SistemaDriveInDataContext(Helper.ConnectionString()))
                 {
                     var query = from item in dc.stp_setDatosBrazo(brazo.intBrazoID, brazo.intElementoID, brazo.intCotizacionID, brazo.sintPinturaID, brazo.intCantidad,
-                        brazo.bitActivo, brazo.sintLargoBrazoID, brazo.intDetCotizaID, brazo.decLargo, brazo.seleccion.decPrecioVentaUnitario,
-                        brazo.seleccion.decPrecioVentaTotal, brazo.seleccion.decPesoUnitario, brazo.seleccion.decPesoTotal, brazo.seleccion.intSeleccionBrazoID,brazo.seleccion.sintDriveInID,
+                        brazo.bitActivo, brazo.sintLargoBrazoID, brazo.intDetCotizaID, brazo.decLargo, brazo.seleccion.decPrecioFinal,
+                        brazo.seleccion.decPrecioVentaTotal, brazo.seleccion.decTotalKiloUnitario, brazo.seleccion.decPesoTotal, brazo.seleccion.intSeleccionBrazoID,brazo.seleccion.sintDriveInID,
                         brazo.seleccion.decLongitud, brazo.seleccion.decAncho, brazo.seleccion.decTotalKiloUnitario, brazo.seleccion.decPrecioFinal, (byte)tinOpcion)
                                 select new Resultado
                                 {
@@ -153,7 +152,7 @@ namespace Adsisplus.Cotyrsa.DataAccess
                     var query = from item in dc.stp_setDatosRielTarima(riel.intRielTarimaID, riel.intElementoID, riel.intCotizacionID, riel.intDetCotizaID,
                         riel.sintTipoRielTarimaID, riel.sintPinturaID, riel.intCantidad, riel.decCarga, riel.decLargo, riel.bitActivo, 
                         riel.seleccion.intSeleccionRielCargaID, riel.seleccion.sintDriveInID, riel.seleccion.decLongitud, riel.seleccion.decAncho, riel.seleccion.decTotalKiloUnitario,
-                        riel.seleccion.decPrecioFinal, (byte)tinOpcion)
+                        riel.seleccion.decPesoTotal, riel.seleccion.decPrecioFinal, riel.seleccion.decPrecioVentaTotal, (byte)tinOpcion)
                                 select new Resultado
                                 {
                                     vchDescripcion = item.vchDescripcion,
@@ -182,10 +181,9 @@ namespace Adsisplus.Cotyrsa.DataAccess
                 using (SistemaDriveInDataContext dc = new SistemaDriveInDataContext(Helper.ConnectionString()))
                 {
                     var query = from item in dc.stp_setDatosGuiaEntrada(guia.intGuiaEntradaID, guia.intElementoID, guia.intCotizacionID, guia.sintPinturaID,
-                        guia.decLargo, guia.intCantidad, guia.bitActivo, guia.intDetCotizaID, guia.decPrecioUnitario,
-                        guia.decPrecioTotal, guia.seleccion.intSeleccionGuiaMontaCargaID, guia.seleccion.decTotal, guia.seleccion.decTotalKiloUnitario,
-                        guia.seleccion.vchMedida, guia.seleccion.decPrecioFinal, guia.seleccion.decPrecioMasLargoTotal,
-                        (byte)tinOpcion)
+                        guia.decLargo, guia.intCantidad, guia.bitActivo, guia.intDetCotizaID, guia.seleccion.intSeleccionGuiaMontaCargaID, 
+                        guia.seleccion.vchMedida, guia.seleccion.decTotal, guia.seleccion.decTotalKiloUnitario, guia.seleccion.decPrecioFinal,
+                        guia.seleccion.decPrecioMasLargoTotal, (byte)tinOpcion)
                                 select new Resultado
                                 {
                                     vchDescripcion = item.vchDescripcion,
@@ -384,10 +382,10 @@ namespace Adsisplus.Cotyrsa.DataAccess
             {
                 using (SistemaDriveInDataContext dc = new SistemaDriveInDataContext(Helper.ConnectionString()))
                 {
-                    var query = from item in dc.stp_setDatosPosteDriveIn(poste.intDatoPosteDriveInID, poste.intElementoID, poste.intCotizacionID, poste.intDetCotizaID, poste.intSKUID,
-                        poste.intCantidad, poste.decCalibre, poste.decSolera, poste.decTotalKilo, poste.decPrecioTyrsa,
-                        poste.decRelacionPrecios, poste.decPrecioTyrsaMetro, poste.decPrecioTyrsaKg, poste.sintNumPosteReq,
-                        poste.sintNumTravesanio, poste.bitActivo, (byte)tinOpcion)
+                    var query = from item in dc.stp_setDatosPosteDriveIn(poste.intDatoPosteDriveInID, poste.intElementoID, poste.intCotizacionID, poste.intDetCotizaID, 
+                        poste.intSKUID, poste.intCantidad, poste.decCalibre, poste.decSolera, poste.decTotalKilo, 
+                        poste.decPrecioTyrsa, poste.decRelacionPrecios, poste.decPrecioTyrsaMetro, poste.decPrecioTyrsaKg, 
+                        poste.sintNumPosteReq, poste.sintNumTravesanio, poste.bitActivo, (byte)tinOpcion)
                                 select new Resultado
                                 {
                                     vchDescripcion = item.vchDescripcion,

@@ -109,7 +109,7 @@ namespace Adsisplus.Cotyrsa.DataAccess
             {
                 using (BrazoDataContext dc = new BrazoDataContext(Helper.ConnectionString()))
                 {
-                    var query = from item in dc.stp_ListarSeleccionBrazo(intCotizacionID)
+                    var query = from item in dc.stp_ListarDatosBrazo(0, intCotizacionID)
                                 select new SeleccionBrazo
                                 {
                                     intSeleccionBrazoID = item.intSeleccionBrazoID,
@@ -119,7 +119,9 @@ namespace Adsisplus.Cotyrsa.DataAccess
                                     decLongitud = item.decLongitud,
                                     decAncho = item.decAncho,
                                     decTotalKiloUnitario = item.decTotalKiloUnitario,
-                                    decPrecioFinal = item.decPrecioFinal
+                                    decPrecioFinal = item.decPrecioFinal,
+                                    decPesoUnitario = item.decPesoUnitario,
+                                    decPrecioVentaUnitario = item.decPrecioVentaUnitario
                                 };
                     result.AddRange(query);
                 }

@@ -33,6 +33,24 @@ namespace Adsisplus.Cotyrsa.WcfService.RielTarimaServices
             return result;
         }
         /// <summary>
+        /// Procedimiento que lista los datos de Riel Tarima en base al ID de la cotización
+        /// </summary>
+        /// <param name="intCotizacionID"></param>
+        /// <returns></returns>
+        public List<SeleccionRielDeCarga> ListarSeleccionRielTarima(int intCotizacionID)
+        {
+            List<SeleccionRielDeCarga> result = new List<SeleccionRielDeCarga>();
+            try
+            {
+                result = (new RielTarimaLogic()).ListarSeleccionRielTarima(intCotizacionID);
+            }
+            catch (Exception ex)
+            {
+                Adsisplus.Cotyrsa.BusinessLogic.EventLogManager.LogErrorEntry(ex.Message);
+            }
+            return result;
+        }
+        /// <summary>
         /// Procedimiento que lista los datos de seleccion riel de carga
         /// </summary>
         /// <param name="decPeso"></param>

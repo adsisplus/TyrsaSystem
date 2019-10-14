@@ -38,6 +38,24 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
             return result;
         }
         /// <summary>
+        /// Procedimiento que lista los datos de Riel Tarima en base al ID de la cotización
+        /// </summary>
+        /// <param name="intCotizacionID"></param>
+        /// <returns></returns>
+        public List<SeleccionRielDeCarga> ListarSeleccionRielTarima(int intCotizacionID)
+        {
+            List<SeleccionRielDeCarga> result = new List<SeleccionRielDeCarga>();
+            try
+            {
+                result = RielTarimaDA.ListarSeleccionRielTarima(intCotizacionID);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
+        /// <summary>
         /// Procedimiento que lista los datos de seleccion riel de carga
         /// </summary>
         /// <param name="decPeso"></param>
@@ -76,7 +94,7 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
                 detCotizacion.intPartida = 0;
                 detCotizacion.intCantidad = riel.intCantidad;
                 detCotizacion.decMonto = riel.seleccion.decPrecioFinal;
-                detCotizacion.decSubtotal = riel.seleccion.decPrecioFinal;
+                detCotizacion.decSubtotal = riel.seleccion.decPrecioVentaTotal;
 
                 // Almacenamos el registro
                 result = (new CotizacionLogic()).setDetCotizacion(detCotizacion, (short)(intDetCotizaID == 0 ? 1 : tinOpcion));

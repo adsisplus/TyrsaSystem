@@ -596,6 +596,10 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 		
 		private System.Nullable<decimal> _decPrecioFinal;
 		
+		private System.Nullable<decimal> _decPesoUnitario;
+		
+		private System.Nullable<decimal> _decPrecioVentaUnitario;
+		
 		public stp_ListarSeleccionBrazoResult()
 		{
 		}
@@ -724,6 +728,38 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 				if ((this._decPrecioFinal != value))
 				{
 					this._decPrecioFinal = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decPesoUnitario", DbType="Decimal(20,3)")]
+		public System.Nullable<decimal> decPesoUnitario
+		{
+			get
+			{
+				return this._decPesoUnitario;
+			}
+			set
+			{
+				if ((this._decPesoUnitario != value))
+				{
+					this._decPesoUnitario = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decPrecioVentaUnitario", DbType="Decimal(18,3)")]
+		public System.Nullable<decimal> decPrecioVentaUnitario
+		{
+			get
+			{
+				return this._decPrecioVentaUnitario;
+			}
+			set
+			{
+				if ((this._decPrecioVentaUnitario != value))
+				{
+					this._decPrecioVentaUnitario = value;
 				}
 			}
 		}

@@ -224,7 +224,11 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 		
 		private System.Nullable<decimal> _decTotalKiloUnitario;
 		
+		private System.Nullable<decimal> _decPesoTotal;
+		
 		private System.Nullable<decimal> _decPrecioFinal;
+		
+		private System.Nullable<decimal> _decPrecioVentaTotal;
 		
 		private System.Nullable<bool> _bitActivo;
 		
@@ -456,6 +460,22 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decPesoTotal", DbType="Decimal(8,3)")]
+		public System.Nullable<decimal> decPesoTotal
+		{
+			get
+			{
+				return this._decPesoTotal;
+			}
+			set
+			{
+				if ((this._decPesoTotal != value))
+				{
+					this._decPesoTotal = value;
+				}
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decPrecioFinal", DbType="Decimal(12,2)")]
 		public System.Nullable<decimal> decPrecioFinal
 		{
@@ -468,6 +488,22 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 				if ((this._decPrecioFinal != value))
 				{
 					this._decPrecioFinal = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decPrecioVentaTotal", DbType="Decimal(18,3)")]
+		public System.Nullable<decimal> decPrecioVentaTotal
+		{
+			get
+			{
+				return this._decPrecioVentaTotal;
+			}
+			set
+			{
+				if ((this._decPrecioVentaTotal != value))
+				{
+					this._decPrecioVentaTotal = value;
 				}
 			}
 		}

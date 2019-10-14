@@ -109,19 +109,19 @@ namespace Adsisplus.Cotyrsa.DataAccess
             {
                 using (AtirantadoDataContext dc = new AtirantadoDataContext(Helper.ConnectionString()))
                 {
-                    var query = from item in dc.stp_ListarSeleccionAtirantado(intCotizacionID)
+                    var query = from item in dc.stp_ListarDatosAtirantado(0, intCotizacionID)
                                 select new SeleccionArriestrado
                                 {
                                     intSeleccionArriestradoID = item.intSeleccionArriestradoID,
                                     intAtirantadoID = item.intAtirantadoID,
+                                    intDetCotizaID = item.intDetCotizaID,
                                     sintDriveInID = item.sintDriveInID,
                                     decLargo = item.decLargo,
                                     decLongitud = item.decLongitud,
                                     decAncho = item.decAncho,
                                     decTotalKiloUnitario = item.decTotalKiloUnitario,
                                     decPrecioFinal = item.decPrecioFinal,
-                                    intCotizacionID = item.intCotizacionID,
-                                    intDetCotizaID = item.intDetCotizaID
+                                    intCotizacionID = item.intCotizacionID
                                 };
                     result.AddRange(query);
                 }

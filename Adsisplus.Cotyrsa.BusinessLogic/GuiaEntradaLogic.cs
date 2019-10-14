@@ -89,7 +89,7 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
                 Cotizacion detCotizacion = new Cotizacion();
                 detCotizacion.intCotizacionID = intCotizacionID;
                 detCotizacion.intDetCotizaID = intDetCotizaID;
-                detCotizacion.intElementoID = 23; // Falta definir el ID
+                detCotizacion.intElementoID = 20; // Falta definir el ID
                 detCotizacion.intPartida = 0;
                 detCotizacion.intCantidad = guia.intCantidad;
                 detCotizacion.decMonto = guia.decPrecioTotal;
@@ -121,7 +121,7 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
                     _guia.intCantidad = guia.intCantidad;
                     _guia.intCotizacionID = intCotizacionID;
                     _guia.intDetCotizaID = intDetCotizaID;
-                    _guia.intElementoID = 23; // id pendiente
+                    _guia.intElementoID = 20; // id pendiente
                     _guia.sintPinturaID = guia.sintPinturaID;
                     // Insertamos los datos de la selección
                     _guia.seleccion = new SeleccionGuiaMonteCarga();
