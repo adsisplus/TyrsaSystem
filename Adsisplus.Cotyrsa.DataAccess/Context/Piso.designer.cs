@@ -119,6 +119,10 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 		
 		private decimal _decPrecioFinal;
 		
+		private decimal _decPesoBase;
+		
+		private decimal _decPrecioBase;
+		
 		public entSeleccionPiso()
 		{
 		}
@@ -171,7 +175,7 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="decPesoPartida", Storage="_decPesoPartida")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decPesoPartida")]
 		public decimal decPesoUnitario
 		{
 			get
@@ -187,7 +191,7 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="decPrecioFinal", Storage="_decPrecioFinal")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decPrecioFinal")]
 		public decimal decPrecioUnitario
 		{
 			get
@@ -199,6 +203,38 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 				if ((this._decPrecioFinal != value))
 				{
 					this._decPrecioFinal = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decPesoBase")]
+		public decimal decPesoBase
+		{
+			get
+			{
+				return this._decPesoBase;
+			}
+			set
+			{
+				if ((this._decPesoBase != value))
+				{
+					this._decPesoBase = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decPrecioBase")]
+		public decimal decPrecioBase
+		{
+			get
+			{
+				return this._decPrecioBase;
+			}
+			set
+			{
+				if ((this._decPrecioBase != value))
+				{
+					this._decPrecioBase = value;
 				}
 			}
 		}

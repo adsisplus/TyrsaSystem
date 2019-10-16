@@ -103,7 +103,7 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
                 {
                     intDetCotizaID = Convert.ToInt32(result.vchResultado);
                     piso.intDetCotizaID = intDetCotizaID;
-
+                    
                     List<DatosPiso> ListPiso = new List<DatosPiso>();
                     DatosPiso _piso = new DatosPiso();
 
@@ -118,13 +118,14 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
                     // Actualizamos la información
                     _piso.bitActivo = piso.bitActivo;
                     _piso.bitTipoPisoAbierto = piso.bitTipoPisoAbierto;
+                    _piso.bitGalvanizado = piso.bitGalvanizado;
                     _piso.bitUsoPatin = piso.bitUsoPatin;
                     _piso.decAncho = piso.decAncho;
                     _piso.decLargoPiso = piso.decLargoPiso;
                     _piso.decPesoTotal = piso.decPesoTotal;
-                    _piso.decPesoUnitario = piso.decPesoUnitario;
+                    _piso.decPesoUnitario = piso.seleccion.First().decPesoBase;
                     _piso.decPrecioTotal = piso.decPrecioTotal;
-                    _piso.decPrecioUnitario = piso.decPrecioUnitario;
+                    _piso.decPrecioUnitario = piso.seleccion.First().decPrecioBase;
                     _piso.intCantidad = piso.intCantidad;
                     _piso.intCotizacionID = intCotizacionID;
                     _piso.intDatoPisoID = piso.intDatoPisoID;
@@ -136,7 +137,7 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
                     result = (new DriveInLogic()).setDatosPiso(_piso, tinOpcion);
                     // Validamos el cambio realizado
                     if (result.vchResultado != "NOK")
-                        result = (new DriveInLogic()).setSeleccionPiso(piso.seleccion, _piso.intDatoPisoID, tinOpcion);
+                        result = (new DriveInLogic()).setSeleccionPiso(piso.seleccion, Convert.ToInt32(result.vchResultado), _piso.intDetCotizaID, tinOpcion);
                 }
             }
             catch (Exception ex)

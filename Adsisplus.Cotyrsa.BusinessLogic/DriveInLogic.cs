@@ -139,12 +139,12 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
         /// <param name="intDatoPisoID"></param>
         /// <param name="tinOpcion"></param>
         /// <returns></returns>
-        public Resultado setSeleccionPiso(List<SeleccionPiso> seleccion, int? intDatoPisoID, short tinOpcion)
+        public Resultado setSeleccionPiso(List<SeleccionPiso> seleccion, int? intDatoPisoID, int? intDetCotizaID, short tinOpcion)
         {
             Resultado result = new Resultado();
             try
             {
-                result = DriveInDA.setSeleccionPiso(seleccion, intDatoPisoID, tinOpcion);
+                result = DriveInDA.setSeleccionPiso(seleccion, intDatoPisoID, intDetCotizaID, tinOpcion);
             }
             catch (Exception ex)
             {

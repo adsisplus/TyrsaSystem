@@ -236,7 +236,7 @@ namespace Adsisplus.Cotyrsa.DataAccess
         /// <param name="intDatoPisoID"></param>
         /// <param name="tinOpcion"></param>
         /// <returns></returns>
-        public Resultado setSeleccionPiso(List<SeleccionPiso> seleccion, int? intDatoPisoID, short tinOpcion)
+        public Resultado setSeleccionPiso(List<SeleccionPiso> seleccion, int? intDatoPisoID, int? intDetCotizaID, short tinOpcion)
         {
             Resultado result = new Resultado();
             try
@@ -249,7 +249,7 @@ namespace Adsisplus.Cotyrsa.DataAccess
                     {
                         using (PisoDataContext dc = new PisoDataContext(Helper.ConnectionString()))
                         {
-                            var query = from item in dc.stp_setSeleccionPiso(piso.intSeleccionPisoID, piso.intDatoPisoID, piso.intDetCotizaID, piso.sintTipoPisoID,
+                            var query = from item in dc.stp_setSeleccionPiso(piso.intSeleccionPisoID, intDatoPisoID, intDetCotizaID, piso.sintTipoPisoID,
                                 piso.decLongitud, piso.decPrecioUnitario, piso.decPrecioTotal, piso.decPesoUnitario,
                                 piso.decPesoTotal, piso.bitActivo, (byte)tinOpcion)
                                         select new Resultado
@@ -273,7 +273,7 @@ namespace Adsisplus.Cotyrsa.DataAccess
                             // Actualizamos los datos de la lista
                             using (PisoDataContext dc = new PisoDataContext(Helper.ConnectionString()))
                             {
-                                var query = from item in dc.stp_setSeleccionPiso(seleccion[i].intSeleccionPisoID, seleccion[i].intDatoPisoID, seleccion[i].intDetCotizaID, seleccion[i].sintTipoPisoID,
+                                var query = from item in dc.stp_setSeleccionPiso(seleccion[i].intSeleccionPisoID, intDatoPisoID, intDetCotizaID, seleccion[i].sintTipoPisoID,
                                     seleccion[i].decLongitud, seleccion[i].decPrecioUnitario, seleccion[i].decPrecioTotal, seleccion[i].decPesoUnitario,
                                     seleccion[i].decPesoTotal, seleccion[i].bitActivo, 2)
                                             select new Resultado
@@ -293,7 +293,7 @@ namespace Adsisplus.Cotyrsa.DataAccess
                                 // Actualizamos los datos de la lista, dando de baja los registros
                                 using (PisoDataContext dc = new PisoDataContext(Helper.ConnectionString()))
                                 {
-                                    var query = from item in dc.stp_setSeleccionPiso(seleccion[i].intSeleccionPisoID, seleccion[i].intDatoPisoID, seleccion[i].intDetCotizaID, seleccion[i].sintTipoPisoID,
+                                    var query = from item in dc.stp_setSeleccionPiso(seleccion[i].intSeleccionPisoID, intDatoPisoID, intDetCotizaID, seleccion[i].sintTipoPisoID,
                                     seleccion[i].decLongitud, seleccion[i].decPrecioUnitario, seleccion[i].decPrecioTotal, seleccion[i].decPesoUnitario,
                                     seleccion[i].decPesoTotal, seleccion[i].bitActivo, 3) // Quitamos los registros
                                                 select new Resultado
@@ -315,7 +315,7 @@ namespace Adsisplus.Cotyrsa.DataAccess
                                 // Actualizamos los datos de la lista, dando de baja los registros
                                 using (PisoDataContext dc = new PisoDataContext(Helper.ConnectionString()))
                                 {
-                                    var query = from item in dc.stp_setSeleccionPiso(seleccion[i].intSeleccionPisoID, seleccion[i].intDatoPisoID, seleccion[i].intDetCotizaID, seleccion[i].sintTipoPisoID,
+                                    var query = from item in dc.stp_setSeleccionPiso(seleccion[i].intSeleccionPisoID, intDatoPisoID, intDetCotizaID, seleccion[i].sintTipoPisoID,
                                     seleccion[i].decLongitud, seleccion[i].decPrecioUnitario, seleccion[i].decPrecioTotal, seleccion[i].decPesoUnitario,
                                     seleccion[i].decPesoTotal, seleccion[i].bitActivo, 1) // Agregamos los registros
                                                 select new Resultado

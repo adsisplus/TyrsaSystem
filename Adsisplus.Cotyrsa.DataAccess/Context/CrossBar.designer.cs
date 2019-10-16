@@ -76,13 +76,6 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 			return ((ISingleResult<stp_ListarSeleccionCrossBarResult>)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.stp_ListarDatosCrossBar")]
-		public ISingleResult<stp_ListarDatosCrossBarResult> stp_ListarDatosCrossBar([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intDatosCrossBarID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intElementoID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intDatoMarcoID)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), intDatosCrossBarID, intElementoID, intDatoMarcoID);
-			return ((ISingleResult<stp_ListarDatosCrossBarResult>)(result.ReturnValue));
-		}
-		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.stp_setBajaCrossBar")]
 		public ISingleResult<stp_setBajaCrossBarResult> stp_setBajaCrossBar([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intDetCotizaID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Bit")] System.Nullable<bool> bitRollBack)
 		{
@@ -144,6 +137,13 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), intSeleccionCrossBarID, intRackID, intDetCotizaID, decAnchoBus, decLargoBus, bitConectorViga, sintCrossBarID, vchTipoCrossBar, decPrecioFinal, sintFactorCrossBarID, sintNumPieza, decDesarrollo, decLongitud, vchMaterial, decAncho, decLargo, intPiezaLamina, intNumPiezas, sintPesoPieza, decPesoPartida, decPrecioAcero, decTotal, decTotalKiloUnitario, decAreaPintura, sintCara, decPesoPartidaTotal, bitActivo, tinOpcion);
 			return ((ISingleResult<stp_setSeleccionCrossBarResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.stp_ListarDatosCrossBar")]
+		public ISingleResult<stp_ListarDatosCrossBarResult> stp_ListarDatosCrossBar([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intDatosCrossBarID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intElementoID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intDetCotizaID)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), intDatosCrossBarID, intElementoID, intDetCotizaID);
+			return ((ISingleResult<stp_ListarDatosCrossBarResult>)(result.ReturnValue));
 		}
 	}
 	
@@ -520,158 +520,6 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 				if ((this._sintCara != value))
 				{
 					this._sintCara = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_bitActivo", DbType="Bit")]
-		public System.Nullable<bool> bitActivo
-		{
-			get
-			{
-				return this._bitActivo;
-			}
-			set
-			{
-				if ((this._bitActivo != value))
-				{
-					this._bitActivo = value;
-				}
-			}
-		}
-	}
-	
-	public partial class stp_ListarDatosCrossBarResult
-	{
-		
-		private int _intDatosCrossBarID;
-		
-		private string _vchElemento;
-		
-		private System.Nullable<short> _sintCantidadDatoMarco;
-		
-		private System.Nullable<decimal> _decAnchoCrossBar;
-		
-		private System.Nullable<bool> _bitConectorVigaCrossbar;
-		
-		private System.Nullable<int> _intCantidadNivelCrossbar;
-		
-		private System.Nullable<int> _intNumeroNivel;
-		
-		private System.Nullable<bool> _bitActivo;
-		
-		public stp_ListarDatosCrossBarResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intDatosCrossBarID", DbType="Int NOT NULL")]
-		public int intDatosCrossBarID
-		{
-			get
-			{
-				return this._intDatosCrossBarID;
-			}
-			set
-			{
-				if ((this._intDatosCrossBarID != value))
-				{
-					this._intDatosCrossBarID = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchElemento", DbType="VarChar(25)")]
-		public string vchElemento
-		{
-			get
-			{
-				return this._vchElemento;
-			}
-			set
-			{
-				if ((this._vchElemento != value))
-				{
-					this._vchElemento = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sintCantidadDatoMarco", DbType="SmallInt")]
-		public System.Nullable<short> sintCantidadDatoMarco
-		{
-			get
-			{
-				return this._sintCantidadDatoMarco;
-			}
-			set
-			{
-				if ((this._sintCantidadDatoMarco != value))
-				{
-					this._sintCantidadDatoMarco = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decAnchoCrossBar", DbType="Decimal(20,2)")]
-		public System.Nullable<decimal> decAnchoCrossBar
-		{
-			get
-			{
-				return this._decAnchoCrossBar;
-			}
-			set
-			{
-				if ((this._decAnchoCrossBar != value))
-				{
-					this._decAnchoCrossBar = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_bitConectorVigaCrossbar", DbType="Bit")]
-		public System.Nullable<bool> bitConectorVigaCrossbar
-		{
-			get
-			{
-				return this._bitConectorVigaCrossbar;
-			}
-			set
-			{
-				if ((this._bitConectorVigaCrossbar != value))
-				{
-					this._bitConectorVigaCrossbar = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intCantidadNivelCrossbar", DbType="Int")]
-		public System.Nullable<int> intCantidadNivelCrossbar
-		{
-			get
-			{
-				return this._intCantidadNivelCrossbar;
-			}
-			set
-			{
-				if ((this._intCantidadNivelCrossbar != value))
-				{
-					this._intCantidadNivelCrossbar = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intNumeroNivel", DbType="Int")]
-		public System.Nullable<int> intNumeroNivel
-		{
-			get
-			{
-				return this._intNumeroNivel;
-			}
-			set
-			{
-				if ((this._intNumeroNivel != value))
-				{
-					this._intNumeroNivel = value;
 				}
 			}
 		}
@@ -1862,6 +1710,158 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 				if ((this._vchDescripcion != value))
 				{
 					this._vchDescripcion = value;
+				}
+			}
+		}
+	}
+	
+	public partial class stp_ListarDatosCrossBarResult
+	{
+		
+		private int _intDatosCrossBarID;
+		
+		private string _vchElemento;
+		
+		private System.Nullable<short> _sintCantidadDatoMarco;
+		
+		private System.Nullable<decimal> _decAnchoCrossBar;
+		
+		private System.Nullable<bool> _bitConectorVigaCrossbar;
+		
+		private System.Nullable<int> _intCantidadNivelCrossbar;
+		
+		private System.Nullable<int> _intNumeroNivel;
+		
+		private System.Nullable<bool> _bitActivo;
+		
+		public stp_ListarDatosCrossBarResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intDatosCrossBarID", DbType="Int NOT NULL")]
+		public int intDatosCrossBarID
+		{
+			get
+			{
+				return this._intDatosCrossBarID;
+			}
+			set
+			{
+				if ((this._intDatosCrossBarID != value))
+				{
+					this._intDatosCrossBarID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchElemento", DbType="VarChar(255)")]
+		public string vchElemento
+		{
+			get
+			{
+				return this._vchElemento;
+			}
+			set
+			{
+				if ((this._vchElemento != value))
+				{
+					this._vchElemento = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sintCantidadDatoMarco", DbType="SmallInt")]
+		public System.Nullable<short> sintCantidadDatoMarco
+		{
+			get
+			{
+				return this._sintCantidadDatoMarco;
+			}
+			set
+			{
+				if ((this._sintCantidadDatoMarco != value))
+				{
+					this._sintCantidadDatoMarco = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decAnchoCrossBar", DbType="Decimal(20,2)")]
+		public System.Nullable<decimal> decAnchoCrossBar
+		{
+			get
+			{
+				return this._decAnchoCrossBar;
+			}
+			set
+			{
+				if ((this._decAnchoCrossBar != value))
+				{
+					this._decAnchoCrossBar = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_bitConectorVigaCrossbar", DbType="Bit")]
+		public System.Nullable<bool> bitConectorVigaCrossbar
+		{
+			get
+			{
+				return this._bitConectorVigaCrossbar;
+			}
+			set
+			{
+				if ((this._bitConectorVigaCrossbar != value))
+				{
+					this._bitConectorVigaCrossbar = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intCantidadNivelCrossbar", DbType="Int")]
+		public System.Nullable<int> intCantidadNivelCrossbar
+		{
+			get
+			{
+				return this._intCantidadNivelCrossbar;
+			}
+			set
+			{
+				if ((this._intCantidadNivelCrossbar != value))
+				{
+					this._intCantidadNivelCrossbar = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intNumeroNivel", DbType="Int")]
+		public System.Nullable<int> intNumeroNivel
+		{
+			get
+			{
+				return this._intNumeroNivel;
+			}
+			set
+			{
+				if ((this._intNumeroNivel != value))
+				{
+					this._intNumeroNivel = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_bitActivo", DbType="Bit")]
+		public System.Nullable<bool> bitActivo
+		{
+			get
+			{
+				return this._bitActivo;
+			}
+			set
+			{
+				if ((this._bitActivo != value))
+				{
+					this._bitActivo = value;
 				}
 			}
 		}

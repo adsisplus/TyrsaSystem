@@ -30,21 +30,6 @@
       <Column Name="bitActivo" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
     </ElementType>
   </Function>
-  <Function Name="dbo.stp_ListarDatosCrossBar" Method="stp_ListarDatosCrossBar">
-    <Parameter Name="intDatosCrossBarID" Type="System.Int32" DbType="Int" />
-    <Parameter Name="intElementoID" Type="System.Int32" DbType="Int" />
-    <Parameter Name="intDatoMarcoID" Type="System.Int32" DbType="Int" />
-    <ElementType Name="stp_ListarDatosCrossBarResult">
-      <Column Name="intDatosCrossBarID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="vchElemento" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
-      <Column Name="sintCantidadDatoMarco" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
-      <Column Name="decAnchoCrossBar" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
-      <Column Name="bitConectorVigaCrossbar" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="intCantidadNivelCrossbar" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="intNumeroNivel" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="bitActivo" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-    </ElementType>
-  </Function>
   <Function Name="dbo.stp_setBajaCrossBar" Method="stp_setBajaCrossBar">
     <Parameter Name="intDetCotizaID" Type="System.Int32" DbType="Int" />
     <Parameter Name="bitRollBack" Type="System.Boolean" DbType="Bit" />
@@ -170,6 +155,21 @@
     <ElementType Name="stp_setSeleccionCrossBarResult">
       <Column Name="vchResultado" Type="System.String" DbType="VarChar(12)" CanBeNull="true" />
       <Column Name="vchDescripcion" Type="System.String" DbType="VarChar(60) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.stp_ListarDatosCrossBar" Method="stp_ListarDatosCrossBar">
+    <Parameter Name="intDatosCrossBarID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intElementoID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intDetCotizaID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="stp_ListarDatosCrossBarResult">
+      <Column Name="intDatosCrossBarID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="vchElemento" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="sintCantidadDatoMarco" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="decAnchoCrossBar" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
+      <Column Name="bitConectorVigaCrossbar" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="intCantidadNivelCrossbar" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="intNumeroNivel" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="bitActivo" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
     </ElementType>
   </Function>
 </Database>
