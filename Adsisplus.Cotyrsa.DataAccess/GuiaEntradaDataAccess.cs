@@ -100,13 +100,14 @@ namespace Adsisplus.Cotyrsa.DataAccess
             {
                 using (GuiaEntradaDataContext dc = new GuiaEntradaDataContext(Helper.ConnectionString()))
                 {
-                    var query = from item in dc.stp_ListarSeleccionGuiaMontaCarga(intCotizacionID)
+                    var query = from item in dc.stp_ListarDatosGuiaEntrada(0, intCotizacionID)
                                 select new SeleccionGuiaMonteCarga
                                 {
                                     intSeleccionGuiaMontaCargaID = item.intSeleccionGuiaMontaCargaID,
                                     intGuiaEntradaID = item.intGuiaEntradaID,
                                     intCotizacionID = item.intCotizacionID,
                                     intDetCotizaID = item.intDetCotizaID,
+                                    intCantidad = item.intCantidad,
                                     decTotal = item.decTotal,
                                     decTotalKiloUnitario = item.decTotalKiloUnitario,
                                     vchMedida = item.vchMedida,

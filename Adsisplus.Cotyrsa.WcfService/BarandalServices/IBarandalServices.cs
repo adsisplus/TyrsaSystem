@@ -13,14 +13,14 @@ namespace Adsisplus.Cotyrsa.WcfService.BarandalServices
     [ServiceContract]
     public interface IBarandalServices
     {
-        /// <summary>
-        /// Procedimiento que lista los datos de precio DriveIn Barandal en base al largo
-        /// </summary>
-        /// <param name="decLargo"></param>
-        /// <returns></returns>
-        [OperationContract]
-        [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ListarDriveInBarandal")]
-        List<SeleccionBarandal> ListarDriveInBarandal(decimal decLargo);
+        ///// <summary>
+        ///// Procedimiento que lista los datos de precio DriveIn Barandal en base al largo
+        ///// </summary>
+        ///// <param name="decLargo"></param>
+        ///// <returns></returns>
+        //[OperationContract]
+        //[WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ListarDriveInBarandal")]
+        //List<SeleccionBarandal> ListarDriveInBarandal(decimal decLargo);
         /// <summary>
         /// Procedimiento que lista los datos Barandal
         /// </summary>

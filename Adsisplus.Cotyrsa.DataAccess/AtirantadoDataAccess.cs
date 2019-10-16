@@ -119,8 +119,15 @@ namespace Adsisplus.Cotyrsa.DataAccess
                                     decLargo = item.decLargo,
                                     decLongitud = item.decLongitud,
                                     decAncho = item.decAncho,
+                                    
+                                    intCantidad = item.intCantidad,
+
                                     decTotalKiloUnitario = item.decTotalKiloUnitario,
+                                    decPesoTotal = item.decPesoTotal,
+
                                     decPrecioFinal = item.decPrecioFinal,
+                                    decPrecioVentaTotal = item.decPrecioVentaTotal,
+
                                     intCotizacionID = item.intCotizacionID
                                 };
                     result.AddRange(query);

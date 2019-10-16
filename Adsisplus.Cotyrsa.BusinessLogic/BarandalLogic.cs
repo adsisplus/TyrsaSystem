@@ -37,24 +37,24 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
             }
             return result;
         }
-        /// <summary>
-        /// Procedimiento que lista los datos de precio DriveIn Barandal en base al largo
-        /// </summary>
-        /// <param name="decLargo"></param>
-        /// <returns></returns>
-        public List<SeleccionBarandal> ListarDriveInBarandal(decimal decLargo)
-        {
-            List<SeleccionBarandal> result = new List<SeleccionBarandal>();
-            try
-            {
-                result = BarandalDA.ListarDriveInBarandal(decLargo);
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-            return result;
-        }
+        ///// <summary>
+        ///// Procedimiento que lista los datos de precio DriveIn Barandal en base al largo
+        ///// </summary>
+        ///// <param name="decLargo"></param>
+        ///// <returns></returns>
+        //public List<SeleccionBarandal> ListarDriveInBarandal(decimal decLargo)
+        //{
+        //    List<SeleccionBarandal> result = new List<SeleccionBarandal>();
+        //    try
+        //    {
+        //        result = BarandalDA.ListarDriveInBarandal(decLargo);
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        throw ex;
+        //    }
+        //    return result;
+        //}
         /// <summary>
         /// Procedimiento que realiza el alta, baja o modificación de los datos de barandal
         /// </summary>
@@ -73,9 +73,9 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
                 detCotizacion.intDetCotizaID = intDetCotizaID;
                 detCotizacion.intElementoID = 22;
                 detCotizacion.intPartida = 0;
-                detCotizacion.intCantidad = Convert.ToInt32(barandal.decCantidad);
+                detCotizacion.intCantidad = Convert.ToInt32(barandal.intCantidad);
                 detCotizacion.decMonto = barandal.decPrecioTotal;
-                detCotizacion.decSubtotal = Decimal.Round((Math.Truncate(100 * barandal.decPrecioTotal.Value) / 100) * barandal.decCantidad.Value);
+                //detCotizacion.decSubtotal = Decimal.Round((Math.Truncate(100 * barandal.decPrecioTotal.Value) / 100) * barandal.decCantidad.Value);
 
                 // Almacenamos el registro
                 result = (new CotizacionLogic()).setDetCotizacion(detCotizacion, (short)(intDetCotizaID == 0 ? 1 : tinOpcion));
@@ -95,13 +95,14 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
                         _barandal = ListBarandal.First();
                     else
                         _barandal.intDatosBarandalID = 0;
+
                     // Actualizamos la información
                     _barandal.intCotizacionID = intCotizacionID;
                     _barandal.intDetCotizaID = intDetCotizaID;
                     _barandal.intElementoID = 22;
                     _barandal.sintPinturaID = barandal.sintPinturaID;
                     _barandal.bitActivo = barandal.bitActivo;
-                    _barandal.decCantidad = barandal.decCantidad;
+                    _barandal.intCantidad = barandal.intCantidad;
                     _barandal.decLargo = barandal.decLargo;
                     _barandal.decPrecioTotal = barandal.decPrecioTotal;
                     _barandal.decPrecioUnitario = barandal.decPrecioUnitario;

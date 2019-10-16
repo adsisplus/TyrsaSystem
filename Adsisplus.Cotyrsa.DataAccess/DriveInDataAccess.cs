@@ -352,9 +352,8 @@ namespace Adsisplus.Cotyrsa.DataAccess
                 using (SistemaDriveInDataContext dc = new SistemaDriveInDataContext(Helper.ConnectionString()))
                 {
                     var query = from item in dc.stp_setDatosBarandal(barandal.intDatosBarandalID, barandal.intElementoID, barandal.intCotizacionID, barandal.intDetCotizaID,
-                        barandal.sintPinturaID, barandal.decLargo, barandal.decCantidad, barandal.decPrecioUnitario, barandal.decPrecioTotal,
-                        barandal.seleccion.decPesoUnitario, barandal.decPesoTotal, barandal.seleccion.intSeleccionBarandalID, barandal.seleccion.sintTipoVigaBarandalID, barandal.bitActivo, 
-                        (byte)tinOpcion)
+                        barandal.sintPinturaID, barandal.decLargo, barandal.intCantidad, barandal.decPrecioUnitario, barandal.decPrecioTotal,
+                        barandal.decPrecioUnitario, barandal.decPesoTotal, barandal.bitActivo, (byte)tinOpcion)
                                 select new Resultado
                                 {
                                     vchDescripcion = item.vchDescripcion,

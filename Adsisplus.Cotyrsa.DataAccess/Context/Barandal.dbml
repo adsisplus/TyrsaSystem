@@ -1,5 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="dbTyrsa" Class="BarandalDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
   <Connection Mode="AppSettings" ConnectionString="Data Source=local;Initial Catalog=dbTyrsa;Persist Security Info=True;User ID=usrCotyrsa" SettingsObjectName="Adsisplus.Cotyrsa.DataAccess.Properties.Settings" SettingsPropertyName="dbTyrsaConnectionString" Provider="System.Data.SqlClient" />
+  <Function Name="dbo.stp_ListarDriveInBarandal" Method="stp_ListarDriveInBarandal">
+    <Parameter Name="decLargo" Type="System.Decimal" DbType="Decimal(8,2)" />
+    <ElementType Name="stp_ListarDriveInBarandalResult">
+      <Column Name="sintTipoVigaBarandalID" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="decLargo" Type="System.Decimal" DbType="Decimal(8,2)" CanBeNull="true" />
+      <Column Name="decPesoUnitario" Type="System.Decimal" DbType="Decimal(38,2)" CanBeNull="true" />
+      <Column Name="decPrecioUnitario" Type="System.Decimal" DbType="Decimal(12,2)" CanBeNull="true" />
+    </ElementType>
+  </Function>
   <Function Name="dbo.stp_ListarDatosBarandal" Method="stp_ListarDatosBarandal">
     <Parameter Name="intDatosBarandalID" Type="System.Int32" DbType="Int" />
     <Parameter Name="intCotizacionID" Type="System.Int32" DbType="Int" />
@@ -10,19 +19,10 @@
       <Column Name="intDetCotizaID" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="sintPinturaID" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
       <Column Name="decLargo" Type="System.Decimal" DbType="Decimal(8,2)" CanBeNull="true" />
-      <Column Name="decCantidad" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="intCantidad" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="decPrecioUnitario" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
       <Column Name="decPrecioTotal" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
       <Column Name="bitActivo" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-    </ElementType>
-  </Function>
-  <Function Name="dbo.stp_ListarDriveInBarandal" Method="stp_ListarDriveInBarandal">
-    <Parameter Name="decLargo" Type="System.Decimal" DbType="Decimal(8,2)" />
-    <ElementType Name="stp_ListarDriveInBarandalResult">
-      <Column Name="sintTipoVigaBarandalID" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
-      <Column Name="decLargo" Type="System.Decimal" DbType="Decimal(8,2)" CanBeNull="true" />
-      <Column Name="decPesoUnitario" Type="System.Decimal" DbType="Decimal(38,2)" CanBeNull="true" />
-      <Column Name="decPrecioUnitario" Type="System.Decimal" DbType="Decimal(12,2)" CanBeNull="true" />
     </ElementType>
   </Function>
 </Database>

@@ -62,18 +62,98 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 			OnCreated();
 		}
 		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.stp_ListarDriveInBarandal")]
+		public ISingleResult<stp_ListarDriveInBarandalResult> stp_ListarDriveInBarandal([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Decimal(8,2)")] System.Nullable<decimal> decLargo)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), decLargo);
+			return ((ISingleResult<stp_ListarDriveInBarandalResult>)(result.ReturnValue));
+		}
+		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.stp_ListarDatosBarandal")]
 		public ISingleResult<stp_ListarDatosBarandalResult> stp_ListarDatosBarandal([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intDatosBarandalID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intCotizacionID)
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), intDatosBarandalID, intCotizacionID);
 			return ((ISingleResult<stp_ListarDatosBarandalResult>)(result.ReturnValue));
 		}
+	}
+	
+	public partial class stp_ListarDriveInBarandalResult
+	{
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.stp_ListarDriveInBarandal")]
-		public ISingleResult<stp_ListarDriveInBarandalResult> stp_ListarDriveInBarandal([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Decimal(8,2)")] System.Nullable<decimal> decLargo)
+		private System.Nullable<short> _sintTipoVigaBarandalID;
+		
+		private System.Nullable<decimal> _decLargo;
+		
+		private System.Nullable<decimal> _decPesoUnitario;
+		
+		private System.Nullable<decimal> _decPrecioUnitario;
+		
+		public stp_ListarDriveInBarandalResult()
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), decLargo);
-			return ((ISingleResult<stp_ListarDriveInBarandalResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sintTipoVigaBarandalID", DbType="SmallInt")]
+		public System.Nullable<short> sintTipoVigaBarandalID
+		{
+			get
+			{
+				return this._sintTipoVigaBarandalID;
+			}
+			set
+			{
+				if ((this._sintTipoVigaBarandalID != value))
+				{
+					this._sintTipoVigaBarandalID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decLargo", DbType="Decimal(8,2)")]
+		public System.Nullable<decimal> decLargo
+		{
+			get
+			{
+				return this._decLargo;
+			}
+			set
+			{
+				if ((this._decLargo != value))
+				{
+					this._decLargo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decPesoUnitario", DbType="Decimal(38,2)")]
+		public System.Nullable<decimal> decPesoUnitario
+		{
+			get
+			{
+				return this._decPesoUnitario;
+			}
+			set
+			{
+				if ((this._decPesoUnitario != value))
+				{
+					this._decPesoUnitario = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decPrecioUnitario", DbType="Decimal(12,2)")]
+		public System.Nullable<decimal> decPrecioUnitario
+		{
+			get
+			{
+				return this._decPrecioUnitario;
+			}
+			set
+			{
+				if ((this._decPrecioUnitario != value))
+				{
+					this._decPrecioUnitario = value;
+				}
+			}
 		}
 	}
 	
@@ -92,7 +172,7 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 		
 		private System.Nullable<decimal> _decLargo;
 		
-		private System.Nullable<decimal> _decCantidad;
+		private System.Nullable<int> _intCantidad;
 		
 		private System.Nullable<decimal> _decPrecioUnitario;
 		
@@ -200,18 +280,18 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decCantidad", DbType="Decimal(18,2)")]
-		public System.Nullable<decimal> decCantidad
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intCantidad", DbType="Int")]
+		public System.Nullable<int> intCantidad
 		{
 			get
 			{
-				return this._decCantidad;
+				return this._intCantidad;
 			}
 			set
 			{
-				if ((this._decCantidad != value))
+				if ((this._intCantidad != value))
 				{
-					this._decCantidad = value;
+					this._intCantidad = value;
 				}
 			}
 		}
@@ -260,86 +340,6 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 				if ((this._bitActivo != value))
 				{
 					this._bitActivo = value;
-				}
-			}
-		}
-	}
-	
-	public partial class stp_ListarDriveInBarandalResult
-	{
-		
-		private System.Nullable<short> _sintTipoVigaBarandalID;
-		
-		private System.Nullable<decimal> _decLargo;
-		
-		private System.Nullable<decimal> _decPesoUnitario;
-		
-		private System.Nullable<decimal> _decPrecioUnitario;
-		
-		public stp_ListarDriveInBarandalResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sintTipoVigaBarandalID", DbType="SmallInt")]
-		public System.Nullable<short> sintTipoVigaBarandalID
-		{
-			get
-			{
-				return this._sintTipoVigaBarandalID;
-			}
-			set
-			{
-				if ((this._sintTipoVigaBarandalID != value))
-				{
-					this._sintTipoVigaBarandalID = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decLargo", DbType="Decimal(8,2)")]
-		public System.Nullable<decimal> decLargo
-		{
-			get
-			{
-				return this._decLargo;
-			}
-			set
-			{
-				if ((this._decLargo != value))
-				{
-					this._decLargo = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decPesoUnitario", DbType="Decimal(38,2)")]
-		public System.Nullable<decimal> decPesoUnitario
-		{
-			get
-			{
-				return this._decPesoUnitario;
-			}
-			set
-			{
-				if ((this._decPesoUnitario != value))
-				{
-					this._decPesoUnitario = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decPrecioUnitario", DbType="Decimal(12,2)")]
-		public System.Nullable<decimal> decPrecioUnitario
-		{
-			get
-			{
-				return this._decPrecioUnitario;
-			}
-			set
-			{
-				if ((this._decPrecioUnitario != value))
-				{
-					this._decPrecioUnitario = value;
 				}
 			}
 		}

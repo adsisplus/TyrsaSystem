@@ -32,7 +32,7 @@ namespace Adsisplus.Cotyrsa.DataAccess
                                     intDetCotizaID = item.intDetCotizaID,
                                     sintPinturaID = item.sintPinturaID,
                                     decLargo = item.decLargo,
-                                    decCantidad = item.decCantidad,
+                                    intCantidad = item.intCantidad,
                                     decPrecioUnitario = item.decPrecioUnitario,
                                     decPrecioTotal = item.decPrecioTotal,
                                     bitActivo = item.bitActivo
@@ -46,34 +46,34 @@ namespace Adsisplus.Cotyrsa.DataAccess
             }
             return result;
         }
-        /// <summary>
-        /// Procedimiento que lista los datos de precio DriveIn Barandal en base al largo
-        /// </summary>
-        /// <param name="decLargo"></param>
-        /// <returns></returns>
-        public List<SeleccionBarandal> ListarDriveInBarandal(decimal decLargo)
-        {
-            List<SeleccionBarandal> result = new List<SeleccionBarandal>();
-            try
-            {
-                using (BarandalDataContext dc = new BarandalDataContext(Helper.ConnectionString()))
-                {
-                    var query = from item in dc.stp_ListarDriveInBarandal(decLargo)
-                                select new SeleccionBarandal
-                                {
-                                    sintTipoVigaBarandalID = item.sintTipoVigaBarandalID,
-                                    decLargo = item.decLargo,
-                                    decPesoUnitario = item.decPesoUnitario,
-                                    decPrecioUnitario = item.decPrecioUnitario
-                                };
-                    result.AddRange(query);
-                }
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-            return result;
-        }
+        ///// <summary>
+        ///// Procedimiento que lista los datos de precio DriveIn Barandal en base al largo
+        ///// </summary>
+        ///// <param name="decLargo"></param>
+        ///// <returns></returns>
+        //public List<SeleccionBarandal> ListarDriveInBarandal(decimal decLargo)
+        //{
+        //    List<SeleccionBarandal> result = new List<SeleccionBarandal>();
+        //    try
+        //    {
+        //        using (BarandalDataContext dc = new BarandalDataContext(Helper.ConnectionString()))
+        //        {
+        //            var query = from item in dc.stp_ListarDriveInBarandal(decLargo)
+        //                        select new SeleccionBarandal
+        //                        {
+        //                            sintTipoVigaBarandalID = item.sintTipoVigaBarandalID,
+        //                            decLargo = item.decLargo,
+        //                            decPesoUnitario = item.decPesoUnitario,
+        //                            decPrecioUnitario = item.decPrecioUnitario
+        //                        };
+        //            result.AddRange(query);
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        throw ex;
+        //    }
+        //    return result;
+        //}
     }
 }
