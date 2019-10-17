@@ -123,6 +123,8 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 		
 		private decimal _decPrecioBase;
 		
+		private short _sintTipoPisoID;
+		
 		public entSeleccionPiso()
 		{
 		}
@@ -235,6 +237,22 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 				if ((this._decPrecioBase != value))
 				{
 					this._decPrecioBase = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sintTipoPisoID")]
+		public short sintTipoPisoID
+		{
+			get
+			{
+				return this._sintTipoPisoID;
+			}
+			set
+			{
+				if ((this._sintTipoPisoID != value))
+				{
+					this._sintTipoPisoID = value;
 				}
 			}
 		}

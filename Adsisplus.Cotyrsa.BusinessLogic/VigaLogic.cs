@@ -553,21 +553,21 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
             }
             return result;
         }
-#endregion
+        #endregion
 
         #region SISTEMA DRIVE IN
         /// <summary>
         /// Procedimiento que lista los datos de Viga atirantado
         /// </summary>
         /// <param name="intVigaAtirantadoID"></param>
-        /// <param name="intDetCotizaID"></param>
+        /// <param name="intCotizacionID"></param>
         /// <returns></returns>
-        public List<DatosVigaAtirantado> ListarDatosVigaAtirantado(int intVigaAtirantadoID, int intDetCotizaID)
+        public List<DatosVigaAtirantado> ListarDatosVigaAtirantado(int intVigaAtirantadoID, int intCotizacionID)
         {
             List<DatosVigaAtirantado> result = new List<DatosVigaAtirantado>();
             try
             {
-                result = CatalogosDA.ListarDatosVigaAtirantado(intVigaAtirantadoID, intDetCotizaID);
+                result = CatalogosDA.ListarDatosVigaAtirantado(intVigaAtirantadoID, intCotizacionID);
             }
             catch (Exception ex)
             {
@@ -609,7 +609,7 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
 
                     // Validamos si es un nuevo registro
                     if (tinOpcion != 1)
-                        ListViga = ListarDatosVigaAtirantado((int)viga.intVigaAtirantadoID, intDetCotizaID);
+                        ListViga = ListarDatosVigaAtirantado((int)viga.intVigaAtirantadoID, intCotizacionID);
                     // Validamos si existe registro
                     if (ListViga.Count() > 0)
                         _viga = ListViga.First();

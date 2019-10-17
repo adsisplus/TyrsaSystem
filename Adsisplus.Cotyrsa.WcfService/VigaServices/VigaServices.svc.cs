@@ -393,14 +393,14 @@ namespace Adsisplus.Cotyrsa.WcfService.VigaServices
         /// Procedimiento que lista los datos de Viga atirantado
         /// </summary>
         /// <param name="intVigaAtirantadoID"></param>
-        /// <param name="intDetCotizaID"></param>
+        /// <param name="intCotizacionID"></param>
         /// <returns></returns>
-        public List<DatosVigaAtirantado> ListarDatosVigaAtirantado(int intVigaAtirantadoID, int intDetCotizaID)
+        public List<DatosVigaAtirantado> ListarDatosVigaAtirantado(int intVigaAtirantadoID, int intCotizacionID)
         {
             List<DatosVigaAtirantado> result = new List<DatosVigaAtirantado>();
             try
             {
-                result = (new VigaLogic()).ListarDatosVigaAtirantado(intVigaAtirantadoID, intDetCotizaID);
+                result = (new VigaLogic()).ListarDatosVigaAtirantado(intVigaAtirantadoID, intCotizacionID);
             }
             catch (Exception ex)
             {

@@ -227,9 +227,9 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.stp_ListarDatosVigaAtirantado")]
-		public ISingleResult<stp_ListarDatosVigaAtirantadoResult> stp_ListarDatosVigaAtirantado([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intVigaAtirantadoID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intDetCotizaID)
+		public ISingleResult<stp_ListarDatosVigaAtirantadoResult> stp_ListarDatosVigaAtirantado([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intVigaAtirantadoID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intCotizacionID)
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), intVigaAtirantadoID, intDetCotizaID);
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), intVigaAtirantadoID, intCotizacionID);
 			return ((ISingleResult<stp_ListarDatosVigaAtirantadoResult>)(result.ReturnValue));
 		}
 	}
@@ -4038,6 +4038,8 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 		
 		private System.Nullable<short> _sintPinturaID;
 		
+		private string _vchPintura;
+		
 		private System.Nullable<decimal> _decLargo;
 		
 		private System.Nullable<int> _intCantidad;
@@ -4056,7 +4058,11 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 		
 		private System.Nullable<int> _intCalibreID;
 		
+		private string _vchCalibre;
+		
 		private System.Nullable<decimal> _decPesoUnitario;
+		
+		private System.Nullable<bool> _bitVigaTipoCaja;
 		
 		public stp_ListarDatosVigaAtirantadoResult()
 		{
@@ -4138,6 +4144,22 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 				if ((this._sintPinturaID != value))
 				{
 					this._sintPinturaID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchPintura", DbType="VarChar(25)")]
+		public string vchPintura
+		{
+			get
+			{
+				return this._vchPintura;
+			}
+			set
+			{
+				if ((this._vchPintura != value))
+				{
+					this._vchPintura = value;
 				}
 			}
 		}
@@ -4286,6 +4308,22 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchCalibre", DbType="VarChar(50)")]
+		public string vchCalibre
+		{
+			get
+			{
+				return this._vchCalibre;
+			}
+			set
+			{
+				if ((this._vchCalibre != value))
+				{
+					this._vchCalibre = value;
+				}
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decPesoUnitario", DbType="Decimal(20,3)")]
 		public System.Nullable<decimal> decPesoUnitario
 		{
@@ -4298,6 +4336,22 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 				if ((this._decPesoUnitario != value))
 				{
 					this._decPesoUnitario = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_bitVigaTipoCaja", DbType="Bit")]
+		public System.Nullable<bool> bitVigaTipoCaja
+		{
+			get
+			{
+				return this._bitVigaTipoCaja;
+			}
+			set
+			{
+				if ((this._bitVigaTipoCaja != value))
+				{
+					this._bitVigaTipoCaja = value;
 				}
 			}
 		}

@@ -9,6 +9,7 @@
       <Column Name="decPrecioUnitario" Storage="_decPrecioFinal" Type="System.Decimal" CanBeNull="false" />
       <Column Name="decPesoBase" Type="System.Decimal" CanBeNull="false" />
       <Column Name="decPrecioBase" Type="System.Decimal" CanBeNull="false" />
+      <Column Name="sintTipoPisoID" Type="System.Int16" CanBeNull="false" />
     </Type>
   </Table>
   <Function Name="dbo.fn_getNumeroPiso" Method="fn_getNumeroPiso" IsComposable="true">

@@ -38,9 +38,12 @@ namespace Adsisplus.Cotyrsa.DataAccess
                                     decAncho = item.decAncho,
                                     bitTipoPisoAbierto = item.bitTipoPisoAbierto,
                                     decPesoUnitario = item.decPesoUnitario,
+                                    decPesoBase = item.decPesoUnitario,
                                     decPesoTotal = item.decPesoTotal,
                                     decPrecioUnitario = item.decPrecioUnitario,
+                                    decPrecioBase = item.decPrecioUnitario,
                                     decPrecioTotal = item.decPrecioTotal,
+                                    decPrecioVentaTotal = item.decPrecioTotal,
                                     bitGalvanizado = item.bitGalvanizado
                                 };
                     result.AddRange(query);
@@ -110,6 +113,7 @@ namespace Adsisplus.Cotyrsa.DataAccess
                                 select new SeleccionPisoDriveIn
                                 {
                                     sintPisoID = item.sintPisoID,
+                                    sintTipoPisoID = item.sintTipoPisoID,
                                     decLongitud = item.decLongitud,
                                     vchMaterial = item.vchMaterial,
                                     decPesoUnitario = item.decPesoUnitario,

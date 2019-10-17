@@ -648,16 +648,16 @@ namespace Adsisplus.Cotyrsa.DataAccess
         /// Procedimiento que lista los datos de Viga atirantado
         /// </summary>
         /// <param name="intVigaAtirantadoID"></param>
-        /// <param name="intDetCotizaID"></param>
+        /// <param name="intCotizacionID"></param>
         /// <returns></returns>
-        public List<DatosVigaAtirantado> ListarDatosVigaAtirantado(int intVigaAtirantadoID, int intDetCotizaID)
+        public List<DatosVigaAtirantado> ListarDatosVigaAtirantado(int intVigaAtirantadoID, int intCotizacionID)
         {
             List<DatosVigaAtirantado> result = new List<DatosVigaAtirantado>();
             try
             {
                 using (VigasDataContext dc = new VigasDataContext(Helper.ConnectionString()))
                 {
-                    var query = from item in dc.stp_ListarDatosVigaAtirantado(intVigaAtirantadoID, intDetCotizaID)
+                    var query = from item in dc.stp_ListarDatosVigaAtirantado(intVigaAtirantadoID, intCotizacionID)
                                 select new DatosVigaAtirantado
                                 {
                                     intVigaAtirantadoID = item.intVigaAtirantadoID,
@@ -665,6 +665,7 @@ namespace Adsisplus.Cotyrsa.DataAccess
                                     vchElemento = item.vchElemento,
                                     intCotizacionID = item.intCotizacionID,
                                     sintPinturaID = item.sintPinturaID,
+                                    vchPintura = item.vchPintura,
                                     decLargo = item.decLargo,
                                     intCantidad = item.intCantidad,
                                     bitActivo = item.bitActivo,
@@ -674,7 +675,9 @@ namespace Adsisplus.Cotyrsa.DataAccess
                                     decPeso = item.decPeso,
                                     decLongitud = item.decLongitud,
                                     intCalibreID = item.intCalibreID,
-                                    decPesoUnitario = item.decPesoUnitario
+                                    vchCalibre = item.vchCalibre,
+                                    decPesoUnitario = item.decPesoUnitario,
+                                    bitVigaTipoCaja = item.bitVigaTipoCaja
                                 };
                     result.AddRange(query);
                 }

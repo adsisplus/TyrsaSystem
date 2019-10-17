@@ -23,6 +23,8 @@ namespace Adsisplus.Cotyrsa.BusinessEntities
 
         [DataMember]
         public Int16? sintPinturaID { get; set; }
+        [DataMember]
+        public string vchPintura { get; set; }
 
         [DataMember]
         public Decimal? decLargo { get; set; }
@@ -46,6 +48,8 @@ namespace Adsisplus.Cotyrsa.BusinessEntities
         public decimal? decLongitud { get; set; }
         [DataMember]
         public int? intCalibreID { get; set; }
+        [DataMember]
+        public string vchCalibre { get; set; }
         [DataMember]
         public decimal? decPeso { get; set; }
         [DataMember]

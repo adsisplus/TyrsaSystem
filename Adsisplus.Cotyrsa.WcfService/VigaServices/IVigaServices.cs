@@ -214,11 +214,11 @@ namespace Adsisplus.Cotyrsa.WcfService.VigaServices
         /// Procedimiento que lista los datos de Viga atirantado
         /// </summary>
         /// <param name="intVigaAtirantadoID"></param>
-        /// <param name="intDetCotizaID"></param>
+        /// <param name="intCotizacionID"></param>
         /// <returns></returns>
         [OperationContract]
         [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ListarDatosVigaAtirantado")]
-        List<DatosVigaAtirantado> ListarDatosVigaAtirantado(int intVigaAtirantadoID, int intDetCotizaID);
+        List<DatosVigaAtirantado> ListarDatosVigaAtirantado(int intVigaAtirantadoID, int intCotizacionID);
 
         /// <summary>
         /// Procedimiento que realiza el alta, modificación de los datos Viga Atirantado
