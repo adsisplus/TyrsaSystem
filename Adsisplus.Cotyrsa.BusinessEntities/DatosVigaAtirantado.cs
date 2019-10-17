@@ -15,6 +15,8 @@ namespace Adsisplus.Cotyrsa.BusinessEntities
 
         [DataMember]
         public Int32? intElementoID { get; set; }
+        [DataMember]
+        public string vchElemento { get; set; }
 
         [DataMember]
         public Int32? intCotizacionID { get; set; }
@@ -46,8 +48,10 @@ namespace Adsisplus.Cotyrsa.BusinessEntities
         public int? intCalibreID { get; set; }
         [DataMember]
         public decimal? decPeso { get; set; }
-
         [DataMember]
-        public SeleccionVigaTipoCaja seleccion { get; set; }
+        public bool? bitVigaTipoCaja { get; set; }
+
+        //[DataMember]
+        //public SeleccionVigaTipoCaja seleccion { get; set; }
     }
 }

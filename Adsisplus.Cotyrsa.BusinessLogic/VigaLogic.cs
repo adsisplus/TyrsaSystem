@@ -630,7 +630,8 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
                     _viga.intDetCotizaID = intDetCotizaID;
                     _viga.intElementoID = 19;
                     _viga.sintPinturaID = viga.sintPinturaID;
-                    _viga.seleccion = viga.seleccion;
+                    _viga.bitVigaTipoCaja = viga.bitVigaTipoCaja;
+                    //_viga.seleccion = viga.seleccion;
 
 
                     //Realizamos el registro de los datos

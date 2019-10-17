@@ -662,6 +662,7 @@ namespace Adsisplus.Cotyrsa.DataAccess
                                 {
                                     intVigaAtirantadoID = item.intVigaAtirantadoID,
                                     intElementoID = item.intElementoID,
+                                    vchElemento = item.vchElemento,
                                     intCotizacionID = item.intCotizacionID,
                                     sintPinturaID = item.sintPinturaID,
                                     decLargo = item.decLargo,
