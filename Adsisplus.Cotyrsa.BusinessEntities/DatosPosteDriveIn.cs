@@ -16,28 +16,28 @@ namespace Adsisplus.Cotyrsa.BusinessEntities
         public int? intElementoID { get; set; }
         [DataMember]
         public int? intDetCotizaID { get; set; }
-        [DataMember]
-        public int? intSKUID { get; set; }
+        //[DataMember]
+        //public int? intSKUID { get; set; }
         [DataMember]
         public int? intCantidad { get; set; }
-        [DataMember]
-        public decimal? decCalibre { get; set; }
-        [DataMember]
-        public decimal? decSolera { get; set; }
-        [DataMember]
-        public decimal? decTotalKilo { get; set; }
-        [DataMember]
-        public decimal? decPrecioTyrsa { get; set; }
-        [DataMember]
-        public decimal? decRelacionPrecios { get; set; }
-        [DataMember]
-        public decimal? decPrecioTyrsaMetro { get; set; }
-        [DataMember]
-        public decimal? decPrecioTyrsaKg { get; set; }
-        [DataMember]
-        public short? sintNumPosteReq { get; set; }
-        [DataMember]
-        public short? sintNumTravesanio { get; set; }
+        //[DataMember]
+        //public decimal? decCalibre { get; set; }
+        //[DataMember]
+        //public decimal? decSolera { get; set; }
+        //[DataMember]
+        //public decimal? decTotalKilo { get; set; }
+        //[DataMember]
+        //public decimal? decPrecioTyrsa { get; set; }
+        //[DataMember]
+        //public decimal? decRelacionPrecios { get; set; }
+        //[DataMember]
+        //public decimal? decPrecioTyrsaMetro { get; set; }
+        //[DataMember]
+        //public decimal? decPrecioTyrsaKg { get; set; }
+        //[DataMember]
+        //public short? sintNumPosteReq { get; set; }
+        //[DataMember]
+        //public short? sintNumTravesanio { get; set; }
 
         [DataMember]
         public bool? bitDobleMonten { get; set; }
@@ -54,5 +54,7 @@ namespace Adsisplus.Cotyrsa.BusinessEntities
 
         [DataMember]
         public bool? bitActivo { get; set; }
+        [DataMember]
+        public DatosPrecioPoste seleccion { get; set; }
     }
 }

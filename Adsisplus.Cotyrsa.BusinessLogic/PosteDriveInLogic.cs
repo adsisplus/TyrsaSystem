@@ -75,8 +75,8 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
                 detCotizacion.intElementoID = 31;
                 detCotizacion.intPartida = 0;
                 detCotizacion.intCantidad = poste.intCantidad;
-                detCotizacion.decMonto = poste.decPrecioTyrsa;
-                detCotizacion.decSubtotal = poste.intCantidad * poste.decPrecioTyrsa;
+                detCotizacion.decMonto = poste.seleccion.decPrecioTyrsa;
+                detCotizacion.decSubtotal = poste.intCantidad * poste.seleccion.decPrecioTyrsa;
 
                 // Almacenamos el registro
                 result = (new CotizacionLogic()).setDetCotizacion(detCotizacion, (short)(intDetCotizaID == 0 ? 1 : tinOpcion));
@@ -118,19 +118,21 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
                         }
                         // Actualizamos la información
                         _poste.bitActivo = poste.bitActivo;
-                        _poste.decCalibre = poste.decCalibre;
-                        _poste.decPrecioTyrsa = poste.decPrecioTyrsa;
-                        _poste.decPrecioTyrsaKg = poste.decPrecioTyrsaKg;
-                        _poste.decPrecioTyrsaMetro = poste.decPrecioTyrsaMetro;
-                        _poste.decRelacionPrecios = poste.decRelacionPrecios;
-                        _poste.decSolera = poste.decSolera;
-                        _poste.decTotalKilo = poste.decTotalKilo;
+                        //_poste.decCalibre = poste.decCalibre;
+                        //_poste.decPrecioTyrsa = poste.decPrecioTyrsa;
+                        //_poste.decPrecioTyrsaKg = poste.decPrecioTyrsaKg;
+                        //_poste.decPrecioTyrsaMetro = poste.decPrecioTyrsaMetro;
+                        //_poste.decRelacionPrecios = poste.decRelacionPrecios;
+                        //_poste.decSolera = poste.decSolera;
+                        //_poste.decTotalKilo = poste.decTotalKilo;
                         _poste.intCantidad = poste.intCantidad;
                         _poste.intDetCotizaID = intDetCotizaID;
                         _poste.intElementoID = 31;
-                        _poste.intSKUID = poste.intSKUID;
-                        _poste.sintNumPosteReq = poste.sintNumPosteReq;
-                        _poste.sintNumTravesanio = poste.sintNumTravesanio;
+                        //_poste.intSKUID = poste.intSKUID;
+                        //_poste.sintNumPosteReq = poste.sintNumPosteReq;
+                        //_poste.sintNumTravesanio = poste.sintNumTravesanio;
+                        _poste.seleccion = new DatosPrecioPoste();
+                        _poste.seleccion = poste.seleccion;
 
                         //Realizamos el registro del DRIVEIN
                         result = (new DriveInLogic()).setDatosPosteDriveIn(_poste, tinOpcion);

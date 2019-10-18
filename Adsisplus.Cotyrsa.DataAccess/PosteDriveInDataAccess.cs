@@ -30,26 +30,28 @@ namespace Adsisplus.Cotyrsa.DataAccess
                                     intDatoPosteDriveInID = item.intDatoPosteDriveInID,
                                     intElementoID = item.intElementoID,
                                     intDetCotizaID = item.intDetCotizaID,
-                                    intSKUID = item.intSKUID,
                                     intCantidad = item.intCantidad,
-                                    decCalibre = item.decCalibre,
-                                    decSolera = item.decSolera,
-                                    decTotalKilo = item.decTotalKilo,
-                                    decPrecioTyrsa = item.decPrecioTyrsa,
-                                    decRelacionPrecios = item.decRelacionPrecios,
-                                    decPrecioTyrsaMetro = item.decPrecioTyrsaMetro,
-                                    decPrecioTyrsaKg = item.decPrecioTyrsaKg,
-                                    sintNumPosteReq = item.sintNumPosteReq,
-                                    sintNumTravesanio = item.sintNumTravesanio,
                                     bitActivo = item.bitActivo,
-                                    // Datos DriveInd
-                                    bitDobleMonten = item.bitDobleMonten,
-                                    intDatosDriveInID = item.intDatosDriveInID,
                                     intCotizacionID = item.intCotizacionID,
+                                    bitDobleMonten = item.bitDobleMonten,
                                     decAlturaDobleMonten = item.decAlturaDobleMonten,
-                                    // Datos de Marco
                                     intAlturaMarcoID = item.intAlturaMarcoID,
-                                    decFondo = item.decFondo
+                                    decFondo = item.decFondo,
+                                    intDatosDriveInID = item.intDatosDriveInID,
+                                    seleccion = new DatosPrecioPoste
+                                    {
+                                        intConfiguraMarcoID = item.intConfiguraMarcoID,
+                                        intSKUID = item.intSKUID,
+                                        decCalibre = item.decCalibre,
+                                        decSolera = item.decSolera,
+                                        decTotalKilo = item.decTotalKilo,
+                                        decPrecioTyrsa = item.decPrecioTyrsa,
+                                        decRelacionPrecios = item.decRelacionPrecios,
+                                        decPrecioTyrsaMetro = item.decPrecioTyrsaMetro,
+                                        decPrecioTyrsaKg = item.decPrecioTyrsaKg,
+                                        sintNumPosteReq = item.sintNumPosteReq,
+                                        sintNumTravesanio = item.sintNumTravesanio
+                                    }
                                 };
                     result.AddRange(query);
                 }

@@ -286,11 +286,13 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 	public partial class stp_ListarDatosPosteDriveInResult
 	{
 		
-		private System.Nullable<int> _intDatoPosteDriveInID;
+		private int _intDatoPosteDriveInID;
 		
 		private System.Nullable<int> _intElementoID;
 		
 		private System.Nullable<int> _intDetCotizaID;
+		
+		private System.Nullable<int> _intConfiguraMarcoID;
 		
 		private System.Nullable<int> _intSKUID;
 		
@@ -314,7 +316,7 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 		
 		private System.Nullable<short> _sintNumTravesanio;
 		
-		private System.Nullable<int> _intDatosDriveInID;
+		private int _intDatosDriveInID;
 		
 		private System.Nullable<bool> _bitDobleMonten;
 		
@@ -332,8 +334,8 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 		{
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intDatoPosteDriveInID", DbType="Int")]
-		public System.Nullable<int> intDatoPosteDriveInID
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intDatoPosteDriveInID", DbType="Int NOT NULL")]
+		public int intDatoPosteDriveInID
 		{
 			get
 			{
@@ -376,6 +378,22 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 				if ((this._intDetCotizaID != value))
 				{
 					this._intDetCotizaID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intConfiguraMarcoID", DbType="Int")]
+		public System.Nullable<int> intConfiguraMarcoID
+		{
+			get
+			{
+				return this._intConfiguraMarcoID;
+			}
+			set
+			{
+				if ((this._intConfiguraMarcoID != value))
+				{
+					this._intConfiguraMarcoID = value;
 				}
 			}
 		}
@@ -556,8 +574,8 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intDatosDriveInID", DbType="Int")]
-		public System.Nullable<int> intDatosDriveInID
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intDatosDriveInID", DbType="Int NOT NULL")]
+		public int intDatosDriveInID
 		{
 			get
 			{
