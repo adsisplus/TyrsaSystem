@@ -619,6 +619,7 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
                     _viga.bitActivo = viga.bitActivo;
                     _viga.decLargo = viga.decLargo;
                     _viga.decLongitud = viga.decLongitud;
+                    _viga.sintLongitudID = viga.sintLongitudID;
                     _viga.decPeso = viga.decPeso;
                     _viga.decPesoTotal = viga.decPesoTotal;
                     _viga.decPesoUnitario = viga.decPesoUnitario;

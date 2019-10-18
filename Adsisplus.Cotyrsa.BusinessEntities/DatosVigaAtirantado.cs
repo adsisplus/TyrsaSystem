@@ -47,6 +47,8 @@ namespace Adsisplus.Cotyrsa.BusinessEntities
         [DataMember]
         public decimal? decLongitud { get; set; }
         [DataMember]
+        public short? sintLongitudID { get; set; }
+        [DataMember]
         public int? intCalibreID { get; set; }
         [DataMember]
         public string vchCalibre { get; set; }

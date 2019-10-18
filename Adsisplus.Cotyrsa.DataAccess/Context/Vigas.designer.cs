@@ -4054,6 +4054,8 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 		
 		private System.Nullable<decimal> _decPeso;
 		
+		private System.Nullable<short> _sintLongitudID;
+		
 		private System.Nullable<decimal> _decLongitud;
 		
 		private System.Nullable<int> _intCalibreID;
@@ -4276,7 +4278,23 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decLongitud", DbType="Decimal(8,3)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sintLongitudID", DbType="SmallInt")]
+		public System.Nullable<short> sintLongitudID
+		{
+			get
+			{
+				return this._sintLongitudID;
+			}
+			set
+			{
+				if ((this._sintLongitudID != value))
+				{
+					this._sintLongitudID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decLongitud", DbType="Decimal(18,0)")]
 		public System.Nullable<decimal> decLongitud
 		{
 			get

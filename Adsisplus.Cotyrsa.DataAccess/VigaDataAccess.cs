@@ -673,6 +673,7 @@ namespace Adsisplus.Cotyrsa.DataAccess
                                     decPrecioVentaUnitario = item.decPrecioVentaUnitario,
                                     decPrecioVentaTotal = item.decPrecioVentaTotal,
                                     decPeso = item.decPeso,
+                                    sintLongitudID = item.sintLongitudID,
                                     decLongitud = item.decLongitud,
                                     intCalibreID = item.intCalibreID,
                                     vchCalibre = item.vchCalibre,

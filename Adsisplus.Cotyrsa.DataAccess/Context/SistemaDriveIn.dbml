@@ -241,6 +241,7 @@
     <Parameter Name="decPeso" Type="System.Decimal" DbType="Decimal(8,3)" />
     <Parameter Name="decLongitud" Type="System.Decimal" DbType="Decimal(8,3)" />
     <Parameter Name="intCalibreID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="sintLongitudID" Type="System.Int16" DbType="SmallInt" />
     <Parameter Name="bitVigaTipoCaja" Type="System.Boolean" DbType="Bit" />
     <Parameter Name="tinOpcion" Type="System.Byte" DbType="TinyInt" />
     <ElementType Name="stp_setDatosVigaAtirantadoResult">

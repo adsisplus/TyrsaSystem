@@ -257,10 +257,11 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Decimal(8,3)")] System.Nullable<decimal> decPeso, 
 					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Decimal(8,3)")] System.Nullable<decimal> decLongitud, 
 					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intCalibreID, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="SmallInt")] System.Nullable<short> sintLongitudID, 
 					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Bit")] System.Nullable<bool> bitVigaTipoCaja, 
 					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="TinyInt")] System.Nullable<byte> tinOpcion)
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), intVigaAtirantadoID, intElementoID, intCotizacionID, sintPinturaID, intCantidad, bitActivo, intDetCotizaID, decLargo, decPrecioVentaUnitario, decPrecioVentaTotal, decPesoUnitario, decPeso, decLongitud, intCalibreID, bitVigaTipoCaja, tinOpcion);
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), intVigaAtirantadoID, intElementoID, intCotizacionID, sintPinturaID, intCantidad, bitActivo, intDetCotizaID, decLargo, decPrecioVentaUnitario, decPrecioVentaTotal, decPesoUnitario, decPeso, decLongitud, intCalibreID, sintLongitudID, bitVigaTipoCaja, tinOpcion);
 			return ((ISingleResult<stp_setDatosVigaAtirantadoResult>)(result.ReturnValue));
 		}
 	}
