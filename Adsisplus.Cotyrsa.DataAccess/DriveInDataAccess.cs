@@ -249,8 +249,8 @@ namespace Adsisplus.Cotyrsa.DataAccess
                         using (PisoDataContext dc = new PisoDataContext(Helper.ConnectionString()))
                         {
                             var query = from item in dc.stp_setSeleccionPiso(piso.intSeleccionPisoID, intDatoPisoID, intDetCotizaID, piso.sintTipoPisoID,
-                                piso.decLongitud, piso.decPrecioUnitario, piso.decPrecioTotal, piso.decPesoUnitario,
-                                piso.decPesoTotal, piso.bitActivo, (byte)tinOpcion)
+                                piso.decLargo, piso.decPrecioUnitario, piso.decPrecioTotal, piso.decPesoUnitario,
+                                piso.decPesoTotal, piso.intCantidad, piso.bitActivo, (byte)tinOpcion)
                                         select new Resultado
                                         {
                                             vchDescripcion = item.vchDescripcion,
@@ -273,8 +273,8 @@ namespace Adsisplus.Cotyrsa.DataAccess
                             using (PisoDataContext dc = new PisoDataContext(Helper.ConnectionString()))
                             {
                                 var query = from item in dc.stp_setSeleccionPiso(seleccion[i].intSeleccionPisoID, intDatoPisoID, intDetCotizaID, seleccion[i].sintTipoPisoID,
-                                    seleccion[i].decLongitud, seleccion[i].decPrecioUnitario, seleccion[i].decPrecioTotal, seleccion[i].decPesoUnitario,
-                                    seleccion[i].decPesoTotal, seleccion[i].bitActivo, 2)
+                                    seleccion[i].decLargo, seleccion[i].decPrecioUnitario, seleccion[i].decPrecioTotal, seleccion[i].decPesoUnitario,
+                                    seleccion[i].decPesoTotal, seleccion[i].intCantidad, seleccion[i].bitActivo, 2)
                                             select new Resultado
                                             {
                                                 vchDescripcion = item.vchDescripcion,
@@ -293,8 +293,8 @@ namespace Adsisplus.Cotyrsa.DataAccess
                                 using (PisoDataContext dc = new PisoDataContext(Helper.ConnectionString()))
                                 {
                                     var query = from item in dc.stp_setSeleccionPiso(seleccion[i].intSeleccionPisoID, intDatoPisoID, intDetCotizaID, seleccion[i].sintTipoPisoID,
-                                    seleccion[i].decLongitud, seleccion[i].decPrecioUnitario, seleccion[i].decPrecioTotal, seleccion[i].decPesoUnitario,
-                                    seleccion[i].decPesoTotal, seleccion[i].bitActivo, 3) // Quitamos los registros
+                                    seleccion[i].decLargo, seleccion[i].decPrecioUnitario, seleccion[i].decPrecioTotal, seleccion[i].decPesoUnitario,
+                                    seleccion[i].decPesoTotal, seleccion[i].intCantidad, seleccion[i].bitActivo, 3) // Quitamos los registros
                                                 select new Resultado
                                                 {
                                                     vchDescripcion = item.vchDescripcion,
@@ -315,8 +315,8 @@ namespace Adsisplus.Cotyrsa.DataAccess
                                 using (PisoDataContext dc = new PisoDataContext(Helper.ConnectionString()))
                                 {
                                     var query = from item in dc.stp_setSeleccionPiso(seleccion[i].intSeleccionPisoID, intDatoPisoID, intDetCotizaID, seleccion[i].sintTipoPisoID,
-                                    seleccion[i].decLongitud, seleccion[i].decPrecioUnitario, seleccion[i].decPrecioTotal, seleccion[i].decPesoUnitario,
-                                    seleccion[i].decPesoTotal, seleccion[i].bitActivo, 1) // Agregamos los registros
+                                    seleccion[i].decLargo, seleccion[i].decPrecioUnitario, seleccion[i].decPrecioTotal, seleccion[i].decPesoUnitario,
+                                    seleccion[i].decPesoTotal, seleccion[i].intCantidad, seleccion[i].bitActivo, 1) // Agregamos los registros
                                                 select new Resultado
                                                 {
                                                     vchDescripcion = item.vchDescripcion,

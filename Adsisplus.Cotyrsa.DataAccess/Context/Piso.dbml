@@ -16,38 +16,6 @@
     <Parameter Name="intDatoPisoID" Type="System.Int32" DbType="Int" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Name="dbo.stp_setSeleccionPiso" Method="stp_setSeleccionPiso">
-    <Parameter Name="intSeleccionPisoID" Type="System.Int32" DbType="Int" />
-    <Parameter Name="intDatoPisoID" Type="System.Int32" DbType="Int" />
-    <Parameter Name="intDetCotizaID" Type="System.Int32" DbType="Int" />
-    <Parameter Name="sintTipoPisoID" Type="System.Int16" DbType="SmallInt" />
-    <Parameter Name="decLongitud" Type="System.Decimal" DbType="Decimal(8,3)" />
-    <Parameter Name="decPrecioUnitario" Type="System.Decimal" DbType="Decimal(12,2)" />
-    <Parameter Name="decPrecioTotal" Type="System.Decimal" DbType="Decimal(12,2)" />
-    <Parameter Name="decPesoUnitario" Type="System.Decimal" DbType="Decimal(12,2)" />
-    <Parameter Name="decPesoTotal" Type="System.Decimal" DbType="Decimal(12,2)" />
-    <Parameter Name="bitActivo" Type="System.Boolean" DbType="Bit" />
-    <Parameter Name="tinOpcion" Type="System.Byte" DbType="TinyInt" />
-    <ElementType Name="stp_setSeleccionPisoResult">
-      <Column Name="vchResultado" Type="System.String" DbType="VarChar(12)" CanBeNull="true" />
-      <Column Name="vchDescripcion" Type="System.String" DbType="VarChar(56) NOT NULL" CanBeNull="false" />
-    </ElementType>
-  </Function>
-  <Function Name="dbo.stp_ListarDatosSeleccionPiso" Method="stp_ListarDatosSeleccionPiso">
-    <Parameter Name="intDatoPisoID" Type="System.Int32" DbType="Int" />
-    <ElementType Name="stp_ListarDatosSeleccionPisoResult">
-      <Column Name="intSeleccionPisoID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="intDatoPisoID" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="intDetCotizaID" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="sintTipoPisoID" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
-      <Column Name="decPrecioUnitario" Type="System.Decimal" DbType="Decimal(12,2)" CanBeNull="true" />
-      <Column Name="decPrecioTotal" Type="System.Decimal" DbType="Decimal(12,2)" CanBeNull="true" />
-      <Column Name="decPesoUnitario" Type="System.Decimal" DbType="Decimal(12,2)" CanBeNull="true" />
-      <Column Name="decPesoTotal" Type="System.Decimal" DbType="Decimal(12,2)" CanBeNull="true" />
-      <Column Name="vchMaterial" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
-      <Column Name="bitActivo" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-    </ElementType>
-  </Function>
   <Function Name="dbo.stp_ListarDatosPiso" Method="stp_ListarDatosPiso">
     <Parameter Name="intDatoPisoID" Type="System.Int32" DbType="Int" />
     <Parameter Name="intCotizacionID" Type="System.Int32" DbType="Int" />
@@ -75,5 +43,40 @@
     <Parameter Name="decLargo" Type="System.Decimal" DbType="Decimal(8,2)" />
     <Parameter Name="bitGalvanizado" Type="System.Boolean" DbType="Bit" />
     <ElementType IdRef="ID1" />
+  </Function>
+  <Function Name="dbo.stp_setSeleccionPiso" Method="stp_setSeleccionPiso">
+    <Parameter Name="intSeleccionPisoID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intDatoPisoID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intDetCotizaID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="sintTipoPisoID" Type="System.Int16" DbType="SmallInt" />
+    <Parameter Name="decLongitud" Type="System.Decimal" DbType="Decimal(8,3)" />
+    <Parameter Name="decPrecioUnitario" Type="System.Decimal" DbType="Decimal(12,2)" />
+    <Parameter Name="decPrecioTotal" Type="System.Decimal" DbType="Decimal(12,2)" />
+    <Parameter Name="decPesoUnitario" Type="System.Decimal" DbType="Decimal(12,2)" />
+    <Parameter Name="decPesoTotal" Type="System.Decimal" DbType="Decimal(12,2)" />
+    <Parameter Name="intCantidad" Type="System.Int32" DbType="Int" />
+    <Parameter Name="bitActivo" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="tinOpcion" Type="System.Byte" DbType="TinyInt" />
+    <ElementType Name="stp_setSeleccionPisoResult">
+      <Column Name="vchResultado" Type="System.String" DbType="VarChar(12)" CanBeNull="true" />
+      <Column Name="vchDescripcion" Type="System.String" DbType="VarChar(56) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.stp_ListarDatosSeleccionPiso" Method="stp_ListarDatosSeleccionPiso">
+    <Parameter Name="intDatoPisoID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="stp_ListarDatosSeleccionPisoResult">
+      <Column Name="intSeleccionPisoID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="intDatoPisoID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="intDetCotizaID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="sintTipoPisoID" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="decPrecioUnitario" Type="System.Decimal" DbType="Decimal(12,2)" CanBeNull="true" />
+      <Column Name="decPrecioTotal" Type="System.Decimal" DbType="Decimal(12,2)" CanBeNull="true" />
+      <Column Name="decPesoUnitario" Type="System.Decimal" DbType="Decimal(12,2)" CanBeNull="true" />
+      <Column Name="decPesoTotal" Type="System.Decimal" DbType="Decimal(12,2)" CanBeNull="true" />
+      <Column Name="decLongitud" Type="System.Decimal" DbType="Decimal(8,3)" CanBeNull="true" />
+      <Column Name="intCantidad" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="vchMaterial" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="bitActivo" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </ElementType>
   </Function>
 </Database>

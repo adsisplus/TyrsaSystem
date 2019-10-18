@@ -19,9 +19,13 @@ namespace Adsisplus.Cotyrsa.BusinessEntities
         [DataMember]
         public short? sintTipoPisoID { get; set; }
         [DataMember]
-        public string vchMaterial { get; set; }
+        public int? intCantidad { get; set; }
         [DataMember]
-        public decimal? decLongitud { get; set; }
+        public string vchMaterial { get; set; }
+        //[DataMember]
+        //public decimal? decLongitud { get; set; }
+        [DataMember]
+        public decimal? decLargo { get; set; }
         [DataMember]
         public decimal? decPesoBase { get; set; }
         [DataMember]
