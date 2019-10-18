@@ -37,23 +37,12 @@ namespace Adsisplus.Cotyrsa.DataAccess
                                     decAlturaDobleMonten = item.decAlturaDobleMonten,
                                     intAlturaMarcoID = item.intAlturaMarcoID,
                                     decFondo = item.decFondo,
-                                    intDatosDriveInID = item.intDatosDriveInID,
-                                    seleccion = new DatosPrecioPoste
-                                    {
-                                        intConfiguraMarcoID = item.intConfiguraMarcoID,
-                                        intSKUID = item.intSKUID,
-                                        decCalibre = item.decCalibre,
-                                        decSolera = item.decSolera,
-                                        decTotalKilo = item.decTotalKilo,
-                                        decPrecioTyrsa = item.decPrecioTyrsa,
-                                        decRelacionPrecios = item.decRelacionPrecios,
-                                        decPrecioTyrsaMetro = item.decPrecioTyrsaMetro,
-                                        decPrecioTyrsaKg = item.decPrecioTyrsaKg,
-                                        sintNumPosteReq = item.sintNumPosteReq,
-                                        sintNumTravesanio = item.sintNumTravesanio
-                                    }
+                                    intDatosDriveInID = item.intDatosDriveInID
                                 };
                     result.AddRange(query);
+                    if(result.Count() > 0)
+                        // Obtenemos la lista de precios
+                        result.First().seleccion = ListarPrecioPosteTC2((int)result.First().intAlturaMarcoID, (decimal)result.First().decFondo);
                 }
             }
             catch (Exception ex)

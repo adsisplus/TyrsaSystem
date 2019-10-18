@@ -55,6 +55,6 @@ namespace Adsisplus.Cotyrsa.BusinessEntities
         [DataMember]
         public bool? bitActivo { get; set; }
         [DataMember]
-        public DatosPrecioPoste seleccion { get; set; }
+        public List<DatosPrecioPoste> seleccion { get; set; }
     }
 }

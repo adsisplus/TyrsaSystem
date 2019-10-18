@@ -75,8 +75,8 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
                 detCotizacion.intElementoID = 31;
                 detCotizacion.intPartida = 0;
                 detCotizacion.intCantidad = poste.intCantidad;
-                detCotizacion.decMonto = poste.seleccion.decPrecioTyrsa;
-                detCotizacion.decSubtotal = poste.intCantidad * poste.seleccion.decPrecioTyrsa;
+                detCotizacion.decMonto = poste.seleccion.First().decPrecioTyrsa;
+                detCotizacion.decSubtotal = poste.intCantidad * poste.seleccion.First().decPrecioTyrsa;
 
                 // Almacenamos el registro
                 result = (new CotizacionLogic()).setDetCotizacion(detCotizacion, (short)(intDetCotizaID == 0 ? 1 : tinOpcion));
@@ -131,7 +131,7 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
                         //_poste.intSKUID = poste.intSKUID;
                         //_poste.sintNumPosteReq = poste.sintNumPosteReq;
                         //_poste.sintNumTravesanio = poste.sintNumTravesanio;
-                        _poste.seleccion = new DatosPrecioPoste();
+                        _poste.seleccion = new List<DatosPrecioPoste>();
                         _poste.seleccion = poste.seleccion;
 
                         //Realizamos el registro del DRIVEIN
