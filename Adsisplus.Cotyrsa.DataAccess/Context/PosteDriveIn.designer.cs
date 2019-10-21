@@ -328,6 +328,14 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 		
 		private System.Nullable<decimal> _decFondo;
 		
+		private System.Nullable<short> _sintPinturaID;
+		
+		private System.Nullable<decimal> _decAlturaPandeo;
+		
+		private System.Nullable<bool> _bitEstructural;
+		
+		private System.Nullable<bool> _bitRolado;
+		
 		private System.Nullable<bool> _bitActivo;
 		
 		public stp_ListarDatosPosteDriveInResult()
@@ -666,6 +674,70 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 				if ((this._decFondo != value))
 				{
 					this._decFondo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sintPinturaID", DbType="SmallInt")]
+		public System.Nullable<short> sintPinturaID
+		{
+			get
+			{
+				return this._sintPinturaID;
+			}
+			set
+			{
+				if ((this._sintPinturaID != value))
+				{
+					this._sintPinturaID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decAlturaPandeo", DbType="Decimal(8,3)")]
+		public System.Nullable<decimal> decAlturaPandeo
+		{
+			get
+			{
+				return this._decAlturaPandeo;
+			}
+			set
+			{
+				if ((this._decAlturaPandeo != value))
+				{
+					this._decAlturaPandeo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_bitEstructural", DbType="Bit")]
+		public System.Nullable<bool> bitEstructural
+		{
+			get
+			{
+				return this._bitEstructural;
+			}
+			set
+			{
+				if ((this._bitEstructural != value))
+				{
+					this._bitEstructural = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_bitRolado", DbType="Bit")]
+		public System.Nullable<bool> bitRolado
+		{
+			get
+			{
+				return this._bitRolado;
+			}
+			set
+			{
+				if ((this._bitRolado != value))
+				{
+					this._bitRolado = value;
 				}
 			}
 		}

@@ -31,14 +31,20 @@ namespace Adsisplus.Cotyrsa.DataAccess
                                     intDatoPosteDriveInID = item.intDatoPosteDriveInID,
                                     intElementoID = item.intElementoID,
                                     intDetCotizaID = item.intDetCotizaID,
-                                    intCantidad = item.intCantidad,
-                                    bitActivo = item.bitActivo,
-                                    intCotizacionID = item.intCotizacionID,
+
+                                    // DATOS DE DRIVE IN
+                                    intDatosDriveInID = item.intDatosDriveInID,
                                     bitDobleMonten = item.bitDobleMonten,
                                     decAlturaDobleMonten = item.decAlturaDobleMonten,
+                                    intCotizacionID = item.intCotizacionID,
+                                    
+                                    // DATOS DE MARCO
                                     intAlturaMarcoID = item.intAlturaMarcoID,
                                     decFondo = item.decFondo,
-                                    intDatosDriveInID = item.intDatosDriveInID
+                                    sintPinturaID = item.sintPinturaID,
+                                    decAlturaPandeo = item.decAlturaPandeo,
+                                    bitEstructural = item.bitEstructural,
+                                    bitRolado = item.bitRolado                                    
                                 };
                     result.AddRange(query);
                     if(result.Count() > 0)

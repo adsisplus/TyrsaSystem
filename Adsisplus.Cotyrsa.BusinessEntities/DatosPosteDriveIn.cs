@@ -22,6 +22,15 @@ namespace Adsisplus.Cotyrsa.BusinessEntities
         //public int? intSKUID { get; set; }
         [DataMember]
         public int? intCantidad { get; set; }
+
+        [DataMember]
+        public short? sintPinturaID { get; set; }
+        [DataMember]
+        public decimal? decAlturaPandeo { get; set; }
+        [DataMember]
+        public bool? bitEstructural { get; set; }
+        [DataMember]
+        public bool? bitRolado { get; set; }
         //[DataMember]
         //public decimal? decCalibre { get; set; }
         //[DataMember]
