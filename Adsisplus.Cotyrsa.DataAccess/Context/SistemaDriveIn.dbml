@@ -114,29 +114,6 @@
       <Column Name="vchDescripcion" Type="System.String" DbType="VarChar(44) NOT NULL" CanBeNull="false" />
     </ElementType>
   </Function>
-  <Function Name="dbo.stp_setDatosPosteDriveIn" Method="stp_setDatosPosteDriveIn">
-    <Parameter Name="intDatoPosteDriveInID" Type="System.Int32" DbType="Int" />
-    <Parameter Name="intElementoID" Type="System.Int32" DbType="Int" />
-    <Parameter Name="intCotizacionID" Type="System.Int32" DbType="Int" />
-    <Parameter Name="intDetCotizaID" Type="System.Int32" DbType="Int" />
-    <Parameter Name="intSKUID" Type="System.Int32" DbType="Int" />
-    <Parameter Name="intCantidad" Type="System.Int32" DbType="Int" />
-    <Parameter Name="decCalibre" Type="System.Decimal" DbType="Decimal(8,2)" />
-    <Parameter Name="decSolera" Type="System.Decimal" DbType="Decimal(8,2)" />
-    <Parameter Name="decTotalKilo" Type="System.Decimal" DbType="Decimal(8,2)" />
-    <Parameter Name="decPrecioTyrsa" Type="System.Decimal" DbType="Decimal(8,2)" />
-    <Parameter Name="decRelacionPrecios" Type="System.Decimal" DbType="Decimal(8,2)" />
-    <Parameter Name="decPrecioTyrsaMetro" Type="System.Decimal" DbType="Decimal(8,2)" />
-    <Parameter Name="decPrecioTyrsaKg" Type="System.Decimal" DbType="Decimal(8,2)" />
-    <Parameter Name="sintNumPosteReq" Type="System.Int16" DbType="SmallInt" />
-    <Parameter Name="sintNumTravesanio" Type="System.Int16" DbType="SmallInt" />
-    <Parameter Name="bitActivo" Type="System.Boolean" DbType="Bit" />
-    <Parameter Name="tinOpcion" Type="System.Byte" DbType="TinyInt" />
-    <ElementType Name="stp_setDatosPosteDriveInResult">
-      <Column Name="vchResultado" Type="System.String" DbType="VarChar(12)" CanBeNull="true" />
-      <Column Name="vchDescripcion" Type="System.String" DbType="VarChar(54) NOT NULL" CanBeNull="false" />
-    </ElementType>
-  </Function>
   <Function Name="dbo.stp_setDatosRielTarima" Method="stp_setDatosRielTarima">
     <Parameter Name="intRielTarimaID" Type="System.Int32" DbType="Int" />
     <Parameter Name="intElementoID" Type="System.Int32" DbType="Int" />
@@ -247,6 +224,30 @@
     <ElementType Name="stp_setDatosVigaAtirantadoResult">
       <Column Name="vchResultado" Type="System.String" DbType="VarChar(12)" CanBeNull="true" />
       <Column Name="vchDescripcion" Type="System.String" DbType="VarChar(55) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.stp_setDatosPosteDriveIn" Method="stp_setDatosPosteDriveIn">
+    <Parameter Name="intDatoPosteDriveInID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intElementoID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intCotizacionID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intDetCotizaID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intDatoMarcoID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intSKUID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intCantidad" Type="System.Int32" DbType="Int" />
+    <Parameter Name="decCalibre" Type="System.Decimal" DbType="Decimal(8,2)" />
+    <Parameter Name="decSolera" Type="System.Decimal" DbType="Decimal(8,2)" />
+    <Parameter Name="decTotalKilo" Type="System.Decimal" DbType="Decimal(8,2)" />
+    <Parameter Name="decPrecioTyrsa" Type="System.Decimal" DbType="Decimal(8,2)" />
+    <Parameter Name="decRelacionPrecios" Type="System.Decimal" DbType="Decimal(8,2)" />
+    <Parameter Name="decPrecioTyrsaMetro" Type="System.Decimal" DbType="Decimal(8,2)" />
+    <Parameter Name="decPrecioTyrsaKg" Type="System.Decimal" DbType="Decimal(8,2)" />
+    <Parameter Name="sintNumPosteReq" Type="System.Int16" DbType="SmallInt" />
+    <Parameter Name="sintNumTravesanio" Type="System.Int16" DbType="SmallInt" />
+    <Parameter Name="bitActivo" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="tinOpcion" Type="System.Byte" DbType="TinyInt" />
+    <ElementType Name="stp_setDatosPosteDriveInResult">
+      <Column Name="vchResultado" Type="System.String" DbType="VarChar(12)" CanBeNull="true" />
+      <Column Name="vchDescripcion" Type="System.String" DbType="VarChar(54) NOT NULL" CanBeNull="false" />
     </ElementType>
   </Function>
 </Database>

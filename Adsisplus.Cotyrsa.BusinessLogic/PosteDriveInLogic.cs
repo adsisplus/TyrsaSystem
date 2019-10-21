@@ -38,17 +38,18 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
             return result;
         }
         /// <summary>
-        /// Procedimiento que lista los datos de piso DriveIn
+        /// Procedimiento que lista los datos poste drive in
         /// </summary>
-        /// <param name="intDatosPisoID"></param>
+        /// <param name="intDatoPosteDriveInID"></param>
         /// <param name="intCotizacionID"></param>
+        /// <param name="intDatoMarcoID"></param>
         /// <returns></returns>
-        public List<DatosPosteDriveIn> ListarDatosPosteDriveIn(int intDatoPosteDriveInID, int intCotizacionID)
+        public List<DatosPosteDriveIn> ListarDatosPosteDriveIn(int intDatoPosteDriveInID, int intCotizacionID, int intDatoMarcoID)
         {
             List<DatosPosteDriveIn> result = new List<DatosPosteDriveIn>();
             try
             {
-                result = posteDA.ListarDatosPosteDriveIn(intDatoPosteDriveInID, intCotizacionID);
+                result = posteDA.ListarDatosPosteDriveIn(intDatoPosteDriveInID, intCotizacionID, intDatoMarcoID);
             }
             catch (Exception ex)
             {
@@ -107,7 +108,7 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
 
                         // Validamos si es un nuevo registro
                         if (tinOpcion != 1)
-                            ListPoste = ListarDatosPosteDriveIn((int)poste.intDatoPosteDriveInID, intCotizacionID);
+                            ListPoste = ListarDatosPosteDriveIn((int)poste.intDatoPosteDriveInID, intCotizacionID, (int)poste.intDatoMarcoID);
                         // Validamos si existe registro
                         if (ListPoste.Count() > 0)
                             _poste = ListPoste.First();

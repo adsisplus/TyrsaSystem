@@ -70,9 +70,9 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.stp_ListarDatosPosteDriveIn")]
-		public ISingleResult<stp_ListarDatosPosteDriveInResult> stp_ListarDatosPosteDriveIn([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intDatoPosteDriveInID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intCotizacionID)
+		public ISingleResult<stp_ListarDatosPosteDriveInResult> stp_ListarDatosPosteDriveIn([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intDatoPosteDriveInID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intCotizacionID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intDatoMarcoID)
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), intDatoPosteDriveInID, intCotizacionID);
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), intDatoPosteDriveInID, intCotizacionID, intDatoMarcoID);
 			return ((ISingleResult<stp_ListarDatosPosteDriveInResult>)(result.ReturnValue));
 		}
 	}

@@ -136,15 +136,17 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
         /// Procedimiento que realiza el alta de la selección piso
         /// </summary>
         /// <param name="seleccion"></param>
+        /// <param name="intCantidad"></param>
         /// <param name="intDatoPisoID"></param>
+        /// <param name="intDetCotizaID"></param>
         /// <param name="tinOpcion"></param>
         /// <returns></returns>
-        public Resultado setSeleccionPiso(List<SeleccionPiso> seleccion, int? intDatoPisoID, int? intDetCotizaID, short tinOpcion)
+        public Resultado setSeleccionPiso(List<SeleccionPiso> seleccion, int intCantidad, int? intDatoPisoID, int? intDetCotizaID, short tinOpcion)
         {
             Resultado result = new Resultado();
             try
             {
-                result = DriveInDA.setSeleccionPiso(seleccion, intDatoPisoID, intDetCotizaID, tinOpcion);
+                result = DriveInDA.setSeleccionPiso(seleccion, intCantidad, intDatoPisoID, intDetCotizaID, tinOpcion);
             }
             catch (Exception ex)
             {

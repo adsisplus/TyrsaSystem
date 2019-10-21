@@ -137,7 +137,7 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
                     result = (new DriveInLogic()).setDatosPiso(_piso, tinOpcion);
                     // Validamos el cambio realizado
                     if (result.vchResultado != "NOK")
-                        result = (new DriveInLogic()).setSeleccionPiso(piso.seleccion, Convert.ToInt32(result.vchResultado), _piso.intDetCotizaID, tinOpcion);
+                        result = (new DriveInLogic()).setSeleccionPiso(piso.seleccion, (int)piso.intCantidad, Convert.ToInt32(result.vchResultado), _piso.intDetCotizaID, tinOpcion);
                 }
             }
             catch (Exception ex)

@@ -15,15 +15,16 @@ namespace Adsisplus.Cotyrsa.DataAccess
         /// </summary>
         /// <param name="intDatoPosteDriveInID"></param>
         /// <param name="intCotizacionID"></param>
+        /// <param name="intDatoMarcoID"></param>
         /// <returns></returns>
-        public List<DatosPosteDriveIn> ListarDatosPosteDriveIn(int intDatoPosteDriveInID, int intCotizacionID)
+        public List<DatosPosteDriveIn> ListarDatosPosteDriveIn(int intDatoPosteDriveInID, int intCotizacionID, int intDatoMarcoID)
         {
             List<DatosPosteDriveIn> result = new List<DatosPosteDriveIn>();
             try
             {
                 using (PosteDriveInDataContext dc = new PosteDriveInDataContext(Helper.ConnectionString()))
                 {
-                    var query = from item in dc.stp_ListarDatosPosteDriveIn(intDatoPosteDriveInID, intCotizacionID)
+                    var query = from item in dc.stp_ListarDatosPosteDriveIn(intDatoPosteDriveInID, intCotizacionID, intDatoMarcoID)
                                 select new DatosPosteDriveIn
                                 {
                                     // Datos Poste

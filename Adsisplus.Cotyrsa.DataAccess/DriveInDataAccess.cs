@@ -232,16 +232,18 @@ namespace Adsisplus.Cotyrsa.DataAccess
         /// Procedimiento que realiza el alta de la selección piso
         /// </summary>
         /// <param name="seleccion"></param>
+        /// <param name="intCantidad"></param>
         /// <param name="intDatoPisoID"></param>
+        /// <param name="intDetCotizaID"></param>
         /// <param name="tinOpcion"></param>
         /// <returns></returns>
-        public Resultado setSeleccionPiso(List<SeleccionPiso> seleccion, int? intDatoPisoID, int? intDetCotizaID, short tinOpcion)
+        public Resultado setSeleccionPiso(List<SeleccionPiso> seleccion, int intCantidad, int? intDatoPisoID, int? intDetCotizaID, short tinOpcion)
         {
             Resultado result = new Resultado();
             try
             {
                 int intNumeroPisoAnterior = (int)(new PisoDataContext(Helper.ConnectionString())).fn_getNumeroPiso(intDatoPisoID);
-                int intNumeroPisoNuevo = seleccion.Count();
+                int intNumeroPisoNuevo = intCantidad;
 
                 if (tinOpcion == 1 || intNumeroPisoAnterior == intNumeroPisoNuevo)
                     foreach (SeleccionPiso piso in seleccion)
@@ -264,7 +266,7 @@ namespace Adsisplus.Cotyrsa.DataAccess
                 else
                 {
                     // Validamos si son nuevos registros
-                    if (intNumeroPisoAnterior != intNumeroPisoNuevo)
+                    if (intNumeroPisoAnterior == intNumeroPisoNuevo)
                     {
                         // Recorremos la lista
                         for (int i = 0; i < intNumeroPisoAnterior; i++)
@@ -380,8 +382,8 @@ namespace Adsisplus.Cotyrsa.DataAccess
             {
                 using (SistemaDriveInDataContext dc = new SistemaDriveInDataContext(Helper.ConnectionString()))
                 {
-                    var query = from item in dc.stp_setDatosPosteDriveIn(poste.intDatoPosteDriveInID, poste.intElementoID, poste.intCotizacionID, poste.intDetCotizaID, 
-                        poste.seleccion.First().intSKUID, poste.intCantidad, poste.seleccion.First().decCalibre, poste.seleccion.First().decSolera, poste.seleccion.First().decTotalKilo, 
+                    var query = from item in dc.stp_setDatosPosteDriveIn(poste.intDatoPosteDriveInID, poste.intElementoID, poste.intCotizacionID, poste.intDetCotizaID,
+                        poste.intDatoMarcoID, poste.seleccion.First().intSKUID, poste.intCantidad, poste.seleccion.First().decCalibre, poste.seleccion.First().decSolera, poste.seleccion.First().decTotalKilo, 
                         poste.seleccion.First().decPrecioTyrsa, poste.seleccion.First().decRelacionPrecios, poste.seleccion.First().decPrecioTyrsaMetro, poste.seleccion.First().decPrecioTyrsaKg, 
                         poste.seleccion.First().sintNumPosteReq, poste.seleccion.First().sintNumTravesanio, poste.bitActivo, (byte)tinOpcion)
                                 select new Resultado
