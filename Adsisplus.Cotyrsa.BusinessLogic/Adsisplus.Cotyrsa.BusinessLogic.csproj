@@ -45,6 +45,7 @@
     <Compile Include="BrazoLogic.cs" />
     <Compile Include="CartonFlowLogic.cs" />
     <Compile Include="CatalogoLogic.cs" />
+    <Compile Include="ConectorLogic.cs" />
     <Compile Include="CotizacionLogic.cs" />
     <Compile Include="CrossBarDataLogic.cs" />
     <Compile Include="DireccionLogic.cs" />
@@ -58,11 +59,13 @@
     <Compile Include="MateriaPrimaLogic.cs" />
     <Compile Include="PanelLogic.cs" />
     <Compile Include="ParrillaLogic.cs" />
+    <Compile Include="PerfilLogic.cs" />
     <Compile Include="PersonaLogic.cs" />
     <Compile Include="PisoLogic.cs" />
     <Compile Include="PosteDriveInLogic.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ProtectoresLogic.cs" />
+    <Compile Include="RielLogic.cs" />
     <Compile Include="RielTarimaLogic.cs" />
     <Compile Include="SistemasTyrsaLogic.cs" />
     <Compile Include="VigaLogic.cs" />
