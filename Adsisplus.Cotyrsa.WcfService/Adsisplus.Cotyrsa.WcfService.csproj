@@ -15,7 +15,7 @@
     <AssemblyName>Adsisplus.Cotyrsa.WcfService</AssemblyName>
     <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
     <WcfConfigValidationEnabled>True</WcfConfigValidationEnabled>
-    <UseIISExpress>false</UseIISExpress>
+    <UseIISExpress>true</UseIISExpress>
     <Use64BitIISExpress />
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
@@ -68,6 +68,7 @@
     <Content Include="CartonFlowServices\CartonFlowServices.svc" />
     <Content Include="CatalogoGeneralServices\CatalogoGeneralServices.svc" />
     <Content Include="CatalogoServices\CatalogoServices.svc" />
+    <Content Include="ConectorServices\ConectorServices.svc" />
     <Content Include="CotizacionServices\CotizacionServices.svc" />
     <Content Include="CrossBarServices\CrossBarServices.svc" />
     <Content Include="DireccionServices\DireccionServices.svc" />
@@ -81,10 +82,12 @@
     <Content Include="MateriaPrimaServices\MateriaPrimaServices.svc" />
     <Content Include="PanelServices\PanelServices.svc" />
     <Content Include="ParrillaServices\ParrillaServices.svc" />
+    <Content Include="PerfilServices\PerfilServices.svc" />
     <Content Include="PersonaServices\PersonaServices.svc" />
     <Content Include="PisoServices\PisoServices.svc" />
     <Content Include="PosteDriveInServices\PosteDriveInServices.svc" />
     <Content Include="ProteccionServices\ProteccionServices.svc" />
+    <Content Include="RielServices\RielServices.svc" />
     <Content Include="RielTarimaServices\RielTarimaServices.svc" />
     <Content Include="Service1.svc" />
     <Content Include="SistemasTyrsaServices\SistemaTyrsaServices.svc" />
@@ -118,6 +121,10 @@
       <DependentUpon>CatalogoServices.svc</DependentUpon>
     </Compile>
     <Compile Include="CatalogoServices\ICatalogoServices.cs" />
+    <Compile Include="ConectorServices\ConectorServices.svc.cs">
+      <DependentUpon>ConectorServices.svc</DependentUpon>
+    </Compile>
+    <Compile Include="ConectorServices\IConectorServices.cs" />
     <Compile Include="CotizacionServices\CotizacionServices.svc.cs">
       <DependentUpon>CotizacionServices.svc</DependentUpon>
     </Compile>
@@ -170,6 +177,10 @@
     <Compile Include="ParrillaServices\ParrillaServices.svc.cs">
       <DependentUpon>ParrillaServices.svc</DependentUpon>
     </Compile>
+    <Compile Include="PerfilServices\IPerfilServices.cs" />
+    <Compile Include="PerfilServices\PerfilServices.svc.cs">
+      <DependentUpon>PerfilServices.svc</DependentUpon>
+    </Compile>
     <Compile Include="PersonaServices\IPersonaServices.cs" />
     <Compile Include="PersonaServices\PersonaServices.svc.cs">
       <DependentUpon>PersonaServices.svc</DependentUpon>
@@ -186,6 +197,10 @@
     <Compile Include="ProteccionServices\IProteccionServices.cs" />
     <Compile Include="ProteccionServices\ProteccionServices.svc.cs">
       <DependentUpon>ProteccionServices.svc</DependentUpon>
+    </Compile>
+    <Compile Include="RielServices\IRielServices.cs" />
+    <Compile Include="RielServices\RielServices.svc.cs">
+      <DependentUpon>RielServices.svc</DependentUpon>
     </Compile>
     <Compile Include="RielTarimaServices\IRielTarimaServices.cs" />
     <Compile Include="RielTarimaServices\RielTarimaServices.svc.cs">

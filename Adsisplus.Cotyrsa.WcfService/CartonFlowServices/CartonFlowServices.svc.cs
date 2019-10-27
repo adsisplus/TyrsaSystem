@@ -14,23 +14,6 @@ namespace Adsisplus.Cotyrsa.WcfService.CartonFlowServices
     public class CartonFlowServices : ICartonFlowServices
     {
         /// <summary>
-        /// Procedmiento que lista el catálogo de perfil carton Flow
-        /// </summary>
-        /// <returns></returns>
-        public List<Catalogo> ListarCatPerfilCartonFlow()
-        {
-            List<Catalogo> result = new List<Catalogo>();
-            try
-            {
-                result = (new CartonFlowLogic()).ListarCatPerfilCartonFlow();
-            }
-            catch (Exception ex)
-            {
-                Adsisplus.Cotyrsa.BusinessLogic.EventLogManager.LogErrorEntry(ex.Message);
-            }
-            return result;
-        }
-        /// <summary>
         /// Procedimiento que lista el catálogo tipo carton flow
         /// </summary>
         /// <param name="sintTipoCartonFlowID"></param>
@@ -49,18 +32,36 @@ namespace Adsisplus.Cotyrsa.WcfService.CartonFlowServices
             return result;
         }
         /// <summary>
-        /// Procedimiento que lista los datos perfil carton flow
+        /// Procedimiento que lista los datos de Carton Flow
         /// </summary>
-        /// <param name="sintTipoCartonFlowID"></param>
-        /// <param name="intCalibreAceroID"></param>
-        /// <param name="decLargoPerfil"></param>
+        /// <param name="intDetCotizaID"></param>
+        /// <param name="intDatosCartonFlowID"></param>
         /// <returns></returns>
-        public List<DatosPerfilCartonFlow> ListarPerfilCartonFlow(short sintTipoCartonFlowID, short intCalibreAceroID, decimal decLargoPerfil)
+        public List<DatosCartonFlow> ListarDatosCartonFlow(int intDetCotizaID, int intDatosCartonFlowID)
         {
-            List<DatosPerfilCartonFlow> result = new List<DatosPerfilCartonFlow>();
+            List<DatosCartonFlow> result = new List<DatosCartonFlow>();
             try
             {
-                result = (new CartonFlowLogic()).ListarPerfilCartonFlow(sintTipoCartonFlowID, intCalibreAceroID, decLargoPerfil);
+                result = (new CartonFlowLogic()).ListarDatosCartonFlow(intDetCotizaID, intDatosCartonFlowID);
+            }
+            catch (Exception ex)
+            {
+                Adsisplus.Cotyrsa.BusinessLogic.EventLogManager.LogErrorEntry(ex.Message);
+            }
+            return result;
+        }
+        /// <summary>
+        /// Procedimiento que realiza el alta de los datos de Carton Flow
+        /// </summary>
+        /// <param name="carton"></param>
+        /// <param name="tinOpcion"></param>
+        /// <returns></returns>
+        public Resultado setDatosCaronFlow(DatosCartonFlow carton, int intCotizacionID, int intDetCotizaID, short tinOpcion)
+        {
+            Resultado result = new Resultado();
+            try
+            {
+                result = (new CartonFlowLogic()).setDatosCaronFlow(carton, intCotizacionID, intDetCotizaID, tinOpcion);
             }
             catch (Exception ex)
             {

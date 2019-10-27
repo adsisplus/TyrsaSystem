@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="dbTyrsa" Class="ConectorDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=local;Initial Catalog=dbTyrsa;Persist Security Info=True;User ID=usrCotyrsa" SettingsObjectName="Adsisplus.Cotyrsa.DataAccess.Properties.Settings" SettingsPropertyName="dbTyrsaConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="" Member="entConector">
+    <Type Name="entConector" Id="ID1">
+      <Column Name="sintTipoCartonFlowID" Type="System.Int16" CanBeNull="false" />
+      <Column Name="sintCalibre" Type="System.Int16" CanBeNull="false" />
+      <Column Name="vchTipoCartonFlow" Type="System.String" CanBeNull="false" />
+      <Column Name="decAncho" Type="System.Decimal" CanBeNull="false" />
+      <Column Name="decLargo" Type="System.Decimal" CanBeNull="false" />
+      <Column Name="sintPesoPieza" Type="System.Int16" CanBeNull="false" />
+      <Column Name="decTotalKiloUnitario" Type="System.Decimal" CanBeNull="false" />
+      <Column Name="decPesoTotal" Type="System.Decimal" CanBeNull="false" />
+      <Column Name="decPrecioUnitario" Type="System.Decimal" CanBeNull="false" />
+      <Column Name="decPrecioTotal" Type="System.Decimal" CanBeNull="false" />
+      <Column Name="vchLeyenda" Type="System.String" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Function Name="dbo.stp_ListarConectorCartonFlow" Method="stp_ListarConectorCartonFlow">
+    <Parameter Name="intCalibreAceroID" Type="System.Int16" DbType="SmallInt" />
+    <Parameter Name="intCantidad" Type="System.Int32" DbType="Int" />
+    <ElementType IdRef="ID1" />
+  </Function>
+  <Function Name="dbo.stp_ListarDatosConectorCartonFlow" Method="stp_ListarDatosConectorCartonFlow">
+    <Parameter Name="intCotizacionID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intDatosConectorCFID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="stp_ListarDatosConectorCartonFlowResult">
+      <Column Name="intDatosConectorCFID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="intCotizacionID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="intDetCotizaID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="sintTipoCartonFlowID" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="intCalibreAceroID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="decAncho" Type="System.Decimal" DbType="Decimal(8,2)" CanBeNull="true" />
+      <Column Name="decLargo" Type="System.Decimal" DbType="Decimal(8,2)" CanBeNull="true" />
+      <Column Name="sintPesoPieza" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="decTotalKiloUnitario" Type="System.Decimal" DbType="Decimal(12,2)" CanBeNull="true" />
+      <Column Name="decPesoTotal" Type="System.Decimal" DbType="Decimal(12,2)" CanBeNull="true" />
+      <Column Name="decPrecioUnitario" Type="System.Decimal" DbType="Decimal(12,2)" CanBeNull="true" />
+      <Column Name="decPrecioTotal" Type="System.Decimal" DbType="Decimal(12,2)" CanBeNull="true" />
+      <Column Name="vchLeyenda" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="bitActivo" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </ElementType>
+  </Function>
+</Database>

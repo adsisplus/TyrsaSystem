@@ -48,6 +48,7 @@
     <Compile Include="BrazoDataAccess.cs" />
     <Compile Include="CartonFlowDataAccess.cs" />
     <Compile Include="CatalogosDataAccess.cs" />
+    <Compile Include="ConectorDataAccess.cs" />
     <Compile Include="Context\Atirantado.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -67,6 +68,11 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Catalogos.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="Context\Conector.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Conector.dbml</DependentUpon>
     </Compile>
     <Compile Include="Context\Cotizacion.designer.cs">
       <AutoGen>True</AutoGen>
@@ -123,6 +129,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Parrilla.dbml</DependentUpon>
     </Compile>
+    <Compile Include="Context\Perfil.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Perfil.dbml</DependentUpon>
+    </Compile>
     <Compile Include="Context\Persona.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -142,6 +153,11 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Protectores.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="Context\Riel.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Riel.dbml</DependentUpon>
     </Compile>
     <Compile Include="Context\RielTarima.designer.cs">
       <AutoGen>True</AutoGen>
@@ -181,6 +197,7 @@
     <Compile Include="MateriaPrimaDataAccess.cs" />
     <Compile Include="PanelDataAccess.cs" />
     <Compile Include="ParrillaDataAccess.cs" />
+    <Compile Include="PerfilDataAccess.cs" />
     <Compile Include="PersonaDataAccess.cs" />
     <Compile Include="PisoDataAccess.cs" />
     <Compile Include="PosteDriveInDataAccess.cs" />
@@ -191,6 +208,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
     <Compile Include="ProtectoresDataAccess.cs" />
+    <Compile Include="RielDataAccess.cs" />
     <Compile Include="RielTarimaDataAccess.cs" />
     <Compile Include="SistemasTyrsaDataAccess.cs" />
     <Compile Include="VigaDataAccess.cs" />
@@ -233,6 +251,14 @@
       <Generator>MSLinqToSQLGenerator</Generator>
       <LastGenOutput>Catalogos.designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+    </None>
+    <None Include="Context\Conector.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>Conector.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Context\Conector.dbml.layout">
+      <DependentUpon>Conector.dbml</DependentUpon>
     </None>
     <None Include="Context\Cotizacion.dbml">
       <Generator>MSLinqToSQLGenerator</Generator>
@@ -298,6 +324,14 @@
       <LastGenOutput>Parrilla.designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
+    <None Include="Context\Perfil.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>Perfil.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Context\Perfil.dbml.layout">
+      <DependentUpon>Perfil.dbml</DependentUpon>
+    </None>
     <None Include="Context\Persona.dbml">
       <Generator>MSLinqToSQLGenerator</Generator>
       <LastGenOutput>Persona.designer.cs</LastGenOutput>
@@ -323,6 +357,14 @@
       <Generator>MSLinqToSQLGenerator</Generator>
       <LastGenOutput>Protectores.designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+    </None>
+    <None Include="Context\Riel.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>Riel.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Context\Riel.dbml.layout">
+      <DependentUpon>Riel.dbml</DependentUpon>
     </None>
     <None Include="Context\RielTarima.dbml">
       <Generator>MSLinqToSQLGenerator</Generator>

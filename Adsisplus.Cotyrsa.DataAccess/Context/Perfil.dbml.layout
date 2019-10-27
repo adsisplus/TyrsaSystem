@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="Perfil">
+  <DataContextMoniker Name="/PerfilDataContext" />
+  <nestedChildShapes>
+    <classShape Id="41996c89-c2fa-4b4e-ab24-40a211325d8e" absoluteBounds="3.125, 2.25, 2, 2.5401025390624996">
+      <DataClassMoniker Name="/PerfilDataContext/entPerfilCartonFlow" />
+      <nestedChildShapes>
+        <elementListCompartment Id="9c148510-4e6b-46fb-aafd-7a0638888258" absoluteBounds="3.14, 2.71, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

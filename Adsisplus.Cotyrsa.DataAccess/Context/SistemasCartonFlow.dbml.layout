@@ -1,12 +1,4 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="SistemasCartonFlow">
   <DataContextMoniker Name="/SistemasCartonFlowDataContext" />
-  <nestedChildShapes>
-    <classShape Id="01deefa8-16d7-41b7-9c24-fa17f82b01a7" absoluteBounds="4, 1.625, 2, 2.5401025390624996">
-      <DataClassMoniker Name="/SistemasCartonFlowDataContext/entPerfilCartonFlow" />
-      <nestedChildShapes>
-        <elementListCompartment Id="a54baa74-3f14-4e6c-ba10-263addc3b193" absoluteBounds="4.015, 2.085, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
-  </nestedChildShapes>
 </ordesignerObjectsDiagram>

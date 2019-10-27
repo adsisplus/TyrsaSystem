@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="dbTyrsa" Class="PerfilDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=local;Initial Catalog=dbTyrsa;Persist Security Info=True;User ID=usrCotyrsa" SettingsObjectName="Adsisplus.Cotyrsa.DataAccess.Properties.Settings" SettingsPropertyName="dbTyrsaConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="" Member="entPerfilCartonFlow">
+    <Type Name="entPerfilCartonFlow" Id="ID1">
+      <Column Member="sintTipoCartonFlowID" Type="System.Int16" CanBeNull="false" />
+      <Column Member="sintCalibre" Type="System.Int16" CanBeNull="false" />
+      <Column Member="vchTipoCartonFlow" Type="System.String" CanBeNull="false" />
+      <Column Member="decAncho" Type="System.Decimal" CanBeNull="false" />
+      <Column Member="decLargo" Type="System.Decimal" CanBeNull="false" />
+      <Column Member="sintPesoPieza" Type="System.Int16" CanBeNull="false" />
+      <Column Member="decTotalKiloUnitario" Type="System.Decimal" CanBeNull="false" />
+      <Column Member="decPrecioUnitario" Type="System.Decimal" CanBeNull="false" />
+      <Column Member="vchLeyenda" Type="System.String" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Function Name="dbo.stp_ListarPerfilCartonFlow" Method="stp_ListarPerfilCartonFlow">
+    <Parameter Name="sintTipoCartonFlowID" Type="System.Int16" DbType="SmallInt" />
+    <Parameter Name="intCalibreAceroID" Type="System.Int16" DbType="SmallInt" />
+    <Parameter Name="decLargoPerfil" Type="System.Decimal" DbType="Decimal(8,2)" />
+    <ElementType IdRef="ID1" />
+  </Function>
+  <Function Name="dbo.stp_ListarCatPerfilCartonFlow" Method="stp_ListarCatPerfilCartonFlow">
+    <ElementType Name="stp_ListarCatPerfilCartonFlowResult">
+      <Column Name="sintTipoCartonFlowID" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Column Name="vchTipoCartonFlow" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+</Database>

@@ -18,9 +18,21 @@ namespace Adsisplus.Cotyrsa.BusinessEntities
 
         [DataMember]
         public Int32? intCotizacionID { get; set; }
+        [DataMember]
+        public int? intDetCotizaID { get; set; }
+        [DataMember]
+        public int? intCalibreAceroID { get; set; }
+        [DataMember]
+        public int? intUnidadMedicionID { get; set; }
+        [DataMember]
+        public short? sintMonedaID { get; set; }
 
         [DataMember]
         public Decimal? decLargo { get; set; }
+        [DataMember]
+        public int? intNumNivel { get; set; }
+        [DataMember]
+        public int? intClip { get; set; }
 
         [DataMember]
         public Decimal? decPaso { get; set; }
@@ -36,6 +48,10 @@ namespace Adsisplus.Cotyrsa.BusinessEntities
 
         [DataMember]
         public Decimal? decTipoCambio { get; set; }
+        [DataMember]
+        public decimal? decTotalRielPartida { get; set; }
+        [DataMember]
+        public bool? bitPlastica { get; set; }
 
         [DataMember]
         public Boolean? bitActivo { get; set; }

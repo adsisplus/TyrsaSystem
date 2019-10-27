@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="Riel">
+  <DataContextMoniker Name="/RielDataContext" />
+  <nestedChildShapes>
+    <classShape Id="976817d1-d373-4099-9e1a-4eca2a779aa4" absoluteBounds="5.625, 1.75, 2, 3.5016097005208326">
+      <DataClassMoniker Name="/RielDataContext/entRielRueda" />
+      <nestedChildShapes>
+        <elementListCompartment Id="b457294f-e2de-4682-aebe-04ba5b917965" absoluteBounds="5.64, 2.21, 1.9700000000000002, 2.941609700520833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

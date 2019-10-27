@@ -14,13 +14,6 @@ namespace Adsisplus.Cotyrsa.WcfService.CartonFlowServices
     public interface ICartonFlowServices
     {
         /// <summary>
-        /// Procedmiento que lista el catálogo de perfil carton Flow
-        /// </summary>
-        /// <returns></returns>
-        [OperationContract]
-        [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ListarCatPerfilCartonFlow")]
-        List<Catalogo> ListarCatPerfilCartonFlow();
-        /// <summary>
         /// Procedimiento que lista el catálogo tipo carton flow
         /// </summary>
         /// <param name="sintTipoCartonFlowID"></param>
@@ -29,14 +22,22 @@ namespace Adsisplus.Cotyrsa.WcfService.CartonFlowServices
         [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ListarCatCalibreCartonFlow")]
         List<Catalogo> ListarCatCalibreCartonFlow(short sintTipoCartonFlowID);
         /// <summary>
-        /// Procedimiento que lista los datos perfil carton flow
+        /// Procedimiento que lista los datos de Carton Flow
         /// </summary>
-        /// <param name="sintTipoCartonFlowID"></param>
-        /// <param name="intCalibreAceroID"></param>
-        /// <param name="decLargoPerfil"></param>
+        /// <param name="intDetCotizaID"></param>
+        /// <param name="intDatosCartonFlowID"></param>
         /// <returns></returns>
         [OperationContract]
-        [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ListarPerfilCartonFlow")]
-        List<DatosPerfilCartonFlow> ListarPerfilCartonFlow(short sintTipoCartonFlowID, short intCalibreAceroID, decimal decLargoPerfil);
+        [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ListarDatosCartonFlow")]
+        List<DatosCartonFlow> ListarDatosCartonFlow(int intDetCotizaID, int intDatosCartonFlowID);
+        /// <summary>
+        /// Procedimiento que realiza el alta de los datos de Carton Flow
+        /// </summary>
+        /// <param name="carton"></param>
+        /// <param name="tinOpcion"></param>
+        /// <returns></returns>
+        [OperationContract]
+        [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "setDatosCaronFlow")]
+        Resultado setDatosCaronFlow(DatosCartonFlow carton, int intCotizacionID, int intDetCotizaID, short tinOpcion);
     }
 }
