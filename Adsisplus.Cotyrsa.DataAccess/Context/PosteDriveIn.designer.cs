@@ -290,9 +290,11 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 		
 		private System.Nullable<int> _intElementoID;
 		
+		private System.Nullable<int> _intCotizacionID;
+		
 		private System.Nullable<int> _intDetCotizaID;
 		
-		private System.Nullable<int> _intConfiguraMarcoID;
+		private System.Nullable<int> _intDatoMarcoID;
 		
 		private System.Nullable<int> _intSKUID;
 		
@@ -316,25 +318,13 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 		
 		private System.Nullable<short> _sintNumTravesanio;
 		
-		private int _intDatosDriveInID;
-		
-		private System.Nullable<bool> _bitDobleMonten;
-		
-		private System.Nullable<decimal> _decAlturaDobleMonten;
-		
-		private System.Nullable<int> _intCotizacionID;
-		
 		private System.Nullable<int> _intAlturaMarcoID;
 		
 		private System.Nullable<decimal> _decFondo;
 		
-		private System.Nullable<short> _sintPinturaID;
+		private int _intSeleccionMarcoID;
 		
-		private System.Nullable<decimal> _decAlturaPandeo;
-		
-		private System.Nullable<bool> _bitEstructural;
-		
-		private System.Nullable<bool> _bitRolado;
+		private System.Nullable<int> _intDetCotizaID_Marco;
 		
 		private System.Nullable<bool> _bitActivo;
 		
@@ -374,6 +364,22 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intCotizacionID", DbType="Int")]
+		public System.Nullable<int> intCotizacionID
+		{
+			get
+			{
+				return this._intCotizacionID;
+			}
+			set
+			{
+				if ((this._intCotizacionID != value))
+				{
+					this._intCotizacionID = value;
+				}
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intDetCotizaID", DbType="Int")]
 		public System.Nullable<int> intDetCotizaID
 		{
@@ -390,18 +396,18 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intConfiguraMarcoID", DbType="Int")]
-		public System.Nullable<int> intConfiguraMarcoID
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intDatoMarcoID", DbType="Int")]
+		public System.Nullable<int> intDatoMarcoID
 		{
 			get
 			{
-				return this._intConfiguraMarcoID;
+				return this._intDatoMarcoID;
 			}
 			set
 			{
-				if ((this._intConfiguraMarcoID != value))
+				if ((this._intDatoMarcoID != value))
 				{
-					this._intConfiguraMarcoID = value;
+					this._intDatoMarcoID = value;
 				}
 			}
 		}
@@ -582,70 +588,6 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intDatosDriveInID", DbType="Int NOT NULL")]
-		public int intDatosDriveInID
-		{
-			get
-			{
-				return this._intDatosDriveInID;
-			}
-			set
-			{
-				if ((this._intDatosDriveInID != value))
-				{
-					this._intDatosDriveInID = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_bitDobleMonten", DbType="Bit")]
-		public System.Nullable<bool> bitDobleMonten
-		{
-			get
-			{
-				return this._bitDobleMonten;
-			}
-			set
-			{
-				if ((this._bitDobleMonten != value))
-				{
-					this._bitDobleMonten = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decAlturaDobleMonten", DbType="Decimal(12,2)")]
-		public System.Nullable<decimal> decAlturaDobleMonten
-		{
-			get
-			{
-				return this._decAlturaDobleMonten;
-			}
-			set
-			{
-				if ((this._decAlturaDobleMonten != value))
-				{
-					this._decAlturaDobleMonten = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intCotizacionID", DbType="Int")]
-		public System.Nullable<int> intCotizacionID
-		{
-			get
-			{
-				return this._intCotizacionID;
-			}
-			set
-			{
-				if ((this._intCotizacionID != value))
-				{
-					this._intCotizacionID = value;
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intAlturaMarcoID", DbType="Int")]
 		public System.Nullable<int> intAlturaMarcoID
 		{
@@ -678,66 +620,34 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sintPinturaID", DbType="SmallInt")]
-		public System.Nullable<short> sintPinturaID
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intSeleccionMarcoID", DbType="Int NOT NULL")]
+		public int intSeleccionMarcoID
 		{
 			get
 			{
-				return this._sintPinturaID;
+				return this._intSeleccionMarcoID;
 			}
 			set
 			{
-				if ((this._sintPinturaID != value))
+				if ((this._intSeleccionMarcoID != value))
 				{
-					this._sintPinturaID = value;
+					this._intSeleccionMarcoID = value;
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decAlturaPandeo", DbType="Decimal(8,3)")]
-		public System.Nullable<decimal> decAlturaPandeo
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intDetCotizaID_Marco", DbType="Int")]
+		public System.Nullable<int> intDetCotizaID_Marco
 		{
 			get
 			{
-				return this._decAlturaPandeo;
+				return this._intDetCotizaID_Marco;
 			}
 			set
 			{
-				if ((this._decAlturaPandeo != value))
+				if ((this._intDetCotizaID_Marco != value))
 				{
-					this._decAlturaPandeo = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_bitEstructural", DbType="Bit")]
-		public System.Nullable<bool> bitEstructural
-		{
-			get
-			{
-				return this._bitEstructural;
-			}
-			set
-			{
-				if ((this._bitEstructural != value))
-				{
-					this._bitEstructural = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_bitRolado", DbType="Bit")]
-		public System.Nullable<bool> bitRolado
-		{
-			get
-			{
-				return this._bitRolado;
-			}
-			set
-			{
-				if ((this._bitRolado != value))
-				{
-					this._bitRolado = value;
+					this._intDetCotizaID_Marco = value;
 				}
 			}
 		}

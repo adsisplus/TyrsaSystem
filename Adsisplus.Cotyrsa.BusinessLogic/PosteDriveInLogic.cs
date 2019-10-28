@@ -119,6 +119,7 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
                         }
                         // Actualizamos la información
                         _poste.bitActivo = poste.bitActivo;
+                        _poste.intCotizacionID = intCotizacionID;
                         //_poste.decCalibre = poste.decCalibre;
                         //_poste.decPrecioTyrsa = poste.decPrecioTyrsa;
                         //_poste.decPrecioTyrsaKg = poste.decPrecioTyrsaKg;

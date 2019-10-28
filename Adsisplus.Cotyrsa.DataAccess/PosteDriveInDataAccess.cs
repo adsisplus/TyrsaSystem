@@ -27,29 +27,23 @@ namespace Adsisplus.Cotyrsa.DataAccess
                     var query = from item in dc.stp_ListarDatosPosteDriveIn(intDatoPosteDriveInID, intCotizacionID, intDatoMarcoID)
                                 select new DatosPosteDriveIn
                                 {
-                                    // Datos Poste
-                                    intDatoPosteDriveInID = item.intDatoPosteDriveInID,
+                                     intDatoPosteDriveInID = item.intDatoPosteDriveInID,
                                     intElementoID = item.intElementoID,
-                                    intDetCotizaID = item.intDetCotizaID,
-
-                                    // DATOS DE DRIVE IN
-                                    intDatosDriveInID = item.intDatosDriveInID,
-                                    bitDobleMonten = item.bitDobleMonten,
-                                    decAlturaDobleMonten = item.decAlturaDobleMonten,
                                     intCotizacionID = item.intCotizacionID,
-                                    
-                                    // DATOS DE MARCO
+                                    intDetCotizaID = item.intDetCotizaID,
+                                    intDatoMarcoID = item.intDatoMarcoID,
                                     intAlturaMarcoID = item.intAlturaMarcoID,
                                     decFondo = item.decFondo,
-                                    sintPinturaID = item.sintPinturaID,
-                                    decAlturaPandeo = item.decAlturaPandeo,
-                                    bitEstructural = item.bitEstructural,
-                                    bitRolado = item.bitRolado                                    
+                                    intSeleccionMarcoID = item.intSeleccionMarcoID,
+                                    intDetCotizaID_Marco = item.intDetCotizaID_Marco
                                 };
                     result.AddRange(query);
                     if(result.Count() > 0)
                         // Obtenemos la lista de precios
                         result.First().seleccion = ListarPrecioPosteTC2((int)result.First().intAlturaMarcoID, (decimal)result.First().decFondo);
+                    if(result.Count() > 0)
+                        // Obtenemos la información de pantalla de marco
+                        result.First().datosMarco = (new MarcosDataAccess()).ListarDatosPantallaMarco((int)result.First().intDetCotizaID_Marco, (int)result.First().intSeleccionMarcoID).First();
                 }
             }
             catch (Exception ex)

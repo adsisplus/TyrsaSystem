@@ -24,8 +24,9 @@
     <ElementType Name="stp_ListarDatosPosteDriveInResult">
       <Column Name="intDatoPosteDriveInID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="intElementoID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="intCotizacionID" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="intDetCotizaID" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="intConfiguraMarcoID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="intDatoMarcoID" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="intSKUID" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="intCantidad" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="decCalibre" Type="System.Decimal" DbType="Decimal(8,2)" CanBeNull="true" />
@@ -37,16 +38,10 @@
       <Column Name="decPrecioTyrsaKg" Type="System.Decimal" DbType="Decimal(8,2)" CanBeNull="true" />
       <Column Name="sintNumPosteReq" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
       <Column Name="sintNumTravesanio" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
-      <Column Name="intDatosDriveInID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="bitDobleMonten" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="decAlturaDobleMonten" Type="System.Decimal" DbType="Decimal(12,2)" CanBeNull="true" />
-      <Column Name="intCotizacionID" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="intAlturaMarcoID" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="decFondo" Type="System.Decimal" DbType="Decimal(8,3)" CanBeNull="true" />
-      <Column Name="sintPinturaID" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
-      <Column Name="decAlturaPandeo" Type="System.Decimal" DbType="Decimal(8,3)" CanBeNull="true" />
-      <Column Name="bitEstructural" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="bitRolado" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="intSeleccionMarcoID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="intDetCotizaID_Marco" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="bitActivo" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
     </ElementType>
   </Function>
