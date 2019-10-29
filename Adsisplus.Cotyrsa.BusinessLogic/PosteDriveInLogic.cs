@@ -127,6 +127,7 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
                         //_poste.decRelacionPrecios = poste.decRelacionPrecios;
                         //_poste.decSolera = poste.decSolera;
                         //_poste.decTotalKilo = poste.decTotalKilo;
+                        _poste.intDatoMarcoID = poste.intDatoMarcoID;
                         _poste.intCantidad = poste.intCantidad;
                         _poste.intDetCotizaID = intDetCotizaID;
                         _poste.intElementoID = 31;
