@@ -226,6 +226,7 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
                     _drive.decFrente = drive.decFrente;
                     _drive.decPeso = drive.decPeso;
                     _drive.intDetCotizaID = intDetCotizaID;
+                    _drive.intCotizacionID = intCotizacionID;
                     _drive.intElementoID = 32;
                     _drive.sintPinturaID = drive.sintPinturaID;
                     _drive.sintMaterialDriveInID = drive.sintMaterialDriveInID;
