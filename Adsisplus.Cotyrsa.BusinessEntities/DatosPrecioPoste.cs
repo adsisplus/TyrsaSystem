@@ -32,5 +32,9 @@ namespace Adsisplus.Cotyrsa.BusinessEntities
         public short? sintNumPosteReq { get; set; }
         [DataMember]
         public short? sintNumTravesanio { get; set; }
+        [DataMember]
+        public decimal? decPesoTotal { get; set; }
+        [DataMember]
+        public decimal? decPrecioVentaTotal { get; set; }
     }
 }

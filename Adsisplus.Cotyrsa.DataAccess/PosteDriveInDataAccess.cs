@@ -24,7 +24,7 @@ namespace Adsisplus.Cotyrsa.DataAccess
             {
                 using (PosteDriveInDataContext dc = new PosteDriveInDataContext(Helper.ConnectionString()))
                 {
-                    var query = from item in dc.stp_ListarDatosPosteDriveIn(intDatoPosteDriveInID, intCotizacionID, intDatoMarcoID)
+                    var query_1 = from item in dc.stp_ListarDatosPosteDriveIn(intDatoPosteDriveInID, intCotizacionID, intDatoMarcoID)
                                 select new DatosPosteDriveIn
                                 {
                                      intDatoPosteDriveInID = item.intDatoPosteDriveInID,
@@ -35,15 +35,72 @@ namespace Adsisplus.Cotyrsa.DataAccess
                                     intAlturaMarcoID = item.intAlturaMarcoID,
                                     decFondo = item.decFondo,
                                     intSeleccionMarcoID = item.intSeleccionMarcoID,
-                                    intDetCotizaID_Marco = item.intDetCotizaID_Marco
+                                    intDetCotizaID_Marco = item.intDetCotizaID_Marco,
+                                };
+                    result.AddRange(query_1);
+                    if (result.Count() > 0)
+                        for (int i = 0; i < result.Count(); i++)
+                        {
+                            var query_2 = from item in dc.stp_ListarDatosPosteDriveIn(result[i].intDatoPosteDriveInID, result[i].intCotizacionID, result[i].intDatoMarcoID)
+                                        select new DatosPrecioPoste
+                                        {
+                                            decPrecioVentaTotal = item.decPrecioVentaTotal,
+                                            decPesoTotal = item.decPesoTotal,
+                                            decTotalKilo = item.decTotalKilo,
+                                            decPrecioTyrsa = item.decPrecioTyrsa,
+                                            decCalibre = item.decCalibre,
+                                            decPrecioTyrsaKg = item.decPrecioTyrsaKg,
+                                            decPrecioTyrsaMetro = item.decPrecioTyrsaMetro,
+                                            decRelacionPrecios = item.decRelacionPrecios,
+                                            decSolera = item.decSolera,
+                                            sintNumPosteReq = item.sintNumPosteReq,
+                                            sintNumTravesanio = item.sintNumTravesanio
+                                        };
+                            result[i].seleccion = new List<DatosPrecioPoste>();
+                            // Obtenemos la lista de precios
+                            result[i].seleccion.AddRange(query_2);
+                        }
+                    if(result.Count() > 0)
+                        for(int i=0; i<result.Count(); i++)
+                            // Obtenemos la información de pantalla de marco
+                            result[i].datosMarco = (new MarcosDataAccess()).ListarDatosPantallaMarco((int)result[i].intDetCotizaID_Marco, (int)result[i].intSeleccionMarcoID).Count() == 0 ? null :
+                                (new MarcosDataAccess()).ListarDatosPantallaMarco((int)result[i].intDetCotizaID_Marco, (int)result[i].intSeleccionMarcoID).First();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
+        /// <summary>
+        /// Procedimiento que lista los postes en base al id de la cotización
+        /// </summary>
+        /// <param name="intCotizacionID"></param>
+        /// <returns></returns>
+        public List<DatosPrecioPoste> ListarSeleccionPoste(int intCotizacionID)
+        {
+            List<DatosPrecioPoste> result = new List<DatosPrecioPoste>();
+            try
+            {
+                using (PosteDriveInDataContext dc = new PosteDriveInDataContext(Helper.ConnectionString()))
+                {
+                    var query = from item in dc.stp_ListarDatosPosteDriveIn(0, intCotizacionID, 0)
+                                select new DatosPrecioPoste
+                                {
+                                    decPrecioVentaTotal = item.decPrecioVentaTotal,
+                                    decPesoTotal = item.decPesoTotal,
+                                    decTotalKilo = item.decTotalKilo,
+                                    decPrecioTyrsa = item.decPrecioTyrsa,
+                                    decCalibre = item.decCalibre,
+                                    decPrecioTyrsaKg = item.decPrecioTyrsaKg,
+                                    decPrecioTyrsaMetro = item.decPrecioTyrsaMetro,
+                                    decRelacionPrecios = item.decRelacionPrecios,
+                                    decSolera = item.decSolera,
+                                    sintNumPosteReq = item.sintNumPosteReq,
+                                    sintNumTravesanio = item.sintNumTravesanio
                                 };
                     result.AddRange(query);
-                    if(result.Count() > 0)
-                        // Obtenemos la lista de precios
-                        result.First().seleccion = ListarPrecioPosteTC2((int)result.First().intAlturaMarcoID, (decimal)result.First().decFondo);
-                    if(result.Count() > 0)
-                        // Obtenemos la información de pantalla de marco
-                        result.First().datosMarco = (new MarcosDataAccess()).ListarDatosPantallaMarco((int)result.First().intDetCotizaID_Marco, (int)result.First().intSeleccionMarcoID).First();
                 }
             }
             catch (Exception ex)

@@ -270,7 +270,8 @@ namespace Adsisplus.Cotyrsa.DataAccess
                                     //datFechaAlta = item.datFechaAlta,
                                     bitActivo = item.bitActivo
                                 };
-                    result = query.First();
+                    if(query.Count() > 0)
+                        result = query.First();
                 }
             }
             catch (Exception ex)

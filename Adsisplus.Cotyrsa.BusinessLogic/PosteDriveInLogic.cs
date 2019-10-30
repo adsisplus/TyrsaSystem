@@ -58,6 +58,24 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
             return result;
         }
         /// <summary>
+        /// Procedimiento que lista los postes en base al id de la cotización
+        /// </summary>
+        /// <param name="intCotizacionID"></param>
+        /// <returns></returns>
+        public List<DatosPrecioPoste> ListarSeleccionPoste(int intCotizacionID)
+        {
+            List<DatosPrecioPoste> result = new List<DatosPrecioPoste>();
+            try
+            {
+                result = posteDA.ListarSeleccionPoste(intCotizacionID);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result; 
+        }
+        /// <summary>
         /// Procedimiento que realiza el alta, modificación o baja de los datos Poste Drive In
         /// </summary>
         /// <param name="poste"></param>

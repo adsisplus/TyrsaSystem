@@ -318,13 +318,17 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 		
 		private System.Nullable<short> _sintNumTravesanio;
 		
-		private System.Nullable<int> _intAlturaMarcoID;
+		private System.Nullable<decimal> _decPrecioVentaTotal;
 		
-		private System.Nullable<decimal> _decFondo;
+		private System.Nullable<decimal> _decPesoTotal;
+		
+		private System.Nullable<int> _intAlturaMarcoID;
 		
 		private int _intSeleccionMarcoID;
 		
 		private System.Nullable<int> _intDetCotizaID_Marco;
+		
+		private System.Nullable<decimal> _decFondo;
 		
 		private System.Nullable<bool> _bitActivo;
 		
@@ -588,6 +592,38 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decPrecioVentaTotal", DbType="Decimal(12,3)")]
+		public System.Nullable<decimal> decPrecioVentaTotal
+		{
+			get
+			{
+				return this._decPrecioVentaTotal;
+			}
+			set
+			{
+				if ((this._decPrecioVentaTotal != value))
+				{
+					this._decPrecioVentaTotal = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decPesoTotal", DbType="Decimal(12,3)")]
+		public System.Nullable<decimal> decPesoTotal
+		{
+			get
+			{
+				return this._decPesoTotal;
+			}
+			set
+			{
+				if ((this._decPesoTotal != value))
+				{
+					this._decPesoTotal = value;
+				}
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intAlturaMarcoID", DbType="Int")]
 		public System.Nullable<int> intAlturaMarcoID
 		{
@@ -600,22 +636,6 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 				if ((this._intAlturaMarcoID != value))
 				{
 					this._intAlturaMarcoID = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decFondo", DbType="Decimal(8,3)")]
-		public System.Nullable<decimal> decFondo
-		{
-			get
-			{
-				return this._decFondo;
-			}
-			set
-			{
-				if ((this._decFondo != value))
-				{
-					this._decFondo = value;
 				}
 			}
 		}
@@ -648,6 +668,22 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 				if ((this._intDetCotizaID_Marco != value))
 				{
 					this._intDetCotizaID_Marco = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decFondo", DbType="Decimal(8,3)")]
+		public System.Nullable<decimal> decFondo
+		{
+			get
+			{
+				return this._decFondo;
+			}
+			set
+			{
+				if ((this._decFondo != value))
+				{
+					this._decFondo = value;
 				}
 			}
 		}

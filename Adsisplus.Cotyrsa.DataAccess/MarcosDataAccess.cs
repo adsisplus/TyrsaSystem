@@ -383,10 +383,10 @@ namespace Adsisplus.Cotyrsa.DataAccess
                                 };
                     result.AddRange(query);
                 }
-
-                // Realizamos el barrido de la lista
-                for (int i = 0; i < result.Count(); i++)
-                    result[i].nivel = ListarDatosNivelPorMarco((int)result[i].seleccion.intSeleccionMarcoID);
+                if(result.Count() > 0)
+                    // Realizamos el barrido de la lista
+                    for (int i = 0; i < result.Count(); i++)
+                        result[i].nivel = ListarDatosNivelPorMarco((int)result[i].seleccion.intSeleccionMarcoID);
 
             }
             catch (Exception ex)

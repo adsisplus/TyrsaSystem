@@ -34,6 +34,14 @@ namespace Adsisplus.Cotyrsa.WcfService.PosteDriveInServices
         [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ListarPrecioPosteTC2")]
         List<DatosPrecioPoste> ListarPrecioPosteTC2(int intAlturaMarcoID, decimal decFondoMarco);
         /// <summary>
+        /// Procedimiento que lista los postes en base al id de la cotización
+        /// </summary>
+        /// <param name="intCotizacionID"></param>
+        /// <returns></returns>
+        [OperationContract]
+        [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ListarSeleccionPoste")]
+        List<DatosPrecioPoste> ListarSeleccionPoste(int intCotizacionID);
+        /// <summary>
         /// Procedimiento que lista los datos poste drive in
         /// </summary>
         /// <param name="intDatoPosteDriveInID"></param>

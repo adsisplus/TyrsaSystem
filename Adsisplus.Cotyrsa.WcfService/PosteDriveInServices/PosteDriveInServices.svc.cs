@@ -54,6 +54,24 @@ namespace Adsisplus.Cotyrsa.WcfService.PosteDriveInServices
             return result;
         }
         /// <summary>
+        /// Procedimiento que lista los postes en base al id de la cotización
+        /// </summary>
+        /// <param name="intCotizacionID"></param>
+        /// <returns></returns>
+        public List<DatosPrecioPoste> ListarSeleccionPoste(int intCotizacionID)
+        {
+            List<DatosPrecioPoste> result = new List<DatosPrecioPoste>();
+            try
+            {
+                result = (new PosteDriveInLogic()).ListarSeleccionPoste(intCotizacionID);
+            }
+            catch (Exception ex)
+            {
+                Adsisplus.Cotyrsa.BusinessLogic.EventLogManager.LogErrorEntry(ex.Message);
+            }
+            return result;
+        }
+        /// <summary>
         /// Procedimiento que lista los datos poste drive in
         /// </summary>
         /// <param name="intDatoPosteDriveInID"></param>
