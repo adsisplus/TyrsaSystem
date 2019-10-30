@@ -10,6 +10,61 @@ namespace Adsisplus.Cotyrsa.DataAccess
 {
     public class PosteDriveInDataAccess
     {
+        public List<DatosPantallaMarco> ListarDatosMarcoDriveIn(int intCotizacionID, int intDatoMarcoID)
+        {
+            List<DatosPantallaMarco> result = new List<DatosPantallaMarco>();
+            try
+            {
+                using (PosteDriveInDataContext dc = new PosteDriveInDataContext(Helper.ConnectionString()))
+                {
+                    var query = from item in dc.stp_ListarDatosMarcoDriveIn(intCotizacionID, intDatoMarcoID)
+                                select new DatosPantallaMarco
+                                {
+                                    seleccion = new SeleccionMarco()
+                                    {
+                                        //intRackID = item.intRackID,
+                                        intDetCotizaID = item.intDetCotizaID,
+                                        intSeleccionMarcoID = item.intSeleccionMarcoID,
+                                        intNumeroNiveles = item.intNumeroNiveles,
+                                        bitEstructural = item.bitEstructural,
+                                        bitRolado = item.bitRolado,
+                                        decFondoMarco = item.decFondoMarco,
+                                        decAlturaMarco = item.decAlturaMarco,
+                                        decAlturaPandeoRack = item.decAlturaPandeoRack,
+                                        decCapacidadCargaTotal = item.decCapacidadCargaTotal,
+
+                                        // Datos del marco seleccionado
+                                        vchSKU = item.SKU,
+                                        decPesoMarco = item.decPesoMarco,
+                                        decPrecioUnitario = item.decPrecioUnitario,
+                                        intTipoID = item.intTipoID,
+                                        intMaterialID = item.intMaterialID,
+                                        decFondo = item.decFondo,
+                                        decAltura = item.decAltura,
+                                        decAlturaPandeo = item.decAlturaPandeo,
+                                        decCapacidadMarco = item.decCapacidadMarco
+
+                                    },
+                                    marco = new DatosMarco()
+                                    {
+                                        intDatoMarcoID = item.intDatoMarcoID,
+                                        sintPinturaID = item.sintPinturaID,
+                                        sintCantidad = item.sintCantidad,
+                                        decMedidaAlto = item.decMedidaAlto,
+                                        decAlturaPandeo = item.decAlturaPandeo,
+                                        decAltura = item.decAltura,
+                                        decFondo = item.decFondo
+                                    }
+                                };
+                    result.AddRange(query);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
         /// <summary>
         /// Procedimiento que lista los datos poste drive in
         /// </summary>
@@ -63,8 +118,8 @@ namespace Adsisplus.Cotyrsa.DataAccess
                     if(result.Count() > 0)
                         for(int i=0; i<result.Count(); i++)
                             // Obtenemos la información de pantalla de marco
-                            result[i].datosMarco = (new MarcosDataAccess()).ListarDatosPantallaMarco((int)result[i].intDetCotizaID_Marco, (int)result[i].intSeleccionMarcoID).Count() == 0 ? null :
-                                (new MarcosDataAccess()).ListarDatosPantallaMarco((int)result[i].intDetCotizaID_Marco, (int)result[i].intSeleccionMarcoID).First();
+                            result[i].datosMarco = ListarDatosMarcoDriveIn((int)result[i].intCotizacionID, (int)result[i].intDatoMarcoID).Count() == 0 ? null :
+                                ListarDatosMarcoDriveIn((int)result[i].intCotizacionID, (int)result[i].intDatoMarcoID).First();
                 }
             }
             catch (Exception ex)
