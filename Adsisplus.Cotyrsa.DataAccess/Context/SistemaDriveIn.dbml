@@ -245,6 +245,8 @@
     <Parameter Name="sintNumTravesanio" Type="System.Int16" DbType="SmallInt" />
     <Parameter Name="decPesoTotal" Type="System.Decimal" DbType="Decimal(12,3)" />
     <Parameter Name="decPrecioVentaTotal" Type="System.Decimal" DbType="Decimal(12,3)" />
+    <Parameter Name="bitDobleMonten" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="decAlturaDobleMonten" Type="System.Decimal" DbType="Decimal(12,2)" />
     <Parameter Name="bitActivo" Type="System.Boolean" DbType="Bit" />
     <Parameter Name="tinOpcion" Type="System.Byte" DbType="TinyInt" />
     <ElementType Name="stp_setDatosPosteDriveInResult">

@@ -108,21 +108,21 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
                     DatosPosteDriveIn _poste = new DatosPosteDriveIn();
 
 
-                    // Buscamos los datos del DriveIn
-                    List<DatosDriveIn> ListDriveIn = new List<DatosDriveIn>();
-                    DatosDriveIn _driveIn = new DatosDriveIn();
-                    ListDriveIn = (new DriveInLogic()).ListarDatosDriveIn(0, intCotizacionID);
+                    //// Buscamos los datos del DriveIn
+                    //List<DatosDriveIn> ListDriveIn = new List<DatosDriveIn>();
+                    //DatosDriveIn _driveIn = new DatosDriveIn();
+                    //ListDriveIn = (new DriveInLogic()).ListarDatosDriveIn(0, intCotizacionID);
 
-                    // Revisamos si existe los datos
-                    if (ListDriveIn.Count() > 0)
-                    {
-                        _driveIn = ListDriveIn.First();
-                        // Actualizamos los datos de doble monten
-                        _driveIn.bitDobleMonten = poste.bitDobleMonten;
-                        _driveIn.decAlturaDobleMonten = poste.decAlturaDobleMonten;
+                    //// Revisamos si existe los datos
+                    //if (ListDriveIn.Count() > 0)
+                    //{
+                    //    _driveIn = ListDriveIn.First();
+                    //    // Actualizamos los datos de doble monten
+                    //    _driveIn.bitDobleMonten = poste.bitDobleMonten;
+                    //    _driveIn.decAlturaDobleMonten = poste.decAlturaDobleMonten;
 
-                        // Actualizamos los datos de DriveIn
-                        result = (new DriveInLogic()).setDatosDriveIn(_driveIn, intCotizacionID, intDetCotizaID, 2);
+                    //    // Actualizamos los datos de DriveIn
+                    //    result = (new DriveInLogic()).setDatosDriveIn(_driveIn, intCotizacionID, intDetCotizaID, 2);
 
                         // Validamos si es un nuevo registro
                         if (tinOpcion != 1)
@@ -148,6 +148,8 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
                         _poste.intDatoMarcoID = poste.intDatoMarcoID;
                         _poste.intCantidad = poste.intCantidad;
                         _poste.intDetCotizaID = intDetCotizaID;
+                        _poste.bitDobleMonten = poste.bitDobleMonten;
+                        _poste.decAlturaDobleMonten = poste.decAlturaDobleMonten;
                         _poste.intElementoID = 31;
                         //_poste.intSKUID = poste.intSKUID;
                         //_poste.sintNumPosteReq = poste.sintNumPosteReq;
@@ -157,13 +159,13 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
 
                         //Realizamos el registro del DRIVEIN
                         result = (new DriveInLogic()).setDatosPosteDriveIn(_poste, tinOpcion);
-                    }
-                    else
-                    {
-                        result = new Resultado();
-                        result.vchResultado = "NOK";
-                        result.vchDescripcion = "NO EXISTE DATOS DE DRIVE IN. CAPTURAR PRIMERO DICHOS DATOS";
-                    }
+                    //}
+                    //else
+                    //{
+                    //    result = new Resultado();
+                    //    result.vchResultado = "NOK";
+                    //    result.vchDescripcion = "NO EXISTE DATOS DE DRIVE IN. CAPTURAR PRIMERO DICHOS DATOS";
+                    //}
                 }
             }
             catch (Exception ex)

@@ -328,7 +328,7 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
             try
             {
                 // Obtenemos la información del sistema Selectivo
-                RelSistemaSelectivo sistema = (new CotizacionLogic()).ListarDatosSistemaSelectivo(intCotizacionID);
+                //RelSistemaSelectivo sistema = (new CotizacionLogic()).ListarDatosSistemaSelectivo(intCotizacionID);
 
                 intSeleccionMarcoID = null;
 
@@ -372,7 +372,7 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
                         // validamos si es un registro nuevo
                         if (tinOpcion != 1)
                             // Obtenemos información del Marco (tbl_MST_DatosMarco)
-                            listMstMarco = (new MarcosLogic()).ListarDatosMarco((int)sistema.intDatoMarcoID, intDetCotizaID);
+                            listMstMarco = (new MarcosLogic()).ListarDatosMarco(marco.marco.intDatoMarcoID == null ? 0 : (int)marco.marco.intDatoMarcoID, intCotizacionID);
 
                         // En caso de existir, asignamos el resultado
                         if (listMstMarco.Count > 0)
@@ -386,6 +386,7 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
                         mstMarco.intElementoID = 1;
                         mstMarco.sintPinturaID = sintPinturaID;
                         mstMarco.intConfiguraMarcoID = marco.seleccion.intConfiguraMarcoID;
+                        mstMarco.sintCantidad = (short)intCantidad;
                         //mstMarco.decMedidaFondo = marco.decFondo;
                         //mstMarco.decMedidaAlto = marco.decAltura;
                         //mstMarco.bitDobleMonten = marco.bitDobleMontel;
@@ -393,29 +394,29 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
                         //mstMarco.decCapacidadxNivel = marco.decCapacidadMarco;
                         mstMarco.decAltura = marco.marco.decAltura;
                         mstMarco.decFondo = marco.marco.decFondo;
-                        mstMarco.sintCantidad = sintPinturaID;
+                        mstMarco.sintPinturaID = sintPinturaID;
 
                         // Realizamos el registro del marco
                         result = (new SistemasTyrsaLogic()).setDatosMarco(mstMarco, tinOpcion);
 
-                        // Validamos el resultado
-                        if (result.vchResultado != "NOK")
-                        {
-                            intDatosMarcoID = Convert.ToInt32(result.vchResultado);
-                            if ((sistema.intDatoMarcoID == null || sistema.intDatoMarcoID == 0) || tinOpcion == 3)
-                            {
-                                // En caso de realizar la baja, establecemos el valor a 0
-                                if (tinOpcion == 3)
-                                    sistema.intDatoMarcoID = 0;
-                                else
-                                    sistema.intDatoMarcoID = intDatosMarcoID;
+                        //// Validamos el resultado
+                        //if (result.vchResultado != "NOK")
+                        //{
+                        //    intDatosMarcoID = Convert.ToInt32(result.vchResultado);
+                        //    if ((sistema.intDatoMarcoID == null || sistema.intDatoMarcoID == 0) || tinOpcion == 3)
+                        //    {
+                        //        // En caso de realizar la baja, establecemos el valor a 0
+                        //        if (tinOpcion == 3)
+                        //            sistema.intDatoMarcoID = 0;
+                        //        else
+                        //            sistema.intDatoMarcoID = intDatosMarcoID;
 
-                                sistema.intTipoElementoAlmacenID = 17;
-                                sistema.intCotizacionID = intCotizacionID;
+                        //        sistema.intTipoElementoAlmacenID = 17;
+                        //        sistema.intCotizacionID = intCotizacionID;
 
-                                result = (new CotizacionLogic()).setDatosRelSistemaSelectivo(sistema, 2);
-                            }
-                        }
+                        //        result = (new CotizacionLogic()).setDatosRelSistemaSelectivo(sistema, 2);
+                        //    }
+                        //}
 
                     }
                 }

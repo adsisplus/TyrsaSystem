@@ -261,10 +261,12 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="SmallInt")] System.Nullable<short> sintNumTravesanio, 
 					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Decimal(12,3)")] System.Nullable<decimal> decPesoTotal, 
 					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Decimal(12,3)")] System.Nullable<decimal> decPrecioVentaTotal, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Bit")] System.Nullable<bool> bitDobleMonten, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Decimal(12,2)")] System.Nullable<decimal> decAlturaDobleMonten, 
 					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Bit")] System.Nullable<bool> bitActivo, 
 					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="TinyInt")] System.Nullable<byte> tinOpcion)
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), intDatoPosteDriveInID, intElementoID, intCotizacionID, intDetCotizaID, intDatoMarcoID, intSKUID, intCantidad, decCalibre, decSolera, decTotalKilo, decPrecioTyrsa, decRelacionPrecios, decPrecioTyrsaMetro, decPrecioTyrsaKg, sintNumPosteReq, sintNumTravesanio, decPesoTotal, decPrecioVentaTotal, bitActivo, tinOpcion);
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), intDatoPosteDriveInID, intElementoID, intCotizacionID, intDetCotizaID, intDatoMarcoID, intSKUID, intCantidad, decCalibre, decSolera, decTotalKilo, decPrecioTyrsa, decRelacionPrecios, decPrecioTyrsaMetro, decPrecioTyrsaKg, sintNumPosteReq, sintNumTravesanio, decPesoTotal, decPrecioVentaTotal, bitDobleMonten, decAlturaDobleMonten, bitActivo, tinOpcion);
 			return ((ISingleResult<stp_setDatosPosteDriveInResult>)(result.ReturnValue));
 		}
 	}

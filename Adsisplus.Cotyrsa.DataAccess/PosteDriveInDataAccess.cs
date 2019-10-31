@@ -42,7 +42,9 @@ namespace Adsisplus.Cotyrsa.DataAccess
                                         decFondo = item.decFondo,
                                         decAltura = item.decAltura,
                                         decAlturaPandeo = item.decAlturaPandeo,
-                                        decCapacidadMarco = item.decCapacidadMarco
+                                        decCapacidadMarco = item.decCapacidadMarco,
+                                        vchMaterial = item.vchMaterial,
+                                        vchTipo = item.vchTipo
 
                                     },
                                     marco = new DatosMarco()
@@ -91,6 +93,9 @@ namespace Adsisplus.Cotyrsa.DataAccess
                                     decFondo = item.decFondo,
                                     intSeleccionMarcoID = item.intSeleccionMarcoID,
                                     intDetCotizaID_Marco = item.intDetCotizaID_Marco,
+                                    intCantidad = item.intCantidad,
+                                    bitDobleMonten = item.bitDobleMonten,
+                                    decAlturaDobleMonten = item.decAlturaDobleMonten,
                                 };
                     result.AddRange(query_1);
                     if (result.Count() > 0)

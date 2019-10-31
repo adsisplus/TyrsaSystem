@@ -317,7 +317,8 @@ namespace Adsisplus.Cotyrsa.DataAccess
                                     intMaterialID = Convert.ToInt32(item.intMaterialID),
                                     vchSKU = Convert.ToString(item.SKU),
                                     vchTipo = Convert.ToString(item.vchTipo),
-                                    intTipoID = Convert.ToInt32(item.intTipoID)
+                                    intTipoID = Convert.ToInt32(item.intTipoID),
+                                    decCapacidadCargaTotal = decCapacidadCarga
 
                                 };
                     result.AddRange(query);
