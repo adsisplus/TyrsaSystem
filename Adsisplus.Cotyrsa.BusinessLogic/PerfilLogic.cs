@@ -60,7 +60,7 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
             List<DatosPerfil> result = new List<DatosPerfil>();
             try
             {
-
+                result = PerfilDA.ListarDatosPerfilCartonFlow(intCotizacionID, intPerfilID)
             }
             catch (Exception ex)
             {

@@ -72,5 +72,48 @@ namespace Adsisplus.Cotyrsa.DataAccess
             }
             return result;
         }
+        /// <summary>
+        /// Procedimiento que lista los datos de perfil de Carton Flow
+        /// </summary>
+        /// <param name="intCotizacionID"></param>
+        /// <param name="intPerfilID"></param>
+        /// <returns></returns>
+        public List<DatosPerfil> ListarDatosPerfilCartonFlow(int intCotizacionID, int intPerfilID)
+        {
+            List<DatosPerfil> result = new List<DatosPerfil>();
+            try
+            {
+                using (PerfilDataContext dc = new PerfilDataContext(Helper.ConnectionString()))
+                {
+                    var query = from item in dc.stp_ListarDatosPerfilCartonFlow(intPerfilID, intCotizacionID)
+                                select new DatosPerfil
+                                {
+                                    intPerfilID = item.intPerfilID,
+                                    sintTipoPerfilID = item.sintTipoPerfilID,
+                                    intElementoID = item.intElementoID,
+                                    sintPinturaID = item.sintPinturaID,
+                                    intCotizacionID = item.intCotizacionID,
+                                    intDetCotizaID = item.intDetCotizaID,
+                                    intCalibreAceroID = item.intCalibreAceroID,
+                                    decLargo = item.decLargo,
+                                    decCapacidad = item.decCapacidad,
+                                    intCantidad = item.intCantidad,
+                                    vchLeyenda = item.vchLeyenda,
+                                    decPrecioUnitario = item.decPrecioUnitario,
+                                    decPrecioTotal = item.decPrecioTotal,
+                                    decPesoUnitario = item.decPesoUnitario,
+                                    decPesoTotal = item.decPesoTotal,
+                                    sintNumXNivel = item.sintNumXNivel,
+                                    bitActivo = item.bitActivo
+                                };
+                    result.AddRange(query);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
     }
 }
