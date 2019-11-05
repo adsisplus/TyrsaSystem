@@ -40,17 +40,17 @@ namespace Adsisplus.Cotyrsa.DataAccess
         /// <summary>
         /// Procedimiento que lista los datos de Carton Flow
         /// </summary>
-        /// <param name="intDetCotizaID"></param>
+        /// <param name="intCotizacionID"></param>
         /// <param name="intDatosCartonFlowID"></param>
         /// <returns></returns>
-        public List<DatosCartonFlow> ListarDatosCartonFlow(int intDetCotizaID, int intDatosCartonFlowID)
+        public List<DatosCartonFlow> ListarDatosCartonFlow(int intCotizacionID, int intDatosCartonFlowID)
         {
             List<DatosCartonFlow> result = new List<DatosCartonFlow>();
             try
             {
                 using (SistemasCartonFlowDataContext dc = new SistemasCartonFlowDataContext(Helper.ConnectionString()))
                 {
-                    var query = from item in dc.stp_ListarDatosCartonFlow(intDetCotizaID, intDatosCartonFlowID)
+                    var query = from item in dc.stp_ListarDatosCartonFlow(intCotizacionID, intDatosCartonFlowID)
                                 select new DatosCartonFlow
                                 {
                                     intDatosCartonFlowID = item.intDatosCartonFlowID,
@@ -64,8 +64,9 @@ namespace Adsisplus.Cotyrsa.DataAccess
                                     intNumNivel = item.intNumNivel,
                                     intCantRefuerzoNivel = item.intCantRefuerzoNivel,
                                     sintTipoCartonFlowID = item.sintTipoCartonFlowID,
-                                    intCalibre = item.intCalibre
+                                    intCalibreAceroID = item.intCalibre
                                 };
+                    result.AddRange(query);
                 }
             }
             catch (Exception ex)
@@ -88,10 +89,10 @@ namespace Adsisplus.Cotyrsa.DataAccess
                 using (SistemasCartonFlowDataContext dc = new SistemasCartonFlowDataContext(Helper.ConnectionString()))
                 {
                     var query = from item in dc.stp_setDatosCartonFlow(carton.intDatosCartonFlowID, carton.intElementoID, carton.intDetCotizaID, carton.sintPinturaID,
-                        carton.riel.sintTipoCartonFlowID, carton.sintMonedaID, carton.intUnidadMedicionID, carton.decFrente, carton.decFondo,
-                        carton.decAltura, carton.decLargoPerfil, (short)carton.riel.intTotalRieles, carton.riel.decClip, carton.intInternacion,
-                        carton.decCostoInternacion, carton.riel.decTotalInternacion, carton.riel.intTotalRieles, carton.riel.intTotalRuedas, carton.decPrecioRuedas,
-                        carton.decTipoCambio, carton.riel.decCostoTotalRuedas, carton.decPeso, carton.decPesoTotal, carton.intNumCajaNivel,
+                        carton.sintTipoCartonFlowID, carton.sintMonedaID, carton.intUnidadMedicionID, carton.decFrente, carton.decFondo,
+                        carton.decAltura, carton.decLargoPerfil, 0, 0, carton.intInternacion,
+                        carton.decCostoInternacion, 0, 0, 0, carton.decPrecioRuedas,
+                        carton.decTipoCambio, 0, carton.decPeso, carton.decPesoTotal, carton.intNumCajaNivel,
                         carton.decPesoNivel, carton.intNumNivel, carton.intCantRefuerzoNivel, carton.decPrecioUnitario, carton.decPrecioTotal,
                         carton.vchLeyenda, carton.bitActivo, (byte)tinOpcion)
                                 select new Resultado

@@ -23,7 +23,7 @@ namespace Adsisplus.Cotyrsa.BusinessEntities
         [DataMember]
         public short? sintTipoCartonFlowID { get; set; }
         [DataMember]
-        public int? intCalibre { get; set; }
+        public int? intCalibreAceroID { get; set; }
         [DataMember]
         public short? sintMonedaID { get; set; }
         [DataMember]

@@ -34,15 +34,15 @@ namespace Adsisplus.Cotyrsa.WcfService.CartonFlowServices
         /// <summary>
         /// Procedimiento que lista los datos de Carton Flow
         /// </summary>
-        /// <param name="intDetCotizaID"></param>
+        /// <param name="intCotizacionID"></param>
         /// <param name="intDatosCartonFlowID"></param>
         /// <returns></returns>
-        public List<DatosCartonFlow> ListarDatosCartonFlow(int intDetCotizaID, int intDatosCartonFlowID)
+        public List<DatosCartonFlow> ListarDatosCartonFlow(int intCotizacionID, int intDatosCartonFlowID)
         {
             List<DatosCartonFlow> result = new List<DatosCartonFlow>();
             try
             {
-                result = (new CartonFlowLogic()).ListarDatosCartonFlow(intDetCotizaID, intDatosCartonFlowID);
+                result = (new CartonFlowLogic()).ListarDatosCartonFlow(intCotizacionID, intDatosCartonFlowID);
             }
             catch (Exception ex)
             {

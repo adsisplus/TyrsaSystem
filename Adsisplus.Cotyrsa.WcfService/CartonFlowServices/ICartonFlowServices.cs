@@ -24,12 +24,12 @@ namespace Adsisplus.Cotyrsa.WcfService.CartonFlowServices
         /// <summary>
         /// Procedimiento que lista los datos de Carton Flow
         /// </summary>
-        /// <param name="intDetCotizaID"></param>
+        /// <param name="intCotizacionID"></param>
         /// <param name="intDatosCartonFlowID"></param>
         /// <returns></returns>
         [OperationContract]
         [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ListarDatosCartonFlow")]
-        List<DatosCartonFlow> ListarDatosCartonFlow(int intDetCotizaID, int intDatosCartonFlowID);
+        List<DatosCartonFlow> ListarDatosCartonFlow(int intCotizacionID, int intDatosCartonFlowID);
         /// <summary>
         /// Procedimiento que realiza el alta de los datos de Carton Flow
         /// </summary>

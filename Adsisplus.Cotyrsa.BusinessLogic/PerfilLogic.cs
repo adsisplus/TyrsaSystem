@@ -115,6 +115,8 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
 
                     // Actualizamos la información
                     _perfil = perfil;
+                    _perfil.intCotizacionID = intCotizacionID;
+
 
                     // Realizamos el registro del Carton Flow
                     result = (new CartonFlowLogic()).setDatosPerfil(_perfil, tinOpcion);

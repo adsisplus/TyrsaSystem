@@ -39,15 +39,15 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
         /// <summary>
         /// Procedimiento que lista los datos de Carton Flow
         /// </summary>
-        /// <param name="intDetCotizaID"></param>
+        /// <param name="intCotizacionID"></param>
         /// <param name="intDatosCartonFlowID"></param>
         /// <returns></returns>
-        public List<DatosCartonFlow> ListarDatosCartonFlow(int intDetCotizaID, int intDatosCartonFlowID)
+        public List<DatosCartonFlow> ListarDatosCartonFlow(int intCotizacionID, int intDatosCartonFlowID)
         {
             List<DatosCartonFlow> result = new List<DatosCartonFlow>();
             try
             {
-                result = CartonFlowDA.ListarDatosCartonFlow(intDetCotizaID, intDatosCartonFlowID);
+                result = CartonFlowDA.ListarDatosCartonFlow(intCotizacionID, intDatosCartonFlowID);
             }
             catch (Exception ex)
             {
