@@ -51,6 +51,25 @@ namespace Adsisplus.Cotyrsa.WcfService.PerfilServices
             return result;
         }
         /// <summary>
+        /// Procedimiento que lista los datos de perfil de Carton Flow
+        /// </summary>
+        /// <param name="intCotizacionID"></param>
+        /// <param name="intPerfilID"></param>
+        /// <returns></returns>
+        public List<DatosPerfil> ListarDatosPerfil(int intCotizacionID, int intPerfilID)
+        {
+            List<DatosPerfil> result = new List<DatosPerfil>();
+            try
+            {
+                result = (new PerfilLogic()).ListarDatosPerfil(intCotizacionID, intPerfilID);
+            }
+            catch (Exception ex)
+            {
+                Adsisplus.Cotyrsa.BusinessLogic.EventLogManager.LogErrorEntry(ex.Message);
+            }
+            return result;
+        }
+        /// <summary>
         /// Procedimiento que realiza el alta de los datos de perfil
         /// </summary>
         /// <param name="perfil"></param>

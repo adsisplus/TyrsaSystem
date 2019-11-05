@@ -55,6 +55,12 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
             }
             return result;
         }
+        /// <summary>
+        /// Procedimiento que lista los datos de perfil de Carton Flow
+        /// </summary>
+        /// <param name="intCotizacionID"></param>
+        /// <param name="intPerfilID"></param>
+        /// <returns></returns>
         public List<DatosPerfil> ListarDatosPerfil(int intCotizacionID, int intPerfilID)
         {
             List<DatosPerfil> result = new List<DatosPerfil>();

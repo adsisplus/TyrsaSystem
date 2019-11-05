@@ -32,6 +32,15 @@ namespace Adsisplus.Cotyrsa.WcfService.PerfilServices
         [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ListarPerfilCartonFlow")]
         List<DatosPerfilCartonFlow> ListarPerfilCartonFlow(short sintTipoCartonFlowID, short intCalibreAceroID, decimal decLargoPerfil);
         /// <summary>
+        /// Procedimiento que lista los datos de perfil de Carton Flow
+        /// </summary>
+        /// <param name="intCotizacionID"></param>
+        /// <param name="intPerfilID"></param>
+        /// <returns></returns>
+        [OperationContract]
+        [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ListarDatosPerfil")]
+        List<DatosPerfil> ListarDatosPerfil(int intCotizacionID, int intPerfilID);
+        /// <summary>
         /// Procedimiento que realiza el alta de los datos de perfil
         /// </summary>
         /// <param name="perfil"></param>
