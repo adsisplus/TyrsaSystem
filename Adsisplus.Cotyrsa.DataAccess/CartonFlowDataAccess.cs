@@ -59,6 +59,11 @@ namespace Adsisplus.Cotyrsa.DataAccess
                                     decFondo = item.decFondo,
                                     decAltura = item.decAltura,
                                     decPeso = item.decPeso,
+                                    decPesoUnitario = item.decPesoUnitario,
+                                    decPesoTotal = item.decPesoTotal,
+                                    decPrecioUnitario = item.decPrecioUnitario,
+                                    decPrecioTotal = item.decPrecioTotal,
+                                    decLargo = item.decLargo,
                                     intNumCajaNivel = item.intNumCajaNivel,
                                     decPesoNivel = item.decPesoNivel,
                                     intNumNivel = item.intNumNivel,
@@ -90,8 +95,8 @@ namespace Adsisplus.Cotyrsa.DataAccess
                 {
                     var query = from item in dc.stp_setDatosCartonFlow(carton.intDatosCartonFlowID, carton.intElementoID, carton.intDetCotizaID, carton.sintPinturaID,
                         carton.sintTipoCartonFlowID, carton.sintMonedaID, carton.intUnidadMedicionID, carton.intCalibreAceroID, carton.decFrente, carton.decFondo,
-                        carton.decAltura, carton.decPeso, carton.intNumCajaNivel, carton.decPesoNivel, carton.intNumNivel, 
-                        carton.intCantRefuerzoNivel, carton.bitActivo, (byte)tinOpcion)
+                        carton.decAltura, carton.decLargo, carton.decPeso,carton.decPesoUnitario, carton.decPesoTotal, carton.decPrecioUnitario, carton.decPrecioTotal,
+                        carton.intNumCajaNivel, carton.decPesoNivel, carton.intNumNivel, carton.intCantRefuerzoNivel, carton.bitActivo, (byte)tinOpcion)
                                 select new Resultado
                                 {
                                     vchDescripcion = item.vchDescripcion,
@@ -119,9 +124,9 @@ namespace Adsisplus.Cotyrsa.DataAccess
             {
                 using (SistemasCartonFlowDataContext dc = new SistemasCartonFlowDataContext(Helper.ConnectionString()))
                 {
-                    var query = from item in dc.stp_setDatosPerfil(perfil.intPerfilID, perfil.sintTipoPerfilID, perfil.intElementoID, perfil.sintPinturaID,
-                        perfil.intDetCotizaID, perfil.intCalibreAceroID, perfil.decLargo, perfil.decCapacidad, perfil.intCantidad,
-                        perfil.vchLeyenda, perfil.decPrecioUnitario, perfil.decPrecioTotal, perfil.decPesoUnitario,
+                    var query = from item in dc.stp_setDatosPerfil(perfil.intPerfilID, perfil.sintTipoPerfilID, perfil.intElementoID, perfil.sintTipoCartonFlowID,
+                        perfil.sintPinturaID, perfil.intDetCotizaID, perfil.intCalibreAceroID, perfil.decLargo, perfil.decCapacidad, 
+                        perfil.intCantidad, perfil.vchLeyenda, perfil.decPrecioUnitario, perfil.decPrecioTotal, perfil.decPesoUnitario,
                         perfil.decPesoTotal, perfil.intCotizacionID, perfil.bitActivo, (byte)tinOpcion)
                                 select new Resultado
                                 {

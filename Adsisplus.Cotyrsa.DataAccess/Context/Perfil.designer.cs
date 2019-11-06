@@ -314,6 +314,8 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 		
 		private System.Nullable<short> _sintTipoPerfilID;
 		
+		private System.Nullable<short> _sintTipoCartonFlowID;
+		
 		private System.Nullable<int> _intElementoID;
 		
 		private System.Nullable<short> _sintPinturaID;
@@ -376,6 +378,22 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 				if ((this._sintTipoPerfilID != value))
 				{
 					this._sintTipoPerfilID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sintTipoCartonFlowID", DbType="SmallInt")]
+		public System.Nullable<short> sintTipoCartonFlowID
+		{
+			get
+			{
+				return this._sintTipoCartonFlowID;
+			}
+			set
+			{
+				if ((this._sintTipoCartonFlowID != value))
+				{
+					this._sintTipoCartonFlowID = value;
 				}
 			}
 		}

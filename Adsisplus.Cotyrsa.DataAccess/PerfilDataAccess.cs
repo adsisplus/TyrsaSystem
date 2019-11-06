@@ -90,6 +90,7 @@ namespace Adsisplus.Cotyrsa.DataAccess
                                 {
                                     intPerfilID = item.intPerfilID,
                                     sintTipoPerfilID = item.sintTipoPerfilID,
+                                    sintTipoCartonFlowID = item.sintTipoCartonFlowID,
                                     intElementoID = item.intElementoID,
                                     sintPinturaID = item.sintPinturaID,
                                     intCotizacionID = item.intCotizacionID,

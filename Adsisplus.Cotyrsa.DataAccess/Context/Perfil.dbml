@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="dbTyrsa" Class="PerfilDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=local;Initial Catalog=dbTyrsa;Persist Security Info=True;User ID=usrCotyrsa" SettingsObjectName="Adsisplus.Cotyrsa.DataAccess.Properties.Settings" SettingsPropertyName="dbTyrsaConnectionString" Provider="System.Data.SqlClient" />
+  <Connection Mode="AppSettings" ConnectionString="Data Source=local;Initial Catalog=dbTyrsa;User ID=usrCotyrsa" SettingsObjectName="Adsisplus.Cotyrsa.DataAccess.Properties.Settings" SettingsPropertyName="dbTyrsaConnectionString" Provider="System.Data.SqlClient" />
   <Table Name="" Member="entPerfilCartonFlow">
     <Type Name="entPerfilCartonFlow" Id="ID1">
       <Column Name="sintTipoCartonFlowID" Type="System.Int16" CanBeNull="false" />
@@ -31,6 +31,7 @@
     <ElementType Name="stp_ListarDatosPerfilCartonFlowResult">
       <Column Name="intPerfilID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="sintTipoPerfilID" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="sintTipoCartonFlowID" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
       <Column Name="intElementoID" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="sintPinturaID" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
       <Column Name="intCotizacionID" Type="System.Int32" DbType="Int" CanBeNull="true" />

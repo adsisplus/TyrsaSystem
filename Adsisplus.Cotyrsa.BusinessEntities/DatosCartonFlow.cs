@@ -35,29 +35,31 @@ namespace Adsisplus.Cotyrsa.BusinessEntities
         [DataMember]
         public decimal? decAltura { get; set; }
         [DataMember]
-        public decimal? decLargoPerfil { get; set; }
+        public decimal? decLargo { get; set; }
         //[DataMember]
         //public short? sintCantidadRiel { get; set; }
         //[DataMember]
         //public decimal? decClip { get; set; }
-        [DataMember]
-        public int? intInternacion { get; set; }
-        [DataMember]
-        public decimal? decCostoInternacion { get; set; }
+        //[DataMember]
+        //public int? intInternacion { get; set; }
+        //[DataMember]
+        //public decimal? decCostoInternacion { get; set; }
         //[DataMember]
         //public decimal? decTotalInternacion { get; set; }
         //[DataMember]
         //public int? intTotalRuedas { get; set; }
         //[DataMember]
         //public int? intTotalRieles { get; set; }
-        [DataMember]
-        public decimal decPrecioRuedas { get; set; }
-        [DataMember]
-        public decimal? decTipoCambio { get; set; }
+        //[DataMember]
+        //public decimal decPrecioRuedas { get; set; }
+        //[DataMember]
+        //public decimal? decTipoCambio { get; set; }
         //[DataMember]
         //public decimal? decCostoTotalRuedas { get; set; }
         [DataMember]
         public decimal? decPeso { get; set; }
+        [DataMember]
+        public decimal? decPesoUnitario { get; set; }
         [DataMember]
         public decimal? decPesoTotal { get; set; }
         [DataMember]
@@ -72,8 +74,8 @@ namespace Adsisplus.Cotyrsa.BusinessEntities
         public decimal? decPrecioUnitario { get; set; }
         [DataMember]
         public decimal? decPrecioTotal { get; set; }
-        [DataMember]
-        public string vchLeyenda { get; set; }
+        //[DataMember]
+        //public string vchLeyenda { get; set; }
         [DataMember]
         public bool? bitActivo { get; set; }
         //[DataMember]

@@ -15,6 +15,8 @@ namespace Adsisplus.Cotyrsa.BusinessEntities
         [DataMember]
         public Int16? sintTipoPerfilID { get; set; }
         [DataMember]
+        public short? sintTipoCartonFlowID { get; set; }
+        [DataMember]
         public Int32? intElementoID { get; set; }
         [DataMember]
         public short? sintPinturaID { get; set; }
