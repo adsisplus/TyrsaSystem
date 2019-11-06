@@ -64,7 +64,7 @@ namespace Adsisplus.Cotyrsa.DataAccess
                                     intNumNivel = item.intNumNivel,
                                     intCantRefuerzoNivel = item.intCantRefuerzoNivel,
                                     sintTipoCartonFlowID = item.sintTipoCartonFlowID,
-                                    intCalibreAceroID = item.intCalibre
+                                    intCalibreAceroID = item.intCalibreAceroID
                                 };
                     result.AddRange(query);
                 }
@@ -89,12 +89,9 @@ namespace Adsisplus.Cotyrsa.DataAccess
                 using (SistemasCartonFlowDataContext dc = new SistemasCartonFlowDataContext(Helper.ConnectionString()))
                 {
                     var query = from item in dc.stp_setDatosCartonFlow(carton.intDatosCartonFlowID, carton.intElementoID, carton.intDetCotizaID, carton.sintPinturaID,
-                        carton.sintTipoCartonFlowID, carton.sintMonedaID, carton.intUnidadMedicionID, carton.decFrente, carton.decFondo,
-                        carton.decAltura, carton.decLargoPerfil, 0, 0, carton.intInternacion,
-                        carton.decCostoInternacion, 0, 0, 0, carton.decPrecioRuedas,
-                        carton.decTipoCambio, 0, carton.decPeso, carton.decPesoTotal, carton.intNumCajaNivel,
-                        carton.decPesoNivel, carton.intNumNivel, carton.intCantRefuerzoNivel, carton.decPrecioUnitario, carton.decPrecioTotal,
-                        carton.vchLeyenda, carton.bitActivo, (byte)tinOpcion)
+                        carton.sintTipoCartonFlowID, carton.sintMonedaID, carton.intUnidadMedicionID, carton.intCalibreAceroID, carton.decFrente, carton.decFondo,
+                        carton.decAltura, carton.decPeso, carton.intNumCajaNivel, carton.decPesoNivel, carton.intNumNivel, 
+                        carton.intCantRefuerzoNivel, carton.bitActivo, (byte)tinOpcion)
                                 select new Resultado
                                 {
                                     vchDescripcion = item.vchDescripcion,

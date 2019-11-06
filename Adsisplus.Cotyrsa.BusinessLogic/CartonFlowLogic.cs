@@ -87,7 +87,7 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
 
                     // Validamos si es un nuevo registro
                     if (tinOpcion != 1)
-                        ListCarton = ListarDatosCartonFlow(intDetCotizaID, (int)carton.intDatosCartonFlowID);
+                        ListCarton = ListarDatosCartonFlow(intCotizacionID, (int)carton.intDatosCartonFlowID);
                     // Validamos si existe registro
                     if (ListCarton.Count() > 0)
                         _carton = ListCarton.First();
@@ -97,7 +97,7 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
                     // Actualizamos la información
                     _carton = carton;
                     _carton.intElementoID = 60; // FALTA INGREGAR EL ELEMENTO AL CATÁLOGO
-
+                    _carton.intCotizacionID = intCotizacionID;
                     // Realizamos el registro del Carton Flow
                     result = CartonFlowDA.setDatosCaronFlow(_carton, tinOpcion);
                 }

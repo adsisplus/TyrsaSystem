@@ -76,7 +76,7 @@ namespace Adsisplus.Cotyrsa.BusinessEntities
         public string vchLeyenda { get; set; }
         [DataMember]
         public bool? bitActivo { get; set; }
-        [DataMember]
-        public SeleccionRiel riel { get; set; }
+        //[DataMember]
+        //public SeleccionRiel riel { get; set; }
     }
 }
