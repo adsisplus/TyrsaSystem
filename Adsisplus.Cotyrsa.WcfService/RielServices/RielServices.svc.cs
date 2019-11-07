@@ -91,5 +91,26 @@ namespace Adsisplus.Cotyrsa.WcfService.RielServices
             }
             return result;
         }
+        /// <summary>
+        /// Procedimiento que realiza el alta, modificación y  baja de los datos de riel porta rueda
+        /// </summary>
+        /// <param name="riel"></param>
+        /// <param name="intCotizacionID"></param>
+        /// <param name="intDetCotizaID"></param>
+        /// <param name="tinOpcion"></param>
+        /// <returns></returns>
+        public Resultado setDatosRielPortaRueda(DatosRielPortaRueda riel, int intCotizacionID, int intDetCotizaID, short tinOpcion)
+        {
+            Resultado result = new Resultado();
+            try
+            {
+                result = (new RielLogic()).setDatosRielPortaRueda(riel, intCotizacionID, intDetCotizaID, tinOpcion);
+            }
+            catch (Exception ex)
+            {
+                Adsisplus.Cotyrsa.BusinessLogic.EventLogManager.LogErrorEntry(ex.Message);
+            }
+            return result;
+        }
     }
 }

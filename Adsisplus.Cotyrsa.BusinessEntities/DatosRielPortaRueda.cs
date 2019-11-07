@@ -26,6 +26,8 @@ namespace Adsisplus.Cotyrsa.BusinessEntities
         public int? intUnidadMedicionID { get; set; }
         [DataMember]
         public short? sintMonedaID { get; set; }
+        [DataMember]
+        public short? sintTipoCartonFlowID { get; set; }
 
         [DataMember]
         public Decimal? decLargo { get; set; }
@@ -52,7 +54,10 @@ namespace Adsisplus.Cotyrsa.BusinessEntities
         public decimal? decTotalRielPartida { get; set; }
         [DataMember]
         public bool? bitPlastica { get; set; }
-
+        [DataMember]
+        public decimal? decPrecioUnitario { get; set; }
+        [DataMember]
+        public decimal? decPrecioTotal { get; set; }
         [DataMember]
         public Boolean? bitActivo { get; set; }
     }

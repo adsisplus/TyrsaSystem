@@ -33,6 +33,7 @@ namespace Adsisplus.Cotyrsa.DataAccess
                                     intCalibreAceroID = item.intCalibreAceroID,
                                     intUnidadMedicionID = item.intUnidadMedicionID,
                                     sintMonedaID = item.sintMonedaID,
+                                    sintTipoCartonFlowID = item.sintTipoCartonFlowID,
                                     decLargo = item.decLargo,
                                     intNumNivel = item.intNumNivel,
                                     intClip = item.intClip,
@@ -42,6 +43,8 @@ namespace Adsisplus.Cotyrsa.DataAccess
                                     decTipoCambio = item.decTipoCambio,
                                     decTotalRielPartida = item.decTotalRielPartida,
                                     bitPlastica = item.bitPlastica,
+                                    decPrecioUnitario = item.decPrecioUnitario,
+                                    decPrecioTotal = item.decPrecioTotal,
                                     bitActivo = item.bitActivo
                                 };
                     result.AddRange(query);

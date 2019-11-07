@@ -96,5 +96,61 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
             }
             return result;
         }
+        /// <summary>
+        /// Procedimiento que realiza el alta, modificación y  baja de los datos de riel porta rueda
+        /// </summary>
+        /// <param name="riel"></param>
+        /// <param name="intCotizacionID"></param>
+        /// <param name="intDetCotizaID"></param>
+        /// <param name="tinOpcion"></param>
+        /// <returns></returns>
+        public Resultado setDatosRielPortaRueda(DatosRielPortaRueda riel, int intCotizacionID, int intDetCotizaID, short tinOpcion)
+        {
+            Resultado result = new Resultado();
+            try
+            {
+                Cotizacion detCotizacion = new Cotizacion();
+                detCotizacion.intCotizacionID = intCotizacionID;
+                detCotizacion.intDetCotizaID = intDetCotizaID;
+                detCotizacion.intElementoID = riel.sintTipoCartonFlowID == 7 ? 27 : 28;
+                detCotizacion.intPartida = 0;
+                detCotizacion.intCantidad = riel.intNumNivel;
+                detCotizacion.decMonto = riel.decPrecioUnitario;
+                detCotizacion.decSubtotal = riel.decPrecioTotal;
+
+                // Almacenamos el registro
+                result = (new CotizacionLogic()).setDetCotizacion(detCotizacion, (short)(intDetCotizaID == 0 ? 1 : tinOpcion));
+                if (result.vchResultado != "NOK")
+                {
+                    intDetCotizaID = Convert.ToInt32(result.vchResultado);
+                    riel.intDetCotizaID = intDetCotizaID;
+
+                    List<DatosRielPortaRueda> ListRiel = new List<DatosRielPortaRueda>();
+                    DatosRielPortaRueda _riel = new DatosRielPortaRueda();
+
+                    // Validamos si es un nuevo registro
+                    if (tinOpcion != 1)
+                        ListRiel = ListarDatosRielPortaRueda((int)riel.intRielPortaRuedaID, intCotizacionID);
+                    // Validamos si existe registro
+                    if (ListRiel.Count() > 0)
+                        _riel = ListRiel.First();
+                    else
+                        _riel.intRielPortaRuedaID = 0;
+
+                    // Actualizamos la información
+                    _riel = riel;
+                    _riel.intCotizacionID = intCotizacionID;
+
+
+                    // Realizamos el registro del Carton Flow
+                    result = (new CartonFlowLogic()).setDatosRielPortaRueda(_riel, tinOpcion);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
     }
 }

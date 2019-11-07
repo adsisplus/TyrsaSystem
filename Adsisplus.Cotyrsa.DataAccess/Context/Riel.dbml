@@ -15,32 +15,9 @@
       <Column Name="decTotalKiloUnitario" Type="System.Decimal" CanBeNull="false" />
       <Column Name="decPrecioUnitario" Type="System.Decimal" CanBeNull="false" />
       <Column Name="vchLeyenda" Type="System.String" CanBeNull="false" />
-      <Column Member="decTotalInternacion" Type="System.Decimal" CanBeNull="false" />
+      <Column Name="decTotalInternacion" Type="System.Decimal" CanBeNull="false" />
     </Type>
   </Table>
-  <Function Name="dbo.stp_ListarDatosRielPortaRueda" Method="stp_ListarDatosRielPortaRueda">
-    <Parameter Name="intCotizacionID" Type="System.Int32" DbType="Int" />
-    <Parameter Name="intRielPortaRuedaID" Type="System.Int32" DbType="Int" />
-    <ElementType Name="stp_ListarDatosRielPortaRuedaResult">
-      <Column Name="intRielPortaRuedaID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="intElementoID" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="intCotizacionID" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="intDetCotizaID" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="intCalibreAceroID" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="intUnidadMedicionID" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="sintMonedaID" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
-      <Column Name="decLargo" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
-      <Column Name="intNumNivel" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="intClip" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="intCantidadRuedaRiel" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="intCantidad" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="decCostoPorRuedaUSD" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
-      <Column Name="decTipoCambio" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
-      <Column Name="decTotalRielPartida" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
-      <Column Name="bitPlastica" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="bitActivo" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-    </ElementType>
-  </Function>
   <Function Name="dbo.stp_ListarRielesRuedaMetalicaCartonFlow" Method="stp_ListarRielesRuedaMetalicaCartonFlow">
     <Parameter Name="sintTipoCartonFlowID" Type="System.Int16" DbType="SmallInt" />
     <Parameter Name="intCalibreAceroID" Type="System.Int16" DbType="SmallInt" />
@@ -67,5 +44,31 @@
     <Parameter Name="intInternacion" Type="System.Int32" DbType="Int" />
     <Parameter Name="decCostoInternacion" Type="System.Decimal" DbType="Decimal(12,2)" />
     <ElementType IdRef="ID1" />
+  </Function>
+  <Function Name="dbo.stp_ListarDatosRielPortaRueda" Method="stp_ListarDatosRielPortaRueda">
+    <Parameter Name="intCotizacionID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intRielPortaRuedaID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="stp_ListarDatosRielPortaRuedaResult">
+      <Column Name="intRielPortaRuedaID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="intElementoID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="intCotizacionID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="intDetCotizaID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="intCalibreAceroID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="intUnidadMedicionID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="sintMonedaID" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="sintTipoCartonFlowID" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="decLargo" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
+      <Column Name="intNumNivel" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="intClip" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="intCantidadRuedaRiel" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="intCantidad" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="decCostoPorRuedaUSD" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
+      <Column Name="decTipoCambio" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
+      <Column Name="decTotalRielPartida" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
+      <Column Name="decPrecioUnitario" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
+      <Column Name="decPrecioTotal" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
+      <Column Name="bitPlastica" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="bitActivo" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </ElementType>
   </Function>
 </Database>

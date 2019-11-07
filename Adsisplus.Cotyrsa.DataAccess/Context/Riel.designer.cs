@@ -70,13 +70,6 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.stp_ListarDatosRielPortaRueda")]
-		public ISingleResult<stp_ListarDatosRielPortaRuedaResult> stp_ListarDatosRielPortaRueda([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intCotizacionID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intRielPortaRuedaID)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), intCotizacionID, intRielPortaRuedaID);
-			return ((ISingleResult<stp_ListarDatosRielPortaRuedaResult>)(result.ReturnValue));
-		}
-		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.stp_ListarRielesRuedaMetalicaCartonFlow")]
 		public ISingleResult<entRielRueda> stp_ListarRielesRuedaMetalicaCartonFlow([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="SmallInt")] System.Nullable<short> sintTipoCartonFlowID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="SmallInt")] System.Nullable<short> intCalibreAceroID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="SmallInt")] System.Nullable<short> sintCantidadRiel, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intNumNivel, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Decimal(8,2)")] System.Nullable<decimal> decLargoPerfil, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="SmallInt")] System.Nullable<short> sintCantidadRuegas, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Decimal(12,2)")] System.Nullable<decimal> decPrecioRuedas, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Decimal(8,2)")] System.Nullable<decimal> decTipoCambio)
 		{
@@ -89,6 +82,13 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), sintTipoCartonFlowID, intCalibreAceroID, decAncho, decLargo, sintCantidadRiel, decTotalKiloUnitario, intNumNivel, decLargoPerfil, sintCantidadRuegas, decPrecioRuedas, decTipoCambio, intInternacion, decCostoInternacion);
 			return ((ISingleResult<entRielRueda>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.stp_ListarDatosRielPortaRueda")]
+		public ISingleResult<stp_ListarDatosRielPortaRuedaResult> stp_ListarDatosRielPortaRueda([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intCotizacionID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intRielPortaRuedaID)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), intCotizacionID, intRielPortaRuedaID);
+			return ((ISingleResult<stp_ListarDatosRielPortaRuedaResult>)(result.ReturnValue));
 		}
 	}
 	
@@ -370,6 +370,8 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 		
 		private System.Nullable<short> _sintMonedaID;
 		
+		private System.Nullable<short> _sintTipoCartonFlowID;
+		
 		private System.Nullable<decimal> _decLargo;
 		
 		private System.Nullable<int> _intNumNivel;
@@ -385,6 +387,10 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 		private System.Nullable<decimal> _decTipoCambio;
 		
 		private System.Nullable<decimal> _decTotalRielPartida;
+		
+		private System.Nullable<decimal> _decPrecioUnitario;
+		
+		private System.Nullable<decimal> _decPrecioTotal;
 		
 		private System.Nullable<bool> _bitPlastica;
 		
@@ -502,6 +508,22 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 				if ((this._sintMonedaID != value))
 				{
 					this._sintMonedaID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sintTipoCartonFlowID", DbType="SmallInt")]
+		public System.Nullable<short> sintTipoCartonFlowID
+		{
+			get
+			{
+				return this._sintTipoCartonFlowID;
+			}
+			set
+			{
+				if ((this._sintTipoCartonFlowID != value))
+				{
+					this._sintTipoCartonFlowID = value;
 				}
 			}
 		}
@@ -630,6 +652,38 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 				if ((this._decTotalRielPartida != value))
 				{
 					this._decTotalRielPartida = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decPrecioUnitario", DbType="Decimal(20,2)")]
+		public System.Nullable<decimal> decPrecioUnitario
+		{
+			get
+			{
+				return this._decPrecioUnitario;
+			}
+			set
+			{
+				if ((this._decPrecioUnitario != value))
+				{
+					this._decPrecioUnitario = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decPrecioTotal", DbType="Decimal(20,2)")]
+		public System.Nullable<decimal> decPrecioTotal
+		{
+			get
+			{
+				return this._decPrecioTotal;
+			}
+			set
+			{
+				if ((this._decPrecioTotal != value))
+				{
+					this._decPrecioTotal = value;
 				}
 			}
 		}

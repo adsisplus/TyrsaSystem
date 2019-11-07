@@ -146,5 +146,24 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
             }
             return result;
         }
+        /// <summary>
+        /// Procedimiento que realiza el alta, modificación y baja de los datos de riel por rueda
+        /// </summary>
+        /// <param name="riel"></param>
+        /// <param name="tinOpcion"></param>
+        /// <returns></returns>
+        public Resultado setDatosRielPortaRueda(DatosRielPortaRueda riel, short tinOpcion)
+        {
+            Resultado result = new Resultado();
+            try
+            {
+                result = CartonFlowDA.setDatosRielPortaRueda(riel, tinOpcion);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
     }
 }

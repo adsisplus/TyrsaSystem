@@ -172,15 +172,30 @@ namespace Adsisplus.Cotyrsa.DataAccess
             }
             return result;
         }
-
+        /// <summary>
+        /// Procedimiento que realiza el alta, modificación y baja de los datos de riel por rueda
+        /// </summary>
+        /// <param name="riel"></param>
+        /// <param name="tinOpcion"></param>
+        /// <returns></returns>
         public Resultado setDatosRielPortaRueda(DatosRielPortaRueda riel, short tinOpcion)
         {
             Resultado result = new Resultado();
             try
             {
                 using (SistemasCartonFlowDataContext dc = new SistemasCartonFlowDataContext(Helper.ConnectionString()))
-                { 
-                
+                {
+                    var query = from item in dc.stp_setDatosRielPortaRueda(riel.intRielPortaRuedaID, riel.intElementoID, riel.intCotizacionID, riel.intDetCotizaID,
+                        riel.intCalibreAceroID, riel.intUnidadMedicionID, riel.sintMonedaID, riel.sintTipoCartonFlowID, riel.decLargo, 
+                        riel.intNumNivel, riel.intClip, riel.intCantidadRuedaRiel, riel.intCantidad, riel.decCostoPorRuedaUSD, 
+                        riel.decTipoCambio, riel.decTotalRielPartida, riel.bitPlastica, riel.decPrecioUnitario,
+                        riel.decPrecioTotal, riel.bitActivo, (byte)tinOpcion)
+                                select new Resultado
+                                {
+                                    vchDescripcion = item.vchDescripcion,
+                                    vchResultado = item.vchResultado
+                                };
+                    result = query.First();
                 }
             }
             catch (Exception ex)

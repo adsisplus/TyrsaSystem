@@ -60,6 +60,17 @@ namespace Adsisplus.Cotyrsa.WcfService.RielServices
         [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ListarRielesRuedaPlasticaCartonFlow")]
         List<SeleccionRiel> ListarRielesRuedaPlasticaCartonFlow(short sintTipoCartonFlowID, short intCalibreAceroID, decimal decAncho, decimal decLargo, short sintCantidadRiel,
             short decTotalKiloUnitario, int intNumNivel, decimal decLargoPerfil, short sintCantidadRuedas, decimal decPrecioRuedas, decimal decTipoCambio, int intInternacion, decimal decCostoInternacion);
+        /// <summary>
+        /// Procedimiento que realiza el alta, modificación y  baja de los datos de riel porta rueda
+        /// </summary>
+        /// <param name="riel"></param>
+        /// <param name="intCotizacionID"></param>
+        /// <param name="intDetCotizaID"></param>
+        /// <param name="tinOpcion"></param>
+        /// <returns></returns>
+        [OperationContract]
+        [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "setDatosRielPortaRueda")]
+        Resultado setDatosRielPortaRueda(DatosRielPortaRueda riel, int intCotizacionID, int intDetCotizaID, short tinOpcion);
 
     }
 }
