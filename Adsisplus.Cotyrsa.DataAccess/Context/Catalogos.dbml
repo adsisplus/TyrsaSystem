@@ -548,4 +548,10 @@
       <Column Name="decLargo" Type="System.Decimal" DbType="Decimal(12,3)" CanBeNull="true" />
     </ElementType>
   </Function>
+  <Function Name="dbo.stp_ListarCatMoneda" Method="stp_ListarCatMoneda">
+    <ElementType Name="stp_ListarCatMonedaResult">
+      <Column Name="sintMonedaID" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Column Name="vchMoneda" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
+    </ElementType>
+  </Function>
 </Database>

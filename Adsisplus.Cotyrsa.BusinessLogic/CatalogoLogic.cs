@@ -936,5 +936,22 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
             }
             return result;
         }
+        /// <summary>
+        /// Procedimiento que lista el catálogo de monedas
+        /// </summary>
+        /// <returns></returns>
+        public List<Catalogo> ListarCatMoneda()
+        {
+            List<Catalogo> result = new List<Catalogo>();
+            try
+            {
+                result = CatalogosDA.ListarCatMoneda();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
     }
 }

@@ -1637,6 +1637,32 @@ namespace Adsisplus.Cotyrsa.DataAccess
             }
             return result;
         }
+        /// <summary>
+        /// Procedimiento que lista el catálogo de monedas
+        /// </summary>
+        /// <returns></returns>
+        public List<Catalogo> ListarCatMoneda()
+        {
+            List<Catalogo> result = new List<Catalogo>();
+            try
+            {
+                using (CatalogosDataContext dc = new CatalogosDataContext(Helper.ConnectionString()))
+                {
+                    var query = from item in dc.stp_ListarCatMoneda()
+                                select new Catalogo
+                                {
+                                    intCatalogoID = item.sintMonedaID,
+                                    vchDescripcion = item.vchMoneda
+                                };
+                    result.AddRange(query);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
     }
 
 

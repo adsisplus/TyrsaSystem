@@ -109,5 +109,12 @@ namespace Adsisplus.Cotyrsa.WcfService.CatalogoGeneralServices
         [OperationContract]
         [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ListarCatTipoUnidadFlete")]
         List<Catalogo> ListarCatTipoUnidadFlete();
+        /// <summary>
+        /// Procedimiento que lista el catálogo de monedas
+        /// </summary>
+        /// <returns></returns>
+        [OperationContract]
+        [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ListarCatMoneda")]
+        List<Catalogo> ListarCatMoneda();
     }
 }

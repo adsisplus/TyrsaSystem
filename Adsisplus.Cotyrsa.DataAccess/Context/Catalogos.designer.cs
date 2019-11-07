@@ -481,6 +481,13 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
 			return ((ISingleResult<stp_ListarCatLargoAnguloResult>)(result.ReturnValue));
 		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.stp_ListarCatMoneda")]
+		public ISingleResult<stp_ListarCatMonedaResult> stp_ListarCatMoneda()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<stp_ListarCatMonedaResult>)(result.ReturnValue));
+		}
 	}
 	
 	public partial class stp_ListarCatCalibreAceroResult
@@ -5800,6 +5807,50 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 				if ((this._decLargo != value))
 				{
 					this._decLargo = value;
+				}
+			}
+		}
+	}
+	
+	public partial class stp_ListarCatMonedaResult
+	{
+		
+		private short _sintMonedaID;
+		
+		private string _vchMoneda;
+		
+		public stp_ListarCatMonedaResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sintMonedaID", DbType="SmallInt NOT NULL")]
+		public short sintMonedaID
+		{
+			get
+			{
+				return this._sintMonedaID;
+			}
+			set
+			{
+				if ((this._sintMonedaID != value))
+				{
+					this._sintMonedaID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchMoneda", DbType="VarChar(25)")]
+		public string vchMoneda
+		{
+			get
+			{
+				return this._vchMoneda;
+			}
+			set
+			{
+				if ((this._vchMoneda != value))
+				{
+					this._vchMoneda = value;
 				}
 			}
 		}

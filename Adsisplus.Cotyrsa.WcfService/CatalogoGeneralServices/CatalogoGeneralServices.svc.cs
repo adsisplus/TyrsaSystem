@@ -238,5 +238,22 @@ namespace Adsisplus.Cotyrsa.WcfService.CatalogoGeneralServices
             }
             return result;
         }
+        /// <summary>
+        /// Procedimiento que lista el catálogo de monedas
+        /// </summary>
+        /// <returns></returns>
+        public List<Catalogo> ListarCatMoneda()
+        {
+            List<Catalogo> result = new List<Catalogo>();
+            try
+            {
+                result = (new CatalogoLogic()).ListarCatMoneda();
+            }
+            catch (Exception ex)
+            {
+                Adsisplus.Cotyrsa.BusinessLogic.EventLogManager.LogErrorEntry(ex.Message);
+            }
+            return result;
+        }
     }
 }
