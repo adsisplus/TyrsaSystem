@@ -45,6 +45,8 @@ namespace Adsisplus.Cotyrsa.DataAccess
                                     bitPlastica = item.bitPlastica,
                                     decPrecioUnitario = item.decPrecioUnitario,
                                     decPrecioTotal = item.decPrecioTotal,
+                                    intInternacion = item.intInternacion,
+                                    decCostoInternacion = item.decCostoInternacion,
                                     bitActivo = item.bitActivo
                                 };
                     result.AddRange(query);

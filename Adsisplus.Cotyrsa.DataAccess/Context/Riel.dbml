@@ -68,6 +68,8 @@
       <Column Name="decPrecioUnitario" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
       <Column Name="decPrecioTotal" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
       <Column Name="bitPlastica" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="intInternacion" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="decCostoInternacion" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
       <Column Name="bitActivo" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
     </ElementType>
   </Function>

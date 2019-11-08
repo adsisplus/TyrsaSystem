@@ -90,9 +90,9 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
                 detCotizacion.intDetCotizaID = intDetCotizaID;
                 detCotizacion.intElementoID = perfil.intElementoID;
                 detCotizacion.intPartida = 0;
-                detCotizacion.intCantidad = 0;
-                detCotizacion.decMonto = 0;
-                detCotizacion.decSubtotal = 0;
+                detCotizacion.intCantidad = perfil.intCantidad;
+                detCotizacion.decMonto = perfil.decPrecioUnitario;
+                detCotizacion.decSubtotal = perfil.decPrecioTotal;
 
                 // Almacenamos el registro
                 result = (new CotizacionLogic()).setDetCotizacion(detCotizacion, (short)(intDetCotizaID == 0 ? 1 : tinOpcion));

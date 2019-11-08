@@ -394,6 +394,10 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 		
 		private System.Nullable<bool> _bitPlastica;
 		
+		private System.Nullable<int> _intInternacion;
+		
+		private System.Nullable<decimal> _decCostoInternacion;
+		
 		private System.Nullable<bool> _bitActivo;
 		
 		public stp_ListarDatosRielPortaRuedaResult()
@@ -700,6 +704,38 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 				if ((this._bitPlastica != value))
 				{
 					this._bitPlastica = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intInternacion", DbType="Int")]
+		public System.Nullable<int> intInternacion
+		{
+			get
+			{
+				return this._intInternacion;
+			}
+			set
+			{
+				if ((this._intInternacion != value))
+				{
+					this._intInternacion = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decCostoInternacion", DbType="Decimal(20,2)")]
+		public System.Nullable<decimal> decCostoInternacion
+		{
+			get
+			{
+				return this._decCostoInternacion;
+			}
+			set
+			{
+				if ((this._decCostoInternacion != value))
+				{
+					this._decCostoInternacion = value;
 				}
 			}
 		}

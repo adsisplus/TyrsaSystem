@@ -189,7 +189,7 @@ namespace Adsisplus.Cotyrsa.DataAccess
                         riel.intCalibreAceroID, riel.intUnidadMedicionID, riel.sintMonedaID, riel.sintTipoCartonFlowID, riel.decLargo, 
                         riel.intNumNivel, riel.intClip, riel.intCantidadRuedaRiel, riel.intCantidad, riel.decCostoPorRuedaUSD, 
                         riel.decTipoCambio, riel.decTotalRielPartida, riel.bitPlastica, riel.decPrecioUnitario,
-                        riel.decPrecioTotal, riel.bitActivo, (byte)tinOpcion)
+                        riel.decPrecioTotal, riel.intInternacion, riel.decCostoInternacion, riel.bitActivo, (byte)tinOpcion)
                                 select new Resultado
                                 {
                                     vchDescripcion = item.vchDescripcion,
