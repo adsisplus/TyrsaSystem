@@ -94,8 +94,8 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
                 detCotizacion.intElementoID = 21;
                 detCotizacion.intPartida = 0;
                 detCotizacion.intCantidad = piso.intCantidad;
-                detCotizacion.decMonto = piso.decPrecioTotal;
-                detCotizacion.decSubtotal = Decimal.Round((Math.Truncate(100 * piso.decPrecioTotal.Value) / 100) * piso.intCantidad.Value);
+                detCotizacion.decMonto = tinOpcion == 3 ? 0 : piso.decPrecioTotal;
+                detCotizacion.decSubtotal = tinOpcion == 3 ? 0 : Decimal.Round((Math.Truncate(100 * piso.decPrecioTotal.Value) / 100) * piso.intCantidad.Value);
 
                 // Almacenamos el registro
                 result = (new CotizacionLogic()).setDetCotizacion(detCotizacion, (short)(intDetCotizaID == 0 ? 1 : tinOpcion));
@@ -115,29 +115,34 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
                         _piso = ListPiso.First();
                     else
                         _piso.intDatoPisoID = 0;
-                    // Actualizamos la información
-                    _piso.bitActivo = piso.bitActivo;
-                    _piso.bitTipoPisoAbierto = piso.bitTipoPisoAbierto;
-                    _piso.bitGalvanizado = piso.bitGalvanizado;
-                    _piso.bitUsoPatin = piso.bitUsoPatin;
-                    _piso.decAncho = piso.decAncho;
-                    _piso.decLargoPiso = piso.decLargoPiso;
-                    _piso.decPesoTotal = piso.decPesoTotal;
-                    _piso.decPesoUnitario = piso.seleccion.First().decPesoBase;
-                    _piso.decPrecioTotal = piso.decPrecioTotal;
-                    _piso.decPrecioUnitario = piso.seleccion.First().decPrecioBase;
-                    _piso.intCantidad = piso.intCantidad;
-                    _piso.intCotizacionID = intCotizacionID;
-                    _piso.intDatoPisoID = piso.intDatoPisoID;
-                    _piso.intDetCotizaID = intDetCotizaID;
-                    _piso.intElementoID = 21;
-                    _piso.sintPinturaID = piso.sintPinturaID;
 
+                    _piso.intCotizacionID = intCotizacionID;
+                    _piso.intDetCotizaID = intDetCotizaID;
+                    if (tinOpcion != 3)
+                    {
+                        // Actualizamos la información
+                        _piso.bitActivo = piso.bitActivo;
+                        _piso.bitTipoPisoAbierto = piso.bitTipoPisoAbierto;
+                        _piso.bitGalvanizado = piso.bitGalvanizado;
+                        _piso.bitUsoPatin = piso.bitUsoPatin;
+                        _piso.decAncho = piso.decAncho;
+                        _piso.decLargoPiso = piso.decLargoPiso;
+                        _piso.decPesoTotal = piso.decPesoTotal;
+                        _piso.decPesoUnitario = piso.seleccion.First().decPesoBase;
+                        _piso.decPrecioTotal = piso.decPrecioTotal;
+                        _piso.decPrecioUnitario = piso.seleccion.First().decPrecioBase;
+                        _piso.intCantidad = piso.intCantidad;
+
+                        _piso.intDatoPisoID = piso.intDatoPisoID;
+                        _piso.intElementoID = 21;
+                        _piso.sintPinturaID = piso.sintPinturaID;
+                    }
                     //Realizamos el registro de los datos
                     result = (new DriveInLogic()).setDatosPiso(_piso, tinOpcion);
+
                     // Validamos el cambio realizado
                     if (result.vchResultado != "NOK")
-                        result = (new DriveInLogic()).setSeleccionPiso(piso.seleccion, (int)piso.intCantidad, Convert.ToInt32(result.vchResultado), _piso.intDetCotizaID, tinOpcion);
+                        result = (new DriveInLogic()).setSeleccionPiso(tinOpcion == 3 ? _piso.seleccion :  piso.seleccion, (int)piso.intCantidad, Convert.ToInt32(result.vchResultado), _piso.intDetCotizaID, tinOpcion);
                 }
             }
             catch (Exception ex)

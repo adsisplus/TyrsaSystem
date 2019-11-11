@@ -91,8 +91,8 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
                 detCotizacion.intDetCotizaID = intDetCotizaID;
                 detCotizacion.intElementoID = 20; // Falta definir el ID
                 detCotizacion.intPartida = 0;
-                detCotizacion.intCantidad = guia.intCantidad;
-                detCotizacion.decMonto = guia.decPrecioTotal;
+                detCotizacion.intCantidad = tinOpcion == 3 ? 0 : guia.intCantidad;
+                detCotizacion.decMonto = tinOpcion == 3 ? 0 : guia.decPrecioTotal;
                 //detCotizacion.decSubtotal = Decimal.Round((Math.Truncate(100 * guia.decPrecioTotal.Value) / 100) * guia.intCantidad.Value);
 
                 // Almacenamos el registro
@@ -113,21 +113,24 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
                         _guia = ListGuia.First();
                     else
                         _guia.intGuiaEntradaID= 0;
-                    // Actualizamos la información
-                    _guia.bitActivo = guia.bitActivo;
-                    _guia.decLargo = guia.decLargo;
-                    _guia.decPrecioTotal = guia.decPrecioTotal;
-                    _guia.decPrecioUnitario = guia.decPrecioUnitario;
-                    _guia.intCantidad = guia.intCantidad;
+
                     _guia.intCotizacionID = intCotizacionID;
                     _guia.intDetCotizaID = intDetCotizaID;
-                    _guia.intElementoID = 20; // id pendiente
-                    _guia.sintPinturaID = guia.sintPinturaID;
-                    // Insertamos los datos de la selección
                     _guia.seleccion = new SeleccionGuiaMonteCarga();
-                    _guia.seleccion = guia.seleccion;
+                    if (tinOpcion != 3)
+                    {
+                        // Actualizamos la información
+                        _guia.bitActivo = guia.bitActivo;
+                        _guia.decLargo = guia.decLargo;
+                        _guia.decPrecioTotal = guia.decPrecioTotal;
+                        _guia.decPrecioUnitario = guia.decPrecioUnitario;
+                        _guia.intCantidad = guia.intCantidad;
 
-
+                        _guia.intElementoID = 20; // id pendiente
+                        _guia.sintPinturaID = guia.sintPinturaID;
+                        // Insertamos los datos de la selección
+                        _guia.seleccion = guia.seleccion;
+                    }
                     //Realizamos el registro de los datos
                     result = (new DriveInLogic()).setDatosGuiaEntrado(_guia, tinOpcion);
                 }

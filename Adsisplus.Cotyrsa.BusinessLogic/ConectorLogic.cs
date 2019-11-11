@@ -73,8 +73,8 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
                 detCotizacion.intElementoID = 29; // // FALTA INGREGAR EL ELEMENTO AL CATÁLOGO
                 detCotizacion.intPartida = 0;
                 detCotizacion.intCantidad = 0;
-                detCotizacion.decMonto = 0;
-                detCotizacion.decSubtotal = 0;
+                detCotizacion.decMonto = conector.decPrecioUnitario;
+                detCotizacion.decSubtotal = conector.decPrecioTotal;
 
                 // Almacenamos el registro
                 result = (new CotizacionLogic()).setDetCotizacion(detCotizacion, (short)(intDetCotizaID == 0 ? 1 : tinOpcion));
@@ -95,6 +95,8 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
                     else
                         _conector.intDatosConectorCFID = 0;
 
+                    conector.intCotizacionID = intCotizacionID;
+                    conector.intDetCotizaID = intDetCotizaID;
                     // Actualizamos la información
                     _conector = conector;
                     //_conector.intElementoID = 29; // FALTA INGREGAR EL ELEMENTO AL CATÁLOGO

@@ -93,8 +93,8 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
                 detCotizacion.intElementoID = 17;
                 detCotizacion.intPartida = 0;
                 detCotizacion.intCantidad = riel.intCantidad;
-                detCotizacion.decMonto = riel.seleccion.decPrecioFinal;
-                detCotizacion.decSubtotal = riel.seleccion.decPrecioVentaTotal;
+                detCotizacion.decMonto = tinOpcion == 3 ? 0 : riel.seleccion.decPrecioFinal;
+                detCotizacion.decSubtotal = tinOpcion == 3 ? 0 : riel.seleccion.decPrecioVentaTotal;
 
                 // Almacenamos el registro
                 result = (new CotizacionLogic()).setDetCotizacion(detCotizacion, (short)(intDetCotizaID == 0 ? 1 : tinOpcion));
@@ -114,23 +114,27 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
                         _riel = ListRiel.First();
                     else
                         _riel.intRielTarimaID = 0;
-                    // Actualizamos la información
-                    _riel.bitActivo = riel.bitActivo;
-                    _riel.decCarga = riel.decCarga;
-                    _riel.decLargo = riel.decLargo;
-                    _riel.intCantidad = riel.intCantidad;
+
                     _riel.intCotizacionID = intCotizacionID;
                     _riel.intDetCotizaID = intDetCotizaID;
-                    _riel.intElementoID = 17;
-                    _riel.intRielTarimaID = riel.intRielTarimaID;
-                    _riel.sintPinturaID = riel.sintPinturaID;
-                    _riel.sintRielTarimaID = riel.sintRielTarimaID;
-                    _riel.sintTipoRielTarimaID = riel.sintTipoRielTarimaID;
-
-                    // Establecemos los datos de la selección
                     _riel.seleccion = new SeleccionRielDeCarga();
-                    _riel.seleccion = riel.seleccion;
+                    if (tinOpcion != 3)
+                    {
+                        // Actualizamos la información
+                        _riel.bitActivo = riel.bitActivo;
+                        _riel.decCarga = riel.decCarga;
+                        _riel.decLargo = riel.decLargo;
+                        _riel.intCantidad = riel.intCantidad;
 
+                        _riel.intElementoID = 17;
+                        _riel.intRielTarimaID = riel.intRielTarimaID;
+                        _riel.sintPinturaID = riel.sintPinturaID;
+                        _riel.sintRielTarimaID = riel.sintRielTarimaID;
+                        _riel.sintTipoRielTarimaID = riel.sintTipoRielTarimaID;
+
+                        // Establecemos los datos de la selección
+                        _riel.seleccion = riel.seleccion;
+                    }
                     //Realizamos el registro de los datos
                     result = (new DriveInLogic()).setDatosRielTarima(_riel, tinOpcion);
                 }

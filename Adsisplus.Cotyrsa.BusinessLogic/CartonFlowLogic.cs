@@ -72,8 +72,8 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
                 detCotizacion.intElementoID = 60; // // FALTA INGREGAR EL ELEMENTO AL CATÁLOGO
                 detCotizacion.intPartida = 0;
                 detCotizacion.intCantidad = 0;
-                detCotizacion.decMonto = carton.decPrecioUnitario;
-                detCotizacion.decSubtotal = carton.decPrecioTotal;
+                detCotizacion.decMonto = tinOpcion == 3 ? 0 : carton.decPrecioUnitario;
+                detCotizacion.decSubtotal = tinOpcion == 3 ? 0 : carton.decPrecioTotal;
 
                 // Almacenamos el registro
                 result = (new CotizacionLogic()).setDetCotizacion(detCotizacion, (short)(intDetCotizaID == 0 ? 1 : tinOpcion));
@@ -95,7 +95,7 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
                         _carton.intDatosCartonFlowID = 0;
 
                     // Actualizamos la información
-                    _carton = carton;
+                    _carton = tinOpcion == 3 ? _carton : carton;
                     _carton.intElementoID = 60; // FALTA INGREGAR EL ELEMENTO AL CATÁLOGO
                     _carton.intCotizacionID = intCotizacionID;
                     // Realizamos el registro del Carton Flow

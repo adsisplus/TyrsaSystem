@@ -94,8 +94,8 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
                 detCotizacion.intElementoID = 31;
                 detCotizacion.intPartida = 0;
                 detCotizacion.intCantidad = poste.intCantidad;
-                detCotizacion.decMonto = poste.seleccion.First().decPrecioTyrsa;
-                detCotizacion.decSubtotal = poste.intCantidad * poste.seleccion.First().decPrecioTyrsa;
+                detCotizacion.decMonto = tinOpcion == 3 ? 0 : poste.seleccion.First().decPrecioTyrsa;
+                detCotizacion.decSubtotal = tinOpcion == 3 ? 0 : poste.intCantidad * poste.seleccion.First().decPrecioTyrsa;
 
                 // Almacenamos el registro
                 result = (new CotizacionLogic()).setDetCotizacion(detCotizacion, (short)(intDetCotizaID == 0 ? 1 : tinOpcion));
@@ -108,36 +108,23 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
                     DatosPosteDriveIn _poste = new DatosPosteDriveIn();
 
 
-                    //// Buscamos los datos del DriveIn
-                    //List<DatosDriveIn> ListDriveIn = new List<DatosDriveIn>();
-                    //DatosDriveIn _driveIn = new DatosDriveIn();
-                    //ListDriveIn = (new DriveInLogic()).ListarDatosDriveIn(0, intCotizacionID);
+                    if (tinOpcion != 1)
+                        ListPoste = ListarDatosPosteDriveIn((int)poste.intDatoPosteDriveInID, intCotizacionID, (int)poste.intDatoMarcoID);
+                    // Validamos si existe registro
+                    if (ListPoste.Count() > 0)
+                        _poste = ListPoste.First();
+                    else
+                    {
+                        _poste.intDatoPosteDriveInID = 0;
+                        tinOpcion = 1;
+                    }
+                    // Actualizamos la información
+                    _poste.intCotizacionID = intCotizacionID;
+                    _poste.intDetCotizaID = intDetCotizaID;
+                    _poste.seleccion = new List<DatosPrecioPoste>();
 
-                    //// Revisamos si existe los datos
-                    //if (ListDriveIn.Count() > 0)
-                    //{
-                    //    _driveIn = ListDriveIn.First();
-                    //    // Actualizamos los datos de doble monten
-                    //    _driveIn.bitDobleMonten = poste.bitDobleMonten;
-                    //    _driveIn.decAlturaDobleMonten = poste.decAlturaDobleMonten;
-
-                    //    // Actualizamos los datos de DriveIn
-                    //    result = (new DriveInLogic()).setDatosDriveIn(_driveIn, intCotizacionID, intDetCotizaID, 2);
-
-                        // Validamos si es un nuevo registro
-                        if (tinOpcion != 1)
-                            ListPoste = ListarDatosPosteDriveIn((int)poste.intDatoPosteDriveInID, intCotizacionID, (int)poste.intDatoMarcoID);
-                        // Validamos si existe registro
-                        if (ListPoste.Count() > 0)
-                            _poste = ListPoste.First();
-                        else
-                        {
-                            _poste.intDatoPosteDriveInID = 0;
-                            tinOpcion = 1;
-                        }
-                        // Actualizamos la información
-                        _poste.bitActivo = poste.bitActivo;
-                        _poste.intCotizacionID = intCotizacionID;
+                    if (tinOpcion != 3)
+                    {
                         //_poste.decCalibre = poste.decCalibre;
                         //_poste.decPrecioTyrsa = poste.decPrecioTyrsa;
                         //_poste.decPrecioTyrsaKg = poste.decPrecioTyrsaKg;
@@ -145,27 +132,19 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
                         //_poste.decRelacionPrecios = poste.decRelacionPrecios;
                         //_poste.decSolera = poste.decSolera;
                         //_poste.decTotalKilo = poste.decTotalKilo;
+                        _poste.bitActivo = poste.bitActivo;
                         _poste.intDatoMarcoID = poste.intDatoMarcoID;
                         _poste.intCantidad = poste.intCantidad;
-                        _poste.intDetCotizaID = intDetCotizaID;
                         _poste.bitDobleMonten = poste.bitDobleMonten;
                         _poste.decAlturaDobleMonten = poste.decAlturaDobleMonten;
                         _poste.intElementoID = 31;
                         //_poste.intSKUID = poste.intSKUID;
                         //_poste.sintNumPosteReq = poste.sintNumPosteReq;
                         //_poste.sintNumTravesanio = poste.sintNumTravesanio;
-                        _poste.seleccion = new List<DatosPrecioPoste>();
                         _poste.seleccion = poste.seleccion;
-
-                        //Realizamos el registro del DRIVEIN
-                        result = (new DriveInLogic()).setDatosPosteDriveIn(_poste, tinOpcion);
-                    //}
-                    //else
-                    //{
-                    //    result = new Resultado();
-                    //    result.vchResultado = "NOK";
-                    //    result.vchDescripcion = "NO EXISTE DATOS DE DRIVE IN. CAPTURAR PRIMERO DICHOS DATOS";
-                    //}
+                    }
+                    //Realizamos el registro del DRIVEIN
+                    result = (new DriveInLogic()).setDatosPosteDriveIn(_poste, tinOpcion);
                 }
             }
             catch (Exception ex)

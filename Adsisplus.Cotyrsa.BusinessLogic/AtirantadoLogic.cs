@@ -91,8 +91,8 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
                 detCotizacion.intDetCotizaID = intDetCotizaID;
                 detCotizacion.intElementoID = 18;
                 detCotizacion.intPartida = 0;
-                detCotizacion.intCantidad = atirantado.intCantidad;
-                detCotizacion.decMonto = atirantado.seleccion.decPrecioVentaUnitario;
+                detCotizacion.intCantidad = tinOpcion == 3 ? 0 : atirantado.intCantidad;
+                detCotizacion.decMonto = tinOpcion == 3 ? 0 : atirantado.seleccion.decPrecioVentaUnitario;
                 //detCotizacion.decSubtotal = Decimal.Round((Math.Truncate(100 * atirantado.seleccion.decPrecioVentaUnitario.Value) / 100) * atirantado.intCantidad.Value);
 
                 // Almacenamos el registro
@@ -115,25 +115,30 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
                     else
                         // En caso contrario, establecemos el valor 0
                         _atirantado.intAtirantadoID = 0;
-                    // Actualizamos la información
-                    _atirantado.bitActivo = atirantado.bitActivo;
-                    _atirantado.decLargo = atirantado.decLargo;
-                    _atirantado.decLongitud = atirantado.decLongitud;
-                    //_atirantado.decPesoTotal = atirantado.decPesoTotal;
-                    //_atirantado.decPesoUnitario = atirantado.decPesoUnitario;
-                    //_atirantado.decPrecioVentaTotal = atirantado.decPrecioVentaTotal;
-                    //_atirantado.decPrecioVentaUnitario = atirantado.decPrecioVentaUnitario;
-                    _atirantado.intCalibreID = atirantado.intCalibreID;
-                    _atirantado.intCantidad = atirantado.intCantidad;
+                    
                     _atirantado.intCotizacionID = intCotizacionID;
                     _atirantado.intDetCotizaID = intDetCotizaID;
-                    _atirantado.intElementoID = 18;
-                    _atirantado.sintPinturaID = atirantado.sintPinturaID;
-
-                    // Almacenamos los datos de la selección
                     _atirantado.seleccion = new SeleccionArriestrado();
-                    _atirantado.seleccion = atirantado.seleccion;
+                    // en caso de tratarse de un alta o modificación, actualizamos la información
+                    if (tinOpcion != 3)
+                    {
+                        // Actualizamos la información
+                        _atirantado.bitActivo = atirantado.bitActivo;
+                        _atirantado.decLargo = atirantado.decLargo;
+                        _atirantado.decLongitud = atirantado.decLongitud;
+                        //_atirantado.decPesoTotal = atirantado.decPesoTotal;
+                        //_atirantado.decPesoUnitario = atirantado.decPesoUnitario;
+                        //_atirantado.decPrecioVentaTotal = atirantado.decPrecioVentaTotal;
+                        //_atirantado.decPrecioVentaUnitario = atirantado.decPrecioVentaUnitario;
+                        _atirantado.intCalibreID = atirantado.intCalibreID;
+                        _atirantado.intCantidad = atirantado.intCantidad;
+                        _atirantado.intElementoID = 18;
+                        _atirantado.sintPinturaID = atirantado.sintPinturaID;
 
+                        // Almacenamos los datos de la selección
+                        
+                        _atirantado.seleccion = atirantado.seleccion;
+                    }
                     // Realizamos el registro del atirantado
                     result = (new DriveInLogic()).setDatosAtirantado(_atirantado, tinOpcion);
 

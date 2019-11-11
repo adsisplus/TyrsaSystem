@@ -593,8 +593,8 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
                 detCotizacion.intDetCotizaID = intDetCotizaID;
                 detCotizacion.intElementoID = 19;
                 detCotizacion.intPartida = 0;
-                detCotizacion.intCantidad = viga.intCantidad;
-                detCotizacion.decMonto = viga.decPrecioVentaTotal;
+                detCotizacion.intCantidad = tinOpcion == 3 ? 0 : viga.intCantidad;
+                detCotizacion.decMonto = tinOpcion == 3 ? 0 : viga.decPrecioVentaTotal;
                 detCotizacion.decSubtotal = 0;
 
                 // Almacenamos el registro
@@ -615,26 +615,29 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
                         _viga = ListViga.First();
                     else
                         _viga.intVigaAtirantadoID = 0;
-                    // Actualizamos la información
-                    _viga.bitActivo = viga.bitActivo;
-                    _viga.decLargo = viga.decLargo;
-                    _viga.decLongitud = viga.decLongitud;
-                    _viga.sintLongitudID = viga.sintLongitudID;
-                    _viga.decPeso = viga.decPeso;
-                    _viga.decPesoTotal = viga.decPesoTotal;
-                    _viga.decPesoUnitario = viga.decPesoUnitario;
-                    _viga.decPrecioVentaTotal = viga.decPrecioVentaTotal;
-                    _viga.decPrecioVentaUnitario = viga.decPrecioVentaUnitario;
-                    _viga.intCalibreID = viga.intCalibreID;
-                    _viga.intCantidad = viga.intCantidad;
+
                     _viga.intCotizacionID = intCotizacionID;
                     _viga.intDetCotizaID = intDetCotizaID;
-                    _viga.intElementoID = 19;
-                    _viga.sintPinturaID = viga.sintPinturaID;
-                    _viga.bitVigaTipoCaja = viga.bitVigaTipoCaja;
-                    //_viga.seleccion = viga.seleccion;
+                    if (tinOpcion != 3)
+                    {
+                        // Actualizamos la información
+                        _viga.bitActivo = viga.bitActivo;
+                        _viga.decLargo = viga.decLargo;
+                        _viga.decLongitud = viga.decLongitud;
+                        _viga.sintLongitudID = viga.sintLongitudID;
+                        _viga.decPeso = viga.decPeso;
+                        _viga.decPesoTotal = viga.decPesoTotal;
+                        _viga.decPesoUnitario = viga.decPesoUnitario;
+                        _viga.decPrecioVentaTotal = viga.decPrecioVentaTotal;
+                        _viga.decPrecioVentaUnitario = viga.decPrecioVentaUnitario;
+                        _viga.intCalibreID = viga.intCalibreID;
+                        _viga.intCantidad = viga.intCantidad;
 
-
+                        _viga.intElementoID = 19;
+                        _viga.sintPinturaID = viga.sintPinturaID;
+                        _viga.bitVigaTipoCaja = viga.bitVigaTipoCaja;
+                        //_viga.seleccion = viga.seleccion;
+                    }
                     //Realizamos el registro de los datos
                     result = (new DriveInLogic()).setDatosVigaAtirantado(_viga, tinOpcion);
                 }

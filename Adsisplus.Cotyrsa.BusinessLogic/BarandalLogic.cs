@@ -73,8 +73,8 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
                 detCotizacion.intDetCotizaID = intDetCotizaID;
                 detCotizacion.intElementoID = 22;
                 detCotizacion.intPartida = 0;
-                detCotizacion.intCantidad = Convert.ToInt32(barandal.intCantidad);
-                detCotizacion.decMonto = barandal.decPrecioTotal;
+                detCotizacion.intCantidad = tinOpcion == 3 ? 0 : Convert.ToInt32(barandal.intCantidad);
+                detCotizacion.decMonto = tinOpcion == 3 ? 0 : barandal.decPrecioTotal;
                 //detCotizacion.decSubtotal = Decimal.Round((Math.Truncate(100 * barandal.decPrecioTotal.Value) / 100) * barandal.decCantidad.Value);
 
                 // Almacenamos el registro
@@ -96,17 +96,21 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
                     else
                         _barandal.intDatosBarandalID = 0;
 
-                    // Actualizamos la información
                     _barandal.intCotizacionID = intCotizacionID;
                     _barandal.intDetCotizaID = intDetCotizaID;
-                    _barandal.intElementoID = 22;
-                    _barandal.sintPinturaID = barandal.sintPinturaID;
-                    _barandal.bitActivo = barandal.bitActivo;
-                    _barandal.intCantidad = barandal.intCantidad;
-                    _barandal.decLargo = barandal.decLargo;
-                    _barandal.decPrecioTotal = barandal.decPrecioTotal;
-                    _barandal.decPrecioUnitario = barandal.decPrecioUnitario;
 
+                    // actualizamos la información cuando se trata de un alta o modificación
+                    if (tinOpcion != 3)
+                    {
+                        // Actualizamos la información
+                        _barandal.intElementoID = 22;
+                        _barandal.sintPinturaID = barandal.sintPinturaID;
+                        _barandal.bitActivo = barandal.bitActivo;
+                        _barandal.intCantidad = barandal.intCantidad;
+                        _barandal.decLargo = barandal.decLargo;
+                        _barandal.decPrecioTotal = barandal.decPrecioTotal;
+                        _barandal.decPrecioUnitario = barandal.decPrecioUnitario;
+                    }
                     // Realizamos el registro del atirantado
                     result = (new DriveInLogic()).setDatosBarandal(_barandal, tinOpcion);
                 }

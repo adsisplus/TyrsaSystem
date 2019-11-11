@@ -213,24 +213,29 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
                         _drive = ListDrive.First();
                     else
                         _drive.intDatosDriveInID = 0;
-                    // Actualizamos la información
-                    _drive.bitActivo = drive.bitActivo;
-                    _drive.bitDobleMonten = drive.bitDobleMonten;
-                    _drive.bitEsEstructural = drive.bitEsEstructural;
-                    _drive.decAltura = drive.decAltura;
-                    _drive.decAlturaCanastilla = drive.decAlturaCanastilla;
-                    _drive.decAlturaMaxima = drive.decAlturaMaxima;
-                    _drive.decAnchoMonta = drive.decAnchoMonta;
-                    _drive.decCapacidadMaxima = drive.decCapacidadMaxima;
-                    _drive.decFondo = drive.decFondo;
-                    _drive.decFrente = drive.decFrente;
-                    _drive.decPeso = drive.decPeso;
+
                     _drive.intDetCotizaID = intDetCotizaID;
                     _drive.intCotizacionID = intCotizacionID;
-                    _drive.intElementoID = 32;
-                    _drive.sintPinturaID = drive.sintPinturaID;
-                    _drive.sintMaterialDriveInID = drive.sintMaterialDriveInID;
+                    
+                    if (tinOpcion != 3)
+                    {
+                        // Actualizamos la información
+                        _drive.bitActivo = drive.bitActivo;
+                        _drive.bitDobleMonten = drive.bitDobleMonten;
+                        _drive.bitEsEstructural = drive.bitEsEstructural;
+                        _drive.decAltura = drive.decAltura;
+                        _drive.decAlturaCanastilla = drive.decAlturaCanastilla;
+                        _drive.decAlturaMaxima = drive.decAlturaMaxima;
+                        _drive.decAnchoMonta = drive.decAnchoMonta;
+                        _drive.decCapacidadMaxima = drive.decCapacidadMaxima;
+                        _drive.decFondo = drive.decFondo;
+                        _drive.decFrente = drive.decFrente;
+                        _drive.decPeso = drive.decPeso;
 
+                        _drive.intElementoID = 32;
+                        _drive.sintPinturaID = drive.sintPinturaID;
+                        _drive.sintMaterialDriveInID = drive.sintMaterialDriveInID;
+                    }
                     //Realizamos el registro del DRIVEIN
                     result = DriveInDA.setDatosDriveIn(_drive, tinOpcion);
                 }
