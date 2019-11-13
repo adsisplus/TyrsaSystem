@@ -213,7 +213,7 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
                 detCotizacion.intElementoID = 9; // ID correspondiente a Distanciador
                 detCotizacion.intPartida = 0;
                 detCotizacion.intCantidad = datosProtectorBateria.intCantidadSencilla;
-                detCotizacion.decMonto = datosProtectorBateria.decPrecioSencilla;
+                detCotizacion.decMonto = datosProtectorBateria.decPrecioVentaUnitarioSencilla;
                 detCotizacion.decSubtotal = datosProtectorBateria.decPrecioSencilla * datosProtectorBateria.intCantidadSencilla;
 
                 // 1. Realizamos el alta de la cotización

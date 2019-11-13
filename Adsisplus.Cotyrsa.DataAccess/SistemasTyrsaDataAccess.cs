@@ -246,7 +246,7 @@ namespace Adsisplus.Cotyrsa.DataAccess
                         datosProtectorBateria.sintPinturaIDSencilla, datosProtectorBateria.sintPinturaIDDoble, datosProtectorBateria.sintPinturaIDCuadruple, datosProtectorBateria.intBotasSencilla,
                         datosProtectorBateria.intBotasDoble, datosProtectorBateria.intBotasCuadruple, datosProtectorBateria.intBarrasSencilla, datosProtectorBateria.intBarrasDoble, datosProtectorBateria.intBotasCuadruple,
                         datosProtectorBateria.decPesoUnitarioSencilla, datosProtectorBateria.decPesoUnitarioDoble, datosProtectorBateria.decPesoUnitarioCuadruple, datosProtectorBateria.decPesoTotalSencilla,
-                        datosProtectorBateria.decPesoTotalDoble, datosProtectorBateria.decPesoTotalCuadruple, (byte)sintTipoBateria, datosProtectorBateria.bitActivo, (byte)sintOpcion)
+                        datosProtectorBateria.decPesoTotalDoble, datosProtectorBateria.decPesoTotalCuadruple, datosProtectorBateria.bitActivo, (byte)sintOpcion)
                                 select new Resultado
                                 {
                                     vchDescripcion = item.vchDescripcion,

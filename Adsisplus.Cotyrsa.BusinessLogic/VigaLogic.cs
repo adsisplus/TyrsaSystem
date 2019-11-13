@@ -470,9 +470,9 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
                 detCotizacion.intCotizacionID = vigaTope.intCotizacionID;
                 detCotizacion.intElementoID = 7; // ID correspondiente a Vigas Topes
                 detCotizacion.intPartida = 0;
-                detCotizacion.intCantidad = vigaTope.intCantidadVigaTope;
-                detCotizacion.decMonto = vigaTope.decPrecioUnitario;
-                detCotizacion.decSubtotal = Decimal.Round((decimal)(vigaTope.decPrecioUnitario * vigaTope.intCantidadVigaTope));
+                detCotizacion.intCantidad = vigaTope.intCantidad;
+                detCotizacion.decMonto = vigaTope.decPrecioVentaUnitario;
+                detCotizacion.decSubtotal = Decimal.Round((decimal)(vigaTope.decPrecioVentaUnitario * vigaTope.intCantidad));
 
                 // 1. Realizamos el alta de la cotización
                 result = (new CotizacionLogic()).setDetCotizacion(detCotizacion, (short)(vigaTope.intDetCotizaID == 0 ? 1 : tinOpcion));
