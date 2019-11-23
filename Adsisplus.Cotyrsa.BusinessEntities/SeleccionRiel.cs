@@ -29,14 +29,14 @@ namespace Adsisplus.Cotyrsa.BusinessEntities
         [DataMember]
         public decimal? decClip { get; set; }
         [DataMember]
-        public decimal? decTotalInternacion { get; set; }
-        [DataMember]
-        public decimal? sintPesoPieza { get; set; }
+        public short? sintPesoPieza { get; set; }
         [DataMember]
         public decimal? decTotalKiloUnitario { get; set; }
         [DataMember]
         public decimal? decPrecioUnitario { get; set; }
         [DataMember]
         public string vchLeyenda { get; set; }
+        [DataMember]
+        public decimal? decTotalInternacion { get; set; }
     }
 }

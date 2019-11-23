@@ -70,13 +70,6 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.stp_ListarRielesRuedaMetalicaCartonFlow")]
-		public ISingleResult<entRielRueda> stp_ListarRielesRuedaMetalicaCartonFlow([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="SmallInt")] System.Nullable<short> sintTipoCartonFlowID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="SmallInt")] System.Nullable<short> intCalibreAceroID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="SmallInt")] System.Nullable<short> sintCantidadRiel, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intNumNivel, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Decimal(8,2)")] System.Nullable<decimal> decLargoPerfil, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="SmallInt")] System.Nullable<short> sintCantidadRuegas, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Decimal(12,2)")] System.Nullable<decimal> decPrecioRuedas, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Decimal(8,2)")] System.Nullable<decimal> decTipoCambio)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), sintTipoCartonFlowID, intCalibreAceroID, sintCantidadRiel, intNumNivel, decLargoPerfil, sintCantidadRuegas, decPrecioRuedas, decTipoCambio);
-			return ((ISingleResult<entRielRueda>)(result.ReturnValue));
-		}
-		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.stp_ListarRielesRuedaPlasticaCartonFlow")]
 		public ISingleResult<entRielRueda> stp_ListarRielesRuedaPlasticaCartonFlow([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="SmallInt")] System.Nullable<short> sintTipoCartonFlowID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="SmallInt")] System.Nullable<short> intCalibreAceroID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Decimal(8,2)")] System.Nullable<decimal> decAncho, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Decimal(8,2)")] System.Nullable<decimal> decLargo, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="SmallInt")] System.Nullable<short> sintCantidadRiel, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="SmallInt")] System.Nullable<short> decTotalKiloUnitario, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intNumNivel, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Decimal(8,2)")] System.Nullable<decimal> decLargoPerfil, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="SmallInt")] System.Nullable<short> sintCantidadRuegas, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Decimal(12,2)")] System.Nullable<decimal> decPrecioRuedas, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Decimal(8,2)")] System.Nullable<decimal> decTipoCambio, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intInternacion, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Decimal(12,2)")] System.Nullable<decimal> decCostoInternacion)
 		{
@@ -90,46 +83,53 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), intCotizacionID, intRielPortaRuedaID);
 			return ((ISingleResult<stp_ListarDatosRielPortaRuedaResult>)(result.ReturnValue));
 		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.stp_ListarRielesRuedaMetalicaCartonFlow")]
+		public ISingleResult<entRielRueda> stp_ListarRielesRuedaMetalicaCartonFlow([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="SmallInt")] System.Nullable<short> sintTipoCartonFlowID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="SmallInt")] System.Nullable<short> intCalibreAceroID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="SmallInt")] System.Nullable<short> sintCantidadRiel, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intNumNivel, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Decimal(8,2)")] System.Nullable<decimal> decLargoPerfil, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="SmallInt")] System.Nullable<short> sintCantidadRuegas, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Decimal(12,2)")] System.Nullable<decimal> decPrecioRuedas, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Decimal(8,2)")] System.Nullable<decimal> decTipoCambio)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), sintTipoCartonFlowID, intCalibreAceroID, sintCantidadRiel, intNumNivel, decLargoPerfil, sintCantidadRuegas, decPrecioRuedas, decTipoCambio);
+			return ((ISingleResult<entRielRueda>)(result.ReturnValue));
+		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="")]
 	public partial class entRielRueda
 	{
 		
-		private short _sintTipoCartonFlowID;
+		private System.Nullable<short> _sintTipoCartonFlowID;
 		
-		private short _sintCalibre;
+		private System.Nullable<short> _sintCalibre;
 		
 		private string _vchTipoCartonFlow;
 		
-		private decimal _decAncho;
+		private System.Nullable<decimal> _decAncho;
 		
-		private decimal _decLargo;
+		private System.Nullable<decimal> _decLargo;
 		
-		private int _intTotalRieles;
+		private System.Nullable<int> _intTotalRieles;
 		
-		private int _intTotalRuedas;
+		private System.Nullable<int> _intTotalRuedas;
 		
-		private decimal _decCostoTotalRuedas;
+		private System.Nullable<decimal> _decCostoTotalRuedas;
 		
-		private decimal _decClip;
+		private System.Nullable<decimal> _decClip;
 		
-		private short _sintPesoPieza;
+		private System.Nullable<short> _sintPesoPieza;
 		
-		private decimal _decTotalKiloUnitario;
+		private System.Nullable<decimal> _decTotalKiloUnitario;
 		
-		private decimal _decPrecioUnitario;
+		private System.Nullable<decimal> _decPrecioUnitario;
 		
 		private string _vchLeyenda;
 		
-		private decimal _decTotalInternacion;
+		private System.Nullable<decimal> _decTotalInternacion;
 		
 		public entRielRueda()
 		{
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sintTipoCartonFlowID")]
-		public short sintTipoCartonFlowID
+		public System.Nullable<short> sintTipoCartonFlowID
 		{
 			get
 			{
@@ -145,7 +145,7 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sintCalibre")]
-		public short sintCalibre
+		public System.Nullable<short> sintCalibre
 		{
 			get
 			{
@@ -160,7 +160,7 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchTipoCartonFlow", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchTipoCartonFlow")]
 		public string vchTipoCartonFlow
 		{
 			get
@@ -177,7 +177,7 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decAncho")]
-		public decimal decAncho
+		public System.Nullable<decimal> decAncho
 		{
 			get
 			{
@@ -193,7 +193,7 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decLargo")]
-		public decimal decLargo
+		public System.Nullable<decimal> decLargo
 		{
 			get
 			{
@@ -209,7 +209,7 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intTotalRieles")]
-		public int intTotalRieles
+		public System.Nullable<int> intTotalRieles
 		{
 			get
 			{
@@ -225,7 +225,7 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intTotalRuedas")]
-		public int intTotalRuedas
+		public System.Nullable<int> intTotalRuedas
 		{
 			get
 			{
@@ -241,7 +241,7 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decCostoTotalRuedas")]
-		public decimal decCostoTotalRuedas
+		public System.Nullable<decimal> decCostoTotalRuedas
 		{
 			get
 			{
@@ -257,7 +257,7 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decClip")]
-		public decimal decClip
+		public System.Nullable<decimal> decClip
 		{
 			get
 			{
@@ -273,7 +273,7 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sintPesoPieza")]
-		public short sintPesoPieza
+		public System.Nullable<short> sintPesoPieza
 		{
 			get
 			{
@@ -289,7 +289,7 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decTotalKiloUnitario")]
-		public decimal decTotalKiloUnitario
+		public System.Nullable<decimal> decTotalKiloUnitario
 		{
 			get
 			{
@@ -305,7 +305,7 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decPrecioUnitario")]
-		public decimal decPrecioUnitario
+		public System.Nullable<decimal> decPrecioUnitario
 		{
 			get
 			{
@@ -320,7 +320,7 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchLeyenda", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchLeyenda")]
 		public string vchLeyenda
 		{
 			get
@@ -337,7 +337,7 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decTotalInternacion")]
-		public decimal decTotalInternacion
+		public System.Nullable<decimal> decTotalInternacion
 		{
 			get
 			{

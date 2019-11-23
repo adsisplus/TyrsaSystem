@@ -321,6 +321,8 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 		
 		private string _vchLeyenda;
 		
+		private System.Nullable<int> _intCantidad;
+		
 		private System.Nullable<bool> _bitActivo;
 		
 		public stp_ListarDatosConectorCartonFlowResult()
@@ -531,6 +533,22 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 				if ((this._vchLeyenda != value))
 				{
 					this._vchLeyenda = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intCantidad", DbType="Int")]
+		public System.Nullable<int> intCantidad
+		{
+			get
+			{
+				return this._intCantidad;
+			}
+			set
+			{
+				if ((this._intCantidad != value))
+				{
+					this._intCantidad = value;
 				}
 			}
 		}
