@@ -32,6 +32,12 @@ namespace Adsisplus.Cotyrsa.BusinessEntities
         public Int32? intCantidadPanel { get; set; }
         [DataMember]
         public Decimal? decCapacidadCargaPanel { get; set; }
+
+        [DataMember]
+        public int? intPanelesTotales { get; set; }
+        [DataMember]
+        public int? intNiveles { get; set; }
+
         [DataMember]
         public Boolean? bitActivo { get; set; }
     }

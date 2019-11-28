@@ -38,6 +38,11 @@ namespace Adsisplus.Cotyrsa.BusinessEntities
         public bool? bitGalvanizado { get; set; }
         [DataMember]
         public bool? bitPintado { get; set; }
+        
+        [DataMember]
+        public int? intNiveles { get; set; }
+        [DataMember]
+        public int? intPanelesTotales { get; set; }
         [DataMember]
         public bool? bitActivo { get; set; }
     }

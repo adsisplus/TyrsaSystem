@@ -139,6 +139,9 @@ namespace Adsisplus.Cotyrsa.DataAccess
                                     bitGalvanizado = item.bitGalvanizado,
                                     bitPintado = item.bitPintado,
 
+                                    intNiveles = item.intNiveles,
+                                    intPanelesTotales = item.intPanelesTotales,
+
                                     // Datos de la selección
                                     panel = new SeleccionPanel()
                                     {

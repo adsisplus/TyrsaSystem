@@ -48,22 +48,6 @@
       <Column Name="vchDescripcion" Type="System.String" DbType="VarChar(55) NOT NULL" CanBeNull="false" />
     </ElementType>
   </Function>
-  <Function Name="dbo.stp_setDatosPanel" Method="stp_setDatosPanel">
-    <Parameter Name="intDatosPanelID" Type="System.Int32" DbType="Int" />
-    <Parameter Name="intElementoID" Type="System.Int32" DbType="Int" />
-    <Parameter Name="intDatoMarcoID" Type="System.Int32" DbType="Int" />
-    <Parameter Name="intDetCotizaID" Type="System.Int32" DbType="Int" />
-    <Parameter Name="sintPinturaID" Type="System.Int16" DbType="SmallInt" />
-    <Parameter Name="decAnchoPanel" Type="System.Decimal" DbType="Decimal(20,2)" />
-    <Parameter Name="intCantidadPanel" Type="System.Int32" DbType="Int" />
-    <Parameter Name="decCapacidadCargaPanel" Type="System.Decimal" DbType="Decimal(20,2)" />
-    <Parameter Name="bitActivo" Type="System.Boolean" DbType="Bit" />
-    <Parameter Name="tinOpcion" Type="System.Byte" DbType="TinyInt" />
-    <ElementType Name="stp_setDatosPanelResult">
-      <Column Name="vchResultado" Type="System.String" DbType="VarChar(12)" CanBeNull="true" />
-      <Column Name="vchDescripcion" Type="System.String" DbType="VarChar(48) NOT NULL" CanBeNull="false" />
-    </ElementType>
-  </Function>
   <Function Name="dbo.stp_ListarTornillosSelectivo" Method="stp_ListarTornillosSelectivo">
     <Parameter Name="intConfiguraMarcoID" Type="System.Int32" DbType="Int" />
     <Parameter Name="intCotizacionID" Type="System.Int32" DbType="Int" />
@@ -220,6 +204,24 @@
     <ElementType Name="stp_setDatosProtectorBateriaResult">
       <Column Name="vchResultado" Type="System.String" DbType="VarChar(12)" CanBeNull="true" />
       <Column Name="vchDescripcion" Type="System.String" DbType="VarChar(60) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.stp_setDatosPanel" Method="stp_setDatosPanel">
+    <Parameter Name="intDatosPanelID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intElementoID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intDatoMarcoID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intDetCotizaID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="sintPinturaID" Type="System.Int16" DbType="SmallInt" />
+    <Parameter Name="decAnchoPanel" Type="System.Decimal" DbType="Decimal(20,2)" />
+    <Parameter Name="intCantidadPanel" Type="System.Int32" DbType="Int" />
+    <Parameter Name="decCapacidadCargaPanel" Type="System.Decimal" DbType="Decimal(20,2)" />
+    <Parameter Name="intNiveles" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intPanelesTotales" Type="System.Int32" DbType="Int" />
+    <Parameter Name="bitActivo" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="tinOpcion" Type="System.Byte" DbType="TinyInt" />
+    <ElementType Name="stp_setDatosPanelResult">
+      <Column Name="vchResultado" Type="System.String" DbType="VarChar(12)" CanBeNull="true" />
+      <Column Name="vchDescripcion" Type="System.String" DbType="VarChar(48) NOT NULL" CanBeNull="false" />
     </ElementType>
   </Function>
 </Database>
