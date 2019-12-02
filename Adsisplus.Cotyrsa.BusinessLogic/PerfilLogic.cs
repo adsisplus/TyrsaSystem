@@ -88,12 +88,39 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
                 Cotizacion detCotizacion = new Cotizacion();
                 detCotizacion.intCotizacionID = intCotizacionID;
                 detCotizacion.intDetCotizaID = intDetCotizaID;
-                detCotizacion.intElementoID = perfil.intElementoID;
+                //detCotizacion.intElementoID = perfil.intElementoID;
                 detCotizacion.intPartida = 0;
                 detCotizacion.intCantidad = perfil.intCantidad;
                 detCotizacion.decMonto = perfil.decPrecioUnitario;
                 detCotizacion.decSubtotal = perfil.decPrecioTotal;
 
+                // Obtenemos el tipo de elemento en base al tipo de perfil
+                switch(perfil.sintTipoPerfilID)
+                {
+                    case 1:
+                        perfil.intElementoID = 23;
+                        break;
+                    case 2:
+                        perfil.intElementoID = 24;
+                        break;
+                    case 3: case 4: case 5:
+                        perfil.intElementoID = 25;
+                        break;
+                    case 6:
+                        perfil.intElementoID = 26;
+                        break;
+                    case 7:
+                        perfil.intElementoID = 27;
+                        break;
+                    case 8:
+                        perfil.intElementoID = 28;
+                        break;
+                    default:
+                        perfil.intElementoID = 0;
+                        break;
+                }
+                //Asignamos el valor a la cotización
+                detCotizacion.intElementoID = perfil.intElementoID;
                 // Almacenamos el registro
                 result = (new CotizacionLogic()).setDetCotizacion(detCotizacion, (short)(intDetCotizaID == 0 ? 1 : tinOpcion));
                 if (result.vchResultado != "NOK")

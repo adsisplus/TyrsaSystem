@@ -111,6 +111,8 @@ namespace Adsisplus.Cotyrsa.BusinessEntities
 
         [DataMember]
         public int? intSubProductoID { get; set; }
+        [DataMember]
+        public string vchSistema { get; set; }
 
         [DataMember]
         public int? intUsuarioID { get; set; }

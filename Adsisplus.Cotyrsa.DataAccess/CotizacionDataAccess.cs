@@ -43,7 +43,8 @@ namespace Adsisplus.Cotyrsa.DataAccess
                                     intSubProductoID = item.intSubProductoID,
                                     decMonto = item.decMonto,
                                     decIVA = item.decIVA,
-                                    decTotal = item.decTotal
+                                    decTotal = item.decTotal,
+                                    vchSistema = item.vchSistema
                                 };
                     result.AddRange(query);
                 }
