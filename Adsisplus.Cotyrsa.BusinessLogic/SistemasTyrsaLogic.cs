@@ -210,10 +210,10 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
                 RelSistemaSelectivo sistema = (new CotizacionLogic()).ListarDatosSistemaSelectivo(intCotizacionID);
                 if (sistema.intDatoMarcoID != null || sistema.intDatoMarcoID != 0)
                 {
-                    // Obtenemos los datos del marco
-                    List<DatosMarco> lstMarco = (new MarcosLogic()).ListarDatosMarco((int)sistema.intDatoMarcoID, intCotizacionID);
-                    if (lstMarco.Count > 0)
-                        result = CatalogosDA.ListarDatosTornilleria((int)lstMarco.First().intConfiguraMarcoID, intCotizacionID, bitEstructural, bitEsCuadruple);
+                    //// Obtenemos los datos del marco
+                    //List<DatosMarco> lstMarco = (new MarcosLogic()).ListarDatosMarco((int)sistema.intDatoMarcoID, intCotizacionID);
+                    //if (lstMarco.Count > 0)
+                        result = CatalogosDA.ListarDatosTornilleria(0, intCotizacionID, bitEstructural, bitEsCuadruple);
                 }
             }
             catch (Exception ex)
