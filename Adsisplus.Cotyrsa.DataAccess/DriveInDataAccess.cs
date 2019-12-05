@@ -24,7 +24,7 @@ namespace Adsisplus.Cotyrsa.DataAccess
             {
                 using (SistemaDriveInDataContext dc = new SistemaDriveInDataContext(Helper.ConnectionString()))
                 {
-                    var query = from item in dc.stp_setDatosDriveIn(driveIn.intDatosDriveInID, driveIn.intDetCotizaID, driveIn.sintPinturaID, driveIn.intElementoID,
+                    var query = from item in dc.stp_setDatosDriveIn(driveIn.intDatosDriveInID, driveIn.intCotizacionID, driveIn.intDetCotizaID, driveIn.sintPinturaID, driveIn.intElementoID,
                         driveIn.bitEsEstructural, driveIn.bitDobleMonten, driveIn.decFrente, driveIn.decFondo, driveIn.decAltura, driveIn.decPeso,
                         driveIn.decAnchoMonta, driveIn.decAlturaMaxima, driveIn.decAlturaCanastilla, driveIn.decCapacidadMaxima, 
                         driveIn.sintMaterialDriveInID, driveIn.decAlturaDobleMonten, driveIn.bitActivo, (byte)tinOpcion)
