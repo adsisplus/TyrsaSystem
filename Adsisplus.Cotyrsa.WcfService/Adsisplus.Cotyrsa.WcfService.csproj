@@ -15,7 +15,7 @@
     <AssemblyName>Adsisplus.Cotyrsa.WcfService</AssemblyName>
     <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
     <WcfConfigValidationEnabled>True</WcfConfigValidationEnabled>
-    <UseIISExpress>true</UseIISExpress>
+    <UseIISExpress>false</UseIISExpress>
     <Use64BitIISExpress />
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
@@ -75,6 +75,7 @@
     <Content Include="DistanciadorServices\DistanciadorServices.svc" />
     <Content Include="DriveInServices\DriveInServices.svc" />
     <Content Include="EmpresaServices\EmpresaServices.svc" />
+    <Content Include="EstanteriaServices\EstanteriaServices.svc" />
     <Content Include="GastosServices\GastosServices.svc" />
     <Content Include="Global.asax" />
     <Content Include="GuiaEntradaServices\GuiaEntradaServices.svc" />
@@ -149,6 +150,11 @@
       <DependentUpon>EmpresaServices.svc</DependentUpon>
     </Compile>
     <Compile Include="EmpresaServices\IEmpresaServices.cs" />
+    <Compile Include="EstanteriaServices\EntrepanioLogic.cs" />
+    <Compile Include="EstanteriaServices\EstanteriaServices.svc.cs">
+      <DependentUpon>EstanteriaServices.svc</DependentUpon>
+    </Compile>
+    <Compile Include="EstanteriaServices\IEstanteriaServices.cs" />
     <Compile Include="GastosServices\GastosServices.svc.cs">
       <DependentUpon>GastosServices.svc</DependentUpon>
     </Compile>

@@ -99,6 +99,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Empresa.dbml</DependentUpon>
     </Compile>
+    <Compile Include="Context\Estanteria.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Estanteria.dbml</DependentUpon>
+    </Compile>
     <Compile Include="Context\Gastos.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -190,6 +195,7 @@
     <Compile Include="DistanciadorDataAccess.cs" />
     <Compile Include="DriveInDataAccess.cs" />
     <Compile Include="EmpresaDataAccess.cs" />
+    <Compile Include="EstanteriaDataAccess.cs" />
     <Compile Include="GastosDataAccess.cs" />
     <Compile Include="GuiaEntradaDataAccess.cs" />
     <Compile Include="Helper.cs" />
@@ -284,6 +290,14 @@
       <Generator>MSLinqToSQLGenerator</Generator>
       <LastGenOutput>Empresa.designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+    </None>
+    <None Include="Context\Estanteria.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>Estanteria.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Context\Estanteria.dbml.layout">
+      <DependentUpon>Estanteria.dbml</DependentUpon>
     </None>
     <None Include="Context\Gastos.dbml">
       <Generator>MSLinqToSQLGenerator</Generator>

@@ -52,6 +52,7 @@
     <Compile Include="DistanciadorLogic.cs" />
     <Compile Include="DriveInLogic.cs" />
     <Compile Include="EmpresaLogic.cs" />
+    <Compile Include="EstanteriaLogic.cs" />
     <Compile Include="EventLogManager.cs" />
     <Compile Include="GastosLogic.cs" />
     <Compile Include="GuiaEntradaLogic.cs" />
