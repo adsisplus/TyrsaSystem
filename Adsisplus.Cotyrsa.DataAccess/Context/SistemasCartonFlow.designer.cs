@@ -161,10 +161,12 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Decimal(20,2)")] System.Nullable<decimal> decPrecioTotal, 
 					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intInternacion, 
 					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Decimal(20,2)")] System.Nullable<decimal> decCostoInternacion, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Decimal(8,2)")] System.Nullable<decimal> decPesoUnitario, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Decimal(8,2)")] System.Nullable<decimal> decPesoTotal, 
 					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Bit")] System.Nullable<bool> bitActivo, 
 					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="TinyInt")] System.Nullable<byte> tinOpcion)
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), intRielPortaRuedaID, intElementoID, intCotizacionID, intDetCotizaID, intCalibreAceroID, intUnidadMedicionID, sintMonedaID, sintTipoCartonFlowID, decLargo, intNumNivel, intClip, intCantidadRuedaRiel, intCantidad, decCostoPorRuedaUSD, decTipoCambio, decTotalRielPartida, bitPlastica, decPrecioUnitario, decPrecioTotal, intInternacion, decCostoInternacion, bitActivo, tinOpcion);
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), intRielPortaRuedaID, intElementoID, intCotizacionID, intDetCotizaID, intCalibreAceroID, intUnidadMedicionID, sintMonedaID, sintTipoCartonFlowID, decLargo, intNumNivel, intClip, intCantidadRuedaRiel, intCantidad, decCostoPorRuedaUSD, decTipoCambio, decTotalRielPartida, bitPlastica, decPrecioUnitario, decPrecioTotal, intInternacion, decCostoInternacion, decPesoUnitario, decPesoTotal, bitActivo, tinOpcion);
 			return ((ISingleResult<stp_setDatosRielPortaRuedaResult>)(result.ReturnValue));
 		}
 	}

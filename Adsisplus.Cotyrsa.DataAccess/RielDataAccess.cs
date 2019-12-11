@@ -47,6 +47,10 @@ namespace Adsisplus.Cotyrsa.DataAccess
                                     decPrecioTotal = item.decPrecioTotal,
                                     intInternacion = item.intInternacion,
                                     decCostoInternacion = item.decCostoInternacion,
+                                    
+                                    decPesoUnitario = item.decPesoUnitario,
+                                    decPesoTotal = item.decPesoTotal,
+                                    
                                     bitActivo = item.bitActivo
                                 };
                     result.AddRange(query);
@@ -95,6 +99,8 @@ namespace Adsisplus.Cotyrsa.DataAccess
                                     decTotalKiloUnitario = item.decTotalKiloUnitario,
                                     decPrecioUnitario = item.decPrecioUnitario,
                                     vchLeyenda = item.vchLeyenda
+                                    //decPesoTotal = item.decPesoTotal,
+                                    //decPesoUnitario = item.decPesoUnitario
                                 };
                     result.AddRange(query);
                 }
@@ -148,6 +154,8 @@ namespace Adsisplus.Cotyrsa.DataAccess
                                     decTotalKiloUnitario = item.decTotalKiloUnitario,
                                     decPrecioUnitario = item.decPrecioUnitario,
                                     vchLeyenda = item.vchLeyenda
+                                    //decPesoTotal = item.decPesoTotal,
+                                    //decPesoUnitario = item.decPesoUnitario
                                 };
                     result.AddRange(query);
                 }

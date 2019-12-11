@@ -36,6 +36,10 @@ namespace Adsisplus.Cotyrsa.BusinessEntities
         public decimal? decPrecioUnitario { get; set; }
         [DataMember]
         public string vchLeyenda { get; set; }
+        //[DataMember]
+        //public decimal? decPesoUnitario { get; set; }
+        //[DataMember]
+        //public decimal? decPesoTotal { get; set; }
         [DataMember]
         public decimal? decTotalInternacion { get; set; }
     }

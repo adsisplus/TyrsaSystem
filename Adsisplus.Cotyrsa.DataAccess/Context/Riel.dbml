@@ -32,6 +32,31 @@
     <Parameter Name="decTipoCambio" Type="System.Decimal" DbType="Decimal(8,2)" />
     <Parameter Name="intInternacion" Type="System.Int32" DbType="Int" />
     <Parameter Name="decCostoInternacion" Type="System.Decimal" DbType="Decimal(12,2)" />
+    <ElementType Name="stp_ListarRielesRuedaPlasticaCartonFlowResult">
+      <Column Name="sintTipoCartonFlowID" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="sintCalibre" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="vchTipoCartonFlow" Type="System.String" DbType="VarChar(39) NOT NULL" CanBeNull="false" />
+      <Column Name="decAncho" Type="System.Decimal" DbType="Decimal(8,2)" CanBeNull="true" />
+      <Column Name="decLargo" Type="System.Decimal" DbType="Decimal(8,2)" CanBeNull="true" />
+      <Column Name="intTotalRieles" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="intTotalRuedas" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="decCostoTotalRuedas" Type="System.Decimal" DbType="Decimal(30,6)" CanBeNull="true" />
+      <Column Name="decClip" Type="System.Decimal" DbType="Decimal(8,2)" CanBeNull="true" />
+      <Column Name="decTotalInternacion" Type="System.Decimal" DbType="Decimal(8,2)" CanBeNull="true" />
+      <Column Name="decTotalKiloUnitario" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="decPrecioUnitario" Type="System.Decimal" DbType="Decimal(8,2)" CanBeNull="true" />
+      <Column Name="vchLeyenda" Type="System.String" DbType="VarChar(47) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.stp_ListarRielesRuedaMetalicaCartonFlow" Method="stp_ListarRielesRuedaMetalicaCartonFlow">
+    <Parameter Name="sintTipoCartonFlowID" Type="System.Int16" DbType="SmallInt" />
+    <Parameter Name="intCalibreAceroID" Type="System.Int16" DbType="SmallInt" />
+    <Parameter Name="sintCantidadRiel" Type="System.Int16" DbType="SmallInt" />
+    <Parameter Name="intNumNivel" Type="System.Int32" DbType="Int" />
+    <Parameter Name="decLargoPerfil" Type="System.Decimal" DbType="Decimal(8,2)" />
+    <Parameter Name="sintCantidadRuegas" Type="System.Int16" DbType="SmallInt" />
+    <Parameter Name="decPrecioRuedas" Type="System.Decimal" DbType="Decimal(12,2)" />
+    <Parameter Name="decTipoCambio" Type="System.Decimal" DbType="Decimal(8,2)" />
     <ElementType IdRef="ID1" />
   </Function>
   <Function Name="dbo.stp_ListarDatosRielPortaRueda" Method="stp_ListarDatosRielPortaRueda">
@@ -59,18 +84,9 @@
       <Column Name="bitPlastica" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
       <Column Name="intInternacion" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="decCostoInternacion" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
+      <Column Name="decPesoUnitario" Type="System.Decimal" DbType="Decimal(8,2)" CanBeNull="true" />
+      <Column Name="decPesoTotal" Type="System.Decimal" DbType="Decimal(8,2)" CanBeNull="true" />
       <Column Name="bitActivo" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
     </ElementType>
-  </Function>
-  <Function Name="dbo.stp_ListarRielesRuedaMetalicaCartonFlow" Method="stp_ListarRielesRuedaMetalicaCartonFlow">
-    <Parameter Name="sintTipoCartonFlowID" Type="System.Int16" DbType="SmallInt" />
-    <Parameter Name="intCalibreAceroID" Type="System.Int16" DbType="SmallInt" />
-    <Parameter Name="sintCantidadRiel" Type="System.Int16" DbType="SmallInt" />
-    <Parameter Name="intNumNivel" Type="System.Int32" DbType="Int" />
-    <Parameter Name="decLargoPerfil" Type="System.Decimal" DbType="Decimal(8,2)" />
-    <Parameter Name="sintCantidadRuegas" Type="System.Int16" DbType="SmallInt" />
-    <Parameter Name="decPrecioRuedas" Type="System.Decimal" DbType="Decimal(12,2)" />
-    <Parameter Name="decTipoCambio" Type="System.Decimal" DbType="Decimal(8,2)" />
-    <ElementType IdRef="ID1" />
   </Function>
 </Database>
