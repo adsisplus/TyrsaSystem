@@ -62,62 +62,18 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.stp_setEmpresa")]
-		public ISingleResult<stp_setEmpresaResult> stp_setEmpresa([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intEmpresaID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="SmallInt")] System.Nullable<short> sintTipoEmpresaID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(250)")] string vchNombre, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(250)")] string vchCorreo, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(250)")] string vchCorreoFacturacion, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(4000)")] string vchCondisionesGenerales, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(12)")] string vchTelefono, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(15)")] string vchRFC, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Bit")] System.Nullable<bool> bitEsCliente, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Bit")] System.Nullable<bool> bitActivo, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Bit")] System.Nullable<bool> bitEsProveedor, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Bit")] System.Nullable<bool> bitCausaRetencion, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="TinyInt")] System.Nullable<byte> tinOpcion)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), intEmpresaID, sintTipoEmpresaID, vchNombre, vchCorreo, vchCorreoFacturacion, vchCondisionesGenerales, vchTelefono, vchRFC, bitEsCliente, bitActivo, bitEsProveedor, bitCausaRetencion, tinOpcion);
-			return ((ISingleResult<stp_setEmpresaResult>)(result.ReturnValue));
-		}
-		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.stp_ListarEmpresa")]
-		public ISingleResult<stp_ListarEmpresaResult> stp_ListarEmpresa([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intEmpresaID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="SmallInt")] System.Nullable<short> sintTipoEmpresaID)
+		public ISingleResult<stp_ListarEmpresaResult> stp_ListarEmpresa([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intEmpresaID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="SmallInt")] System.Nullable<short> sintTipoEmpresaID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intUsuarioID)
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), intEmpresaID, sintTipoEmpresaID);
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), intEmpresaID, sintTipoEmpresaID, intUsuarioID);
 			return ((ISingleResult<stp_ListarEmpresaResult>)(result.ReturnValue));
 		}
-	}
-	
-	public partial class stp_setEmpresaResult
-	{
 		
-		private string _vchResultado;
-		
-		private string _vchDescripcion;
-		
-		public stp_setEmpresaResult()
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.stp_setEmpresa")]
+		public ISingleResult<stp_setEmpresaResult> stp_setEmpresa([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intEmpresaID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="SmallInt")] System.Nullable<short> sintTipoEmpresaID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(250)")] string vchNombre, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(250)")] string vchCorreo, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(250)")] string vchCorreoFacturacion, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(4000)")] string vchCondisionesGenerales, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(12)")] string vchTelefono, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(15)")] string vchRFC, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Bit")] System.Nullable<bool> bitEsCliente, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Bit")] System.Nullable<bool> bitActivo, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Bit")] System.Nullable<bool> bitEsProveedor, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Bit")] System.Nullable<bool> bitCausaRetencion, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intUsuarioID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="TinyInt")] System.Nullable<byte> tinOpcion)
 		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchResultado", DbType="VarChar(12)")]
-		public string vchResultado
-		{
-			get
-			{
-				return this._vchResultado;
-			}
-			set
-			{
-				if ((this._vchResultado != value))
-				{
-					this._vchResultado = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchDescripcion", DbType="VarChar(42) NOT NULL", CanBeNull=false)]
-		public string vchDescripcion
-		{
-			get
-			{
-				return this._vchDescripcion;
-			}
-			set
-			{
-				if ((this._vchDescripcion != value))
-				{
-					this._vchDescripcion = value;
-				}
-			}
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), intEmpresaID, sintTipoEmpresaID, vchNombre, vchCorreo, vchCorreoFacturacion, vchCondisionesGenerales, vchTelefono, vchRFC, bitEsCliente, bitActivo, bitEsProveedor, bitCausaRetencion, intUsuarioID, tinOpcion);
+			return ((ISingleResult<stp_setEmpresaResult>)(result.ReturnValue));
 		}
 	}
 	
@@ -358,6 +314,50 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 				if ((this._bitCausaRetencion != value))
 				{
 					this._bitCausaRetencion = value;
+				}
+			}
+		}
+	}
+	
+	public partial class stp_setEmpresaResult
+	{
+		
+		private string _vchResultado;
+		
+		private string _vchDescripcion;
+		
+		public stp_setEmpresaResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchResultado", DbType="VarChar(12)")]
+		public string vchResultado
+		{
+			get
+			{
+				return this._vchResultado;
+			}
+			set
+			{
+				if ((this._vchResultado != value))
+				{
+					this._vchResultado = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchDescripcion", DbType="VarChar(42) NOT NULL", CanBeNull=false)]
+		public string vchDescripcion
+		{
+			get
+			{
+				return this._vchDescripcion;
+			}
+			set
+			{
+				if ((this._vchDescripcion != value))
+				{
+					this._vchDescripcion = value;
 				}
 			}
 		}

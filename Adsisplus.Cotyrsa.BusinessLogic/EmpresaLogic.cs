@@ -21,13 +21,22 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
         }
 
         #endregion
-
-        public List<Empresa> ListarEmpresa(Int32 intEmpresaID, Int16 sintTipoEmpresaID)
+        /// <summary>
+        /// Procedimiento que lista los datos de la empresa en base al usuario y al tipo de empresa
+        /// </summary>
+        /// <param name="intEmpresaID"></param>
+        /// <param name="sintTipoEmpresaID"></param>
+        /// <param name="intUsuarioID"></param>
+        /// <param name="bitMuestraDatos"></param>
+        /// <returns></returns>
+        public List<Empresa> ListarEmpresa(Int32 intEmpresaID, Int16 sintTipoEmpresaID, int intUsuarioID, bool bitMuestraDatos)
         {
             List<Empresa> results = null;
             try
             {
-                results = CatalogosDA.ListarEmpresa(intEmpresaID, sintTipoEmpresaID);
+                // Validamos si se mostrará toda la información
+                intUsuarioID = bitMuestraDatos == true ? 0 : intUsuarioID;
+                results = CatalogosDA.ListarEmpresa(intEmpresaID, sintTipoEmpresaID, intUsuarioID);
             }
             catch (Exception ex)
             {

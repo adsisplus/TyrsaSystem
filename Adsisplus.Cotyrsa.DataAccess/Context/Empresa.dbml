@@ -1,27 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="dbTyrsa" Class="EmpresaDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
   <Connection Mode="AppSettings" ConnectionString="Data Source=local;Initial Catalog=dbTyrsa;Persist Security Info=True;User ID=usrCotyrsa" SettingsObjectName="Adsisplus.Cotyrsa.DataAccess.Properties.Settings" SettingsPropertyName="dbTyrsaConnectionString" Provider="System.Data.SqlClient" />
-  <Function Name="dbo.stp_setEmpresa" Method="stp_setEmpresa">
-    <Parameter Name="intEmpresaID" Type="System.Int32" DbType="Int" />
-    <Parameter Name="sintTipoEmpresaID" Type="System.Int16" DbType="SmallInt" />
-    <Parameter Name="vchNombre" Type="System.String" DbType="VarChar(250)" />
-    <Parameter Name="vchCorreo" Type="System.String" DbType="VarChar(250)" />
-    <Parameter Name="vchCorreoFacturacion" Type="System.String" DbType="VarChar(250)" />
-    <Parameter Name="vchCondisionesGenerales" Type="System.String" DbType="VarChar(4000)" />
-    <Parameter Name="vchTelefono" Type="System.String" DbType="VarChar(12)" />
-    <Parameter Name="vchRFC" Type="System.String" DbType="VarChar(15)" />
-    <Parameter Name="bitEsCliente" Type="System.Boolean" DbType="Bit" />
-    <Parameter Name="bitActivo" Type="System.Boolean" DbType="Bit" />
-    <Parameter Name="bitEsProveedor" Type="System.Boolean" DbType="Bit" />
-    <Parameter Name="bitCausaRetencion" Type="System.Boolean" DbType="Bit" />
-    <Parameter Name="tinOpcion" Type="System.Byte" DbType="TinyInt" />
-    <ElementType Name="stp_setEmpresaResult">
-      <Column Name="vchResultado" Type="System.String" DbType="VarChar(12)" CanBeNull="true" />
-      <Column Name="vchDescripcion" Type="System.String" DbType="VarChar(42) NOT NULL" CanBeNull="false" />
-    </ElementType>
-  </Function>
   <Function Name="dbo.stp_ListarEmpresa" Method="stp_ListarEmpresa">
     <Parameter Name="intEmpresaID" Type="System.Int32" DbType="Int" />
     <Parameter Name="sintTipoEmpresaID" Type="System.Int16" DbType="SmallInt" />
+    <Parameter Name="intUsuarioID" Type="System.Int32" DbType="Int" />
     <ElementType Name="stp_ListarEmpresaResult">
       <Column Name="intEmpresaID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="vchTipoEmpresa" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
@@ -36,6 +18,26 @@
       <Column Name="bitActivo" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
       <Column Name="bitEsProveedor" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
       <Column Name="bitCausaRetencion" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.stp_setEmpresa" Method="stp_setEmpresa">
+    <Parameter Name="intEmpresaID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="sintTipoEmpresaID" Type="System.Int16" DbType="SmallInt" />
+    <Parameter Name="vchNombre" Type="System.String" DbType="VarChar(250)" />
+    <Parameter Name="vchCorreo" Type="System.String" DbType="VarChar(250)" />
+    <Parameter Name="vchCorreoFacturacion" Type="System.String" DbType="VarChar(250)" />
+    <Parameter Name="vchCondisionesGenerales" Type="System.String" DbType="VarChar(4000)" />
+    <Parameter Name="vchTelefono" Type="System.String" DbType="VarChar(12)" />
+    <Parameter Name="vchRFC" Type="System.String" DbType="VarChar(15)" />
+    <Parameter Name="bitEsCliente" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="bitActivo" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="bitEsProveedor" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="bitCausaRetencion" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="intUsuarioID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="tinOpcion" Type="System.Byte" DbType="TinyInt" />
+    <ElementType Name="stp_setEmpresaResult">
+      <Column Name="vchResultado" Type="System.String" DbType="VarChar(12)" CanBeNull="true" />
+      <Column Name="vchDescripcion" Type="System.String" DbType="VarChar(42) NOT NULL" CanBeNull="false" />
     </ElementType>
   </Function>
 </Database>

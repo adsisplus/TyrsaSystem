@@ -19,12 +19,12 @@ namespace Adsisplus.Cotyrsa.WcfService.EmpresaServices
         /// <param name="intEmpresaID"></param>
         /// <param name="sintTipoEmpresaID"></param>
         /// <returns></returns>
-        public List<Empresa> ListarEmpresa(Int32 intEmpresaID, Int16 sintTipoEmpresaID)
+        public List<Empresa> ListarEmpresa(Int32 intEmpresaID, Int16 sintTipoEmpresaID, int intUsuarioID, bool bitMuestraDatos)
         {
             List<Empresa> result = new List<Empresa>();
             try
             {
-                result = (new EmpresaLogic()).ListarEmpresa(intEmpresaID, sintTipoEmpresaID);
+                result = (new EmpresaLogic()).ListarEmpresa(intEmpresaID, sintTipoEmpresaID, intUsuarioID, bitMuestraDatos);
             }
             catch (Exception ex)
             {

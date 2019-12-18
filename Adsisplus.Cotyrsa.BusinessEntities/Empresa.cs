@@ -44,5 +44,7 @@ namespace Adsisplus.Cotyrsa.BusinessEntities
 
         [DataMember]
         public bool? bitCausaRetencion { get; set; }
+        [DataMember]
+        public int? intUsuarioID { get; set; }
     }
 }
