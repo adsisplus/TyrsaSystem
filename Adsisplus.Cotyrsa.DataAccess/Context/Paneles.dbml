@@ -106,6 +106,7 @@
     <Parameter Name="intCotizacionID" Type="System.Int32" DbType="Int" />
     <Parameter Name="intSeleccionPanelID" Type="System.Int32" DbType="Int" />
     <ElementType Name="stp_ListarDatosPantallaPanelResult">
+      <Column Name="intDatosPanelID" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="intRackID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="intDetCotizaID" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="intCotizacionID" Type="System.Int32" DbType="Int" CanBeNull="true" />

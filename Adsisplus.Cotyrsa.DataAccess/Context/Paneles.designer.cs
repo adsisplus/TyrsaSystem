@@ -960,6 +960,8 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 	public partial class stp_ListarDatosPantallaPanelResult
 	{
 		
+		private System.Nullable<int> _intDatosPanelID;
+		
 		private int _intRackID;
 		
 		private System.Nullable<int> _intDetCotizaID;
@@ -1016,6 +1018,22 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 		
 		public stp_ListarDatosPantallaPanelResult()
 		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intDatosPanelID", DbType="Int")]
+		public System.Nullable<int> intDatosPanelID
+		{
+			get
+			{
+				return this._intDatosPanelID;
+			}
+			set
+			{
+				if ((this._intDatosPanelID != value))
+				{
+					this._intDatosPanelID = value;
+				}
+			}
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intRackID", DbType="Int NOT NULL")]

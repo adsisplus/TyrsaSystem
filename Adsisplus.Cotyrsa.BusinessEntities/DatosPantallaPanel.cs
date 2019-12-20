@@ -11,6 +11,8 @@ namespace Adsisplus.Cotyrsa.BusinessEntities
     public class DatosPantallaPanel
     {
         [DataMember]
+        public int? intDatosPanelID { get; set; }
+        [DataMember]
         public int? intRackID { get; set; }
         [DataMember]
         public int? intDetCotizaID { get; set; }

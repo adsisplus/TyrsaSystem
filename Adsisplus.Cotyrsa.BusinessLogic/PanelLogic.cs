@@ -172,7 +172,7 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
                         // validamos si es un registro nuevo
                         if (tinOpcion != 1)
                             // Obtenemos información del Marco (tbl_MST_DatosMarco)
-                            lstMstPanel = (new PanelLogic()).ListarDatosPanel((int)sistema.intDatosPanelID, 3, (int)sistema.intDatoMarcoID, 0);
+                            lstMstPanel = (new PanelLogic()).ListarDatosPanel((int)dppPanel.intDatosPanelID, 3, (int)0, 0);
 
                         // En caso de existir, asignamos el resultado
                         if (lstMstPanel.Count > 0)
@@ -188,6 +188,9 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
                         mstPanel.intElementoID = 3; // ID correspondiente al panel
                         mstPanel.sintCantidadDatoMarco = 0; // ¿Qué corresponde este dato?
                         mstPanel.sintPinturaID = dppPanel.sintPinturaID; // Se supone que no existe pintura?
+
+                        mstPanel.intNiveles = dppPanel.intNiveles;
+                        mstPanel.intPanelesTotales = dppPanel.intPanelesTotales;
 
                         // Realizamos el registro del panel
                         result = (new SistemasTyrsaLogic()).setDatosPanel(mstPanel, tinOpcion);

@@ -126,7 +126,7 @@ namespace Adsisplus.Cotyrsa.DataAccess
                                     intRackID = item.intRackID,
                                     intDetCotizaID = item.intDetCotizaID,
                                     intCotizacionID = item.intCotizacionID,
-                                    
+                                    intDatosPanelID = item.intDatosPanelID,
                                     // Datos generales de la pantalla
                                     sintPinturaID = item.sintPinturaID,
                                     decAnchoBus = item.decAnchoBus,
