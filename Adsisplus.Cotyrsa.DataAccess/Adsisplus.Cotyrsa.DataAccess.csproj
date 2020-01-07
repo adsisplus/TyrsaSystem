@@ -99,11 +99,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Empresa.dbml</DependentUpon>
     </Compile>
-    <Compile Include="Context\Estanteria.designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Estanteria.dbml</DependentUpon>
-    </Compile>
     <Compile Include="Context\Gastos.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -173,6 +168,11 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>SistemaDriveIn.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="Context\SistemaEstanteria.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SistemaEstanteria.dbml</DependentUpon>
     </Compile>
     <Compile Include="Context\SistemasCartonFlow.designer.cs">
       <AutoGen>True</AutoGen>
@@ -291,14 +291,6 @@
       <LastGenOutput>Empresa.designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
-    <None Include="Context\Estanteria.dbml">
-      <Generator>MSLinqToSQLGenerator</Generator>
-      <LastGenOutput>Estanteria.designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Context\Estanteria.dbml.layout">
-      <DependentUpon>Estanteria.dbml</DependentUpon>
-    </None>
     <None Include="Context\Gastos.dbml">
       <Generator>MSLinqToSQLGenerator</Generator>
       <LastGenOutput>Gastos.designer.cs</LastGenOutput>
@@ -395,6 +387,14 @@
     </None>
     <None Include="Context\SistemaDriveIn.dbml.layout">
       <DependentUpon>SistemaDriveIn.dbml</DependentUpon>
+    </None>
+    <None Include="Context\SistemaEstanteria.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>SistemaEstanteria.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Context\SistemaEstanteria.dbml.layout">
+      <DependentUpon>SistemaEstanteria.dbml</DependentUpon>
     </None>
     <None Include="Context\SistemasCartonFlow.dbml">
       <Generator>MSLinqToSQLGenerator</Generator>

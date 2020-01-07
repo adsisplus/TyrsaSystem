@@ -24,6 +24,22 @@ namespace Adsisplus.Cotyrsa.WcfService.EstanteriaServices
         /// <param name="bitGalvanizado"></param>
         /// <returns></returns>
         [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ListarEntrepanio")]
-        List<DatosEntrepanio> ListarEntrepanio(short sintRefuerzo, decimal decFrente, decimal decFondo, int intCalibreAceroID, bool bitGalvanizado);
+        List<SeleccionEntrepanio> ListarEntrepanio(short sintRefuerzo, decimal decFrente, decimal decFondo, int intCalibreAceroID, bool bitGalvanizado);
+        /// <summary>
+        /// Procedimiento que lista los datos de Entrepaño
+        /// </summary>
+        /// <param name="intEntrepanioID"></param>
+        /// <param name="intCotizacionID"></param>
+        /// <returns></returns>
+        [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ListarDatosEntrepanio")]
+        List<DatosEntrepanio> ListarDatosEntrepanio(int intEntrepanioID, int intCotizacionID);
+        /// <summary>
+        /// Procedimiento que realiza el alta y modificación de los datos entrepaños
+        /// </summary>
+        /// <param name="entrepanio"></param>
+        /// <param name="tinOpcion"></param>
+        /// <returns></returns>
+        [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "setDatosEntrepanio")]
+        Resultado setDatosEntrepanio(DatosEntrepanio entrepanio, int intCotizacionID, int intDetCotizaID, short tinOpcion);
     }
 }

@@ -150,7 +150,6 @@
       <DependentUpon>EmpresaServices.svc</DependentUpon>
     </Compile>
     <Compile Include="EmpresaServices\IEmpresaServices.cs" />
-    <Compile Include="EstanteriaServices\EntrepanioLogic.cs" />
     <Compile Include="EstanteriaServices\EstanteriaServices.svc.cs">
       <DependentUpon>EstanteriaServices.svc</DependentUpon>
     </Compile>

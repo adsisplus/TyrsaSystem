@@ -27,12 +27,107 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
         /// <param name="intCalibreAceroID"></param>
         /// <param name="bitGalvanizado"></param>
         /// <returns></returns>
-        public List<DatosEntrepanio> ListarEntrepanio(short sintRefuerzo, decimal decFrente, decimal decFondo, int intCalibreAceroID, bool bitGalvanizado)
+        public List<SeleccionEntrepanio> ListarEntrepanio(short sintRefuerzo, decimal decFrente, decimal decFondo, int intCalibreAceroID, bool bitGalvanizado)
+        {
+            List<SeleccionEntrepanio> result = new List<SeleccionEntrepanio>();
+            try
+            {
+                result = EstanteriaDA.ListarEntrepanio(sintRefuerzo, decFrente, decFondo, intCalibreAceroID, bitGalvanizado);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
+        /// <summary>
+        /// Procedimiento que lista los datos de Entrepaño
+        /// </summary>
+        /// <param name="intEntrepanioID"></param>
+        /// <param name="intCotizacionID"></param>
+        /// <returns></returns>
+        public List<DatosEntrepanio> ListarDatosEntrepanio(int intEntrepanioID, int intCotizacionID)
         {
             List<DatosEntrepanio> result = new List<DatosEntrepanio>();
             try
             {
-                result = EstanteriaDA.ListarEntrepanio(sintRefuerzo, decFrente, decFondo, intCalibreAceroID, bitGalvanizado);
+                result = EstanteriaDA.ListarDatosEntrepanio(intEntrepanioID, intCotizacionID);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
+        /// <summary>
+        /// Procedimiento que realiza el alta y modificación de los datos entrepaños
+        /// </summary>
+        /// <param name="entrepanio"></param>
+        /// <param name="tinOpcion"></param>
+        /// <returns></returns>
+        public Resultado setDatosEntrepanio(DatosEntrepanio entrepanio, int intCotizacionID, int intDetCotizaID, short tinOpcion)
+        {
+            Resultado result = new Resultado();
+            try
+            {
+                Cotizacion detCotizacion = new Cotizacion();
+                detCotizacion.intCotizacionID = intCotizacionID;
+                detCotizacion.intDetCotizaID = intDetCotizaID;
+                detCotizacion.intElementoID = 39;
+                detCotizacion.intPartida = 0;
+                detCotizacion.intCantidad = entrepanio.intCantidad;
+                detCotizacion.decMonto = tinOpcion == 3 ? 0 : entrepanio.decPrecioVenta;
+                detCotizacion.decSubtotal = tinOpcion == 3 ? 0 : entrepanio.decPrecioFinal;
+
+                // Almacenamos el registro
+                result = (new CotizacionLogic()).setDetCotizacion(detCotizacion, (short)(intDetCotizaID == 0 ? 1 : tinOpcion));
+                if (result.vchResultado != "NOK")
+                {
+                    intDetCotizaID = Convert.ToInt32(result.vchResultado);
+                    entrepanio.intDetCotizaID = intDetCotizaID;
+
+                    List<DatosEntrepanio> ListEntre = new List<DatosEntrepanio>();
+                    DatosEntrepanio _entre = new DatosEntrepanio();
+
+                    // Validamos si es un nuevo registro
+                    if (tinOpcion != 1)
+                        ListEntre = ListarDatosEntrepanio((int)entrepanio.intEntrepanioID, intCotizacionID);
+                    // Validamos si existe registro
+                    if (ListEntre.Count() > 0)
+                        _entre = ListEntre.First();
+                    else
+                        _entre.intEntrepanioID = 0;
+
+                    _entre.intDetCotizaID = intDetCotizaID;
+                    _entre.intCotizacionID = intCotizacionID;
+                    _entre.seleccion = new SeleccionEntrepanio();
+                    if (tinOpcion != 3)
+                    {
+                        // Actualizamos la información
+
+                        _entre.sintTipoEntrepanioID = entrepanio.sintTipoEntrepanioID;
+                        _entre.sintPinturaID = entrepanio.sintPinturaID;
+                        _entre.intCalibreAceroID = entrepanio.intCalibreAceroID;
+                        _entre.intCantidad = entrepanio.intCantidad;
+                        _entre.bitGalvanizado = entrepanio.bitGalvanizado;
+                        _entre.bitPintura = entrepanio.bitPintura;
+                        _entre.bitRefuerzo = entrepanio.bitRefuerzo;
+                        _entre.decFrente = entrepanio.decFrente;
+                        _entre.decFondo = entrepanio.decFondo;
+                        _entre.decPesoPartida = entrepanio.decPesoPartida;
+                        _entre.decTotalKiloUnitario = entrepanio.decTotalKiloUnitario;
+                        _entre.decPrecioVenta = entrepanio.decPrecioVenta;
+                        _entre.decPrecioFinal = entrepanio.decPrecioFinal;
+                        _entre.decPesoTotal = entrepanio.decPesoTotal;
+                        _entre.decPrecioTotal = entrepanio.decPrecioTotal;
+                        _entre.bitActivo = entrepanio.bitActivo;
+
+                        // Insertamos los datos de la seleccion
+                        _entre.seleccion = entrepanio.seleccion;
+                    }
+                    //Realizamos el registro del brazo
+                    result = EstanteriaDA.setDatosEntrepanio(_entre, tinOpcion);
+                }
             }
             catch (Exception ex)
             {

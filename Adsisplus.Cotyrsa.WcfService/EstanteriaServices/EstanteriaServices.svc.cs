@@ -22,12 +22,50 @@ namespace Adsisplus.Cotyrsa.WcfService.EstanteriaServices
         /// <param name="intCalibreAceroID"></param>
         /// <param name="bitGalvanizado"></param>
         /// <returns></returns>
-        public List<DatosEntrepanio> ListarEntrepanio(short sintRefuerzo, decimal decFrente, decimal decFondo, int intCalibreAceroID, bool bitGalvanizado)
+        public List<SeleccionEntrepanio> ListarEntrepanio(short sintRefuerzo, decimal decFrente, decimal decFondo, int intCalibreAceroID, bool bitGalvanizado)
+        {
+            List<SeleccionEntrepanio> result = new List<SeleccionEntrepanio>();
+            try
+            {
+                result = (new EstanteriaLogic()).ListarEntrepanio(sintRefuerzo, decFrente, decFondo, intCalibreAceroID, bitGalvanizado);
+            }
+            catch (Exception ex)
+            {
+                Adsisplus.Cotyrsa.BusinessLogic.EventLogManager.LogErrorEntry(ex.Message);
+            }
+            return result;
+        }
+        /// <summary>
+        /// Procedimiento que lista los datos de Entrepaño
+        /// </summary>
+        /// <param name="intEntrepanioID"></param>
+        /// <param name="intCotizacionID"></param>
+        /// <returns></returns>
+        public List<DatosEntrepanio> ListarDatosEntrepanio(int intEntrepanioID, int intCotizacionID)
         {
             List<DatosEntrepanio> result = new List<DatosEntrepanio>();
             try
             {
-                result = (new EstanteriaLogic()).ListarEntrepanio(sintRefuerzo, decFrente, decFondo, intCalibreAceroID, bitGalvanizado);
+                result = (new EstanteriaLogic()).ListarDatosEntrepanio(intEntrepanioID, intCotizacionID);
+            }
+            catch (Exception ex)
+            {
+                Adsisplus.Cotyrsa.BusinessLogic.EventLogManager.LogErrorEntry(ex.Message);
+            }
+            return result;
+        }
+        /// <summary>
+        /// Procedimiento que realiza el alta y modificación de los datos entrepaños
+        /// </summary>
+        /// <param name="entrepanio"></param>
+        /// <param name="tinOpcion"></param>
+        /// <returns></returns>
+        public Resultado setDatosEntrepanio(DatosEntrepanio entrepanio, int intCotizacionID, int intDetCotizaID, short tinOpcion)
+        {
+            Resultado result = new Resultado();
+            try
+            {
+                result = (new EstanteriaLogic()).setDatosEntrepanio(entrepanio, intCotizacionID, intDetCotizaID, tinOpcion);
             }
             catch (Exception ex)
             {

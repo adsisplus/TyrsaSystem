@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="dbTyrsa" Class="SistemaEstanteriaDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=local;Initial Catalog=dbTyrsa;Persist Security Info=True;User ID=usrCotyrsa" SettingsObjectName="Adsisplus.Cotyrsa.DataAccess.Properties.Settings" SettingsPropertyName="dbTyrsaConnectionString" Provider="System.Data.SqlClient" />
+  <Function Name="dbo.stp_setDatosEntrepanio" Method="stp_setDatosEntrepanio">
+    <Parameter Name="intEntrepanioID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="sintTipoEntrepanioID" Type="System.Int16" DbType="SmallInt" />
+    <Parameter Name="intCotizacionID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intDetCotizaID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intElementoID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="sintPinturaID" Type="System.Int16" DbType="SmallInt" />
+    <Parameter Name="intCalibreAceroID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intCantidad" Type="System.Int32" DbType="Int" />
+    <Parameter Name="bitGalvanizado" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="bitPintura" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="bitRefuerzo" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="decFrente" Type="System.Decimal" DbType="Decimal(8,2)" />
+    <Parameter Name="decFondo" Type="System.Decimal" DbType="Decimal(8,2)" />
+    <Parameter Name="decPesoPartida" Type="System.Decimal" DbType="Decimal(12,2)" />
+    <Parameter Name="decTotalKiloUnitario" Type="System.Decimal" DbType="Decimal(12,3)" />
+    <Parameter Name="decPrecioVenta" Type="System.Decimal" DbType="Decimal(12,2)" />
+    <Parameter Name="decPrecioFinal" Type="System.Decimal" DbType="Decimal(12,2)" />
+    <Parameter Name="decPesoTotal" Type="System.Decimal" DbType="Decimal(12,2)" />
+    <Parameter Name="decPrecioTotal" Type="System.Decimal" DbType="Decimal(12,2)" />
+    <Parameter Name="intSeleccionEntrepanioID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="sintNumRefuerzo" Type="System.Int16" DbType="SmallInt" />
+    <Parameter Name="vchCalibreAcero" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="intCapCargaXEntrepanio" Type="System.Int32" DbType="Int" />
+    <Parameter Name="decDesarrollo" Type="System.Decimal" DbType="Decimal(8,3)" />
+    <Parameter Name="decLongitud" Type="System.Decimal" DbType="Decimal(8,3)" />
+    <Parameter Name="vchMaterial" Type="System.String" DbType="VarChar(250)" />
+    <Parameter Name="bitActivo" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="tinOpcion" Type="System.Byte" DbType="TinyInt" />
+    <ElementType Name="stp_setDatosEntrepanioResult">
+      <Column Name="vchResultado" Type="System.String" DbType="VarChar(12)" CanBeNull="true" />
+      <Column Name="vchDescripcion" Type="System.String" DbType="VarChar(49) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.stp_ListarEntrepanio" Method="stp_ListarEntrepanio">
+    <Parameter Name="sintRefuerzo" Type="System.Int16" DbType="SmallInt" />
+    <Parameter Name="decFrente" Type="System.Decimal" DbType="Decimal(8,2)" />
+    <Parameter Name="decFondo" Type="System.Decimal" DbType="Decimal(8,2)" />
+    <Parameter Name="intCalibreAceroID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="bitGalvanizado" Type="System.Boolean" DbType="Bit" />
+    <ElementType Name="stp_ListarEntrepanioResult">
+      <Column Name="vchCalibreAcero" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="decFondo" Type="System.Decimal" DbType="Decimal(8,2)" CanBeNull="true" />
+      <Column Name="decFrente" Type="System.Decimal" DbType="Decimal(8,2)" CanBeNull="true" />
+      <Column Name="sintNumRefuerzo" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="intCapCargaXEntrepanio" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="decDesarrollo" Type="System.Decimal" DbType="Decimal(8,3)" CanBeNull="true" />
+      <Column Name="decLongitud" Type="System.Decimal" DbType="Decimal(8,3)" CanBeNull="true" />
+      <Column Name="vchMaterial" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="decTotalKiloUnitario" Type="System.Decimal" DbType="Decimal(12,3)" CanBeNull="true" />
+      <Column Name="decPrecioFinal" Type="System.Decimal" DbType="Decimal(12,2)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.stp_ListarDatosEntrepanio" Method="stp_ListarDatosEntrepanio">
+    <Parameter Name="intEntrepanioID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intCotizacionID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="stp_ListarDatosEntrepanioResult">
+      <Column Name="intEntrepanioID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="sintTipoEntrepanioID" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="intCotizacionID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="intDetCotizaID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="intElementoID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="sintPinturaID" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="intCalibreAceroID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="intCantidad" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="bitGalvanizado" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="bitPintura" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="bitRefuerzo" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="decFrente" Type="System.Decimal" DbType="Decimal(8,2)" CanBeNull="true" />
+      <Column Name="decFondo" Type="System.Decimal" DbType="Decimal(8,2)" CanBeNull="true" />
+      <Column Name="decPesoPartida" Type="System.Decimal" DbType="Decimal(12,2)" CanBeNull="true" />
+      <Column Name="decTotalKiloUnitario" Type="System.Decimal" DbType="Decimal(12,3)" CanBeNull="true" />
+      <Column Name="decPrecioVenta" Type="System.Decimal" DbType="Decimal(12,2)" CanBeNull="true" />
+      <Column Name="decPrecioFinal" Type="System.Decimal" DbType="Decimal(12,2)" CanBeNull="true" />
+      <Column Name="decPesoTotal" Type="System.Decimal" DbType="Decimal(12,2)" CanBeNull="true" />
+      <Column Name="decPrecioTotal" Type="System.Decimal" DbType="Decimal(12,2)" CanBeNull="true" />
+      <Column Name="intSeleccionEntrepanioID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="vchCalibreAcero" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="decFondoSel" Type="System.Decimal" DbType="Decimal(8,2)" CanBeNull="true" />
+      <Column Name="decFrenteSel" Type="System.Decimal" DbType="Decimal(8,2)" CanBeNull="true" />
+      <Column Name="sintNumRefuerzo" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="intCapCargaXEntrepanio" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="decDesarrollo" Type="System.Decimal" DbType="Decimal(8,3)" CanBeNull="true" />
+      <Column Name="decLongitud" Type="System.Decimal" DbType="Decimal(8,3)" CanBeNull="true" />
+      <Column Name="vchMaterial" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="decTotalKiloUnitarioSel" Type="System.Decimal" DbType="Decimal(12,3)" CanBeNull="true" />
+      <Column Name="decPrecioFinalSel" Type="System.Decimal" DbType="Decimal(12,2)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+</Database>
