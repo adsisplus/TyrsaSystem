@@ -75,7 +75,7 @@ namespace Adsisplus.Cotyrsa.DataAccess
                                     intCantidad = item.intCantidad,
                                     bitGalvanizado = item.bitGalvanizado,
                                     bitPintura = item.bitPintura,
-                                    bitRefuerzo = item.bitRefuerzo,
+                                    sintRefuerzo = item.sintRefuerzo,
                                     decFrente = item.decFrente,
                                     decFondo = item.decFondo,
                                     decPesoPartida = item.decPesoPartida,
@@ -109,6 +109,107 @@ namespace Adsisplus.Cotyrsa.DataAccess
             return result;
         }
         /// <summary>
+        /// Procedimiento que lista los datos de angulo ranurado en base a la capacidad de carga
+        /// </summary>
+        /// <param name="decCapacidadCarga"></param>
+        /// <returns></returns>
+        public List<SeleccionAnguloRanurado> ListarAnguloRanurado(decimal decCapacidadCarga)
+        {
+            List<SeleccionAnguloRanurado> result = new List<SeleccionAnguloRanurado>();
+            try
+            {
+                using (SistemaEstanteriaDataContext dc = new SistemaEstanteriaDataContext(Helper.ConnectionString()))
+                {
+                    var query = from item in dc.stp_ListarAnguloRanurado(decCapacidadCarga)
+                                select new SeleccionAnguloRanurado
+                                {
+                                    sintMstAnguloRanuradoID = item.sintMstAnguloRanuradoID,
+                                    decDesarrollo = item.decDesarrollo,
+                                    decLongitud = item.decLongitud,
+                                    decAncho = item.decAncho,
+                                    vchMaterial = item.vchMaterial,
+                                    decPesoUnitario = item.decPesoUnitario,
+                                    decPrecioUnitario = item.decPrecioUnitario
+                                };
+                    result.AddRange(query);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
+        /// <summary>
+        /// Procedimiento que lista los datos de seleccion angulo ranurado almacenado
+        /// </summary>
+        /// <param name="intAnguloRanuradoID"></param>
+        /// <returns></returns>
+        public List<SeleccionAnguloRanurado> ListarSeleccionAnguloRanurado(int intAnguloRanuradoID)
+        {
+            List<SeleccionAnguloRanurado> result = new List<SeleccionAnguloRanurado>();
+            try
+            {
+                using (SistemaEstanteriaDataContext dc = new SistemaEstanteriaDataContext(Helper.ConnectionString()))
+                {
+                    var query = from item in dc.stp_ListarSeleccionAnguloRanurado(intAnguloRanuradoID)
+                                select new SeleccionAnguloRanurado
+                                {
+                                    intSeleccionAnguloID = item.intSeleccionAnguloID,
+                                    intAnguloRanuradoID = item.intAnguloRanuradoID,
+                                    sintMstAnguloRanuradoID = item.sintMstAnguloRanuradoID,
+                                    decDesarrollo = item.decDesarrollo,
+                                    decLongitud = item.decLongitud,
+                                    decAncho = item.decAncho,
+                                    vchMaterial = item.vchMaterial,
+                                    decPesoUnitario = item.decPesoUnitario,
+                                    decPrecioUnitario = item.decPrecioUnitario
+                                };
+                    result.AddRange(query);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
+        /// <summary>
+        /// ¨Procedimiento que lista los datos de angulo ranurado
+        /// </summary>
+        /// <param name="intAnguloRanuradoID"></param>
+        /// <param name="intCotizacionID"></param>
+        /// <returns></returns>
+        public List<DatosAnguloRanurado> ListarDatosAnguladoRanurado(int intAnguloRanuradoID, int intCotizacionID)
+        {
+            List<DatosAnguloRanurado> result = new List<DatosAnguloRanurado>();
+            try
+            {
+                using (SistemaEstanteriaDataContext dc = new SistemaEstanteriaDataContext(Helper.ConnectionString()))
+                {
+                    var query = from item in dc.stp_ListarDatosAnguloRanurado(intAnguloRanuradoID, intCotizacionID)
+                                select new DatosAnguloRanurado
+                                {
+                                    intAnguloRanuradoID = item.intAnguloRanuradoID,
+                                    sintTipoAnguloRanuradoID = (short)item.sintTipoAnguloRanuradoID,
+                                    intElementoID = item.intElementoID,
+                                    intCotizacionID = item.intCotizacionID,
+                                    sintPinturaID = item.sintPinturaID,
+                                    intCantidad = item.intCantidad,
+                                    decLargo = item.decLargo,
+                                    decCapacidadCarga = item.decCapacidadCarga,
+                                    bitActivo = item.bitActivo
+                                };
+                    result.AddRange(query);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
+        /// <summary>
         /// Procedimiento que realiza el alta y modificación de los datos entrepaños
         /// </summary>
         /// <param name="entrepanio"></param>
@@ -123,10 +224,41 @@ namespace Adsisplus.Cotyrsa.DataAccess
                 {
                     var query = from item in dc.stp_setDatosEntrepanio(entrepanio.intEntrepanioID, entrepanio.sintTipoEntrepanioID, entrepanio.intCotizacionID, entrepanio.intDetCotizaID,
                         entrepanio.intElementoID, entrepanio.sintPinturaID, entrepanio.intCalibreAceroID, entrepanio.intCantidad, entrepanio.bitGalvanizado,
-                        entrepanio.bitPintura, entrepanio.bitRefuerzo, entrepanio.decFrente, entrepanio.decFondo, entrepanio.decPesoPartida,
+                        entrepanio.bitPintura, (byte)entrepanio.sintRefuerzo, entrepanio.decFrente, entrepanio.decFondo, entrepanio.decPesoPartida,
                         entrepanio.decTotalKiloUnitario, entrepanio.decPrecioVenta, entrepanio.decPrecioFinal, entrepanio.decPesoTotal, entrepanio.decPrecioTotal,
                         entrepanio.seleccion.intSeleccionEntrepanioID, entrepanio.seleccion.sintNumRefuerzo, entrepanio.seleccion.vchCalibreAcero, entrepanio.seleccion.intCapCargaXEntrepanio,
                         entrepanio.seleccion.decDesarrollo, entrepanio.seleccion.decLongitud, entrepanio.seleccion.vchMaterial, entrepanio.bitActivo, (byte)tinOpcion)
+                                select new Resultado
+                                {
+                                    vchDescripcion = item.vchDescripcion,
+                                    vchResultado = item.vchResultado
+                                };
+                    result = query.First();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
+        /// <summary>
+        /// Procedimiento que realiza el alta, modificación de los datos de angulo ranurado
+        /// </summary>
+        /// <param name="anguloRanurado"></param>
+        /// <param name="tinOpcion"></param>
+        /// <returns></returns>
+        public Resultado setDatosAnguloRanurado(DatosAnguloRanurado anguloRanurado, short tinOpcion)
+        {
+            Resultado result = new Resultado();
+            try
+            {
+                using (SistemaEstanteriaDataContext dc = new SistemaEstanteriaDataContext(Helper.ConnectionString()))
+                {
+                    var query = from item in dc.stp_setDatosAnguloRanurado(anguloRanurado.intAnguloRanuradoID, anguloRanurado.sintTipoAnguloRanuradoID, anguloRanurado.intElementoID, anguloRanurado.intCotizacionID,
+                        anguloRanurado.intDetCotizaID, anguloRanurado.sintPinturaID, anguloRanurado.intCantidad, anguloRanurado.decLargo, anguloRanurado.decCapacidadCarga,
+                        anguloRanurado.seleccion.intSeleccionAnguloID, anguloRanurado.seleccion.decDesarrollo, anguloRanurado.seleccion.decLongitud, anguloRanurado.seleccion.decAncho, anguloRanurado.seleccion.vchMaterial,
+                        anguloRanurado.seleccion.decPesoUnitario, anguloRanurado.seleccion.decPrecioUnitario, anguloRanurado.bitActivo, (byte)tinOpcion)
                                 select new Resultado
                                 {
                                     vchDescripcion = item.vchDescripcion,

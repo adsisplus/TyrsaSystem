@@ -55,6 +55,61 @@ namespace Adsisplus.Cotyrsa.WcfService.EstanteriaServices
             return result;
         }
         /// <summary>
+        /// Procedimiento que lista los datos de angulo ranurado en base a la capacidad de carga
+        /// </summary>
+        /// <param name="decCapacidadCarga"></param>
+        /// <returns></returns>
+        public List<SeleccionAnguloRanurado> ListarAnguloRanurado(decimal decCapacidadCarga)
+        {
+            List<SeleccionAnguloRanurado> result = new List<SeleccionAnguloRanurado>();
+            try
+            {
+                result = (new EstanteriaLogic()).ListarAnguloRanurado(decCapacidadCarga);
+            }
+            catch (Exception ex)
+            {
+                Adsisplus.Cotyrsa.BusinessLogic.EventLogManager.LogErrorEntry(ex.Message);
+            }
+            return result;
+        }
+        /// <summary>
+        /// Procedimiento que lista los datos de seleccion angulo ranurado almacenado
+        /// </summary>
+        /// <param name="intAnguloRanuradoID"></param>
+        /// <returns></returns>
+        public List<SeleccionAnguloRanurado> ListarSeleccionAnguloRanurado(int intAnguloRanuradoID)
+        {
+            List<SeleccionAnguloRanurado> result = new List<SeleccionAnguloRanurado>();
+            try
+            {
+                result = (new EstanteriaLogic()).ListarSeleccionAnguloRanurado(intAnguloRanuradoID);
+            }
+            catch (Exception ex)
+            {
+                Adsisplus.Cotyrsa.BusinessLogic.EventLogManager.LogErrorEntry(ex.Message);
+            }
+            return result;
+        }
+        /// <summary>
+        /// ¨Procedimiento que lista los datos de angulo ranurado
+        /// </summary>
+        /// <param name="intAnguloRanuradoID"></param>
+        /// <param name="intCotizacionID"></param>
+        /// <returns></returns>
+        public List<DatosAnguloRanurado> ListarDatosAnguladoRanurado(int intAnguloRanuradoID, int intCotizacionID)
+        {
+            List<DatosAnguloRanurado> result = new List<DatosAnguloRanurado>();
+            try
+            {
+                result = (new EstanteriaLogic()).ListarDatosAnguladoRanurado(intAnguloRanuradoID, intCotizacionID);
+            }
+            catch (Exception ex)
+            {
+                Adsisplus.Cotyrsa.BusinessLogic.EventLogManager.LogErrorEntry(ex.Message);
+            }
+            return result;
+        }
+        /// <summary>
         /// Procedimiento que realiza el alta y modificación de los datos entrepaños
         /// </summary>
         /// <param name="entrepanio"></param>
@@ -66,6 +121,27 @@ namespace Adsisplus.Cotyrsa.WcfService.EstanteriaServices
             try
             {
                 result = (new EstanteriaLogic()).setDatosEntrepanio(entrepanio, intCotizacionID, intDetCotizaID, tinOpcion);
+            }
+            catch (Exception ex)
+            {
+                Adsisplus.Cotyrsa.BusinessLogic.EventLogManager.LogErrorEntry(ex.Message);
+            }
+            return result;
+        }
+        /// <summary>
+        /// Procedimiento que realiza el alta y modificación de los datos de angulo ranurado
+        /// </summary>
+        /// <param name="anguloRanurado"></param>
+        /// <param name="intDetCotizaID"></param>
+        /// <param name="intCotizacionID"></param>
+        /// <param name="tinOpcion"></param>
+        /// <returns></returns>
+        public Resultado setDatosAnguloRanurato(DatosAnguloRanurado anguloRanurado, int intDetCotizaID, int intCotizacionID, short tinOpcion)
+        {
+            Resultado result = new Resultado();
+            try
+            {
+                result = (new EstanteriaLogic()).setDatosAnguloRanurato(anguloRanurado, intDetCotizaID, intCotizacionID, tinOpcion);
             }
             catch (Exception ex)
             {

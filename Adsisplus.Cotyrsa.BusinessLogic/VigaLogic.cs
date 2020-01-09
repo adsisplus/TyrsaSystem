@@ -665,24 +665,24 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
             }
             return result;
         }
-        /// <summary>
-        /// Procedimiento que lista los datos de angulo ranurado en base a la capacidad de carga
-        /// </summary>
-        /// <param name="decCapacidadCarga"></param>
-        /// <returns></returns>
-        public List<DatosAnguloRanurado> ListarAnguloRanurado(decimal decCapacidadCarga)
-        {
-            List<DatosAnguloRanurado> result = new List<DatosAnguloRanurado>();
-            try
-            {
-                result = CatalogosDA.ListarAnguloRanurado(decCapacidadCarga);
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-            return result;
-        }
+        ///// <summary>
+        ///// Procedimiento que lista los datos de angulo ranurado en base a la capacidad de carga
+        ///// </summary>
+        ///// <param name="decCapacidadCarga"></param>
+        ///// <returns></returns>
+        //public List<DatosAnguloRanurado> ListarAnguloRanurado(decimal decCapacidadCarga)
+        //{
+        //    List<DatosAnguloRanurado> result = new List<DatosAnguloRanurado>();
+        //    try
+        //    {
+        //        result = CatalogosDA.ListarAnguloRanurado(decCapacidadCarga);
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        throw ex;
+        //    }
+        //    return result;
+        //}
         #endregion
     }
 }

@@ -126,6 +126,7 @@
     <Compile Include="RelSistemaSelectivo.cs" />
     <Compile Include="RelTipoElementoAlmacenFactorCotizacion.cs" />
     <Compile Include="Resultado.cs" />
+    <Compile Include="SeleccionAnguloRanurado.cs" />
     <Compile Include="SeleccionArriestrado.cs" />
     <Compile Include="SeleccionBrazo.cs" />
     <Compile Include="SeleccionConector.cs" />

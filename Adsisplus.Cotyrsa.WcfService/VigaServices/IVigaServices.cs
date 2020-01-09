@@ -239,14 +239,14 @@ namespace Adsisplus.Cotyrsa.WcfService.VigaServices
         [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ListarSeleccionVigaTipoCaja")]
         List<SeleccionVigaTipoCaja> ListarSeleccionVigaTipoCaja();
 
-        /// <summary>
-        /// Procedimiento que lista los datos de angulo ranurado en base a la capacidad de carga
-        /// </summary>
-        /// <param name="decCapacidadCarga"></param>
-        /// <returns></returns>
-        [OperationContract]
-        [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ListarAnguloRanurado")]
-        List<DatosAnguloRanurado> ListarAnguloRanurado(decimal decCapacidadCarga);
+        ///// <summary>
+        ///// Procedimiento que lista los datos de angulo ranurado en base a la capacidad de carga
+        ///// </summary>
+        ///// <param name="decCapacidadCarga"></param>
+        ///// <returns></returns>
+        //[OperationContract]
+        //[WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ListarAnguloRanurado")]
+        //List<DatosAnguloRanurado> ListarAnguloRanurado(decimal decCapacidadCarga);
         #endregion
     }
 }

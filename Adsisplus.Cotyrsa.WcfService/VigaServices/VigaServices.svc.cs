@@ -446,24 +446,24 @@ namespace Adsisplus.Cotyrsa.WcfService.VigaServices
             }
             return result;
         }
-        /// <summary>
-        /// Procedimiento que lista los datos de angulo ranurado en base a la capacidad de carga
-        /// </summary>
-        /// <param name="decCapacidadCarga"></param>
-        /// <returns></returns>
-        public List<DatosAnguloRanurado> ListarAnguloRanurado(decimal decCapacidadCarga)
-        {
-            List<DatosAnguloRanurado> result = new List<DatosAnguloRanurado>();
-            try
-            {
-                result = (new VigaLogic()).ListarAnguloRanurado(decCapacidadCarga);
-            }
-            catch (Exception ex)
-            {
-                Adsisplus.Cotyrsa.BusinessLogic.EventLogManager.LogErrorEntry(ex.Message);
-            }
-            return result;
-        }
+        ///// <summary>
+        ///// Procedimiento que lista los datos de angulo ranurado en base a la capacidad de carga
+        ///// </summary>
+        ///// <param name="decCapacidadCarga"></param>
+        ///// <returns></returns>
+        //public List<DatosAnguloRanurado> ListarAnguloRanurado(decimal decCapacidadCarga)
+        //{
+        //    List<DatosAnguloRanurado> result = new List<DatosAnguloRanurado>();
+        //    try
+        //    {
+        //        result = (new VigaLogic()).ListarAnguloRanurado(decCapacidadCarga);
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        Adsisplus.Cotyrsa.BusinessLogic.EventLogManager.LogErrorEntry(ex.Message);
+        //    }
+        //    return result;
+        //}
         #endregion
     }
 }

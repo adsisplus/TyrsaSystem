@@ -717,38 +717,38 @@ namespace Adsisplus.Cotyrsa.DataAccess
             }
             return result;
         }
-        /// <summary>
-        /// Procedimiento que lista los datos de angulo ranurado en base a la capacidad de carga
-        /// </summary>
-        /// <param name="decCapacidadCarga"></param>
-        /// <returns></returns>
-        public List<DatosAnguloRanurado> ListarAnguloRanurado(decimal decCapacidadCarga)
-        {
-            List<DatosAnguloRanurado> result = new List<DatosAnguloRanurado>();
-            try
-            {
-                using (VigasDataContext dc = new VigasDataContext(Helper.ConnectionString()))
-                {
-                    var query = from item in dc.stp_ListarAnguloRanurado(decCapacidadCarga)
-                                select new DatosAnguloRanurado
-                                {
-                                    sintMstAnguloRanuradoID = item.sintMstAnguloRanuradoID,
-                                    decDesarrollo = item.decDesarrollo,
-                                    decLongitud = item.decLongitud,
-                                    decAncho = item.decAncho,
-                                    vchMaterial = item.vchMaterial,
-                                    decPesoUnitario = item.decPesoUnitario,
-                                    decPrecioUnitario = item.decPrecioUnitario
-                                };
-                    result.AddRange(query);
-                }
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-            return result;
-        }
+        ///// <summary>
+        ///// Procedimiento que lista los datos de angulo ranurado en base a la capacidad de carga
+        ///// </summary>
+        ///// <param name="decCapacidadCarga"></param>
+        ///// <returns></returns>
+        //public List<DatosAnguloRanurado> ListarAnguloRanurado(decimal decCapacidadCarga)
+        //{
+        //    List<DatosAnguloRanurado> result = new List<DatosAnguloRanurado>();
+        //    try
+        //    {
+        //        using (VigasDataContext dc = new VigasDataContext(Helper.ConnectionString()))
+        //        {
+        //            var query = from item in dc.stp_ListarAnguloRanurado(decCapacidadCarga)
+        //                        select new DatosAnguloRanurado
+        //                        {
+        //                            sintMstAnguloRanuradoID = item.sintMstAnguloRanuradoID,
+        //                            decDesarrollo = item.decDesarrollo,
+        //                            decLongitud = item.decLongitud,
+        //                            decAncho = item.decAncho,
+        //                            vchMaterial = item.vchMaterial,
+        //                            decPesoUnitario = item.decPesoUnitario,
+        //                            decPrecioUnitario = item.decPrecioUnitario
+        //                        };
+        //            result.AddRange(query);
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        throw ex;
+        //    }
+        //    return result;
+        //}
         #endregion
     }
 }

@@ -60,6 +60,61 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
             return result;
         }
         /// <summary>
+        /// Procedimiento que lista los datos de angulo ranurado en base a la capacidad de carga
+        /// </summary>
+        /// <param name="decCapacidadCarga"></param>
+        /// <returns></returns>
+        public List<SeleccionAnguloRanurado> ListarAnguloRanurado(decimal decCapacidadCarga)
+        {
+            List<SeleccionAnguloRanurado> result = new List<SeleccionAnguloRanurado>();
+            try
+            {
+                result = EstanteriaDA.ListarAnguloRanurado(decCapacidadCarga);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
+        /// <summary>
+        /// Procedimiento que lista los datos de seleccion angulo ranurado almacenado
+        /// </summary>
+        /// <param name="intAnguloRanuradoID"></param>
+        /// <returns></returns>
+        public List<SeleccionAnguloRanurado> ListarSeleccionAnguloRanurado(int intAnguloRanuradoID)
+        {
+            List<SeleccionAnguloRanurado> result = new List<SeleccionAnguloRanurado>();
+            try
+            {
+                result = EstanteriaDA.ListarSeleccionAnguloRanurado(intAnguloRanuradoID);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
+        /// <summary>
+        /// ¨Procedimiento que lista los datos de angulo ranurado
+        /// </summary>
+        /// <param name="intAnguloRanuradoID"></param>
+        /// <param name="intCotizacionID"></param>
+        /// <returns></returns>
+        public List<DatosAnguloRanurado> ListarDatosAnguladoRanurado(int intAnguloRanuradoID, int intCotizacionID)
+        {
+            List<DatosAnguloRanurado> result = new List<DatosAnguloRanurado>();
+            try
+            {
+                result = EstanteriaDA.ListarDatosAnguladoRanurado(intAnguloRanuradoID, intCotizacionID);
+            }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
+        /// <summary>
         /// Procedimiento que realiza el alta y modificación de los datos entrepaños
         /// </summary>
         /// <param name="entrepanio"></param>
@@ -111,7 +166,7 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
                         _entre.intCantidad = entrepanio.intCantidad;
                         _entre.bitGalvanizado = entrepanio.bitGalvanizado;
                         _entre.bitPintura = entrepanio.bitPintura;
-                        _entre.bitRefuerzo = entrepanio.bitRefuerzo;
+                        _entre.sintRefuerzo = entrepanio.sintRefuerzo;
                         _entre.decFrente = entrepanio.decFrente;
                         _entre.decFondo = entrepanio.decFondo;
                         _entre.decPesoPartida = entrepanio.decPesoPartida;
@@ -127,6 +182,74 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
                     }
                     //Realizamos el registro del brazo
                     result = EstanteriaDA.setDatosEntrepanio(_entre, tinOpcion);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
+        /// <summary>
+        /// Procedimiento que realiza el alta y modificación de los datos de angulo ranurado
+        /// </summary>
+        /// <param name="anguloRanurado"></param>
+        /// <param name="intDetCotizaID"></param>
+        /// <param name="intCotizacionID"></param>
+        /// <param name="tinOpcion"></param>
+        /// <returns></returns>
+        public Resultado setDatosAnguloRanurato(DatosAnguloRanurado anguloRanurado, int intDetCotizaID, int intCotizacionID, short tinOpcion)
+        {
+            Resultado result = new Resultado();
+            try
+            {
+                Cotizacion detCotizacion = new Cotizacion();
+                detCotizacion.intCotizacionID = intCotizacionID;
+                detCotizacion.intDetCotizaID = intDetCotizaID;
+                detCotizacion.intElementoID = 41;
+                detCotizacion.intPartida = 0;
+                detCotizacion.intCantidad = anguloRanurado.intCantidad;
+                //detCotizacion.decMonto = tinOpcion == 3 ? 0 : anguloRanurado.decPrecioVenta;
+                //detCotizacion.decSubtotal = tinOpcion == 3 ? 0 : entrepanio.decPrecioFinal;
+
+                // Almacenamos el registro
+                result = (new CotizacionLogic()).setDetCotizacion(detCotizacion, (short)(intDetCotizaID == 0 ? 1 : tinOpcion));
+                if (result.vchResultado != "NOK")
+                {
+                    intDetCotizaID = Convert.ToInt32(result.vchResultado);
+                    anguloRanurado.intDetCotizaID = intDetCotizaID;
+
+                    List<DatosAnguloRanurado> ListAngulo = new List<DatosAnguloRanurado>();
+                    DatosAnguloRanurado _angulo= new DatosAnguloRanurado();
+
+                    // Validamos si es un nuevo registro
+                    if (tinOpcion != 1)
+                        ListAngulo = ListarDatosAnguladoRanurado((int)anguloRanurado.intAnguloRanuradoID, intCotizacionID);
+                    // Validamos si existe registro
+                    if (ListAngulo.Count() > 0)
+                        _angulo = ListAngulo.First();
+                    else
+                        _angulo.intAnguloRanuradoID = 0;
+
+                    _angulo.intDetCotizaID = intDetCotizaID;
+                    _angulo.intCotizacionID = intCotizacionID;
+                    _angulo.seleccion = new SeleccionAnguloRanurado();
+                    if (tinOpcion != 3)
+                    {
+                        // Actualizamos la información
+
+                        _angulo.sintTipoAnguloRanuradoID = anguloRanurado.sintTipoAnguloRanuradoID;
+                        _angulo.intElementoID = detCotizacion.intElementoID;
+                        _angulo.sintPinturaID = anguloRanurado.sintPinturaID;
+                        _angulo.intCantidad = anguloRanurado.intCantidad;
+                        _angulo.decLargo = anguloRanurado.decLargo;
+                        _angulo.decCapacidadCarga = anguloRanurado.decCapacidadCarga;
+
+                        // Insertamos los datos de la seleccion
+                        _angulo.seleccion = anguloRanurado.seleccion;
+                    }
+                    //Realizamos el registro del brazo
+                    result = EstanteriaDA.setDatosAnguloRanurado(_angulo, tinOpcion);
                 }
             }
             catch (Exception ex)

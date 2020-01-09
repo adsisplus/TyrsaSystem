@@ -40,7 +40,7 @@ namespace Adsisplus.Cotyrsa.BusinessEntities
         public bool? bitPintura { get; set; }
 
         [DataMember]
-        public bool? bitRefuerzo { get; set; }
+        public short? sintRefuerzo { get; set; }
 
         [DataMember]
         public decimal? decFrente { get; set; }
