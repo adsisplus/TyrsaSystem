@@ -125,7 +125,7 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
                     detCotizacion.decSubtotal = 0;
 
                     // Realizamos el alta de la cotización
-                    result = (new CotizacionLogic()).setDetCotizacion(detCotizacion, (short)(instalacion.intDetCotizaID == 0 ? 1 : tinOpcion));
+                    result = (new CotizacionLogic()).setDetCotizacion(detCotizacion, (short)((instalacion.intDetCotizaID == 0 || instalacion.intDetCotizaID == null) ? 1 : tinOpcion));
 
                     if (result.vchResultado != "NOK")
                     {
