@@ -44,9 +44,10 @@ namespace Adsisplus.Cotyrsa.WcfService.EstanteriaServices
         /// Procedimiento que lista los datos de seleccion angulo ranurado almacenado
         /// </summary>
         /// <param name="intAnguloRanuradoID"></param>
+        /// <param name="intCotizacionID"></param>
         /// <returns></returns>
         [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ListarSeleccionAnguloRanurado")]
-        List<SeleccionAnguloRanurado> ListarSeleccionAnguloRanurado(int intAnguloRanuradoID);
+        List<SeleccionAnguloRanurado> ListarSeleccionAnguloRanurado(int intAnguloRanuradoID, int intCotizacionID);
         /// <summary>
         /// ¨Procedimiento que lista los datos de angulo ranurado
         /// </summary>

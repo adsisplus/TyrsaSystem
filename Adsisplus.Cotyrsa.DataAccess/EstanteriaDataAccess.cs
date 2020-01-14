@@ -144,15 +144,16 @@ namespace Adsisplus.Cotyrsa.DataAccess
         /// Procedimiento que lista los datos de seleccion angulo ranurado almacenado
         /// </summary>
         /// <param name="intAnguloRanuradoID"></param>
+        /// <param name="intCotizacionID"></param>
         /// <returns></returns>
-        public List<SeleccionAnguloRanurado> ListarSeleccionAnguloRanurado(int intAnguloRanuradoID)
+        public List<SeleccionAnguloRanurado> ListarSeleccionAnguloRanurado(int intAnguloRanuradoID, int intCotizacionID)
         {
             List<SeleccionAnguloRanurado> result = new List<SeleccionAnguloRanurado>();
             try
             {
                 using (SistemaEstanteriaDataContext dc = new SistemaEstanteriaDataContext(Helper.ConnectionString()))
                 {
-                    var query = from item in dc.stp_ListarSeleccionAnguloRanurado(intAnguloRanuradoID)
+                    var query = from item in dc.stp_ListarSeleccionAnguloRanurado(intAnguloRanuradoID, intCotizacionID)
                                 select new SeleccionAnguloRanurado
                                 {
                                     intSeleccionAnguloID = item.intSeleccionAnguloID,

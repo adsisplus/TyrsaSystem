@@ -81,13 +81,14 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
         /// Procedimiento que lista los datos de seleccion angulo ranurado almacenado
         /// </summary>
         /// <param name="intAnguloRanuradoID"></param>
+        /// <param name="intCotizacionID"></param>
         /// <returns></returns>
-        public List<SeleccionAnguloRanurado> ListarSeleccionAnguloRanurado(int intAnguloRanuradoID)
+        public List<SeleccionAnguloRanurado> ListarSeleccionAnguloRanurado(int intAnguloRanuradoID, int intCotizacionID)
         {
             List<SeleccionAnguloRanurado> result = new List<SeleccionAnguloRanurado>();
             try
             {
-                result = EstanteriaDA.ListarSeleccionAnguloRanurado(intAnguloRanuradoID);
+                result = EstanteriaDA.ListarSeleccionAnguloRanurado(intAnguloRanuradoID, intCotizacionID);
             }
             catch (Exception ex)
             {

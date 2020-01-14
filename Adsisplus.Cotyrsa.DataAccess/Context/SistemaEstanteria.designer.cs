@@ -125,13 +125,6 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 			return ((ISingleResult<stp_ListarDatosAnguloRanuradoResult>)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.stp_ListarSeleccionAnguloRanurado")]
-		public ISingleResult<stp_ListarSeleccionAnguloRanuradoResult> stp_ListarSeleccionAnguloRanurado([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intAnguloRanuradoID)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), intAnguloRanuradoID);
-			return ((ISingleResult<stp_ListarSeleccionAnguloRanuradoResult>)(result.ReturnValue));
-		}
-		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.stp_setDatosAnguloRanurado")]
 		public ISingleResult<stp_setDatosAnguloRanuradoResult> stp_setDatosAnguloRanurado(
 					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intAnguloRanuradoID, 
@@ -155,6 +148,13 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), intAnguloRanuradoID, sintTipoAnguloRanuradoID, intElementoID, intCotizacionID, intDetCotizaID, sintPinturaID, intCantidad, decLargo, decCapacidadCarga, intSeleccionAnguloID, decDesarrollo, decLongitud, decAncho, vchMaterial, decPesoUnitario, decPrecioUnitario, bitActivo, tinOpcion);
 			return ((ISingleResult<stp_setDatosAnguloRanuradoResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.stp_ListarSeleccionAnguloRanurado")]
+		public ISingleResult<stp_ListarSeleccionAnguloRanuradoResult> stp_ListarSeleccionAnguloRanurado([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intAnguloRanuradoID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intCotizacionID)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), intAnguloRanuradoID, intCotizacionID);
+			return ((ISingleResult<stp_ListarSeleccionAnguloRanuradoResult>)(result.ReturnValue));
 		}
 	}
 	
@@ -1242,6 +1242,50 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 		}
 	}
 	
+	public partial class stp_setDatosAnguloRanuradoResult
+	{
+		
+		private string _vchResultado;
+		
+		private string _vchDescripcion;
+		
+		public stp_setDatosAnguloRanuradoResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchResultado", DbType="VarChar(12)")]
+		public string vchResultado
+		{
+			get
+			{
+				return this._vchResultado;
+			}
+			set
+			{
+				if ((this._vchResultado != value))
+				{
+					this._vchResultado = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchDescripcion", DbType="VarChar(55) NOT NULL", CanBeNull=false)]
+		public string vchDescripcion
+		{
+			get
+			{
+				return this._vchDescripcion;
+			}
+			set
+			{
+				if ((this._vchDescripcion != value))
+				{
+					this._vchDescripcion = value;
+				}
+			}
+		}
+	}
+	
 	public partial class stp_ListarSeleccionAnguloRanuradoResult
 	{
 		
@@ -1425,50 +1469,6 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 				if ((this._bitActivo != value))
 				{
 					this._bitActivo = value;
-				}
-			}
-		}
-	}
-	
-	public partial class stp_setDatosAnguloRanuradoResult
-	{
-		
-		private string _vchResultado;
-		
-		private string _vchDescripcion;
-		
-		public stp_setDatosAnguloRanuradoResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchResultado", DbType="VarChar(12)")]
-		public string vchResultado
-		{
-			get
-			{
-				return this._vchResultado;
-			}
-			set
-			{
-				if ((this._vchResultado != value))
-				{
-					this._vchResultado = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchDescripcion", DbType="VarChar(55) NOT NULL", CanBeNull=false)]
-		public string vchDescripcion
-		{
-			get
-			{
-				return this._vchDescripcion;
-			}
-			set
-			{
-				if ((this._vchDescripcion != value))
-				{
-					this._vchDescripcion = value;
 				}
 			}
 		}
