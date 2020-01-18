@@ -156,6 +156,27 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), intAnguloRanuradoID, intCotizacionID);
 			return ((ISingleResult<stp_ListarSeleccionAnguloRanuradoResult>)(result.ReturnValue));
 		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.stp_ListarCatCalibreEstanteria")]
+		public ISingleResult<stp_ListarCatCalibreEstanteriaResult> stp_ListarCatCalibreEstanteria()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<stp_ListarCatCalibreEstanteriaResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.stp_ListarCatFondoEntrepanio")]
+		public ISingleResult<stp_ListarCatFondoEntrepanioResult> stp_ListarCatFondoEntrepanio()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<stp_ListarCatFondoEntrepanioResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.stp_ListarCatFrenteEntrepanio")]
+		public ISingleResult<stp_ListarCatFrenteEntrepanioResult> stp_ListarCatFrenteEntrepanio()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<stp_ListarCatFrenteEntrepanioResult>)(result.ReturnValue));
+		}
 	}
 	
 	public partial class stp_ListarEntrepanioResult
@@ -1469,6 +1490,102 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 				if ((this._bitActivo != value))
 				{
 					this._bitActivo = value;
+				}
+			}
+		}
+	}
+	
+	public partial class stp_ListarCatCalibreEstanteriaResult
+	{
+		
+		private int _intCalibreAceroID;
+		
+		private string _vchCalibreAcero;
+		
+		public stp_ListarCatCalibreEstanteriaResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intCalibreAceroID", DbType="Int NOT NULL")]
+		public int intCalibreAceroID
+		{
+			get
+			{
+				return this._intCalibreAceroID;
+			}
+			set
+			{
+				if ((this._intCalibreAceroID != value))
+				{
+					this._intCalibreAceroID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchCalibreAcero", DbType="VarChar(50)")]
+		public string vchCalibreAcero
+		{
+			get
+			{
+				return this._vchCalibreAcero;
+			}
+			set
+			{
+				if ((this._vchCalibreAcero != value))
+				{
+					this._vchCalibreAcero = value;
+				}
+			}
+		}
+	}
+	
+	public partial class stp_ListarCatFondoEntrepanioResult
+	{
+		
+		private System.Nullable<decimal> _decFondo;
+		
+		public stp_ListarCatFondoEntrepanioResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decFondo", DbType="Decimal(8,2)")]
+		public System.Nullable<decimal> decFondo
+		{
+			get
+			{
+				return this._decFondo;
+			}
+			set
+			{
+				if ((this._decFondo != value))
+				{
+					this._decFondo = value;
+				}
+			}
+		}
+	}
+	
+	public partial class stp_ListarCatFrenteEntrepanioResult
+	{
+		
+		private System.Nullable<decimal> _decFrente;
+		
+		public stp_ListarCatFrenteEntrepanioResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decFrente", DbType="Decimal(8,2)")]
+		public System.Nullable<decimal> decFrente
+		{
+			get
+			{
+				return this._decFrente;
+			}
+			set
+			{
+				if ((this._decFrente != value))
+				{
+					this._decFrente = value;
 				}
 			}
 		}

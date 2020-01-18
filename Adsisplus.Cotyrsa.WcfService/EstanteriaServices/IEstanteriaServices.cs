@@ -57,6 +57,24 @@ namespace Adsisplus.Cotyrsa.WcfService.EstanteriaServices
         [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ListarDatosAnguladoRanurado")]
         List<DatosAnguloRanurado> ListarDatosAnguladoRanurado(int intAnguloRanuradoID, int intCotizacionID);
         /// <summary>
+        /// Procedimiento que lista los valores de frente para entrepaño
+        /// </summary>
+        /// <returns></returns>
+        [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ListarCatFrenteEntrepanio")]
+        List<CatalogoDecimal> ListarCatFrenteEntrepanio();
+        /// <summary>
+        /// Procedimiento que lista los valores de fondo para entrepaño
+        /// </summary>
+        /// <returns></returns>
+        [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ListarCatFondoEntrepanio")]
+        List<CatalogoDecimal> ListarCatFondoEntrepanio();
+        /// <summary>
+        /// Procedimiento que lista los valores de calibre para estanteria
+        /// </summary>
+        /// <returns></returns>
+        [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ListarCatCalibreEstanteria")]
+        List<Catalogo> ListarCatCalibreEstanteria();
+        /// <summary>
         /// Procedimiento que realiza el alta y modificación de los datos entrepaños
         /// </summary>
         /// <param name="entrepanio"></param>

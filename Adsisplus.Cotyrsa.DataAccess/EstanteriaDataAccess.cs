@@ -211,6 +211,81 @@ namespace Adsisplus.Cotyrsa.DataAccess
             return result;
         }
         /// <summary>
+        /// Procedimiento que lista los valores de frente para entrepaño
+        /// </summary>
+        /// <returns></returns>
+        public List<CatalogoDecimal> ListarCatFrenteEntrepanio()
+        {
+            List<CatalogoDecimal> result = new List<CatalogoDecimal>();
+            try
+            {
+                using (SistemaEstanteriaDataContext dc = new SistemaEstanteriaDataContext(Helper.ConnectionString()))
+                {
+                    var query = from item in dc.stp_ListarCatFrenteEntrepanio()
+                                select new CatalogoDecimal
+                                {
+                                    decValor = item.decFrente,
+                                };
+                    result.AddRange(query);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
+        /// <summary>
+        /// Procedimiento que lista los valores de fondo para entrepaño
+        /// </summary>
+        /// <returns></returns>
+        public List<CatalogoDecimal> ListarCatFondoEntrepanio()
+        {
+            List<CatalogoDecimal> result = new List<CatalogoDecimal>();
+            try
+            {
+                using (SistemaEstanteriaDataContext dc = new SistemaEstanteriaDataContext(Helper.ConnectionString()))
+                {
+                    var query = from item in dc.stp_ListarCatFondoEntrepanio()
+                                select new CatalogoDecimal
+                                {
+                                    decValor = item.decFondo
+                                };
+                    result.AddRange(query);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
+        /// <summary>
+        /// Procedimiento que lista los valores de calibre para estanteria
+        /// </summary>
+        /// <returns></returns>
+        public List<Catalogo> ListarCatCalibreEstanteria()
+        {
+            List<Catalogo> result = new List<Catalogo>();
+            try
+            {
+                using (SistemaEstanteriaDataContext dc = new SistemaEstanteriaDataContext(Helper.ConnectionString()))
+                {
+                    var query = from item in dc.stp_ListarCatCalibreEstanteria()
+                                select new Catalogo
+                                {
+                                    vchDescripcion = item.vchCalibreAcero
+                                };
+                    result.AddRange(query);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
+        /// <summary>
         /// Procedimiento que realiza el alta y modificación de los datos entrepaños
         /// </summary>
         /// <param name="entrepanio"></param>

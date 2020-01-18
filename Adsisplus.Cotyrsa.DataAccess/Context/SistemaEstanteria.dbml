@@ -156,4 +156,20 @@
       <Column Name="bitActivo" Type="System.String" DbType="Char(10)" CanBeNull="true" />
     </ElementType>
   </Function>
+  <Function Name="dbo.stp_ListarCatCalibreEstanteria" Method="stp_ListarCatCalibreEstanteria">
+    <ElementType Name="stp_ListarCatCalibreEstanteriaResult">
+      <Column Name="intCalibreAceroID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="vchCalibreAcero" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.stp_ListarCatFondoEntrepanio" Method="stp_ListarCatFondoEntrepanio">
+    <ElementType Name="stp_ListarCatFondoEntrepanioResult">
+      <Column Name="decFondo" Type="System.Decimal" DbType="Decimal(8,2)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.stp_ListarCatFrenteEntrepanio" Method="stp_ListarCatFrenteEntrepanio">
+    <ElementType Name="stp_ListarCatFrenteEntrepanioResult">
+      <Column Name="decFrente" Type="System.Decimal" DbType="Decimal(8,2)" CanBeNull="true" />
+    </ElementType>
+  </Function>
 </Database>

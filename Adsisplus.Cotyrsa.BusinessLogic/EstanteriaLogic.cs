@@ -116,6 +116,57 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
             return result;
         }
         /// <summary>
+        /// Procedimiento que lista los valores de frente para entrepaño
+        /// </summary>
+        /// <returns></returns>
+        public List<CatalogoDecimal> ListarCatFrenteEntrepanio()
+        {
+            List<CatalogoDecimal> result = new List<CatalogoDecimal>();
+            try
+            {
+                result = EstanteriaDA.ListarCatFrenteEntrepanio();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
+        /// <summary>
+        /// Procedimiento que lista los valores de fondo para entrepaño
+        /// </summary>
+        /// <returns></returns>
+        public List<CatalogoDecimal> ListarCatFondoEntrepanio()
+        {
+            List<CatalogoDecimal> result = new List<CatalogoDecimal>();
+            try
+            {
+                result = EstanteriaDA.ListarCatFondoEntrepanio();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
+        /// <summary>
+        /// Procedimiento que lista los valores de calibre para estanteria
+        /// </summary>
+        /// <returns></returns>
+        public List<Catalogo> ListarCatCalibreEstanteria()
+        {
+            List<Catalogo> result = new List<Catalogo>();
+            try
+            {
+                result = EstanteriaDA.ListarCatCalibreEstanteria();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
+        /// <summary>
         /// Procedimiento que realiza el alta y modificación de los datos entrepaños
         /// </summary>
         /// <param name="entrepanio"></param>

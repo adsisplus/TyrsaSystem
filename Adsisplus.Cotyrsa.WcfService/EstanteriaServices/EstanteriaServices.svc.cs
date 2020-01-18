@@ -111,6 +111,57 @@ namespace Adsisplus.Cotyrsa.WcfService.EstanteriaServices
             return result;
         }
         /// <summary>
+        /// Procedimiento que lista los valores de frente para entrepaño
+        /// </summary>
+        /// <returns></returns>
+        public List<CatalogoDecimal> ListarCatFrenteEntrepanio()
+        {
+            List<CatalogoDecimal> result = new List<CatalogoDecimal>();
+            try
+            {
+                result = (new EstanteriaLogic()).ListarCatFrenteEntrepanio();
+            }
+            catch (Exception ex)
+            {
+                Adsisplus.Cotyrsa.BusinessLogic.EventLogManager.LogErrorEntry(ex.Message);
+            }
+            return result;
+        }
+        /// <summary>
+        /// Procedimiento que lista los valores de fondo para entrepaño
+        /// </summary>
+        /// <returns></returns>
+        public List<CatalogoDecimal> ListarCatFondoEntrepanio()
+        {
+            List<CatalogoDecimal> result = new List<CatalogoDecimal>();
+            try
+            {
+                result = (new EstanteriaLogic()).ListarCatFondoEntrepanio();
+            }
+            catch (Exception ex)
+            {
+                Adsisplus.Cotyrsa.BusinessLogic.EventLogManager.LogErrorEntry(ex.Message);
+            }
+            return result;
+        }
+        /// <summary>
+        /// Procedimiento que lista los valores de calibre para estanteria
+        /// </summary>
+        /// <returns></returns>
+        public List<Catalogo> ListarCatCalibreEstanteria()
+        {
+            List<Catalogo> result = new List<Catalogo>();
+            try
+            {
+                result = (new EstanteriaLogic()).ListarCatCalibreEstanteria();
+            }
+            catch (Exception ex)
+            {
+                Adsisplus.Cotyrsa.BusinessLogic.EventLogManager.LogErrorEntry(ex.Message);
+            }
+            return result;
+        }
+        /// <summary>
         /// Procedimiento que realiza el alta y modificación de los datos entrepaños
         /// </summary>
         /// <param name="entrepanio"></param>
