@@ -94,7 +94,7 @@ namespace Adsisplus.Cotyrsa.WcfService.SistemasTyrsaServices
         /// <returns></returns>
         [OperationContract]
         [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "setDatosProtectorBateria")]
-        Resultado setDatosProtectorBateria(DatosProtectorBateria datosProtectorBateria, short sintTipoBateria, short sintOpcion);
+        Resultado setDatosProtectorBateria(DatosProtectorBateria datosProtectorBateria, short sintOpcion);
 
         /// <summary>
         /// Procedimiento que muestra los datos de tornilleria

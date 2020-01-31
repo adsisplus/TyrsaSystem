@@ -172,12 +172,12 @@ namespace Adsisplus.Cotyrsa.WcfService.SistemasTyrsaServices
         /// <param name="datosProtectorBateria"></param>
         /// <param name="sintOpcion"></param>
         /// <returns></returns>
-        public Resultado setDatosProtectorBateria(DatosProtectorBateria datosProtectorBateria, short sintTipoBateria, short sintOpcion)
+        public Resultado setDatosProtectorBateria(DatosProtectorBateria datosProtectorBateria, short sintOpcion)
         {
             Resultado result = new Resultado();
             try
             {
-                result = (new SistemasTyrsaLogic()).setDatosProtectorBateria(datosProtectorBateria, sintTipoBateria, sintOpcion);
+                result = (new SistemasTyrsaLogic()).setDatosProtectorBateria(datosProtectorBateria, sintOpcion);
             }
             catch (Exception ex)
             {

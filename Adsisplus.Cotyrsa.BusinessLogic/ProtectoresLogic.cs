@@ -225,25 +225,122 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
                     intDetCotizaID = Convert.ToInt32(result.vchResultado);
                     datosProtectorBateria.intDetCotizaID = intDetCotizaID;
                     datosProtectorBateria.intElementoID = 9;
-                    // Procedeimos a realizar el almacenado de la información
-                    result = (new SistemasTyrsaLogic()).setDatosProtectorBateria(datosProtectorBateria, sintTipoBateria,  tinOpcion);
-                    if (result.vchResultado != "NOK")
+
+                    //Realizamos la búsqueda de la información
+                    List<DatosProtectorBateria> lstBateria = new List<DatosProtectorBateria>();
+                    DatosProtectorBateria _bateria = new DatosProtectorBateria();
+
+                    lstBateria = ListarDatosProtectorBateria((int)datosProtectorBateria.intCotizacionID);
+                    if (lstBateria.Count() > 0)
                     {
-                        intProtectorBateriaID = Convert.ToInt32(result.vchResultado);
-                        if ((sistema.intProtectorBateriaID == null || sistema.intProtectorBateriaID == 0) || tinOpcion == 3)
+                        _bateria = lstBateria.First();
+
+                        // Procedeimos a realizar el almacenado de la información
+                        if (sintTipoBateria == 1)
                         {
-                            // En caso de realizar la baja, establecemos el valor a 0
-                            if (tinOpcion == 3)
-                                sistema.intProtectorBateriaID = 0;
-                            else
-                                sistema.intProtectorBateriaID = intProtectorBateriaID;
+                            // Actualizamos los datos de batería doble
+                            datosProtectorBateria.intCantidadDoble = _bateria.intCantidadDoble;
+                            datosProtectorBateria.decPrecioDoble = _bateria.decPrecioDoble;
+                            datosProtectorBateria.decLargoDoble = _bateria.decLargoDoble;
+                            datosProtectorBateria.decPrecioVentaUnitarioDoble = _bateria.decPrecioVentaUnitarioDoble;
+                            datosProtectorBateria.decPrecioVentaTotalDoble = _bateria.decPrecioVentaTotalDoble;
+                            datosProtectorBateria.decAlturaDoble = _bateria.decAlturaDoble;
+                            datosProtectorBateria.sintPinturaIDDoble = _bateria.sintPinturaIDDoble;
+                            datosProtectorBateria.intBotasDoble = _bateria.intBotasDoble;
+                            datosProtectorBateria.intBarrasDoble = _bateria.intBarrasDoble;
+                            datosProtectorBateria.decPesoUnitarioDoble = _bateria.decPesoUnitarioDoble;
+                            datosProtectorBateria.decPesoTotalDoble = _bateria.decPesoTotalDoble;
 
-                            sistema.intTipoElementoAlmacenID = 17;
-                            sistema.intCotizacionID = datosProtectorBateria.intCotizacionID;
+                            //Actuaizamos los datos de batería cuadruple
+                            datosProtectorBateria.intCantidadCuadruple = _bateria.intCantidadCuadruple;
+                            datosProtectorBateria.decPrecioCuadruple = _bateria.decPrecioCuadruple;
+                            datosProtectorBateria.decLargoCuadruple = _bateria.decLargoCuadruple;
+                            datosProtectorBateria.decPrecioVentaUnitarioCuadruple = _bateria.decPrecioVentaUnitarioCuadruple;
+                            datosProtectorBateria.decPrecioVentaTotalCuadruple = _bateria.decPrecioVentaTotalCuadruple;
+                            datosProtectorBateria.decAlturaCuadruple = _bateria.decAlturaCuadruple;
+                            datosProtectorBateria.sintPinturaIDCuadruple = _bateria.sintPinturaIDCuadruple;
+                            datosProtectorBateria.intBotasCuadruple = _bateria.intBotasCuadruple;
+                            datosProtectorBateria.intBarrasCuadruple = _bateria.intBarrasCuadruple;
+                            datosProtectorBateria.decPesoUnitarioCuadruple = _bateria.decPesoUnitarioCuadruple;
+                            datosProtectorBateria.decPesoTotalCuadruple = _bateria.decPesoTotalCuadruple;
+                        }
+                        if (sintTipoBateria == 2)
+                        {
+                            // Actualizamos los datos de betería sencilo
+                            datosProtectorBateria.intCantidadSencilla = _bateria.intCantidadSencilla;
+                            datosProtectorBateria.decPrecioSencilla = _bateria.decPrecioSencilla;
+                            datosProtectorBateria.decLargoSencilla = _bateria.decLargoSencilla;
+                            datosProtectorBateria.decPrecioVentaUnitarioSencilla = _bateria.decPrecioVentaUnitarioSencilla;
+                            datosProtectorBateria.decPrecioVentaTotalSencilla = _bateria.decPrecioVentaTotalSencilla;
+                            datosProtectorBateria.decAlturaSencilla = _bateria.decAlturaSencilla;
+                            datosProtectorBateria.sintPinturaIDSencilla = _bateria.sintPinturaIDSencilla;
+                            datosProtectorBateria.intBotasSencilla = _bateria.intBotasSencilla;
+                            datosProtectorBateria.intBarrasSencilla = _bateria.intBarrasSencilla;
+                            datosProtectorBateria.decPesoUnitarioSencilla = _bateria.decPesoUnitarioSencilla;
+                            datosProtectorBateria.decPesoTotalSencilla = _bateria.decPesoTotalSencilla;
 
-                            result = (new CotizacionLogic()).setDatosRelSistemaSelectivo(sistema, 2);
+                            //Actuaizamos los datos de batería cuadruple
+                            datosProtectorBateria.intCantidadCuadruple = _bateria.intCantidadCuadruple;
+                            datosProtectorBateria.decPrecioCuadruple = _bateria.decPrecioCuadruple;
+                            datosProtectorBateria.decLargoCuadruple = _bateria.decLargoCuadruple;
+                            datosProtectorBateria.decPrecioVentaUnitarioCuadruple = _bateria.decPrecioVentaUnitarioCuadruple;
+                            datosProtectorBateria.decPrecioVentaTotalCuadruple = _bateria.decPrecioVentaTotalCuadruple;
+                            datosProtectorBateria.decAlturaCuadruple = _bateria.decAlturaCuadruple;
+                            datosProtectorBateria.sintPinturaIDCuadruple = _bateria.sintPinturaIDCuadruple;
+                            datosProtectorBateria.intBotasCuadruple = _bateria.intBotasCuadruple;
+                            datosProtectorBateria.intBarrasCuadruple = _bateria.intBarrasCuadruple;
+                            datosProtectorBateria.decPesoUnitarioCuadruple = _bateria.decPesoUnitarioCuadruple;
+                            datosProtectorBateria.decPesoTotalCuadruple = _bateria.decPesoTotalCuadruple;
+                        }
+                        if (sintTipoBateria == 3)
+                        {
+                            // Actualizamos los datos de betería sencilo
+                            datosProtectorBateria.intCantidadSencilla = _bateria.intCantidadSencilla;
+                            datosProtectorBateria.decPrecioSencilla = _bateria.decPrecioSencilla;
+                            datosProtectorBateria.decLargoSencilla = _bateria.decLargoSencilla;
+                            datosProtectorBateria.decPrecioVentaUnitarioSencilla = _bateria.decPrecioVentaUnitarioSencilla;
+                            datosProtectorBateria.decPrecioVentaTotalSencilla = _bateria.decPrecioVentaTotalSencilla;
+                            datosProtectorBateria.decAlturaSencilla = _bateria.decAlturaSencilla;
+                            datosProtectorBateria.sintPinturaIDSencilla = _bateria.sintPinturaIDSencilla;
+                            datosProtectorBateria.intBotasSencilla = _bateria.intBotasSencilla;
+                            datosProtectorBateria.intBarrasSencilla = _bateria.intBarrasSencilla;
+                            datosProtectorBateria.decPesoUnitarioSencilla = _bateria.decPesoUnitarioSencilla;
+                            datosProtectorBateria.decPesoTotalSencilla = _bateria.decPesoTotalSencilla;
+
+                            // Actualizamos los datos de batería doble
+                            datosProtectorBateria.intCantidadDoble = _bateria.intCantidadDoble;
+                            datosProtectorBateria.decPrecioDoble = _bateria.decPrecioDoble;
+                            datosProtectorBateria.decLargoDoble = _bateria.decLargoDoble;
+                            datosProtectorBateria.decPrecioVentaUnitarioDoble = _bateria.decPrecioVentaUnitarioDoble;
+                            datosProtectorBateria.decPrecioVentaTotalDoble = _bateria.decPrecioVentaTotalDoble;
+                            datosProtectorBateria.decAlturaDoble = _bateria.decAlturaDoble;
+                            datosProtectorBateria.sintPinturaIDDoble = _bateria.sintPinturaIDDoble;
+                            datosProtectorBateria.intBotasDoble = _bateria.intBotasDoble;
+                            datosProtectorBateria.intBarrasDoble = _bateria.intBarrasDoble;
+                            datosProtectorBateria.decPesoUnitarioDoble = _bateria.decPesoUnitarioDoble;
+                            datosProtectorBateria.decPesoTotalDoble = _bateria.decPesoTotalDoble;
                         }
                     }
+
+                    datosProtectorBateria.intElementoID = 9;
+                    result = (new SistemasTyrsaLogic()).setDatosProtectorBateria(datosProtectorBateria, tinOpcion);
+                    //if (result.vchResultado != "NOK")
+                    //{
+                    //    intProtectorBateriaID = Convert.ToInt32(result.vchResultado);
+                    //    if ((sistema.intProtectorBateriaID == null || sistema.intProtectorBateriaID == 0) || tinOpcion == 3)
+                    //    {
+                    //        // En caso de realizar la baja, establecemos el valor a 0
+                    //        if (tinOpcion == 3)
+                    //            sistema.intProtectorBateriaID = 0;
+                    //        else
+                    //            sistema.intProtectorBateriaID = intProtectorBateriaID;
+
+                    //        sistema.intTipoElementoAlmacenID = 17;
+                    //        sistema.intCotizacionID = datosProtectorBateria.intCotizacionID;
+
+                    //        result = (new CotizacionLogic()).setDatosRelSistemaSelectivo(sistema, 2);
+                    //    }
+                    //}
                 }
             }
             catch (Exception ex)

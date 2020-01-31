@@ -228,9 +228,8 @@ namespace Adsisplus.Cotyrsa.DataAccess
         /// </summary>
         /// <param name="datosProtectorBateria"></param>
         /// <param name="sintOpcion"></param>
-        /// <param name="sintTipoBateria"> 1 Sencillo, 2 doble y 3 cuadruple</param>
         /// <returns></returns>
-        public Resultado setDatosProtectorBateria(DatosProtectorBateria datosProtectorBateria, short sintTipoBateria, short sintOpcion)
+        public Resultado setDatosProtectorBateria(DatosProtectorBateria datosProtectorBateria, short sintOpcion)
         {
             Resultado result = new Resultado();
             try
