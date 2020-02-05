@@ -202,6 +202,7 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
             int? intDetCotizaID;
             try
             {
+                tinOpcion = (short)(datosProtectorBateria.intDetCotizaID == 0 ? 1 : 2);
                 // Obtenemos la información del sistema Selectivo
                 RelSistemaSelectivo sistema = (new CotizacionLogic()).ListarDatosSistemaSelectivo((int)datosProtectorBateria.intCotizacionID);
                 intProtectorBateriaID = null;
