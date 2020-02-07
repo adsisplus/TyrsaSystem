@@ -84,20 +84,6 @@ namespace Adsisplus.Cotyrsa.DataAccess
                                     decPrecioFinal = item.decPrecioFinal,
                                     decPesoTotal = item.decPesoTotal,
                                     decPrecioTotal = item.decPrecioTotal,
-                                    seleccion = new SeleccionEntrepanio()
-                                    {
-                                        intSeleccionEntrepanioID = item.intSeleccionEntrepanioID,
-                                        vchCalibreAcero = item.vchCalibreAcero,
-                                        decFondo = item.decFondoSel,
-                                        decFrente = item.decFrenteSel,
-                                        sintNumRefuerzo = item.sintNumRefuerzo,
-                                        intCapCargaXEntrepanio = item.intCapCargaXEntrepanio,
-                                        decDesarrollo = item.decDesarrollo,
-                                        decLongitud = item.decLongitud,
-                                        vchMaterial = item.vchMaterial,
-                                        decTotalKiloUnitario = item.decTotalKiloUnitarioSel,
-                                        decPrecioFinal = item.decPrecioFinalSel
-                                    }
                                 };
                     result.AddRange(query);
                 }
@@ -286,6 +272,44 @@ namespace Adsisplus.Cotyrsa.DataAccess
             return result;
         }
         /// <summary>
+        /// Procedimiento que lista los datos de selección de entrepañio
+        /// </summary>
+        /// <param name="intEntrepanioID"></param>
+        /// <returns></returns>
+        public List<SeleccionEntrepanio> ListarSeleccionEntrepanio(int intEntrepanioID)
+        {
+            List<SeleccionEntrepanio> result = new List<SeleccionEntrepanio>();
+            try
+            {
+                using (SistemaEstanteriaDataContext dc = new SistemaEstanteriaDataContext(Helper.ConnectionString()))
+                {
+                    var query = from item in dc.stp_ListarSeleccionEntrepanio(intEntrepanioID)
+                                select new SeleccionEntrepanio
+                                {
+                                    intSeleccionEntrepanioID = item.intSeleccionEntrepanioID,
+                                    intEntrepanioID = item.intEntrepanioID,
+                                    vchCalibreAcero = item.vchCalibreAcero,
+                                    decFondo = item.decFondo,
+                                    decFrente = item.decFrente,
+                                    sintNumRefuerzo = item.sintNumRefuerzo,
+                                    intCapCargaXEntrepanio = item.intCapCargaXEntrepanio,
+                                    decDesarrollo = item.decDesarrollo,
+                                    decLongitud = item.decLongitud,
+                                    vchMaterial = item.vchMaterial,
+                                    decTotalKiloUnitario = item.decTotalKiloUnitario,
+                                    decPrecioFinal = item.decPrecioFinal,
+                                    bitActivo = item.bitActivo
+                                };
+                    result.AddRange(query);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
+        /// <summary>
         /// Procedimiento que realiza el alta y modificación de los datos entrepaños
         /// </summary>
         /// <param name="entrepanio"></param>
@@ -302,8 +326,8 @@ namespace Adsisplus.Cotyrsa.DataAccess
                         entrepanio.intElementoID, entrepanio.sintPinturaID, entrepanio.intCalibreAceroID, entrepanio.intCantidad, entrepanio.bitGalvanizado,
                         entrepanio.bitPintura, (byte)entrepanio.sintRefuerzo, entrepanio.decFrente, entrepanio.decFondo, entrepanio.decPesoPartida,
                         entrepanio.decTotalKiloUnitario, entrepanio.decPrecioVenta, entrepanio.decPrecioFinal, entrepanio.decPesoTotal, entrepanio.decPrecioTotal,
-                        entrepanio.seleccion.intSeleccionEntrepanioID, entrepanio.seleccion.sintNumRefuerzo, entrepanio.seleccion.vchCalibreAcero, entrepanio.seleccion.intCapCargaXEntrepanio,
-                        entrepanio.seleccion.decDesarrollo, entrepanio.seleccion.decLongitud, entrepanio.seleccion.vchMaterial, entrepanio.bitActivo, (byte)tinOpcion)
+                        entrepanio.seleccion.First().intSeleccionEntrepanioID, entrepanio.seleccion.First().sintNumRefuerzo, entrepanio.seleccion.First().vchCalibreAcero, entrepanio.seleccion.First().intCapCargaXEntrepanio,
+                        entrepanio.seleccion.First().decDesarrollo, entrepanio.seleccion.First().decLongitud, entrepanio.seleccion.First().vchMaterial, entrepanio.bitActivo, (byte)tinOpcion)
                                 select new Resultado
                                 {
                                     vchDescripcion = item.vchDescripcion,

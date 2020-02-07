@@ -172,4 +172,22 @@
       <Column Name="decFrente" Type="System.Decimal" DbType="Decimal(8,2)" CanBeNull="true" />
     </ElementType>
   </Function>
+  <Function Name="dbo.stp_ListarSeleccionEntrepanio" Method="stp_ListarSeleccionEntrepanio">
+    <Parameter Name="intEntrepanioID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="stp_ListarSeleccionEntrepanioResult">
+      <Column Name="intSeleccionEntrepanioID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="intEntrepanioID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="vchCalibreAcero" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="decFondo" Type="System.Decimal" DbType="Decimal(8,2)" CanBeNull="true" />
+      <Column Name="decFrente" Type="System.Decimal" DbType="Decimal(8,2)" CanBeNull="true" />
+      <Column Name="sintNumRefuerzo" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="intCapCargaXEntrepanio" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="decDesarrollo" Type="System.Decimal" DbType="Decimal(8,3)" CanBeNull="true" />
+      <Column Name="decLongitud" Type="System.Decimal" DbType="Decimal(8,3)" CanBeNull="true" />
+      <Column Name="vchMaterial" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="decTotalKiloUnitario" Type="System.Decimal" DbType="Decimal(12,3)" CanBeNull="true" />
+      <Column Name="decPrecioFinal" Type="System.Decimal" DbType="Decimal(12,2)" CanBeNull="true" />
+      <Column Name="bitActivo" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </ElementType>
+  </Function>
 </Database>

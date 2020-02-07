@@ -52,6 +52,8 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
             try
             {
                 result = EstanteriaDA.ListarDatosEntrepanio(intEntrepanioID, intCotizacionID);
+                foreach (DatosEntrepanio item in result)
+                    item.seleccion = ListarSeleccionEntrepanio((int)item.intEntrepanioID);
             }
             catch (Exception ex)
             {
@@ -167,6 +169,24 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
             return result;
         }
         /// <summary>
+        /// Procedimiento que lista los datos de selección de entrepañio
+        /// </summary>
+        /// <param name="intEntrepanioID"></param>
+        /// <returns></returns>
+        public List<SeleccionEntrepanio> ListarSeleccionEntrepanio(int intEntrepanioID)
+        {
+            List<SeleccionEntrepanio> result = new List<SeleccionEntrepanio>();
+            try
+            {
+                result = EstanteriaDA.ListarSeleccionEntrepanio(intEntrepanioID);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
+        /// <summary>
         /// Procedimiento que realiza el alta y modificación de los datos entrepaños
         /// </summary>
         /// <param name="entrepanio"></param>
@@ -207,7 +227,7 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
 
                     _entre.intDetCotizaID = intDetCotizaID;
                     _entre.intCotizacionID = intCotizacionID;
-                    _entre.seleccion = new SeleccionEntrepanio();
+                    _entre.seleccion = new List<SeleccionEntrepanio>();
                     if (tinOpcion != 3)
                     {
                         // Actualizamos la información

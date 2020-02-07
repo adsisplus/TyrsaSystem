@@ -177,6 +177,13 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
 			return ((ISingleResult<stp_ListarCatFrenteEntrepanioResult>)(result.ReturnValue));
 		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.stp_ListarSeleccionEntrepanio")]
+		public ISingleResult<stp_ListarSeleccionEntrepanioResult> stp_ListarSeleccionEntrepanio([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intEntrepanioID)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), intEntrepanioID);
+			return ((ISingleResult<stp_ListarSeleccionEntrepanioResult>)(result.ReturnValue));
+		}
 	}
 	
 	public partial class stp_ListarEntrepanioResult
@@ -1586,6 +1593,248 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 				if ((this._decFrente != value))
 				{
 					this._decFrente = value;
+				}
+			}
+		}
+	}
+	
+	public partial class stp_ListarSeleccionEntrepanioResult
+	{
+		
+		private int _intSeleccionEntrepanioID;
+		
+		private System.Nullable<int> _intEntrepanioID;
+		
+		private string _vchCalibreAcero;
+		
+		private System.Nullable<decimal> _decFondo;
+		
+		private System.Nullable<decimal> _decFrente;
+		
+		private System.Nullable<short> _sintNumRefuerzo;
+		
+		private System.Nullable<int> _intCapCargaXEntrepanio;
+		
+		private System.Nullable<decimal> _decDesarrollo;
+		
+		private System.Nullable<decimal> _decLongitud;
+		
+		private string _vchMaterial;
+		
+		private System.Nullable<decimal> _decTotalKiloUnitario;
+		
+		private System.Nullable<decimal> _decPrecioFinal;
+		
+		private System.Nullable<bool> _bitActivo;
+		
+		public stp_ListarSeleccionEntrepanioResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intSeleccionEntrepanioID", DbType="Int NOT NULL")]
+		public int intSeleccionEntrepanioID
+		{
+			get
+			{
+				return this._intSeleccionEntrepanioID;
+			}
+			set
+			{
+				if ((this._intSeleccionEntrepanioID != value))
+				{
+					this._intSeleccionEntrepanioID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intEntrepanioID", DbType="Int")]
+		public System.Nullable<int> intEntrepanioID
+		{
+			get
+			{
+				return this._intEntrepanioID;
+			}
+			set
+			{
+				if ((this._intEntrepanioID != value))
+				{
+					this._intEntrepanioID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchCalibreAcero", DbType="VarChar(50)")]
+		public string vchCalibreAcero
+		{
+			get
+			{
+				return this._vchCalibreAcero;
+			}
+			set
+			{
+				if ((this._vchCalibreAcero != value))
+				{
+					this._vchCalibreAcero = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decFondo", DbType="Decimal(8,2)")]
+		public System.Nullable<decimal> decFondo
+		{
+			get
+			{
+				return this._decFondo;
+			}
+			set
+			{
+				if ((this._decFondo != value))
+				{
+					this._decFondo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decFrente", DbType="Decimal(8,2)")]
+		public System.Nullable<decimal> decFrente
+		{
+			get
+			{
+				return this._decFrente;
+			}
+			set
+			{
+				if ((this._decFrente != value))
+				{
+					this._decFrente = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sintNumRefuerzo", DbType="SmallInt")]
+		public System.Nullable<short> sintNumRefuerzo
+		{
+			get
+			{
+				return this._sintNumRefuerzo;
+			}
+			set
+			{
+				if ((this._sintNumRefuerzo != value))
+				{
+					this._sintNumRefuerzo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intCapCargaXEntrepanio", DbType="Int")]
+		public System.Nullable<int> intCapCargaXEntrepanio
+		{
+			get
+			{
+				return this._intCapCargaXEntrepanio;
+			}
+			set
+			{
+				if ((this._intCapCargaXEntrepanio != value))
+				{
+					this._intCapCargaXEntrepanio = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decDesarrollo", DbType="Decimal(8,3)")]
+		public System.Nullable<decimal> decDesarrollo
+		{
+			get
+			{
+				return this._decDesarrollo;
+			}
+			set
+			{
+				if ((this._decDesarrollo != value))
+				{
+					this._decDesarrollo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decLongitud", DbType="Decimal(8,3)")]
+		public System.Nullable<decimal> decLongitud
+		{
+			get
+			{
+				return this._decLongitud;
+			}
+			set
+			{
+				if ((this._decLongitud != value))
+				{
+					this._decLongitud = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchMaterial", DbType="VarChar(250)")]
+		public string vchMaterial
+		{
+			get
+			{
+				return this._vchMaterial;
+			}
+			set
+			{
+				if ((this._vchMaterial != value))
+				{
+					this._vchMaterial = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decTotalKiloUnitario", DbType="Decimal(12,3)")]
+		public System.Nullable<decimal> decTotalKiloUnitario
+		{
+			get
+			{
+				return this._decTotalKiloUnitario;
+			}
+			set
+			{
+				if ((this._decTotalKiloUnitario != value))
+				{
+					this._decTotalKiloUnitario = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decPrecioFinal", DbType="Decimal(12,2)")]
+		public System.Nullable<decimal> decPrecioFinal
+		{
+			get
+			{
+				return this._decPrecioFinal;
+			}
+			set
+			{
+				if ((this._decPrecioFinal != value))
+				{
+					this._decPrecioFinal = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_bitActivo", DbType="Bit")]
+		public System.Nullable<bool> bitActivo
+		{
+			get
+			{
+				return this._bitActivo;
+			}
+			set
+			{
+				if ((this._bitActivo != value))
+				{
+					this._bitActivo = value;
 				}
 			}
 		}
