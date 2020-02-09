@@ -187,6 +187,42 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
             return result;
         }
         /// <summary>
+        /// Procedimiento que lista las escuadra de refuerzo
+        /// </summary>
+        /// <returns></returns>
+        public List<SeleccionEscuadraRefuerzo> ListarEscuadraRefuerzo()
+        {
+            List<SeleccionEscuadraRefuerzo> result = new List<SeleccionEscuadraRefuerzo>();
+            try
+            {
+                result = EstanteriaDA.ListarEscuadraRefuerzo();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
+        /// <summary>
+        /// Procedimiento que lista los datos escuadra refuerzo
+        /// </summary>
+        /// <param name="intEscuadraRefID"></param>
+        /// <param name="intCotizacionID"></param>
+        /// <returns></returns>
+        public List<DatosEscuadraRefuerzo> ListarDatosEscuadraRefuerzo(int intEscuadraRefID, int intCotizacionID)
+        {
+            List<DatosEscuadraRefuerzo> result = new List<DatosEscuadraRefuerzo>();
+            try
+            {
+                result = EstanteriaDA.ListarDatosEscuadraRefuerzo(intEscuadraRefID, intCotizacionID);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
+        /// <summary>
         /// Procedimiento que realiza el alta y modificación de los datos entrepaños
         /// </summary>
         /// <param name="entrepanio"></param>
@@ -322,6 +358,70 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
                     }
                     //Realizamos el registro del brazo
                     result = EstanteriaDA.setDatosAnguloRanurado(_angulo, tinOpcion);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
+        /// <summary>
+        /// Procedimiento que realiza el alta, modificación de los datos escuadra refuerzo
+        /// </summary>
+        /// <param name="escuadra"></param>
+        /// <param name="tinOpcion"></param>
+        /// <returns></returns>
+        public Resultado setDatosEscuadraRefuerzo(DatosEscuadraRefuerzo escuadra, int intDetCotizaID, int intCotizacionID, short tinOpcion)
+        {
+            Resultado result = new Resultado();
+            try
+            {
+                Cotizacion detCotizacion = new Cotizacion();
+                detCotizacion.intCotizacionID = intCotizacionID;
+                detCotizacion.intDetCotizaID = intDetCotizaID;
+                detCotizacion.intElementoID = 40; // Escuadra de refuerzo
+                detCotizacion.intPartida = 0;
+                detCotizacion.intCantidad = escuadra.intCantidad;
+                detCotizacion.decMonto = escuadra.decPrecioUnitario;
+                detCotizacion.decSubtotal = escuadra.decPrecioTotal;
+
+                // Almacenamos el registro
+                result = (new CotizacionLogic()).setDetCotizacion(detCotizacion, (short)(intDetCotizaID == 0 ? 1 : tinOpcion));
+                if (result.vchResultado != "NOK")
+                {
+                    intDetCotizaID = Convert.ToInt32(result.vchResultado);
+                    escuadra.intDetCotizaID = intDetCotizaID;
+
+                    List<DatosEscuadraRefuerzo> ListEscuadra = new List<DatosEscuadraRefuerzo>();
+                    DatosEscuadraRefuerzo _escuadra = new DatosEscuadraRefuerzo();
+
+                    // Validamos si es un nuevo registro
+                    if (tinOpcion != 1)
+                        ListEscuadra = ListarDatosEscuadraRefuerzo((int)escuadra.intEscuadraRefID, intCotizacionID);
+                    // Validamos si existe registro
+                    if (ListEscuadra.Count() > 0)
+                        _escuadra = ListEscuadra.First();
+                    else
+                        _escuadra.intEscuadraRefID = 0;
+
+                    _escuadra.intDetCotizaID = intDetCotizaID;
+                    _escuadra.intCotizacionID = intCotizacionID;
+                    _escuadra.intElementoID = 40;
+                    _escuadra.seleccion = new List<SeleccionEscuadraRefuerzo>();
+                    if (tinOpcion != 3)
+                    {
+                        // Actualizamos la información
+                        _escuadra.intElementoID = escuadra.intElementoID;
+                        _escuadra.intCantidad = escuadra.intCantidad;
+                        _escuadra.decPesoUnitario = escuadra.decPesoUnitario;
+                        _escuadra.decPesoTotal = escuadra.decPesoTotal;
+                        _escuadra.decPrecioUnitario = escuadra.decPrecioUnitario;
+                        _escuadra.decPrecioTotal = escuadra.decPrecioTotal;
+                        _escuadra.seleccion = escuadra.seleccion;
+                    }
+                    //Realizamos el registro del brazo
+                    result = EstanteriaDA.setDatosEscuadraRefuerzo(_escuadra, tinOpcion);
                 }
             }
             catch (Exception ex)

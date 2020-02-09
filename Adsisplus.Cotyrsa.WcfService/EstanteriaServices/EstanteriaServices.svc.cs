@@ -167,6 +167,42 @@ namespace Adsisplus.Cotyrsa.WcfService.EstanteriaServices
         /// <param name="entrepanio"></param>
         /// <param name="tinOpcion"></param>
         /// <returns></returns>
+        ///         /// <summary>
+        /// Procedimiento que lista las escuadra de refuerzo
+        /// </summary>
+        /// <returns></returns>
+        public List<SeleccionEscuadraRefuerzo> ListarEscuadraRefuerzo()
+        {
+            List<SeleccionEscuadraRefuerzo> result = new List<SeleccionEscuadraRefuerzo>();
+            try
+            {
+                result = (new EstanteriaLogic()).ListarEscuadraRefuerzo();
+            }
+            catch (Exception ex)
+            {
+                Adsisplus.Cotyrsa.BusinessLogic.EventLogManager.LogErrorEntry(ex.Message);
+            }
+            return result;
+        }
+        /// <summary>
+        /// Procedimiento que lista los datos escuadra refuerzo
+        /// </summary>
+        /// <param name="intEscuadraRefID"></param>
+        /// <param name="intCotizacionID"></param>
+        /// <returns></returns>
+        public List<DatosEscuadraRefuerzo> ListarDatosEscuadraRefuerzo(int intEscuadraRefID, int intCotizacionID)
+        {
+            List<DatosEscuadraRefuerzo> result = new List<DatosEscuadraRefuerzo>();
+            try
+            {
+                result = (new EstanteriaLogic()).ListarDatosEscuadraRefuerzo(intEscuadraRefID, intCotizacionID);
+            }
+            catch (Exception ex)
+            {
+                Adsisplus.Cotyrsa.BusinessLogic.EventLogManager.LogErrorEntry(ex.Message);
+            }
+            return result;
+        }
         public Resultado setDatosEntrepanio(DatosEntrepanio entrepanio, int intCotizacionID, int intDetCotizaID, short tinOpcion)
         {
             Resultado result = new Resultado();
@@ -194,6 +230,25 @@ namespace Adsisplus.Cotyrsa.WcfService.EstanteriaServices
             try
             {
                 result = (new EstanteriaLogic()).setDatosAnguloRanurato(anguloRanurado, intDetCotizaID, intCotizacionID, tinOpcion);
+            }
+            catch (Exception ex)
+            {
+                Adsisplus.Cotyrsa.BusinessLogic.EventLogManager.LogErrorEntry(ex.Message);
+            }
+            return result;
+        }
+        /// <summary>
+        /// Procedimiento que realiza el alta, modificación de los datos escuadra refuerzo
+        /// </summary>
+        /// <param name="escuadra"></param>
+        /// <param name="tinOpcion"></param>
+        /// <returns></returns>
+        public Resultado setDatosEscuadraRefuerzo(DatosEscuadraRefuerzo escuadra, int intDetCotizaID, int intCotizacionID, short tinOpcion)
+        {
+            Resultado result = new Resultado();
+            try
+            {
+                result = (new EstanteriaLogic()).setDatosEscuadraRefuerzo(escuadra, intDetCotizaID, intCotizacionID, tinOpcion);
             }
             catch (Exception ex)
             {

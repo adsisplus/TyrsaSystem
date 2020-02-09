@@ -310,6 +310,73 @@ namespace Adsisplus.Cotyrsa.DataAccess
             return result;
         }
         /// <summary>
+        /// Procedimiento que lista las escuadra de refuerzo
+        /// </summary>
+        /// <returns></returns>
+        public List<SeleccionEscuadraRefuerzo> ListarEscuadraRefuerzo()
+        {
+            List<SeleccionEscuadraRefuerzo> result = new List<SeleccionEscuadraRefuerzo>();
+            try
+            {
+                using (SistemaEstanteriaDataContext dc = new SistemaEstanteriaDataContext(Helper.ConnectionString()))
+                {
+                    var query = from item in dc.stp_ListarEscuadraRefuerzo()
+                                select new SeleccionEscuadraRefuerzo
+                                {
+                                    sintEscuadraRefuerzoID = item.sintEscuadraRefuerzoID,
+                                    decDesarrollo = item.decDesarrollo,
+                                    decLongitud = item.decLongitud,
+                                    decAncho = item.decAncho,
+                                    vchMaterial = item.vchMaterial,
+                                    decPesoUnitario = item.decPesoUnitario,
+                                    decPrecioUnitario = item.decPrecioUnitario
+                                };
+                    result.AddRange(query);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
+        /// <summary>
+        /// Procedimiento que lista los datos escuadra refuerzo
+        /// </summary>
+        /// <param name="intEscuadraRefID"></param>
+        /// <param name="intCotizacionID"></param>
+        /// <returns></returns>
+        public List<DatosEscuadraRefuerzo> ListarDatosEscuadraRefuerzo(int intEscuadraRefID, int intCotizacionID)
+        {
+            List<DatosEscuadraRefuerzo> result = new List<DatosEscuadraRefuerzo>();
+            try
+            {
+                using (SistemaEstanteriaDataContext dc = new SistemaEstanteriaDataContext(Helper.ConnectionString()))
+                {
+                    var query = from item in dc.stp_ListarDatosEscuadraRefuerzo(intEscuadraRefID, intCotizacionID)
+                                select new DatosEscuadraRefuerzo
+                                {
+                                    intEscuadraRefID = item.intEscuadraRefID,
+                                    intElementoID = item.intElementoID,
+                                    intCotizacionID = item.intCotizacionID,
+                                    intDetCotizaID = item.intDetCotizaID,
+                                    intCantidad = item.intCantidad,
+                                    decPesoUnitario = item.decPesoUnitario,
+                                    decPesoTotal = item.decPesoTotal,
+                                    decPrecioUnitario = item.decPrecioUnitario,
+                                    decPrecioTotal = item.decPrecioTotal,
+                                    bitActivo = item.bitActivo
+                                };
+                    result.AddRange(query);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
+        /// <summary>
         /// Procedimiento que realiza el alta y modificación de los datos entrepaños
         /// </summary>
         /// <param name="entrepanio"></param>
@@ -359,6 +426,37 @@ namespace Adsisplus.Cotyrsa.DataAccess
                         anguloRanurado.intDetCotizaID, anguloRanurado.sintPinturaID, anguloRanurado.intCantidad, anguloRanurado.decLargo, anguloRanurado.decCapacidadCarga,
                         anguloRanurado.seleccion.intSeleccionAnguloID, anguloRanurado.seleccion.decDesarrollo, anguloRanurado.seleccion.decLongitud, anguloRanurado.seleccion.decAncho, anguloRanurado.seleccion.vchMaterial,
                         anguloRanurado.seleccion.decPesoUnitario, anguloRanurado.seleccion.decPrecioUnitario, anguloRanurado.bitActivo, (byte)tinOpcion)
+                                select new Resultado
+                                {
+                                    vchDescripcion = item.vchDescripcion,
+                                    vchResultado = item.vchResultado
+                                };
+                    result = query.First();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
+        /// <summary>
+        /// Procedimiento que realiza el alta, modificación de los datos escuadra refuerzo
+        /// </summary>
+        /// <param name="escuadra"></param>
+        /// <param name="tinOpcion"></param>
+        /// <returns></returns>
+        public Resultado setDatosEscuadraRefuerzo(DatosEscuadraRefuerzo escuadra, short tinOpcion)
+        {
+            Resultado result = new Resultado();
+            try
+            {
+                using (SistemaEstanteriaDataContext dc = new SistemaEstanteriaDataContext(Helper.ConnectionString()))
+                {
+                    var query = from item in dc.stp_setDatosEscuadraRefuerzo(escuadra.intEscuadraRefID, escuadra.intElementoID, escuadra.intCotizacionID, escuadra.intDetCotizaID,
+                        escuadra.intCantidad, escuadra.decPesoUnitario, escuadra.decPesoTotal, escuadra.decPrecioUnitario,
+                        escuadra.decPrecioTotal, escuadra.seleccion.First().sintEscuadraRefuerzoID, escuadra.seleccion.First().sintEscuadraRefuerzoID, escuadra.seleccion.First().decDesarrollo,
+                        escuadra.seleccion.First().decLongitud, escuadra.seleccion.First().decAncho, escuadra.seleccion.First().vchMaterial, escuadra.bitActivo, (byte)tinOpcion)
                                 select new Resultado
                                 {
                                     vchDescripcion = item.vchDescripcion,

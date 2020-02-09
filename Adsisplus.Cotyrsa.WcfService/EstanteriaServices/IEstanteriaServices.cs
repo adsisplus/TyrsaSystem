@@ -75,6 +75,20 @@ namespace Adsisplus.Cotyrsa.WcfService.EstanteriaServices
         [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ListarCatCalibreEstanteria")]
         List<Catalogo> ListarCatCalibreEstanteria();
         /// <summary>
+        /// Procedimiento que lista las escuadra de refuerzo
+        /// </summary>
+        /// <returns></returns>
+        [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ListarEscuadraRefuerzo")]
+        List<SeleccionEscuadraRefuerzo> ListarEscuadraRefuerzo();
+        /// <summary>
+        /// Procedimiento que lista los datos escuadra refuerzo
+        /// </summary>
+        /// <param name="intEscuadraRefID"></param>
+        /// <param name="intCotizacionID"></param>
+        /// <returns></returns>
+        [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ListarDatosEscuadraRefuerzo")]
+        List<DatosEscuadraRefuerzo> ListarDatosEscuadraRefuerzo(int intEscuadraRefID, int intCotizacionID);
+        /// <summary>
         /// Procedimiento que realiza el alta y modificación de los datos entrepaños
         /// </summary>
         /// <param name="entrepanio"></param>
@@ -92,5 +106,13 @@ namespace Adsisplus.Cotyrsa.WcfService.EstanteriaServices
         /// <returns></returns>
         [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "setDatosAnguloRanurato")]
         Resultado setDatosAnguloRanurato(DatosAnguloRanurado anguloRanurado, int intDetCotizaID, int intCotizacionID, short tinOpcion);
+        /// <summary>
+        /// Procedimiento que realiza el alta, modificación de los datos escuadra refuerzo
+        /// </summary>
+        /// <param name="escuadra"></param>
+        /// <param name="tinOpcion"></param>
+        /// <returns></returns>
+        [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "setDatosEscuadraRefuerzo")]
+        Resultado setDatosEscuadraRefuerzo(DatosEscuadraRefuerzo escuadra, int intDetCotizaID, int intCotizacionID, short tinOpcion);
     }
 }
