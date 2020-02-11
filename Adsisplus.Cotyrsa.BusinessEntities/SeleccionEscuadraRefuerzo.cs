@@ -11,6 +11,10 @@ namespace Adsisplus.Cotyrsa.BusinessEntities
     public class SeleccionEscuadraRefuerzo
     {
         [DataMember]
+        public int? intSeleccionEscuadraID { get; set; }
+        [DataMember]
+        public int? intEscuadraRefID { get; set; }
+        [DataMember]
         public short? sintEscuadraRefuerzoID { get; set; }
         [DataMember]
         public decimal? decDesarrollo { get; set; }
@@ -24,5 +28,7 @@ namespace Adsisplus.Cotyrsa.BusinessEntities
         public decimal? decPesoUnitario { get; set; }
         [DataMember]
         public decimal? decPrecioUnitario { get; set; }
+        [DataMember]
+        public bool? bitActivo { get; set; }
     }
 }

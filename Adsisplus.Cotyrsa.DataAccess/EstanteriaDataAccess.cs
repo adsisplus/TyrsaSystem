@@ -341,11 +341,40 @@ namespace Adsisplus.Cotyrsa.DataAccess
             return result;
         }
         /// <summary>
-        /// Procedimiento que lista los datos escuadra refuerzo
+        /// Procedimiento que lista los datos de selección
         /// </summary>
         /// <param name="intEscuadraRefID"></param>
-        /// <param name="intCotizacionID"></param>
         /// <returns></returns>
+        public List<SeleccionEscuadraRefuerzo> ListarSeleccionEscuadraRefuerzo(int intEscuadraRefID)
+        {
+            List<SeleccionEscuadraRefuerzo> result = new List<SeleccionEscuadraRefuerzo>();
+            try
+            {
+                using (SistemaEstanteriaDataContext dc = new SistemaEstanteriaDataContext(Helper.ConnectionString()))
+                {
+                    var query = from item in dc.stp_ListarSeleccionEscuadraRefuerzo(intEscuadraRefID)
+                                select new SeleccionEscuadraRefuerzo
+                                {
+                                    intSeleccionEscuadraID = item.intSeleccionEscuadraID,
+                                    intEscuadraRefID = item.intEscuadraRefID,
+                                    sintEscuadraRefuerzoID = item.sintEscuadraRefuerzoID,
+                                    decDesarrollo = item.decDesarrollo,
+                                    decLongitud = item.decLongitud,
+                                    decAncho = item.decAncho,
+                                    vchMaterial = item.vchMaterial,
+                                    decPesoUnitario = item.decPesoUnitario,
+                                    decPrecioUnitario = item.decPrecioUnitario,
+                                    bitActivo = item.bitActivo
+                                };
+                    result.AddRange(query);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
         public List<DatosEscuadraRefuerzo> ListarDatosEscuadraRefuerzo(int intEscuadraRefID, int intCotizacionID)
         {
             List<DatosEscuadraRefuerzo> result = new List<DatosEscuadraRefuerzo>();
