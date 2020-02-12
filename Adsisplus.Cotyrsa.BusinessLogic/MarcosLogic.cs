@@ -323,8 +323,6 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
         {
             Resultado result = new Resultado();
             int? intSeleccionMarcoID = 0;
-            int? intDatosMarcoID = 0;
-
             try
             {
                 // Obtenemos la información del sistema Selectivo

@@ -52,8 +52,6 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
             try
             {
                 result = EstanteriaDA.ListarDatosEntrepanio(intEntrepanioID, intCotizacionID);
-                foreach (DatosEntrepanio item in result)
-                    item.seleccion = ListarSeleccionEntrepanio((int)item.intEntrepanioID);
             }
             catch (Exception ex)
             {
@@ -259,8 +257,8 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
                 detCotizacion.intElementoID = 39;
                 detCotizacion.intPartida = 0;
                 detCotizacion.intCantidad = entrepanio.intCantidad;
-                detCotizacion.decMonto = tinOpcion == 3 ? 0 : entrepanio.decPrecioVenta;
-                detCotizacion.decSubtotal = tinOpcion == 3 ? 0 : entrepanio.decPrecioFinal;
+                detCotizacion.decMonto = tinOpcion == 3 ? 0 : entrepanio.seleccion.decPrecioFinal;
+                detCotizacion.decSubtotal = tinOpcion == 3 ? 0 : entrepanio.seleccion.decPrecioFinal * entrepanio.intCantidad;
 
                 // Almacenamos el registro
                 result = (new CotizacionLogic()).setDetCotizacion(detCotizacion, (short)(intDetCotizaID == 0 ? 1 : tinOpcion));
@@ -283,7 +281,8 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
 
                     _entre.intDetCotizaID = intDetCotizaID;
                     _entre.intCotizacionID = intCotizacionID;
-                    _entre.seleccion = new List<SeleccionEntrepanio>();
+                    _entre.intElementoID = 39;
+                    _entre.seleccion = new SeleccionEntrepanio();
                     if (tinOpcion != 3)
                     {
                         // Actualizamos la información

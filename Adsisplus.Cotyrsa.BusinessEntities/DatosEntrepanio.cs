@@ -20,7 +20,7 @@ namespace Adsisplus.Cotyrsa.BusinessEntities
         public int? intCotizacionID { get; set; }
         [DataMember]
         public int? intDetCotizaID { get; set; }
-        
+
         [DataMember]
         public int? intElementoID { get; set; }
 
@@ -65,11 +65,22 @@ namespace Adsisplus.Cotyrsa.BusinessEntities
 
         [DataMember]
         public decimal? decPrecioTotal { get; set; }
-        
+
         [DataMember]
         public bool? bitActivo { get; set; }
+
+        //Datos a mostrar
+        [DataMember]
+        public string vchCalibre { get; set; }
+        [DataMember]
+        public decimal? decDesarrollo { get; set; }
+        [DataMember]
+        public decimal? decLongitud { get; set; }
+        [DataMember]
+        public string vchMaterial { get; set; }
+        //
         
         [DataMember]
-        public List<SeleccionEntrepanio> seleccion { get; set; }
+        public SeleccionEntrepanio seleccion { get; set; }
     }
 }
