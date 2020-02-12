@@ -200,14 +200,24 @@ namespace Adsisplus.Cotyrsa.DataAccess
                                 select new DatosAnguloRanurado
                                 {
                                     intAnguloRanuradoID = item.intAnguloRanuradoID,
-                                    sintTipoAnguloRanuradoID = (short)item.sintTipoAnguloRanuradoID,
+                                    sintTipoAnguloRanuradoID = item.sintTipoAnguloRanuradoID,
                                     intElementoID = item.intElementoID,
                                     intCotizacionID = item.intCotizacionID,
                                     sintPinturaID = item.sintPinturaID,
                                     intCantidad = item.intCantidad,
                                     decLargo = item.decLargo,
                                     decCapacidadCarga = item.decCapacidadCarga,
-                                    bitActivo = item.bitActivo
+                                    bitActivo = item.bitActivo,
+                                    seleccion = new SeleccionAnguloRanurado()
+                                    {
+                                        intSeleccionAnguloID = item.intSeleccionAnguloID,
+                                        decDesarrollo = item.decDesarrollo,
+                                        decLongitud = item.decLongitud,
+                                        decAncho = item.decAncho,
+                                        vchMaterial = item.vchMaterial,
+                                        decPesoUnitario = item.decPesoUnitario,
+                                        decPrecioUnitario = item.decPrecioUnitario
+                                    }
                                 };
                     result.AddRange(query);
                 }
@@ -416,7 +426,23 @@ namespace Adsisplus.Cotyrsa.DataAccess
                                     decPesoTotal = item.decPesoTotal,
                                     decPrecioUnitario = item.decPrecioUnitario,
                                     decPrecioTotal = item.decPrecioTotal,
-                                    bitActivo = item.bitActivo
+                                    bitActivo = item.bitActivo,
+                                    decDesarrollo = item.decDesarrollo,
+                                    decLongitud = item.decLongitud,
+                                    decAncho = item.decAncho,
+                                    vchMaterial = item.vchMaterial,
+                                    seleccion = new SeleccionEscuadraRefuerzo()
+                                    {
+                                        intSeleccionEscuadraID = item.intSeleccionEscuadraID,
+                                        sintEscuadraRefuerzoID = item.sintEscuadraRefuerzoID,
+                                        decDesarrollo = item.decDesarrollo,
+                                        decLongitud = item.decLongitud,
+                                        decAncho =  item.decAncho,
+                                        vchMaterial = item.vchMaterial,
+                                        decPesoUnitario = item.decPesoUnitario,
+                                        decPrecioUnitario = item.decPrecioUnitario
+                                    }
+                                    
                                 };
                     result.AddRange(query);
                 }
@@ -506,8 +532,8 @@ namespace Adsisplus.Cotyrsa.DataAccess
                 {
                     var query = from item in dc.stp_setDatosEscuadraRefuerzo(escuadra.intEscuadraRefID, escuadra.intElementoID, escuadra.intCotizacionID, escuadra.intDetCotizaID,
                         escuadra.intCantidad, escuadra.decPesoUnitario, escuadra.decPesoTotal, escuadra.decPrecioUnitario,
-                        escuadra.decPrecioTotal, escuadra.seleccion.First().sintEscuadraRefuerzoID, escuadra.seleccion.First().sintEscuadraRefuerzoID, escuadra.seleccion.First().decDesarrollo,
-                        escuadra.seleccion.First().decLongitud, escuadra.seleccion.First().decAncho, escuadra.seleccion.First().vchMaterial, escuadra.bitActivo, (byte)tinOpcion)
+                        escuadra.decPrecioTotal, escuadra.seleccion.sintEscuadraRefuerzoID, escuadra.seleccion.sintEscuadraRefuerzoID, escuadra.seleccion.decDesarrollo,
+                        escuadra.seleccion.decLongitud, escuadra.seleccion.decAncho, escuadra.seleccion.vchMaterial, escuadra.bitActivo, (byte)tinOpcion)
                                 select new Resultado
                                 {
                                     vchDescripcion = item.vchDescripcion,

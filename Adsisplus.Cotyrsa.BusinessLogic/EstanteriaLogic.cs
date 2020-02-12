@@ -213,8 +213,6 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
             try
             {
                 result = EstanteriaDA.ListarDatosEscuadraRefuerzo(intEscuadraRefID, intCotizacionID);
-                foreach (DatosEscuadraRefuerzo item in result)
-                    item.seleccion = ListarSeleccionEscuadraRefuerzo((int)item.intEscuadraRefID);
             }
             catch (Exception ex)
             {
@@ -402,8 +400,8 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
                 detCotizacion.intElementoID = 40; // Escuadra de refuerzo
                 detCotizacion.intPartida = 0;
                 detCotizacion.intCantidad = escuadra.intCantidad;
-                detCotizacion.decMonto = escuadra.seleccion.First().decPrecioUnitario;
-                detCotizacion.decSubtotal = escuadra.seleccion.First().decPrecioUnitario * escuadra.intCantidad;
+                detCotizacion.decMonto = escuadra.seleccion.decPrecioUnitario;
+                detCotizacion.decSubtotal = escuadra.seleccion.decPrecioUnitario * escuadra.intCantidad;
 
                 // Almacenamos el registro
                 result = (new CotizacionLogic()).setDetCotizacion(detCotizacion, (short)(intDetCotizaID == 0 ? 1 : tinOpcion));
@@ -427,16 +425,16 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
                     _escuadra.intDetCotizaID = intDetCotizaID;
                     _escuadra.intCotizacionID = intCotizacionID;
                     _escuadra.intElementoID = 40;
-                    _escuadra.seleccion = new List<SeleccionEscuadraRefuerzo>();
+                    _escuadra.seleccion = new SeleccionEscuadraRefuerzo();
                     if (tinOpcion != 3)
                     {
                         // Actualizamos la información
                         _escuadra.intElementoID = 40;
                         _escuadra.intCantidad = escuadra.intCantidad;
-                        _escuadra.decPesoUnitario = escuadra.seleccion.First().decPesoUnitario;
-                        _escuadra.decPesoTotal = escuadra.seleccion.First().decPesoUnitario * escuadra.intCantidad;
-                        _escuadra.decPrecioUnitario = escuadra.seleccion.First().decPrecioUnitario;
-                        _escuadra.decPrecioTotal = escuadra.seleccion.First().decPrecioUnitario * escuadra.intCantidad;
+                        _escuadra.decPesoUnitario = escuadra.seleccion.decPesoUnitario;
+                        _escuadra.decPesoTotal = escuadra.seleccion.decPesoUnitario * escuadra.intCantidad;
+                        _escuadra.decPrecioUnitario = escuadra.seleccion.decPrecioUnitario;
+                        _escuadra.decPrecioTotal = escuadra.seleccion.decPrecioUnitario * escuadra.intCantidad;
                         _escuadra.seleccion = escuadra.seleccion;
                     }
                     //Realizamos el registro del brazo

@@ -14,7 +14,7 @@ namespace Adsisplus.Cotyrsa.BusinessEntities
         public int? intAnguloRanuradoID {get;set;}
 
         [DataMember]
-        public short? sintTipoAnguloRanuradoID { get; set; }
+        public int? sintTipoAnguloRanuradoID { get; set; }
 
         [DataMember]
         public int? intElementoID { get; set; }

@@ -30,7 +30,16 @@ namespace Adsisplus.Cotyrsa.BusinessEntities
         public decimal? decPrecioTotal { get; set; }
         [DataMember]
         public bool? bitActivo { get; set; }
+        // DATOS PARA MOSTRAR
         [DataMember]
-        public List<SeleccionEscuadraRefuerzo> seleccion { get; set; } 
+        public decimal? decDesarrollo { get; set; }
+        [DataMember]
+        public decimal? decLongitud { get; set; }
+        [DataMember]
+        public decimal? decAncho { get; set; }
+        [DataMember]
+        public string vchMaterial { get; set; }
+        [DataMember]
+        public SeleccionEscuadraRefuerzo seleccion { get; set; } 
     }
 }
