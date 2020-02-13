@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="dbTyrsa" Class="SistemaEstanteriaDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=local;Initial Catalog=dbTyrsa;Persist Security Info=True;User ID=usrCotyrsa" SettingsObjectName="Adsisplus.Cotyrsa.DataAccess.Properties.Settings" SettingsPropertyName="dbTyrsaConnectionString" Provider="System.Data.SqlClient" />
+  <Connection Mode="AppSettings" ConnectionString="Data Source=local;Initial Catalog=dbTyrsa;User ID=usrCotyrsa" SettingsObjectName="Adsisplus.Cotyrsa.DataAccess.Properties.Settings" SettingsPropertyName="dbTyrsaConnectionString" Provider="System.Data.SqlClient" />
   <Function Name="dbo.stp_ListarEntrepanio" Method="stp_ListarEntrepanio">
     <Parameter Name="sintRefuerzo" Type="System.Int16" DbType="SmallInt" />
     <Parameter Name="decFrente" Type="System.Decimal" DbType="Decimal(8,2)" />
@@ -101,30 +101,6 @@
       <Column Name="decPrecioUnitario" Type="System.Decimal" DbType="Decimal(12,2)" CanBeNull="true" />
     </ElementType>
   </Function>
-  <Function Name="dbo.stp_setDatosAnguloRanurado" Method="stp_setDatosAnguloRanurado">
-    <Parameter Name="intAnguloRanuradoID" Type="System.Int32" DbType="Int" />
-    <Parameter Name="sintTipoAnguloRanuradoID" Type="System.Int32" DbType="Int" />
-    <Parameter Name="intElementoID" Type="System.Int32" DbType="Int" />
-    <Parameter Name="intCotizacionID" Type="System.Int32" DbType="Int" />
-    <Parameter Name="intDetCotizaID" Type="System.Int32" DbType="Int" />
-    <Parameter Name="sintPinturaID" Type="System.Int16" DbType="SmallInt" />
-    <Parameter Name="intCantidad" Type="System.Int32" DbType="Int" />
-    <Parameter Name="decLargo" Type="System.Decimal" DbType="Decimal(20,2)" />
-    <Parameter Name="decCapacidadCarga" Type="System.Decimal" DbType="Decimal(8,3)" />
-    <Parameter Name="intSeleccionAnguloID" Type="System.Int32" DbType="Int" />
-    <Parameter Name="decDesarrollo" Type="System.Decimal" DbType="Decimal(8,3)" />
-    <Parameter Name="decLongitud" Type="System.Decimal" DbType="Decimal(8,3)" />
-    <Parameter Name="decAncho" Type="System.Decimal" DbType="Decimal(8,3)" />
-    <Parameter Name="vchMaterial" Type="System.String" DbType="VarChar(250)" />
-    <Parameter Name="decPesoUnitario" Type="System.Decimal" DbType="Decimal(12,2)" />
-    <Parameter Name="decPrecioUnitario" Type="System.Decimal" DbType="Decimal(12,2)" />
-    <Parameter Name="bitActivo" Type="System.Boolean" DbType="Bit" />
-    <Parameter Name="tinOpcion" Type="System.Byte" DbType="TinyInt" />
-    <ElementType Name="stp_setDatosAnguloRanuradoResult">
-      <Column Name="vchResultado" Type="System.String" DbType="VarChar(12)" CanBeNull="true" />
-      <Column Name="vchDescripcion" Type="System.String" DbType="VarChar(55) NOT NULL" CanBeNull="false" />
-    </ElementType>
-  </Function>
   <Function Name="dbo.stp_ListarSeleccionAnguloRanurado" Method="stp_ListarSeleccionAnguloRanurado">
     <Parameter Name="intAnguloRanuradoID" Type="System.Int32" DbType="Int" />
     <Parameter Name="intCotizacionID" Type="System.Int32" DbType="Int" />
@@ -224,28 +200,6 @@
       <Column Name="bitActivo" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
     </ElementType>
   </Function>
-  <Function Name="dbo.stp_ListarDatosAnguloRanurado" Method="stp_ListarDatosAnguloRanurado">
-    <Parameter Name="intAnguloRanuradoID" Type="System.Int32" DbType="Int" />
-    <Parameter Name="intCotizacionID" Type="System.Int32" DbType="Int" />
-    <ElementType Name="stp_ListarDatosAnguloRanuradoResult">
-      <Column Name="intAnguloRanuradoID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="sintTipoAnguloRanuradoID" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="intElementoID" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="intCotizacionID" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="sintPinturaID" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
-      <Column Name="intCantidad" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="decLargo" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
-      <Column Name="decCapacidadCarga" Type="System.Decimal" DbType="Decimal(8,3)" CanBeNull="true" />
-      <Column Name="intSeleccionAnguloID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="decDesarrollo" Type="System.Decimal" DbType="Decimal(8,3)" CanBeNull="true" />
-      <Column Name="decLongitud" Type="System.Decimal" DbType="Decimal(8,3)" CanBeNull="true" />
-      <Column Name="decAncho" Type="System.Decimal" DbType="Decimal(8,3)" CanBeNull="true" />
-      <Column Name="vchMaterial" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
-      <Column Name="decPesoUnitario" Type="System.Decimal" DbType="Decimal(12,2)" CanBeNull="true" />
-      <Column Name="decPrecioUnitario" Type="System.Decimal" DbType="Decimal(12,2)" CanBeNull="true" />
-      <Column Name="bitActivo" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-    </ElementType>
-  </Function>
   <Function Name="dbo.stp_ListarDatosEscuadraRefuerzo" Method="stp_ListarDatosEscuadraRefuerzo">
     <Parameter Name="intEscuadraRefID" Type="System.Int32" DbType="Int" />
     <Parameter Name="intCotizacionID" Type="System.Int32" DbType="Int" />
@@ -267,6 +221,56 @@
       <Column Name="vchMaterial" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
       <Column Name="decPesoUnitario1" Type="System.Decimal" DbType="Decimal(12,2)" CanBeNull="true" />
       <Column Name="decPrecioUnitario1" Type="System.Decimal" DbType="Decimal(12,2)" CanBeNull="true" />
+      <Column Name="bitActivo" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.stp_setDatosAnguloRanurado" Method="stp_setDatosAnguloRanurado">
+    <Parameter Name="intAnguloRanuradoID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="sintTipoAnguloRanuradoID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intElementoID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intCotizacionID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intDetCotizaID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="sintPinturaID" Type="System.Int16" DbType="SmallInt" />
+    <Parameter Name="intCantidad" Type="System.Int32" DbType="Int" />
+    <Parameter Name="decLargo" Type="System.Decimal" DbType="Decimal(20,2)" />
+    <Parameter Name="decCapacidadCarga" Type="System.Decimal" DbType="Decimal(8,3)" />
+    <Parameter Name="decPesoTotal" Type="System.Decimal" DbType="Decimal(8,3)" />
+    <Parameter Name="decPrecioTotal" Type="System.Decimal" DbType="Decimal(8,3)" />
+    <Parameter Name="intSeleccionAnguloID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="decDesarrollo" Type="System.Decimal" DbType="Decimal(8,3)" />
+    <Parameter Name="decLongitud" Type="System.Decimal" DbType="Decimal(8,3)" />
+    <Parameter Name="decAncho" Type="System.Decimal" DbType="Decimal(8,3)" />
+    <Parameter Name="vchMaterial" Type="System.String" DbType="VarChar(250)" />
+    <Parameter Name="decPesoUnitario" Type="System.Decimal" DbType="Decimal(12,2)" />
+    <Parameter Name="decPrecioUnitario" Type="System.Decimal" DbType="Decimal(12,2)" />
+    <Parameter Name="bitActivo" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="tinOpcion" Type="System.Byte" DbType="TinyInt" />
+    <ElementType Name="stp_setDatosAnguloRanuradoResult">
+      <Column Name="vchResultado" Type="System.String" DbType="VarChar(12)" CanBeNull="true" />
+      <Column Name="vchDescripcion" Type="System.String" DbType="VarChar(55) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.stp_ListarDatosAnguloRanurado" Method="stp_ListarDatosAnguloRanurado">
+    <Parameter Name="intAnguloRanuradoID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intCotizacionID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="stp_ListarDatosAnguloRanuradoResult">
+      <Column Name="intAnguloRanuradoID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="sintTipoAnguloRanuradoID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="intElementoID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="intCotizacionID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="sintPinturaID" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="intCantidad" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="decLargo" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
+      <Column Name="decCapacidadCarga" Type="System.Decimal" DbType="Decimal(8,3)" CanBeNull="true" />
+      <Column Name="decPrecioTotal" Type="System.Decimal" DbType="Decimal(8,3)" CanBeNull="true" />
+      <Column Name="decPesoTotal" Type="System.Decimal" DbType="Decimal(8,3)" CanBeNull="true" />
+      <Column Name="intSeleccionAnguloID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="decDesarrollo" Type="System.Decimal" DbType="Decimal(8,3)" CanBeNull="true" />
+      <Column Name="decLongitud" Type="System.Decimal" DbType="Decimal(8,3)" CanBeNull="true" />
+      <Column Name="decAncho" Type="System.Decimal" DbType="Decimal(8,3)" CanBeNull="true" />
+      <Column Name="vchMaterial" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="decPesoUnitario" Type="System.Decimal" DbType="Decimal(12,2)" CanBeNull="true" />
+      <Column Name="decPrecioUnitario" Type="System.Decimal" DbType="Decimal(12,2)" CanBeNull="true" />
       <Column Name="bitActivo" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
     </ElementType>
   </Function>

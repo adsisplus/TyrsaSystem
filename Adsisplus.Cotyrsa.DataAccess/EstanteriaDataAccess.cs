@@ -216,7 +216,9 @@ namespace Adsisplus.Cotyrsa.DataAccess
                                         decAncho = item.decAncho,
                                         vchMaterial = item.vchMaterial,
                                         decPesoUnitario = item.decPesoUnitario,
-                                        decPrecioUnitario = item.decPrecioUnitario
+                                        decPrecioUnitario = item.decPrecioUnitario,
+                                        decPesoTotal = item.decPesoTotal,
+                                        decPrecioTotal = item.decPrecioTotal
                                     }
                                 };
                     result.AddRange(query);
@@ -440,7 +442,9 @@ namespace Adsisplus.Cotyrsa.DataAccess
                                         decAncho =  item.decAncho,
                                         vchMaterial = item.vchMaterial,
                                         decPesoUnitario = item.decPesoUnitario,
-                                        decPrecioUnitario = item.decPrecioUnitario
+                                        decPrecioUnitario = item.decPrecioUnitario,
+                                        decPesoTotal = item.decPesoTotal,
+                                        decPrecioTotal = item.decPrecioTotal
                                     }
                                     
                                 };
@@ -501,7 +505,7 @@ namespace Adsisplus.Cotyrsa.DataAccess
                 {
                     var query = from item in dc.stp_setDatosAnguloRanurado(anguloRanurado.intAnguloRanuradoID, anguloRanurado.sintTipoAnguloRanuradoID, anguloRanurado.intElementoID, anguloRanurado.intCotizacionID,
                         anguloRanurado.intDetCotizaID, anguloRanurado.sintPinturaID, anguloRanurado.intCantidad, anguloRanurado.decLargo, anguloRanurado.decCapacidadCarga,
-                        anguloRanurado.seleccion.intSeleccionAnguloID, anguloRanurado.seleccion.decDesarrollo, anguloRanurado.seleccion.decLongitud, anguloRanurado.seleccion.decAncho, anguloRanurado.seleccion.vchMaterial,
+                        anguloRanurado.decPesoTotal, anguloRanurado.decPrecioTotal, anguloRanurado.seleccion.intSeleccionAnguloID, anguloRanurado.seleccion.decDesarrollo, anguloRanurado.seleccion.decLongitud, anguloRanurado.seleccion.decAncho, anguloRanurado.seleccion.vchMaterial,
                         anguloRanurado.seleccion.decPesoUnitario, anguloRanurado.seleccion.decPrecioUnitario, anguloRanurado.bitActivo, (byte)tinOpcion)
                                 select new Resultado
                                 {
@@ -532,7 +536,7 @@ namespace Adsisplus.Cotyrsa.DataAccess
                 {
                     var query = from item in dc.stp_setDatosEscuadraRefuerzo(escuadra.intEscuadraRefID, escuadra.intElementoID, escuadra.intCotizacionID, escuadra.intDetCotizaID,
                         escuadra.intCantidad, escuadra.decPesoUnitario, escuadra.decPesoTotal, escuadra.decPrecioUnitario,
-                        escuadra.decPrecioTotal, escuadra.seleccion.sintEscuadraRefuerzoID, escuadra.seleccion.sintEscuadraRefuerzoID, escuadra.seleccion.decDesarrollo,
+                        escuadra.decPrecioTotal, escuadra.seleccion.intSeleccionEscuadraID, escuadra.seleccion.sintEscuadraRefuerzoID, escuadra.seleccion.decDesarrollo,
                         escuadra.seleccion.decLongitud, escuadra.seleccion.decAncho, escuadra.seleccion.vchMaterial, escuadra.bitActivo, (byte)tinOpcion)
                                 select new Resultado
                                 {

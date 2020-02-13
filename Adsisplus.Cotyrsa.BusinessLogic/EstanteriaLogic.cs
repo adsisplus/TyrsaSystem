@@ -334,8 +334,8 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
                 detCotizacion.intElementoID = 41;
                 detCotizacion.intPartida = 0;
                 detCotizacion.intCantidad = anguloRanurado.intCantidad;
-                //detCotizacion.decMonto = tinOpcion == 3 ? 0 : anguloRanurado.decPrecioVenta;
-                //detCotizacion.decSubtotal = tinOpcion == 3 ? 0 : entrepanio.decPrecioFinal;
+                detCotizacion.decMonto = tinOpcion == 3 ? 0 : anguloRanurado.seleccion.decPrecioUnitario;
+                detCotizacion.decSubtotal = tinOpcion == 3 ? 0 : anguloRanurado.decPrecioTotal;
 
                 // Almacenamos el registro
                 result = (new CotizacionLogic()).setDetCotizacion(detCotizacion, (short)(intDetCotizaID == 0 ? 1 : tinOpcion));
@@ -369,6 +369,8 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
                         _angulo.intCantidad = anguloRanurado.intCantidad;
                         _angulo.decLargo = anguloRanurado.decLargo;
                         _angulo.decCapacidadCarga = anguloRanurado.decCapacidadCarga;
+                        _angulo.decPesoTotal = anguloRanurado.decPesoTotal;
+                        _angulo.decPrecioTotal = anguloRanurado.decPrecioTotal;
 
                         // Insertamos los datos de la seleccion
                         _angulo.seleccion = anguloRanurado.seleccion;
@@ -401,7 +403,7 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
                 detCotizacion.intPartida = 0;
                 detCotizacion.intCantidad = escuadra.intCantidad;
                 detCotizacion.decMonto = escuadra.seleccion.decPrecioUnitario;
-                detCotizacion.decSubtotal = escuadra.seleccion.decPrecioUnitario * escuadra.intCantidad;
+                detCotizacion.decSubtotal = escuadra.seleccion.decPrecioTotal;
 
                 // Almacenamos el registro
                 result = (new CotizacionLogic()).setDetCotizacion(detCotizacion, (short)(intDetCotizaID == 0 ? 1 : tinOpcion));
@@ -432,9 +434,9 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
                         _escuadra.intElementoID = 40;
                         _escuadra.intCantidad = escuadra.intCantidad;
                         _escuadra.decPesoUnitario = escuadra.seleccion.decPesoUnitario;
-                        _escuadra.decPesoTotal = escuadra.seleccion.decPesoUnitario * escuadra.intCantidad;
+                        _escuadra.decPesoTotal = escuadra.seleccion.decPesoTotal;
                         _escuadra.decPrecioUnitario = escuadra.seleccion.decPrecioUnitario;
-                        _escuadra.decPrecioTotal = escuadra.seleccion.decPrecioUnitario * escuadra.intCantidad;
+                        _escuadra.decPrecioTotal = escuadra.seleccion.decPrecioTotal;
                         _escuadra.seleccion = escuadra.seleccion;
                     }
                     //Realizamos el registro del brazo
