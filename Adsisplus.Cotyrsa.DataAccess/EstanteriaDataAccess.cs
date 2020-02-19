@@ -172,7 +172,10 @@ namespace Adsisplus.Cotyrsa.DataAccess
                                     decAncho = item.decAncho,
                                     vchMaterial = item.vchMaterial,
                                     decPesoUnitario = item.decPesoUnitario,
-                                    decPrecioUnitario = item.decPrecioUnitario
+                                    decPrecioUnitario = item.decPrecioUnitario,
+                                    decPesoTotal = item.decPesoTotal,
+                                    decPrecioTotal = item.decPrecioTotal,
+                                    intCantidad = item.intCantidad
                                 };
                     result.AddRange(query);
                 }
@@ -203,6 +206,7 @@ namespace Adsisplus.Cotyrsa.DataAccess
                                     sintTipoAnguloRanuradoID = item.sintTipoAnguloRanuradoID,
                                     intElementoID = item.intElementoID,
                                     intCotizacionID = item.intCotizacionID,
+                                    intDetCotizaID = item.intDetCotizaID,
                                     sintPinturaID = item.sintPinturaID,
                                     intCantidad = item.intCantidad,
                                     decLargo = item.decLargo,

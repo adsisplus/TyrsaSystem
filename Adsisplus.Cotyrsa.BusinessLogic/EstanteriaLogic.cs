@@ -335,7 +335,7 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
                 detCotizacion.intPartida = 0;
                 detCotizacion.intCantidad = anguloRanurado.intCantidad;
                 detCotizacion.decMonto = tinOpcion == 3 ? 0 : anguloRanurado.seleccion.decPrecioUnitario;
-                detCotizacion.decSubtotal = tinOpcion == 3 ? 0 : anguloRanurado.decPrecioTotal;
+                detCotizacion.decSubtotal = tinOpcion == 3 ? 0 : anguloRanurado.seleccion.decPrecioTotal;
 
                 // Almacenamos el registro
                 result = (new CotizacionLogic()).setDetCotizacion(detCotizacion, (short)(intDetCotizaID == 0 ? 1 : tinOpcion));
