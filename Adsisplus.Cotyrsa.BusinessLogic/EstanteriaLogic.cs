@@ -256,7 +256,7 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
                 detCotizacion.intPartida = 0;
                 detCotizacion.intCantidad = entrepanio.intCantidad;
                 detCotizacion.decMonto = tinOpcion == 3 ? 0 : entrepanio.seleccion.decPrecioFinal;
-                detCotizacion.decSubtotal = tinOpcion == 3 ? 0 : entrepanio.seleccion.decPrecioFinal * entrepanio.intCantidad;
+                detCotizacion.decSubtotal = tinOpcion == 3 ? 0 : entrepanio.seleccion.decPrecioTotal;
 
                 // Almacenamos el registro
                 result = (new CotizacionLogic()).setDetCotizacion(detCotizacion, (short)(intDetCotizaID == 0 ? 1 : tinOpcion));
@@ -294,12 +294,12 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
                         _entre.sintRefuerzo = entrepanio.sintRefuerzo;
                         _entre.decFrente = entrepanio.decFrente;
                         _entre.decFondo = entrepanio.decFondo;
-                        _entre.decPesoPartida = entrepanio.decPesoPartida;
-                        _entre.decTotalKiloUnitario = entrepanio.decTotalKiloUnitario;
-                        _entre.decPrecioVenta = entrepanio.decPrecioVenta;
-                        _entre.decPrecioFinal = entrepanio.decPrecioFinal;
-                        _entre.decPesoTotal = entrepanio.decPesoTotal;
-                        _entre.decPrecioTotal = entrepanio.decPrecioTotal;
+                        _entre.decPesoPartida = entrepanio.seleccion.decPrecioFinal;
+                        _entre.decTotalKiloUnitario = entrepanio.seleccion.decTotalKiloUnitario;
+                        //_entre.decPrecioVenta = entrepanio.seleccion.decPrecioFinal;
+                        _entre.decPrecioFinal = entrepanio.seleccion.decPrecioFinal;
+                        _entre.decPesoTotal = entrepanio.seleccion.decPesoTotal;
+                        _entre.decPrecioTotal = entrepanio.seleccion.decPrecioTotal;
                         _entre.bitActivo = entrepanio.bitActivo;
 
                         // Insertamos los datos de la seleccion
@@ -369,8 +369,8 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
                         _angulo.intCantidad = anguloRanurado.intCantidad;
                         _angulo.decLargo = anguloRanurado.decLargo;
                         _angulo.decCapacidadCarga = anguloRanurado.decCapacidadCarga;
-                        _angulo.decPesoTotal = anguloRanurado.decPesoTotal;
-                        _angulo.decPrecioTotal = anguloRanurado.decPrecioTotal;
+                        _angulo.decPesoTotal = anguloRanurado.seleccion.decPesoTotal;
+                        _angulo.decPrecioTotal = anguloRanurado.seleccion.decPrecioTotal;
 
                         // Insertamos los datos de la seleccion
                         _angulo.seleccion = anguloRanurado.seleccion;

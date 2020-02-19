@@ -207,6 +207,8 @@ namespace Adsisplus.Cotyrsa.DataAccess
                                     intCantidad = item.intCantidad,
                                     decLargo = item.decLargo,
                                     decCapacidadCarga = item.decCapacidadCarga,
+                                    decPrecioTotal = item.decPrecioTotal,
+                                    decPesoTotal = item.decPesoTotal,
                                     bitActivo = item.bitActivo,
                                     seleccion = new SeleccionAnguloRanurado()
                                     {
@@ -473,7 +475,7 @@ namespace Adsisplus.Cotyrsa.DataAccess
                     var query = from item in dc.stp_setDatosEntrepanio(entrepanio.intEntrepanioID, entrepanio.sintTipoEntrepanioID, entrepanio.intCotizacionID, entrepanio.intDetCotizaID,
                         entrepanio.intElementoID, entrepanio.sintPinturaID, entrepanio.intCalibreAceroID, entrepanio.intCantidad, entrepanio.bitGalvanizado,
                         entrepanio.bitPintura, (byte)entrepanio.sintRefuerzo, entrepanio.decFrente, entrepanio.decFondo, entrepanio.decPesoPartida,
-                        entrepanio.seleccion.decTotalKiloUnitario, entrepanio.seleccion.decPrecioFinal, entrepanio.seleccion.decPrecioFinal * entrepanio.intCantidad, entrepanio.seleccion.decTotalKiloUnitario * entrepanio.intCantidad, entrepanio.decPrecioTotal,
+                        entrepanio.decTotalKiloUnitario, entrepanio.decPrecioVenta, entrepanio.decPrecioFinal, entrepanio.decPesoTotal, entrepanio.decPrecioTotal,
                         entrepanio.seleccion.intSeleccionEntrepanioID, entrepanio.seleccion.sintNumRefuerzo, entrepanio.seleccion.vchCalibreAcero, entrepanio.seleccion.intCapCargaXEntrepanio,
                         entrepanio.seleccion.decDesarrollo, entrepanio.seleccion.decLongitud, entrepanio.seleccion.vchMaterial, entrepanio.bitActivo, (byte)tinOpcion)
                                 select new Resultado
