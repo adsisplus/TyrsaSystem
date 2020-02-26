@@ -435,6 +435,8 @@ namespace Adsisplus.Cotyrsa.DataAccess
                                     decAlturaCanastilla = item.decAlturaCanastilla,
                                     decCapacidadMaxima = item.decCapacidadMaxima,
                                     decAlturaDobleMonten = item.decAlturaDobleMonten,
+                                    sintMaterialDriveInID = item.sintMaterialDriveInID,
+                                    tinOpcionDrive = item.sintMaterialDriveInID,
                                     bitActivo = item.bitActivo
                                 };
                     result.AddRange(query);

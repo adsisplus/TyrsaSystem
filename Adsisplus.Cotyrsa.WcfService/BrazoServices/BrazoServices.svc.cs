@@ -35,14 +35,14 @@ namespace Adsisplus.Cotyrsa.WcfService.BrazoServices
         /// <summary>
         /// Procedimiento que lista datos Drive In Brazo
         /// </summary>
-        /// <param name="bitEsEstructural"></param>
+        /// <param name="intDatosDriveInID"></param>
         /// <returns></returns>
-        public List<SeleccionBrazo> ListarDatosBrazoDriveIn(bool bitEsEstructural)
+        public List<SeleccionBrazo> ListarDatosBrazoDriveIn(int intDatosDriveInID)
         {
             List<SeleccionBrazo> result = new List<SeleccionBrazo>();
             try
             {
-                result = (new BrazoLogic()).ListarDatosBrazoDriveIn(bitEsEstructural);
+                result = (new BrazoLogic()).ListarDatosBrazoDriveIn(intDatosDriveInID);
             }
             catch (Exception ex)
             {

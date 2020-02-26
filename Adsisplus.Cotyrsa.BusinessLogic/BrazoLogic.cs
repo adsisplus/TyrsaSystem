@@ -40,14 +40,17 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
         /// <summary>
         /// Procedimiento que lista datos Drive In Brazo
         /// </summary>
-        /// <param name="bitEsEstructural"></param>
+        /// <param name="intDatosDriveInID"></param>
         /// <returns></returns>
-        public List<SeleccionBrazo> ListarDatosBrazoDriveIn(bool bitEsEstructural)
+        public List<SeleccionBrazo> ListarDatosBrazoDriveIn(int intDatosDriveInID)
         {
+            DatosDriveIn _drive = new DatosDriveIn();
             List<SeleccionBrazo> result = new List<SeleccionBrazo>();
             try
             {
-                result = BrazoDA.ListarDatosBrazoDriveIn(bitEsEstructural);
+                //Realizamos la búsqueda de la información de DriveIn
+                _drive = (new DriveInLogic()).ListarDatosDriveIn(intDatosDriveInID, 0).First();
+                result = BrazoDA.ListarDatosBrazoDriveIn((bool)_drive.bitEsEstructural, (short)_drive.sintMaterialDriveInID);
             }
             catch (Exception ex)
             {

@@ -70,15 +70,16 @@ namespace Adsisplus.Cotyrsa.DataAccess
         /// Procedimiento que lista datos Drive In Brazo
         /// </summary>
         /// <param name="bitEsEstructural"></param>
+        /// <param name="sintEstructural"></param>
         /// <returns></returns>
-        public List<SeleccionBrazo> ListarDatosBrazoDriveIn(bool bitEsEstructural)
+        public List<SeleccionBrazo> ListarDatosBrazoDriveIn(bool bitEsEstructural, short sintEstructural)
         {
             List<SeleccionBrazo> result = new List<SeleccionBrazo>();
             try
             {
                 using (BrazoDataContext dc = new BrazoDataContext(Helper.ConnectionString()))
                 {
-                    var query = from item in dc.stp_ListarDriveInBrazo(bitEsEstructural)
+                    var query = from item in dc.stp_ListarDriveInBrazo(bitEsEstructural, sintEstructural)
                                 select new SeleccionBrazo
                                 {
                                     sintDriveInID = item.sintDriveInID,

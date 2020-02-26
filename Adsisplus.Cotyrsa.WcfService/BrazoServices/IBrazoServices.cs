@@ -26,11 +26,11 @@ namespace Adsisplus.Cotyrsa.WcfService.BrazoServices
         /// <summary>
         /// Procedimiento que lista datos Drive In Brazo
         /// </summary>
-        /// <param name="bitEsEstructural"></param>
+        /// <param name="intDatosDriveInID"></param>
         /// <returns></returns>
         [OperationContract]
         [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ListarDatosBrazoDriveIn")]
-        List<SeleccionBrazo> ListarDatosBrazoDriveIn(bool bitEsEstructural);
+        List<SeleccionBrazo> ListarDatosBrazoDriveIn(int intDatosDriveInID);
         /// <summary>
         /// Procedimiento que lista los datos de seleccion brazo en base al ID de la cotización
         /// </summary>

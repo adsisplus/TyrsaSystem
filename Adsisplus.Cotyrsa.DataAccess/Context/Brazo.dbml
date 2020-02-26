@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="dbTyrsa" Class="BrazoDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=local;Initial Catalog=dbTyrsa;Persist Security Info=True;User ID=usrCotyrsa" SettingsObjectName="Adsisplus.Cotyrsa.DataAccess.Properties.Settings" SettingsPropertyName="dbTyrsaConnectionString" Provider="System.Data.SqlClient" />
+  <Connection Mode="AppSettings" ConnectionString="Data Source=local;Initial Catalog=dbTyrsa;User ID=usrCotyrsa" SettingsObjectName="Adsisplus.Cotyrsa.DataAccess.Properties.Settings" SettingsPropertyName="dbTyrsaConnectionString" Provider="System.Data.SqlClient" />
   <Table Name="" Member="tmp_BrazoDriveIn">
     <Type Name="tmp_BrazoDriveIn" Id="ID1">
       <Column Name="sintDriveInID" Type="System.Int16" CanBeNull="false" />
@@ -10,10 +10,6 @@
       <Column Name="decPrecioFinal" Type="System.Decimal" CanBeNull="false" />
     </Type>
   </Table>
-  <Function Name="dbo.stp_ListarDriveInBrazo" Method="stp_ListarDriveInBrazo">
-    <Parameter Name="bitEsEstructural" Type="System.Boolean" DbType="Bit" />
-    <ElementType IdRef="ID1" />
-  </Function>
   <Function Name="dbo.stp_ListarDatosBrazo" Method="stp_ListarDatosBrazo">
     <Parameter Name="intBrazoID" Type="System.Int32" DbType="Int" />
     <Parameter Name="intCotizacionID" Type="System.Int32" DbType="Int" />
@@ -54,5 +50,10 @@
       <Column Name="decPesoUnitario" Type="System.Decimal" DbType="Decimal(20,3)" CanBeNull="true" />
       <Column Name="decPrecioVentaUnitario" Type="System.Decimal" DbType="Decimal(18,3)" CanBeNull="true" />
     </ElementType>
+  </Function>
+  <Function Name="dbo.stp_ListarDriveInBrazo" Method="stp_ListarDriveInBrazo">
+    <Parameter Name="bitEsEstructural" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="sintEstructural" Type="System.Int16" DbType="SmallInt" />
+    <ElementType IdRef="ID1" />
   </Function>
 </Database>

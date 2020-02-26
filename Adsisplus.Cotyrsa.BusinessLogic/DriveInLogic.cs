@@ -216,7 +216,7 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
 
                     _drive.intDetCotizaID = intDetCotizaID;
                     _drive.intCotizacionID = intCotizacionID;
-                    
+
                     if (tinOpcion != 3)
                     {
                         // Actualizamos la información
@@ -234,7 +234,7 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
 
                         _drive.intElementoID = 32;
                         _drive.sintPinturaID = drive.sintPinturaID;
-                        _drive.sintMaterialDriveInID = drive.sintMaterialDriveInID;
+                        _drive.sintMaterialDriveInID = drive.tinOpcionDrive;
                     }
                     //Realizamos el registro del DRIVEIN
                     result = DriveInDA.setDatosDriveIn(_drive, tinOpcion);

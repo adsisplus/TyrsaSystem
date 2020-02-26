@@ -45,6 +45,8 @@ namespace Adsisplus.Cotyrsa.BusinessEntities
         [DataMember]
         public decimal? decAlturaDobleMonten { get; set; }
         [DataMember]
+        public short? tinOpcionDrive { get; set; }
+        [DataMember]
         public bool? bitActivo { get; set; }
     }
 }
