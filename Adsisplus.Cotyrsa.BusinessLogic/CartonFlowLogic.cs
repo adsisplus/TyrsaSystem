@@ -67,6 +67,7 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
             try
             {
                 Cotizacion detCotizacion = new Cotizacion();
+                DatosPerfil perfil = new DatosPerfil();
                 detCotizacion.intCotizacionID = intCotizacionID;
                 detCotizacion.intDetCotizaID = intDetCotizaID;
                 detCotizacion.intElementoID = 60; // // FALTA INGREGAR EL ELEMENTO AL CATÁLOGO
@@ -100,6 +101,40 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
                     _carton.intCotizacionID = intCotizacionID;
                     // Realizamos el registro del Carton Flow
                     result = CartonFlowDA.setDatosCaronFlow(_carton, tinOpcion);
+
+                    // Realizamos el alta de los perfiles
+                    if (result.vchResultado != "NOK" && tinOpcion == 1)
+                    {
+                        perfil.intCotizacionID = intCotizacionID;
+                        perfil.sintTipoPerfilID = 1;
+                        perfil.intDetCotizaID = 0; 
+                        perfil.decLargo = _carton.decFrente;
+                        perfil.intCalibreAceroID = 2; // Calibre 12
+
+                        //Insertamos u actualizamos la información
+                        result = (new PerfilLogic()).setDatosPerfil(perfil, intCotizacionID, 0, tinOpcion);
+
+                        if (result.vchResultado != "NOK")
+                        {
+                            perfil.sintNumXNivel = 2;
+                            //Insertamos u actualizamos la información
+                            result = (new PerfilLogic()).setDatosPerfil(perfil, intCotizacionID, 0, tinOpcion);
+
+                            if (result.vchResultado != "NOK")
+                            {
+                                perfil.sintNumXNivel = 3;
+                                //Insertamos u actualizamos la información
+                                result = (new PerfilLogic()).setDatosPerfil(perfil, intCotizacionID, 0, tinOpcion);
+                            }
+                            if (result.vchResultado != "NOK")
+                            {
+                                perfil.sintTipoPerfilID = 6;
+                                //Insertamos u actualizamos la información
+                                result = (new PerfilLogic()).setDatosPerfil(perfil, intCotizacionID, 0, tinOpcion);
+                            }
+                        }
+
+                    }
                 }
             }
             catch (Exception ex)
