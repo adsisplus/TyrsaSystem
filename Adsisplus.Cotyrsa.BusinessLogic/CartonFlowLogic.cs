@@ -107,7 +107,7 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
                     {
                         perfil.intCotizacionID = intCotizacionID;
                         perfil.sintTipoPerfilID = 1;
-                        perfil.intDetCotizaID = 0; 
+                        perfil.intDetCotizaID = 0;
                         perfil.decLargo = _carton.decFrente;
                         perfil.intCalibreAceroID = 2; // Calibre 12
 
@@ -116,19 +116,20 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
 
                         if (result.vchResultado != "NOK")
                         {
-                            perfil.sintNumXNivel = 2;
+                            perfil.sintTipoPerfilID = 2;
                             //Insertamos u actualizamos la información
                             result = (new PerfilLogic()).setDatosPerfil(perfil, intCotizacionID, 0, tinOpcion);
 
                             if (result.vchResultado != "NOK")
                             {
-                                perfil.sintNumXNivel = 3;
+                                perfil.sintTipoPerfilID = 4;
                                 //Insertamos u actualizamos la información
                                 result = (new PerfilLogic()).setDatosPerfil(perfil, intCotizacionID, 0, tinOpcion);
                             }
                             if (result.vchResultado != "NOK")
                             {
                                 perfil.sintTipoPerfilID = 6;
+                                perfil.decLargo = _carton.decFondo;
                                 //Insertamos u actualizamos la información
                                 result = (new PerfilLogic()).setDatosPerfil(perfil, intCotizacionID, 0, tinOpcion);
                             }

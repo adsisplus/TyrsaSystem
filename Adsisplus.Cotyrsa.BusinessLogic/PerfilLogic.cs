@@ -97,22 +97,22 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
                 // Obtenemos el tipo de elemento en base al tipo de perfil
                 switch(perfil.sintTipoPerfilID)
                 {
-                    case 1:
+                    case 1: //Perfil de entrada
                         perfil.intElementoID = 23;
                         break;
-                    case 2:
+                    case 2: // Perfil de salida
                         perfil.intElementoID = 24;
                         break;
-                    case 3: case 4: case 5:
+                    case 3: case 4: case 5: //Perfil de Refuerzo
                         perfil.intElementoID = 25;
                         break;
-                    case 6:
+                    case 6: // Perfil Lateral
                         perfil.intElementoID = 26;
                         break;
-                    case 7:
+                    case 7: // Riel portaruedas calibre 14
                         perfil.intElementoID = 27;
                         break;
-                    case 8:
+                    case 8: // Riel portaruedas calibre 12
                         perfil.intElementoID = 28;
                         break;
                     default:
