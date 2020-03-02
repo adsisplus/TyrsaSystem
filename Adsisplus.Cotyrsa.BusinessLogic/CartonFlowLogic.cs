@@ -101,37 +101,105 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
                     _carton.intCotizacionID = intCotizacionID;
                     // Realizamos el registro del Carton Flow
                     result = CartonFlowDA.setDatosCaronFlow(_carton, tinOpcion);
+                    // Nos permitirá almacenar los datos del tipo  de perfil
+                    DatosPerfil _perfilTipo = new DatosPerfil();
 
                     // Realizamos el alta de los perfiles
-                    if (result.vchResultado != "NOK" && tinOpcion == 1)
+                    if (result.vchResultado != "NOK")
                     {
                         perfil.intCotizacionID = intCotizacionID;
                         perfil.sintTipoPerfilID = 1;
-                        perfil.intDetCotizaID = 0;
-                        perfil.decLargo = _carton.decFrente;
                         perfil.intCalibreAceroID = 2; // Calibre 12
 
-                        //Insertamos u actualizamos la información
-                        result = (new PerfilLogic()).setDatosPerfil(perfil, intCotizacionID, 0, tinOpcion);
+                        if (tinOpcion == 1)
+                            //Insertamos u actualizamos la información
+                            result = (new PerfilLogic()).setDatosPerfil(perfil, intCotizacionID, 0, tinOpcion);
+                        else
+                        {
+                            //Obtenemos los datos de intDetCotizaID, intPerfilID
+                            _perfilTipo = (new PerfilLogic()).ListarDatosPerfilTipo(intCotizacionID, 1);
+                            perfil.intDetCotizaID = _perfilTipo.intDetCotizaID;
+                            perfil.intPerfilID = _perfilTipo.intPerfilID;
+                            // Buscamos la información del perfil
+                            _perfilTipo = (new PerfilLogic()).ListarDatosPerfil(intCotizacionID, (int)perfil.intPerfilID).First();
+                            // asignamos los datos encontrados
+                            perfil = _perfilTipo;
+                            //Establecemos el valor del largo
+                            perfil.decLargo = _carton.decFrente;
+
+                            //Insertamos u actualizamos la información
+                            result = (new PerfilLogic()).setDatosPerfil(perfil, intCotizacionID, (int)_perfilTipo.intDetCotizaID, tinOpcion);
+                        }
 
                         if (result.vchResultado != "NOK")
                         {
                             perfil.sintTipoPerfilID = 2;
-                            //Insertamos u actualizamos la información
-                            result = (new PerfilLogic()).setDatosPerfil(perfil, intCotizacionID, 0, tinOpcion);
+                            if (tinOpcion == 1)
+                                //Insertamos u actualizamos la información
+                                result = (new PerfilLogic()).setDatosPerfil(perfil, intCotizacionID, 0, tinOpcion);
+                            else
+                            {
+                                //Obtenemos los datos de intDetCotizaID, intPerfilID
+                                _perfilTipo = (new PerfilLogic()).ListarDatosPerfilTipo(intCotizacionID, 2);
+                                perfil.intDetCotizaID = _perfilTipo.intDetCotizaID;
+                                perfil.intPerfilID = _perfilTipo.intPerfilID;
+                                // Buscamos la información del perfil
+                                _perfilTipo = (new PerfilLogic()).ListarDatosPerfil(intCotizacionID, (int)perfil.intPerfilID).First();
+                                // asignamos los datos encontrados
+                                perfil = _perfilTipo;
+                                //Establecemos el valor del largo
+                                perfil.decLargo = _carton.decFrente;
+
+                                //Insertamos u actualizamos la información
+                                result = (new PerfilLogic()).setDatosPerfil(perfil, intCotizacionID, (int)_perfilTipo.intDetCotizaID, tinOpcion);
+                            }
 
                             if (result.vchResultado != "NOK")
                             {
                                 perfil.sintTipoPerfilID = 4;
-                                //Insertamos u actualizamos la información
-                                result = (new PerfilLogic()).setDatosPerfil(perfil, intCotizacionID, 0, tinOpcion);
+                                if (tinOpcion == 1)
+                                    //Insertamos u actualizamos la información
+                                    result = (new PerfilLogic()).setDatosPerfil(perfil, intCotizacionID, 0, tinOpcion);
+                                else
+                                {
+                                    //Obtenemos los datos de intDetCotizaID, intPerfilID
+                                    _perfilTipo = (new PerfilLogic()).ListarDatosPerfilTipo(intCotizacionID, 4);
+                                    perfil.intDetCotizaID = _perfilTipo.intDetCotizaID;
+                                    perfil.intPerfilID = _perfilTipo.intPerfilID;
+                                    // Buscamos la información del perfil
+                                    _perfilTipo = (new PerfilLogic()).ListarDatosPerfil(intCotizacionID, (int)perfil.intPerfilID).First();
+                                    // asignamos los datos encontrados
+                                    perfil = _perfilTipo;
+                                    //Establecemos el valor del largo
+                                    perfil.decLargo = _carton.decFrente;
+
+                                    //Insertamos u actualizamos la información
+                                    result = (new PerfilLogic()).setDatosPerfil(perfil, intCotizacionID, (int)_perfilTipo.intDetCotizaID, tinOpcion);
+                                }
                             }
                             if (result.vchResultado != "NOK")
                             {
                                 perfil.sintTipoPerfilID = 6;
-                                perfil.decLargo = _carton.decFondo;
-                                //Insertamos u actualizamos la información
-                                result = (new PerfilLogic()).setDatosPerfil(perfil, intCotizacionID, 0, tinOpcion);
+
+                                if (tinOpcion == 1)
+                                    //Insertamos u actualizamos la información
+                                    result = (new PerfilLogic()).setDatosPerfil(perfil, intCotizacionID, 0, tinOpcion);
+                                else
+                                {
+                                    //Obtenemos los datos de intDetCotizaID, intPerfilID
+                                    _perfilTipo = (new PerfilLogic()).ListarDatosPerfilTipo(intCotizacionID, 6);
+                                    perfil.intDetCotizaID = _perfilTipo.intDetCotizaID;
+                                    perfil.intPerfilID = _perfilTipo.intPerfilID;
+                                    // Buscamos la información del perfil
+                                    _perfilTipo = (new PerfilLogic()).ListarDatosPerfil(intCotizacionID, (int)perfil.intPerfilID).First();
+                                    // asignamos los datos encontrados
+                                    perfil = _perfilTipo;
+                                    //Establecemos el valor del largo
+                                    perfil.decLargo = _carton.decFondo;
+
+                                    //Insertamos u actualizamos la información
+                                    result = (new PerfilLogic()).setDatosPerfil(perfil, intCotizacionID, (int)_perfilTipo.intDetCotizaID, tinOpcion);
+                                }
                             }
                         }
 

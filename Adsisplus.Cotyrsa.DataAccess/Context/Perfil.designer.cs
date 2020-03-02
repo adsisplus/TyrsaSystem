@@ -90,6 +90,13 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), intPerfilID, intCotizacionID);
 			return ((ISingleResult<stp_ListarDatosPerfilCartonFlowResult>)(result.ReturnValue));
 		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.stp_ListarDatosPerfilTipo")]
+		public ISingleResult<stp_ListarDatosPerfilTipoResult> stp_ListarDatosPerfilTipo([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intCotizacionID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="SmallInt")] System.Nullable<short> sintTipoPerfilID)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), intCotizacionID, sintTipoPerfilID);
+			return ((ISingleResult<stp_ListarDatosPerfilTipoResult>)(result.ReturnValue));
+		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="")]
@@ -634,6 +641,68 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 				if ((this._bitActivo != value))
 				{
 					this._bitActivo = value;
+				}
+			}
+		}
+	}
+	
+	public partial class stp_ListarDatosPerfilTipoResult
+	{
+		
+		private int _intPerfilID;
+		
+		private System.Nullable<int> _intDetCotizaID;
+		
+		private System.Nullable<short> _sintTipoPerfilID;
+		
+		public stp_ListarDatosPerfilTipoResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intPerfilID", DbType="Int NOT NULL")]
+		public int intPerfilID
+		{
+			get
+			{
+				return this._intPerfilID;
+			}
+			set
+			{
+				if ((this._intPerfilID != value))
+				{
+					this._intPerfilID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intDetCotizaID", DbType="Int")]
+		public System.Nullable<int> intDetCotizaID
+		{
+			get
+			{
+				return this._intDetCotizaID;
+			}
+			set
+			{
+				if ((this._intDetCotizaID != value))
+				{
+					this._intDetCotizaID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sintTipoPerfilID", DbType="SmallInt")]
+		public System.Nullable<short> sintTipoPerfilID
+		{
+			get
+			{
+				return this._sintTipoPerfilID;
+			}
+			set
+			{
+				if ((this._sintTipoPerfilID != value))
+				{
+					this._sintTipoPerfilID = value;
 				}
 			}
 		}

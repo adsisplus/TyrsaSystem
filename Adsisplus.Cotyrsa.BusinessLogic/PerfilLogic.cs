@@ -75,6 +75,25 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
             return result;
         }
         /// <summary>
+        /// Procedimiento que lista los datos perfil en base al tipo de perfil
+        /// </summary>
+        /// <param name="intCotizacionID"></param>
+        /// <param name="sintTipoPerfilID"></param>
+        /// <returns></returns>
+        public DatosPerfil ListarDatosPerfilTipo(int intCotizacionID, short sintTipoPerfilID)
+        {
+            DatosPerfil result = new DatosPerfil();
+            try
+            {
+                result = PerfilDA.ListarDatosPerfilTipo(intCotizacionID, sintTipoPerfilID);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
+        /// <summary>
         /// Procedimiento que realiza el alta de los datos de perfil
         /// </summary>
         /// <param name="perfil"></param>

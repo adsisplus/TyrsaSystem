@@ -116,5 +116,35 @@ namespace Adsisplus.Cotyrsa.DataAccess
             }
             return result;
         }
+        /// <summary>
+        /// Procedimiento que lista los datos perfil en base al tipo de perfil
+        /// </summary>
+        /// <param name="intCotizacionID"></param>
+        /// <param name="sintTipoPerfilID"></param>
+        /// <returns></returns>
+        public DatosPerfil ListarDatosPerfilTipo(int intCotizacionID, short sintTipoPerfilID)
+        {
+            DatosPerfil result = new DatosPerfil();
+            try
+            {
+                using (PerfilDataContext dc = new PerfilDataContext(Helper.ConnectionString()))
+                {
+                    var query = from item in dc.stp_ListarDatosPerfilTipo(intCotizacionID, sintTipoPerfilID)
+                                select new DatosPerfil
+                                {
+                                    intDetCotizaID = item.intDetCotizaID,
+                                    intPerfilID = item.intPerfilID,
+                                    sintTipoPerfilID = item.sintTipoPerfilID
+                                };
+                    //if(query.Count() > 0)
+                        result = query.First();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
     }
 }

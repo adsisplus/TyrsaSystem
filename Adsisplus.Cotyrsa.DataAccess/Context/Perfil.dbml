@@ -49,4 +49,13 @@
       <Column Name="bitActivo" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
     </ElementType>
   </Function>
+  <Function Name="dbo.stp_ListarDatosPerfilTipo" Method="stp_ListarDatosPerfilTipo">
+    <Parameter Name="intCotizacionID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="sintTipoPerfilID" Type="System.Int16" DbType="SmallInt" />
+    <ElementType Name="stp_ListarDatosPerfilTipoResult">
+      <Column Name="intPerfilID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="intDetCotizaID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="sintTipoPerfilID" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+    </ElementType>
+  </Function>
 </Database>
