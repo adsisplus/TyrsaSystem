@@ -207,13 +207,14 @@ namespace Adsisplus.Cotyrsa.WcfService.CatalogoGeneralServices
         /// <summary>
         /// Procedimiento que lista los datos de instalación
         /// </summary>
+        /// <param name="intCotizacionID"></param>
         /// <returns></returns>
-        public List<DatosInstalacion> ListarCatInstalacion()
+        public List<DatosInstalacion> ListarCatInstalacion(int intCotizacionID)
         {
             List<DatosInstalacion> result = new List<DatosInstalacion>();
             try
             {
-                result = (new CatalogoLogic()).ListarCatInstalacion();
+                result = (new CatalogoLogic()).ListarCatInstalacion(intCotizacionID);
             }
             catch (Exception ex)
             {

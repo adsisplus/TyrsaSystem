@@ -1338,15 +1338,16 @@ namespace Adsisplus.Cotyrsa.DataAccess
         /// <summary>
         /// Procedimiento que lista los datos de instalación
         /// </summary>
+        /// <param name="intCotizacionID"></param>
         /// <returns></returns>
-        public List<DatosInstalacion> ListarCatInstalacion()
+        public List<DatosInstalacion> ListarCatInstalacion(int intCotizacionID)
         {
             List<DatosInstalacion> result = new List<DatosInstalacion>();
             try
             {
                 using (CatalogosDataContext dc = new CatalogosDataContext(Helper.ConnectionString()))
                 {
-                    var query = from item in dc.stp_ListarCatInstalacion()
+                    var query = from item in dc.stp_ListarCatInstalacion(intCotizacionID)
                                 select new DatosInstalacion
                                 {
                                     sintInstalacionID = item.sintInstalacionID,

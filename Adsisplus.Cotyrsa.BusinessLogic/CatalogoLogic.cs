@@ -766,13 +766,14 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
         /// <summary>
         /// Procedimiento que lista los datos de instalación
         /// </summary>
+        /// <param name="intCotizacionID"></param>
         /// <returns></returns>
-        public List<DatosInstalacion> ListarCatInstalacion()
+        public List<DatosInstalacion> ListarCatInstalacion(int intCotizacionID)
         {
             List<DatosInstalacion> result = new List<DatosInstalacion>();
             try
             {
-                result = CatalogosDA.ListarCatInstalacion();
+                result = CatalogosDA.ListarCatInstalacion(intCotizacionID);
             }
             catch (Exception ex)
             {

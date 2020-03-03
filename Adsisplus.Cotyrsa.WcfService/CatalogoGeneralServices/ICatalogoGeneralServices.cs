@@ -98,10 +98,11 @@ namespace Adsisplus.Cotyrsa.WcfService.CatalogoGeneralServices
         /// <summary>
         /// Procedimiento que lista los datos de instalación
         /// </summary>
+        /// <param name="intCotizacionID"></param>
         /// <returns></returns>
         [OperationContract]
         [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ListarCatInstalacion")]
-        List<DatosInstalacion> ListarCatInstalacion();
+        List<DatosInstalacion> ListarCatInstalacion(int intCotizacionID);
         /// <summary>
         /// Procedimiento que lista el tipo de unidad flete
         /// </summary>
