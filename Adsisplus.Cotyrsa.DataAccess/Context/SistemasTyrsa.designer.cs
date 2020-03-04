@@ -244,7 +244,7 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 		
 		private int _intCotizacionID;
 		
-		private int _intDetCotizaID;
+		private System.Nullable<int> _intDetCotizaID;
 		
 		private string _vchSubMenu;
 		
@@ -327,7 +327,7 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intDetCotizaID")]
-		public int intDetCotizaID
+		public System.Nullable<int> intDetCotizaID
 		{
 			get
 			{
