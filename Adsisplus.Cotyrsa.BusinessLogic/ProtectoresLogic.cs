@@ -202,7 +202,7 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
             int? intDetCotizaID;
             try
             {
-                tinOpcion = (short)(datosProtectorBateria.intDetCotizaID == 0 ? 1 : 2);
+                tinOpcion = (short)(datosProtectorBateria.intDetCotizaID == 0 || datosProtectorBateria.intDetCotizaID == null ? 1 : 2);
                 // Obtenemos la información del sistema Selectivo
                 RelSistemaSelectivo sistema = (new CotizacionLogic()).ListarDatosSistemaSelectivo((int)datosProtectorBateria.intCotizacionID);
                 intProtectorBateriaID = null;
@@ -218,7 +218,7 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
                 detCotizacion.decSubtotal = datosProtectorBateria.decPrecioSencilla * datosProtectorBateria.intCantidadSencilla;
 
                 // 1. Realizamos el alta de la cotización
-                result = (new CotizacionLogic()).setDetCotizacion(detCotizacion, (short)(datosProtectorBateria.intDetCotizaID == 0 ? 1 : tinOpcion));
+                result = (new CotizacionLogic()).setDetCotizacion(detCotizacion, (short)(datosProtectorBateria.intDetCotizaID == 0 || datosProtectorBateria.intDetCotizaID == null ? 1 : tinOpcion));
                 // Validamos la respuesta obtenida
                 if (result.vchResultado != "NOK")
                 {

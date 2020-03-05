@@ -72,7 +72,7 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
                 detCotizacion.intDetCotizaID = intDetCotizaID;
                 detCotizacion.intElementoID = 29; // // FALTA INGREGAR EL ELEMENTO AL CATÁLOGO
                 detCotizacion.intPartida = 0;
-                detCotizacion.intCantidad = 0;
+                detCotizacion.intCantidad = conector.intCantidad;
                 detCotizacion.decMonto = conector.decPrecioUnitario;
                 detCotizacion.decSubtotal = conector.decPrecioTotal;
 

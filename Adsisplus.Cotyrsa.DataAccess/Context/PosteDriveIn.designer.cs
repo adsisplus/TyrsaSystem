@@ -329,6 +329,10 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 		
 		private System.Nullable<decimal> _decCapacidadMarco;
 		
+		private System.Nullable<bool> _bitEstructural1;
+		
+		private System.Nullable<bool> _bitRolado1;
+		
 		private int _intDatoMarcoID;
 		
 		private System.Nullable<short> _sintPinturaID;
@@ -639,6 +643,38 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_bitEstructural1", DbType="Bit")]
+		public System.Nullable<bool> bitEstructural1
+		{
+			get
+			{
+				return this._bitEstructural1;
+			}
+			set
+			{
+				if ((this._bitEstructural1 != value))
+				{
+					this._bitEstructural1 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_bitRolado1", DbType="Bit")]
+		public System.Nullable<bool> bitRolado1
+		{
+			get
+			{
+				return this._bitRolado1;
+			}
+			set
+			{
+				if ((this._bitRolado1 != value))
+				{
+					this._bitRolado1 = value;
+				}
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intDatoMarcoID", DbType="Int NOT NULL")]
 		public int intDatoMarcoID
 		{
@@ -834,6 +870,10 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 		private System.Nullable<bool> _bitDobleMonten;
 		
 		private System.Nullable<decimal> _decAlturaDobleMonten;
+		
+		private System.Nullable<bool> _bitEstructural;
+		
+		private System.Nullable<bool> _bitRolado;
 		
 		private System.Nullable<bool> _bitActivo;
 		
@@ -1209,7 +1249,7 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decAlturaDobleMonten", DbType="Decimal(12,2)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decAlturaDobleMonten", DbType="Decimal(12,3)")]
 		public System.Nullable<decimal> decAlturaDobleMonten
 		{
 			get
@@ -1221,6 +1261,38 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 				if ((this._decAlturaDobleMonten != value))
 				{
 					this._decAlturaDobleMonten = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_bitEstructural", DbType="Bit")]
+		public System.Nullable<bool> bitEstructural
+		{
+			get
+			{
+				return this._bitEstructural;
+			}
+			set
+			{
+				if ((this._bitEstructural != value))
+				{
+					this._bitEstructural = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_bitRolado", DbType="Bit")]
+		public System.Nullable<bool> bitRolado
+		{
+			get
+			{
+				return this._bitRolado;
+			}
+			set
+			{
+				if ((this._bitRolado != value))
+				{
+					this._bitRolado = value;
 				}
 			}
 		}
