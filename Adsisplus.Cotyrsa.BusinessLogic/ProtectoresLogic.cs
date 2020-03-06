@@ -322,6 +322,93 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
                             datosProtectorBateria.decPesoTotalDoble = _bateria.decPesoTotalDoble;
                         }
                     }
+                    else
+                    {
+                        if (sintTipoBateria == 1)
+                        {
+                            // Actualizamos los datos de batería doble
+                            datosProtectorBateria.intCantidadDoble = null;
+                            datosProtectorBateria.decPrecioDoble = null;
+                            datosProtectorBateria.decLargoDoble = null;
+                            datosProtectorBateria.decPrecioVentaUnitarioDoble = null;
+                            datosProtectorBateria.decPrecioVentaTotalDoble = null;
+                            datosProtectorBateria.decAlturaDoble = null;
+                            datosProtectorBateria.sintPinturaIDDoble = null;
+                            datosProtectorBateria.intBotasDoble = null;
+                            datosProtectorBateria.intBarrasDoble = null;
+                            datosProtectorBateria.decPesoUnitarioDoble = null;
+                            datosProtectorBateria.decPesoTotalDoble = null;
+
+                            //Actuaizamos los datos de batería cuadruple
+                            datosProtectorBateria.intCantidadCuadruple = null;
+                            datosProtectorBateria.decPrecioCuadruple = null;
+                            datosProtectorBateria.decLargoCuadruple = null;
+                            datosProtectorBateria.decPrecioVentaUnitarioCuadruple = null;
+                            datosProtectorBateria.decPrecioVentaTotalCuadruple = null;
+                            datosProtectorBateria.decAlturaCuadruple = null;
+                            datosProtectorBateria.sintPinturaIDCuadruple = null;
+                            datosProtectorBateria.intBotasCuadruple = null;
+                            datosProtectorBateria.intBarrasCuadruple = null;
+                            datosProtectorBateria.decPesoUnitarioCuadruple = null;
+                            datosProtectorBateria.decPesoTotalCuadruple = null;
+                        }
+                        if (sintTipoBateria == 2)
+                        {
+                            // Actualizamos los datos de betería sencilo
+                            datosProtectorBateria.intCantidadSencilla = null;
+                            datosProtectorBateria.decPrecioSencilla = null;
+                            datosProtectorBateria.decLargoSencilla = null;
+                            datosProtectorBateria.decPrecioVentaUnitarioSencilla = null;
+                            datosProtectorBateria.decPrecioVentaTotalSencilla = null;
+                            datosProtectorBateria.decAlturaSencilla = null;
+                            datosProtectorBateria.sintPinturaIDSencilla = null;
+                            datosProtectorBateria.intBotasSencilla = null;
+                            datosProtectorBateria.intBarrasSencilla = null;
+                            datosProtectorBateria.decPesoUnitarioSencilla = null;
+                            datosProtectorBateria.decPesoTotalSencilla = null;
+
+                            //Actuaizamos los datos de batería cuadruple
+                            datosProtectorBateria.intCantidadCuadruple = null;
+                            datosProtectorBateria.decPrecioCuadruple = null;
+                            datosProtectorBateria.decLargoCuadruple = null;
+                            datosProtectorBateria.decPrecioVentaUnitarioCuadruple = null;
+                            datosProtectorBateria.decPrecioVentaTotalCuadruple = null;
+                            datosProtectorBateria.decAlturaCuadruple = null;
+                            datosProtectorBateria.sintPinturaIDCuadruple = null;
+                            datosProtectorBateria.intBotasCuadruple = null;
+                            datosProtectorBateria.intBarrasCuadruple = null;
+                            datosProtectorBateria.decPesoUnitarioCuadruple = null;
+                            datosProtectorBateria.decPesoTotalCuadruple = null;
+                        }
+                        if (sintTipoBateria == 3)
+                        {
+                            // Actualizamos los datos de betería sencilo
+                            datosProtectorBateria.intCantidadSencilla = null;
+                            datosProtectorBateria.decPrecioSencilla = null;
+                            datosProtectorBateria.decLargoSencilla = null;
+                            datosProtectorBateria.decPrecioVentaUnitarioSencilla = null;
+                            datosProtectorBateria.decPrecioVentaTotalSencilla = null;
+                            datosProtectorBateria.decAlturaSencilla = null;
+                            datosProtectorBateria.sintPinturaIDSencilla = null;
+                            datosProtectorBateria.intBotasSencilla = null;
+                            datosProtectorBateria.intBarrasSencilla = null;
+                            datosProtectorBateria.decPesoUnitarioSencilla = null;
+                            datosProtectorBateria.decPesoTotalSencilla = null;
+
+                            // Actualizamos los datos de batería doble
+                            datosProtectorBateria.intCantidadDoble = null;
+                            datosProtectorBateria.decPrecioDoble = null;
+                            datosProtectorBateria.decLargoDoble = null;
+                            datosProtectorBateria.decPrecioVentaUnitarioDoble = null;
+                            datosProtectorBateria.decPrecioVentaTotalDoble = null;
+                            datosProtectorBateria.decAlturaDoble = null;
+                            datosProtectorBateria.sintPinturaIDDoble = null;
+                            datosProtectorBateria.intBotasDoble = null;
+                            datosProtectorBateria.intBarrasDoble = null;
+                            datosProtectorBateria.decPesoUnitarioDoble = null;
+                            datosProtectorBateria.decPesoTotalDoble = null;
+                        }
+                    }
 
                     datosProtectorBateria.intElementoID = 9;
                     result = (new SistemasTyrsaLogic()).setDatosProtectorBateria(datosProtectorBateria, tinOpcion);
