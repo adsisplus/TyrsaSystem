@@ -66,7 +66,7 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
                     detCotizacion.decSubtotal = 0;
 
                     // 1. Realizamos el alta de la cotización
-                    result = (new CotizacionLogic()).setDetCotizacion(detCotizacion, (short)(flete.intDetCotizaID == 0 ? 1 : tinOpcion));
+                    result = (new CotizacionLogic()).setDetCotizacion(detCotizacion, (short)(flete.intDetCotizaID == 0  || flete.intDetCotizaID == null? 1 : 2));
                     // Validamos la respuesta obtenida
                     if (result.vchResultado != "NOK")
                     {
@@ -125,7 +125,7 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
                     detCotizacion.decSubtotal = 0;
 
                     // Realizamos el alta de la cotización
-                    result = (new CotizacionLogic()).setDetCotizacion(detCotizacion, (short)((instalacion.intDetCotizaID == 0 || instalacion.intDetCotizaID == null) ? 1 : tinOpcion));
+                    result = (new CotizacionLogic()).setDetCotizacion(detCotizacion, (short)((instalacion.intDetCotizaID == 0 || instalacion.intDetCotizaID == null) ? 1 : 2));
 
                     if (result.vchResultado != "NOK")
                     {
@@ -187,7 +187,7 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
                     detCotizacion.decSubtotal = 0;
 
                     // Realizamos el alta de la cotización
-                    result = (new CotizacionLogic()).setDetCotizacion(detCotizacion, (short)(viaticos.intDetCotizaID == 0 ? 1 : tinOpcion));
+                    result = (new CotizacionLogic()).setDetCotizacion(detCotizacion, (short)(viaticos.intDetCotizaID == 0 || viaticos.intDetCotizaID == null ? 1 : 2));
                     if (result.vchResultado != "NOK")
                     {
                         //Asignamos el ID del detalle de cotización
