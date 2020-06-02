@@ -45,6 +45,38 @@ namespace Adsisplus.Cotyrsa.WcfService.GastosServices
         [OperationContract]
         [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "setDatosFlete")]
         Resultado setDatosFlete(List<DatosFlete> lstFlete, short tinOpcion);
+
+        /// <summary>
+        /// Procedimiento que realiza el alta, modificación o baja de flete
+        /// </summary>
+        /// <param name="flete"></param>
+        /// <param name="tinOpcion"></param>
+        /// <returns></returns>
+        [OperationContract]
+        [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "setCatDestinoFlete")]
+        Resultado setCatDestinoFlete(DatosFlete lstFlete, short tinOpcion);
+
+        /// <summary>
+        /// Procedimiento que realiza el alta, modificación o baja de flete
+        /// </summary>
+        /// <param name="flete"></param>
+        /// <param name="tinOpcion"></param>
+        /// <returns></returns>
+        [OperationContract]
+        [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "setCatTipoUnidadFlete")]
+        Resultado setCatTipoUnidadFlete(DatosFlete lstFlete, short tinOpcion);
+
+
+        /// <summary>
+        /// Procedimiento que realiza el alta, modificación o baja de flete
+        /// </summary>
+        /// <param name="flete"></param>
+        /// <param name="tinOpcion"></param>
+        /// <returns></returns>
+        [OperationContract]
+        [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "setCatFlete")]
+        Resultado setCatFlete(DatosFlete lstFlete, short tinOpcion);
+
         /// <summary>
         /// Procedimiento que realiza el alta, modificación y baja de instalación
         /// </summary>

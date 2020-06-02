@@ -31,6 +31,8 @@ namespace Adsisplus.Cotyrsa.BusinessEntities
         [DataMember]
         public int? intCantidad { get; set; }
         [DataMember]
+        public int? intCosto { get; set; }
+        [DataMember]
         public DateTime? datFechaCarga { get; set; }
         [DataMember]
         public DateTime? datFechaDescarga { get; set; }

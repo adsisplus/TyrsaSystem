@@ -99,6 +99,66 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
             }
             return result;
         }
+
+        /// <summary>
+        /// Procedimiento de alta, baja y modificación del catálogo Destino fletes
+        /// </summary>
+        /// <param name="flete"></param>
+        /// <param name="tinOpcion"></param>
+        /// <returns></returns>
+        public Resultado setCatDestinoFlete(DatosFlete flete, short tinOpcion)
+        {
+            Resultado result = new Resultado();
+            try
+            {
+                result = GastosDA.setCatDestinoFlete(flete, tinOpcion);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
+
+        /// <summary>
+        /// Procedimiento de alta, baja y modificación del catálogo Tipo Unidad Flete
+        /// </summary>
+        /// <param name="flete"></param>
+        /// <param name="tinOpcion"></param>
+        /// <returns></returns>
+        public Resultado setCatTipoUnidadFlete(DatosFlete flete, short tinOpcion)
+        {
+            Resultado result = new Resultado();
+            try
+            {
+                result = GastosDA.setCatTipoUnidadFlete(flete, tinOpcion);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
+
+        /// <summary>
+        /// Procedimiento de alta, baja y modificación del catálogo de fletes
+        /// </summary>
+        /// <param name="flete"></param>
+        /// <param name="tinOpcion"></param>
+        /// <returns></returns>
+        public Resultado setCatFlete(DatosFlete flete, short tinOpcion)
+        {
+            Resultado result = new Resultado();
+            try
+            {
+                result = GastosDA.setCatFlete(flete, tinOpcion);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
         /// <summary>
         /// Procedimiento que realiza el alta, modificación y baja de instalación
         /// </summary>

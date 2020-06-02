@@ -57,7 +57,7 @@ namespace Adsisplus.Cotyrsa.WcfService.GastosServices
         //    return result;
         //}
         /// <summary>
-        /// Procedimiento que realiza el alta, modificación o baja de flete
+        /// Procedimiento que realiza el alta, modificación o baja Destino flete
         /// </summary>
         /// <param name="flete"></param>
         /// <param name="tinOpcion"></param>
@@ -68,6 +68,67 @@ namespace Adsisplus.Cotyrsa.WcfService.GastosServices
             try
             {
                 result = (new GastosLogic()).setDatosFlete(lstFlete, tinOpcion);
+            }
+            catch (Exception ex)
+            {
+                Adsisplus.Cotyrsa.BusinessLogic.EventLogManager.LogErrorEntry(ex.Message);
+            }
+            return result;
+        }
+
+
+        /// <summary>
+        /// Procedimiento que realiza el alta, modificación o baja Destino flete
+        /// </summary>
+        /// <param name="flete"></param>
+        /// <param name="tinOpcion"></param>
+        /// <returns></returns>
+        public Resultado setCatDestinoFlete(DatosFlete lstFlete, short tinOpcion)
+        {
+            Resultado result = new Resultado();
+            try
+            {
+                result = (new GastosLogic()).setCatDestinoFlete(lstFlete, tinOpcion);
+            }
+            catch (Exception ex)
+            {
+                Adsisplus.Cotyrsa.BusinessLogic.EventLogManager.LogErrorEntry(ex.Message);
+            }
+            return result;
+        }
+
+        /// <summary>
+        /// Procedimiento que realiza el alta, modificación o baja Tipo Unidad Flete
+        /// </summary>
+        /// <param name="flete"></param>
+        /// <param name="tinOpcion"></param>
+        /// <returns></returns>
+        public Resultado setCatTipoUnidadFlete(DatosFlete lstFlete, short tinOpcion)
+        {
+            Resultado result = new Resultado();
+            try
+            {
+                result = (new GastosLogic()).setCatTipoUnidadFlete(lstFlete, tinOpcion);
+            }
+            catch (Exception ex)
+            {
+                Adsisplus.Cotyrsa.BusinessLogic.EventLogManager.LogErrorEntry(ex.Message);
+            }
+            return result;
+        }
+
+        /// <summary>
+        /// Procedimiento que realiza el alta, modificación o baja de flete
+        /// </summary>
+        /// <param name="flete"></param>
+        /// <param name="tinOpcion"></param>
+        /// <returns></returns>
+        public Resultado setCatFlete(DatosFlete lstFlete, short tinOpcion)
+        {
+            Resultado result = new Resultado();
+            try
+            {
+                result = (new GastosLogic()).setCatFlete(lstFlete, tinOpcion);
             }
             catch (Exception ex)
             {

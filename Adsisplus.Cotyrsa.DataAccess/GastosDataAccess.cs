@@ -244,6 +244,93 @@ namespace Adsisplus.Cotyrsa.DataAccess
             }
             return result;
         }
+
+        /// <summary>
+        /// Procedimiento que realiza el alta, modificación o baja de catálogo Destino Flete
+        /// </summary>
+        /// <param name="flete"></param>
+        /// <param name="tinOpcion"></param>
+        /// <returns></returns>
+        public Resultado setCatDestinoFlete(DatosFlete flete, short tinOpcion)
+        {
+            Resultado result = new Resultado();
+            try
+            {
+                using (GastosDataContext dc = new GastosDataContext(Helper.ConnectionString()))
+                {
+                    var query = from item in dc.stp_setCatDestinoFlete(flete.sintDestinoFleteID, flete.vchDestinoFlete, flete.bitActivo, (byte)tinOpcion)
+                                select new Resultado
+                                {
+                                    vchDescripcion = item.vchDescripcion,
+                                    vchResultado = item.vchResultado
+                                };
+                    result = query.First();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
+
+        /// <summary>
+        /// Procedimiento que realiza el alta, modificación o baja de catálogo Tipo Unidad Flete
+        /// </summary>
+        /// <param name="flete"></param>
+        /// <param name="tinOpcion"></param>
+        /// <returns></returns>
+        public Resultado setCatTipoUnidadFlete(DatosFlete flete, short tinOpcion)
+        {
+            Resultado result = new Resultado();
+            try
+            {
+                using (GastosDataContext dc = new GastosDataContext(Helper.ConnectionString()))
+                {
+                    var query = from item in dc.stp_setCatTipoUnidadFlete(flete.sintTipoUnidadFleteID, flete.vchTipoUnidad, flete.bitActivo, (byte)tinOpcion)
+                                select new Resultado
+                                {
+                                    vchDescripcion = item.vchDescripcion,
+                                    vchResultado = item.vchResultado
+                                };
+                    result = query.First();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
+
+        /// <summary>
+        /// Procedimiento que realiza el alta, modificación o baja de catálogo de flete
+        /// </summary>
+        /// <param name="flete"></param>
+        /// <param name="tinOpcion"></param>
+        /// <returns></returns>
+        public Resultado setCatFlete(DatosFlete flete, short tinOpcion)
+        {
+            Resultado result = new Resultado();
+            try
+            {
+                using (GastosDataContext dc = new GastosDataContext(Helper.ConnectionString()))
+                {
+                    var query = from item in dc.stp_setCatFlete(flete.sintFleteID, flete.sintDestinoFleteID, flete.sintTipoUnidadFleteID, flete.intCosto, flete.bitActivo,(byte)tinOpcion)
+                                select new Resultado
+                                {
+                                    vchDescripcion = item.vchDescripcion,
+                                    vchResultado = item.vchResultado
+                                };
+                    result = query.First();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
         /// <summary>
         /// Procedimiento que realiza el alta, modificación y baja de instalación
         /// </summary>
