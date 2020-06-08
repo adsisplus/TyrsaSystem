@@ -133,4 +133,15 @@
       <Column Name="vchDescripcion" Type="System.String" DbType="VarChar(45) NOT NULL" CanBeNull="false" />
     </ElementType>
   </Function>
+  <Function Name="dbo.stp_ListarFlete" Method="stp_ListarFlete">
+    <ElementType Name="stp_ListarFleteResult">
+      <Column Name="sintFleteID" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Column Name="sintDestinoFleteID" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Column Name="vchDestinoFlete" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="sintTipoUnidadFleteID" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Column Name="vchTipoUnidad" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="intCosto" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="bitActivo" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </ElementType>
+  </Function>
 </Database>

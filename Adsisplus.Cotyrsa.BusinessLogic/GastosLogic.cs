@@ -281,5 +281,23 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
             }
             return result;
         }
+
+        /// <summary>
+        /// Procedimiento que devuelve los datos del catálogo compuesto de fletes
+        /// </summary>
+        /// <returns></returns>
+        public List<DatosFlete> ListarCatFlete()
+        {
+            List<DatosFlete> result = new List<DatosFlete>();
+            try
+            {
+                result = GastosDA.ListarCatFlete();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
     }
 }

@@ -389,5 +389,39 @@ namespace Adsisplus.Cotyrsa.DataAccess
             }
             return result;
         }
+
+        /// <summary>
+        /// Procedimiento que obtiene el catálogo compuesto de fletes
+        /// la instalación
+        /// </summary>
+        /// <returns></returns>
+        public List<DatosFlete> ListarCatFlete()
+        {
+            List<DatosFlete> result = new List<DatosFlete>();
+            try
+            {
+                using (GastosDataContext dc = new GastosDataContext(Helper.ConnectionString()))
+                {
+                    var query = from item in dc.stp_ListarFlete()
+                                select new DatosFlete
+                                {
+                                    sintFleteID = item.sintFleteID,
+                                    sintDestinoFleteID = item.sintDestinoFleteID,
+                                    vchDestinoFlete = item.vchDestinoFlete,
+                                    sintTipoUnidadFleteID = item.sintTipoUnidadFleteID,
+                                    vchTipoUnidad = item.vchTipoUnidad,
+                                    intCosto = item.intCosto,
+                                    bitActivo = item.bitActivo,
+
+                                };
+                    result.AddRange(query);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
     }
 }

@@ -95,5 +95,13 @@ namespace Adsisplus.Cotyrsa.WcfService.GastosServices
         [OperationContract]
         [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "setDatosViatico")]
         Resultado setDatosViatico(List<DatosViaticos> lstViatico, short tinOpcion);
+
+        /// <summary>
+        /// Procedimiento que devuelve los datos del catálogo compuesto de fletes
+        /// </summary>
+        /// <returns></returns>
+        [OperationContract]
+        [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ListarCatFlete")]
+        List<DatosFlete> ListarCatFlete();
     }
 }

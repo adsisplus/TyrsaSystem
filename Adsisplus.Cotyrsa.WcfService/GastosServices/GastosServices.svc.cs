@@ -174,5 +174,23 @@ namespace Adsisplus.Cotyrsa.WcfService.GastosServices
             }
             return result;
         }
+
+        /// <summary>
+        /// Procedimiento que devuelve los datos del catálogo compuesto de fletes
+        /// </summary>
+        /// <returns></returns>
+        public List<DatosFlete> ListarCatFlete()
+        {
+            List<DatosFlete> result = new List<DatosFlete>();
+            try
+            {
+                result = (new GastosLogic()).ListarCatFlete();
+            }
+            catch (Exception ex)
+            {
+                Adsisplus.Cotyrsa.BusinessLogic.EventLogManager.LogErrorEntry(ex.Message);
+            }
+            return result;
+        }
     }
 }

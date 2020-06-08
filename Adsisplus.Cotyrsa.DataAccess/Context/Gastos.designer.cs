@@ -124,6 +124,13 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), sintTipoUnidadFleteID, vchTipoUnidad, bitActivo, tinOpcion);
 			return ((ISingleResult<stp_setCatTipoUnidadFleteResult>)(result.ReturnValue));
 		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.stp_ListarFlete")]
+		public ISingleResult<stp_ListarFleteResult> stp_ListarFlete()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<stp_ListarFleteResult>)(result.ReturnValue));
+		}
 	}
 	
 	public partial class stp_setDatosFleteResult
@@ -1057,6 +1064,140 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 				if ((this._vchDescripcion != value))
 				{
 					this._vchDescripcion = value;
+				}
+			}
+		}
+	}
+	
+	public partial class stp_ListarFleteResult
+	{
+		
+		private short _sintFleteID;
+		
+		private short _sintDestinoFleteID;
+		
+		private string _vchDestinoFlete;
+		
+		private short _sintTipoUnidadFleteID;
+		
+		private string _vchTipoUnidad;
+		
+		private System.Nullable<int> _intCosto;
+		
+		private System.Nullable<bool> _bitActivo;
+		
+		public stp_ListarFleteResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sintFleteID", DbType="SmallInt NOT NULL")]
+		public short sintFleteID
+		{
+			get
+			{
+				return this._sintFleteID;
+			}
+			set
+			{
+				if ((this._sintFleteID != value))
+				{
+					this._sintFleteID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sintDestinoFleteID", DbType="SmallInt NOT NULL")]
+		public short sintDestinoFleteID
+		{
+			get
+			{
+				return this._sintDestinoFleteID;
+			}
+			set
+			{
+				if ((this._sintDestinoFleteID != value))
+				{
+					this._sintDestinoFleteID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchDestinoFlete", DbType="VarChar(250)")]
+		public string vchDestinoFlete
+		{
+			get
+			{
+				return this._vchDestinoFlete;
+			}
+			set
+			{
+				if ((this._vchDestinoFlete != value))
+				{
+					this._vchDestinoFlete = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sintTipoUnidadFleteID", DbType="SmallInt NOT NULL")]
+		public short sintTipoUnidadFleteID
+		{
+			get
+			{
+				return this._sintTipoUnidadFleteID;
+			}
+			set
+			{
+				if ((this._sintTipoUnidadFleteID != value))
+				{
+					this._sintTipoUnidadFleteID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchTipoUnidad", DbType="VarChar(100)")]
+		public string vchTipoUnidad
+		{
+			get
+			{
+				return this._vchTipoUnidad;
+			}
+			set
+			{
+				if ((this._vchTipoUnidad != value))
+				{
+					this._vchTipoUnidad = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intCosto", DbType="Int")]
+		public System.Nullable<int> intCosto
+		{
+			get
+			{
+				return this._intCosto;
+			}
+			set
+			{
+				if ((this._intCosto != value))
+				{
+					this._intCosto = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_bitActivo", DbType="Bit")]
+		public System.Nullable<bool> bitActivo
+		{
+			get
+			{
+				return this._bitActivo;
+			}
+			set
+			{
+				if ((this._bitActivo != value))
+				{
+					this._bitActivo = value;
 				}
 			}
 		}
