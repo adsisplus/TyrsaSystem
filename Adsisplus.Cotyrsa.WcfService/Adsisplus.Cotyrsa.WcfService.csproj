@@ -43,6 +43,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Office.Interop.Word, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Office.Interop.Word.15.0.4797.1003\lib\net20\Microsoft.Office.Interop.Word.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -76,6 +80,7 @@
     <Content Include="DriveInServices\DriveInServices.svc" />
     <Content Include="EmpresaServices\EmpresaServices.svc" />
     <Content Include="EstanteriaServices\EstanteriaServices.svc" />
+    <Content Include="FormatosCotizacionService\FormatosCotizacionService.svc" />
     <Content Include="GastosServices\GastosServices.svc" />
     <Content Include="Global.asax" />
     <Content Include="GuiaEntradaServices\GuiaEntradaServices.svc" />
@@ -154,6 +159,10 @@
       <DependentUpon>EstanteriaServices.svc</DependentUpon>
     </Compile>
     <Compile Include="EstanteriaServices\IEstanteriaServices.cs" />
+    <Compile Include="FormatosCotizacionService\FormatosCotizacionService.svc.cs">
+      <DependentUpon>FormatosCotizacionService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="FormatosCotizacionService\IFormatosCotizacionService.cs" />
     <Compile Include="GastosServices\GastosServices.svc.cs">
       <DependentUpon>GastosServices.svc</DependentUpon>
     </Compile>
@@ -227,6 +236,7 @@
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="packages.config" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Properties\PublishProfiles\wcfCotyrsa.pubxml" />
     <None Include="Web.Debug.config">
@@ -261,7 +271,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>51079</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost/Adsisplus.Cotyrsa.WcfService/</IISUrl>
+          <IISUrl>http://localhost/Adsisplus.Cotyrsa.WcfService</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

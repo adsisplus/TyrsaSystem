@@ -28,7 +28,7 @@ namespace Adsisplus.Cotyrsa.WcfService
 
             {
 
-                HttpContext.Current.Response.AddHeader("Access-Control-Allow-Methods", "POST, PUT, DELETE");
+                HttpContext.Current.Response.AddHeader("Access-Control-Allow-Methods", "POST, PUT, DELETE, OPTIONS");
 
 
 

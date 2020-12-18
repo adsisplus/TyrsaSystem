@@ -1,6 +1,7 @@
 ﻿using Adsisplus.Cotyrsa.BusinessEntities;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
@@ -13,6 +14,12 @@ namespace Adsisplus.Cotyrsa.WcfService.CotizacionServices
     [ServiceContract]
     public interface ICotizacionServices
     {
+        //[OperationContract]
+        //[WebGet(UriTemplate = "RetrieveFile?Path={path}")]
+        //Stream RetrieveFile(int cotizacionId);
+
+
+
         /// <summary>
         /// Procedimiento que lista los datos de cotización
         /// </summary>

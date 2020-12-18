@@ -2,9 +2,11 @@
 using Adsisplus.Cotyrsa.BusinessLogic;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
+using System.ServiceModel.Web;
 using System.Text;
 
 namespace Adsisplus.Cotyrsa.WcfService.CotizacionServices
@@ -13,6 +15,7 @@ namespace Adsisplus.Cotyrsa.WcfService.CotizacionServices
     // NOTA: para iniciar el Cliente de prueba WCF para probar este servicio, seleccione CotizacionServices.svc o CotizacionServices.svc.cs en el Explorador de soluciones e inicie la depuración.
     public class CotizacionServices : ICotizacionServices
     {
+
         /// <summary>
         /// Procedimiento que lista los datos de cotización
         /// </summary>

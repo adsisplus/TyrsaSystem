@@ -4,7 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Adsisplus.Cotyrsa.BusinessEntities;
+
 using Adsisplus.Cotyrsa.DataAccess;
+using Adsisplus.Cotyrsa.Shared.Utilities;
 
 namespace Adsisplus.Cotyrsa.BusinessLogic
 {
@@ -12,7 +14,7 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
     {
         #region Constructor
 
-        private CotizacionDataAccess CatalogosDA;
+        private readonly CotizacionDataAccess CatalogosDA;
 
         public CotizacionLogic()
         {

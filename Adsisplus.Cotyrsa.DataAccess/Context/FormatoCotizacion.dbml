@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="dbTyrsa" Class="FormatoCotizacionDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=local;Initial Catalog=dbTyrsa;User ID=usrCotyrsa" SettingsObjectName="Adsisplus.Cotyrsa.DataAccess.Properties.Settings" SettingsPropertyName="dbTyrsaConnectionString" Provider="System.Data.SqlClient" />
+  <Function Name="dbo.ParametrosCotizacion_GetByCotizacion" Method="ParametrosCotizacion_GetByCotizacion">
+    <Parameter Name="CotizacionId" Parameter="cotizacionId" Type="System.Int32" DbType="Int" />
+    <ElementType Name="ParametrosCotizacion_GetByCotizacionResult">
+      <Column Name="CotizacionId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Parameter" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="ParameterValue" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.ParametrosCotizacion_Insert" Method="ParametrosCotizacion_Insert">
+    <Parameter Name="CotizacionId" Parameter="cotizacionId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Parameter" Parameter="parameter" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="ParameterValue" Parameter="parameterValue" Type="System.String" DbType="VarChar(250)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.stp_ListarReporteCotizacion" Method="stp_ListarReporteCotizacion">
+    <Parameter Name="intCotizacionID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="stp_ListarReporteCotizacionResult">
+      <Column Name="intCotizacionID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="vchFolio" Type="System.String" DbType="VarChar(14)" CanBeNull="true" />
+      <Column Name="vchEmpresa" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="vchRFC" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="vchCorreoFacturacion" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="vchPrioridad" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="datFechaCotizacion" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="datFechaAceptacion" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="datFechaRechazo" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="vchCategoria" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="vchProducto" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
+      <Column Name="vchSistema" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.stp_ListarReporteDetalleCotizacion" Method="stp_ListarReporteDetalleCotizacion">
+    <Parameter Name="intCotizacionID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="stp_ListarReporteDetalleCotizacionResult">
+      <Column Name="intCotizacionID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="vchFolio" Type="System.String" DbType="VarChar(13)" CanBeNull="true" />
+      <Column Name="REF" Type="System.String" DbType="VarChar(8000)" CanBeNull="true" />
+      <Column Name="SKU" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="intPartida" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="intCantidad" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="vchElemento" Type="System.String" DbType="VarChar(268)" CanBeNull="true" />
+      <Column Name="vchDescripcion" Type="System.String" DbType="VarChar(519)" CanBeNull="true" />
+      <Column Name="decPrecioTyrsa" Type="System.Decimal" DbType="Decimal(38,2)" CanBeNull="true" />
+      <Column Name="decPesoUnitario" Type="System.Decimal" DbType="Decimal(38,3)" CanBeNull="true" />
+      <Column Name="decCostoTotal" Type="System.Decimal" DbType="Decimal(38,2)" CanBeNull="true" />
+      <Column Name="decFactorVenta" Type="System.Decimal" DbType="Decimal(38,6)" CanBeNull="true" />
+      <Column Name="PrecioVenta" Type="System.Decimal" DbType="Decimal(38,4)" CanBeNull="true" />
+      <Column Name="PrecioTotal" Type="System.Decimal" DbType="Decimal(38,4)" CanBeNull="true" />
+      <Column Name="decPesoTotal" Type="System.Decimal" DbType="Decimal(38,3)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.Cotizacion_ListarMateriales" Method="Cotizacion_ListarMateriales">
+    <Parameter Name="CotizacionId" Parameter="cotizacionId" Type="System.Int32" DbType="Int" />
+    <ElementType Name="Cotizacion_ListarMaterialesResult">
+      <Column Name="ElementoId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Cantidad" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Ref" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="Descripcion" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+</Database>

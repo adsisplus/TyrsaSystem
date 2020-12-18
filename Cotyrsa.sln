@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.27703.2042
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30621.155
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Adsisplus.Cotyrsa.BusinessEntities", "Adsisplus.Cotyrsa.BusinessEntities\Adsisplus.Cotyrsa.BusinessEntities.csproj", "{91BD2310-35A3-4007-883F-575BDA4EE84B}"
 EndProject
@@ -18,6 +18,14 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4. Services", "4. Services", "{39D71020-0D7E-410A-8A17-D5A91DF733BB}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Adsisplus.Cotyrsa.WcfService", "Adsisplus.Cotyrsa.WcfService\Adsisplus.Cotyrsa.WcfService.csproj", "{2BF51D68-CFE4-4A94-8972-26A2DC86AC55}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "5. Shared", "5. Shared", "{96E491BF-65E5-4DA6-B010-1B8967230EC5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Adsisplus.Cotyrsa.Shared.Utilities", "Adsisplus.Cotyrsa.Shared.Utilities\Adsisplus.Cotyrsa.Shared.Utilities.csproj", "{6F8593A3-A4B1-4D54-90D5-2649027D8076}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Host", "Host", "{92B096A5-21FF-4986-87E6-089753B2B0A1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Adsisplus.Cotyrsa.Host.MainHost", "Adsisplus.Cotyrsa.Host.MainHost\Adsisplus.Cotyrsa.Host.MainHost.csproj", "{083A0CF1-8BF5-45F7-BD40-FB399DF90E3E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -41,6 +49,14 @@ Global
 		{2BF51D68-CFE4-4A94-8972-26A2DC86AC55}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2BF51D68-CFE4-4A94-8972-26A2DC86AC55}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2BF51D68-CFE4-4A94-8972-26A2DC86AC55}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6F8593A3-A4B1-4D54-90D5-2649027D8076}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6F8593A3-A4B1-4D54-90D5-2649027D8076}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6F8593A3-A4B1-4D54-90D5-2649027D8076}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6F8593A3-A4B1-4D54-90D5-2649027D8076}.Release|Any CPU.Build.0 = Release|Any CPU
+		{083A0CF1-8BF5-45F7-BD40-FB399DF90E3E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{083A0CF1-8BF5-45F7-BD40-FB399DF90E3E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{083A0CF1-8BF5-45F7-BD40-FB399DF90E3E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{083A0CF1-8BF5-45F7-BD40-FB399DF90E3E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -50,6 +66,8 @@ Global
 		{61B454D8-C303-408C-987C-B1227D8BD8BC} = {B6CC84C4-EE0A-4F10-95DC-70195160F5D8}
 		{9B3AAE40-9E30-4FED-BEAD-1A7B1CE83295} = {C2D8D905-2F9D-4398-B621-9B21E1DF782F}
 		{2BF51D68-CFE4-4A94-8972-26A2DC86AC55} = {39D71020-0D7E-410A-8A17-D5A91DF733BB}
+		{6F8593A3-A4B1-4D54-90D5-2649027D8076} = {96E491BF-65E5-4DA6-B010-1B8967230EC5}
+		{083A0CF1-8BF5-45F7-BD40-FB399DF90E3E} = {92B096A5-21FF-4986-87E6-089753B2B0A1}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {22ABCF90-2F1F-45B6-A271-5BD475A9031D}

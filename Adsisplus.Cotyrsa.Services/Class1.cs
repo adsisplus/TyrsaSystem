@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Adsisplus.Cotyrsa.TestHostInstall
+namespace Adsisplus.Cotyrsa.Services
 {
-    public class Program
+    public class Class1
     {
-
     }
 }

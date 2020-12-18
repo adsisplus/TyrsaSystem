@@ -1,14 +1,16 @@
 ﻿using Adsisplus.Cotyrsa.BusinessEntities;
+using Adsisplus.Cotyrsa.BusinessEntities.Catalogos;
 using Adsisplus.Cotyrsa.DataAccess.Context;
 using System;
 using System.Collections.Generic;
+using System.Data.Linq;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Adsisplus.Cotyrsa.DataAccess
 {
-   public class CatalogosDataAccess
+    public class CatalogosDataAccess
     {
         public List<CatalogoDecimal> ListarCatAlturaMarco()
         {
@@ -180,7 +182,7 @@ namespace Adsisplus.Cotyrsa.DataAccess
                                 {
                                     intCatalogoID = item.intEstadoID,
                                     vchDescripcion = item.vchNombre
-                                   
+
                                 };
                     results.AddRange(query);
                 }
@@ -354,7 +356,7 @@ namespace Adsisplus.Cotyrsa.DataAccess
                                     vchNombre = item.vchNombre,
                                     intCP = item.intCP,
                                     vchZona = item.vchZona
-                                    
+
 
                                 };
                     results.AddRange(query);
@@ -381,7 +383,7 @@ namespace Adsisplus.Cotyrsa.DataAccess
                                     vchElemento = item.vchElemento,
                                     vchModelo = item.vchModelo,
                                     bitActivo = item.bitActivo,
-                                   
+
                                 };
                     results.AddRange(query);
                 }
@@ -1664,8 +1666,49 @@ namespace Adsisplus.Cotyrsa.DataAccess
             }
             return result;
         }
+
+        #region Viaticos
+
+
+        public IEnumerable<Viatico> GetViaticos()
+        {
+            try
+            {
+                using (CatalogosDataContext catalogosDataContext = new CatalogosDataContext(Helper.ConnectionString()))
+                {
+                    ISingleResult<Viaticos_GetAllResult> viaticosResult = catalogosDataContext.Viaticos_GetAll();
+                    return viaticosResult.Select(viaticoResulta => new Viatico
+                    {
+                        ViaticoId = viaticoResulta.sintViaticoID,
+                        UnidadMedicionId = viaticoResulta.intUnidadMedicionID,
+                        UnidadMedicion = new UnidadMedicion
+                        {
+                            UnidadMedicionId = viaticoResulta.intUnidadMedicionID,
+                            Unidad = viaticoResulta.vchUnidadMedicion
+                        },
+                        Cantidad = viaticoResulta.sintCantidad ?? 0,
+                        Descripcion = viaticoResulta.vchDescripcion,
+                        Instlacion = viaticoResulta.intInstalacion ?? 0,
+                        Factor = Convert.ToDouble(viaticoResulta.decFactor ?? 0),
+                        TieneCosto = viaticoResulta.bitTieneCosto ?? false,
+                        Activo = viaticoResulta.bitActivo ?? true
+                    }).ToList();
+                }
+            }
+            catch(Exception exception)
+            {
+                throw new Exception("Error en la capa de datos al obtener viaticos",exception);
+                
+            }
+
+
+        }
+
+        #endregion
+
+
     }
 
 
-    
+
 }

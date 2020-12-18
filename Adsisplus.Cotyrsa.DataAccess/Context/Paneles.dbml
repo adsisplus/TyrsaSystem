@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="dbTyrsa" Class="PanelesDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=local;Initial Catalog=dbTyrsa;Persist Security Info=True;User ID=usrCotyrsa" SettingsObjectName="Adsisplus.Cotyrsa.DataAccess.Properties.Settings" SettingsPropertyName="dbTyrsaConnectionString" Provider="System.Data.SqlClient" />
+  <Connection Mode="AppSettings" ConnectionString="Data Source=local;Initial Catalog=dbTyrsa;User ID=usrCotyrsa" SettingsObjectName="Adsisplus.Cotyrsa.DataAccess.Properties.Settings" SettingsPropertyName="dbTyrsaConnectionString" Provider="System.Data.SqlClient" />
   <Function Name="dbo.stp_ListarDatosPanel" Method="stp_ListarDatosPanel">
     <Parameter Name="intDatosPanelID" Type="System.Int32" DbType="Int" />
     <Parameter Name="intElementoID" Type="System.Int32" DbType="Int" />
@@ -79,29 +79,6 @@
       <Column Name="bitActivo" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
     </ElementType>
   </Function>
-  <Function Name="dbo.stp_ListarSeleccionPanel" Method="stp_ListarSeleccionPanel">
-    <Parameter Name="decAncho" Type="System.Decimal" DbType="Decimal(8,3)" />
-    <Parameter Name="sintCalibre" Type="System.Int16" DbType="SmallInt" />
-    <Parameter Name="decFondo" Type="System.Decimal" DbType="Decimal(8,2)" />
-    <Parameter Name="Sistema" Parameter="sistema" Type="System.Int16" DbType="SmallInt" />
-    <Parameter Name="bitGalvanizado" Type="System.Boolean" DbType="Bit" />
-    <ElementType Name="stp_ListarSeleccionPanelResult">
-      <Column Name="intPanelID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="sintSKU" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
-      <Column Name="vchCalibreAcero" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="decAncho" Type="System.Decimal" DbType="Decimal(8,3)" CanBeNull="true" />
-      <Column Name="decFondo" Type="System.Decimal" DbType="Decimal(8,3)" CanBeNull="true" />
-      <Column Name="decPesoKg" Type="System.Decimal" DbType="Decimal(8,3)" CanBeNull="true" />
-      <Column Name="sintCorreccion" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
-      <Column Name="decTotal" Type="System.Decimal" DbType="Decimal(12,3)" CanBeNull="true" />
-      <Column Name="decPrecioEfectivoRef" Type="System.Decimal" DbType="Decimal(12,3)" CanBeNull="true" />
-      <Column Name="decPrecioLista" Type="System.Decimal" DbType="Decimal(12,3)" CanBeNull="true" />
-      <Column Name="decKgTyrsa" Type="System.Decimal" DbType="Decimal(12,3)" CanBeNull="true" />
-      <Column Name="decKgReferencia" Type="System.Decimal" DbType="Decimal(12,3)" CanBeNull="true" />
-      <Column Name="bitActivo" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="decCapacidadCarga" Type="System.Decimal" DbType="Decimal(10,0)" CanBeNull="true" />
-    </ElementType>
-  </Function>
   <Function Name="dbo.stp_ListarDatosPantallaPanel" Method="stp_ListarDatosPantallaPanel">
     <Parameter Name="intCotizacionID" Type="System.Int32" DbType="Int" />
     <Parameter Name="intSeleccionPanelID" Type="System.Int32" DbType="Int" />
@@ -134,6 +111,29 @@
       <Column Name="decKgReferencia" Type="System.Decimal" DbType="Decimal(8,3)" CanBeNull="true" />
       <Column Name="intNiveles" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="intPanelesTotales" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.stp_ListarSeleccionPanel" Method="stp_ListarSeleccionPanel">
+    <Parameter Name="decAncho" Type="System.Decimal" DbType="Decimal(8,3)" />
+    <Parameter Name="sintCalibre" Type="System.Int16" DbType="SmallInt" />
+    <Parameter Name="decFondo" Type="System.Decimal" DbType="Decimal(8,2)" />
+    <Parameter Name="Sistema" Parameter="sistema" Type="System.Int16" DbType="SmallInt" />
+    <Parameter Name="bitGalvanizado" Type="System.Boolean" DbType="Bit" />
+    <ElementType Name="stp_ListarSeleccionPanelResult">
+      <Column Name="intPanelID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="sintSKU" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="vchCalibreAcero" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="decAncho" Type="System.Decimal" DbType="Decimal(12,3)" CanBeNull="true" />
+      <Column Name="decFondo" Type="System.Decimal" DbType="Decimal(12,3)" CanBeNull="true" />
+      <Column Name="decPesoKg" Type="System.Decimal" DbType="Decimal(12,3)" CanBeNull="true" />
+      <Column Name="sintCorreccion" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="decTotal" Type="System.Decimal" DbType="Decimal(12,3)" CanBeNull="true" />
+      <Column Name="decPrecioEfectivoRef" Type="System.Decimal" DbType="Decimal(12,3)" CanBeNull="true" />
+      <Column Name="decPrecioLista" Type="System.Decimal" DbType="Decimal(12,3)" CanBeNull="true" />
+      <Column Name="decKgTyrsa" Type="System.Decimal" DbType="Decimal(12,3)" CanBeNull="true" />
+      <Column Name="decKgReferencia" Type="System.Decimal" DbType="Decimal(12,3)" CanBeNull="true" />
+      <Column Name="bitActivo" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="decCapacidadCarga" Type="System.Decimal" DbType="Decimal(12,3)" CanBeNull="true" />
     </ElementType>
   </Function>
 </Database>

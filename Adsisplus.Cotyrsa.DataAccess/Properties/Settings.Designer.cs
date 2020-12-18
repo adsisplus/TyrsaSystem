@@ -12,7 +12,7 @@ namespace Adsisplus.Cotyrsa.DataAccess.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "14.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "16.7.0.0")]
     internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
         
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
@@ -26,7 +26,7 @@ namespace Adsisplus.Cotyrsa.DataAccess.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=local;Initial Catalog=dbTyrsa;User ID=usrCotyrsa")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=local;Initial Catalog=dbTyrsa;User ID=usrCotyrsa;Password=Enared01")]
         public string dbTyrsaConnectionString {
             get {
                 return ((string)(this["dbTyrsaConnectionString"]));
@@ -40,17 +40,6 @@ namespace Adsisplus.Cotyrsa.DataAccess.Properties {
         public string dbTyrsaConnectionString1 {
             get {
                 return ((string)(this["dbTyrsaConnectionString1"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=localhost\\SQLEXPRESS;Initial Catalog=dbTyrsa;User ID=usrCotyrsa;Passw" +
-            "ord=Enared01")]
-        public string dbTyrsaConnectionString2 {
-            get {
-                return ((string)(this["dbTyrsaConnectionString2"]));
             }
         }
     }

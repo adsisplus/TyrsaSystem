@@ -1,4 +1,5 @@
 ﻿using Adsisplus.Cotyrsa.BusinessEntities;
+using Adsisplus.Cotyrsa.BusinessEntities.Catalogos;
 using Adsisplus.Cotyrsa.DataAccess;
 using System;
 using System.Collections.Generic;
@@ -12,7 +13,7 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
     {
         #region Constructor
 
-        private CatalogosDataAccess CatalogosDA;
+        private readonly CatalogosDataAccess CatalogosDA;
 
         public CatalogoLogic()
         {
@@ -954,5 +955,16 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
             }
             return result;
         }
+
+        #region Viaticos
+
+        public IEnumerable<Viatico> GetViaticos()
+            =>  CatalogosDA.GetViaticos();
+
+        
+
+
+        #endregion
+
     }
 }

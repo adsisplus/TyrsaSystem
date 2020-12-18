@@ -1,4 +1,5 @@
 ﻿using Adsisplus.Cotyrsa.BusinessEntities;
+using Adsisplus.Cotyrsa.BusinessEntities.Catalogos;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -117,5 +118,13 @@ namespace Adsisplus.Cotyrsa.WcfService.CatalogoGeneralServices
         [OperationContract]
         [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ListarCatMoneda")]
         List<Catalogo> ListarCatMoneda();
+
+
+        #region Viaticos 
+        [OperationContract]
+        [WebGet(UriTemplate = "GetViaticos", ResponseFormat = WebMessageFormat.Json)]
+        IEnumerable<Viatico> GetViaticos();
+        #endregion
+
     }
 }

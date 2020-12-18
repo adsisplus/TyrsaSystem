@@ -99,6 +99,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Empresa.dbml</DependentUpon>
     </Compile>
+    <Compile Include="Context\FormatoCotizacion.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FormatoCotizacion.dbml</DependentUpon>
+    </Compile>
     <Compile Include="Context\Gastos.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -196,6 +201,7 @@
     <Compile Include="DriveInDataAccess.cs" />
     <Compile Include="EmpresaDataAccess.cs" />
     <Compile Include="EstanteriaDataAccess.cs" />
+    <Compile Include="FormatoCotizacionDataAccess.cs" />
     <Compile Include="GastosDataAccess.cs" />
     <Compile Include="GuiaEntradaDataAccess.cs" />
     <Compile Include="Helper.cs" />
@@ -289,6 +295,11 @@
     <None Include="Context\Empresa.dbml">
       <Generator>MSLinqToSQLGenerator</Generator>
       <LastGenOutput>Empresa.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Context\FormatoCotizacion.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>FormatoCotizacion.designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
     <None Include="Context\Gastos.dbml">
@@ -485,6 +496,11 @@
   <ItemGroup>
     <None Include="Context\Direccion.dbml.layout">
       <DependentUpon>Direccion.dbml</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Context\FormatoCotizacion.dbml.layout">
+      <DependentUpon>FormatoCotizacion.dbml</DependentUpon>
     </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

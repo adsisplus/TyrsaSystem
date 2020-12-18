@@ -1,4 +1,5 @@
 ﻿using Adsisplus.Cotyrsa.BusinessEntities;
+using Adsisplus.Cotyrsa.BusinessEntities.Catalogos;
 using Adsisplus.Cotyrsa.BusinessLogic;
 using System;
 using System.Collections.Generic;
@@ -17,7 +18,7 @@ namespace Adsisplus.Cotyrsa.WcfService.CatalogoGeneralServices
         /// Obtiene la lista de estados de la república mexicana
         /// </summary>
         /// <returns></returns>
-        
+
         public List<Catalogo> ListarCatEstado()
         {
             List<Catalogo> result = new List<Catalogo>();
@@ -256,5 +257,33 @@ namespace Adsisplus.Cotyrsa.WcfService.CatalogoGeneralServices
             }
             return result;
         }
+
+        #region Viaticos
+
+        /// <summary>
+        /// Envía un listado de los viaticos disponibles en el catálogo
+        /// </summary>
+        /// <returns>Colección de viaticos</returns>
+        /// <author>Fernando Ricardo Morán</author>
+        public IEnumerable<Viatico> GetViaticos()
+            => (new CatalogoLogic()).GetViaticos();
+        //{
+        //    List<Viatico> result = new List<Viatico>();
+        //    try
+        //    {
+        //        result = (new CatalogoLogic()).GetViaticos().ToList();
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        Adsisplus.Cotyrsa.BusinessLogic.EventLogManager.LogErrorEntry(ex.Message);
+        //    }
+        //    return result;
+        //}
+        //=> new int[] {1,2,3 };
+
+
+        #endregion
+
+
     }
 }

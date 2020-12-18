@@ -11,6 +11,7 @@
     <AssemblyName>Adsisplus.Cotyrsa.BusinessLogic</AssemblyName>
     <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -54,6 +55,7 @@
     <Compile Include="EmpresaLogic.cs" />
     <Compile Include="EstanteriaLogic.cs" />
     <Compile Include="EventLogManager.cs" />
+    <Compile Include="FormatoCotizacionLogic.cs" />
     <Compile Include="GastosLogic.cs" />
     <Compile Include="GuiaEntradaLogic.cs" />
     <Compile Include="MarcosLogic.cs" />
@@ -79,6 +81,10 @@
     <ProjectReference Include="..\Adsisplus.Cotyrsa.DataAccess\Adsisplus.Cotyrsa.DataAccess.csproj">
       <Project>{61b454d8-c303-408c-987c-b1227d8bd8bc}</Project>
       <Name>Adsisplus.Cotyrsa.DataAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Adsisplus.Cotyrsa.Shared.Utilities\Adsisplus.Cotyrsa.Shared.Utilities.csproj">
+      <Project>{6f8593a3-a4b1-4d54-90d5-2649027d8076}</Project>
+      <Name>Adsisplus.Cotyrsa.Shared.Utilities</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

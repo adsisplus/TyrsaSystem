@@ -11,6 +11,7 @@
     <AssemblyName>Adsisplus.Cotyrsa.BusinessEntities</AssemblyName>
     <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -47,6 +48,8 @@
     <Compile Include="Catalogo.cs" />
     <Compile Include="CatalogoDecimal.cs" />
     <Compile Include="CatalogoEntero.cs" />
+    <Compile Include="Catalogos\UnidadMedicion.cs" />
+    <Compile Include="Catalogos\Viatico.cs" />
     <Compile Include="ComplementoObligatorio.cs" />
     <Compile Include="ConectorViga.cs" />
     <Compile Include="Configuracion_Marco.cs" />
@@ -126,6 +129,13 @@
     <Compile Include="RelSistemaCargaMarcoPoste.cs" />
     <Compile Include="RelSistemaSelectivo.cs" />
     <Compile Include="RelTipoElementoAlmacenFactorCotizacion.cs" />
+    <Compile Include="Reportes\ArticulosSistema.cs" />
+    <Compile Include="Reportes\Cliente.cs" />
+    <Compile Include="Reportes\Dimensiones.cs" />
+    <Compile Include="Reportes\ParametroCotizacion.cs" />
+    <Compile Include="Reportes\ReporteCotizacion.cs" />
+    <Compile Include="Reportes\Sistema.cs" />
+    <Compile Include="Reportes\Usuario.cs" />
     <Compile Include="Resultado.cs" />
     <Compile Include="SeleccionAnguloRanurado.cs" />
     <Compile Include="SeleccionArriestrado.cs" />

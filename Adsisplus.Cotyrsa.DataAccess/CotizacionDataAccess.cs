@@ -1,14 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Adsisplus.Cotyrsa.BusinessEntities;
 using Adsisplus.Cotyrsa.DataAccess.Context;
 
 namespace Adsisplus.Cotyrsa.DataAccess
 {
-   public class CotizacionDataAccess
+    public class CotizacionDataAccess
     {
         /// <summary>
         /// Procedimiento que lista los datos de cotización
@@ -83,7 +81,7 @@ namespace Adsisplus.Cotyrsa.DataAccess
                                 };
                     result.AddRange(query);
                 }
-                    
+
             }
             catch (Exception ex)
             {
@@ -109,7 +107,7 @@ namespace Adsisplus.Cotyrsa.DataAccess
                         cotizacion.vchFolio, cotizacion.datFechaAceptacion, cotizacion.datFechaRechazo,
                         // Datos que son almacenados en tbl_RackSelectivo
                         rack.intRackID, //rack.bitMontacarga, rack.intNumeroTarimaPorNivel, 
-                        //rack.decFrente, rack.decFondo, rack.decAltura, rack.decPeso,
+                                        //rack.decFrente, rack.decFondo, rack.decAltura, rack.decPeso,
                         /*rack.vchDimensionMontacarga, rack.intNumeroNivelSobreViga, rack.intPosicion,*/ rack.sintVisitas,
                         rack.intRelCotizaProductoID, rack.intProductoGralID, rack.intSubProductoID, cotizacion.intUsuarioID, cotizacion.bitActivo, (byte)tinOpcion)
                                 select new Resultado
@@ -141,7 +139,7 @@ namespace Adsisplus.Cotyrsa.DataAccess
                 {
                     var query = from item in dc.stp_setDetCotizacion(cotizacion.intDetCotizaID, cotizacion.intCotizacionID, cotizacion.intSeleccionVigaID, cotizacion.intElementoID, cotizacion.intPartida, cotizacion.intCantidad,
                         cotizacion.decDolar, cotizacion.decMonto, cotizacion.decSubtotal, cotizacion.decDescuento,
-                        cotizacion.decDescuentoFin, cotizacion.decIEMPS, cotizacion.decRetISR, cotizacion.decRetIVA, cotizacion.decIVA, cotizacion.decTotal, 
+                        cotizacion.decDescuentoFin, cotizacion.decIEMPS, cotizacion.decRetISR, cotizacion.decRetIVA, cotizacion.decIVA, cotizacion.decTotal,
                         cotizacion.bitActivo, (byte)tinOpcion)
                                 select new Resultado
                                 {
@@ -272,7 +270,7 @@ namespace Adsisplus.Cotyrsa.DataAccess
                                     bitActivo = item.bitActivo
                                 };
                     //if(query.Count() > 0)
-                        result = query.First();
+                    result = query.First();
                 }
             }
             catch (Exception ex)
@@ -366,7 +364,7 @@ namespace Adsisplus.Cotyrsa.DataAccess
                                     vchFolio = item.vchFolio,
                                     intRackID = item.intRackID,
                                     bitMontaCarga = item.bitMontacarga,
-                                    
+
                                     intRelCotizaProductoID = item.intRelCotizaProductoID,
                                     intProductoGralID = item.intProductoGralID,
                                     intSubProductoID = item.intSubProductoID,
@@ -385,6 +383,8 @@ namespace Adsisplus.Cotyrsa.DataAccess
             }
             return result;
         }
+
+
 
     }
 }
