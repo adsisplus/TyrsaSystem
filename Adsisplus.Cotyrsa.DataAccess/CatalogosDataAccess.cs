@@ -1667,6 +1667,42 @@ namespace Adsisplus.Cotyrsa.DataAccess
             return result;
         }
 
+
+
+        #region Unidades Medición
+        /// <summary>
+        /// Obtiene las unidades de medicón del repositorio
+        /// </summary>
+        /// <returns>Colección de unidades</returns>
+        /// <author>Fernando Ricardo Morán</author>
+        public IEnumerable<UnidadMedicion> GetUndiadesMedicion()
+        {
+            List<UnidadMedicion> unidades = new List<UnidadMedicion>();
+            try
+            {
+                using (CatalogosDataContext dc = new CatalogosDataContext(Helper.ConnectionString()))
+                {
+                    unidades = dc.stp_ListarCatUnidadMedicion().Select(item
+                                 => new UnidadMedicion()
+                                 {
+                                     UnidadMedicionId = item.intUnidadMedicionID,
+                                     Unidad = item.vchUnidadMedicion,
+                                     Activo = item.bitActivo ?? false
+
+                                 }).ToList();
+                }
+                return unidades;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        #endregion
+
+
+
+
         #region Viaticos
 
 
@@ -1688,24 +1724,173 @@ namespace Adsisplus.Cotyrsa.DataAccess
                         },
                         Cantidad = viaticoResulta.sintCantidad ?? 0,
                         Descripcion = viaticoResulta.vchDescripcion,
-                        Instlacion = viaticoResulta.intInstalacion ?? 0,
+                        Instalacion = viaticoResulta.intInstalacion ?? 0,
                         Factor = Convert.ToDouble(viaticoResulta.decFactor ?? 0),
                         TieneCosto = viaticoResulta.bitTieneCosto ?? false,
                         Activo = viaticoResulta.bitActivo ?? true
                     }).ToList();
                 }
             }
-            catch(Exception exception)
+            catch (Exception exception)
             {
-                throw new Exception("Error en la capa de datos al obtener viaticos",exception);
-                
+                throw new Exception("Error en la capa de datos al obtener viaticos", exception);
+
             }
-
-
         }
+
+
+
+        public void UpdateViatico(Viatico viatico)
+        {
+            try
+            {
+                using (CatalogosDataContext catalogosDataContext = new CatalogosDataContext(Helper.ConnectionString()))
+                {
+                    var effectedResult = catalogosDataContext.Viaticos_Update(
+                        viatico.ViaticoId,
+                        viatico.UnidadMedicionId,
+                        viatico.Cantidad,
+                        viatico.Descripcion,
+                        viatico.Instalacion,
+                        Convert.ToDecimal(viatico.Factor),
+                        viatico.TieneCosto,
+                        viatico.Activo);
+                }
+            }
+            catch (Exception exception)
+            {
+                throw new Exception("Error al intentar actualizar un biatico", exception);
+            }
+        }
+
+
+
+        public void CreateViatico(Viatico viatico)
+        {
+            try
+            {
+                using (CatalogosDataContext catalogosDataContext = new CatalogosDataContext(Helper.ConnectionString()))
+                {
+                    var effectedResult = catalogosDataContext.Viaticos_Create(
+                        viatico.UnidadMedicionId,
+                        viatico.Cantidad,
+                        viatico.Descripcion,
+                        viatico.Instalacion,
+                        Convert.ToDecimal(viatico.Factor),
+                        viatico.TieneCosto,
+                        viatico.Activo);
+                }
+            }
+            catch (Exception exception)
+            {
+                throw new Exception("Error al intentar crear un biatico", exception);
+            }
+        }
+
+        public void DeleteViatico(short viaticoId)
+        {
+            try
+            {
+                using (CatalogosDataContext catalogosDataContext = new CatalogosDataContext(Helper.ConnectionString()))
+                {
+                    var effectedResult = catalogosDataContext.Viaticos_Delete(viaticoId);
+                }
+            }
+            catch (Exception exception)
+            {
+                throw new Exception("Error al eliminar un biatico", exception);
+            }
+        }
+
 
         #endregion
 
+
+        #region Viáticos
+
+        public void CreateTornillo(Tornillo tornillo)
+        {
+            try
+            {
+                using (CatalogosDataContext catalogosDataContext = new CatalogosDataContext(Helper.ConnectionString()))
+                {
+                    int affectedRows = catalogosDataContext.Tornillo_Create(
+                        tornillo.UnidadMedicionId, tornillo.Descripcion, Convert.ToDecimal(tornillo.Factor), Convert.ToDecimal(tornillo.Peso));
+
+                }
+            }
+            catch (Exception exception)
+            {
+                throw new Exception("Error al crearun tornillo", exception);
+            }
+        }
+
+        public IEnumerable<Tornillo> GetTornillos()
+        {
+            try
+            {
+                using (CatalogosDataContext catalogosDataContext = new CatalogosDataContext(Helper.ConnectionString()))
+                {
+                    IEnumerable<Tornillo> Tornillos = catalogosDataContext.Tornillo_GetAll()
+                        .Select(tornillo => new Tornillo
+                        {
+                            TornilloId = tornillo.sintTornilleriaID,
+                            Descripcion = tornillo.vchDescripcion,
+                            Factor = Convert.ToDouble(tornillo.decFactor),
+                            Peso = Convert.ToDouble(tornillo.decPesos),
+                            Activo = tornillo.bitActivo ?? default,
+                            UnidadMedicionId = tornillo.intUnidadMedicionID,
+                            UnidadMedicion = new UnidadMedicion
+                            {
+                                UnidadMedicionId = tornillo.intUnidadMedicionID,
+                                Unidad = tornillo.vchUnidadMedicion
+                            }
+                        })
+                        .ToList();
+                    return Tornillos;
+                }
+            }
+            catch (Exception exception)
+            {
+                throw new Exception("Error al obtener el listado de tornillos", exception);
+            }
+        }
+
+
+        public void UpdateTornillo(Tornillo tornillo)
+        {
+            try
+            {
+                using (CatalogosDataContext catalogosDataContext = new CatalogosDataContext(Helper.ConnectionString()))
+                {
+                    int affectedRows = catalogosDataContext.Tornillo_Update(tornillo.TornilloId,
+                        tornillo.UnidadMedicionId, tornillo.Descripcion, Convert.ToDecimal(tornillo.Factor), Convert.ToDecimal(tornillo.Peso));
+
+                }
+            }
+            catch (Exception exception)
+            {
+                throw new Exception("Error al crearun tornillo", exception);
+            }
+        }
+
+        public void DeleteTornillo(short tornilloId)
+        {
+            try
+            {
+                using (CatalogosDataContext catalogosDataContext = new CatalogosDataContext(Helper.ConnectionString()))
+                {
+                    int affectedRows = catalogosDataContext.Tornillo_Delete(tornilloId);
+                }
+            }
+            catch (Exception exception)
+            {
+                throw new Exception("Error al crearun tornillo", exception);
+            }
+        }
+
+
+        #endregion
 
     }
 

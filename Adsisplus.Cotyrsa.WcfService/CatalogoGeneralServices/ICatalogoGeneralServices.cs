@@ -14,6 +14,8 @@ namespace Adsisplus.Cotyrsa.WcfService.CatalogoGeneralServices
     [ServiceContract]
     public interface ICatalogoGeneralServices
     {
+
+        #region Catálogos iniciales
         /// <summary>
         /// Obtiene la lista de localidades en base al municipio
         /// </summary>
@@ -119,12 +121,60 @@ namespace Adsisplus.Cotyrsa.WcfService.CatalogoGeneralServices
         [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ListarCatMoneda")]
         List<Catalogo> ListarCatMoneda();
 
+        #endregion
+
+
+        #region Unidades de Medición
+        [OperationContract]
+        [WebGet(UriTemplate = "GetUnidadesMedicion", ResponseFormat = WebMessageFormat.Json)]
+        IEnumerable<UnidadMedicion> GetUnidadesMedicion();
+        #endregion
+
 
         #region Viaticos 
         [OperationContract]
         [WebGet(UriTemplate = "GetViaticos", ResponseFormat = WebMessageFormat.Json)]
         IEnumerable<Viatico> GetViaticos();
+
+        [OperationContract]
+        [WebInvoke( UriTemplate = "EditViatico", ResponseFormat = WebMessageFormat.Json,Method = "POST")]
+        void EditViatico(Viatico viatico);
+
+
+        [OperationContract]
+        [WebInvoke(UriTemplate = "DeleteViatico?viaticoId={viaticoId}", ResponseFormat = WebMessageFormat.Json,Method ="DELETE")]
+        void DeleteViatico(short viaticoId);
         #endregion
 
+
+        #region Tornillería
+        /// <summary>
+        /// Obtiene la colección de tornillos
+        /// </summary>
+        /// <returns>Tornillos</returns>
+        /// <author>Fernando Ricardo Morán</author>
+        [OperationContract]
+        [WebGet(UriTemplate = "GetTornillos", ResponseFormat = WebMessageFormat.Json)]
+        IEnumerable<Tornillo> GetTornillos();
+
+        /// <summary>
+        /// Crea/actualiza un registro de tornillo
+        /// </summary>
+        /// <param name="tornillo">Instancia del tornillo</param>
+        /// <author>Fernando Ricardo Morán</author>
+        [OperationContract]
+        [WebInvoke(UriTemplate = "EditTornillo", ResponseFormat = WebMessageFormat.Json, Method = "POST")]
+        void EditTornillo(Tornillo viatico);
+
+
+        /// <summary>
+        /// Elimina el registro de un tornillo
+        /// </summary>
+        /// <param name="tornilloId">Identificador del tornillo</param>
+        /// <author>Fernando Ricardo Morán</author>
+        [OperationContract]
+        [WebInvoke(UriTemplate = "DeleteTornillo?tornilloId={tornilloId}", ResponseFormat = WebMessageFormat.Json, Method = "DELETE")]
+        void DeleteTornillo(short tornilloId);
+        #endregion
     }
 }

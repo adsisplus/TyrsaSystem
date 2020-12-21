@@ -1,14 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.Serialization;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Runtime.Serialization;
 
 namespace Adsisplus.Cotyrsa.BusinessEntities.Catalogos
 {
     /// <summary>
-    /// Clase que describe la unidad de medición
+    /// Clase que describe las unidades de medida
     /// </summary>
     [DataContract]
     public class UnidadMedicion

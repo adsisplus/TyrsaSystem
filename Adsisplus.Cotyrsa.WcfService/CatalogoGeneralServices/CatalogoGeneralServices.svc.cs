@@ -14,6 +14,8 @@ namespace Adsisplus.Cotyrsa.WcfService.CatalogoGeneralServices
     // NOTA: para iniciar el Cliente de prueba WCF para probar este servicio, seleccione CatalogoGeneralServices.svc o CatalogoGeneralServices.svc.cs en el Explorador de soluciones e inicie la depuración.
     public class CatalogoGeneralServices : ICatalogoGeneralServices
     {
+        #region Catálogos iniciales
+
         /// <summary>
         /// Obtiene la lista de estados de la república mexicana
         /// </summary>
@@ -258,6 +260,22 @@ namespace Adsisplus.Cotyrsa.WcfService.CatalogoGeneralServices
             return result;
         }
 
+        #endregion
+
+
+        #region Unidades Medición
+
+        /// <summary>
+        /// Provee la colección de unidades de medida
+        /// </summary>
+        /// <returns>Unidades de medida</returns>
+        /// <author>Fernando Ricardo Morán</author>
+        public IEnumerable<UnidadMedicion> GetUnidadesMedicion()
+            => (new CatalogoLogic()).GetUnidadesMedicion();
+
+
+        #endregion
+
         #region Viaticos
 
         /// <summary>
@@ -267,23 +285,58 @@ namespace Adsisplus.Cotyrsa.WcfService.CatalogoGeneralServices
         /// <author>Fernando Ricardo Morán</author>
         public IEnumerable<Viatico> GetViaticos()
             => (new CatalogoLogic()).GetViaticos();
-        //{
-        //    List<Viatico> result = new List<Viatico>();
-        //    try
-        //    {
-        //        result = (new CatalogoLogic()).GetViaticos().ToList();
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        Adsisplus.Cotyrsa.BusinessLogic.EventLogManager.LogErrorEntry(ex.Message);
-        //    }
-        //    return result;
-        //}
-        //=> new int[] {1,2,3 };
+
+        /// <summary>
+        /// Edita un viatico
+        /// </summary>
+        /// <param name="viatico">Información del viático</param>
+        public void EditViatico(Viatico viatico)
+            => new CatalogoLogic().EditViatico(viatico);
+
+        /// <summary>
+        /// Elimina un viático
+        /// </summary>
+        /// <param name="viaticoId">Identificador del viático</param>
+        /// <author>Fernando Ricardo Morán</author>
+        public void DeleteViatico(short viaticoId)
+            => new CatalogoLogic().DeleteViatico(viaticoId);
+
+
+
+
 
 
         #endregion
 
+
+        #region Tornillería
+
+
+        /// <summary>
+        /// Obtiene la colección de tornillos
+        /// </summary>
+        /// <returns>Tornillos</returns>
+        /// <author>Fernando Ricardo Morán</author>
+        public IEnumerable<Tornillo> GetTornillos()
+        => new CatalogoLogic().GetTornillos();
+
+        /// <summary>
+        /// Crea/actualiza un registro de tornillo
+        /// </summary>
+        /// <param name="tornillo">Instancia del tornillo</param>
+        /// <author>Fernando Ricardo Morán</author>
+        public void EditTornillo(Tornillo viatico)
+            => new CatalogoLogic().EditTornillo(viatico);
+
+        /// <summary>
+        /// Elimina el registro de un tornillo
+        /// </summary>
+        /// <param name="tornilloId">Identificador del tornillo</param>
+        /// <author>Fernando Ricardo Morán</author>
+        public void DeleteTornillo(short tornilloId)
+        => new CatalogoLogic().DeleteTornillo(tornilloId);
+
+        #endregion
 
     }
 }

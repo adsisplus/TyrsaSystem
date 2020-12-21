@@ -555,17 +555,6 @@
       <Column Name="bitActivo" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
     </ElementType>
   </Function>
-  <Function Name="dbo.Viaticos_Create" Method="Viaticos_Create">
-    <Parameter Name="sintViaticoID" Type="System.Int16" DbType="SmallInt" />
-    <Parameter Name="intUnidadMedicionID" Type="System.Int32" DbType="Int" />
-    <Parameter Name="sintCantidad" Type="System.Int16" DbType="SmallInt" />
-    <Parameter Name="vchDescripcion" Type="System.String" DbType="VarChar(250)" />
-    <Parameter Name="intInstalacion" Type="System.Int32" DbType="Int" />
-    <Parameter Name="decFactor" Type="System.Decimal" DbType="Decimal(8,2)" />
-    <Parameter Name="bitTieneCosto" Type="System.Boolean" DbType="Bit" />
-    <Parameter Name="bitActivo" Type="System.Boolean" DbType="Bit" />
-    <Return Type="System.Int32" />
-  </Function>
   <Function Name="dbo.Viaticos_Delete" Method="Viaticos_Delete">
     <Parameter Name="sintViaticoID" Type="System.Int16" DbType="SmallInt" />
     <Return Type="System.Int32" />
@@ -606,6 +595,58 @@
     <Parameter Name="decFactor" Type="System.Decimal" DbType="Decimal(8,2)" />
     <Parameter Name="bitTieneCosto" Type="System.Boolean" DbType="Bit" />
     <Parameter Name="bitActivo" Type="System.Boolean" DbType="Bit" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.Viaticos_Create" Method="Viaticos_Create">
+    <Parameter Name="intUnidadMedicionID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="sintCantidad" Type="System.Int16" DbType="SmallInt" />
+    <Parameter Name="vchDescripcion" Type="System.String" DbType="VarChar(250)" />
+    <Parameter Name="intInstalacion" Type="System.Int32" DbType="Int" />
+    <Parameter Name="decFactor" Type="System.Decimal" DbType="Decimal(8,2)" />
+    <Parameter Name="bitTieneCosto" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="bitActivo" Type="System.Boolean" DbType="Bit" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.Tornillo_Create" Method="Tornillo_Create">
+    <Parameter Name="UnidadMedidicionId" Parameter="unidadMedidicionId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Descripcion" Parameter="descripcion" Type="System.String" DbType="VarChar(250)" />
+    <Parameter Name="Factor" Parameter="factor" Type="System.Decimal" DbType="Decimal(8,2)" />
+    <Parameter Name="Peso" Parameter="peso" Type="System.Decimal" DbType="Decimal(8,2)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.Tornillo_Delete" Method="Tornillo_Delete">
+    <Parameter Name="TornilloId" Parameter="tornilloId" Type="System.Int16" DbType="SmallInt" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.Tornillo_Get" Method="Tornillo_Get">
+    <Parameter Name="TornilloId" Parameter="tornilloId" Type="System.Int16" DbType="SmallInt" />
+    <ElementType Name="Tornillo_GetResult">
+      <Column Name="sintTornilleriaID" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Column Name="vchDescripcion" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="decFactor" Type="System.Decimal" DbType="Decimal(8,2)" CanBeNull="true" />
+      <Column Name="decPesos" Type="System.Decimal" DbType="Decimal(12,2)" CanBeNull="true" />
+      <Column Name="bitActivo" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="intUnidadMedicionID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="vchUnidadMedicion" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.Tornillo_GetAll" Method="Tornillo_GetAll">
+    <ElementType Name="Tornillo_GetAllResult">
+      <Column Name="sintTornilleriaID" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Column Name="vchDescripcion" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="decFactor" Type="System.Decimal" DbType="Decimal(8,2)" CanBeNull="true" />
+      <Column Name="decPesos" Type="System.Decimal" DbType="Decimal(12,2)" CanBeNull="true" />
+      <Column Name="bitActivo" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="intUnidadMedicionID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="vchUnidadMedicion" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.Tornillo_Update" Method="Tornillo_Update">
+    <Parameter Name="TornilloId" Parameter="tornilloId" Type="System.Int16" DbType="SmallInt" />
+    <Parameter Name="UnidadMedidicionId" Parameter="unidadMedidicionId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Descripcion" Parameter="descripcion" Type="System.String" DbType="VarChar(250)" />
+    <Parameter Name="Factor" Parameter="factor" Type="System.Decimal" DbType="Decimal(8,2)" />
+    <Parameter Name="Peso" Parameter="peso" Type="System.Decimal" DbType="Decimal(8,2)" />
     <Return Type="System.Int32" />
   </Function>
 </Database>

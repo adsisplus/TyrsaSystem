@@ -49,7 +49,7 @@ namespace Adsisplus.Cotyrsa.BusinessEntities.Catalogos
         /// Cantidad de instalaciones
         /// </summary>
         [DataMember]
-        public int Instlacion { get; set; }
+        public int Instalacion { get; set; }
 
         /// <summary>
         /// Factor del costo del viatico

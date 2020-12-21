@@ -956,15 +956,169 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
             return result;
         }
 
+
+
+
+
+
+        #region Unidades Medición
+        /// <summary>
+        /// Provee la colección de unidades de medida disponisbles
+        /// </summary>
+        /// <returns>Unidades de medida</returns>
+        /// <author>Fernando Ricardo Morán</author>
+        public IEnumerable<UnidadMedicion> GetUnidadesMedicion()
+        {
+            try
+            {
+                return CatalogosDA.GetUndiadesMedicion();
+            }
+            catch (Exception exception)
+            {
+                EventLogManager.LogErrorEntry(exception);
+                throw;
+            }
+        }
+
+        #endregion
+
         #region Viaticos
 
+        /// <summary>
+        /// Obtiene una colección de viáticos
+        /// </summary>
+        /// <returns>Catálogo de viáticos</returns>
         public IEnumerable<Viatico> GetViaticos()
-            =>  CatalogosDA.GetViaticos();
+        {
+            try
+            {
+                return CatalogosDA.GetViaticos();
+            }
+            catch (Exception exception)
+            {
+                EventLogManager.LogErrorEntry(exception);
+                throw;
+            }
+        }
 
-        
+
+
+        /// <summary>
+        /// Inserta o actualiza un viático
+        /// </summary>
+        /// <param name="viatico">Viatico a editar</param>
+        /// <author>Fernando Ricardo Morán</author>
+        public void EditViatico(Viatico viatico)
+        {
+            try
+            {
+                if (viatico.ViaticoId <= 0)
+                {
+                    CatalogosDA.CreateViatico(viatico);
+                }
+                else
+                {
+                    CatalogosDA.UpdateViatico(viatico);
+                }
+            }
+            catch (Exception exception)
+            {
+                EventLogManager.LogErrorEntry(exception);
+                throw;
+            }
+        }
+
+
+        /// <summary>
+        /// Elimina un viático del catálogo por medio de su identificador
+        /// </summary>
+        /// <param name="viaticoId">Identificador del viático</param>
+        /// <aurthor>Fernando Ricardo Morán</aurthor>
+        public void DeleteViatico(short viaticoId)
+        {
+            try
+            {
+                CatalogosDA.DeleteViatico(viaticoId);
+            }
+            catch (Exception exception)
+            {
+                EventLogManager.LogErrorEntry(exception);
+                throw;
+            }
+        }
+
+
 
 
         #endregion
+
+
+        #region Tornillería
+
+        /// <summary>
+        /// Crea/actualiza un registro de tornillo
+        /// </summary>
+        /// <param name="tornillo">Instancia del tornillo</param>
+        /// <author>Fernando Ricardo Morán</author>
+        public void EditTornillo(Tornillo tornillo) {
+            try
+            {
+                if (tornillo.TornilloId <= 0)
+                {
+                    CatalogosDA.CreateTornillo(tornillo);
+                }
+                else
+                {
+                    CatalogosDA.UpdateTornillo(tornillo);
+                }
+                
+            }
+            catch (Exception exception)
+            {
+                EventLogManager.LogErrorEntry(exception);
+                throw;
+            }
+        }
+
+        /// <summary>
+        /// Obtiene la colección de tornillos
+        /// </summary>
+        /// <returns>Tornillos</returns>
+        /// <author>Fernando Ricardo Morán</author>
+        public IEnumerable<Tornillo> GetTornillos()
+        {
+            try
+            {
+                return CatalogosDA.GetTornillos();
+            }
+            catch (Exception exception)
+            {
+                EventLogManager.LogErrorEntry(exception);
+                throw;
+            }
+        }
+
+        /// <summary>
+        /// Elimina el registro de un tornillo
+        /// </summary>
+        /// <param name="tornilloId">Identificador del tornillo</param>
+        /// <author>Fernando Ricardo Morán</author>
+        public void DeleteTornillo(short tornilloId)
+        {
+            try
+            {
+                CatalogosDA.DeleteTornillo(tornilloId);
+            }
+            catch (Exception exception)
+            {
+                EventLogManager.LogErrorEntry(exception);
+                throw;
+            }
+        }
+
+
+        #endregion
+
 
     }
 }

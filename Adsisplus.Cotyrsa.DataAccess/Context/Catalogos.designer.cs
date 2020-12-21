@@ -489,13 +489,6 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 			return ((ISingleResult<stp_ListarCatInstalacionResult>)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.Viaticos_Create")]
-		public int Viaticos_Create([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="SmallInt")] System.Nullable<short> sintViaticoID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intUnidadMedicionID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="SmallInt")] System.Nullable<short> sintCantidad, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(250)")] string vchDescripcion, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intInstalacion, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Decimal(8,2)")] System.Nullable<decimal> decFactor, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Bit")] System.Nullable<bool> bitTieneCosto, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Bit")] System.Nullable<bool> bitActivo)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), sintViaticoID, intUnidadMedicionID, sintCantidad, vchDescripcion, intInstalacion, decFactor, bitTieneCosto, bitActivo);
-			return ((int)(result.ReturnValue));
-		}
-		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.Viaticos_Delete")]
 		public int Viaticos_Delete([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="SmallInt")] System.Nullable<short> sintViaticoID)
 		{
@@ -521,6 +514,48 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 		public int Viaticos_Update([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="SmallInt")] System.Nullable<short> sintViaticoID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intUnidadMedicionID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="SmallInt")] System.Nullable<short> sintCantidad, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(250)")] string vchDescripcion, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intInstalacion, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Decimal(8,2)")] System.Nullable<decimal> decFactor, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Bit")] System.Nullable<bool> bitTieneCosto, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Bit")] System.Nullable<bool> bitActivo)
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), sintViaticoID, intUnidadMedicionID, sintCantidad, vchDescripcion, intInstalacion, decFactor, bitTieneCosto, bitActivo);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.Viaticos_Create")]
+		public int Viaticos_Create([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intUnidadMedicionID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="SmallInt")] System.Nullable<short> sintCantidad, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(250)")] string vchDescripcion, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intInstalacion, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Decimal(8,2)")] System.Nullable<decimal> decFactor, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Bit")] System.Nullable<bool> bitTieneCosto, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Bit")] System.Nullable<bool> bitActivo)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), intUnidadMedicionID, sintCantidad, vchDescripcion, intInstalacion, decFactor, bitTieneCosto, bitActivo);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.Tornillo_Create")]
+		public int Tornillo_Create([global::System.Data.Linq.Mapping.ParameterAttribute(Name="UnidadMedidicionId", DbType="Int")] System.Nullable<int> unidadMedidicionId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Descripcion", DbType="VarChar(250)")] string descripcion, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Factor", DbType="Decimal(8,2)")] System.Nullable<decimal> factor, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Peso", DbType="Decimal(8,2)")] System.Nullable<decimal> peso)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), unidadMedidicionId, descripcion, factor, peso);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.Tornillo_Delete")]
+		public int Tornillo_Delete([global::System.Data.Linq.Mapping.ParameterAttribute(Name="TornilloId", DbType="SmallInt")] System.Nullable<short> tornilloId)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), tornilloId);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.Tornillo_Get")]
+		public ISingleResult<Tornillo_GetResult> Tornillo_Get([global::System.Data.Linq.Mapping.ParameterAttribute(Name="TornilloId", DbType="SmallInt")] System.Nullable<short> tornilloId)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), tornilloId);
+			return ((ISingleResult<Tornillo_GetResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.Tornillo_GetAll")]
+		public ISingleResult<Tornillo_GetAllResult> Tornillo_GetAll()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<Tornillo_GetAllResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.Tornillo_Update")]
+		public int Tornillo_Update([global::System.Data.Linq.Mapping.ParameterAttribute(Name="TornilloId", DbType="SmallInt")] System.Nullable<short> tornilloId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="UnidadMedidicionId", DbType="Int")] System.Nullable<int> unidadMedidicionId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Descripcion", DbType="VarChar(250)")] string descripcion, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Factor", DbType="Decimal(8,2)")] System.Nullable<decimal> factor, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Peso", DbType="Decimal(8,2)")] System.Nullable<decimal> peso)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), tornilloId, unidadMedidicionId, descripcion, factor, peso);
 			return ((int)(result.ReturnValue));
 		}
 	}
@@ -6178,6 +6213,274 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 				if ((this._bitTieneCosto != value))
 				{
 					this._bitTieneCosto = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_bitActivo", DbType="Bit")]
+		public System.Nullable<bool> bitActivo
+		{
+			get
+			{
+				return this._bitActivo;
+			}
+			set
+			{
+				if ((this._bitActivo != value))
+				{
+					this._bitActivo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intUnidadMedicionID", DbType="Int NOT NULL")]
+		public int intUnidadMedicionID
+		{
+			get
+			{
+				return this._intUnidadMedicionID;
+			}
+			set
+			{
+				if ((this._intUnidadMedicionID != value))
+				{
+					this._intUnidadMedicionID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchUnidadMedicion", DbType="VarChar(25)")]
+		public string vchUnidadMedicion
+		{
+			get
+			{
+				return this._vchUnidadMedicion;
+			}
+			set
+			{
+				if ((this._vchUnidadMedicion != value))
+				{
+					this._vchUnidadMedicion = value;
+				}
+			}
+		}
+	}
+	
+	public partial class Tornillo_GetResult
+	{
+		
+		private short _sintTornilleriaID;
+		
+		private string _vchDescripcion;
+		
+		private System.Nullable<decimal> _decFactor;
+		
+		private System.Nullable<decimal> _decPesos;
+		
+		private System.Nullable<bool> _bitActivo;
+		
+		private int _intUnidadMedicionID;
+		
+		private string _vchUnidadMedicion;
+		
+		public Tornillo_GetResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sintTornilleriaID", DbType="SmallInt NOT NULL")]
+		public short sintTornilleriaID
+		{
+			get
+			{
+				return this._sintTornilleriaID;
+			}
+			set
+			{
+				if ((this._sintTornilleriaID != value))
+				{
+					this._sintTornilleriaID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchDescripcion", DbType="VarChar(250)")]
+		public string vchDescripcion
+		{
+			get
+			{
+				return this._vchDescripcion;
+			}
+			set
+			{
+				if ((this._vchDescripcion != value))
+				{
+					this._vchDescripcion = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decFactor", DbType="Decimal(8,2)")]
+		public System.Nullable<decimal> decFactor
+		{
+			get
+			{
+				return this._decFactor;
+			}
+			set
+			{
+				if ((this._decFactor != value))
+				{
+					this._decFactor = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decPesos", DbType="Decimal(12,2)")]
+		public System.Nullable<decimal> decPesos
+		{
+			get
+			{
+				return this._decPesos;
+			}
+			set
+			{
+				if ((this._decPesos != value))
+				{
+					this._decPesos = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_bitActivo", DbType="Bit")]
+		public System.Nullable<bool> bitActivo
+		{
+			get
+			{
+				return this._bitActivo;
+			}
+			set
+			{
+				if ((this._bitActivo != value))
+				{
+					this._bitActivo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intUnidadMedicionID", DbType="Int NOT NULL")]
+		public int intUnidadMedicionID
+		{
+			get
+			{
+				return this._intUnidadMedicionID;
+			}
+			set
+			{
+				if ((this._intUnidadMedicionID != value))
+				{
+					this._intUnidadMedicionID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchUnidadMedicion", DbType="VarChar(25)")]
+		public string vchUnidadMedicion
+		{
+			get
+			{
+				return this._vchUnidadMedicion;
+			}
+			set
+			{
+				if ((this._vchUnidadMedicion != value))
+				{
+					this._vchUnidadMedicion = value;
+				}
+			}
+		}
+	}
+	
+	public partial class Tornillo_GetAllResult
+	{
+		
+		private short _sintTornilleriaID;
+		
+		private string _vchDescripcion;
+		
+		private System.Nullable<decimal> _decFactor;
+		
+		private System.Nullable<decimal> _decPesos;
+		
+		private System.Nullable<bool> _bitActivo;
+		
+		private int _intUnidadMedicionID;
+		
+		private string _vchUnidadMedicion;
+		
+		public Tornillo_GetAllResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sintTornilleriaID", DbType="SmallInt NOT NULL")]
+		public short sintTornilleriaID
+		{
+			get
+			{
+				return this._sintTornilleriaID;
+			}
+			set
+			{
+				if ((this._sintTornilleriaID != value))
+				{
+					this._sintTornilleriaID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchDescripcion", DbType="VarChar(250)")]
+		public string vchDescripcion
+		{
+			get
+			{
+				return this._vchDescripcion;
+			}
+			set
+			{
+				if ((this._vchDescripcion != value))
+				{
+					this._vchDescripcion = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decFactor", DbType="Decimal(8,2)")]
+		public System.Nullable<decimal> decFactor
+		{
+			get
+			{
+				return this._decFactor;
+			}
+			set
+			{
+				if ((this._decFactor != value))
+				{
+					this._decFactor = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decPesos", DbType="Decimal(12,2)")]
+		public System.Nullable<decimal> decPesos
+		{
+			get
+			{
+				return this._decPesos;
+			}
+			set
+			{
+				if ((this._decPesos != value))
+				{
+					this._decPesos = value;
 				}
 			}
 		}
