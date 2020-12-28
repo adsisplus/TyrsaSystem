@@ -1806,7 +1806,7 @@ namespace Adsisplus.Cotyrsa.DataAccess
         #endregion
 
 
-        #region Viáticos
+        #region Tornillo
 
         public void CreateTornillo(Tornillo tornillo)
         {
@@ -1892,6 +1892,115 @@ namespace Adsisplus.Cotyrsa.DataAccess
 
         #endregion
 
+
+
+        #region Instalación
+        /// <summary>
+        /// Crea una instalación
+        /// </summary>
+        /// <param name="instalacion">Instancia de instalación que contiene la información</param>
+        /// <author>Fernando Ricardo Morán</author>
+        public void CreateInstalacion(Instalacion instalacion)
+        {
+            try
+            {
+                using (CatalogosDataContext catalogosDataContext = new CatalogosDataContext(Helper.ConnectionString()))
+                {
+                    var affectedRows = catalogosDataContext.Instalacion_Create(instalacion.UnidadMedicionId
+                        , instalacion.Descripcion, instalacion.InstalacionCantidad
+                        , instalacion.DesinstalacionCantidad, (decimal)instalacion.Factor, instalacion.SubproductoId);
+
+                }
+            }
+            catch (Exception exception)
+            {
+                throw new Exception("Error al intentar crear una instalación", exception);
+            }
+        }
+
+
+        /// <summary>
+        /// Consulta el catálogo de instalaciones
+        /// </summary>
+        /// <returns>Colección de instalaciones</returns>
+        /// <author>Fernando Ricardo Morán</author>
+        public IEnumerable<Instalacion> GetInstalaciones()
+        {
+            try
+            {
+                using (CatalogosDataContext catalogosDataContext = new CatalogosDataContext(Helper.ConnectionString()))
+                {
+                    var instalacionesResult = catalogosDataContext.Instalacion_GetAll();
+                    return instalacionesResult.Select(instalacion => new Instalacion
+                    {
+                        InstalacionId = instalacion.sintInstalacionID,
+                        Descripcion = instalacion.vchDescripcion,
+                        InstalacionCantidad = instalacion.intInstalacion ?? 0,
+                        DesinstalacionCantidad = instalacion.intDesinstalacion ?? 0,
+                        Factor = (double)(instalacion.decFactor ?? 0),
+                        UnidadMedicionId = instalacion.intUnidadMedicionID,
+                        UnidadMedicion = new UnidadMedicion
+                        {
+                            UnidadMedicionId = instalacion.intUnidadMedicionID,
+                            Unidad = instalacion.vchUnidadMedicion,
+                            Activo = true
+                        },
+                        SubproductoId = instalacion.intSubProductoID ?? 0,
+                        Activo = instalacion.bitActivo ?? false
+                    }).ToList();
+
+                }
+            }
+            catch (Exception exception)
+            {
+                throw new Exception("Error al consultar el catálogo de instalaciones", exception);
+            }
+        }
+
+        /// <summary>
+        /// Actuializa la información de una instalación
+        /// </summary>
+        /// <param name="instalacion">Instancia de la instalación</param>
+        /// <author>Fernando Ricardo Morán</author>
+        public void UpdateInstalacion(Instalacion instalacion)
+        {
+            try
+            {
+                using (CatalogosDataContext catalogosDataContext = new CatalogosDataContext(Helper.ConnectionString()))
+                {
+                    var affectedRows = catalogosDataContext.Instalacion_Update(instalacion.InstalacionId, instalacion.UnidadMedicionId
+                        , instalacion.Descripcion, instalacion.InstalacionCantidad
+                        , instalacion.DesinstalacionCantidad, (decimal)instalacion.Factor, instalacion.SubproductoId);
+
+                }
+            }
+            catch (Exception exception)
+            {
+                throw new Exception("Error al intentar actualizar una instalación", exception);
+            }
+        }
+
+        /// <summary>
+        /// Elimina la información de una instalación
+        /// </summary>
+        /// <param name="instalacionId">Identificador de la instalación</param>
+        /// <author>Fernando Ricardo Morán</author>
+        public void DeleteInstalacion(short instalacionId)
+        {
+            try
+            {
+                using (CatalogosDataContext catalogosDataContext = new CatalogosDataContext(Helper.ConnectionString()))
+                {
+                    var affectedRows = catalogosDataContext.Instalacion_Delete(instalacionId);
+                }
+            }
+            catch (Exception exception)
+            {
+                throw new Exception("Error al intentar eliminar una instalación", exception);
+            }
+        }
+
+        #endregion
     }
 
 

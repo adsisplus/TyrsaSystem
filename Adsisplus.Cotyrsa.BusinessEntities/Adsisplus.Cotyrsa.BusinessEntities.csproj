@@ -48,6 +48,7 @@
     <Compile Include="Catalogo.cs" />
     <Compile Include="CatalogoDecimal.cs" />
     <Compile Include="CatalogoEntero.cs" />
+    <Compile Include="Catalogos\Instalacion.cs" />
     <Compile Include="Catalogos\Tornillo.cs" />
     <Compile Include="Catalogos\UnidadMedicion.cs" />
     <Compile Include="Catalogos\Viatico.cs" />

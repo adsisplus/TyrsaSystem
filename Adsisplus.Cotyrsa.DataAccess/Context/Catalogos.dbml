@@ -649,4 +649,54 @@
     <Parameter Name="Peso" Parameter="peso" Type="System.Decimal" DbType="Decimal(8,2)" />
     <Return Type="System.Int32" />
   </Function>
+  <Function Name="dbo.Instalacion_Create" Method="Instalacion_Create">
+    <Parameter Name="UnidadMedicionId" Parameter="unidadMedicionId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Descripcion" Parameter="descripcion" Type="System.String" DbType="VarChar(250)" />
+    <Parameter Name="InstalacionCantidad" Parameter="instalacionCantidad" Type="System.Int32" DbType="Int" />
+    <Parameter Name="DesinstalacionCantidad" Parameter="desinstalacionCantidad" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Factor" Parameter="factor" Type="System.Decimal" DbType="Decimal(8,2)" />
+    <Parameter Name="SubproductoId" Parameter="subproductoId" Type="System.Int16" DbType="SmallInt" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.Instalacion_Delete" Method="Instalacion_Delete">
+    <Parameter Name="InstalacionId" Parameter="instalacionId" Type="System.Int16" DbType="SmallInt" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.Instalacion_Get" Method="Instalacion_Get">
+    <Parameter Name="InstalacionId" Parameter="instalacionId" Type="System.Int16" DbType="SmallInt" />
+    <ElementType Name="Instalacion_GetResult">
+      <Column Name="sintInstalacionID" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Column Name="vchDescripcion" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="intInstalacion" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="intDesinstalacion" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="decFactor" Type="System.Decimal" DbType="Decimal(8,2)" CanBeNull="true" />
+      <Column Name="bitActivo" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="intUnidadMedicionID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="vchUnidadMedicion" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
+      <Column Name="intSubProductoID" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.Instalacion_GetAll" Method="Instalacion_GetAll">
+    <ElementType Name="Instalacion_GetAllResult">
+      <Column Name="sintInstalacionID" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Column Name="vchDescripcion" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="intInstalacion" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="intDesinstalacion" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="decFactor" Type="System.Decimal" DbType="Decimal(8,2)" CanBeNull="true" />
+      <Column Name="bitActivo" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="intUnidadMedicionID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="vchUnidadMedicion" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
+      <Column Name="intSubProductoID" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.Instalacion_Update" Method="Instalacion_Update">
+    <Parameter Name="InstalacionId" Parameter="instalacionId" Type="System.Int16" DbType="SmallInt" />
+    <Parameter Name="UnidadMedicionId" Parameter="unidadMedicionId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Descripcion" Parameter="descripcion" Type="System.String" DbType="VarChar(250)" />
+    <Parameter Name="InstalacionCantidad" Parameter="instalacionCantidad" Type="System.Int32" DbType="Int" />
+    <Parameter Name="DesinstalacionCantidad" Parameter="desinstalacionCantidad" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Factor" Parameter="factor" Type="System.Decimal" DbType="Decimal(8,2)" />
+    <Parameter Name="SubproductoId" Parameter="subproductoId" Type="System.Int16" DbType="SmallInt" />
+    <Return Type="System.Int32" />
+  </Function>
 </Database>

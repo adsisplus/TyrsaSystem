@@ -164,7 +164,7 @@ namespace Adsisplus.Cotyrsa.WcfService.CatalogoGeneralServices
         /// <author>Fernando Ricardo Morán</author>
         [OperationContract]
         [WebInvoke(UriTemplate = "EditTornillo", ResponseFormat = WebMessageFormat.Json, Method = "POST")]
-        void EditTornillo(Tornillo viatico);
+        void EditTornillo(Tornillo tornillo);
 
 
         /// <summary>
@@ -176,5 +176,40 @@ namespace Adsisplus.Cotyrsa.WcfService.CatalogoGeneralServices
         [WebInvoke(UriTemplate = "DeleteTornillo?tornilloId={tornilloId}", ResponseFormat = WebMessageFormat.Json, Method = "DELETE")]
         void DeleteTornillo(short tornilloId);
         #endregion
+
+
+
+        #region Instalaciones
+        /// <summary>
+        /// Obtiene la colección de instalaciones
+        /// </summary>
+        /// <returns>Catálogo de instalaciones</returns>
+        /// <author>Fernando Ricardo Morán</author>
+        [OperationContract]
+        [WebGet(UriTemplate = "GetInstalaciones", ResponseFormat = WebMessageFormat.Json)]
+        IEnumerable<Instalacion> GetInstalaciones();
+
+
+        /// <summary>
+        /// Crea/actualiza una instalación
+        /// </summary>
+        /// <param name="instalacion">Información de la instalación</param>
+        /// <author>Fernando Ricardo Morán</author>
+        [OperationContract]
+        [WebInvoke(UriTemplate = "EditInstalacion", ResponseFormat = WebMessageFormat.Json, Method = "POST")]
+        void EditInstalacion(Instalacion instalacion);
+
+
+
+        /// <summary>
+        /// Elimina una instalación
+        /// </summary>
+        /// <param name="instalacionId">Identificador de la instalación</param>
+        /// <author>Fernando Ricardo Morán</author>
+        [OperationContract]
+        [WebInvoke(UriTemplate = "DeleteInstalacion?instalacionId={instalacionId}", ResponseFormat = WebMessageFormat.Json, Method = "DELETE")]
+        void DeleteInstalacion(short instalacionId);
+        #endregion
+
     }
 }

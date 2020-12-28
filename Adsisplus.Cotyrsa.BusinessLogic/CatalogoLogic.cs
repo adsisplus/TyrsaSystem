@@ -1060,7 +1060,8 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
         /// </summary>
         /// <param name="tornillo">Instancia del tornillo</param>
         /// <author>Fernando Ricardo Morán</author>
-        public void EditTornillo(Tornillo tornillo) {
+        public void EditTornillo(Tornillo tornillo)
+        {
             try
             {
                 if (tornillo.TornilloId <= 0)
@@ -1071,7 +1072,7 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
                 {
                     CatalogosDA.UpdateTornillo(tornillo);
                 }
-                
+
             }
             catch (Exception exception)
             {
@@ -1119,6 +1120,71 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
 
         #endregion
 
+
+
+        #region Instalaciones
+        /// <summary>
+        /// Obtiene la colección de instalaciones
+        /// </summary>
+        /// <returns>Catálogo de viáticos</returns>
+        public IEnumerable<Instalacion> GetInstalaciones()
+        {
+            try
+            {
+                return CatalogosDA.GetInstalaciones();
+            }
+            catch (Exception exception)
+            {
+                EventLogManager.LogErrorEntry(exception);
+                throw;
+            }
+        }
+
+
+        /// <summary>
+        /// Crea o actualiza la información de una instalación
+        /// </summary>
+        /// <param name="instalacion">Instancia de instalación</param>
+        /// <author>Fernando Ricardo Morán</author>       
+        public void EditInstalacion(Instalacion instalacion)
+        {
+            try
+            {
+                if (instalacion.InstalacionId <= 0)
+                {
+                    CatalogosDA.CreateInstalacion(instalacion);
+                }
+                else
+                {
+                    CatalogosDA.UpdateInstalacion(instalacion);
+                }
+
+            }
+            catch (Exception exception)
+            {
+                EventLogManager.LogErrorEntry(exception);
+                throw;
+            }
+        }
+
+        /// <summary>
+        /// Elimina la información de una instalación por medio de su identificador
+        /// </summary>
+        /// <param name="instalacionId">Identificador de la instlación</param>
+        /// <author>Fernando Ricardo Morán</author>
+        public void DeleteInstalacion(short instalacionId)
+        {
+            try
+            {
+                CatalogosDA.DeleteInstalacion(instalacionId);
+            }
+            catch (Exception exception)
+            {
+                EventLogManager.LogErrorEntry(exception);
+                throw;
+            }
+        }
+        #endregion
 
     }
 }

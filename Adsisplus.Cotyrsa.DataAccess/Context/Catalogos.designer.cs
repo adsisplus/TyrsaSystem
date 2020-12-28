@@ -558,6 +558,41 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), tornilloId, unidadMedidicionId, descripcion, factor, peso);
 			return ((int)(result.ReturnValue));
 		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.Instalacion_Create")]
+		public int Instalacion_Create([global::System.Data.Linq.Mapping.ParameterAttribute(Name="UnidadMedicionId", DbType="Int")] System.Nullable<int> unidadMedicionId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Descripcion", DbType="VarChar(250)")] string descripcion, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="InstalacionCantidad", DbType="Int")] System.Nullable<int> instalacionCantidad, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="DesinstalacionCantidad", DbType="Int")] System.Nullable<int> desinstalacionCantidad, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Factor", DbType="Decimal(8,2)")] System.Nullable<decimal> factor, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SubproductoId", DbType="SmallInt")] System.Nullable<short> subproductoId)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), unidadMedicionId, descripcion, instalacionCantidad, desinstalacionCantidad, factor, subproductoId);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.Instalacion_Delete")]
+		public int Instalacion_Delete([global::System.Data.Linq.Mapping.ParameterAttribute(Name="InstalacionId", DbType="SmallInt")] System.Nullable<short> instalacionId)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), instalacionId);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.Instalacion_Get")]
+		public ISingleResult<Instalacion_GetResult> Instalacion_Get([global::System.Data.Linq.Mapping.ParameterAttribute(Name="InstalacionId", DbType="SmallInt")] System.Nullable<short> instalacionId)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), instalacionId);
+			return ((ISingleResult<Instalacion_GetResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.Instalacion_GetAll")]
+		public ISingleResult<Instalacion_GetAllResult> Instalacion_GetAll()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<Instalacion_GetAllResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.Instalacion_Update")]
+		public int Instalacion_Update([global::System.Data.Linq.Mapping.ParameterAttribute(Name="InstalacionId", DbType="SmallInt")] System.Nullable<short> instalacionId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="UnidadMedicionId", DbType="Int")] System.Nullable<int> unidadMedicionId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Descripcion", DbType="VarChar(250)")] string descripcion, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="InstalacionCantidad", DbType="Int")] System.Nullable<int> instalacionCantidad, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="DesinstalacionCantidad", DbType="Int")] System.Nullable<int> desinstalacionCantidad, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Factor", DbType="Decimal(8,2)")] System.Nullable<decimal> factor, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SubproductoId", DbType="SmallInt")] System.Nullable<short> subproductoId)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), instalacionId, unidadMedicionId, descripcion, instalacionCantidad, desinstalacionCantidad, factor, subproductoId);
+			return ((int)(result.ReturnValue));
+		}
 	}
 	
 	public partial class stp_ListarCatCalibreAceroResult
@@ -6529,6 +6564,346 @@ namespace Adsisplus.Cotyrsa.DataAccess.Context
 				if ((this._vchUnidadMedicion != value))
 				{
 					this._vchUnidadMedicion = value;
+				}
+			}
+		}
+	}
+	
+	public partial class Instalacion_GetResult
+	{
+		
+		private short _sintInstalacionID;
+		
+		private string _vchDescripcion;
+		
+		private System.Nullable<int> _intInstalacion;
+		
+		private System.Nullable<int> _intDesinstalacion;
+		
+		private System.Nullable<decimal> _decFactor;
+		
+		private System.Nullable<bool> _bitActivo;
+		
+		private int _intUnidadMedicionID;
+		
+		private string _vchUnidadMedicion;
+		
+		private System.Nullable<short> _intSubProductoID;
+		
+		public Instalacion_GetResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sintInstalacionID", DbType="SmallInt NOT NULL")]
+		public short sintInstalacionID
+		{
+			get
+			{
+				return this._sintInstalacionID;
+			}
+			set
+			{
+				if ((this._sintInstalacionID != value))
+				{
+					this._sintInstalacionID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchDescripcion", DbType="VarChar(250)")]
+		public string vchDescripcion
+		{
+			get
+			{
+				return this._vchDescripcion;
+			}
+			set
+			{
+				if ((this._vchDescripcion != value))
+				{
+					this._vchDescripcion = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intInstalacion", DbType="Int")]
+		public System.Nullable<int> intInstalacion
+		{
+			get
+			{
+				return this._intInstalacion;
+			}
+			set
+			{
+				if ((this._intInstalacion != value))
+				{
+					this._intInstalacion = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intDesinstalacion", DbType="Int")]
+		public System.Nullable<int> intDesinstalacion
+		{
+			get
+			{
+				return this._intDesinstalacion;
+			}
+			set
+			{
+				if ((this._intDesinstalacion != value))
+				{
+					this._intDesinstalacion = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decFactor", DbType="Decimal(8,2)")]
+		public System.Nullable<decimal> decFactor
+		{
+			get
+			{
+				return this._decFactor;
+			}
+			set
+			{
+				if ((this._decFactor != value))
+				{
+					this._decFactor = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_bitActivo", DbType="Bit")]
+		public System.Nullable<bool> bitActivo
+		{
+			get
+			{
+				return this._bitActivo;
+			}
+			set
+			{
+				if ((this._bitActivo != value))
+				{
+					this._bitActivo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intUnidadMedicionID", DbType="Int NOT NULL")]
+		public int intUnidadMedicionID
+		{
+			get
+			{
+				return this._intUnidadMedicionID;
+			}
+			set
+			{
+				if ((this._intUnidadMedicionID != value))
+				{
+					this._intUnidadMedicionID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchUnidadMedicion", DbType="VarChar(25)")]
+		public string vchUnidadMedicion
+		{
+			get
+			{
+				return this._vchUnidadMedicion;
+			}
+			set
+			{
+				if ((this._vchUnidadMedicion != value))
+				{
+					this._vchUnidadMedicion = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intSubProductoID", DbType="SmallInt")]
+		public System.Nullable<short> intSubProductoID
+		{
+			get
+			{
+				return this._intSubProductoID;
+			}
+			set
+			{
+				if ((this._intSubProductoID != value))
+				{
+					this._intSubProductoID = value;
+				}
+			}
+		}
+	}
+	
+	public partial class Instalacion_GetAllResult
+	{
+		
+		private short _sintInstalacionID;
+		
+		private string _vchDescripcion;
+		
+		private System.Nullable<int> _intInstalacion;
+		
+		private System.Nullable<int> _intDesinstalacion;
+		
+		private System.Nullable<decimal> _decFactor;
+		
+		private System.Nullable<bool> _bitActivo;
+		
+		private int _intUnidadMedicionID;
+		
+		private string _vchUnidadMedicion;
+		
+		private System.Nullable<short> _intSubProductoID;
+		
+		public Instalacion_GetAllResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sintInstalacionID", DbType="SmallInt NOT NULL")]
+		public short sintInstalacionID
+		{
+			get
+			{
+				return this._sintInstalacionID;
+			}
+			set
+			{
+				if ((this._sintInstalacionID != value))
+				{
+					this._sintInstalacionID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchDescripcion", DbType="VarChar(250)")]
+		public string vchDescripcion
+		{
+			get
+			{
+				return this._vchDescripcion;
+			}
+			set
+			{
+				if ((this._vchDescripcion != value))
+				{
+					this._vchDescripcion = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intInstalacion", DbType="Int")]
+		public System.Nullable<int> intInstalacion
+		{
+			get
+			{
+				return this._intInstalacion;
+			}
+			set
+			{
+				if ((this._intInstalacion != value))
+				{
+					this._intInstalacion = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intDesinstalacion", DbType="Int")]
+		public System.Nullable<int> intDesinstalacion
+		{
+			get
+			{
+				return this._intDesinstalacion;
+			}
+			set
+			{
+				if ((this._intDesinstalacion != value))
+				{
+					this._intDesinstalacion = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decFactor", DbType="Decimal(8,2)")]
+		public System.Nullable<decimal> decFactor
+		{
+			get
+			{
+				return this._decFactor;
+			}
+			set
+			{
+				if ((this._decFactor != value))
+				{
+					this._decFactor = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_bitActivo", DbType="Bit")]
+		public System.Nullable<bool> bitActivo
+		{
+			get
+			{
+				return this._bitActivo;
+			}
+			set
+			{
+				if ((this._bitActivo != value))
+				{
+					this._bitActivo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intUnidadMedicionID", DbType="Int NOT NULL")]
+		public int intUnidadMedicionID
+		{
+			get
+			{
+				return this._intUnidadMedicionID;
+			}
+			set
+			{
+				if ((this._intUnidadMedicionID != value))
+				{
+					this._intUnidadMedicionID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vchUnidadMedicion", DbType="VarChar(25)")]
+		public string vchUnidadMedicion
+		{
+			get
+			{
+				return this._vchUnidadMedicion;
+			}
+			set
+			{
+				if ((this._vchUnidadMedicion != value))
+				{
+					this._vchUnidadMedicion = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intSubProductoID", DbType="SmallInt")]
+		public System.Nullable<short> intSubProductoID
+		{
+			get
+			{
+				return this._intSubProductoID;
+			}
+			set
+			{
+				if ((this._intSubProductoID != value))
+				{
+					this._intSubProductoID = value;
 				}
 			}
 		}

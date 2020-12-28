@@ -325,8 +325,8 @@ namespace Adsisplus.Cotyrsa.WcfService.CatalogoGeneralServices
         /// </summary>
         /// <param name="tornillo">Instancia del tornillo</param>
         /// <author>Fernando Ricardo Morán</author>
-        public void EditTornillo(Tornillo viatico)
-            => new CatalogoLogic().EditTornillo(viatico);
+        public void EditTornillo(Tornillo tornillo)
+            => new CatalogoLogic().EditTornillo(tornillo);
 
         /// <summary>
         /// Elimina el registro de un tornillo
@@ -336,6 +336,34 @@ namespace Adsisplus.Cotyrsa.WcfService.CatalogoGeneralServices
         public void DeleteTornillo(short tornilloId)
         => new CatalogoLogic().DeleteTornillo(tornilloId);
 
+        #endregion
+
+
+        #region Instalaciones
+        /// <summary>
+        /// Obtiene la colección de instalaciones
+        /// </summary>
+        /// <returns>Catálogo de instalaciones</returns>
+        /// <author>Fernando Ricardo Morán</author>
+        public IEnumerable<Instalacion> GetInstalaciones()
+            => new CatalogoLogic().GetInstalaciones();
+
+        /// <summary>
+        /// Crea/actualiza una instalación
+        /// </summary>
+        /// <param name="instalacion">Información de la instalación</param>
+        /// <author>Fernando Ricardo Morán</author>
+        public void EditInstalacion(Instalacion instalacion)
+            => new CatalogoLogic().EditInstalacion(instalacion);
+
+
+        /// <summary>
+        /// Elimina una instalación
+        /// </summary>
+        /// <param name="instalacionId">Identificador de la instalación</param>
+        /// <author>Fernando Ricardo Morán</author>
+        public void DeleteInstalacion(short instalacionId)
+            => new CatalogoLogic().DeleteInstalacion(instalacionId);
         #endregion
 
     }
