@@ -46,7 +46,7 @@ namespace Adsisplus.Cotyrsa.WcfService.DireccionServices
             Resultado result = new Resultado();
             try
             {
-                result = (new DireccionLogic()).setDomicilio(direccion, tinOpcion);
+                result = (new DireccionLogic()).SetDomicilio(direccion, tinOpcion);
                 // Validamos si el resultado fué erroneo
                 if (result.vchResultado == "NOK")
                 {

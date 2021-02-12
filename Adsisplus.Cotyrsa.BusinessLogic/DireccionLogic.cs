@@ -8,7 +8,7 @@ using Adsisplus.Cotyrsa.DataAccess;
 
 namespace Adsisplus.Cotyrsa.BusinessLogic
 {
-  public  class DireccionLogic
+    public class DireccionLogic
     {
         #region Constructor
 
@@ -40,18 +40,21 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
         /// </summary>
         /// <param name="direccion"></param>
         /// <returns></returns>
-        public Resultado setDomicilio(Direccion direccion, short tinOpcion)
+        public Resultado SetDomicilio(Direccion direccion, short tinOpcion)
         {
-            Resultado result = new Resultado();
+
             try
             {
-                result = CatalogosDA.setDomicilio(direccion, tinOpcion);
+                //Si no tiene id la dirección, entonces asignamos la opción de inserción (1), ya que con la opción de actualización (2), no se actualziará
+                //byte realOption = (byte)((direccion.intDireccionID == null || direccion.intDireccionID == 0) && tinOpcion == 2 ? 1 : tinOpcion);
+                Resultado result = CatalogosDA.setDomicilio(direccion, tinOpcion);
+                return result;
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 throw ex;
             }
-            return result;
+
         }
     }
 }
