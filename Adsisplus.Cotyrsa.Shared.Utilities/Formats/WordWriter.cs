@@ -56,10 +56,12 @@ namespace Adsisplus.Cotyrsa.Shared.Utilities.Formats
                     if (iCol != cols)
                     {
                         cell.Width =  50f;
+                        cell.Range.ParagraphFormat.Alignment = Word.WdParagraphAlignment.wdAlignParagraphCenter;
                     }
                     else
                     {
                         cell.Width = 300f;
+                        cell.Range.ParagraphFormat.Alignment = Word.WdParagraphAlignment.wdAlignParagraphJustify;
                     }
                     
                     cell.Borders.OutsideLineStyle = Word.WdLineStyle.wdLineStyleOutset;
@@ -67,7 +69,6 @@ namespace Adsisplus.Cotyrsa.Shared.Utilities.Formats
                     cell.LeftPadding = padding;
                     cell.RightPadding = padding;
                     cell.BottomPadding = padding;
-                    cell.Range.ParagraphFormat.Alignment = Word.WdParagraphAlignment.wdAlignParagraphCenter;
                     string cellValue = tableData[iRow - 1][iCol - 1];
                     cell.Range.Text = cellValue;
                 }

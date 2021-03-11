@@ -6,6 +6,8 @@ using Adsisplus.Cotyrsa.Shared.Utilities.Formats;
 using System.Globalization;
 using System.IO;
 using System.Linq;
+using Adsisplus.Cotyrsa.Shared.Utilities.Configuration;
+using Adsisplus.Cotyrsa.Shared.Utilities.Configuration.Constants;
 
 namespace Adsisplus.Cotyrsa.BusinessLogic
 {
@@ -71,13 +73,10 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
                 ReporteCotizacion reportData = FormatoCotizacionDataAccess.GetReporteCotizacion(cotizacionId);
                 string wordTemplatePath = GetTemplatePath(reportData.Sistema.TipoSistema);
                 string outputCotizacionPath = GetFormatOutputPath(reportData);
-                //if (!File.Exists(outputCotizacionPath))//Si no existe, construye el reporte
-                //{
                 ReportGenerator ReportGenerator = new ReportGenerator(reportData);
                 reportData.GeneralData = GetParametrosFormato(reportData, cotizacionId);
                 ReportGenerator.BuildReport(wordTemplatePath, outputCotizacionPath);
-                //}
-                return outputCotizacionPath;//@"C:\Temp\PlantillasWord\Documento2222.docx";
+                return outputCotizacionPath;
             }
             catch (Exception exception)
             {
@@ -96,16 +95,27 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
 
         private string GetTemplatePath(string tipoSistema)
         {
+            
+            string subPathFormats = GlobalConfiguration.GetSetting(StringConstants.FormatsDirectoryKey);
+            string formatsDirectory = GlobalConfiguration.GetSetting(StringConstants.FormatsDirectoryKey);//Path.Combine(Directory.GetCurrentDirectory(), subPathFormats);
+            string fileName;
             switch (tipoSistema?.ToUpperInvariant())
             {
                 case "SELECTIVO":
-                    return @"C:\Temp\PlantillasWord\SELECTIVO.docx";
+                    fileName = "SELECTIVO.docx";
+                    break;
                 case "DRIVE IN  & DRIVE THRU":
-                    return @"C:\Temp\PlantillasWord\REDACCION DRIVE IN.docx";
+                    fileName = @"REDACCION DRIVE IN.docx";
+                    break;
                 case "CARTON FLOW":
-                    return @"C:\Temp\PlantillasWord\REDACCION CARTON FLOW.docx";
+                    fileName = @"REDACCION CARTON FLOW.docx";
+                    break;
+                //case "DOBLE PROFUNDIDAD":
+                //case "S":
                 default: throw new NotSupportedException("El formato para este tipo de sistema no ha sido definido");
             }
+            string templatePath = Path.Combine(formatsDirectory,fileName);
+            return templatePath;
         }
 
 
