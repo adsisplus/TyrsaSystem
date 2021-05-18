@@ -65,7 +65,15 @@ namespace Adsisplus.Cotyrsa.DataAccess
                     });
                     ReporteCotizacion reporte = query.FirstOrDefault();
                     var materiales = cotizacionDataContext.Cotizacion_ListarMateriales(cotizacionId);
-                    //var detalles = cotizacionDataContext.ExecuteQuery<ElementoCotizacion>($"EXEC stp_ListarReporteDetalleCotizacion {cotizacionId}").ToList();
+
+                    IEnumerable<ArticulosSistema> detalles = cotizacionDataContext.stp_ListarReporteDetalleCotizacion(cotizacionId).Select(detalle => new ArticulosSistema
+                    {
+                        Referencia = detalle.REF,
+                        Descripcion = detalle.vchDescripcion,
+                        PrecioTotal = Convert.ToDouble(detalle.PrecioTotal ?? default)
+                    }).ToList();
+
+                    reporte.Detalles = detalles;
                     //reporte.Elementos = detalles.Select(item => new ArticulosSistema
                     //{
                     //    Referencia = item.REF,
@@ -73,6 +81,9 @@ namespace Adsisplus.Cotyrsa.DataAccess
                     //    SKU = $"{item.SKU}",
                     //    Descripcion = item.vchDescripcion
                     //});
+
+
+
                     reporte.Elementos = materiales.Select(material =>
                      new ArticulosSistema
                      {
@@ -85,7 +96,7 @@ namespace Adsisplus.Cotyrsa.DataAccess
             }
             catch (Exception exception)
             {
-                
+
                 throw;
             }
 

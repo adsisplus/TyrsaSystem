@@ -135,6 +135,7 @@
     <Compile Include="Reportes\Cliente.cs" />
     <Compile Include="Reportes\Dimensiones.cs" />
     <Compile Include="Reportes\ParametroCotizacion.cs" />
+    <Compile Include="Reportes\Precios.cs" />
     <Compile Include="Reportes\ReporteCotizacion.cs" />
     <Compile Include="Reportes\Sistema.cs" />
     <Compile Include="Reportes\Usuario.cs" />

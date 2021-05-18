@@ -20,7 +20,11 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
         private readonly CultureInfo CultureInfo;
         private const int CantidadParametrosMinimos = 12;
 
-        private const string Outputfolder = @"C:\Temp\PlantillasWord";
+        //private const string Outputfolder = @"C:\Temp\PlantillasWord";
+        private readonly string FormatPath;
+        private readonly string SubPathFilesFolder;
+
+        private readonly string FormatOutputPath;
 
         #endregion
 
@@ -32,6 +36,11 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
         {
             FormatoCotizacionDataAccess = new FormatoCotizacionDataAccess();
             CultureInfo = new CultureInfo("es-MX");
+
+            FormatOutputPath = GlobalConfiguration.GetSetting(StringConstants.FormatsOutput);
+
+            SubPathFilesFolder = GlobalConfiguration.GetSetting(StringConstants.FormatsSubrout);
+            FormatPath = $"{Directory.GetCurrentDirectory()}{SubPathFilesFolder}";
         }
 
         #endregion
@@ -71,6 +80,8 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
             try
             {
                 ReporteCotizacion reportData = FormatoCotizacionDataAccess.GetReporteCotizacion(cotizacionId);
+                BuildPrecios(reportData);
+
                 string wordTemplatePath = GetTemplatePath(reportData.Sistema.TipoSistema);
                 string outputCotizacionPath = GetFormatOutputPath(reportData);
                 ReportGenerator ReportGenerator = new ReportGenerator(reportData);
@@ -85,19 +96,37 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
             }
         }
 
+        private void BuildPrecios(ReporteCotizacion reportData)
+        {
+            reportData.Precios = new Precios();
+            foreach (var detalle in reportData.Detalles)
+            {
+                if (string.Equals("ins", detalle.Referencia, StringComparison.InvariantCultureIgnoreCase))
+                {
+                    reportData.Precios.Instalacion += detalle.PrecioTotal;
+                }
+                else if (string.Equals("fle", detalle.Referencia, StringComparison.InvariantCultureIgnoreCase) || string.Equals("via", detalle.Referencia, StringComparison.InvariantCultureIgnoreCase))
+                {
+                    reportData.Precios.Traslado += detalle.PrecioTotal;
+                }
+                else
+                {
+                    reportData.Precios.Sistema += detalle.PrecioTotal;
+                }
+            }
+        }
+
         private string GetFormatOutputPath(ReporteCotizacion reportData)
         {
             string outputName = $"FormatoCotizacion_{reportData.CotizacionId}.docx";
-            string outputDocumentPath = Path.Combine(Outputfolder, outputName);
+            string outputDocumentPath = Path.Combine(FormatOutputPath, outputName);
             return outputDocumentPath;
         }
 
 
         private string GetTemplatePath(string tipoSistema)
         {
-            
-            string subPathFormats = GlobalConfiguration.GetSetting(StringConstants.FormatsDirectoryKey);
-            string formatsDirectory = GlobalConfiguration.GetSetting(StringConstants.FormatsDirectoryKey);//Path.Combine(Directory.GetCurrentDirectory(), subPathFormats);
+            //string formatsDirectory = GlobalConfiguration.GetSetting(StringConstants.FormatsDirectoryKey);//Path.Combine(Directory.GetCurrentDirectory(), subPathFormats);
             string fileName;
             switch (tipoSistema?.ToUpperInvariant())
             {
@@ -110,20 +139,37 @@ namespace Adsisplus.Cotyrsa.BusinessLogic
                 case "CARTON FLOW":
                     fileName = @"REDACCION CARTON FLOW.docx";
                     break;
-                //case "DOBLE PROFUNDIDAD":
+                case "DOBLE PROFUNDIDAD":
+                    fileName = @"DOBLE PROFUNDIDAD.docx";
+                    break;
                 //case "S":
                 default: throw new NotSupportedException("El formato para este tipo de sistema no ha sido definido");
             }
-            string templatePath = Path.Combine(formatsDirectory,fileName);
+            string templatePath = Path.Combine(FormatPath, fileName);
             return templatePath;
         }
 
 
         private IEnumerable<KeyValuePair<string, string>> GetParametrosFormato(ReporteCotizacion reportData, int cotizacionId)
         {
-            var listaKeys = GetGeneralData(reportData);
-            var parametrosFormato = FormatoCotizacionDataAccess.GetParametrosFormato(cotizacionId).Select(param => new KeyValuePair<string, string>(param.Parameter, param.Value));
-            return listaKeys.Concat(parametrosFormato);
+            IEnumerable<KeyValuePair<string, string>> listaKeys = GetGeneralData(reportData);
+            IEnumerable<KeyValuePair<string, string>> parametrosFormato = FormatoCotizacionDataAccess.GetParametrosFormato(cotizacionId).Select(param => new KeyValuePair<string, string>(param.Parameter, param.Value));
+            IEnumerable<KeyValuePair<string, string>> precios = GetPrecios(reportData);
+            return listaKeys.Concat(parametrosFormato).Concat(precios);
+        }
+
+
+
+        private IEnumerable<KeyValuePair<string, string>> GetPrecios(ReporteCotizacion reportData)
+        {
+            string format = "C";
+            List<KeyValuePair<string, string>> precios = new List<KeyValuePair<string, string>> {
+            new KeyValuePair<string, string>("[@PrecioSistema]",reportData.Precios.Sistema.ToString(format,CultureInfo)),
+            new KeyValuePair<string, string>("[@PrecioServicio1]",reportData.Precios.Instalacion.ToString(format,CultureInfo)),
+            new KeyValuePair<string, string>("[@PrecioServicio2]",reportData.Precios.Traslado.ToString(format,CultureInfo)),
+            new KeyValuePair<string, string>("[@PrecioTotal]",reportData.Precios.Total.ToString(format,CultureInfo))
+            };
+            return precios;
         }
         #endregion
 

@@ -14,6 +14,12 @@ namespace Adsisplus.Cotyrsa.Shared.Utilities.Configuration.Constants
         /// <summary>
         /// Nombre de la propiedad que contiene la ruta de los archivos de formatos (word)
         /// </summary>
-        public const string FormatsDirectoryKey = "formatsPath";
+        public const string FormatsOutput = "FormatsOutput";
+
+
+        /// <summary>
+        /// Subruta de directorio de formatos de cotización
+        /// </summary>
+        public const string FormatsSubrout = "FormatsSubrout";
     }
 }

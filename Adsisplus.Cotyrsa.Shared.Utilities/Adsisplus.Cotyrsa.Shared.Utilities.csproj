@@ -54,9 +54,18 @@
     <Compile Include="Formats\WordWriter.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Formats\Files\REDACCION CARTON FLOW.docx" />
-    <Content Include="Formats\Files\REDACCION DRIVE IN.docx" />
-    <Content Include="Formats\Files\SELECTIVO.docx" />
+    <Content Include="Formats\Files\REDACCION CARTON FLOW.docx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Formats\Files\REDACCION DRIVE IN.docx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Formats\Files\SELECTIVO.docx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="Formats\Files\DOBLE PROFUNDIDAD.docx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>

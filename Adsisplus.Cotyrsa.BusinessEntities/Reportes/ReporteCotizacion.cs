@@ -21,5 +21,9 @@ namespace Adsisplus.Cotyrsa.BusinessEntities.Reportes
 
         public IEnumerable<KeyValuePair<string,string>> GeneralData { get; set; }
 
+        public IEnumerable<ArticulosSistema> Detalles { get; set; }
+
+        public Precios Precios { get; set; }
+
     }
 }
